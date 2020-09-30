@@ -359,3 +359,4 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 *.db
+Delta-dungeons/.vs/Delta-dungeons/v16/Browse.VC.db
