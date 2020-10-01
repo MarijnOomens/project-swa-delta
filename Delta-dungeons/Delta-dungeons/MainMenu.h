@@ -3,4 +3,8 @@
 class MainMenu
 {
 
+public:
+	void startGame();
+	void openCreditScreen();
+
 };

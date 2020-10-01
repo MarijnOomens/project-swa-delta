@@ -1,5 +1,12 @@
 #pragma once
 
-class Berry {
+class Berry 
+{
+
+public:
+	void Use();
+
+private:
+	int catchChanceIncrease;
 
 };

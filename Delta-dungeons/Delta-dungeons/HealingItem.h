@@ -1,5 +1,12 @@
 #pragma once
 
-class HealingItem {
+class HealingItem 
+{
+
+public:
+	void Use();
+
+private:
+	int healHealth;
 
 };

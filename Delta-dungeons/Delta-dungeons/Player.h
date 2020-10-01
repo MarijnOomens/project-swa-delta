@@ -5,10 +5,13 @@
 class Player {
 
 public:
-	void DamagePlayer(int damage);
+	void damagePlayer(int damage);
+	void updateCaughtPokemon(int id);
 
 private:
 	int health;
 	std::vector<Equipment> equipment;
+	int amountCaught;
+	std::vector<int> pokemonCaught;
 
 };

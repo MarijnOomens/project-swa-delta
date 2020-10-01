@@ -3,4 +3,9 @@
 class Runningshoes 
 {
 
+public:
+	bool isActivated;
+
+private:
+	void switchActivation();
 };

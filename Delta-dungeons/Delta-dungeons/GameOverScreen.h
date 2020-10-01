@@ -3,4 +3,7 @@
 class GameOverScreen
 {
 
+public:
+	void restartGame();
+
 };
