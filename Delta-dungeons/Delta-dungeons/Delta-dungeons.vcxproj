@@ -147,7 +147,59 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Berry.cpp" />
+    <ClCompile Include="Boomerang.cpp" />
+    <ClCompile Include="Button.cpp" />
+    <ClCompile Include="CreditScreen.cpp" />
     <ClCompile Include="Delta-dungeons.cpp" />
+    <ClCompile Include="Equipment.cpp" />
+    <ClCompile Include="EquipmentManager.cpp" />
+    <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="GameOverScreen.cpp" />
+    <ClCompile Include="HealingItem.cpp" />
+    <ClCompile Include="HelpScreen.cpp" />
+    <ClCompile Include="HUD.cpp" />
+    <ClCompile Include="InteractiveManager.cpp" />
+    <ClCompile Include="InteractiveObject.cpp" />
+    <ClCompile Include="MainMenu.cpp" />
+    <ClCompile Include="NPC.cpp" />
+    <ClCompile Include="PauseScreen.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Pokeball.cpp" />
+    <ClCompile Include="Pokemon.cpp" />
+    <ClCompile Include="PuzzleObject.cpp" />
+    <ClCompile Include="Runningshoes.cpp" />
+    <ClCompile Include="Screen.cpp" />
+    <ClCompile Include="Tile.cpp" />
+    <ClCompile Include="TileMap.cpp" />
+    <ClCompile Include="UIManager.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Berry.h" />
+    <ClInclude Include="Boomerang.h" />
+    <ClInclude Include="Button.h" />
+    <ClInclude Include="Creditscreen.h" />
+    <ClInclude Include="Equipment.h" />
+    <ClInclude Include="EquipmentManager.h" />
+    <ClInclude Include="GameManager.h" />
+    <ClInclude Include="GameOverScreen.h" />
+    <ClInclude Include="HealingItem.h" />
+    <ClInclude Include="HelpScreen.h" />
+    <ClInclude Include="HUD.h" />
+    <ClInclude Include="InteractiveManager.h" />
+    <ClInclude Include="InteractiveObject.h" />
+    <ClInclude Include="MainMenu.h" />
+    <ClInclude Include="NPC.h" />
+    <ClInclude Include="PauseScreen.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="Pokeball.h" />
+    <ClInclude Include="Pokemon.h" />
+    <ClInclude Include="PuzzleObject.h" />
+    <ClInclude Include="Runningshoes.h" />
+    <ClInclude Include="Screen.h" />
+    <ClInclude Include="Tile.h" />
+    <ClInclude Include="TileMap.h" />
+    <ClInclude Include="UIManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

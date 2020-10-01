@@ -13,10 +13,192 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\Game">
+      <UniqueIdentifier>{01116007-150a-42f8-9c02-3873326f1d93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game\GameObjects">
+      <UniqueIdentifier>{0628fd96-7a8b-4de0-acad-837f432d61e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game">
+      <UniqueIdentifier>{44028ed2-788f-4749-838d-ea23208d09ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game\GameObjects">
+      <UniqueIdentifier>{4db92c09-ace7-4405-a750-2d1388819e45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game\GameObjects\Screens">
+      <UniqueIdentifier>{3b5689c4-1556-41a0-8bf5-965b1f7a5c0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game\GameObjects\Items">
+      <UniqueIdentifier>{6ab8192c-a579-4f62-91bf-79ef1766d208}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game\GameObjects\InteractiveObjects">
+      <UniqueIdentifier>{b14eed82-6583-4a8f-98e2-d62df639b6f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game\GameObjects\Items">
+      <UniqueIdentifier>{71478629-33f4-472f-a4e8-645de4090b88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game\GameObjects\InteractiveObjects">
+      <UniqueIdentifier>{350a4325-2c80-4e7f-a257-0579c1dc358c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game\GameObjects\Screens">
+      <UniqueIdentifier>{bce5fe94-55bc-467c-8baa-5265728efc7b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Delta-dungeons.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GameManager.cpp">
+      <Filter>Source Files\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="UIManager.cpp">
+      <Filter>Source Files\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="EquipmentManager.cpp">
+      <Filter>Source Files\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="InteractiveManager.cpp">
+      <Filter>Source Files\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="TileMap.cpp">
+      <Filter>Source Files\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Berry.cpp">
+      <Filter>Source Files\Game\GameObjects\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="Boomerang.cpp">
+      <Filter>Source Files\Game\GameObjects\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="Equipment.cpp">
+      <Filter>Source Files\Game\GameObjects\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="HealingItem.cpp">
+      <Filter>Source Files\Game\GameObjects\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="Pokeball.cpp">
+      <Filter>Source Files\Game\GameObjects\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="Runningshoes.cpp">
+      <Filter>Source Files\Game\GameObjects\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="InteractiveObject.cpp">
+      <Filter>Source Files\Game\GameObjects\InteractiveObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="NPC.cpp">
+      <Filter>Source Files\Game\GameObjects\InteractiveObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Pokemon.cpp">
+      <Filter>Source Files\Game\GameObjects\InteractiveObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="PuzzleObject.cpp">
+      <Filter>Source Files\Game\GameObjects\InteractiveObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Source Files\Game\GameObjects\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="CreditScreen.cpp">
+      <Filter>Source Files\Game\GameObjects\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOverScreen.cpp">
+      <Filter>Source Files\Game\GameObjects\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="HelpScreen.cpp">
+      <Filter>Source Files\Game\GameObjects\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenu.cpp">
+      <Filter>Source Files\Game\GameObjects\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="PauseScreen.cpp">
+      <Filter>Source Files\Game\GameObjects\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="Screen.cpp">
+      <Filter>Source Files\Game\GameObjects\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD.cpp">
+      <Filter>Source Files\Game\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\Game\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Tile.cpp">
+      <Filter>Source Files\Game\GameObjects</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GameManager.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="UIManager.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="EquipmentManager.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="InteractiveManager.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="TileMap.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Tile.h">
+      <Filter>Header Files\Game\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files\Game\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD.h">
+      <Filter>Header Files\Game\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Creditscreen.h">
+      <Filter>Header Files\Game\GameObjects\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOverScreen.h">
+      <Filter>Header Files\Game\GameObjects\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="HelpScreen.h">
+      <Filter>Header Files\Game\GameObjects\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="PauseScreen.h">
+      <Filter>Header Files\Game\GameObjects\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="Screen.h">
+      <Filter>Header Files\Game\GameObjects\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="Berry.h">
+      <Filter>Header Files\Game\GameObjects\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Boomerang.h">
+      <Filter>Header Files\Game\GameObjects\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="HealingItem.h">
+      <Filter>Header Files\Game\GameObjects\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Pokeball.h">
+      <Filter>Header Files\Game\GameObjects\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Runningshoes.h">
+      <Filter>Header Files\Game\GameObjects\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Equipment.h">
+      <Filter>Header Files\Game\GameObjects\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="InteractiveObject.h">
+      <Filter>Header Files\Game\GameObjects\InteractiveObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Pokemon.h">
+      <Filter>Header Files\Game\GameObjects\InteractiveObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="PuzzleObject.h">
+      <Filter>Header Files\Game\GameObjects\InteractiveObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="NPC.h">
+      <Filter>Header Files\Game\GameObjects\InteractiveObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Header Files\Game\GameObjects\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenu.h">
+      <Filter>Header Files\Game\GameObjects\Screens</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
