@@ -11,6 +11,8 @@ private:
 	TextureManager* textureManager;
 
 public:
+	GraphicsComponent();
+	~GraphicsComponent();
 	void PlayAnimation(std::string path);
 	void SetTexture(std::string tex);
 	void CallBackFunction();

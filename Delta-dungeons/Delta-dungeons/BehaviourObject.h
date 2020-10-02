@@ -2,4 +2,6 @@
 
 class BehaviourObject {
 	void Update();
+public:
+	BehaviourObject();
 };

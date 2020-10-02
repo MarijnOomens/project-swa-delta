@@ -6,4 +6,6 @@ private:
 	Vector2D position;
 	Vector2D rotation;
 	Vector2D scale;
+
+	Transform();
 };

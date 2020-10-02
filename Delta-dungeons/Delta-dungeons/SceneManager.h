@@ -7,5 +7,7 @@ private:
 	std::list<Scene> scenes;
 
 public:
+	SceneManager();
+	~SceneManager();
 	int LoadScene(int scene);
 };
