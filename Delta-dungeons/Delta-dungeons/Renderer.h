@@ -1,5 +1,7 @@
 #pragma once
 #include "SDL.h"
+#include <iostream>
+#include "Window.h"
 
 class Renderer {
 public:
@@ -7,10 +9,13 @@ public:
 	~Renderer();
 
 	static SDL_Renderer* renderer;
+	static bool isRunning;
 
-	void init();
+	Window* window;
+
+	void stop();
 	void clean();
-	SDL_Renderer* createRenderer(SDL_Window* window);
+	void init(const char* title, int width, int height, bool fullscreen);
 private:
 
 };
