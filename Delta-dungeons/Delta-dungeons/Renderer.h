@@ -6,7 +6,7 @@ public:
 	Renderer();
 	~Renderer();
 
-	static SDL_Renderer renderer;
+	static SDL_Renderer* renderer;
 
 	void init();
 	void clean();

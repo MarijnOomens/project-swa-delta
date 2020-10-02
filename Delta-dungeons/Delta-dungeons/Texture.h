@@ -1,6 +1,7 @@
 #pragma once
 #include "sdl.h"
 #include "SDL_image.h"
+#include "Renderer.h"
 
 class Texture {
 public:

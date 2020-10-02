@@ -9,7 +9,7 @@ SDL_Texture* Texture::LoadTexture(const char* texture) {
 	else {
 		std::cout << "Image is loaded and created!" << std::endl;
 	}
-	SDL_Texture* tex = SDL_CreateTextureFromSurface(Game::renderer, tempSurface);
+	SDL_Texture* tex = SDL_CreateTextureFromSurface(Renderer::renderer, tempSurface);
 	SDL_FreeSurface(tempSurface);
 
 	return tex;
