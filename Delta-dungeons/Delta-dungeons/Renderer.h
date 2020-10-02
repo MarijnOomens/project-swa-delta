@@ -10,6 +10,7 @@ public:
 
 	void init();
 	void clean();
+	SDL_Renderer* createRenderer(SDL_Window* window);
 private:
 
 };
