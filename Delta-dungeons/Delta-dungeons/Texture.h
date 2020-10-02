@@ -1,5 +1,7 @@
 #pragma once
 #include "sdl.h"
+#include "SDL_image.h"
+
 class Texture {
 public:
 	Texture();
