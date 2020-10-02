@@ -6,6 +6,7 @@ public:
 	~InputWrapper();
 
 	static SDL_Event event;
+	void handleEvents();
 
 private:
 };

@@ -8,13 +8,9 @@ public:
 	Window();
 	~Window();
 
-	SDL_Window* window;
-	static SDL_Event event;
-	static bool isRunning;
+	static SDL_Window* sdlWindow;
 
+	void createWindow(const char* title, int width, int height, bool fullscreen, int flags);
 
-	void init(const char* title, int width, int height, bool fullscreen);
-	void clean();
-	void handleEvents();
 private:
 };
