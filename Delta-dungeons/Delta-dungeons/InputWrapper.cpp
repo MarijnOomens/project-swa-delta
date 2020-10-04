@@ -6,7 +6,7 @@ void InputWrapper::handleEvents() {
 	switch (event.type)
 	{
 	case SDL_QUIT:
-		Window::stop;		
+		Renderer::stop;		
 		break;
 	default:
 		break;

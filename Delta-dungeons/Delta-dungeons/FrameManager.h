@@ -11,5 +11,6 @@ public:
 	Uint32 frameStart;
 	int frameTime;
 
+	void setFrames();
 private:
 };

@@ -7,8 +7,9 @@ bool Renderer::isRunning = false;
 
 
 void Renderer::init(const char* title, int width, int height, bool fullscreen) {
-
+	Renderer::camera = { 0,0, width, height };
 	Renderer::window = new Window();
+
 	int flags = 0;
 	if (fullscreen) {
 		flags = SDL_WINDOW_FULLSCREEN;
@@ -34,6 +35,38 @@ void Renderer::stop() {
 	isRunning = false;
 }
 
+void Renderer::updateCamera() {
+
+	//update gameobjects positioning based on camera x and y
+
+	//camera.x = player.position.x - 400;
+	//camera.y = player.position.y - 320;
+
+	if (Renderer::camera.x < 0) {
+		Renderer::camera.x = 0;
+	}
+	if (Renderer::camera.y < 0) {
+		Renderer::camera.y = 0;
+	}
+	if (Renderer::camera.x > camera.w) {
+		Renderer::camera.x = camera.w;
+	}
+
+	if (Renderer::camera.y > camera.h) {
+		Renderer::camera.y = camera.h;
+	}
+}
+
+void Renderer::render() {
+	SDL_RenderClear(Renderer::renderer);
+
+	//call SDL_RenderCopyEx() for every gameobject
+	//for (auto& t : gameobjects)
+	//{
+	//	t->DrawTexture(); 
+	//}
+	SDL_RenderPresent(renderer);
+}
 
 void Renderer::clean() {
 	SDL_DestroyWindow(Window::sdlWindow);

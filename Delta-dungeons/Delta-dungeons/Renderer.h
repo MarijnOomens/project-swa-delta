@@ -10,11 +10,14 @@ public:
 
 	static SDL_Renderer* renderer;
 	static bool isRunning;
+	static SDL_Rect camera;
 
 	Window* window;
 
 	void stop();
 	void clean();
+	void updateCamera();
+	void render();
 	void init(const char* title, int width, int height, bool fullscreen);
 private:
 
