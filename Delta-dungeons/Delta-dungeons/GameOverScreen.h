@@ -1,6 +1,7 @@
 #pragma once
+#include "Screen.h"
 
-class GameOverScreen
+class GameOverScreen: Screen
 {
 
 public:

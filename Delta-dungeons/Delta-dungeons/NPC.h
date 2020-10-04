@@ -1,8 +1,9 @@
 #pragma once
 #include <string>
 #include <map>
+#include "InteractiveObject.h"
 
-class NPC
+class NPC : InteractiveObject
 {
 
 protected:

@@ -2,5 +2,5 @@
 
 class InteractiveObject
 {
-
+	virtual void interact();
 };

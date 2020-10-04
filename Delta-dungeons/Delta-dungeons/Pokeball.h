@@ -1,10 +1,8 @@
 #pragma once
+#include "Equipment.h"
 
-class Pokeball
+class Pokeball: Equipment
 {
-
-public:
-	void Catch();
 
 private:
 	int catchChance;

@@ -1,6 +1,7 @@
 #pragma once
+#include "Screen.h"
 
-class CreditScreen 
+class CreditScreen: Screen
 {
 
 };

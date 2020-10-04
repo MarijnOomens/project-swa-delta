@@ -1,10 +1,8 @@
 #pragma once
+#include "Equipment.h"
 
-class Berry 
+class Berry : Equipment
 {
-
-public:
-	void Use();
 
 private:
 	int catchChanceIncrease;

@@ -1,10 +1,8 @@
 #pragma once
+#include "Equipment.h"
 
-class HealingItem 
+class HealingItem : Equipment
 {
-
-public:
-	void Use();
 
 private:
 	int healHealth;

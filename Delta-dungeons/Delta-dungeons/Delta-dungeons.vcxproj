@@ -155,6 +155,7 @@
     <ClCompile Include="ColliderComponent.cpp" />
     <ClCompile Include="CreditScreen.cpp" />
     <ClCompile Include="Delta-dungeons.cpp" />
+    <ClCompile Include="DialoguePopup.cpp" />
     <ClCompile Include="DrawController.cpp" />
     <ClCompile Include="EngineController.cpp" />
     <ClCompile Include="Equipment.cpp" />
@@ -206,6 +207,7 @@
     <ClInclude Include="Button.h" />
     <ClInclude Include="ColliderComponent.h" />
     <ClInclude Include="Creditscreen.h" />
+    <ClInclude Include="DialoguePopup.h" />
     <ClInclude Include="DrawController.h" />
     <ClInclude Include="EngineController.h" />
     <ClInclude Include="Equipment.h" />
