@@ -1,20 +1,22 @@
 #include "FrameManager.h"
 
-const int FPS = 60;
-const int frameDelay = 1000 / FPS;
+FrameManager::FrameManager() {
+	FPS = 60; 
+	frameDelay = 60 / 1000;
+}
+FrameManager::~FrameManager() {};
 
-Uint32 frameStart;
-int frameTime;
+Uint32 frameStart = 0;
+int frameTime = 0;
 
-
-void FrameManager::setFrames() {
+void FrameManager::setFrameStart() {
 	frameStart = SDL_GetTicks();
+};
 
+void FrameManager::setFrameDelay() {
 	frameTime = SDL_GetTicks() - frameStart;
-
-	if (frameDelay > frameTime)
-	{
+	if (frameDelay > frameTime) {
 		SDL_Delay(frameDelay - frameTime);
 	}
-}
+};
 

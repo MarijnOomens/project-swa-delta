@@ -1,10 +1,11 @@
 #include "Renderer.h"
 
+Renderer::Renderer() {};
+Renderer::~Renderer() {};
+
 SDL_Renderer* Renderer::renderer = nullptr;
 
 bool Renderer::isRunning = false;
-
-
 
 void Renderer::init(const char* title, int width, int height, bool fullscreen) {
 	Renderer::camera = { 0,0, width, height };
