@@ -18,6 +18,8 @@ private:
 	void CreateGameObject();
 	void Update(std::list<GameObject> gameObjects);
 	void Render(std::list<GameObject> gameObjects);
+
+	void initRenderer(const char* title, int width, int height, bool fullscreen);
 	void StartGame();
 	void Init();
 

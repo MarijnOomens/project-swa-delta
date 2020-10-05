@@ -1,10 +1,16 @@
 #include "SDLFacade.h"
 SDLFacade::~SDLFacade() {}
 
+
+
 SDLFacade::SDLFacade() {
 	SDLFacade::drawController = new DrawController();
 	SDLFacade::frameManager = new FrameManager();
 	SDLFacade::renderer = new Renderer();
+}
+
+void SDLFacade::initRenderer(const char* title, int width, int height, bool fullscreen) {
+	SDLFacade::renderer->init(title, width, height, fullscreen);
 }
 
 void SDLFacade::setFrameStart() {
@@ -13,6 +19,10 @@ void SDLFacade::setFrameStart() {
 
 void SDLFacade::setFrameDelay() {
 	SDLFacade::frameManager->setFrameDelay();
+}
+
+void SDLFacade::render(std::list<GameObject> gameObjects) {
+	SDLFacade::renderer->render(gameObjects);
 }
 
 void SDLFacade::clean() {

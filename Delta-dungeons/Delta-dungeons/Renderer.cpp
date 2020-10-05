@@ -59,14 +59,14 @@ void Renderer::updateCamera() {
 	}
 }
 
-void Renderer::render() {
+void Renderer::render(std::list<GameObject> gameObjects) {
 	SDL_RenderClear(Renderer::renderer);
 
 	//call SDL_RenderCopyEx() for every gameobject
-	//for (auto& t : gameobjects)
-	//{
-	//	t->DrawTexture(); 
-	//}
+	for (auto& t : gameObjects)
+	{
+		//t->DrawTexture(); 
+	}
 	SDL_RenderPresent(Renderer::renderer);
 }
 

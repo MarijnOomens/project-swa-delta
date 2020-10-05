@@ -10,7 +10,13 @@ EngineController::~EngineController() {};
 
 void EngineController::CreateGameObject() {};
 void EngineController::Update(std::list<GameObject> gameObjects) {};
-void EngineController::Render(std::list<GameObject> gameObjects) {};
+void EngineController::Render(std::list<GameObject> gameObjects) {
+	sdlFacade->render(gameObjects);
+};
+
+void EngineController::initRenderer(const char* title, int width, int height, bool fullscreen) {
+	EngineController::sdlFacade->initRenderer(title, width, height, fullscreen);
+};
 
 void EngineController::StartGame() {
 
@@ -18,14 +24,13 @@ void EngineController::StartGame() {
 		sdlFacade->setFrameStart();
 		
 		EngineController::Render(gameObjects);
-		EngineController::Update(gameObjects);
+		//loop through draw method
 
+		EngineController::Update(gameObjects);
+		//change the values 
 		sdlFacade->setFrameDelay();
 	}
 
 	sdlFacade->clean();
 	std::cout << "Game cleaned" << std::endl;
-};
-void EngineController::Init() {
-
 };
