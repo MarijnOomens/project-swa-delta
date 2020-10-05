@@ -1,7 +1,8 @@
 #pragma once
 #include <string>
+#include "InteractiveObject.h"
 
-class Pokemon 
+class Pokemon : InteractiveObject
 {
 
 private:

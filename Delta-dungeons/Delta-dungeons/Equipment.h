@@ -2,5 +2,5 @@
 
 class Equipment
 {
-
+	virtual void use();
 };

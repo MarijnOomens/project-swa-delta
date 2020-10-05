@@ -1,11 +1,10 @@
 #pragma once
+#include "Equipment.h"
 
-class Runningshoes 
+class Runningshoes: Equipment 
 {
 
-public:
+private:
 	bool isActivated;
 
-private:
-	void switchActivation();
 };

@@ -2,13 +2,14 @@
 #include <vector>
 #include <string>
 #include "UIManager.h"
+#include "EquipmentManager.h"
 
 class GameManager {
 
 public: 
 
 	UIManager* uiManager;
-	std::vector<GameObject>  gameObjects;
+	EquipmentManager* eqManager;
 
 	GameManager();
 	void RegisterGameObjects();

@@ -16,7 +16,7 @@ void UIManager::updateHudCollectedCrystals(int)
 
 }
 
-void UIManager::updateHightScore(int) 
+void UIManager::updateHighScore(int) 
 {
 
 }

@@ -1,9 +1,11 @@
 #pragma once
+#include "Screen.h"
 
-class PauseScreen
+class PauseScreen: Screen
 {
 
 public:
+	Screen* helpScreen;
 	void saveGame();
 	void openHelp();
 

@@ -1,11 +1,10 @@
 #pragma once
+#include "Equipment.h"
 
-class Boomerang
+class Boomerang : Equipment
 {
 
-public:
+private:
 	bool isActivated;
 
-private:
-	void throwBoomerang(int xpos, int ypos);
 };
