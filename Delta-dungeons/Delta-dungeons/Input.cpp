@@ -3,4 +3,4 @@
 Input::Input() {};
 
 void Input::parseKeyBindings(std::string string) {};
-int Input::GetKeyDown() {};
+int Input::GetKeyDown() { return 0; };

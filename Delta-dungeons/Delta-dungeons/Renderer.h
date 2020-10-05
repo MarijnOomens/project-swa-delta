@@ -1,7 +1,6 @@
 #pragma once
 #include "SDL.h"
 #include <iostream>
-#include "Window.h"
 
 class Renderer {
 public:
@@ -10,9 +9,9 @@ public:
 
 	static SDL_Renderer* renderer;
 	static bool isRunning;
-	static SDL_Rect camera;
+	SDL_Rect camera;
 
-	Window* window;
+	SDL_Window* sdlWindow;
 
 	void stop();
 	void clean();

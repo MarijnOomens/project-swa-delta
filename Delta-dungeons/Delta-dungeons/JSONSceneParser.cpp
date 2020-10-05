@@ -2,4 +2,4 @@
 
 JSONSceneParser::JSONSceneParser() {};
 JSONSceneParser::~JSONSceneParser() {};
-int JSONSceneParser::LoadScene(int scene) {};
+int JSONSceneParser::LoadScene(int scene) { return 0; };

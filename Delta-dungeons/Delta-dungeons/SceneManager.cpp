@@ -2,4 +2,4 @@
 
 SceneManager::SceneManager() {};
 SceneManager::~SceneManager() {};
-int SceneManager::LoadScene(int scene) {};
+int SceneManager::LoadScene(int scene) { return 0; };

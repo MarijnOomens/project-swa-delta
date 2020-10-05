@@ -8,7 +8,6 @@ bool Renderer::isRunning = false;
 
 void Renderer::init(const char* title, int width, int height, bool fullscreen) {
 	Renderer::camera = { 0,0, width, height };
-	Renderer::window = new Window();
 
 	int flags = 0;
 	if (fullscreen) {
@@ -16,9 +15,11 @@ void Renderer::init(const char* title, int width, int height, bool fullscreen) {
 	}
 	if (SDL_Init(SDL_INIT_EVERYTHING) == 0) {
 		std::cout << "Subsystems initialised!!!" << std::endl;
-		Renderer::window->createWindow(title, width, height, fullscreen, flags);
-
-		Renderer::renderer = SDL_CreateRenderer(Window::sdlWindow, -1, 0);
+		Renderer::sdlWindow = SDL_CreateWindow(title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, flags);
+		if (Renderer::sdlWindow) {
+			std::cout << "Window created!" << std::endl;
+		}
+		Renderer::renderer = SDL_CreateRenderer(Renderer::sdlWindow, -1, 0);
 		if (Renderer::renderer)
 		{
 			SDL_SetRenderDrawColor(Renderer::renderer, 255, 255, 255, 255);
@@ -65,11 +66,11 @@ void Renderer::render() {
 	//{
 	//	t->DrawTexture(); 
 	//}
-	SDL_RenderPresent(renderer);
+	SDL_RenderPresent(Renderer::renderer);
 }
 
 void Renderer::clean() {
-	SDL_DestroyWindow(Window::sdlWindow);
+	SDL_DestroyWindow(Renderer::sdlWindow);
 	SDL_DestroyRenderer(Renderer::renderer);
 	SDL_Quit();
 	std::cout << "Game Cleaned" << std::endl;

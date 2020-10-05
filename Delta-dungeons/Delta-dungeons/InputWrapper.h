@@ -1,11 +1,11 @@
 #pragma once
-#include "sdl.h"
+#include "SDL.h"
 class InputWrapper {
 public:
 	InputWrapper();
 	~InputWrapper();
 
-	static SDL_Event event;
+	SDL_Event event;
 	void handleEvents();
 
 private:
