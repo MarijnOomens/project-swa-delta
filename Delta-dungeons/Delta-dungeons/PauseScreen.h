@@ -5,7 +5,7 @@ class PauseScreen: Screen
 {
 
 public:
-	Screen helpScreen;
+	Screen* helpScreen;
 	void saveGame();
 	void openHelp();
 

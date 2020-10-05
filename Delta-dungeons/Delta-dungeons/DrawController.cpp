@@ -1,5 +1,7 @@
 #include "DrawController.h"
 
+DrawController::DrawController() {};
+DrawController::~DrawController() {};
 
 SDL_Texture* DrawController::loadTexture(const char* path) {
 	SDL_Surface* tempSurface = IMG_Load(path);

@@ -5,7 +5,7 @@ class MainMenu: Screen
 {
 
 public:
-	Screen creditScreen;
+	Screen* creditScreen;
 	void startGame();
 	void openCreditScreen();
 
