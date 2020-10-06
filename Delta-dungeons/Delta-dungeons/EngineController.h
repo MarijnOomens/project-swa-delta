@@ -4,7 +4,7 @@
 #include "SceneManager.h"
 #include "SDLFacade.h"
 #include "TextureManager.h"
-
+#include "GameObject.h"
 class EngineController {
 public:
 		EngineController();

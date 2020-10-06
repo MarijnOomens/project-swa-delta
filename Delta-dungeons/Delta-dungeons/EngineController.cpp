@@ -8,8 +8,15 @@ EngineController::EngineController() {
 
 EngineController::~EngineController() {};
 
-void EngineController::CreateGameObject() {};
-void EngineController::Update(std::list<GameObject> gameObjects) {};
+void EngineController::CreateGameObject() {
+	
+};
+void EngineController::Update(std::list<GameObject> gameObjects) {
+	for(auto &gameObject : gameObjects)
+	{
+		gameObject.Update();
+	}
+};
 void EngineController::Render(std::list<GameObject> gameObjects) {
 	sdlFacade->render(gameObjects);
 };
