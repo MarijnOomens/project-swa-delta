@@ -6,7 +6,15 @@ GameObject::~GameObject() {};
 void GameObject::ConnectCallback() {}
 void GameObject::Update()
 {
-	
-	//kloppen we aan bij graphicscomponent referentie + NULL check referentie
-	
+
 };
+
+void GameObject::draw() {
+	if (checkGraphicsComponent()) {
+		graphicsComponent.draw();
+	}
+}
+
+bool GameObject::checkGraphicsComponent() {
+	return true;
+}

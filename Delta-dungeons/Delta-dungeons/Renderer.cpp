@@ -65,8 +65,11 @@ void Renderer::render(std::list<GameObject> gameObjects) {
 	//call SDL_RenderCopyEx() for every gameobject
 	for (auto& t : gameObjects)
 	{
-		//t->DrawTexture(); 
+			
+		t.draw();
+	
 	}
+
 	SDL_RenderPresent(Renderer::renderer);
 }
 
@@ -76,3 +79,5 @@ void Renderer::clean() {
 	SDL_Quit();
 	std::cout << "Game Cleaned" << std::endl;
 }
+
+//graph->texturemaanger->facade

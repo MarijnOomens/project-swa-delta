@@ -10,4 +10,6 @@ public:
 	GraphicsComponent graphicsComponent;
 	void ConnectCallback(); //Add callbackfunction
 	void Update();
+	void draw();
+	bool checkGraphicsComponent();
 };
