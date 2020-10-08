@@ -1,6 +1,9 @@
 #include "Renderer.h"
 
-Renderer::Renderer() {};
+Renderer::Renderer() {
+	camera = { 0, 0, 0, 0 };
+	sdlWindow = nullptr;
+};
 Renderer::~Renderer() {};
 
 SDL_Renderer* Renderer::renderer = nullptr;
@@ -14,23 +17,39 @@ void Renderer::init(const char* title, int width, int height, bool fullscreen) {
 	if (fullscreen) {
 		flags = SDL_WINDOW_FULLSCREEN;
 	}
-	if (SDL_Init(SDL_INIT_EVERYTHING) == 0) {
-		std::cout << "Subsystems initialised!!!" << std::endl;
-		Renderer::sdlWindow = SDL_CreateWindow(title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, flags);
-		if (Renderer::sdlWindow) {
-			std::cout << "Window created!" << std::endl;
+	try {
+		if (SDL_Init(SDL_INIT_EVERYTHING) == 0) {
+			std::cout << "Subsystems initialised!!!" << std::endl;
+			Renderer::sdlWindow = SDL_CreateWindow(title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, flags);
+			if (Renderer::sdlWindow) {
+				std::cout << "Window created!" << std::endl;
+			}
+			else {
+				isRunning = false;
+				throw("Failed to create window!");
+			}
+			Renderer::renderer = SDL_CreateRenderer(Renderer::sdlWindow, -1, 0);
+			if (Renderer::renderer)
+			{
+				SDL_SetRenderDrawColor(Renderer::renderer, 255, 255, 255, 255);
+				std::cout << "Renderer created!" << std::endl;
+			}
+			else {
+				isRunning = false;
+				throw("Failed to create Render!");
+			}
+			isRunning = true;
 		}
-		Renderer::renderer = SDL_CreateRenderer(Renderer::sdlWindow, -1, 0);
-		if (Renderer::renderer)
-		{
-			SDL_SetRenderDrawColor(Renderer::renderer, 255, 255, 255, 255);
-			std::cout << "Renderer created!" << std::endl;
+		else {
+			throw("Subsystems are not initialised!");
+			isRunning = false;
 		}
-		isRunning = true;
+		std::cout << "Image is loaded and created!" << std::endl;
 	}
-	else {
-		isRunning = false;
+	catch (std::string error) {
+		std::cout << "Error: " << error << std::endl;
 	}
+
 }
 
 void Renderer::stop() {
@@ -62,14 +81,23 @@ void Renderer::updateCamera() {
 void Renderer::render(std::list<GameObject> gameObjects) {
 	SDL_RenderClear(Renderer::renderer);
 
-	//call SDL_RenderCopyEx() for every gameobject
-	for (auto& t : gameObjects)
-	{
-			
-		t.draw();
-	
-	}
+	try {
+		if (gameObjects.empty()) {
+			throw("There are no gameobjects to render!");
+		}
+		else {
+			for (auto& t : gameObjects)
+			{
 
+				t.draw();
+
+			}
+		}
+	}
+	catch (std::string error) {
+		std::cout << "Error: " << error << std::endl;
+	}
+	//call SDL_RenderCopyEx() for every gameobject
 	SDL_RenderPresent(Renderer::renderer);
 }
 

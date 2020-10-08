@@ -1,8 +1,8 @@
 #pragma once
-#include "BehaviourObject.h"
+//#include "BehaviourObject.h"
 #include "GraphicsComponent.h"
 
-class GameObject: BehaviourObject {
+class GameObject {
 public:
 	GameObject();
 	~GameObject();

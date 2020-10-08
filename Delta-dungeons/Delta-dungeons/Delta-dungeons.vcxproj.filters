@@ -156,9 +156,6 @@
     <ClCompile Include="InputWrapper.cpp">
       <Filter>Source Files\SDL</Filter>
     </ClCompile>
-    <ClCompile Include="Texture.cpp">
-      <Filter>Source Files\SDL</Filter>
-    </ClCompile>
     <ClCompile Include="FrameManager.cpp">
       <Filter>Source Files\SDL</Filter>
     </ClCompile>
@@ -303,9 +300,6 @@
       <Filter>Header Files\SDL</Filter>
     </ClInclude>
     <ClInclude Include="InputWrapper.h">
-      <Filter>Header Files\SDL</Filter>
-    </ClInclude>
-    <ClInclude Include="Texture.h">
       <Filter>Header Files\SDL</Filter>
     </ClInclude>
     <ClInclude Include="FrameManager.h">

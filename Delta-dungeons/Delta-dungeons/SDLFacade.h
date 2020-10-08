@@ -14,14 +14,15 @@ public:
 	DrawController* drawController;
 	FrameManager* frameManager;
 	Renderer* renderer;
+	std::string constructorError() const noexcept;
 
-	SDL_Texture* loadTexture(const char* path);
-	void drawTexture(const char* path, Vector2D source2D, Vector2D destination2D);
+	SDL_Texture* loadTexture(const std::string* path);
+	void drawTexture(const char* path, const Vector2D source2D, const Vector2D destination2D);
 	void setFrameStart();
 	void setFrameDelay();
 	void update(std::list<GameObject> gameObjects);
 	void render(std::list<GameObject> gameObjects);
-	void initRenderer(const char* title, int width, int height, bool fullscreen);
+	void initRenderer(const char* title, const int width, const int height, const bool fullscreen);
 	void clean();
 	void init();
 private: 

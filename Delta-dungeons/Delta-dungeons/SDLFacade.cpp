@@ -1,7 +1,9 @@
 #include "SDLFacade.h"
 SDLFacade::~SDLFacade() {}
 
-
+std::string SDLFacade::constructorError() const noexcept {
+	return "SDLFacade constructor is not called";
+}
 
 SDLFacade::SDLFacade() {
 	SDLFacade::drawController = new DrawController();
@@ -9,7 +11,7 @@ SDLFacade::SDLFacade() {
 	SDLFacade::renderer = new Renderer();
 }
 
-void SDLFacade::initRenderer(const char* title, int width, int height, bool fullscreen) {
+void SDLFacade::initRenderer(const char* title, const int width, const int height, const bool fullscreen) {
 	SDLFacade::renderer->init(title, width, height, fullscreen);
 }
 
@@ -27,12 +29,14 @@ void SDLFacade::render(std::list<GameObject> gameObjects) {
 
 void SDLFacade::clean() {
 	SDLFacade::renderer->clean();
+	delete drawController;
+	delete frameManager;
 }
 
-SDL_Texture* SDLFacade::loadTexture(const char* path) {
-	return SDLFacade::drawController->loadTexture(path);
+SDL_Texture* SDLFacade::loadTexture(const std::string* path) {
+	return SDLFacade::drawController->loadTexture(path->c_str());
 }
-void SDLFacade::drawTexture(const char* path, Vector2D source2D, Vector2D destination2D) {
+void SDLFacade::drawTexture(const char* path, const Vector2D source2D, const Vector2D destination2D) {
 
 	SDL_Rect* source = new SDL_Rect();
 	source->x = static_cast<int>(source2D.x);

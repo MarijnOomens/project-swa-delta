@@ -10,7 +10,7 @@ public:
 
 	static SDL_Renderer* renderer;
 	static bool isRunning;
-	SDL_Rect camera;
+	SDL_Rect camera = { 0, 0, 0, 0 };
 
 	SDL_Window* sdlWindow;
 
@@ -18,7 +18,7 @@ public:
 	void clean();
 	void updateCamera();
 	void render(std::list<GameObject> value);
-	void init(const char* title, int width, int height, bool fullscreen);
+	void init(const char* title, const int width, const int height, const bool fullscreen);
 private:
 
 };
