@@ -1,7 +1,8 @@
 #pragma once
 #include "SDL.h"
 #include <iostream>
-
+#include <list>
+#include "GameObject.h"
 class Renderer {
 public:
 	Renderer();
@@ -9,15 +10,15 @@ public:
 
 	static SDL_Renderer* renderer;
 	static bool isRunning;
-	SDL_Rect camera;
+	SDL_Rect camera = { 0, 0, 0, 0 };
 
 	SDL_Window* sdlWindow;
 
 	void stop();
 	void clean();
 	void updateCamera();
-	void render();
-	void init(const char* title, int width, int height, bool fullscreen);
+	void render(std::list<GameObject> value);
+	void init(const char* title, const int width, const int height, const bool fullscreen);
 private:
 
 };

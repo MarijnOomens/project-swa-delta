@@ -162,13 +162,10 @@
     <ClCompile Include="Rectangle.cpp">
       <Filter>Source Files\SDL</Filter>
     </ClCompile>
-    <ClCompile Include="Window.cpp">
-      <Filter>Source Files\SDL</Filter>
-    </ClCompile>
     <ClCompile Include="Renderer.cpp">
       <Filter>Source Files\SDL</Filter>
     </ClCompile>
-    <ClCompile Include="Texture.cpp">
+    <ClCompile Include="InputWrapper.cpp">
       <Filter>Source Files\SDL</Filter>
     </ClCompile>
     <ClCompile Include="FrameManager.cpp">
@@ -314,16 +311,14 @@
     <ClInclude Include="Rectangle.h">
       <Filter>Header Files\SDL</Filter>
     </ClInclude>
-    <ClInclude Include="Window.h">
-      <Filter>Header Files\SDL</Filter>
-    </ClInclude>
     <ClInclude Include="Renderer.h">
       <Filter>Header Files\SDL</Filter>
     </ClInclude>
     <ClInclude Include="AudioWrapper.h">
       <Filter>Header Files\SDL</Filter>
     </ClInclude>
-    <ClInclude Include="Texture.h">
+
+    <ClInclude Include="InputWrapper.h">
       <Filter>Header Files\SDL</Filter>
     </ClInclude>
     <ClInclude Include="FrameManager.h">

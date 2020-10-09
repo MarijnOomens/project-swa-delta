@@ -16,4 +16,5 @@ public:
 	void PlayAnimation(std::string path);
 	void SetTexture(std::string tex);
 	void CallBackFunction();
+	void draw();
 };

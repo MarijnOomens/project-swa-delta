@@ -1,7 +1,8 @@
 #pragma once
 
 class BehaviourObject {
-	void Update();
 public:
+	virtual void Update();
 	BehaviourObject();
+	~BehaviourObject();
 };
