@@ -44,19 +44,19 @@ void InputWrapper::handleEvents() {
 			switch (event.key.keysym.sym)
 			{
 			case SDLK_UP:
-				std::cout << "up is released" << std::endl;
+				/*std::cout << "up is released" << std::endl;*/
 				break;
 			case SDLK_DOWN:
-				std::cout << "down is released" << std::endl;
+				/*std::cout << "down is released" << std::endl;*/
 				break;
 			case SDLK_LEFT:
-				std::cout << "left is released" << std::endl;
+				/*std::cout << "left is released" << std::endl;*/
 				break;
 			case SDLK_RIGHT:
-				std::cout << "right is released" << std::endl;
+				/*std::cout << "right is released" << std::endl;*/
 				break;
 			case SDLK_q:
-				std::cout << "Q is released" << std::endl;
+				/*std::cout << "Q is released" << std::endl;*/
 				break;
 			default:
 				break;
