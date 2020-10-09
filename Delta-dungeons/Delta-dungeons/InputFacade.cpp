@@ -2,13 +2,13 @@
 #include <iostream>
 
 
-InputFacade::InputFacade(cbFunction f) {
-	wrapper = InputWrapper(f);
+InputFacade::InputFacade(const cbFunction f) {
+	wrapper = std::make_unique<InputWrapper>(f);
 }
 
 void InputFacade::handle() 
 {
-	wrapper.handleEvents();
+	wrapper->handleEvents();
 }
 
 void IInputFacade::handleEvents() {

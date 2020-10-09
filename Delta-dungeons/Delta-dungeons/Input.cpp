@@ -2,7 +2,7 @@
 #include <iostream>
 typedef void(*cbFunction) (Keycodes);
 
-void callbackFunction(Keycodes code)
+void callbackFunction(const Keycodes code)
 {
 	std::cout << code + "has been passed to the input class" << std::endl;
 }

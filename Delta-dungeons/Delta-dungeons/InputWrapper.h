@@ -8,12 +8,12 @@ public:
 	cbFunction func;
 
 	InputWrapper();
-	InputWrapper(cbFunction f);
+	InputWrapper(const cbFunction f);
 	~InputWrapper();
 
 	SDL_Event event;
 
 	void handleEvents();
-	void mapKeyBindings(Keycodes code);
+	void mapKeyBindings(const Keycodes code);
 
 };

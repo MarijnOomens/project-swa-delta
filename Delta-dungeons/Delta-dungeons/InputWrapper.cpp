@@ -3,7 +3,7 @@
 
 InputWrapper::InputWrapper() {}
 
-InputWrapper::InputWrapper(cbFunction f):func(f){}
+InputWrapper::InputWrapper(const cbFunction f):func(f){}
 
 InputWrapper::~InputWrapper() {};
 
@@ -65,7 +65,7 @@ void InputWrapper::handleEvents() {
 	}
 }
 
-void InputWrapper:: mapKeyBindings(Keycodes code)
+void InputWrapper:: mapKeyBindings(const Keycodes code)
 {
 
 }

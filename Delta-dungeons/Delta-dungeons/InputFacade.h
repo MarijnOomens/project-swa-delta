@@ -1,13 +1,14 @@
 #pragma once
 #include "IInputFacade.h"
 #include "InputWrapper.h"
+#include <memory>
 typedef void(*cbFunction) (Keycodes);
 
 class InputFacade: IInputFacade
 {
 public:
-	InputWrapper wrapper;
-	InputFacade(cbFunction f);
+	std::unique_ptr<InputWrapper> wrapper;
+	InputFacade(const cbFunction f);
 	void handle();
 
 };
