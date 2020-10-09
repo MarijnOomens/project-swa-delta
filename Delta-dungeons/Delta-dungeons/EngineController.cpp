@@ -1,8 +1,8 @@
 #include "EngineController.h"
 
 EngineController::EngineController() {
-	EngineController::sdlFacade = new SDLFacade();
-	EngineController::textureManager = new TextureManager();
+	sdlFacade = std::make_shared<SDLFacade>();
+	textureManager = std::make_shared<TextureManager>();
 	//dummy data
 }
 

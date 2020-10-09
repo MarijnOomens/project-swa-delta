@@ -12,9 +12,9 @@ public:
 private:
 	std::list<GameObject> gameObjects;
 	std::list<int> hudLayers;
-	SceneManager sceneManager;
-	SDLFacade* sdlFacade;
-	TextureManager* textureManager;
+	std::shared_ptr<SceneManager> sceneManager;
+	std::shared_ptr<SDLFacade> sdlFacade;
+	std::shared_ptr<TextureManager> textureManager;
 	void CreateGameObject();
 	void Update(std::list<GameObject> gameObjects);
 	void Render(std::list<GameObject> gameObjects);
