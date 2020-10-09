@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "SDL.h";
+#include "Input.h"
 
 int main(int argc, char* argv[])
 {
@@ -12,8 +13,8 @@ int main(int argc, char* argv[])
     SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
 
     SDL_RenderClear(renderer);
-
-    SDL_Delay(3000);
+    Input i;
+    
 
     return 0;
 }

@@ -1,6 +1,20 @@
 #include "Input.h"
+#include <iostream>
+typedef void(*cbFunction) (Keycodes);
 
-Input::Input() {};
+void callbackFunction(Keycodes code)
+{
+	std::cout << code + "has been passed to the input class" << std::endl;
+}
+
+Input::Input() 
+{
+	InputFacade facade(callbackFunction);
+	facade.handle();
+}
 
 void Input::parseKeyBindings(std::string string) {};
-int Input::GetKeyDown() { return 0; };
+
+void Input::getKeyDown() 
+{ 
+};

@@ -1,10 +1,12 @@
 #pragma once
 #include <string>
+#include "Keycodes.h"
+#include "InputFacade.h"
 
 static class Input {
 public:
-	Input();
 
+	Input();
 	void parseKeyBindings(std::string string);
-	int GetKeyDown();
+	void getKeyDown();
 };

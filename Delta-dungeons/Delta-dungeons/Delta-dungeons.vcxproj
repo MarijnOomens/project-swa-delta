@@ -170,6 +170,7 @@
     <ClCompile Include="HUD.cpp" />
     <ClCompile Include="HUDComponent.cpp" />
     <ClCompile Include="Input.cpp" />
+    <ClCompile Include="InputFacade.cpp" />
     <ClCompile Include="InputWrapper.cpp" />
     <ClCompile Include="InteractiveManager.cpp" />
     <ClCompile Include="InteractiveObject.cpp" />
@@ -221,11 +222,14 @@
     <ClInclude Include="HelpScreen.h" />
     <ClInclude Include="HUD.h" />
     <ClInclude Include="HUDComponent.h" />
+    <ClInclude Include="IInputFacade.h" />
     <ClInclude Include="Input.h" />
+    <ClInclude Include="InputFacade.h" />
     <ClInclude Include="InputWrapper.h" />
     <ClInclude Include="InteractiveManager.h" />
     <ClInclude Include="InteractiveObject.h" />
     <ClInclude Include="JSONSceneParser.h" />
+    <ClInclude Include="Keycodes.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="NPC.h" />
