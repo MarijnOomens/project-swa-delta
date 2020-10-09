@@ -1,4 +1,5 @@
 #include "Scene.h"
 
-Scene::Scene() {};
-Scene::Scene(std::list<GameObject> gameObjects) {};
+Scene::Scene(int x, int y) : x(x), y(y) {
+	tileMap;
+};

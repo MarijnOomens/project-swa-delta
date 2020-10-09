@@ -7,6 +7,6 @@ EngineController::EngineController() {
 EngineController::~EngineController() {};
 
 void EngineController::CreateGameObject() {};
-void EngineController::Update(GameObject gameObjects) {};
-void EngineController::Render(std::list<GameObject> gameObjects) {};
+void EngineController::Update(GameObject& gameObjects) {};
+void EngineController::Render(std::list<std::unique_ptr<GameObject>> gameObjects) {};
 void EngineController::Init() {};

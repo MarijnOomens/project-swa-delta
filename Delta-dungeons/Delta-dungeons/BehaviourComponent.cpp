@@ -2,3 +2,4 @@
 
 BehaviourObject::BehaviourObject() {};
 void BehaviourObject::Update() {};
+BehaviourObject::~BehaviourObject() {};

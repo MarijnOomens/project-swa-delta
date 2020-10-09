@@ -2,13 +2,15 @@
 #include "GameObject.h"
 #include <list>
 #include <iostream>
+#include <array>;
+#include <vector>;
 
 class Scene {
 public: 
-	Scene();
-	Scene(std::list<GameObject> gameObjects);
+	Scene(int x, int y);
 
 private:
-	std::list<GameObject> gameObjects;
-	GameObject tileMap; //idk how to make the 2d array
+	int x;
+	int y;
+	std::vector<std::vector<GameObject>> tileMap;
 };
