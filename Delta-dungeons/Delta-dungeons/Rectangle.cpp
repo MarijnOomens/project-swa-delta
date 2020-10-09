@@ -1,5 +1,11 @@
 #include "Rectangle.h"
 
+Rectangle::Rectangle() {
+	destination = SDL_Rect();
+	source = SDL_Rect();
+};
+Rectangle::~Rectangle() {};
+
 void Rectangle::defineSource(int x, int y, int w, int h) {
 	source.x = x;
 	source.y = y;

@@ -4,7 +4,8 @@ class TextureManager {
 public:
 	TextureManager();
 	~TextureManager();
-private:
+
 	void LoadTexture();
-	void DrawTexture();
+	void DrawTexture(); //pass values?
+private:
 };
