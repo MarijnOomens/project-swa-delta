@@ -6,9 +6,9 @@ std::string SDLFacade::constructorError() const noexcept {
 }
 
 SDLFacade::SDLFacade() {
-	SDLFacade::drawController = new DrawController();
-	SDLFacade::frameManager = new FrameManager();
-	SDLFacade::renderer = new Renderer();
+	SDLFacade::drawController = std::make_shared<DrawController>();
+	SDLFacade::frameManager = std::make_shared<FrameManager>();
+	SDLFacade::renderer = std::make_shared<Renderer>();
 }
 
 void SDLFacade::initRenderer(const char* title, const int width, const int height, const bool fullscreen) {
@@ -29,8 +29,6 @@ void SDLFacade::render(std::list<GameObject> gameObjects) {
 
 void SDLFacade::clean() {
 	SDLFacade::renderer->clean();
-	delete drawController;
-	delete frameManager;
 }
 
 SDL_Texture* SDLFacade::loadTexture(const std::string* path) {

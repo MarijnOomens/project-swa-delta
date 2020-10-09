@@ -11,9 +11,9 @@ public:
 	SDLFacade();
 	~SDLFacade();
 
-	DrawController* drawController;
-	FrameManager* frameManager;
-	Renderer* renderer;
+	std::shared_ptr<DrawController> drawController;
+	std::shared_ptr<FrameManager> frameManager;
+	std::shared_ptr<Renderer> renderer;
 	std::string constructorError() const noexcept;
 
 	SDL_Texture* loadTexture(const std::string* path);
