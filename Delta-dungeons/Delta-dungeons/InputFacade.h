@@ -9,6 +9,4 @@ class InputFacade: IInputFacade
 public:
 	std::unique_ptr<InputWrapper> wrapper;
 	InputFacade(const cbFunction f);
-	void handle();
-
 };
