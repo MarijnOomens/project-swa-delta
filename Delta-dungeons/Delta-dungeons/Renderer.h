@@ -3,6 +3,8 @@
 #include <iostream>
 #include <list>
 #include "GameObject.h"
+#include <memory>
+
 class Renderer {
 public:
 	Renderer();
@@ -17,7 +19,7 @@ public:
 	void stop();
 	void clean();
 	void updateCamera();
-	void render(std::list<GameObject> value);
+	void render(std::list<std::shared_ptr<GameObject>> value);
 	void init(const char* title, const int width, const int height, const bool fullscreen);
 private:
 

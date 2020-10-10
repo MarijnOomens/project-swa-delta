@@ -3,6 +3,6 @@
 
 class HUDComponent : public BehaviourObject {
 public:
-	HUDComponent();
+	HUDComponent(int layerlevel);
 	int layer;
 };

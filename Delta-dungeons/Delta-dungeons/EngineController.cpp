@@ -11,13 +11,15 @@ EngineController::~EngineController() {};
 void EngineController::CreateGameObject() {
 	
 };
-void EngineController::Update(std::list<GameObject> gameObjects) {
-	for(auto &gameObject : gameObjects)
+
+void EngineController::Update(std::list<std::shared_ptr<GameObject>>& gameObjects) {
+	for(auto& gameObject : gameObjects)
 	{
-		gameObject.Update();
+		gameObject.get()->Update();
 	}
 };
-void EngineController::Render(std::list<GameObject> gameObjects) {
+
+void EngineController::Render(std::list<std::shared_ptr<GameObject>>& gameObjects) {
 	sdlFacade->render(gameObjects);
 };
 

@@ -23,7 +23,7 @@ void SDLFacade::setFrameDelay() {
 	SDLFacade::frameManager->setFrameDelay();
 }
 
-void SDLFacade::render(std::list<GameObject> gameObjects) {
+void SDLFacade::render(std::list<std::shared_ptr<GameObject>> gameObjects) {
 	SDLFacade::renderer->render(gameObjects);
 }
 

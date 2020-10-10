@@ -78,7 +78,7 @@ void Renderer::updateCamera() {
 	}
 }
 
-void Renderer::render(std::list<GameObject> gameObjects) {
+void Renderer::render(std::list<std::shared_ptr<GameObject>> gameObjects) {
 	SDL_RenderClear(Renderer::renderer);
 
 	try {
@@ -89,7 +89,7 @@ void Renderer::render(std::list<GameObject> gameObjects) {
 			for (auto& t : gameObjects)
 			{
 
-				t.draw();
+				t.get()->draw();
 
 			}
 		}
