@@ -55,6 +55,18 @@
     <Filter Include="Header Files\Engine">
       <UniqueIdentifier>{0e98bf13-a4d9-4346-92e3-8c7dba9d5bcf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Engine\Input">
+      <UniqueIdentifier>{31479452-c0e8-46be-b33a-46975b643728}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\input">
+      <UniqueIdentifier>{540a8c5b-d7a8-49df-97e9-c24a5cc4e3ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\SDL\Input">
+      <UniqueIdentifier>{2fafb478-7993-4f0f-a4f5-31bf7151bdbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SDL\Input">
+      <UniqueIdentifier>{d788796d-e34c-45e5-aed6-24c38e4a0123}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Delta-dungeons.cpp">
@@ -150,16 +162,10 @@
     <ClCompile Include="Rectangle.cpp">
       <Filter>Source Files\SDL</Filter>
     </ClCompile>
-    <ClCompile Include="Window.cpp">
-      <Filter>Source Files\SDL</Filter>
-    </ClCompile>
     <ClCompile Include="Renderer.cpp">
       <Filter>Source Files\SDL</Filter>
     </ClCompile>
     <ClCompile Include="InputWrapper.cpp">
-      <Filter>Source Files\SDL</Filter>
-    </ClCompile>
-    <ClCompile Include="Texture.cpp">
       <Filter>Source Files\SDL</Filter>
     </ClCompile>
     <ClCompile Include="FrameManager.cpp">
@@ -186,9 +192,6 @@
     <ClCompile Include="JSONSceneParser.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="Input.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
     <ClCompile Include="HUDComponent.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
@@ -209,6 +212,15 @@
     </ClCompile>
     <ClCompile Include="DialoguePopup.cpp">
       <Filter>Source Files\Game\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>Source Files\Engine\input</Filter>
+    </ClCompile>
+    <ClCompile Include="InputWrapper.cpp">
+      <Filter>Source Files\SDL\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="InputFacade.cpp">
+      <Filter>Source Files\SDL\Input</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -299,19 +311,14 @@
     <ClInclude Include="Rectangle.h">
       <Filter>Header Files\SDL</Filter>
     </ClInclude>
-    <ClInclude Include="Window.h">
-      <Filter>Header Files\SDL</Filter>
-    </ClInclude>
     <ClInclude Include="Renderer.h">
       <Filter>Header Files\SDL</Filter>
     </ClInclude>
     <ClInclude Include="AudioWrapper.h">
       <Filter>Header Files\SDL</Filter>
     </ClInclude>
+
     <ClInclude Include="InputWrapper.h">
-      <Filter>Header Files\SDL</Filter>
-    </ClInclude>
-    <ClInclude Include="Texture.h">
       <Filter>Header Files\SDL</Filter>
     </ClInclude>
     <ClInclude Include="FrameManager.h">
@@ -356,14 +363,26 @@
     <ClInclude Include="TextureManager.h">
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Input.h">
-      <Filter>Header Files\Engine</Filter>
-    </ClInclude>
     <ClInclude Include="Sound.h">
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="DialoguePopup.h">
       <Filter>Header Files\Game\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>Header Files\Engine\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="InputWrapper.h">
+      <Filter>Header Files\SDL\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Keycodes.h">
+      <Filter>Header Files\Engine\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="InputFacade.h">
+      <Filter>Header Files\SDL\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="IInputFacade.h">
+      <Filter>Header Files\SDL\Input</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
