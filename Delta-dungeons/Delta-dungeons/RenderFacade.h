@@ -6,10 +6,10 @@
 #include "DrawController.h"
 #include "FrameManager.h"
 #include "Renderer.h"
-class SDLFacade {
+class RenderFacade {
 public:
-	SDLFacade();
-	~SDLFacade();
+	RenderFacade();
+	~RenderFacade();
 
 	std::shared_ptr<DrawController> drawController;
 	std::shared_ptr<FrameManager> frameManager;
