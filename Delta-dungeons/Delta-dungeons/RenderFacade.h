@@ -23,7 +23,7 @@ public:
 	void setFrameDelay();
 	void update(std::list<GameObject> gameObjects);
 	void render(std::list<std::shared_ptr<GameObject>> gameObjects);
-	void initRenderer(const char* title, const int width, const int height, const bool fullscreen);
+	void init(const char* title, const int width, const int height, const bool fullscreen);
 	void clean();
 private: 
 };

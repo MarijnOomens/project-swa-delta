@@ -23,7 +23,7 @@ void RenderFacade::setFrameDelay() {
 	RenderFacade::frameManager->setFrameDelay();
 }
 
-void RenderFacade::render(std::list<GameObject> gameObjects) {
+void RenderFacade::render(std::list<std::shared_ptr<GameObject>> gameObjects) {
 	RenderFacade::renderer->render(gameObjects);
 }
 
