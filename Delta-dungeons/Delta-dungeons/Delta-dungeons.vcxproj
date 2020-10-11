@@ -154,7 +154,6 @@
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="ColliderComponent.cpp" />
     <ClCompile Include="CreditScreen.cpp" />
-    <ClCompile Include="Delta-dungeons.cpp" />
     <ClCompile Include="DialoguePopup.cpp" />
     <ClCompile Include="DrawController.cpp" />
     <ClCompile Include="EngineController.cpp" />
@@ -228,7 +227,6 @@
     <ClInclude Include="InteractiveObject.h" />
     <ClInclude Include="JSONSceneParser.h" />
     <ClInclude Include="Keycodes.h" />
-    <ClInclude Include="main.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="NPC.h" />
     <ClInclude Include="PauseScreen.h" />

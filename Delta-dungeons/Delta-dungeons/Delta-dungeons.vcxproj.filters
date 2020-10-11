@@ -69,9 +69,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Delta-dungeons.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GameManager.cpp">
       <Filter>Source Files\Game</Filter>
     </ClCompile>
@@ -319,9 +316,6 @@
     </ClInclude>
     <ClInclude Include="FrameManager.h">
       <Filter>Header Files\SDL</Filter>
-    </ClInclude>
-    <ClInclude Include="main.h">
-      <Filter>Header Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="EngineController.h">
       <Filter>Header Files\Engine</Filter>
