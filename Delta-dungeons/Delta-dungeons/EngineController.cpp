@@ -3,6 +3,7 @@
 EngineController::EngineController() {
 	renderFacade = std::make_shared<RenderFacade>();
 	textureManager = std::make_shared<TextureManager>();
+	initRenderer("delta dungeons", 800, 600, false);
 	//dummy data
 }
 

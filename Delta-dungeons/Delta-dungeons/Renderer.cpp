@@ -39,6 +39,7 @@ void Renderer::init(const char* title, int width, int height, bool fullscreen) {
 				throw("Failed to create Render!");
 			}
 			isRunning = true;
+			SDL_Delay(10000);
 		}
 		else {
 			throw("Subsystems are not initialised!");
