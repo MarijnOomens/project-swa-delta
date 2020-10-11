@@ -147,9 +147,6 @@
     <ClCompile Include="Tile.cpp">
       <Filter>Source Files\Game\GameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="SDLFacade.cpp">
-      <Filter>Source Files\SDL</Filter>
-    </ClCompile>
     <ClCompile Include="Vector2D.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
@@ -221,6 +218,9 @@
     </ClCompile>
     <ClCompile Include="InputFacade.cpp">
       <Filter>Source Files\SDL\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderFacade.cpp">
+      <Filter>Source Files\SDL</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -299,9 +299,6 @@
     <ClInclude Include="MainMenu.h">
       <Filter>Header Files\Game\GameObjects\Screens</Filter>
     </ClInclude>
-    <ClInclude Include="SDLFacade.h">
-      <Filter>Header Files\SDL</Filter>
-    </ClInclude>
     <ClInclude Include="Vector2D.h">
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
@@ -317,7 +314,6 @@
     <ClInclude Include="AudioWrapper.h">
       <Filter>Header Files\SDL</Filter>
     </ClInclude>
-
     <ClInclude Include="InputWrapper.h">
       <Filter>Header Files\SDL</Filter>
     </ClInclude>
@@ -383,6 +379,9 @@
     </ClInclude>
     <ClInclude Include="IInputFacade.h">
       <Filter>Header Files\SDL\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderFacade.h">
+      <Filter>Header Files\SDL</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

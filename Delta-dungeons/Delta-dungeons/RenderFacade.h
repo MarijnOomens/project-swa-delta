@@ -16,14 +16,14 @@ public:
 	std::shared_ptr<Renderer> renderer;
 	std::string constructorError() const noexcept;
 
-	SDL_Texture* loadTexture(const std::string* path);
+	SDL_Texture* loadTexture(const std::string* imageLocation);
+	SDL_Texture* loadFontTexture(const std::string* fontLocation, const std::string* color, const std::string* stringValue);
 	void drawTexture(const char* path, const Vector2D source2D, const Vector2D destination2D);
 	void setFrameStart();
 	void setFrameDelay();
 	void update(std::list<GameObject> gameObjects);
 	void render(std::list<GameObject> gameObjects);
-	void initRenderer(const char* title, const int width, const int height, const bool fullscreen);
+	void init(const char* title, const int width, const int height, const bool fullscreen);
 	void clean();
-	void init();
 private: 
 };

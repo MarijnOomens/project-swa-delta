@@ -11,7 +11,7 @@ RenderFacade::RenderFacade() {
 	RenderFacade::renderer = std::make_shared<Renderer>();
 }
 
-void RenderFacade::initRenderer(const char* title, const int width, const int height, const bool fullscreen) {
+void RenderFacade::init(const char* title, const int width, const int height, const bool fullscreen) {
 	RenderFacade::renderer->init(title, width, height, fullscreen);
 }
 

@@ -22,12 +22,12 @@ void EngineController::Render(std::list<GameObject> gameObjects) {
 };
 
 void EngineController::initRenderer(const char* title, int width, int height, bool fullscreen) {
-	EngineController::renderFacade->initRenderer(title, width, height, fullscreen);
+	EngineController::renderFacade->init(title, width, height, fullscreen);
 };
 
 void EngineController::StartGame() {
 
-	while (EngineController::renderFacade->renderer->isRunning) {
+	while (renderFacade->renderer->isRunning) {
 		renderFacade->setFrameStart();
 		
 		EngineController::Render(gameObjects);
