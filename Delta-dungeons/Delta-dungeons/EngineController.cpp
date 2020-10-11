@@ -20,7 +20,7 @@ void EngineController::Update(std::list<std::shared_ptr<GameObject>>& gameObject
 };
 
 void EngineController::Render(std::list<std::shared_ptr<GameObject>>& gameObjects) {
-	sdlFacade->render(gameObjects);
+	renderFacade->render(gameObjects);
 };
 
 void EngineController::initRenderer(const char* title, int width, int height, bool fullscreen) {
