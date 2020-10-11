@@ -189,7 +189,7 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Screen.cpp" />
-    <ClCompile Include="SDLFacade.cpp" />
+    <ClCompile Include="RenderFacade.cpp" />
     <ClCompile Include="Sound.cpp" />
     <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="Tile.cpp" />
@@ -243,7 +243,7 @@
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="SceneParser.h" />
     <ClInclude Include="Screen.h" />
-    <ClInclude Include="SDLFacade.h" />
+    <ClInclude Include="RenderFacade.h" />
     <ClInclude Include="Sound.h" />
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="Tile.h" />

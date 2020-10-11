@@ -1,7 +1,7 @@
 #include "EngineController.h"
 
 EngineController::EngineController() {
-	sdlFacade = std::make_shared<SDLFacade>();
+	renderFacade = std::make_shared<RenderFacade>();
 	textureManager = std::make_shared<TextureManager>();
 	//dummy data
 }
@@ -24,22 +24,22 @@ void EngineController::Render(std::list<std::shared_ptr<GameObject>>& gameObject
 };
 
 void EngineController::initRenderer(const char* title, int width, int height, bool fullscreen) {
-	EngineController::sdlFacade->initRenderer(title, width, height, fullscreen);
+	EngineController::renderFacade->init(title, width, height, fullscreen);
 };
 
 void EngineController::StartGame() {
 
-	while (EngineController::sdlFacade->renderer->isRunning) {
-		sdlFacade->setFrameStart();
+	while (renderFacade->renderer->isRunning) {
+		renderFacade->setFrameStart();
 		
 		EngineController::Render(gameObjects);
 		//loop through draw method
 
 		EngineController::Update(gameObjects);
 		//change the values 
-		sdlFacade->setFrameDelay();
+		renderFacade->setFrameDelay();
 	}
 
-	sdlFacade->clean();
+	renderFacade->clean();
 	std::cout << "Game cleaned" << std::endl;
 };
