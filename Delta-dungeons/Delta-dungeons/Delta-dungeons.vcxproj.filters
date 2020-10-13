@@ -159,9 +159,6 @@
     <ClCompile Include="Renderer.cpp">
       <Filter>Source Files\SDL</Filter>
     </ClCompile>
-    <ClCompile Include="InputWrapper.cpp">
-      <Filter>Source Files\SDL</Filter>
-    </ClCompile>
     <ClCompile Include="FrameManager.cpp">
       <Filter>Source Files\SDL</Filter>
     </ClCompile>
@@ -218,6 +215,9 @@
     </ClCompile>
     <ClCompile Include="RenderFacade.cpp">
       <Filter>Source Files\SDL</Filter>
+    </ClCompile>
+    <ClCompile Include="InputWrapper.cpp">
+      <Filter>Source Files\SDL\Input</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -311,9 +311,6 @@
     <ClInclude Include="AudioWrapper.h">
       <Filter>Header Files\SDL</Filter>
     </ClInclude>
-    <ClInclude Include="InputWrapper.h">
-      <Filter>Header Files\SDL</Filter>
-    </ClInclude>
     <ClInclude Include="FrameManager.h">
       <Filter>Header Files\SDL</Filter>
     </ClInclude>
@@ -376,6 +373,9 @@
     </ClInclude>
     <ClInclude Include="RenderFacade.h">
       <Filter>Header Files\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="InputWrapper.h">
+      <Filter>Header Files\SDL\Input</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
