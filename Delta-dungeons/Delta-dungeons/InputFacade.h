@@ -4,9 +4,9 @@
 #include <memory>
 typedef void(*cbFunction) (Keycodes);
 
-class InputFacade: IInputFacade
+class InputFacade: public IInputFacade
 {
 public:
-	std::unique_ptr<InputWrapper> wrapper;
+	InputFacade();
 	InputFacade(const cbFunction f);
 };

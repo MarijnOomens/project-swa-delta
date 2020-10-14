@@ -3,9 +3,9 @@
 #include "Keycodes.h"
 #include "InputFacade.h"
 
-static class Input {
+class Input {
 public:
-
+	InputFacade facade;
 	Input();
 	void parseKeyBindings(std::string string);
 	void getKeyDown();

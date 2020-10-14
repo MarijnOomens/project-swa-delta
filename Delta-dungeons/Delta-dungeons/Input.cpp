@@ -16,6 +16,7 @@ void Input::parseKeyBindings(std::string string) {};
 
 void Input::getKeyDown() 
 { 
+	facade.handleEvents();
 };
 
 void Input::getKeyUp()
