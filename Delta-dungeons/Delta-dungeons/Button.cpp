@@ -1,11 +1,13 @@
 #include "Button.h"
 
-Button::Button(int x, int y, TextureList textureList) {
-	components.push_back(std::make_unique<BehaviourObject>(gc));
+Button::Button(int x, int y, TextureList textureList, GraphicsComponent* gc) {
+	m_gc = gc;
+	components.push_back(m_gc);
 	transform.position.x = (float)x;
 	transform.position.y = (float)y;
 
 	possibleTextures = textureList;
+	m_gc->SetTexture();
 };
 Button::~Button() {};
 

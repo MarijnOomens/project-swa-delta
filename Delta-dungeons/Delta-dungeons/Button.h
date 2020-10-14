@@ -1,7 +1,8 @@
 #pragma once
 #include <string>
-#include "GameObject.h";
-#include <memory>;
+#include "GameObject.h"
+#include <memory>
+#include "GraphicsComponent.h"
 
 using TextureList = std::vector<std::string>;
 
@@ -9,9 +10,8 @@ class Button : public GameObject
 {
 
 public:
-	Button(int x, int y, TextureList textureList);
+	Button(int x, int y, TextureList textureList, GraphicsComponent* gc);
 	~Button();
-	void click();
 	void Update() override;
 	void connectCallback() override;
 	void callbackFunction() override;
@@ -19,5 +19,5 @@ public:
 private:
 	std::string text;
 	TextureList possibleTextures;
-	GraphicsComponent* gc;
+	GraphicsComponent* m_gc;
 };

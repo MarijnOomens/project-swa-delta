@@ -1,11 +1,20 @@
 #include "EngineController.h"
-#include "Button.h";
-#include <vector>;
+#include "Button.h"
+#include <vector>
+#include "GraphicsComponent.h"
 
 EngineController::EngineController() {
 	renderFacade = std::make_shared<RenderFacade>();
 	textureManager = std::make_shared<TextureManager>();
-	Button* button = new Button(20, 80, { "button_deafult", "button_hover", "button_clicked" });
+	assetManager = std::make_shared<AssetManager>();
+
+	// DEBUG
+	assetManager->addTexture("button_play", "Assets/button_play.png");
+	GraphicsComponent* gc = new GraphicsComponent();
+	Button* button = new Button(300, 250, { "button_play", "button_play_hover" }, gc);
+	// END DEBUG
+
+	gameObjects.emplace_back(button);
 	initRenderer("delta dungeons", 800, 600, false);
 	//dummy data
 }

@@ -8,3 +8,7 @@ void GameObject::Update()
 {
 
 };
+
+void GameObject::addComponent(BehaviourObject* comp) {
+	components.push_back(comp);
+}

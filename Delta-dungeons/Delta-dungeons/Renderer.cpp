@@ -89,9 +89,7 @@ void Renderer::render(std::list<std::shared_ptr<GameObject>> gameObjects) {
 		else {
 			for (auto& t : gameObjects)
 			{
-
-				t.get()->draw();
-
+				// TODO: Render all GraphicsComponents instead of GameObjects
 			}
 		}
 	}
