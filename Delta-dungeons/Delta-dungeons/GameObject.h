@@ -3,16 +3,13 @@
 #include <vector>;
 #include "GraphicsComponent.h"
 
-class GameObject : BehaviourObject {
+class GameObject : public BehaviourObject {
 public:
 	GameObject();
 	~GameObject();
 
-	GraphicsComponent graphicsComponent;
-	void ConnectCallback(); //Add callbackfunction
-	void Update();
-	void draw();
-private:
-	std::vector<BehaviourObject> components;
-	bool checkGraphicsComponent();
+	virtual void ConnectCallback(); //Add callbackfunction
+	virtual void Update();
+	virtual void draw();
+	std::vector<std::unique_ptr<BehaviourObject>> components;
 };

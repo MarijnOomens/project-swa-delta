@@ -1,8 +1,11 @@
 #include "EngineController.h"
+#include "Button.h";
+#include <vector>;
 
 EngineController::EngineController() {
 	renderFacade = std::make_shared<RenderFacade>();
 	textureManager = std::make_shared<TextureManager>();
+	Button* button = new Button(20, 80, { "button_deafult", "button_hover", "button_clicked" });
 	initRenderer("delta dungeons", 800, 600, false);
 	//dummy data
 }

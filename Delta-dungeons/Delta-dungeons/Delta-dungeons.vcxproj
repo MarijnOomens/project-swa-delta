@@ -148,7 +148,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AudioWrapper.cpp" />
-    <ClCompile Include="BehaviourComponent.cpp" />
+    <ClCompile Include="BehaviourObject.cpp" />
     <ClCompile Include="Berry.cpp" />
     <ClCompile Include="Boomerang.cpp" />
     <ClCompile Include="Button.cpp" />

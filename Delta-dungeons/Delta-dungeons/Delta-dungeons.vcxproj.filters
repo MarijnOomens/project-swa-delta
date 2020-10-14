@@ -201,9 +201,6 @@
     <ClCompile Include="ColliderComponent.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="BehaviourComponent.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
     <ClCompile Include="DialoguePopup.cpp">
       <Filter>Source Files\Game\GameObjects</Filter>
     </ClCompile>
@@ -218,6 +215,9 @@
     </ClCompile>
     <ClCompile Include="RenderFacade.cpp">
       <Filter>Source Files\SDL</Filter>
+    </ClCompile>
+    <ClCompile Include="BehaviourObject.cpp">
+      <Filter>Source Files\Engine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

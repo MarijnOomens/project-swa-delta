@@ -2,7 +2,7 @@
 #include <iostream>
 #include "TextureManager.h"
 
-class GraphicsComponent {
+class GraphicsComponent : public BehaviourObject {
 private:
 	bool animated;
 	int frames;
