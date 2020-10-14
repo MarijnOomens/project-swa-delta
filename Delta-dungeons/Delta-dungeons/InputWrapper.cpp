@@ -3,7 +3,7 @@
 
 InputWrapper::InputWrapper() {}
 
-InputWrapper::InputWrapper(const cbFunction f):func(f){}
+InputWrapper::InputWrapper(const cbFunction f) :func(f) {}
 
 InputWrapper::~InputWrapper() {};
 
@@ -29,9 +29,29 @@ void InputWrapper::handleEvents() {
 			std::cout << "right is pressed" << std::endl;
 			func(KEY_RIGHT);
 			break;
+		case SDLK_w:
+			std::cout << "W is pressed" << std::endl;
+			func(KEY_W);
+			break;
+		case SDLK_a:
+			std::cout << "A is pressed" << std::endl;
+			func(KEY_A);
+			break;
+		case SDLK_s:
+			std::cout << "S is pressed" << std::endl;
+			func(KEY_S);
+			break;
+		case SDLK_d:
+			std::cout << "D is pressed" << std::endl;
+			func(KEY_D);
+			break;
 		case SDLK_q:
 			std::cout << "Q is pressed" << std::endl;
 			func(KEY_Q);
+			break;
+		case SDLK_e:
+			std::cout << "E is pressed" << std::endl;
+			func(KEY_E);
 			break;
 		default:
 			break;
@@ -62,7 +82,7 @@ void InputWrapper::handleEvents() {
 	}
 }
 
-void InputWrapper:: mapKeyBindings(const Keycodes code)
+void InputWrapper::mapKeyBindings(const Keycodes code)
 {
 
 }
