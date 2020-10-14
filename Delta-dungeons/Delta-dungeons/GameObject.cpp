@@ -8,13 +8,3 @@ void GameObject::Update()
 {
 
 };
-
-void GameObject::draw() {
-	if (checkGraphicsComponent()) {
-		graphicsComponent.draw();
-	}
-}
-
-bool GameObject::checkGraphicsComponent() {
-	return true;
-}
