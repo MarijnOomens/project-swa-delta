@@ -3,7 +3,7 @@
 InputFacade::InputFacade() {};
 
 InputFacade::InputFacade(const cbFunction f) {
-	wrapper = new InputWrapper(f);
+	wrapper = std::make_unique<InputWrapper>(f);
 }
 
 void IInputFacade::handleEvents() 

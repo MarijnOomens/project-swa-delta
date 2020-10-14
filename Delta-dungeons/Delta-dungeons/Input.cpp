@@ -9,14 +9,14 @@ void callbackFunction(const Keycodes code)
 
 Input::Input() 
 {
-	InputFacade facade(callbackFunction);
+	facade = std::make_unique<InputFacade>(callbackFunction);
 }
 
 void Input::parseKeyBindings(std::string string) {};
 
 void Input::getKeyDown() 
 { 
-	facade.handleEvents();
+	facade->handleEvents();
 };
 
 void Input::getKeyUp()

@@ -3,7 +3,7 @@
 EngineController::EngineController() {
 	renderFacade = std::make_shared<RenderFacade>();
 	textureManager = std::make_shared<TextureManager>();
-	
+	input = std::make_unique<Input>();
 	initRenderer("delta dungeons", 800, 600, false);
 	StartGame();
 	//dummy data
@@ -35,9 +35,9 @@ void EngineController::StartGame() {
 	while (renderFacade->renderer->isRunning) {
 		renderFacade->setFrameStart();
 		// handle input
-		input.getKeyDown();
+		input.get()->getKeyDown();
 
-		EngineController::Render(gameObjects);
+		//EngineController::Render(gameObjects);
 		//loop through draw method
 
 		//change the values 

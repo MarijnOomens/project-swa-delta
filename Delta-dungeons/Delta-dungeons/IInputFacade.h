@@ -6,7 +6,7 @@
 class IInputFacade 
 {
 public:
-	InputWrapper* wrapper;
+	std::unique_ptr<InputWrapper> wrapper;
 	virtual void handleEvents();
 	virtual void mapKeyBindings(Keycodes code);
 };

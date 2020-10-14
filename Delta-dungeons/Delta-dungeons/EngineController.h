@@ -17,7 +17,7 @@ private:
 	std::shared_ptr<SceneManager> sceneManager;
 	std::shared_ptr<RenderFacade> renderFacade;
 	std::shared_ptr<TextureManager> textureManager;
-	Input input;
+	std::unique_ptr<Input> input;
 
 	void CreateGameObject();
 

@@ -5,7 +5,7 @@
 
 class Input {
 public:
-	InputFacade facade;
+	std::unique_ptr<InputFacade> facade;
 	Input();
 	void parseKeyBindings(std::string string);
 	void getKeyDown();
