@@ -1,6 +1,6 @@
 #pragma once
 
-enum Keyboardevent {
+enum KeyboardEvent {
 	KEY_PRESSED,
 	KEY_RELEASED
 };

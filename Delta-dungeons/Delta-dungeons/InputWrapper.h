@@ -1,7 +1,9 @@
 #pragma once
 #include "SDL.h"
 #include "Keycodes.h"
-typedef void (*cbFunction) (Keycodes);
+#include "Keyboardevent.h"
+
+typedef void (*cbFunction) (KeyCodes, KeyboardEvent);
 
 class InputWrapper {
 public:
@@ -13,7 +15,8 @@ public:
 
 	SDL_Event event;
 
-	void handleEvents();
-	void mapKeyBindings(const Keycodes code);
+	void handleKeyPressed();
+	void handleKeyReleased();
+	void mapKeyBindings(const KeyCodes code);
 
 };

@@ -2,9 +2,9 @@
 #include "IInputFacade.h"
 #include "InputWrapper.h"
 #include <memory>
-typedef void(*cbFunction) (Keycodes);
+typedef void(*cbFunction) (KeyCodes, KeyboardEvent);
 
-class InputFacade: public IInputFacade
+class InputFacade : public IInputFacade
 {
 public:
 	InputFacade();

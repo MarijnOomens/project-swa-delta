@@ -7,94 +7,41 @@ InputWrapper::InputWrapper(const cbFunction f) :func(f) {}
 
 InputWrapper::~InputWrapper() {};
 
-void InputWrapper::handleEvents() {
+void InputWrapper::handleKeyPressed() {
 	SDL_PollEvent(&event);
 	if (event.type == SDL_KEYDOWN)
 	{
 		switch (event.key.keysym.sym)
 		{
 		case SDLK_UP:
-			std::cout << "up is pressed" << std::endl;
-			func(KEY_UP);
+			func(KEY_UP, KEY_PRESSED);
 			break;
 		case SDLK_DOWN:
-			std::cout << "down is pressed" << std::endl;
-			func(KEY_DOWN);
+			func(KEY_DOWN, KEY_PRESSED);
 			break;
 		case SDLK_LEFT:
-			std::cout << "left is pressed" << std::endl;
-			func(KEY_LEFT);
+			func(KEY_LEFT, KEY_PRESSED);
 			break;
 		case SDLK_RIGHT:
-			std::cout << "right is pressed" << std::endl;
-			func(KEY_RIGHT);
+			func(KEY_RIGHT, KEY_PRESSED);
 			break;
 		case SDLK_w:
-			std::cout << "W is pressed" << std::endl;
-			func(KEY_W);
+			func(KEY_W, KEY_PRESSED);
 			break;
 		case SDLK_a:
-			std::cout << "A is pressed" << std::endl;
-			func(KEY_A);
+			func(KEY_A, KEY_PRESSED);
 			break;
 		case SDLK_s:
-			std::cout << "S is pressed" << std::endl;
-			func(KEY_S);
+			func(KEY_S, KEY_PRESSED);
 			break;
 		case SDLK_d:
-			std::cout << "D is pressed" << std::endl;
-			func(KEY_D);
+			func(KEY_D, KEY_PRESSED);
 			break;
 		case SDLK_q:
-			std::cout << "Q is pressed" << std::endl;
-			func(KEY_Q);
+			func(KEY_Q, KEY_PRESSED);
 			break;
 		case SDLK_e:
-			std::cout << "E is pressed" << std::endl;
-			func(KEY_E);
-			break;
-		default:
-			break;
-		}
-	}
-	else if (event.type == SDL_KEYUP)
-	{
-		switch (event.key.keysym.sym)
-		{
-		case SDLK_UP:
-			/*std::cout << "up is released" << std::endl;*/
-			break;
-		case SDLK_DOWN:
-			/*std::cout << "down is released" << std::endl;*/
-			break;
-		case SDLK_LEFT:
-			/*std::cout << "left is released" << std::endl;*/
-			break;
-		case SDLK_RIGHT:
-			/*std::cout << "right is released" << std::endl;*/
-			break;
-		case SDLK_w:
-			/*std::cout << "W is released" << std::endl;*/
-			func(KEY_W);
-			break;
-		case SDLK_a:
-			/*std::cout << "A is released" << std::endl;*/
-			func(KEY_A);
-			break;
-		case SDLK_s:
-			/*std::cout << "S is released" << std::endl;*/
-			func(KEY_S);
-			break;
-		case SDLK_d:
-			/*std::cout << "D is released" << std::endl;*/
-			func(KEY_D);
-			break;
-		case SDLK_q:
-			/*std::cout << "Q is released" << std::endl;*/
-			break;
-		case SDLK_e:
-			/*std::cout << "E is released" << std::endl;*/
-			func(KEY_E);
+			func(KEY_E, KEY_PRESSED);
 			break;
 		default:
 			break;
@@ -102,7 +49,49 @@ void InputWrapper::handleEvents() {
 	}
 }
 
-void InputWrapper::mapKeyBindings(const Keycodes code)
+void InputWrapper::handleKeyReleased() {
+	SDL_PollEvent(&event);
+	if (event.type == SDL_KEYDOWN)
+	{
+		switch (event.key.keysym.sym)
+		{
+		case SDLK_UP:
+			func(KEY_UP, KEY_RELEASED);
+			break;
+		case SDLK_DOWN:
+			func(KEY_DOWN, KEY_RELEASED);
+			break;
+		case SDLK_LEFT:
+			func(KEY_LEFT, KEY_RELEASED);
+			break;
+		case SDLK_RIGHT:
+			func(KEY_RIGHT, KEY_RELEASED);
+			break;
+		case SDLK_w:
+			func(KEY_W, KEY_RELEASED);
+			break;
+		case SDLK_a:
+			func(KEY_A, KEY_RELEASED);
+			break;
+		case SDLK_s:
+			func(KEY_S, KEY_RELEASED);
+			break;
+		case SDLK_d:
+			func(KEY_D, KEY_RELEASED);
+			break;
+		case SDLK_q:
+			func(KEY_Q, KEY_RELEASED);
+			break;
+		case SDLK_e:
+			func(KEY_E, KEY_RELEASED);
+			break;
+		default:
+			break;
+		}
+	}
+}
+
+void InputWrapper::mapKeyBindings(const KeyCodes code)
 {
 
 }

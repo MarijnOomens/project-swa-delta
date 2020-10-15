@@ -35,7 +35,8 @@ void EngineController::StartGame() {
 	while (renderFacade->renderer->isRunning) {
 		renderFacade->setFrameStart();
 		// handle input
-		input.get()->getKeyDown();
+		input.get()->getKeyPressed();
+		input.get()->getKeyReleased();
 
 		//EngineController::Render(gameObjects);
 		//loop through draw method

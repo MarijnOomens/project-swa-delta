@@ -1,10 +1,9 @@
 #include "Input.h"
 #include <iostream>
-typedef void(*cbFunction) (Keycodes);
 
-void callbackFunction(const Keycodes code)
+void callbackFunction(const KeyCodes keyCode, const KeyboardEvent keyboardEvent)
 {
-	//std::cout << code + "has been passed to the input class" << std::endl;
+	std::cout << "Code: " + std::to_string(keyCode) << " and KeyboardEvent: " + std::to_string(keyboardEvent) << std::endl;
 }
 
 Input::Input()
@@ -14,11 +13,12 @@ Input::Input()
 
 void Input::parseKeyBindings(std::string string) {};
 
-void Input::getKeyDown()
+void Input::getKeyPressed()
 {
-	facade->handleEvents();
+	facade->handleKeyPressed();
 };
 
-void Input::getKeyUp()
+void Input::getKeyReleased()
 {
+	facade->handleKeyReleased();
 };
