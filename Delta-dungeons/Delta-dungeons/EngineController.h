@@ -1,5 +1,5 @@
 #pragma once
-#include "GameObject.h"
+#include "BehaviourObject.h"
 #include "SceneManager.h"
 #include "RenderFacade.h"
 #include "TextureManager.h"
@@ -10,10 +10,9 @@ class EngineController {
 public:
 		EngineController();
 		~EngineController();
-		void Update(std::list<std::shared_ptr<GameObject>>& gameObjects);
-		void Render(std::list<std::shared_ptr<GameObject>>& gameObjects);
+		void Update(std::list<std::shared_ptr<BehaviourObject>>& bhObjects);
 private:
-	std::list<std::shared_ptr<GameObject>> gameObjects;
+	std::list<std::shared_ptr<BehaviourObject>> behaviourObjects;
 	std::list<int> hudLayers;
 	std::shared_ptr<SceneManager> sceneManager;
 	std::shared_ptr<RenderFacade> renderFacade;

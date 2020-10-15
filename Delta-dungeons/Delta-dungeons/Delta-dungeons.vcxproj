@@ -147,6 +147,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AssetManager.cpp" />
     <ClCompile Include="AudioWrapper.cpp" />
     <ClCompile Include="BehaviourObject.cpp" />
     <ClCompile Include="Berry.cpp" />
@@ -198,6 +199,7 @@
     <ClCompile Include="Vector2D.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AssetManager.h" />
     <ClInclude Include="AudioWrapper.h" />
     <ClInclude Include="BehaviourObject.h" />
     <ClInclude Include="Berry.h" />

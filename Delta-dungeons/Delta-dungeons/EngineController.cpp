@@ -14,8 +14,9 @@ EngineController::EngineController() {
 	Button* button = new Button(300, 250, { "button_play", "button_play_hover" }, gc);
 	// END DEBUG
 
-	gameObjects.emplace_back(button);
+	behaviourObjects.emplace_back(button);
 	initRenderer("delta dungeons", 800, 600, false);
+	StartGame();
 	//dummy data
 }
 
@@ -25,15 +26,11 @@ void EngineController::CreateGameObject() {
 	
 };
 
-void EngineController::Update(std::list<std::shared_ptr<GameObject>>& gameObjects) {
-	for(auto& gameObject : gameObjects)
+void EngineController::Update(std::list<std::shared_ptr<BehaviourObject>>& bhObjects) {
+	for(auto& bo : bhObjects)
 	{
-		gameObject.get()->Update();
+		bo.get()->Update();
 	}
-};
-
-void EngineController::Render(std::list<std::shared_ptr<GameObject>>& gameObjects) {
-	renderFacade->render(gameObjects);
 };
 
 void EngineController::initRenderer(const char* title, int width, int height, bool fullscreen) {
@@ -44,11 +41,8 @@ void EngineController::StartGame() {
 
 	while (renderFacade->renderer->isRunning) {
 		renderFacade->setFrameStart();
-		
-		EngineController::Render(gameObjects);
-		//loop through draw method
 
-		EngineController::Update(gameObjects);
+		EngineController::Update(behaviourObjects);
 		//change the values 
 		renderFacade->setFrameDelay();
 	}

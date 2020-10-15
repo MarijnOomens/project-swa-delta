@@ -16,7 +16,7 @@ public:
 	GraphicsComponent();
 	~GraphicsComponent();
 	void PlayAnimation(std::string path);
-	void SetTexture(std::string tex, std::string name);
+	void SetTexture(std::string name);
 	void callbackFunction() override;
 	//void draw();
 	void Update() override;

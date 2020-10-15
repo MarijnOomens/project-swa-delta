@@ -6,6 +6,7 @@
 #include "DrawController.h"
 #include "FrameManager.h"
 #include "Renderer.h"
+
 class RenderFacade {
 public:
 	RenderFacade();

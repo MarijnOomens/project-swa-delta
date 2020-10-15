@@ -7,12 +7,16 @@ Button::Button(int x, int y, TextureList textureList, GraphicsComponent* gc) {
 	transform.position.y = (float)y;
 
 	possibleTextures = textureList;
-	m_gc->SetTexture();
+	m_gc->SetTexture(possibleTextures[0]);
 };
 Button::~Button() {};
 
-void Button::Update() {
+int count = 0;
 
+void Button::Update() {
+	std::cout << count << std::endl;
+	count++;
+	//std::cout << "Button updated!" << std::endl;
 }
 
 void Button::connectCallback() {};

@@ -6,10 +6,10 @@ public:
 	FrameManager();
 	~FrameManager();
 
-	int FPS = 0;
-	int frameDelay = 0;
-	Uint32 frameStart = 0;
-	int frameTime = 0;
+	int FPS;
+	int frameDelay;
+	Uint32 frameStart;
+	int frameTime;
 
 	void setFrameStart();
 	void setFrameDelay();
