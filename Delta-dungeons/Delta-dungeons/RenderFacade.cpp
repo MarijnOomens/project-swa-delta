@@ -34,15 +34,27 @@ void RenderFacade::clean() {
 SDL_Texture* RenderFacade::loadTexture(const std::string* path) {
 	return RenderFacade::drawController->loadTexture(path->c_str());
 }
-void RenderFacade::drawTexture(const char* path, const Vector2D source2D, const Vector2D destination2D) {
+void RenderFacade::drawTexture(const char* path, const Vector2D& source2D, const Vector2D& destination2D) {
 
-	SDL_Rect* source = new SDL_Rect();
-	source->x = static_cast<int>(source2D.x);
-	source->y = static_cast<int>(source2D.y);
+	SDL_Rect source;
+	source.x = source2D.x;
+	source.y = source2D.y;
+	source.w = source2D.x;
+	source.h = source2D.x;
 
-	SDL_Rect* destination = new SDL_Rect();
-	destination->x = static_cast<int>(destination2D.x);
-	destination->y = static_cast<int>(destination2D.y);
+	SDL_Rect destination;
+	destination.x = 192;
+	destination.y = 0;
+	destination.w = 96;
+	destination.h = 96;
 
-	return RenderFacade::drawController->drawTexture(RenderFacade::drawController->loadTexture(path), source, destination);
+	RenderFacade::drawController->drawTexture(RenderFacade::drawController->loadTexture(path), source, destination);
+}
+
+void RenderFacade::beforeFrame() {
+	RenderFacade::renderer->beforeFrame();
+}
+
+void RenderFacade::afterFrame() {
+	RenderFacade::renderer->afterFrame();
 }

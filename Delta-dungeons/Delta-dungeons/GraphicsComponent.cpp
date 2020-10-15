@@ -1,6 +1,8 @@
 #include "GraphicsComponent.h"
 
-GraphicsComponent::GraphicsComponent() {};
+GraphicsComponent::GraphicsComponent() {
+	textureManager = std::make_unique<TextureManager>();
+};
 GraphicsComponent::~GraphicsComponent() {};
 void GraphicsComponent::PlayAnimation(std::string path) {};
 //void GraphicsComponent::draw() { 
@@ -12,7 +14,7 @@ void GraphicsComponent::callbackFunction() {
 };
 
 void GraphicsComponent::Update() {
-
+	textureManager->DrawTexture(textureName);
 }
 
 void GraphicsComponent::connectCallback() {

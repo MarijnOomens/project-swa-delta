@@ -11,10 +11,11 @@ EngineController::EngineController() {
 	// DEBUG
 	assetManager->addTexture("button_play", "Assets/button_play.png");
 	GraphicsComponent* gc = new GraphicsComponent();
+	behaviourObjects.emplace_back(gc);
 	Button* button = new Button(300, 250, { "button_play", "button_play_hover" }, gc);
+	behaviourObjects.emplace_back(button);
 	// END DEBUG
 
-	behaviourObjects.emplace_back(button);
 	initRenderer("delta dungeons", 800, 600, false);
 	StartGame();
 	//dummy data
@@ -41,9 +42,11 @@ void EngineController::StartGame() {
 
 	while (renderFacade->renderer->isRunning) {
 		renderFacade->setFrameStart();
+		renderFacade->beforeFrame();
 
 		EngineController::Update(behaviourObjects);
-		//change the values 
+		
+		renderFacade->afterFrame();
 		renderFacade->setFrameDelay();
 	}
 

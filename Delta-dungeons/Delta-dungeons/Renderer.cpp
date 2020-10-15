@@ -39,7 +39,6 @@ void Renderer::init(const char* title, int width, int height, bool fullscreen) {
 				throw("Failed to create Render!");
 			}
 			isRunning = true;
-			SDL_Delay(10000);
 		}
 		else {
 			throw("Subsystems are not initialised!");
@@ -105,6 +104,14 @@ void Renderer::clean() {
 	SDL_DestroyRenderer(Renderer::renderer);
 	SDL_Quit();
 	std::cout << "Game Cleaned" << std::endl;
+}
+
+void Renderer::beforeFrame() {
+	SDL_RenderClear(Renderer::renderer);
+}
+
+void Renderer::afterFrame() {
+	SDL_RenderPresent(Renderer::renderer);
 }
 
 //graph->texturemaanger->facade

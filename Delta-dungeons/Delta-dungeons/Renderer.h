@@ -21,6 +21,8 @@ public:
 	void updateCamera();
 	void render(std::list<std::shared_ptr<GameObject>> value);
 	void init(const char* title, const int width, const int height, const bool fullscreen);
+	void beforeFrame();
+	void afterFrame();
 private:
 
 };

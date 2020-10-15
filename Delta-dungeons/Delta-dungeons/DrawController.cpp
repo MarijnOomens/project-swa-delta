@@ -19,7 +19,7 @@ SDL_Texture* DrawController::loadTexture(const char* path) {
 	return tex;
 };
 
-void DrawController::drawTexture(SDL_Texture* texture, SDL_Rect* source, SDL_Rect* destination) {
+void DrawController::drawTexture(SDL_Texture* texture, SDL_Rect source, SDL_Rect destination) {
 	try {
 		if (Renderer::renderer == NULL) {
 			throw("Renderer is NULL!");
@@ -27,7 +27,8 @@ void DrawController::drawTexture(SDL_Texture* texture, SDL_Rect* source, SDL_Rec
 		else if (texture == NULL) {
 			throw("SDL_Texture is NULL!");
 		}
-		SDL_RenderCopyEx(Renderer::renderer, texture, source, destination, NULL, NULL, SDL_FLIP_NONE);
+		SDL_RenderCopyEx(Renderer::renderer, texture, &source, &destination, NULL, NULL, SDL_FLIP_NONE);
+		std::cout << "Copy rendered" << std::endl;
 	}
 	catch (std::string error) {
 		std::cout << "Error: " << error << std::endl;
