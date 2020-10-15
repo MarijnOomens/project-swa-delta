@@ -1,8 +1,6 @@
 #include "GraphicsComponent.h"
 
-GraphicsComponent::GraphicsComponent() {
-	textureManager = std::make_unique<TextureManager>();
-};
+GraphicsComponent::GraphicsComponent() {};
 GraphicsComponent::~GraphicsComponent() {};
 void GraphicsComponent::PlayAnimation(std::string path) {};
 //void GraphicsComponent::draw() { 
@@ -19,4 +17,8 @@ void GraphicsComponent::Update() {
 
 void GraphicsComponent::connectCallback() {
 
+}
+
+void GraphicsComponent::addTextureManager(std::shared_ptr<TextureManager> tm) {
+	textureManager = tm;
 }
