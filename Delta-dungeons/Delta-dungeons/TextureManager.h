@@ -7,11 +7,12 @@
 class TextureManager {
 public:
 	TextureManager();
+	TextureManager(std::shared_ptr<RenderFacade> rf);
 	~TextureManager();
 
 	void LoadTexture();
 	void DrawTexture(std::string name);
 private:
 	std::unique_ptr<AssetManager> assetManager;
-	std::unique_ptr<RenderFacade> renderFacade;
+	std::shared_ptr<RenderFacade> renderFacade;
 };

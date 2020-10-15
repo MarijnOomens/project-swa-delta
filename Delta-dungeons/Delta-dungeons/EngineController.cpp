@@ -5,7 +5,7 @@
 
 EngineController::EngineController() {
 	renderFacade = std::make_shared<RenderFacade>();
-	textureManager = std::make_shared<TextureManager>();
+	textureManager = std::make_shared<TextureManager>(renderFacade);
 	assetManager = std::make_shared<AssetManager>();
 
 	// DEBUG

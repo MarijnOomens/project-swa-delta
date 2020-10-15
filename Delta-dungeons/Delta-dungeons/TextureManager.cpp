@@ -1,8 +1,10 @@
 #include "TextureManager.h"
 
-TextureManager::TextureManager() {
+TextureManager::TextureManager() {};
+
+TextureManager::TextureManager(std::shared_ptr<RenderFacade> rf) {
 	assetManager = std::make_unique<AssetManager>();
-	renderFacade = std::make_unique<RenderFacade>();
+	renderFacade = rf;
 };
 TextureManager::~TextureManager() {};
 
