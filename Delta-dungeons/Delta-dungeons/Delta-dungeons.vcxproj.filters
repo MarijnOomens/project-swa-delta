@@ -377,5 +377,8 @@
     <ClInclude Include="InputWrapper.h">
       <Filter>Header Files\SDL\Input</Filter>
     </ClInclude>
+    <ClInclude Include="Keyboardevent.h">
+      <Filter>Header Files\Engine\Input</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
