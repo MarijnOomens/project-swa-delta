@@ -2,16 +2,11 @@
 
 Renderer::Renderer() {
 	camera = { 0, 0, 0, 0 };
-	sdlWindow = nullptr;
 };
 Renderer::~Renderer() {};
 
-SDL_Renderer* Renderer::renderer = nullptr;
-
-bool Renderer::isRunning = false;
-
 void Renderer::init(const char* title, int width, int height, bool fullscreen) {
-	Renderer::camera = { 0,0, width, height };
+	camera = { 0,0, width, height };
 
 	int flags = 0;
 	if (fullscreen) {
@@ -20,18 +15,18 @@ void Renderer::init(const char* title, int width, int height, bool fullscreen) {
 	try {
 		if (SDL_Init(SDL_INIT_EVERYTHING) == 0) {
 			std::cout << "Subsystems initialised!!!" << std::endl;
-			Renderer::sdlWindow = SDL_CreateWindow(title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, flags);
-			if (Renderer::sdlWindow) {
+			sdlWindow = SDL_CreateWindow(title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, flags);
+			if (sdlWindow) {
 				std::cout << "Window created!" << std::endl;
 			}
 			else {
 				isRunning = false;
 				throw("Failed to create window!");
 			}
-			Renderer::renderer = SDL_CreateRenderer(Renderer::sdlWindow, -1, 0);
-			if (Renderer::renderer)
+			sdlRenderer = SDL_CreateRenderer(sdlWindow, -1, 0);
+			if (sdlRenderer)
 			{
-				SDL_SetRenderDrawColor(Renderer::renderer, 255, 255, 255, 255);
+				SDL_SetRenderDrawColor(sdlRenderer, 255, 0, 255, 255);
 				std::cout << "Renderer created!" << std::endl;
 			}
 			else {
@@ -39,7 +34,6 @@ void Renderer::init(const char* title, int width, int height, bool fullscreen) {
 				throw("Failed to create Render!");
 			}
 			isRunning = true;
-			//SDL_Delay(10000);
 		}
 		else {
 			throw("Subsystems are not initialised!");
@@ -80,7 +74,7 @@ void Renderer::updateCamera() {
 }
 
 void Renderer::render(std::list<std::shared_ptr<GameObject>> gameObjects) {
-	SDL_RenderClear(Renderer::renderer);
+	SDL_RenderClear(sdlRenderer);
 
 	try {
 		if (gameObjects.empty()) {
@@ -99,12 +93,12 @@ void Renderer::render(std::list<std::shared_ptr<GameObject>> gameObjects) {
 		std::cout << "Error: " << error << std::endl;
 	}
 	//call SDL_RenderCopyEx() for every gameobject
-	SDL_RenderPresent(Renderer::renderer);
+	SDL_RenderPresent(sdlRenderer);
 }
 
 void Renderer::clean() {
-	SDL_DestroyWindow(Renderer::sdlWindow);
-	SDL_DestroyRenderer(Renderer::renderer);
+	SDL_DestroyWindow(sdlWindow);
+	SDL_DestroyRenderer(sdlRenderer);
 	SDL_Quit();
 	std::cout << "Game Cleaned" << std::endl;
 }
