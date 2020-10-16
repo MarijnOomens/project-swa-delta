@@ -6,9 +6,9 @@ std::string RenderFacade::constructorError() const noexcept {
 }
 
 RenderFacade::RenderFacade() {
-	RenderFacade::drawController = std::make_shared<DrawController>();
 	RenderFacade::frameManager = std::make_shared<FrameManager>();
 	RenderFacade::renderer = std::make_shared<Renderer>();
+	RenderFacade::drawController = std::make_shared<DrawController>(renderer);
 }
 
 void RenderFacade::init(const char* title, const int width, const int height, const bool fullscreen) {
