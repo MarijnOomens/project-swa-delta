@@ -1,14 +1,16 @@
 #include "Input.h"
 #include <iostream>
 
-void callbackFunction(const KeyCodes keyCode, const KeyboardEvent keyboardEvent)
+void Input::staticCallbackFunction(void * p,const KeyCodes keyCode, const KeyboardEvent keyboardEvent)
 {
-	std::cout << "Code: " + std::to_string(keyCode) << " and KeyboardEvent: " + std::to_string(keyboardEvent) << std::endl;
+	((Input*)p)->callBackFunction(keyCode,keyboardEvent);
+	
 }
 
-Input::Input()
-{
-	facade = std::make_unique<InputFacade>(callbackFunction);
+Input::Input(){
+//Input::Input(const cbFunction f) :func(f)
+//{
+	facade = std::make_unique<InputFacade>(staticCallbackFunction,this);
 }
 
 void Input::parseKeyBindings(std::string string) {};
@@ -22,3 +24,8 @@ void Input::getKeyReleased()
 {
 	facade->handleKeyReleased();
 };
+
+void Input::callBackFunction(KeyCodes keyCode, KeyboardEvent keyboardEvent) 
+{
+	std::cout << "has been passed to input" << std::endl;
+}

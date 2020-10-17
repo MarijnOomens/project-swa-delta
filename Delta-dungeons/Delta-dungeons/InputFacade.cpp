@@ -2,8 +2,8 @@
 
 InputFacade::InputFacade() {};
 
-InputFacade::InputFacade(const cbFunction f) {
-	wrapper = std::make_unique<InputWrapper>(f);
+InputFacade::InputFacade(const cbFunction f, void *p) {
+	wrapper = std::make_unique<InputWrapper>(f,p);
 }
 
 void IInputFacade::handleKeyPressed() 

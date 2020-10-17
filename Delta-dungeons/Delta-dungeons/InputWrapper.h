@@ -3,14 +3,16 @@
 #include "Keycodes.h"
 #include "Keyboardevent.h"
 
-typedef void (*cbFunction) (KeyCodes, KeyboardEvent);
+
+typedef void(*cbFunction) (void*, KeyCodes, KeyboardEvent);
 
 class InputWrapper {
 public:
 	cbFunction func;
+	void* pointer;
 
 	InputWrapper();
-	InputWrapper(const cbFunction f);
+	InputWrapper(const cbFunction f, void *p);
 	~InputWrapper();
 
 	SDL_Event event;

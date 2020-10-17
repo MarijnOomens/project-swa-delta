@@ -3,7 +3,7 @@
 
 InputWrapper::InputWrapper() {}
 
-InputWrapper::InputWrapper(const cbFunction f) :func(f) {}
+InputWrapper::InputWrapper(const cbFunction f, void* p) :func(f),pointer(p) {}
 
 InputWrapper::~InputWrapper() {};
 
@@ -14,34 +14,34 @@ void InputWrapper::handleKeyPressed() {
 		switch (event.key.keysym.sym)
 		{
 		case SDLK_UP:
-			func(KEY_UP, KEY_PRESSED);
+			func(pointer,KEY_UP, KEY_PRESSED);
 			break;
 		case SDLK_DOWN:
-			func(KEY_DOWN, KEY_PRESSED);
+			func(pointer, KEY_DOWN, KEY_PRESSED);
 			break;
 		case SDLK_LEFT:
-			func(KEY_LEFT, KEY_PRESSED);
+			func(pointer, KEY_LEFT, KEY_PRESSED);
 			break;
 		case SDLK_RIGHT:
-			func(KEY_RIGHT, KEY_PRESSED);
+			func(pointer, KEY_RIGHT, KEY_PRESSED);
 			break;
 		case SDLK_w:
-			func(KEY_W, KEY_PRESSED);
+			func(pointer, KEY_W, KEY_PRESSED);
 			break;
 		case SDLK_a:
-			func(KEY_A, KEY_PRESSED);
+			func(pointer, KEY_A, KEY_PRESSED);
 			break;
 		case SDLK_s:
-			func(KEY_S, KEY_PRESSED);
+			func(pointer, KEY_S, KEY_PRESSED);
 			break;
 		case SDLK_d:
-			func(KEY_D, KEY_PRESSED);
+			func(pointer, KEY_D, KEY_PRESSED);
 			break;
 		case SDLK_q:
-			func(KEY_Q, KEY_PRESSED);
+			func(pointer, KEY_Q, KEY_PRESSED);
 			break;
 		case SDLK_e:
-			func(KEY_E, KEY_PRESSED);
+			func(pointer, KEY_E, KEY_PRESSED);
 			break;
 		default:
 			break;
@@ -56,34 +56,34 @@ void InputWrapper::handleKeyReleased() {
 		switch (event.key.keysym.sym)
 		{
 		case SDLK_UP:
-			func(KEY_UP, KEY_RELEASED);
+			func(pointer, KEY_UP, KEY_RELEASED);
 			break;
 		case SDLK_DOWN:
-			func(KEY_DOWN, KEY_RELEASED);
+			func(pointer, KEY_DOWN, KEY_RELEASED);
 			break;
 		case SDLK_LEFT:
-			func(KEY_LEFT, KEY_RELEASED);
+			func(pointer, KEY_LEFT, KEY_RELEASED);
 			break;
 		case SDLK_RIGHT:
-			func(KEY_RIGHT, KEY_RELEASED);
+			func(pointer, KEY_RIGHT, KEY_RELEASED);
 			break;
 		case SDLK_w:
-			func(KEY_W, KEY_RELEASED);
+			func(pointer, KEY_W, KEY_RELEASED);
 			break;
 		case SDLK_a:
-			func(KEY_A, KEY_RELEASED);
+			func(pointer, KEY_A, KEY_RELEASED);
 			break;
 		case SDLK_s:
-			func(KEY_S, KEY_RELEASED);
+			func(pointer, KEY_S, KEY_RELEASED);
 			break;
 		case SDLK_d:
-			func(KEY_D, KEY_RELEASED);
+			func(pointer, KEY_D, KEY_RELEASED);
 			break;
 		case SDLK_q:
-			func(KEY_Q, KEY_RELEASED);
+			func(pointer, KEY_Q, KEY_RELEASED);
 			break;
 		case SDLK_e:
-			func(KEY_E, KEY_RELEASED);
+			func(pointer, KEY_E, KEY_RELEASED);
 			break;
 		default:
 			break;
