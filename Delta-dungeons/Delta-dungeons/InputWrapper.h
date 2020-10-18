@@ -1,19 +1,24 @@
 #pragma once
 #include "SDL.h"
 #include "Keycodes.h"
-typedef void (*cbFunction) (Keycodes);
+#include "Keyboardevent.h"
+
+
+typedef void(*cbFunction) (void*, KeyCodes, KeyboardEvent);
 
 class InputWrapper {
 public:
 	cbFunction func;
+	void* pointer;
 
 	InputWrapper();
-	InputWrapper(const cbFunction f);
+	InputWrapper(const cbFunction f, void *p);
 	~InputWrapper();
 
 	SDL_Event event;
 
-	void handleEvents();
-	void mapKeyBindings(const Keycodes code);
+	void handleKeyPressed();
+	void handleKeyReleased();
+	void mapKeyBindings(const KeyCodes code);
 
 };

@@ -2,11 +2,11 @@
 #include "IInputFacade.h"
 #include "InputWrapper.h"
 #include <memory>
-typedef void(*cbFunction) (Keycodes);
+typedef void(*callbackFunction) (void*,KeyCodes, KeyboardEvent);
 
-class InputFacade: IInputFacade
+class InputFacade: public IInputFacade
 {
 public:
-	std::unique_ptr<InputWrapper> wrapper;
-	InputFacade(const cbFunction f);
+	InputFacade();
+	InputFacade(const cbFunction f, void *p);
 };

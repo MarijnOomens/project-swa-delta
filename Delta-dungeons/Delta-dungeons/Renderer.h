@@ -10,8 +10,8 @@ public:
 	Renderer();
 	~Renderer();
 
-	static SDL_Renderer* renderer;
-	static bool isRunning;
+	SDL_Renderer* sdlRenderer;
+	bool isRunning;
 	SDL_Rect camera = { 0, 0, 0, 0 };
 
 	SDL_Window* sdlWindow;
