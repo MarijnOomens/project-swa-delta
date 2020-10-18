@@ -6,10 +6,11 @@
 class Player : public GameObject {
 
 public:
-	Player();
 	void damagePlayer(int damage);
 	void updateCaughtPokemon(int id);
 	void handleInput(const KeyCodes keyCodes, const KeyboardEvent keyboardEvent) override;
+	void callbackFunction() override;
+	void connectCallback() override;
 private:
 	int health;
 	std::vector<Equipment> equipment;

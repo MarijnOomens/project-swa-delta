@@ -1,11 +1,26 @@
 #include "EngineController.h"
 #include "Player.h"
 
+
+EngineController::EngineController() {
+	renderFacade = std::make_shared<RenderFacade>();
+	textureManager = std::make_shared<TextureManager>();
+	input = std::make_shared<Input>(staticInputCallbackFunction, this);
+
+	initRenderer("delta dungeons", 800, 600, false);
+	startGame();
+}
+
+EngineController::~EngineController() {};
+
+#pragma region input
+// Get callback from Input
 void EngineController::staticInputCallbackFunction(void* p, const KeyCodes keyCode, const KeyboardEvent keyboardEvent)
 {
 	((EngineController*)p)->inputCallbackFunction(keyCode, keyboardEvent);
 }
 
+// Handle callback from staticInputCallbackFunction
 void EngineController::inputCallbackFunction(const KeyCodes keyCode, const KeyboardEvent keyboardEvent)
 {
 	for (auto& gameObject : gameObjects)
@@ -13,19 +28,7 @@ void EngineController::inputCallbackFunction(const KeyCodes keyCode, const Keybo
 		gameObject.get()->handleInput(keyCode, keyboardEvent);
 	}
 }
-
-EngineController::EngineController() {
-	renderFacade = std::make_shared<RenderFacade>();
-	textureManager = std::make_shared<TextureManager>();
-	input = std::make_shared<Input>(staticInputCallbackFunction, this);
-	gameObjects.emplace_back(std::make_shared<Player>());
-
-	initRenderer("delta dungeons", 800, 600, false);
-	startGame();
-	//dummy data
-}
-
-EngineController::~EngineController() {};
+#pragma endregion input handling
 
 void EngineController::createGameObject() {
 
