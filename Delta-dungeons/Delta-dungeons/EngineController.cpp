@@ -39,9 +39,16 @@ void EngineController::initRenderer(const char* title, int width, int height, bo
 	EngineController::renderFacade->init(title, width, height, fullscreen);
 };
 
+SDL_Event evt;
+
 void EngineController::StartGame() {
 
 	while (renderFacade->renderer->isRunning) {
+
+		SDL_WaitEvent(&evt);
+		if (evt.type == SDL_QUIT)
+			renderFacade->renderer.get()->stop();
+
 		renderFacade->setFrameStart();
 		renderFacade->beforeFrame();
 
