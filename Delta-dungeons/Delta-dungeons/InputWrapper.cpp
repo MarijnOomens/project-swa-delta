@@ -3,7 +3,7 @@
 
 InputWrapper::InputWrapper() {}
 
-InputWrapper::InputWrapper(const cbFunction f, void* p) :func(f),pointer(p) {}
+InputWrapper::InputWrapper(const cbFunction f, void* p) :func(f), pointer(p) {}
 
 InputWrapper::~InputWrapper() {};
 
@@ -14,7 +14,7 @@ void InputWrapper::handleKeyPressed() {
 		switch (event.key.keysym.sym)
 		{
 		case SDLK_UP:
-			func(pointer,KEY_UP, KEY_PRESSED);
+			func(pointer, KEY_UP, KEY_PRESSED);
 			break;
 		case SDLK_DOWN:
 			func(pointer, KEY_DOWN, KEY_PRESSED);

@@ -4,15 +4,16 @@
 #include "Keyboardevent.h"
 #include "InputFacade.h"
 
-//typedef void(*cbFunction) (void*,KeyCodes, KeyboardEvent);
+typedef void(*cbFunction) (void*, KeyCodes, KeyboardEvent);
 
 class Input {
 public:
-	//cbFunction func;
+	cbFunction func;
+	void* pointer;
 	std::unique_ptr<InputFacade> facade;
 
 	Input();
-	//Input(const cbFunction f);
+	Input(const cbFunction f, void *p);
 	void parseKeyBindings(std::string string);
 	void getKeyPressed();
 	void getKeyReleased();
