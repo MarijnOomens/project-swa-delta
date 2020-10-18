@@ -1,6 +1,6 @@
 #pragma once
-#include "BehaviourObject.h";
-#include <vector>;
+#include "BehaviourObject.h"
+#include <vector>
 
 class GameObject : public BehaviourObject {
 public:
