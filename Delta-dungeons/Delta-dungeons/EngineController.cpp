@@ -8,18 +8,8 @@ EngineController::EngineController() {
 	textureManager = std::make_shared<TextureManager>(renderFacade);
 	assetManager = std::make_shared<AssetManager>();
 
-	// DEBUG
-	assetManager->addTexture("button_play", "Assets/button_play.png");
-	GraphicsComponent* gc = new GraphicsComponent();
-	gc->addTextureManager(textureManager);
-	behaviourObjects.emplace_back(gc);
-	Button* button = new Button(300, 250, { "button_play", "button_play_hover" }, gc);
-	behaviourObjects.emplace_back(button);
-	// END DEBUG
-
 	initRenderer("delta dungeons", 800, 600, false);
 	StartGame();
-	//dummy data
 }
 
 EngineController::~EngineController() {};
