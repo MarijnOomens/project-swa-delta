@@ -125,7 +125,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>sdl2.lib;sdl2main.lib;sdl2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -143,12 +143,13 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>sdl2.lib;sdl2main.lib;sdl2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AssetManager.cpp" />
     <ClCompile Include="AudioWrapper.cpp" />
-    <ClCompile Include="BehaviourComponent.cpp" />
+    <ClCompile Include="BehaviourObject.cpp" />
     <ClCompile Include="Berry.cpp" />
     <ClCompile Include="Boomerang.cpp" />
     <ClCompile Include="Button.cpp" />
@@ -198,6 +199,7 @@
     <ClCompile Include="Vector2D.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AssetManager.h" />
     <ClInclude Include="AudioWrapper.h" />
     <ClInclude Include="BehaviourObject.h" />
     <ClInclude Include="Berry.h" />

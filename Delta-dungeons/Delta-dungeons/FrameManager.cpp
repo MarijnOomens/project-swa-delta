@@ -2,12 +2,12 @@
 
 FrameManager::FrameManager() {
 	FPS = 60; 
-	frameDelay = 60 / 1000;
+	frameDelay = 1000 / FPS;
+
+	frameStart = 0;
+	frameTime = 0;
 }
 FrameManager::~FrameManager() {};
-
-Uint32 frameStart = 0;
-int frameTime = 0;
 
 void FrameManager::setFrameStart() {
 	frameStart = SDL_GetTicks();

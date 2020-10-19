@@ -83,9 +83,7 @@ void Renderer::render(std::list<std::shared_ptr<GameObject>> gameObjects) {
 		else {
 			for (auto& t : gameObjects)
 			{
-
-				t.get()->draw();
-
+				// TODO: Render all GraphicsComponents instead of GameObjects
 			}
 		}
 	}
@@ -101,6 +99,14 @@ void Renderer::clean() {
 	SDL_DestroyRenderer(sdlRenderer);
 	SDL_Quit();
 	std::cout << "Game Cleaned" << std::endl;
+}
+
+void Renderer::beforeFrame() {
+	SDL_RenderClear(sdlRenderer);
+}
+
+void Renderer::afterFrame() {
+	SDL_RenderPresent(sdlRenderer);
 }
 
 //graph->texturemaanger->facade

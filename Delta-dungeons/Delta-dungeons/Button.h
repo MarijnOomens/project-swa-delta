@@ -1,12 +1,23 @@
 #pragma once
 #include <string>
+#include "GameObject.h"
+#include <memory>
+#include "GraphicsComponent.h"
 
-class Button
+using TextureList = std::vector<std::string>;
+
+class Button : public GameObject
 {
 
 public:
-	void click();
+	Button(int x, int y, TextureList textureList, GraphicsComponent* gc);
+	~Button();
+	void Update() override;
+	void connectCallback() override;
+	void callbackFunction() override;
 
-private: 
+private:
 	std::string text;
+	TextureList possibleTextures;
+	GraphicsComponent* m_gc;
 };

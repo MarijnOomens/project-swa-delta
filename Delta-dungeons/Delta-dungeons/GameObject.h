@@ -1,18 +1,14 @@
 #pragma once
-#include "BehaviourObject.h";
-#include <vector>;
-#include "GraphicsComponent.h"
+#include "BehaviourObject.h"
+#include <vector>
 
 class GameObject : public BehaviourObject {
 public:
 	GameObject();
 	~GameObject();
 
-	GraphicsComponent graphicsComponent;
-	void ConnectCallback(); //Add callbackfunction
-	void Update();
-	void draw();
-private:
-	std::vector<BehaviourObject> components;
-	bool checkGraphicsComponent();
+	virtual void ConnectCallback(); //Add callbackfunction
+	virtual void Update();
+	std::vector<BehaviourObject*> components;
+	void addComponent(BehaviourObject* comp);
 };

@@ -2,8 +2,8 @@
 #include "GameObject.h"
 #include <list>
 #include <iostream>
-#include <array>;
-#include <vector>;
+#include <array>
+#include <vector>
 
 class Scene {
 public: 

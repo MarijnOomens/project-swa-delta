@@ -198,9 +198,6 @@
     <ClCompile Include="ColliderComponent.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="BehaviourComponent.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
     <ClCompile Include="DialoguePopup.cpp">
       <Filter>Source Files\Game\GameObjects</Filter>
     </ClCompile>
@@ -216,6 +213,11 @@
     <ClCompile Include="RenderFacade.cpp">
       <Filter>Source Files\SDL</Filter>
     </ClCompile>
+    <ClCompile Include="BehaviourObject.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="AssetManager.cpp">
+      <Filter>Source Files\Engine</Filter>
     <ClCompile Include="InputWrapper.cpp">
       <Filter>Source Files\SDL\Input</Filter>
     </ClCompile>
@@ -374,6 +376,8 @@
     <ClInclude Include="RenderFacade.h">
       <Filter>Header Files\SDL</Filter>
     </ClInclude>
+    <ClInclude Include="AssetManager.h">
+      <Filter>Header Files\Engine</Filter>
     <ClInclude Include="InputWrapper.h">
       <Filter>Header Files\SDL\Input</Filter>
     </ClInclude>

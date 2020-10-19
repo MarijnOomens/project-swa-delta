@@ -1,15 +1,15 @@
 #include "EngineController.h"
-#include "Player.h"
-
+#include <vector>
+#include "GraphicsComponent.h"
 
 EngineController::EngineController() {
 	renderFacade = std::make_shared<RenderFacade>();
-	textureManager = std::make_shared<TextureManager>();
+	textureManager = std::make_shared<TextureManager>(renderFacade);
+	assetManager = std::make_shared<AssetManager>();
 	input = std::make_shared<Input>(staticInputCallbackFunction, this);
 
 	initRenderer("delta dungeons", 800, 600, false);
-	startGame();
-}
+	StartGame();
 
 EngineController::~EngineController() {};
 
@@ -34,25 +34,33 @@ void EngineController::createGameObject() {
 
 };
 
-void EngineController::update(std::list<std::shared_ptr<GameObject>>& gameObjects) {
-	for (auto& gameObject : gameObjects)
+void EngineController::Update(std::list<std::shared_ptr<BehaviourObject>>& bhObjects) {
+	for(auto& bo : bhObjects)
 	{
-		gameObject.get()->Update();
+		bo.get()->Update();
 	}
-};
-
-void EngineController::render(std::list<std::shared_ptr<GameObject>>& gameObjects) {
-	renderFacade->render(gameObjects);
 };
 
 void EngineController::initRenderer(const char* title, int width, int height, bool fullscreen) {
 	EngineController::renderFacade->init(title, width, height, fullscreen);
 };
 
-void EngineController::startGame() {
+SDL_Event evt;
+
+void EngineController::StartGame() {
 
 	while (renderFacade->renderer->isRunning) {
+
+		SDL_WaitEvent(&evt);
+		if (evt.type == SDL_QUIT)
+			renderFacade->renderer.get()->stop();
+
 		renderFacade->setFrameStart();
+		renderFacade->beforeFrame();
+
+		EngineController::Update(behaviourObjects);
+		
+		renderFacade->afterFrame();
 
 		// handle input
 		input.get()->getKeyPressed();
