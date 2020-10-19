@@ -228,6 +228,7 @@
     <ClInclude Include="InteractiveManager.h" />
     <ClInclude Include="InteractiveObject.h" />
     <ClInclude Include="JSONSceneParser.h" />
+    <ClInclude Include="Keyboardevent.h" />
     <ClInclude Include="Keycodes.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="NPC.h" />

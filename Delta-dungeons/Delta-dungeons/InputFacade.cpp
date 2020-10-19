@@ -1,14 +1,22 @@
 #include "InputFacade.h"
 
-InputFacade::InputFacade(const cbFunction f) {
-	wrapper = std::make_unique<InputWrapper>(f);
+InputFacade::InputFacade() {};
+
+InputFacade::InputFacade(const cbFunction f, void *p) {
+	wrapper = std::make_unique<InputWrapper>(f,p);
 }
 
-void IInputFacade::handleEvents() {
-
+void IInputFacade::handleKeyPressed() 
+{
+	wrapper->handleKeyPressed();
 }
 
-void IInputFacade::mapKeyBindings(Keycodes code)
+void IInputFacade::handleKeyReleased() 
+{
+	wrapper->handleKeyReleased();
+}
+
+void IInputFacade::mapKeyBindings(KeyCodes keyCode)
 {
 
 }

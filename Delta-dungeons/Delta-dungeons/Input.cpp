@@ -1,23 +1,31 @@
 #include "Input.h"
 #include <iostream>
-typedef void(*cbFunction) (Keycodes);
 
-void callbackFunction(const Keycodes code)
+void Input::staticCallbackFunction(void* p, const KeyCodes keyCode, const KeyboardEvent keyboardEvent)
 {
-	std::cout << code + "has been passed to the input class" << std::endl;
+	((Input*)p)->callBackFunction(keyCode, keyboardEvent);
 }
 
-Input::Input() 
+Input::Input() {}
+
+Input::Input(const cbFunction f, void* p) :func(f), pointer(p)
 {
-	InputFacade facade(callbackFunction);
+	facade = std::make_unique<InputFacade>(staticCallbackFunction, this);
 }
 
 void Input::parseKeyBindings(std::string string) {};
 
-void Input::getKeyDown() 
-{ 
+void Input::getKeyPressed()
+{
+	facade->handleKeyPressed();
 };
 
-void Input::getKeyUp()
+void Input::getKeyReleased()
 {
+	facade->handleKeyReleased();
 };
+
+void Input::callBackFunction(KeyCodes keyCode, KeyboardEvent keyboardEvent)
+{
+	func(pointer, keyCode, keyboardEvent);
+}
