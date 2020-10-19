@@ -9,7 +9,8 @@ EngineController::EngineController() {
 	input = std::make_shared<Input>(staticInputCallbackFunction, this);
 
 	initRenderer("delta dungeons", 800, 600, false);
-	StartGame();
+	startGame();
+}
 
 EngineController::~EngineController() {};
 
@@ -23,7 +24,7 @@ void EngineController::staticInputCallbackFunction(void* p, const KeyCodes keyCo
 // Handle callback from staticInputCallbackFunction
 void EngineController::inputCallbackFunction(const KeyCodes keyCode, const KeyboardEvent keyboardEvent)
 {
-	for (auto& gameObject : gameObjects)
+	for (auto& gameObject : behaviourObjects)
 	{
 		gameObject.get()->handleInput(keyCode, keyboardEvent);
 	}
@@ -47,7 +48,7 @@ void EngineController::initRenderer(const char* title, int width, int height, bo
 
 SDL_Event evt;
 
-void EngineController::StartGame() {
+void EngineController::startGame() {
 
 	while (renderFacade->renderer->isRunning) {
 

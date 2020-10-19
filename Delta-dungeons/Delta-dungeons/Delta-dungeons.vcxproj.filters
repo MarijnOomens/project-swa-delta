@@ -218,6 +218,7 @@
     </ClCompile>
     <ClCompile Include="AssetManager.cpp">
       <Filter>Source Files\Engine</Filter>
+    </ClCompile>
     <ClCompile Include="InputWrapper.cpp">
       <Filter>Source Files\SDL\Input</Filter>
     </ClCompile>
@@ -378,6 +379,7 @@
     </ClInclude>
     <ClInclude Include="AssetManager.h">
       <Filter>Header Files\Engine</Filter>
+    </ClInclude>
     <ClInclude Include="InputWrapper.h">
       <Filter>Header Files\SDL\Input</Filter>
     </ClInclude>
