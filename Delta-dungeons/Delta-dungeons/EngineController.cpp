@@ -2,6 +2,7 @@
 #include <vector>
 #include "GraphicsComponent.h"
 #include "Button.h"
+#include "Player.h"
 
 EngineController::EngineController() {
 	renderFacade = std::make_shared<RenderFacade>();
@@ -9,9 +10,10 @@ EngineController::EngineController() {
 	assetManager = std::make_shared<AssetManager>();
 	input = std::make_shared<Input>(staticInputCallbackFunction, this);
 
-	GraphicsComponent* gc = new GraphicsComponent();
-	Button* button = new Button(30, 30, { "button_default.jpg" }, gc);
-	behaviourObjects.emplace_back(button);
+
+	GraphicsComponent* gc1 = new GraphicsComponent();
+	Player* player = new Player();
+	behaviourObjects.emplace_back(player);
 
 	initRenderer("delta dungeons", 800, 600, false);
 	startGame();
@@ -51,15 +53,14 @@ void EngineController::initRenderer(const char* title, int width, int height, bo
 	EngineController::renderFacade->init(title, width, height, fullscreen);
 };
 
-SDL_Event evt;
-
 void EngineController::startGame() {
 
 	while (renderFacade->renderer->isRunning) {
 
+		/*SDL_Event evt;
 		SDL_WaitEvent(&evt);
-		if (evt.type == SDL_QUIT)
-			renderFacade->renderer.get()->stop();
+		if (evt.type == SDL_QUIT) 
+			renderFacade->renderer.get()->stop();*/
 
 		renderFacade->setFrameStart();
 		renderFacade->beforeFrame();
