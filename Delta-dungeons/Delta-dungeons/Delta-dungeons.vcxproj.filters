@@ -231,6 +231,12 @@
     <ClCompile Include="json11.cpp">
       <Filter>Source Files\Engine\JSON11</Filter>
     </ClCompile>
+    <ClCompile Include="JSONParser.cpp">
+      <Filter>Source Files\Engine\JSON11</Filter>
+    </ClCompile>
+    <ClCompile Include="JSONFacade.cpp">
+      <Filter>Source Files\Engine\JSON11</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h">
@@ -396,6 +402,12 @@
       <Filter>Header Files\Engine\Input</Filter>
     </ClInclude>
     <ClInclude Include="json11.hpp">
+      <Filter>Header Files\Engine\JSON11</Filter>
+    </ClInclude>
+    <ClInclude Include="JSONParser.h">
+      <Filter>Header Files\Engine\JSON11</Filter>
+    </ClInclude>
+    <ClInclude Include="JSONFacade.h">
       <Filter>Header Files\Engine\JSON11</Filter>
     </ClInclude>
   </ItemGroup>
