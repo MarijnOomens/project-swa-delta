@@ -18,3 +18,5 @@ void GraphicsComponent::connectCallback() {
 void GraphicsComponent::addTextureManager(std::shared_ptr<TextureManager> tm) {
 	textureManager = tm;
 }
+
+void GraphicsComponent::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) {}

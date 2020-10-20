@@ -14,8 +14,10 @@ Button::~Button() {};
 int count = 0;
 
 void Button::Update() {
-
+	std::cout << "AAAAA" << std::endl;
 }
+
+void Button::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) {};
 
 void Button::connectCallback() {};
 void Button::callbackFunction() {};

@@ -8,10 +8,10 @@ class BehaviourObject {
 	virtual void connectCallback() = 0;
 	
 public:
+	virtual void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) = 0;
 	virtual void Update() = 0;
 	Transform transform;
 	BehaviourObject();
 	~BehaviourObject();
 
-	virtual void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) = 0;
 };

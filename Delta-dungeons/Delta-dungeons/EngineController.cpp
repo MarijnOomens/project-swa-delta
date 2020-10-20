@@ -1,12 +1,17 @@
 #include "EngineController.h"
 #include <vector>
 #include "GraphicsComponent.h"
+#include "Button.h"
 
 EngineController::EngineController() {
 	renderFacade = std::make_shared<RenderFacade>();
 	textureManager = std::make_shared<TextureManager>(renderFacade);
 	assetManager = std::make_shared<AssetManager>();
 	input = std::make_shared<Input>(staticInputCallbackFunction, this);
+
+	GraphicsComponent* gc = new GraphicsComponent();
+	Button* button = new Button(30, 30, { "button_default.jpg" }, gc);
+	behaviourObjects.emplace_back(button);
 
 	initRenderer("delta dungeons", 800, 600, false);
 	startGame();
