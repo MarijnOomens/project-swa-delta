@@ -10,7 +10,7 @@ void GraphicsComponent::callbackFunction() {
 };
 
 void GraphicsComponent::Update() {
-	textureManager->DrawTexture(textureName);
+	textureManager->DrawTexture(textureName, this->transform.position);
 }
 
 void GraphicsComponent::connectCallback() {

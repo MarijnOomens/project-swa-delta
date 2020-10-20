@@ -11,7 +11,7 @@ public:
 	~TextureManager();
 
 	void LoadTexture();
-	void DrawTexture(std::string name);
+	void DrawTexture(std::string name, Vector2D position);
 private:
 	std::shared_ptr<AssetManager> assetManager;
 	std::shared_ptr<RenderFacade> renderFacade;

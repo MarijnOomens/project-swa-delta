@@ -34,7 +34,7 @@ void RenderFacade::clean() {
 SDL_Texture* RenderFacade::loadTexture(const std::string* path) {
 	return RenderFacade::drawController->loadTexture(path->c_str());
 }
-void RenderFacade::drawTexture(const char* path, const Vector2D& source2D, const Vector2D& destination2D) {
+void RenderFacade::drawTexture(const char* path, const Vector2D& destination2D) {
 	Vector2D size;
 
 	SDL_Texture* texture = drawController->loadTexture(path);
@@ -48,10 +48,10 @@ void RenderFacade::drawTexture(const char* path, const Vector2D& source2D, const
 
 
 	SDL_Rect destination;
-	destination.x = 100; // Locatie waar je de texture wilt tekenen.
-	destination.y = 100; //
-	destination.w = destination2D.x; // Moet eigenlijk width en height zijn, maar 'Vector2D' heeft alleen x en y variabelen.
-	destination.h = destination2D.y; //
+	destination.x = destination2D.x; // Locatie waar je de texture wilt tekenen.
+	destination.y = destination2D.y; //
+	destination.w = size.x; // Moet eigenlijk width en height zijn, maar 'Vector2D' heeft alleen x en y variabelen.
+	destination.h = size.y; //
 
 
 	RenderFacade::drawController->drawTexture(texture, source, destination);

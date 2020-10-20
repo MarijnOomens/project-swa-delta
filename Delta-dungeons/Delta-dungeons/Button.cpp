@@ -6,6 +6,9 @@ Button::Button(int x, int y, TextureList textureList, GraphicsComponent* gc) {
 	transform.position.x = x;
 	transform.position.y = y;
 
+	gc->transform.position.x = x;
+	gc->transform.position.y = y;
+
 	possibleTextures = textureList;
 	m_gc->SetTexture(possibleTextures[0]);
 };

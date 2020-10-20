@@ -17,7 +17,7 @@ EngineController::EngineController() {
 	GraphicsComponent* gc = new GraphicsComponent();
 	gc->addTextureManager(textureManager);
 	behaviourObjects.emplace_back(gc);
-	Button* button = new Button(300, 250, { "button_play", "button_play_hover" }, gc);
+	Button* button = new Button(300, 400, { "button_play", "button_play_hover" }, gc);
 	behaviourObjects.emplace_back(button);
 	std::vector<Button> bttns;
 	Vector2D textLoc(100, 100);
