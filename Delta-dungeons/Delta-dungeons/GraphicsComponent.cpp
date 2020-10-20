@@ -3,7 +3,9 @@
 GraphicsComponent::GraphicsComponent() {};
 GraphicsComponent::~GraphicsComponent() {};
 void GraphicsComponent::PlayAnimation(std::string path) {};
-void GraphicsComponent::SetTexture(std::string name) {};
+void GraphicsComponent::SetTexture(std::string name) {
+	this->textureName = name;
+};
 void GraphicsComponent::callbackFunction() {
 };
 

@@ -7,8 +7,8 @@
 
 EngineController::EngineController() {
 	renderFacade = std::make_shared<RenderFacade>();
-	textureManager = std::make_shared<TextureManager>(renderFacade);
 	assetManager = std::make_shared<AssetManager>();
+	textureManager = std::make_shared<TextureManager>(renderFacade, assetManager);
 	input = std::make_shared<Input>(staticInputCallbackFunction, this);
 
 
