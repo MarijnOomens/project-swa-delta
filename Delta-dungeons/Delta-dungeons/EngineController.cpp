@@ -1,12 +1,30 @@
 #include "EngineController.h"
 #include <vector>
 #include "GraphicsComponent.h"
+//Debug
+#include "Button.h"
+#include "MainMenu.h"
 
 EngineController::EngineController() {
 	renderFacade = std::make_shared<RenderFacade>();
 	textureManager = std::make_shared<TextureManager>(renderFacade);
 	assetManager = std::make_shared<AssetManager>();
 	input = std::make_shared<Input>(staticInputCallbackFunction, this);
+
+
+	//DEBUG//
+	assetManager->addTexture("button_play", "Assets/button_play.png");
+	GraphicsComponent* gc = new GraphicsComponent();
+	gc->addTextureManager(textureManager);
+	behaviourObjects.emplace_back(gc);
+	Button* button = new Button(300, 250, { "button_play", "button_play_hover" }, gc);
+	behaviourObjects.emplace_back(button);
+	std::vector<Button> bttns;
+	Vector2D textLoc(100, 100);
+
+	MainMenu* menu = new MainMenu("Main menu", textLoc, bttns);
+
+	//END DEBUG//
 
 	initRenderer("delta dungeons", 800, 600, false);
 	startGame();
