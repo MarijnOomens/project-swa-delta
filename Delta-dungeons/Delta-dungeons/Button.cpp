@@ -13,11 +13,21 @@ Button::~Button() {};
 
 int count = 0;
 
-void Button::Update() {
-	std::cout << "AAAAA" << std::endl;
-}
+void Button::Update() {}
 
-void Button::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) {};
+void Button::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) {
+	std::cout << keyCode << std::endl;
+	if (keyCode == KEY_UP) {
+		this->transform.position.x + 1;
+	}
+	else if (keyCode == KEY_DOWN) {
+		this->transform.position.x - 1;
+	}
+	for (auto& comp : components)
+	{
+		comp->transform = this->transform;
+	}
+};
 
 void Button::connectCallback() {};
 void Button::callbackFunction() {};
