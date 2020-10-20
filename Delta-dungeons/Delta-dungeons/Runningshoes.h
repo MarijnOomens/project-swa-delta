@@ -1,10 +1,13 @@
 #pragma once
-#include "Equipment.h"
+#include "IEquipment.h"
 
-class Runningshoes: Equipment 
+class Runningshoes: public IEquipment 
 {
-
+public: 
+	Runningshoes();
+	~Runningshoes();
+	void use() override;
 private:
-	bool isActivated;
+	bool isActivated = false;
 
 };

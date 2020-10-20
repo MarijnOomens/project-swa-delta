@@ -3,16 +3,18 @@
 #include "GraphicsComponent.h"
 #include "Button.h"
 #include "Player.h"
+#include "Runningshoes.h"
 
 EngineController::EngineController() {
 	renderFacade = std::make_shared<RenderFacade>();
 	textureManager = std::make_shared<TextureManager>(renderFacade);
 	assetManager = std::make_shared<AssetManager>();
 	input = std::make_shared<Input>(staticInputCallbackFunction, this);
-
+	Runningshoes* running = new Runningshoes();
 
 	GraphicsComponent* gc1 = new GraphicsComponent();
 	Player* player = new Player();
+	player->addEquipment(running);
 	behaviourObjects.emplace_back(player);
 
 	initRenderer("delta dungeons", 800, 600, false);
