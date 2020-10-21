@@ -12,7 +12,7 @@ EngineController::EngineController() {
 	textureManager = std::make_shared<TextureManager>(renderFacade, assetManager);
 	input = std::make_shared<Input>(staticInputCallbackFunction, this);
 	XMLParser parser = XMLParser();
-
+	parser.parseXML("Assets\\collisionmap.xml");
 	initRenderer("delta dungeons", 800, 600, false);
 	startGame();
 }

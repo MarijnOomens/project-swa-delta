@@ -6,5 +6,5 @@ class XMLParser
 {
 public:
 	XMLParser();
-	void parseXML(char* path);
+	void parseXML(const char* path);
 };

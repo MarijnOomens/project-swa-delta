@@ -79,12 +79,12 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <LibraryPath>$(SolutionDir)Dependencies\SDL2\lib\x64;$(SolutionDir)Dependencies\SDL2_image\lib\x64;$(LibraryPath)</LibraryPath>
-    <IncludePath>D:\downloads\f\include\json;$(SolutionDir)Dependencies\SDL2\include;$(SolutionDir)Dependencies\SDL2_image\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Dependencies\SDL2\include;$(SolutionDir)Dependencies\SDL2_image\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <LibraryPath>$(SolutionDir)Dependencies\SDL2\lib\x64;$(SolutionDir)Dependencies\SDL2_image\lib\x64;$(LibraryPath)</LibraryPath>
-    <IncludePath>D:\downloads\f\include\json;$(SolutionDir)Dependencies\SDL2\include;$(SolutionDir)Dependencies\SDL2_image\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Dependencies\SDL2\include;$(SolutionDir)Dependencies\SDL2_image\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
