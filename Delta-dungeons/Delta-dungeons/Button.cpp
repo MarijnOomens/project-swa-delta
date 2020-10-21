@@ -6,6 +6,8 @@ Button::Button(int x, int y, TextureList textureList, GraphicsComponent* gc) {
 	transform.position.x = x;
 	transform.position.y = y;
 
+	gc->transform = this->transform;
+
 	possibleTextures = textureList;
 	m_gc->SetTexture(possibleTextures[0]);
 };
@@ -19,3 +21,7 @@ void Button::Update() {
 
 void Button::connectCallback() {};
 void Button::callbackFunction() {};
+
+void Button::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) {
+
+}
