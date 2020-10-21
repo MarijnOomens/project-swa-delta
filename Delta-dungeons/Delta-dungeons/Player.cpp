@@ -4,7 +4,7 @@
 
 
 Player::Player() {
-	std::shared_ptr<Runningshoes> running = std::make_shared<Runningshoes>();
+	std::shared_ptr<Runningshoes> running = std::make_shared<Runningshoes>(staticEquipmentCallbackFunction, this);
 	std::shared_ptr<Boomerang> boomerang = std::make_shared<Boomerang>();
 
 	addEquipment(running);
@@ -46,6 +46,7 @@ void Player::staticEquipmentCallbackFunction(void* p, const bool runningActivate
 	((Player*)p)->equipmentCallbackFunction(runningActivated);
 
 }
+
 void Player::equipmentCallbackFunction(const bool runningActivated)
 {
 	std::cout << runningActivated << std::endl;
