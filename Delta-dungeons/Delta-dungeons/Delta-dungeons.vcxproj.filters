@@ -186,9 +186,6 @@
     <ClCompile Include="SceneManager.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="JSONSceneParser.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
     <ClCompile Include="HUDComponent.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
@@ -233,6 +230,9 @@
     </ClCompile>
     <ClCompile Include="XMLParser.cpp">
       <Filter>Source Files\Engine\XMLParser</Filter>
+    </ClCompile>
+    <ClCompile Include="XMLSceneParser.cpp">
+      <Filter>Source Files\Engine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -338,9 +338,6 @@
     <ClInclude Include="SceneParser.h">
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="JSONSceneParser.h">
-      <Filter>Header Files\Engine</Filter>
-    </ClInclude>
     <ClInclude Include="Scene.h">
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
@@ -415,6 +412,9 @@
     </ClInclude>
     <ClInclude Include="XMLFacade.h">
       <Filter>Header Files\Engine\XMLParser</Filter>
+    </ClInclude>
+    <ClInclude Include="XMLSceneParser.h">
+      <Filter>Header Files\Engine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

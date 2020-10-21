@@ -176,7 +176,7 @@
     <ClCompile Include="InteractiveObject.cpp" />
     <ClCompile Include="XMLFacade.cpp" />
     <ClCompile Include="XMLParser.cpp" />
-    <ClCompile Include="JSONSceneParser.cpp" />
+    <ClCompile Include="XMLSceneParser.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="NPC.cpp" />
@@ -231,7 +231,7 @@
     <ClInclude Include="InteractiveObject.h" />
     <ClInclude Include="XMLFacade.h" />
     <ClInclude Include="XMLParser.h" />
-    <ClInclude Include="JSONSceneParser.h" />
+    <ClInclude Include="XMLSceneParser.h" />
     <ClInclude Include="Keyboardevent.h" />
     <ClInclude Include="Keycodes.h" />
     <ClInclude Include="MainMenu.h" />

@@ -2,10 +2,10 @@
 #include "SceneParser.h"
 #include <string>
 
-class JSONSceneParser : public SceneParser {
+class XMLSceneParser : public SceneParser {
 public:
-	JSONSceneParser();
-	~JSONSceneParser();
+	XMLSceneParser();
+	~XMLSceneParser();
 private:
 	int loadScene(std::string scenePath);
 };
