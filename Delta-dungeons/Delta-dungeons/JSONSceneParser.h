@@ -1,10 +1,11 @@
 #pragma once
 #include "SceneParser.h"
+#include <string>
 
 class JSONSceneParser : public SceneParser {
 public:
 	JSONSceneParser();
 	~JSONSceneParser();
 private:
-	int LoadScene(int scene);
+	int loadScene(std::string scenePath);
 };

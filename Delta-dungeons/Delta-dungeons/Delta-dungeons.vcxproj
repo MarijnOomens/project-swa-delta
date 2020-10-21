@@ -174,7 +174,6 @@
     <ClCompile Include="InputWrapper.cpp" />
     <ClCompile Include="InteractiveManager.cpp" />
     <ClCompile Include="InteractiveObject.cpp" />
-    <ClCompile Include="json11.cpp" />
     <ClCompile Include="JSONFacade.cpp" />
     <ClCompile Include="JSONParser.cpp" />
     <ClCompile Include="JSONSceneParser.cpp" />
@@ -230,7 +229,6 @@
     <ClInclude Include="InputWrapper.h" />
     <ClInclude Include="InteractiveManager.h" />
     <ClInclude Include="InteractiveObject.h" />
-    <ClInclude Include="json11.hpp" />
     <ClInclude Include="JSONFacade.h" />
     <ClInclude Include="JSONParser.h" />
     <ClInclude Include="JSONSceneParser.h" />

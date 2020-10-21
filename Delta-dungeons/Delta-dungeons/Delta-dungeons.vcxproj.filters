@@ -67,11 +67,11 @@
     <Filter Include="Source Files\SDL\Input">
       <UniqueIdentifier>{d788796d-e34c-45e5-aed6-24c38e4a0123}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Engine\JSON11">
-      <UniqueIdentifier>{177d854d-003d-4399-ba85-08a8aba4f76e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Engine\JSON11">
+    <Filter Include="Header Files\Engine\JSONcpp">
       <UniqueIdentifier>{9ccfb478-9f35-4d96-849d-c877a0f982f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\JSONcpp">
+      <UniqueIdentifier>{5d2ec776-f080-497e-b7f7-0315870065ef}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -228,14 +228,11 @@
     <ClCompile Include="InputWrapper.cpp">
       <Filter>Source Files\SDL\Input</Filter>
     </ClCompile>
-    <ClCompile Include="json11.cpp">
-      <Filter>Source Files\Engine\JSON11</Filter>
+    <ClCompile Include="JSONFacade.cpp">
+      <Filter>Source Files\Engine\JSONcpp</Filter>
     </ClCompile>
     <ClCompile Include="JSONParser.cpp">
-      <Filter>Source Files\Engine\JSON11</Filter>
-    </ClCompile>
-    <ClCompile Include="JSONFacade.cpp">
-      <Filter>Source Files\Engine\JSON11</Filter>
+      <Filter>Source Files\Engine\JSONcpp</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -401,14 +398,11 @@
     <ClInclude Include="Keyboardevent.h">
       <Filter>Header Files\Engine\Input</Filter>
     </ClInclude>
-    <ClInclude Include="json11.hpp">
-      <Filter>Header Files\Engine\JSON11</Filter>
-    </ClInclude>
     <ClInclude Include="JSONParser.h">
-      <Filter>Header Files\Engine\JSON11</Filter>
+      <Filter>Header Files\Engine\JSONcpp</Filter>
     </ClInclude>
     <ClInclude Include="JSONFacade.h">
-      <Filter>Header Files\Engine\JSON11</Filter>
+      <Filter>Header Files\Engine\JSONcpp</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
