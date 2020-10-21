@@ -14,6 +14,7 @@ public:
 		void Update(std::list<std::shared_ptr<BehaviourObject>>& bhObjects);
 		static void staticInputCallbackFunction(void* p, const KeyCodes keyCode, const KeyboardEvent keyboardEvent);
 		void inputCallbackFunction(const KeyCodes keyCode, const KeyboardEvent keyboardEvent);
+		void addTexture(std::string name, std::string path);
 private:
 	std::list<std::shared_ptr<BehaviourObject>> behaviourObjects;
 	std::list<int> hudLayers;

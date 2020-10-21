@@ -54,6 +54,10 @@ void EngineController::inputCallbackFunction(const KeyCodes keyCode, const Keybo
 }
 #pragma endregion input handling
 
+void EngineController::addTexture(std::string name, std::string path) {
+	assetManager->addTexture(name, path);
+}
+
 void EngineController::createGameObject() {
 
 };

@@ -23,7 +23,5 @@ public:
 	void callbackFunction() override;
 	void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) override;
 
-	std::vector<Button> buttons;
-	Vector2D* textLocation; //Maybe?
-	GraphicsComponent* gc;
+	std::vector<BehaviourObject> getBehaviourObjects() override;
 };

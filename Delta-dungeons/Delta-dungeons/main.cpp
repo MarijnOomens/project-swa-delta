@@ -1,8 +1,9 @@
 #define SDL_MAIN_HANDLED
-#include "EngineController.h"
+#include "EngineFacade.h"
 
 int main(int argc, char* argv[])
 {
-    std::unique_ptr<EngineController> engineController = std::make_unique<EngineController>();
-      return 0;
+    EngineFacade* engineFacade = new EngineFacade();
+    //std::unique_ptr<EngineController> engineController = std::make_unique<EngineController>();
+    //  return 0;
 }

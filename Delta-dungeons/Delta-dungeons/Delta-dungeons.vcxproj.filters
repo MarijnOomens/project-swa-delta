@@ -225,6 +225,9 @@
     <ClCompile Include="Color.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
+    <ClCompile Include="EngineFacade.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h">
@@ -390,6 +393,9 @@
       <Filter>Header Files\Engine\Input</Filter>
     </ClInclude>
     <ClInclude Include="Color.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineFacade.h">
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
   </ItemGroup>

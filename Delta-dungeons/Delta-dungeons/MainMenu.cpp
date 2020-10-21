@@ -2,13 +2,24 @@
 
 MainMenu::MainMenu() {
 	//HARDCODE DIE SHIT
-	/*Button start = new Button();*/
 	text = "Delta Dungeons";
-	textLocation = new Vector2D(100, 100);
+	//textLocation = new Vector2D(100, 100);
 };
+
 MainMenu::MainMenu(GraphicsComponent* gcmm) {
 	gc = gcmm;
 	gc->SetTexture("mainmenu");
+
+	//Maak hashmappie voor textures
+	//En daarna mooie buttons enzo
+	//yeet
+
+	/*engineFacade->addTexture("button_play", "Assets/button_play.png");
+	GraphicsComponent* gc = new GraphicsComponent();
+	gc->addTextureManager(textureManager);
+	behaviourObjects.emplace_back(gc);
+	Button* button = new Button(300, 400, { "button_play", "button_play_hover" }, gc);
+	behaviourObjects.emplace_back(button);*/
 };
 
 MainMenu::~MainMenu() {};
@@ -22,4 +33,9 @@ void MainMenu::callbackFunction() {};
 
 void MainMenu::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) {
 
+}
+
+std::vector<BehaviourObject> MainMenu::getBehaviourObjects() {
+	std::vector<BehaviourObject> list;
+	return list;
 }
