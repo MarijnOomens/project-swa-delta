@@ -2,7 +2,7 @@
 #include <vector>
 #include "IEquipment.h"
 #include "GameObject.h"
-
+#include <list>
 class Player : public GameObject {
 
 public:
@@ -13,10 +13,10 @@ public:
 	void handleInput(const KeyCodes keyCodes, const KeyboardEvent keyboardEvent) override;
 	void callbackFunction() override;
 	void connectCallback() override;
-	void addEquipment(IEquipment* equipment);
+	void addEquipment(std::shared_ptr<IEquipment> equipment);
 private:
 	int health;
-	std::vector<IEquipment> equipment;
+	std::list<std::shared_ptr<IEquipment>> equipment;
 	int amountCaught;
 	std::vector<int> pokemonCaught;
 };

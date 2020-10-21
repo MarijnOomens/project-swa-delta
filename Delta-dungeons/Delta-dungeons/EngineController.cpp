@@ -10,7 +10,7 @@ EngineController::EngineController() {
 	textureManager = std::make_shared<TextureManager>(renderFacade);
 	assetManager = std::make_shared<AssetManager>();
 	input = std::make_shared<Input>(staticInputCallbackFunction, this);
-	Runningshoes* running = new Runningshoes();
+	std::shared_ptr<Runningshoes> running = std::make_shared<Runningshoes>();
 
 	GraphicsComponent* gc1 = new GraphicsComponent();
 	Player* player = new Player();

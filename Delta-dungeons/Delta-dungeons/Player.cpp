@@ -1,6 +1,8 @@
 #include "Player.h"
 
-Player::Player() {}
+Player::Player() {
+	
+}
 Player::~Player() {}
 
 void Player::handleInput(const KeyCodes keyCodes, const KeyboardEvent keyboardEvent)
@@ -17,7 +19,7 @@ void Player::handleInput(const KeyCodes keyCodes, const KeyboardEvent keyboardEv
 	else if (keyCodes == KEY_Q) {
 		for (auto& comp : equipment)
 		{
-			comp.use();
+			comp.get()->use();
 		}
 	}
 	for (auto& comp : components)
@@ -26,8 +28,8 @@ void Player::handleInput(const KeyCodes keyCodes, const KeyboardEvent keyboardEv
 	}
 }
 
-void Player::addEquipment(IEquipment* item) {
-	equipment.push_back(*item);
+void Player::addEquipment(std::shared_ptr<IEquipment> item) {
+	equipment.emplace_back(item);
 }
 
 void Player::connectCallback() {}
