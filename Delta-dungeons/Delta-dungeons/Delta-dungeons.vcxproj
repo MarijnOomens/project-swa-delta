@@ -79,12 +79,12 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <LibraryPath>$(SolutionDir)Dependencies\SDL2\lib\x64;$(SolutionDir)Dependencies\SDL2_image\lib\x64;$(LibraryPath)</LibraryPath>
-    <IncludePath>$(SolutionDir)Dependencies\SDL2\include;$(SolutionDir)Dependencies\SDL2_image\include;$(IncludePath)</IncludePath>
+    <IncludePath>D:\downloads\f\include\json;$(SolutionDir)Dependencies\SDL2\include;$(SolutionDir)Dependencies\SDL2_image\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <LibraryPath>$(SolutionDir)Dependencies\SDL2\lib\x64;$(SolutionDir)Dependencies\SDL2_image\lib\x64;$(LibraryPath)</LibraryPath>
-    <IncludePath>$(SolutionDir)Dependencies\SDL2\include;$(SolutionDir)Dependencies\SDL2_image\include;$(IncludePath)</IncludePath>
+    <IncludePath>D:\downloads\f\include\json;$(SolutionDir)Dependencies\SDL2\include;$(SolutionDir)Dependencies\SDL2_image\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -174,8 +174,8 @@
     <ClCompile Include="InputWrapper.cpp" />
     <ClCompile Include="InteractiveManager.cpp" />
     <ClCompile Include="InteractiveObject.cpp" />
-    <ClCompile Include="JSONFacade.cpp" />
-    <ClCompile Include="JSONParser.cpp" />
+    <ClCompile Include="XMLFacade.cpp" />
+    <ClCompile Include="XMLParser.cpp" />
     <ClCompile Include="JSONSceneParser.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenu.cpp" />
@@ -229,8 +229,8 @@
     <ClInclude Include="InputWrapper.h" />
     <ClInclude Include="InteractiveManager.h" />
     <ClInclude Include="InteractiveObject.h" />
-    <ClInclude Include="JSONFacade.h" />
-    <ClInclude Include="JSONParser.h" />
+    <ClInclude Include="XMLFacade.h" />
+    <ClInclude Include="XMLParser.h" />
     <ClInclude Include="JSONSceneParser.h" />
     <ClInclude Include="Keyboardevent.h" />
     <ClInclude Include="Keycodes.h" />
@@ -241,6 +241,10 @@
     <ClInclude Include="Pokeball.h" />
     <ClInclude Include="Pokemon.h" />
     <ClInclude Include="PuzzleObject.h" />
+    <ClInclude Include="rapidxml.hpp" />
+    <ClInclude Include="rapidxml_iterators.hpp" />
+    <ClInclude Include="rapidxml_print.hpp" />
+    <ClInclude Include="rapidxml_utils.hpp" />
     <ClInclude Include="Rectangle.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="Runningshoes.h" />

@@ -4,12 +4,14 @@
 //Debug
 #include "Button.h"
 #include "MainMenu.h"
+#include "XMLParser.h"
 
 EngineController::EngineController() {
 	renderFacade = std::make_shared<RenderFacade>();
 	assetManager = std::make_shared<AssetManager>();
 	textureManager = std::make_shared<TextureManager>(renderFacade, assetManager);
 	input = std::make_shared<Input>(staticInputCallbackFunction, this);
+	XMLParser parser = XMLParser();
 
 	initRenderer("delta dungeons", 800, 600, false);
 	startGame();

@@ -67,10 +67,10 @@
     <Filter Include="Source Files\SDL\Input">
       <UniqueIdentifier>{d788796d-e34c-45e5-aed6-24c38e4a0123}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Engine\JSONcpp">
+    <Filter Include="Header Files\Engine\XMLParser">
       <UniqueIdentifier>{9ccfb478-9f35-4d96-849d-c877a0f982f1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Engine\JSONcpp">
+    <Filter Include="Source Files\Engine\XMLParser">
       <UniqueIdentifier>{5d2ec776-f080-497e-b7f7-0315870065ef}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -228,11 +228,11 @@
     <ClCompile Include="InputWrapper.cpp">
       <Filter>Source Files\SDL\Input</Filter>
     </ClCompile>
-    <ClCompile Include="JSONFacade.cpp">
-      <Filter>Source Files\Engine\JSONcpp</Filter>
+    <ClCompile Include="XMLFacade.cpp">
+      <Filter>Source Files\Engine\XMLParser</Filter>
     </ClCompile>
-    <ClCompile Include="JSONParser.cpp">
-      <Filter>Source Files\Engine\JSONcpp</Filter>
+    <ClCompile Include="XMLParser.cpp">
+      <Filter>Source Files\Engine\XMLParser</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -398,11 +398,23 @@
     <ClInclude Include="Keyboardevent.h">
       <Filter>Header Files\Engine\Input</Filter>
     </ClInclude>
-    <ClInclude Include="JSONParser.h">
-      <Filter>Header Files\Engine\JSONcpp</Filter>
+    <ClInclude Include="rapidxml_iterators.hpp">
+      <Filter>Header Files\Engine\XMLParser</Filter>
     </ClInclude>
-    <ClInclude Include="JSONFacade.h">
-      <Filter>Header Files\Engine\JSONcpp</Filter>
+    <ClInclude Include="rapidxml_print.hpp">
+      <Filter>Header Files\Engine\XMLParser</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidxml_utils.hpp">
+      <Filter>Header Files\Engine\XMLParser</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidxml.hpp">
+      <Filter>Header Files\Engine\XMLParser</Filter>
+    </ClInclude>
+    <ClInclude Include="XMLParser.h">
+      <Filter>Header Files\Engine\XMLParser</Filter>
+    </ClInclude>
+    <ClInclude Include="XMLFacade.h">
+      <Filter>Header Files\Engine\XMLParser</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
