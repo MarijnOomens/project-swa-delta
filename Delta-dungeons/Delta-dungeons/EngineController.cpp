@@ -12,16 +12,22 @@ EngineController::EngineController() {
 	input = std::make_shared<Input>(staticInputCallbackFunction, this);
 
 	//DEBUG//
+	//Main menu tests
+	assetManager->addTexture("mainmenu", "Assets/mainmenu.png");
+	GraphicsComponent* gcmm = new GraphicsComponent();
+	gcmm->addTextureManager(textureManager);
+	behaviourObjects.emplace_back(gcmm);	
+	MainMenu* menu = new MainMenu(gcmm);
+	behaviourObjects.emplace_back(menu);
+
+	//Button tests
+
 	assetManager->addTexture("button_play", "Assets/button_play.png");
 	GraphicsComponent* gc = new GraphicsComponent();
 	gc->addTextureManager(textureManager);
 	behaviourObjects.emplace_back(gc);
 	Button* button = new Button(300, 400, { "button_play", "button_play_hover" }, gc);
 	behaviourObjects.emplace_back(button);
-	std::vector<Button> bttns;
-	Vector2D textLoc(100, 100);
-
-	MainMenu* menu = new MainMenu("Main menu", textLoc, bttns);
 
 	//END DEBUG//
 

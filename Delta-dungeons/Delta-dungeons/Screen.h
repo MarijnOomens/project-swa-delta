@@ -5,7 +5,7 @@ class Screen
 {
 	
 public:
-	void closeScreen();
+	virtual void closeScreen() = 0;
 	std::string text;
 private:
 	

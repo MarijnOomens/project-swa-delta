@@ -222,6 +222,9 @@
     <ClCompile Include="InputWrapper.cpp">
       <Filter>Source Files\SDL\Input</Filter>
     </ClCompile>
+    <ClCompile Include="Color.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h">
@@ -385,6 +388,9 @@
     </ClInclude>
     <ClInclude Include="Keyboardevent.h">
       <Filter>Header Files\Engine\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Color.h">
+      <Filter>Header Files\Engine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
