@@ -1,11 +1,14 @@
 #include "EngineController.h"
 #include <vector>
 #include "GraphicsComponent.h"
+//Debug
+#include "Button.h"
+#include "MainMenu.h"
 
 EngineController::EngineController() {
 	renderFacade = std::make_shared<RenderFacade>();
-	textureManager = std::make_shared<TextureManager>(renderFacade);
 	assetManager = std::make_shared<AssetManager>();
+	textureManager = std::make_shared<TextureManager>(renderFacade, assetManager);
 	input = std::make_shared<Input>(staticInputCallbackFunction, this);
 
 	initRenderer("delta dungeons", 800, 600, false);
