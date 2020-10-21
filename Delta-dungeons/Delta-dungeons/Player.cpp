@@ -1,7 +1,14 @@
 #include "Player.h"
+#include "Runningshoes.h"
+#include "Boomerang.h"
+
 
 Player::Player() {
-	
+	std::shared_ptr<Runningshoes> running = std::make_shared<Runningshoes>();
+	std::shared_ptr<Boomerang> boomerang = std::make_shared<Boomerang>();
+
+	addEquipment(running);
+	addEquipment(boomerang);
 }
 Player::~Player() {}
 
@@ -28,9 +35,29 @@ void Player::handleInput(const KeyCodes keyCodes, const KeyboardEvent keyboardEv
 	}
 }
 
-void Player::addEquipment(std::shared_ptr<IEquipment> item) {
+void Player::addEquipment(std::shared_ptr<IEquipment> item) 
+{
 	equipment.emplace_back(item);
 }
 
-void Player::connectCallback() {}
-void Player::callbackFunction() {}
+
+void Player::staticEquipmentCallbackFunction(void* p, const bool runningActivated)
+{
+	((Player*)p)->equipmentCallbackFunction(runningActivated);
+
+}
+void Player::equipmentCallbackFunction(const bool runningActivated)
+{
+	std::cout << runningActivated << std::endl;
+}
+
+
+
+void Player::callbackFunction()
+{
+}
+
+
+void Player::connectCallback() 
+{
+}

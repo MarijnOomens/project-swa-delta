@@ -11,9 +11,16 @@ public:
 	void damagePlayer(int damage);
 	void updateCaughtPokemon(int id);
 	void handleInput(const KeyCodes keyCodes, const KeyboardEvent keyboardEvent) override;
+	void addEquipment(std::shared_ptr<IEquipment> equipment);
+
+	static void staticEquipmentCallbackFunction(void* p, const bool runningActivated);
+	void equipmentCallbackFunction(const bool runningActivated);
+
 	void callbackFunction() override;
 	void connectCallback() override;
-	void addEquipment(std::shared_ptr<IEquipment> equipment);
+
+
+
 private:
 	int health;
 	std::list<std::shared_ptr<IEquipment>> equipment;
