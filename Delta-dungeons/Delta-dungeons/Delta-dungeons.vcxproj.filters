@@ -234,6 +234,9 @@
     <ClCompile Include="XMLSceneParser.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
+    <ClCompile Include="ParserData.cpp">
+      <Filter>Source Files\Engine\XMLParser</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h">
@@ -415,6 +418,9 @@
     </ClInclude>
     <ClInclude Include="XMLSceneParser.h">
       <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="ParserData.h">
+      <Filter>Header Files\Engine\XMLParser</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,6 +1,13 @@
 #include "XMLSceneParser.h"
 
-XMLSceneParser::XMLSceneParser() {};
-XMLSceneParser::~XMLSceneParser() {};
+XMLSceneParser::XMLSceneParser()
+{
+	facade = std::make_unique<XMLFacade>();
+}
 
-int XMLSceneParser::loadScene(std::string scenePath) { return 0; };
+XMLSceneParser::~XMLSceneParser() {}
+
+int XMLSceneParser::loadScene(const char* path) {
+	facade->loadScene(path);
+	return 0;
+}

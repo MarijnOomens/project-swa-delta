@@ -2,9 +2,15 @@
 #include "rapidxml_utils.hpp"
 #include <iostream>
 #include <string>
-class XMLParser 
+#include <list>
+#include "ParserData.h"
+
+class XMLParser
 {
 public:
 	XMLParser();
-	void parseXML(const char* path);
+	~XMLParser();
+
+	std::list<ParserData> parserDataList;
+	std::list<ParserData> parseXML(const char* path);
 };

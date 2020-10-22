@@ -4,15 +4,18 @@
 //Debug
 #include "Button.h"
 #include "MainMenu.h"
-#include "XMLParser.h"
+#include "XMLFacade.h"
 
 EngineController::EngineController() {
 	renderFacade = std::make_shared<RenderFacade>();
 	assetManager = std::make_shared<AssetManager>();
 	textureManager = std::make_shared<TextureManager>(renderFacade, assetManager);
 	input = std::make_shared<Input>(staticInputCallbackFunction, this);
-	XMLParser parser = XMLParser();
-	parser.parseXML("Assets\\collisionmap.xml");
+	
+	// Test if XML is parsed into a list of ParserData Objects
+	XMLFacade facade = XMLFacade();
+	facade.loadScene("Assets\\collisionmap.xml");
+	
 	initRenderer("delta dungeons", 800, 600, false);
 	startGame();
 }

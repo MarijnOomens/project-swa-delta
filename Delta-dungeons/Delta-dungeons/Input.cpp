@@ -18,12 +18,12 @@ void Input::parseKeyBindings(std::string string) {};
 void Input::getKeyPressed()
 {
 	facade->handleKeyPressed();
-};
+}
 
 void Input::getKeyReleased()
 {
 	facade->handleKeyReleased();
-};
+}
 
 void Input::callBackFunction(KeyCodes keyCode, KeyboardEvent keyboardEvent)
 {
