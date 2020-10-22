@@ -39,7 +39,7 @@ void RenderFacade::drawTexture(const char* path, const Vector2D& destination2D) 
     Vector2D size;
 
     SDL_Texture* texture = drawController->loadTexture(path);
-    SDL_QueryTexture(texture, NULL, NULL, &size.x, &size.y);
+    //SDL_QueryTexture(texture, NULL, NULL, &size.x, &size.y);
 
     SDL_Rect source;
     source.x = 0;    // Moet 0 zijn om de volledige texture te tekenen, omdat de source rectangle aangeeft welk deel van de texture wordt getekend. Dus als dit 32 is, wordt x positie 32 + width

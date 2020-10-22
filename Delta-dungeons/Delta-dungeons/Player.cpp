@@ -10,7 +10,7 @@ Player::Player(int x, int y, TextureList tex, GraphicsComponent* gc) {
 	addEquipment(running);
 	addEquipment(boomerang);
 
-	baseMovementSpeed = 1;
+	baseMovementSpeed = 32;
 
 	this->transform.position.x = x;
 	this->transform.position.y = y;
@@ -20,23 +20,32 @@ Player::Player(int x, int y, TextureList tex, GraphicsComponent* gc) {
 	textureList = tex;
 	m_gc->SetTexture(textureList[0]);
 
-
 }
+
 Player::~Player() {}
 
 void Player::handleInput(const KeyCodes keyCodes, const KeyboardEvent keyboardEvent)
 {
 	std::cout << "This is a Player receiving input." << std::endl;
 
-
 	if (keyCodes == KEY_UP) {
 	
-		this->transform.position.y += baseMovementSpeed;
-		std::cout << transform.position.y << std::endl;
+		this->transform.position.y -= baseMovementSpeed;
+		m_gc->transform = this->transform;
 	}
 	else if (keyCodes == KEY_DOWN) {
+		this->transform.position.y += baseMovementSpeed;
+		m_gc->transform = this->transform;
+	}
+	else if (keyCodes == KEY_RIGHT)
+	{
+		this->transform.position.x += baseMovementSpeed;
+		m_gc->transform = this->transform;
+	}
+	else if (keyCodes == KEY_LEFT)
+	{
 		this->transform.position.x -= baseMovementSpeed;
-
+		m_gc->transform = this->transform;
 	}
 	else if (keyCodes == KEY_Q) {
 		for (auto& comp : equipment)
@@ -48,6 +57,8 @@ void Player::handleInput(const KeyCodes keyCodes, const KeyboardEvent keyboardEv
 	{
 		comp->transform = this->transform;
 	}
+	std::cout << "X: " << transform.position.x << ", Y: " << transform.position.y << std::endl;
+
 }
 
 void Player::addEquipment(std::shared_ptr<IEquipment> item) 
