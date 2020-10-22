@@ -7,13 +7,19 @@
 
 EngineController::EngineController() {
 	renderFacade = std::make_shared<RenderFacade>();
-	textureManager = std::make_shared<TextureManager>(renderFacade);
 	assetManager = std::make_shared<AssetManager>();
+	textureManager = std::make_shared<TextureManager>(renderFacade, assetManager);
 	input = std::make_shared<Input>(staticInputCallbackFunction, this);
 	
 
-	GraphicsComponent* gc1 = new GraphicsComponent();
-	Player* player = new Player();
+
+	assetManager->addTexture("player_anims", "Assets/player_anims.png");
+	GraphicsComponent* gcPlayer = new GraphicsComponent();
+	gcPlayer->addTextureManager(textureManager);
+	behaviourObjects.emplace_back(gcPlayer);
+	Player* player = new Player(0, 0, { "player_anims" }, gcPlayer);
+
+
 	
 	behaviourObjects.emplace_back(player);
 

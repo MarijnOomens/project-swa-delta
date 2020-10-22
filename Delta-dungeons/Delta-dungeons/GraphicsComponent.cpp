@@ -3,12 +3,18 @@
 GraphicsComponent::GraphicsComponent() {};
 GraphicsComponent::~GraphicsComponent() {};
 void GraphicsComponent::PlayAnimation(std::string path) {};
-void GraphicsComponent::SetTexture(std::string name) {};
-void GraphicsComponent::callbackFunction() {
-};
+void GraphicsComponent::SetTexture(std::string name) 
+{
+	textureName = name;
+}
+
+void GraphicsComponent::callbackFunction() 
+{
+}
+
 
 void GraphicsComponent::Update() {
-	textureManager->DrawTexture(textureName);
+	textureManager->DrawTexture(textureName, this->transform.position);
 }
 
 void GraphicsComponent::connectCallback() {

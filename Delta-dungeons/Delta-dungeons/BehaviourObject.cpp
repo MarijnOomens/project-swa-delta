@@ -1,6 +1,8 @@
 #include "BehaviourObject.h"
 
-BehaviourObject::BehaviourObject() {};
+BehaviourObject::BehaviourObject() 
+{
+};
 void BehaviourObject::Update() {};
 BehaviourObject::~BehaviourObject() {};
 
