@@ -10,9 +10,9 @@ void TextureManager::LoadTexture()
 {
 
 }
-void TextureManager::DrawTexture(std::string name, Vector2D position) 
+void TextureManager::DrawTexture(std::string name, Vector2D position, Vector2D sprite) 
 {
 	std::string path = assetManager->getTexture(name);
-	renderFacade->drawTexture(path.c_str(), position);
+	renderFacade->drawTexture(path.c_str(), position, sprite);
 	
 }

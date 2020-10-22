@@ -35,17 +35,17 @@ SDL_Texture* RenderFacade::loadTexture(const std::string* path) {
 	return RenderFacade::drawController->loadTexture(path->c_str());
 }
 
-void RenderFacade::drawTexture(const char* path, const Vector2D& destination2D) {
+void RenderFacade::drawTexture(const char* path, const Vector2D& destination2D, const Vector2D& sprite2D) {
     Vector2D size;
 
     SDL_Texture* texture = drawController->loadTexture(path);
-    //SDL_QueryTexture(texture, NULL, NULL, &size.x, &size.y);
+    SDL_QueryTexture(texture, NULL, NULL, &size.x, &size.y);
 
     SDL_Rect source;
     source.x = 0;    // Moet 0 zijn om de volledige texture te tekenen, omdat de source rectangle aangeeft welk deel van de texture wordt getekend. Dus als dit 32 is, wordt x positie 32 + width
     source.y = 0;    // getekend en dat kan niet met een 32 x 32 texture. Dan wordt als het ware de 'data' buiten de texture getekend, terwijl daar niets zit.
-    source.w = size.x; // Moet eigenlijk width en height zijn, maar 'Vector2D' heeft alleen x en y variabelen.
-    source.h = size.y; //
+    source.w = sprite2D.spriteLocationInPNGWidth; // Moet eigenlijk width en height zijn, maar 'Vector2D' heeft alleen x en y variabelen.
+    source.h = sprite2D.spriteLocationInPNGHeight; //
 
 
     SDL_Rect destination;

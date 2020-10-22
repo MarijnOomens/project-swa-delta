@@ -16,7 +16,6 @@ Player::Player(int x, int y, TextureList tex, GraphicsComponent* gc) {
 	this->transform.position.y = y;
 
 	m_gc = gc;
-	m_gc->transform = this->transform;
 	textureList = tex;
 	m_gc->SetTexture(textureList[0]);
 
@@ -31,21 +30,21 @@ void Player::handleInput(const KeyCodes keyCodes, const KeyboardEvent keyboardEv
 	if (keyCodes == KEY_UP) {
 	
 		this->transform.position.y -= baseMovementSpeed;
-		m_gc->transform = this->transform;
+		m_gc->transform.position.y = this->transform.position.y;
 	}
 	else if (keyCodes == KEY_DOWN) {
 		this->transform.position.y += baseMovementSpeed;
-		m_gc->transform = this->transform;
+		m_gc->transform.position.y = this->transform.position.y;
 	}
 	else if (keyCodes == KEY_RIGHT)
 	{
 		this->transform.position.x += baseMovementSpeed;
-		m_gc->transform = this->transform;
+		m_gc->transform.position.x = this->transform.position.x;
 	}
 	else if (keyCodes == KEY_LEFT)
 	{
 		this->transform.position.x -= baseMovementSpeed;
-		m_gc->transform = this->transform;
+		m_gc->transform.position.x = this->transform.position.x;
 	}
 	else if (keyCodes == KEY_Q) {
 		for (auto& comp : equipment)
@@ -55,7 +54,7 @@ void Player::handleInput(const KeyCodes keyCodes, const KeyboardEvent keyboardEv
 	}
 	for (auto& comp : components)
 	{
-		comp->transform = this->transform;
+		comp->transform.position = this->transform.position;
 	}
 	std::cout << "X: " << transform.position.x << ", Y: " << transform.position.y << std::endl;
 

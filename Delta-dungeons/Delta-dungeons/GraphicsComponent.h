@@ -14,6 +14,8 @@ private:
 public:
 	int animationIndex = 0;
 	GraphicsComponent();
+	GraphicsComponent(int spriteW, int spriteH);
+
 	~GraphicsComponent();
 	void PlayAnimation(std::string path);
 	void SetTexture(std::string name);
