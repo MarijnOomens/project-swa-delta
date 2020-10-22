@@ -51,8 +51,8 @@ void RenderFacade::drawTexture(const char* path, const Vector2D& destination2D, 
     SDL_Rect destination;
     destination.x = destination2D.x; // Locatie waar je de texture wilt tekenen.
     destination.y = destination2D.y; //
-    destination.w = size.x; // Moet eigenlijk width en height zijn, maar 'Vector2D' heeft alleen x en y variabelen.
-    destination.h = size.y; //
+    destination.w = 32; // Moet eigenlijk width en height zijn, maar 'Vector2D' heeft alleen x en y variabelen.
+    destination.h = 32; //
 
 
     RenderFacade::drawController->drawTexture(texture, source, destination);

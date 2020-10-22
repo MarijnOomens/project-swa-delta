@@ -14,7 +14,7 @@ EngineController::EngineController() {
 
 
 	assetManager->addTexture("player_anims", "Assets/player_anims.png");
-	GraphicsComponent* gcPlayer = new GraphicsComponent(15, 16);
+	GraphicsComponent* gcPlayer = new GraphicsComponent(15, 19);
 	gcPlayer->addTextureManager(textureManager);
 	behaviourObjects.emplace_back(gcPlayer);
 	Player* player = new Player(16, 16, { "player_anims" }, gcPlayer);
