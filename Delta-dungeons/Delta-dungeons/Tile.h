@@ -15,6 +15,7 @@ public:
 	void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent)override;
 	void callbackFunction()override;
 	void connectCallback()override;
+	void update()override;
 
 	GraphicsComponent* gc;
 	Vector2D imageCoordinates;

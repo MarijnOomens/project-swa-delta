@@ -233,6 +233,7 @@
     </ClCompile>
     <ClCompile Include="ParserData.cpp">
       <Filter>Source Files\Engine\XMLParser</Filter>
+	</ClCompile>
     <ClCompile Include="IEquipment.h">
       <Filter>Header Files\Game\GameObjects\Items</Filter>
     </ClCompile>
