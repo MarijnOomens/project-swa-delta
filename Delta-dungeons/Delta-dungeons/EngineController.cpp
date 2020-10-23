@@ -1,6 +1,8 @@
 #include "EngineController.h"
 #include <vector>
 #include "GraphicsComponent.h"
+#include "Button.h"
+#include "Player.h"
 //Debug
 #include "Button.h"
 #include "Tile.h"
@@ -25,7 +27,15 @@ EngineController::EngineController() {
 		behaviourObjects.emplace_back(gc);
 		behaviourObjects.emplace_back(t);
 	}
+
+	assetManager->addTexture("player_anims", "Assets/player_anims.png");
+	GraphicsComponent* gcPlayer = new GraphicsComponent(15, 19);
+	gcPlayer->addTextureManager(textureManager);
+	behaviourObjects.emplace_back(gcPlayer);
+	Player* player = new Player(16, 16, { "player_anims" }, gcPlayer);
 	
+	behaviourObjects.emplace_back(player);
+
 	initRenderer("delta dungeons", 1024, 768, false);
 	startGame();
 }
@@ -56,7 +66,7 @@ void EngineController::createGameObject() {
 void EngineController::Update(std::list<std::shared_ptr<BehaviourObject>>& bhObjects) {
 	for(auto& bo : bhObjects)
 	{
-		bo.get()->Update();
+		bo.get()->update();
 	}
 };
 
@@ -64,15 +74,14 @@ void EngineController::initRenderer(const char* title, int width, int height, bo
 	EngineController::renderFacade->init(title, width, height, fullscreen);
 };
 
-SDL_Event evt;
-
 void EngineController::startGame() {
 
 	while (renderFacade->renderer->isRunning) {
 
+		/*SDL_Event evt;
 		SDL_WaitEvent(&evt);
-		if (evt.type == SDL_QUIT)
-			renderFacade->renderer.get()->stop();
+		if (evt.type == SDL_QUIT) 
+			renderFacade->renderer.get()->stop();*/
 
 		renderFacade->setFrameStart();
 		renderFacade->beforeFrame();

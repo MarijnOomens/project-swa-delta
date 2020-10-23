@@ -158,7 +158,6 @@
     <ClCompile Include="DialoguePopup.cpp" />
     <ClCompile Include="DrawController.cpp" />
     <ClCompile Include="EngineController.cpp" />
-    <ClCompile Include="Equipment.cpp" />
     <ClCompile Include="EquipmentManager.cpp" />
     <ClCompile Include="FrameManager.cpp" />
     <ClCompile Include="GameManager.cpp" />
@@ -169,6 +168,7 @@
     <ClCompile Include="HelpScreen.cpp" />
     <ClCompile Include="HUD.cpp" />
     <ClCompile Include="HUDComponent.cpp" />
+    <ClCompile Include="IEquipment.h" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="InputFacade.cpp" />
     <ClCompile Include="InputWrapper.cpp" />
@@ -213,7 +213,6 @@
     <ClInclude Include="DialoguePopup.h" />
     <ClInclude Include="DrawController.h" />
     <ClInclude Include="EngineController.h" />
-    <ClInclude Include="Equipment.h" />
     <ClInclude Include="EquipmentManager.h" />
     <ClInclude Include="FrameManager.h" />
     <ClInclude Include="GameManager.h" />

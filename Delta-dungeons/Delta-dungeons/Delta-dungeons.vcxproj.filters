@@ -96,9 +96,6 @@
     <ClCompile Include="Boomerang.cpp">
       <Filter>Source Files\Game\GameObjects\Items</Filter>
     </ClCompile>
-    <ClCompile Include="Equipment.cpp">
-      <Filter>Source Files\Game\GameObjects\Items</Filter>
-    </ClCompile>
     <ClCompile Include="HealingItem.cpp">
       <Filter>Source Files\Game\GameObjects\Items</Filter>
     </ClCompile>
@@ -236,6 +233,8 @@
     </ClCompile>
     <ClCompile Include="ParserData.cpp">
       <Filter>Source Files\Engine\XMLParser</Filter>
+    <ClCompile Include="IEquipment.h">
+      <Filter>Header Files\Game\GameObjects\Items</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -291,9 +290,6 @@
       <Filter>Header Files\Game\GameObjects\Items</Filter>
     </ClInclude>
     <ClInclude Include="Runningshoes.h">
-      <Filter>Header Files\Game\GameObjects\Items</Filter>
-    </ClInclude>
-    <ClInclude Include="Equipment.h">
       <Filter>Header Files\Game\GameObjects\Items</Filter>
     </ClInclude>
     <ClInclude Include="InteractiveObject.h">

@@ -4,6 +4,7 @@ TextureManager::TextureManager(std::shared_ptr<RenderFacade> rf, std::shared_ptr
 	assetManager = am;
 	renderFacade = rf;
 };
+
 TextureManager::~TextureManager() {};
 
 void TextureManager::LoadTexture() {};
