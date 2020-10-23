@@ -90,9 +90,6 @@
     <ClCompile Include="Boomerang.cpp">
       <Filter>Source Files\Game\GameObjects\Items</Filter>
     </ClCompile>
-    <ClCompile Include="Equipment.cpp">
-      <Filter>Source Files\Game\GameObjects\Items</Filter>
-    </ClCompile>
     <ClCompile Include="HealingItem.cpp">
       <Filter>Source Files\Game\GameObjects\Items</Filter>
     </ClCompile>
@@ -222,6 +219,9 @@
     <ClCompile Include="InputWrapper.cpp">
       <Filter>Source Files\SDL\Input</Filter>
     </ClCompile>
+    <ClCompile Include="IEquipment.h">
+      <Filter>Header Files\Game\GameObjects\Items</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h">
@@ -276,9 +276,6 @@
       <Filter>Header Files\Game\GameObjects\Items</Filter>
     </ClInclude>
     <ClInclude Include="Runningshoes.h">
-      <Filter>Header Files\Game\GameObjects\Items</Filter>
-    </ClInclude>
-    <ClInclude Include="Equipment.h">
       <Filter>Header Files\Game\GameObjects\Items</Filter>
     </ClInclude>
     <ClInclude Include="InteractiveObject.h">
