@@ -6,8 +6,8 @@ class Screen
 	
 public:
 	void closeScreen();
-
-private:
 	std::string text;
+private:
+	
 
 };

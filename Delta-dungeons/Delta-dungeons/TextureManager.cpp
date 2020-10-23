@@ -4,12 +4,11 @@ TextureManager::TextureManager(std::shared_ptr<RenderFacade> rf, std::shared_ptr
 	assetManager = am;
 	renderFacade = rf;
 };
+
 TextureManager::~TextureManager() {};
 
-void TextureManager::LoadTexture() 
-{
+void TextureManager::LoadTexture() {}
 
-}
 void TextureManager::DrawTexture(std::string name, Vector2D position, Vector2D sprite) 
 {
 	std::string path = assetManager->getTexture(name);

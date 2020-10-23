@@ -15,19 +15,23 @@ void RenderFacade::init(const char* title, const int width, const int height, co
 	RenderFacade::renderer->init(title, width, height, fullscreen);
 }
 
-void RenderFacade::setFrameStart() {
+void RenderFacade::setFrameStart() 
+{
 	RenderFacade::frameManager->setFrameStart();
 }
 
-void RenderFacade::setFrameDelay() {
+void RenderFacade::setFrameDelay() 
+{
 	RenderFacade::frameManager->setFrameDelay();
 }
 
-void RenderFacade::render(std::list<std::shared_ptr<GameObject>> gameObjects) {
+void RenderFacade::render(std::list<std::shared_ptr<GameObject>> gameObjects) 
+{
 	RenderFacade::renderer->render(gameObjects);
 }
 
-void RenderFacade::clean() {
+void RenderFacade::clean()
+{
 	RenderFacade::renderer->clean();
 }
 
@@ -35,7 +39,8 @@ SDL_Texture* RenderFacade::loadTexture(const std::string* path) {
 	return RenderFacade::drawController->loadTexture(path->c_str());
 }
 
-void RenderFacade::drawTexture(const char* path, const Vector2D& destination2D, const Vector2D& sprite2D) {
+void RenderFacade::drawTexture(const char* path, const Vector2D& destination2D, const Vector2D& sprite2D) 
+{
     Vector2D size;
 
     SDL_Texture* texture = drawController->loadTexture(path);
@@ -58,10 +63,12 @@ void RenderFacade::drawTexture(const char* path, const Vector2D& destination2D, 
     RenderFacade::drawController->drawTexture(texture, source, destination);
 }
 
-void RenderFacade::beforeFrame() {
+void RenderFacade::beforeFrame()
+{
 	RenderFacade::renderer->beforeFrame();
 }
 
-void RenderFacade::afterFrame() {
+void RenderFacade::afterFrame() 
+{
 	RenderFacade::renderer->afterFrame();
 }

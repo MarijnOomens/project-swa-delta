@@ -3,7 +3,9 @@
 #include "GraphicsComponent.h"
 #include "Button.h"
 #include "Player.h"
-
+//Debug
+#include "Button.h"
+#include "MainMenu.h"
 
 EngineController::EngineController() {
 	renderFacade = std::make_shared<RenderFacade>();
