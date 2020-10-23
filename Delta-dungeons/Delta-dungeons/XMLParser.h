@@ -11,6 +11,5 @@ public:
 	XMLParser();
 	~XMLParser();
 
-	std::list<ParserData> parserDataList;
 	std::list<ParserData> parseXML(const char* path);
 };

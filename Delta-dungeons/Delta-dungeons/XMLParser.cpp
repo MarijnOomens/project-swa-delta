@@ -1,13 +1,12 @@
 #include "XMLParser.h"
 using namespace rapidxml;
 
-std::list<ParserData> parserDataList;
-
 XMLParser::XMLParser() {}
 XMLParser::~XMLParser() {}
 
 
 std::list<ParserData> XMLParser::parseXML(const char* path) {
+	std::list<ParserData> parserDataList;
 	rapidxml::file<> xmlFile(path);
 	rapidxml::xml_document<> doc;
 

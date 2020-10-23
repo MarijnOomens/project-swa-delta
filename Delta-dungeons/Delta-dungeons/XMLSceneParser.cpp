@@ -10,6 +10,5 @@ XMLSceneParser::XMLSceneParser()
 XMLSceneParser::~XMLSceneParser() {}
 
 std::list<Tile*> XMLSceneParser::loadScene(const char* path) {
-	std::list<ParserData> data = facade->loadScene(path);
-	return scene.get()->makeTiles(data);
+	return scene.get()->makeTiles(facade->loadScene(path));
 }

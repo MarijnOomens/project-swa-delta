@@ -10,6 +10,7 @@ class Scene {
 public: 
 	Scene();
 	Scene(int x, int y);
+	~Scene();
 	std::list<Tile*> makeTiles(std::list<ParserData> data);
 
 private:

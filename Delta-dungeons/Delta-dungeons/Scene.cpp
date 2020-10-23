@@ -5,6 +5,8 @@ Scene::Scene(){}
 
 Scene::Scene(int x, int y) : x(x), y(y) {};
 
+Scene::~Scene() {}
+
 std::list<Tile*> Scene::makeTiles(std::list<ParserData> data)
 {
 	for(ParserData tile : data)
