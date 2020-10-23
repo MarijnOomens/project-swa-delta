@@ -33,7 +33,3 @@ void Button::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEve
 
 void Button::connectCallback() {};
 void Button::callbackFunction() {};
-
-void Button::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) {
-
-}

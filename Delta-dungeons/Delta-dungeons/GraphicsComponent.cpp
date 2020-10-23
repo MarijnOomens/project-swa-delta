@@ -23,14 +23,7 @@ void GraphicsComponent::Update()
 	textureManager->DrawTexture(textureName, this->transform.position, this->transform.spriteLocationInPNG);
 }
 
-void GraphicsComponent::SetTexture(std::string name) 
-{
-	this->textureName = name;
-};
-
-void GraphicsComponent::connectCallback() {
-
-}
+void GraphicsComponent::connectCallback() {}
 
 void GraphicsComponent::addTextureManager(std::shared_ptr<TextureManager> tm) 
 {
