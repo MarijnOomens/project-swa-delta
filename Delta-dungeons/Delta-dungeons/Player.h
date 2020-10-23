@@ -22,7 +22,7 @@ public:
 
 	void callbackFunction() override;
 	void connectCallback() override;
-
+	void update() override;
 
 
 private:

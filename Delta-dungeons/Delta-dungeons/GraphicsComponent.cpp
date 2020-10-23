@@ -8,17 +8,17 @@ GraphicsComponent::GraphicsComponent(int spriteW, int spriteH) {
 
 GraphicsComponent::~GraphicsComponent() {};
 
-void GraphicsComponent::PlayAnimation(std::string path) {};
+void GraphicsComponent::playAnimation(std::string path) {};
 
-void GraphicsComponent::SetTexture(std::string name)
+void GraphicsComponent::setTexture(std::string name)
 {
-	textureName = name;
+	this->textureName = name;
 }
 
 void GraphicsComponent::callbackFunction() {}
 
 
-void GraphicsComponent::Update()
+void GraphicsComponent::update()
 {
 	textureManager->DrawTexture(textureName, this->transform.position, this->transform.spriteLocationInPNG);
 }

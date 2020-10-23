@@ -9,7 +9,7 @@ class BehaviourObject {
 	
 public:
 	virtual void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) = 0;
-	virtual void Update() = 0;
+	virtual void update() = 0;
 	Transform transform;
 	BehaviourObject();
 	~BehaviourObject();
