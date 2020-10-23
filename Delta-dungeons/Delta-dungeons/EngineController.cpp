@@ -55,7 +55,7 @@ void EngineController::createGameObject() {
 void EngineController::Update(std::list<std::shared_ptr<BehaviourObject>>& bhObjects) {
 	for(auto& bo : bhObjects)
 	{
-		bo.get()->Update();
+		bo.get()->update();
 	}
 };
 

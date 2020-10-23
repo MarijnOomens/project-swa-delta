@@ -12,7 +12,7 @@ class Button : public GameObject
 public:
 	Button(int x, int y, TextureList textureList, GraphicsComponent* gc);
 	~Button();
-	void Update() override;
+	void update() override;
 	void connectCallback() override;
 	void callbackFunction() override;
 	void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) override;

@@ -3,7 +3,7 @@
 BehaviourObject::BehaviourObject() 
 {
 };
-void BehaviourObject::Update() {};
+void BehaviourObject::update() {};
 BehaviourObject::~BehaviourObject() {};
 
 void BehaviourObject::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) {};

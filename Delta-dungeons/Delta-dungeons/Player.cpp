@@ -17,7 +17,7 @@ Player::Player(int x, int y, TextureList tex, GraphicsComponent* gc) {
 
 	m_gc = gc;
 	textureList = tex;
-	m_gc->SetTexture(textureList[0]);
+	m_gc->setTexture(textureList[0]);
 
 }
 
@@ -28,7 +28,7 @@ void Player::handleInput(const KeyCodes keyCodes, const KeyboardEvent keyboardEv
 	std::cout << "This is a Player receiving input." << std::endl;
 
 	if (keyCodes == KEY_UP) {
-	
+
 		this->transform.position.y -= baseMovementSpeed;
 		m_gc->transform.position.y = this->transform.position.y;
 	}
@@ -60,7 +60,7 @@ void Player::handleInput(const KeyCodes keyCodes, const KeyboardEvent keyboardEv
 
 }
 
-void Player::addEquipment(std::shared_ptr<IEquipment> item) 
+void Player::addEquipment(std::shared_ptr<IEquipment> item)
 {
 	equipment.emplace_back(item);
 }
@@ -87,11 +87,9 @@ void Player::equipmentCallbackFunction(const bool runningActivated)
 	std::cout << runningActivated << " runningshoes" << std::endl;
 }
 
-void Player::callbackFunction()
-{
-}
+void Player::callbackFunction() {}
 
 
-void Player::connectCallback() 
-{
-}
+void Player::connectCallback() {}
+
+void Player::update() {}
