@@ -3,8 +3,9 @@
 #include "GraphicsComponent.h"
 //Debug
 #include "Button.h"
+#include "Tile.h"
 #include "MainMenu.h"
-#include "XMLFacade.h"
+#include "XMLSceneParser.h"
 
 EngineController::EngineController() {
 	renderFacade = std::make_shared<RenderFacade>();
@@ -13,10 +14,19 @@ EngineController::EngineController() {
 	input = std::make_shared<Input>(staticInputCallbackFunction, this);
 	
 	// Test if XML is parsed into a list of ParserData Objects
-	XMLFacade facade = XMLFacade();
-	facade.loadScene("Assets\\collisionmap.xml");
+	std::unique_ptr<XMLSceneParser> scene = std::make_unique<XMLSceneParser>();
+	std::list<Tile*> tiles = scene.get()->loadScene("Assets\\collisionmap.xml");
+	assetManager->addTexture("Level1", "Assets/Level1_terrain.png");
+	for (Tile* t : tiles) 
+	{
+		GraphicsComponent* gc = new GraphicsComponent();
+		gc->addTextureManager(textureManager);
+		t->addGraphicsComponent(gc, "Level1");
+		behaviourObjects.emplace_back(gc);
+		behaviourObjects.emplace_back(t);
+	}
 	
-	initRenderer("delta dungeons", 800, 600, false);
+	initRenderer("delta dungeons", 1024, 768, false);
 	startGame();
 }
 

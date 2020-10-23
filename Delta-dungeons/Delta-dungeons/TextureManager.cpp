@@ -7,7 +7,7 @@ TextureManager::TextureManager(std::shared_ptr<RenderFacade> rf, std::shared_ptr
 TextureManager::~TextureManager() {};
 
 void TextureManager::LoadTexture() {};
-void TextureManager::DrawTexture(std::string name, Vector2D position) {
+void TextureManager::DrawTexture(std::string name, Vector2D position, Vector2D coordinates) {
 	std::string texturePath = assetManager->getTexture(name);
-	renderFacade->drawTexture(texturePath.c_str(), position);
+	renderFacade->drawTexture(texturePath.c_str(), position, coordinates);
 };

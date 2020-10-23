@@ -19,7 +19,7 @@ public:
 
 	SDL_Texture* loadTexture(const std::string* imageLocation);
 	SDL_Texture* loadFontTexture(const std::string* fontLocation, const std::string* color, const std::string* stringValue);
-	void drawTexture(const char* path, const Vector2D& destination2D);
+	void drawTexture(const char* path, const Vector2D& destination2D, const Vector2D& coordinates);
 	void setFrameStart();
 	void setFrameDelay();
 	void update(std::list<GameObject> gameObjects);

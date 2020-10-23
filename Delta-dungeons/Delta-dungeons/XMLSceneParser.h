@@ -2,6 +2,10 @@
 #include "SceneParser.h"
 #include <string>
 #include "XMLFacade.h"
+#include "Scene.h"
+#include <list>
+#include "ParserData.h"
+#include "Tile.h"
 
 class XMLSceneParser : public SceneParser {
 public:
@@ -9,7 +13,8 @@ public:
 	~XMLSceneParser();
 
 	std::unique_ptr<XMLFacade> facade;
+	std::shared_ptr<Scene> scene;
 
+	std::list<Tile*> loadScene(const char* path);
 private:
-	int loadScene(const char* path);
 };

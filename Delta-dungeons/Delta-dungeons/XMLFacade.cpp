@@ -4,8 +4,8 @@ XMLFacade::XMLFacade()
 {
 	parser = std::make_unique<XMLParser>();
 }
-// breekt de code somehow, misschien progfout van mij
-//XMLFacade::~XMLFacade() {}
+
+XMLFacade::~XMLFacade() {}
 
 std::list<ParserData> XMLFacade::loadScene(const char* path)
 {
