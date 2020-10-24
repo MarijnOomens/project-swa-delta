@@ -11,13 +11,13 @@ public:
 	Tile(int x, int y, int xImage);
 	Tile(int x, int y, int xImage, int yImage);
 
-	void addGraphicsComponent(GraphicsComponent* gc, std::string imageName);
+	void addGraphicsComponent(std::shared_ptr<GraphicsComponent>& gc, std::string imageName);
 	void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent)override;
 	void callbackFunction()override;
 	void connectCallback()override;
 	void update()override;
 
-	GraphicsComponent* gc;
 	Vector2D imageCoordinates;
+	std::shared_ptr<GraphicsComponent> gc;
 
 };

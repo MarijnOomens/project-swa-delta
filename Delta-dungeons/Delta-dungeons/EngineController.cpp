@@ -17,18 +17,18 @@ EngineController::EngineController() {
 	
 	// Test if XML is parsed into a list of ParserData Objects
 	std::unique_ptr<XMLSceneParser> scene = std::make_unique<XMLSceneParser>();
-	std::list<Tile*> tiles = scene.get()->loadScene("Assets\\collisionmap.xml");
-	assetManager->addTexture("Level1", "Assets/Level1_terrain.png");
-	for (Tile* t : tiles) 
+	std::list<std::shared_ptr<Tile>> tiles = scene.get()->loadScene("Assets\\collisionmap.xml");
+	assetManager->addTexture("Level1", "Assets\\Level1_terrain.png");
+	for (std::shared_ptr<Tile> t : tiles) 
 	{
-		GraphicsComponent* gc = new GraphicsComponent();
-		gc->addTextureManager(textureManager);
+		std::shared_ptr<GraphicsComponent> gc = std::make_shared<GraphicsComponent>();
+		gc.get()->addTextureManager(textureManager);
 		t->addGraphicsComponent(gc, "Level1");
 		behaviourObjects.emplace_back(gc);
 		behaviourObjects.emplace_back(t);
 	}
-
-	assetManager->addTexture("player_anims", "Assets/player_anims.png");
+	tiles.clear();
+	assetManager->addTexture("player_anims", "Assets\\player_anims.png");
 	GraphicsComponent* gcPlayer = new GraphicsComponent();
 	gcPlayer->addTextureManager(textureManager);
 	behaviourObjects.emplace_back(gcPlayer);
@@ -63,7 +63,7 @@ void EngineController::createGameObject() {
 
 };
 
-void EngineController::Update(std::list<std::shared_ptr<BehaviourObject>>& bhObjects) {
+void EngineController::Update(std::vector<std::shared_ptr<BehaviourObject>>& bhObjects) {
 	for(auto& bo : bhObjects)
 	{
 		bo.get()->update();

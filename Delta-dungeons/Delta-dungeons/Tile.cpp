@@ -17,12 +17,12 @@ Tile::Tile(int x, int y, int yImage, int xImage)
 	imageCoordinates = Vector2D(xImage*32,yImage*32);
 }
 
-void Tile::addGraphicsComponent(GraphicsComponent* graphicsComnponent, std::string name) 
+void Tile::addGraphicsComponent(std::shared_ptr<GraphicsComponent>& graphicsComnponent, std::string name) 
 {
 	gc = graphicsComnponent;
-	gc->transform = transform;
-	gc->imageCoordinates = imageCoordinates;
-	gc->setTexture(name);
+	gc.get()->transform = transform;
+	gc.get()->imageCoordinates = imageCoordinates;
+	gc.get()->setTexture(name);
 }
 
 void Tile::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) {};
