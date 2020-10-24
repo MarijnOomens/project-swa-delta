@@ -7,6 +7,10 @@
 #include "AssetManager.h"
 #include "Input.h"
 
+/// Engincontroller class
+///
+/// This class is the main controller class of the Engine, where all other controllers and managers get instantiated and passed into other objects.
+
 class EngineController {
 public:
 		EngineController();
