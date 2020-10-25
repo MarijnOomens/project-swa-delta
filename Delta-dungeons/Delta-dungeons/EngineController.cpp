@@ -13,7 +13,7 @@ EngineController::EngineController() {
 
 	//DEBUG//
 	//Main menu tests
-	assetManager->addTexture("mainmenu", "Assets/mainmenu.png");
+	assetManager->addTexture("mainmenu", "Assets/mainmenu-1024x768.png");
 	GraphicsComponent* gcmm = new GraphicsComponent();
 	gcmm->addTextureManager(textureManager);
 	behaviourObjects.emplace_back(gcmm);	
@@ -31,7 +31,7 @@ EngineController::EngineController() {
 
 	//END DEBUG//
 
-	initRenderer("delta dungeons", 800, 600, false);
+	initRenderer("delta dungeons", 1024, 768, false);
 	startGame();
 }
 
