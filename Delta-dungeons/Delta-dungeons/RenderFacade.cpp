@@ -55,6 +55,7 @@ void RenderFacade::drawTexture(const char* path, const Vector2D& destination2D, 
 
 
     RenderFacade::drawController->drawTexture(texture, source, destination);
+	SDL_DestroyTexture(texture);
 }
 
 void RenderFacade::beforeFrame()
