@@ -9,17 +9,15 @@ typedef void(*cbFunction) (void*, KeyCodes, KeyboardEvent);
 class InputWrapper {
 public:
 	cbFunction func;
+	SDL_Event event;
 	void* pointer;
 
 	InputWrapper();
-	InputWrapper(const cbFunction f, void *p);
+	InputWrapper(const cbFunction f, void* p);
 	~InputWrapper();
 
-	SDL_Event event;
-
 	void handleInput();
+	void handleKeyPressed();
 	void handleKeyReleased();
 	void mapKeyBindings(const KeyCodes code);
-	void handleKeyPressed();
-
 };

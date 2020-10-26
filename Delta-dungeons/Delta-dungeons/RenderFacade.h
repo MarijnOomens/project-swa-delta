@@ -20,14 +20,15 @@ public:
 
 	SDL_Texture* loadTexture(const std::string* imageLocation);
 	SDL_Texture* loadFontTexture(const std::string* fontLocation, const std::string* color, const std::string* stringValue);
-	void drawTexture(std::string path, const Vector2D& destination2D, const Vector2D& coordinates);
+
 	void setFrameStart();
 	void setFrameDelay();
-	void update(std::list<GameObject> gameObjects);
-	void render(std::list<std::shared_ptr<GameObject>> gameObjects);
+	void drawTexture(std::string path, const Vector2D& destination2D, const Vector2D& coordinates);
 	void init(const char* title, const int width, const int height, const bool fullscreen);
+	void render(std::list<std::shared_ptr<GameObject>> gameObjects);
+	void update(std::list<GameObject> gameObjects);
 	void clean();
 	void beforeFrame();
 	void afterFrame();
-private: 
+private:
 };

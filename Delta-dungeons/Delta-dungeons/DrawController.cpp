@@ -1,18 +1,21 @@
 #include "DrawController.h"
 
 DrawController::DrawController() {};
+
 DrawController::DrawController(std::shared_ptr<Renderer> r)
 {
 	renderer = r;
 };
+
 DrawController::~DrawController() {};
 
-SDL_Texture* DrawController::loadTexture(std::string path) {
-	if (textures.count(path)) 
+SDL_Texture* DrawController::loadTexture(std::string path)
+{
+	if (textures.count(path))
 	{
 		return textures.find(path)->second;
 	}
-	else 
+	else
 	{
 		SDL_Surface* tempSurface = IMG_Load(path.c_str());
 		try {
@@ -30,7 +33,8 @@ SDL_Texture* DrawController::loadTexture(std::string path) {
 	}
 };
 
-void DrawController::drawTexture(SDL_Texture* texture, SDL_Rect source, SDL_Rect destination) {
+void DrawController::drawTexture(SDL_Texture* texture, SDL_Rect source, SDL_Rect destination)
+{
 	try {
 		if (renderer.get()->sdlRenderer == NULL) {
 			throw("Renderer is NULL!");
@@ -44,4 +48,3 @@ void DrawController::drawTexture(SDL_Texture* texture, SDL_Rect source, SDL_Rect
 		std::cout << "Error: " << error << std::endl;
 	}
 }
-

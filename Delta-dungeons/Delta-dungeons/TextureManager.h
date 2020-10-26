@@ -10,8 +10,8 @@ public:
 	TextureManager(std::shared_ptr<RenderFacade> rf, std::shared_ptr<AssetManager> am);
 	~TextureManager();
 
-	void LoadTexture();
-	void DrawTexture(std::string name, Vector2D position, Vector2D coordinates);
+	void loadTexture();
+	void drawTexture(std::string name, Vector2D position, Vector2D coordinates);
 private:
 	std::shared_ptr<AssetManager> assetManager;
 	std::shared_ptr<RenderFacade> renderFacade;

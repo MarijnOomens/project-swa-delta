@@ -1,11 +1,6 @@
 #include "Input.h"
 #include <iostream>
 
-void Input::staticCallbackFunction(void* p, const KeyCodes keyCode, const KeyboardEvent keyboardEvent)
-{
-	((Input*)p)->callBackFunction(keyCode, keyboardEvent);
-}
-
 Input::Input() {}
 
 Input::Input(const cbFunction f, void* p) :func(f), pointer(p)
@@ -13,7 +8,12 @@ Input::Input(const cbFunction f, void* p) :func(f), pointer(p)
 	facade = std::make_unique<InputFacade>(staticCallbackFunction, this);
 }
 
-void Input::parseKeyBindings(std::string string) {};
+void Input::staticCallbackFunction(void* p, const KeyCodes keyCode, const KeyboardEvent keyboardEvent)
+{
+	((Input*)p)->callBackFunction(keyCode, keyboardEvent);
+}
+
+void Input::parseKeyBindings(std::string string) {}
 
 void Input::handleInput()
 {

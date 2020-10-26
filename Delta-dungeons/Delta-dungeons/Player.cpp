@@ -4,7 +4,8 @@
 
 Player::Player() {}
 
-Player::Player(std::string texture, std::shared_ptr<GraphicsComponent> gc) {
+Player::Player(std::string texture, std::shared_ptr<GraphicsComponent> gc) 
+{
 	std::shared_ptr<Runningshoes> running = std::make_shared<Runningshoes>(staticEquipmentCallbackFunction, this);
 	std::shared_ptr<Boomerang> boomerang = std::make_shared<Boomerang>();
 
@@ -21,8 +22,6 @@ Player::~Player() {}
 
 void Player::handleInput(const KeyCodes keyCodes, const KeyboardEvent keyboardEvent)
 {
-	std::cout << "This is a Player receiving input." << std::endl;
-
 	if (keyCodes == KEY_UP) {
 
 		this->transform.position.y -= baseMovementSpeed;
@@ -48,19 +47,18 @@ void Player::handleInput(const KeyCodes keyCodes, const KeyboardEvent keyboardEv
 			comp.get()->use();
 		}
 	}
+
 	for (auto& comp : components)
 	{
 		comp->transform.position = this->transform.position;
 	}
-	std::cout << "X: " << transform.position.x << ", Y: " << transform.position.y << std::endl;
-
+	//std::cout << "X: " << transform.position.x << ", Y: " << transform.position.y << std::endl;
 }
 
 void Player::addEquipment(std::shared_ptr<IEquipment> item)
 {
 	equipment.emplace_back(item);
 }
-
 
 void Player::staticEquipmentCallbackFunction(void* p, const bool runningActivated)
 {
@@ -83,8 +81,11 @@ void Player::equipmentCallbackFunction(const bool runningActivated)
 	std::cout << runningActivated << " runningshoes" << std::endl;
 }
 
-void Player::callbackFunction() {}
+void Player::damagePlayer(int damage) {}
 
+void::Player::updateCaughtPokemon(int pokemonId) {}
+
+void Player::callbackFunction() {}
 
 void Player::connectCallback() {}
 

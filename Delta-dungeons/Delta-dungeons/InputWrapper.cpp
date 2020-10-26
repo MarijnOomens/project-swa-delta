@@ -1,23 +1,17 @@
 #include "InputWrapper.h"
 #include <iostream>
 
-InputWrapper::InputWrapper() 
-{
-}
+InputWrapper::InputWrapper() {}
 
-InputWrapper::InputWrapper(const cbFunction f, void* p) :func(f), pointer(p) 
-{
-}
+InputWrapper::InputWrapper(const cbFunction f, void* p) :func(f), pointer(p) {}
 
-InputWrapper::~InputWrapper() 
-{
-}
+InputWrapper::~InputWrapper() {}
 
-void InputWrapper::handleInput() 
+void InputWrapper::handleInput()
 {
 	while (SDL_PollEvent(&event) != 0)
 	{
-		switch (event.type) 
+		switch (event.type)
 		{
 		case SDL_KEYDOWN:
 			handleKeyPressed();
@@ -25,7 +19,7 @@ void InputWrapper::handleInput()
 		case SDL_QUIT:
 			func(pointer, KEY_ESC, KEY_PRESSED);
 			break;
-		case SDL_KEYUP: 
+		case SDL_KEYUP:
 			handleKeyReleased();
 			break;
 
@@ -33,7 +27,7 @@ void InputWrapper::handleInput()
 	}
 }
 
-void InputWrapper::handleKeyPressed() 
+void InputWrapper::handleKeyPressed()
 {
 	switch (event.key.keysym.sym)
 	{
@@ -72,7 +66,7 @@ void InputWrapper::handleKeyPressed()
 	}
 }
 
-void InputWrapper::handleKeyReleased() 
+void InputWrapper::handleKeyReleased()
 {
 	if (SDL_PollEvent(&event) == 1)
 	{
@@ -117,8 +111,4 @@ void InputWrapper::handleKeyReleased()
 	}
 }
 
-void InputWrapper::mapKeyBindings(const KeyCodes code)
-{
-
-}
-
+void InputWrapper::mapKeyBindings(const KeyCodes code) {}

@@ -13,9 +13,10 @@ public:
 	std::unique_ptr<InputFacade> facade;
 
 	Input();
-	Input(const cbFunction f, void *p);
+	Input(const cbFunction f, void* p);
+	Input(const cbFunction f, void* p);
+	static void staticCallbackFunction(void* p, const KeyCodes keyCode, const KeyboardEvent keyboardEvent);
 	void parseKeyBindings(std::string string);
 	void handleInput();
-	static void staticCallbackFunction(void* p, const KeyCodes keyCode, const KeyboardEvent keyboardEvent);
 	void callBackFunction(KeyCodes keyCode, KeyboardEvent keyboardEvent);
 };

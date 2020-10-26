@@ -11,24 +11,23 @@ public:
 	Player();
 	Player(std::string texture, std::shared_ptr<GraphicsComponent> gc);
 	~Player();
-	void damagePlayer(int damage);
-	void updateCaughtPokemon(int id);
+
 	void handleInput(const KeyCodes keyCodes, const KeyboardEvent keyboardEvent) override;
 	void addEquipment(std::shared_ptr<IEquipment> equipment);
-
 	static void staticEquipmentCallbackFunction(void* p, const bool runningActivated);
 	void equipmentCallbackFunction(const bool runningActivated);
 
+	void damagePlayer(int damage);
+	void updateCaughtPokemon(int pokemonId);
 	void callbackFunction() override;
 	void connectCallback() override;
 	void update() override;
 
-
 private:
 	int health;
-	std::list<std::shared_ptr<IEquipment>> equipment;
 	int amountCaught;
-	std::vector<int> pokemonCaught;
 	int baseMovementSpeed;
+	std::vector<int> pokemonCaught;
+	std::list<std::shared_ptr<IEquipment>> equipment;
 	std::shared_ptr<GraphicsComponent> m_gc;
 };
