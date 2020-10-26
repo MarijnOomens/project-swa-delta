@@ -11,7 +11,7 @@ public:
 	Scene();
 	Scene(int x, int y);
 	~Scene();
-	std::vector<std::shared_ptr<Tile>> makeTiles(std::vector<ParserData> data);
+	std::vector<std::shared_ptr<Tile>> makeTiles(std::vector<std::shared_ptr<ParserData>> data);
 
 private:
 	int x;

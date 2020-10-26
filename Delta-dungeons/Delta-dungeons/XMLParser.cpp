@@ -5,8 +5,8 @@ XMLParser::XMLParser() {}
 XMLParser::~XMLParser() {}
 
 
-std::vector<ParserData> XMLParser::parseXML(const char* path) {
-	std::vector<ParserData> parserDataList;
+std::vector<std::shared_ptr<ParserData>> XMLParser::parseXML(const char* path) {
+	std::vector<std::shared_ptr<ParserData>> parserDataList;
 	rapidxml::file<> xmlFile(path);
 	rapidxml::xml_document<> doc;
 
@@ -17,7 +17,7 @@ std::vector<ParserData> XMLParser::parseXML(const char* path) {
 	{
 		for (xml_node<>* tile = child->first_node(); tile; tile = tile->next_sibling())
 		{
-			ParserData p = ParserData(tile->first_attribute("x")->value(), tile->first_attribute("y")->value(), tile->first_attribute("tile")->value());
+			std::shared_ptr<ParserData> p = std::make_shared<ParserData>(tile->first_attribute("x")->value(), tile->first_attribute("y")->value(), tile->first_attribute("tile")->value());
 			parserDataList.push_back(p);
 		}
 	}

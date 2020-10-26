@@ -7,7 +7,7 @@ XMLFacade::XMLFacade()
 
 XMLFacade::~XMLFacade() {}
 
-std::vector<ParserData> XMLFacade::loadScene(const char* path)
+std::vector<std::shared_ptr<ParserData>> XMLFacade::loadScene(const char* path)
 {
 	return parser->parseXML(path);
 }

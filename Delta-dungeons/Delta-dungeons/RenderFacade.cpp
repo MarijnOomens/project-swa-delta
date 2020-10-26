@@ -45,7 +45,6 @@ void RenderFacade::drawTexture(std::string path, const Vector2D& destination2D, 
 	destination.w = 32; // Moet eigenlijk width en height zijn, maar 'Vector2D' heeft alleen x en y variabelen.
 	destination.h = 32; //
 
-
 	RenderFacade::drawController->drawTexture(texture, source, destination);
 }
 

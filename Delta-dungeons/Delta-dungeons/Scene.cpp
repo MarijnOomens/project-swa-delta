@@ -7,18 +7,18 @@ Scene::Scene(int x, int y) : x(x), y(y) {};
 
 Scene::~Scene() {}
 
-std::vector<std::shared_ptr<Tile>> Scene::makeTiles(std::vector<ParserData> data)
+std::vector<std::shared_ptr<Tile>> Scene::makeTiles(std::vector<std::shared_ptr<ParserData>> data)
 {
-	for(ParserData tile : data)
+	for(std::shared_ptr<ParserData> tile : data)
 	{
-		int first = tile.tileId[0] -48;
-		if (tile.tileId[1]) {
-			int second = tile.tileId[1]- 48;
-			tileMap.push_back(std::make_shared<Tile>(std::stoi(tile.x), std::stoi(tile.y), first, second));
+		int first = tile.get()->tileId[0]- 48;
+		if (tile.get()->tileId[1]) {
+			int second = tile.get()->tileId[1]- 48;
+			tileMap.push_back(std::make_shared<Tile>(std::stoi(tile.get()->x), std::stoi(tile.get()->y), first, second));
 		}
 		else 
 		{
-			tileMap.push_back(std::make_shared<Tile>(std::stoi(tile.x), std::stoi(tile.y), first));
+			tileMap.push_back(std::make_shared<Tile>(std::stoi(tile.get()->x), std::stoi(tile.get()->y), first));
 		}
 	}
 	return tileMap;
