@@ -1,10 +1,6 @@
 #include "GraphicsComponent.h"
 
 GraphicsComponent::GraphicsComponent() {};
-GraphicsComponent::GraphicsComponent(int spriteW, int spriteH) {
-	transform.spriteLocationInPNG.spriteLocationInPNGWidth = spriteW;
-	transform.spriteLocationInPNG.spriteLocationInPNGHeight = spriteH;
-};
 
 GraphicsComponent::~GraphicsComponent() {};
 
@@ -20,7 +16,7 @@ void GraphicsComponent::callbackFunction() {}
 
 void GraphicsComponent::update()
 {
-	textureManager->DrawTexture(textureName, this->transform.position, this->transform.spriteLocationInPNG);
+	textureManager->drawTexture(textureName, this->transform.position, this->imageCoordinates);
 }
 
 void GraphicsComponent::connectCallback() {}

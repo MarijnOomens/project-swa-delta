@@ -13,8 +13,8 @@ private:
 
 public:
 	int animationIndex = 0;
+	Vector2D imageCoordinates;
 	GraphicsComponent();
-	GraphicsComponent(int spriteW, int spriteH);
 
 	~GraphicsComponent();
 	void playAnimation(std::string path);
