@@ -6,11 +6,10 @@
 #include "Color.h"
 #include "GraphicsComponent.h"
 
-class MainMenu : public Screen, public GameObject
+class MainMenu : public Screen
 {
 public:
 	MainMenu(); //yes or no
-	MainMenu(GraphicsComponent* gcmm);
 	~MainMenu();
 
 	Screen* creditScreen;
@@ -18,11 +17,4 @@ public:
 	void openCreditScreen();
 
 	void closeScreen() override;
-
-	void connectCallback() override;
-	void callbackFunction() override;
-	void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) override;
-	void update() override;
-
-	std::vector<BehaviourObject> getBehaviourObjects() override;
 };

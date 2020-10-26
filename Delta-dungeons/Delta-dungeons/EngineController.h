@@ -8,7 +8,7 @@
 #include "Input.h"
 #include <vector>
 
-/// Engincontroller class
+/// Enginecontroller class
 ///
 /// This class is the main controller class of the Engine, where all other controllers and managers get instantiated and passed into other objects.
 
@@ -20,6 +20,7 @@ public:
 		static void staticInputCallbackFunction(void* p, const KeyCodes keyCode, const KeyboardEvent keyboardEvent);
 		void inputCallbackFunction(const KeyCodes keyCode, const KeyboardEvent keyboardEvent);
 		void addTexture(std::string name, std::string path);
+		void registerBehaviourObjects(std::vector<std::unique_ptr<BehaviourObject>> objects);
 
 private:
 	std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects;

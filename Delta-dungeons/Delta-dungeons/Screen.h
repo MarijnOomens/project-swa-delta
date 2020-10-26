@@ -3,12 +3,15 @@
 #include <vector>
 #include "GraphicsComponent.h"
 
-class Screen 
+class Screen : public GameObject
 {
 public:
 	virtual void closeScreen() = 0;
 	std::string text;
-	std::vector<BehaviourObject> Objects;
-	GraphicsComponent* gc;
-	virtual std::vector<BehaviourObject> getBehaviourObjects() = 0;
+	std::unique_ptr<GraphicsComponent> gc;
+
+	void connectCallback() override;
+	void callbackFunction() override;
+	void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) override;
+	void update() override;
 };

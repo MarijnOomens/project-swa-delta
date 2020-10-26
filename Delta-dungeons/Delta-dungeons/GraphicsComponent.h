@@ -21,9 +21,9 @@ public:
 	void playAnimation(std::string path);
 	void setTexture(std::string name);
 	void callbackFunction() override;
-	//void draw();
 	void update() override;
 	void connectCallback() override;
 	void addTextureManager(std::shared_ptr<TextureManager> tm);
 	void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent);
+	std::shared_ptr<TextureManager> getTextureManager();
 };

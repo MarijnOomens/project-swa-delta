@@ -17,21 +17,21 @@ EngineController::EngineController()
 
 	//DEBUG//
 	//Main menu tests
-	 assetManager->addTexture("mainmenu", "Assets/mainmenu-1024x768.png");
-	 GraphicsComponent* gcmm = new GraphicsComponent();
-	 gcmm->addTextureManager(textureManager);
-	 behaviourObjects.emplace_back(gcmm);
-	 MainMenu* menu = new MainMenu(gcmm);
-	 behaviourObjects.emplace_back(menu);
+	 //assetManager->addTexture("mainmenu", "Assets/mainmenu-1024x768.png");
+	 //GraphicsComponent* gcmm = new GraphicsComponent();
+	 //gcmm->addTextureManager(textureManager);
+	 //behaviourObjects.emplace_back(gcmm);
+	 //MainMenu* menu = new MainMenu(gcmm);
+	 //behaviourObjects.emplace_back(menu);
 
-	 //Button tests
+	 ////Button tests
 
-	 assetManager->addTexture("button_play", "Assets/button_play.png");
-	 GraphicsComponent* gc = new GraphicsComponent();
-	 gc->addTextureManager(textureManager);
-	 behaviourObjects.emplace_back(gc);
-	 Button* button = new Button(300, 400, { "button_play", "button_play_hover" }, gc);
-	 behaviourObjects.emplace_back(button);
+	 //assetManager->addTexture("button_play", "Assets/button_play.png");
+	 //GraphicsComponent* gc = new GraphicsComponent();
+	 //gc->addTextureManager(textureManager);
+	 //behaviourObjects.emplace_back(gc);
+	 //Button* button = new Button(300, 400, { "button_play", "button_play_hover" }, gc);
+	 //behaviourObjects.emplace_back(button);
 
 	//END DEBUG//
 	// TILEMAP
@@ -126,3 +126,12 @@ void EngineController::startGame()
 	renderFacade->clean();
 	std::cout << "Game cleaned" << std::endl;
 };
+
+void EngineController::registerBehaviourObjects(std::vector<std::unique_ptr<BehaviourObject>> objects) {
+	for (auto& o : objects) {
+		if (dynamic_cast<GraphicsComponent*>(o.get()) != nullptr)
+		{
+			std::cout << "gc" << std::endl;
+		}
+	}
+}
