@@ -21,32 +21,32 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{bb816d2a-2376-4092-8178-bde8ef9d712c}</ProjectGuid>
-    <RootNamespace>Deltadungeons</RootNamespace>
+    <ProjectGuid>{a9875b2f-f59c-4bfa-a945-d19c036ceb46}</ProjectGuid>
+    <RootNamespace>Engine</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -78,24 +78,27 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <LibraryPath>$(SolutionDir)Dependencies\SDL2\lib\x64;$(SolutionDir)Dependencies\SDL2_image\lib\x64;$(LibraryPath)</LibraryPath>
     <IncludePath>$(SolutionDir)Dependencies\SDL2\include;$(SolutionDir)Dependencies\SDL2_image\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Dependencies\SDL2\lib\x64;$(SolutionDir)Dependencies\SDL2_image\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <LibraryPath>$(SolutionDir)Dependencies\SDL2\lib\x64;$(SolutionDir)Dependencies\SDL2_image\lib\x64;$(LibraryPath)</LibraryPath>
     <IncludePath>$(SolutionDir)Dependencies\SDL2\include;$(SolutionDir)Dependencies\SDL2_image\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Dependencies\SDL2\lib\x64;$(SolutionDir)Dependencies\SDL2_image\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;ENGINE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -104,33 +107,35 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;ENGINE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;ENGINE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>..\Engine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>../Delta-dungeons</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>Engine.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)Engine\$(IntDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
-    <PostBuildEvent>
-      <Command>xcopy /y /d "..\Engine\$(IntDir)Engine.dll" "..\Delta-dungeons\$(IntDir)</Command>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -138,92 +143,73 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;ENGINE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>..\Engine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>../Delta-dungeons</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>Engine.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)Engine\$(IntDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
-    <PostBuildEvent>
-      <Command>xcopy /y /d "..\Engine\$(IntDir)Engine.dll" "..\Delta-dungeons\$(IntDir)</Command>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Berry.cpp" />
-    <ClCompile Include="Boomerang.cpp" />
-    <ClCompile Include="Button.cpp" />
-    <ClCompile Include="CreditScreen.cpp" />
-    <ClCompile Include="DialoguePopup.cpp" />
-    <ClCompile Include="EquipmentManager.cpp" />
-    <ClCompile Include="GameManager.cpp" />
-    <ClCompile Include="GameOverScreen.cpp" />
-    <ClCompile Include="HealingItem.cpp" />
-    <ClCompile Include="HelpScreen.cpp" />
-    <ClCompile Include="HUD.cpp" />
-    <ClCompile Include="IEquipment.h" />
-    <ClCompile Include="InteractiveManager.cpp" />
-    <ClCompile Include="InteractiveObject.cpp" />
-    <ClCompile Include="MainMenu.cpp" />
-    <ClCompile Include="NPC.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="PauseScreen.cpp" />
-    <ClCompile Include="Player.cpp" />
-    <ClCompile Include="Pokeball.cpp" />
-    <ClCompile Include="Pokemon.cpp" />
-    <ClCompile Include="PuzzleObject.cpp" />
-    <ClCompile Include="Runningshoes.cpp" />
-    <ClCompile Include="ParserData.cpp" />
-    <ClCompile Include="XMLFacade.cpp" />
-    <ClCompile Include="XMLParser.cpp" />
-    <ClCompile Include="XMLSceneParser.cpp" />
-    <ClCompile Include="Scene.cpp" />
-    <ClCompile Include="Screen.cpp" />
-    <ClCompile Include="Tile.cpp" />
-    <ClCompile Include="TileMap.cpp" />
-    <ClCompile Include="UIManager.cpp" />
+    <ClInclude Include="AudioWrapper.h" />
+    <ClInclude Include="AssetManager.h" />
+    <ClInclude Include="BehaviourObject.h" />
+    <ClInclude Include="ColliderComponent.h" />
+    <ClInclude Include="DrawController.h" />
+    <ClInclude Include="EngineController.h" />
+    <ClInclude Include="FrameManager.h" />
+    <ClInclude Include="GameObject.h" />
+    <ClInclude Include="GraphicsComponent.h" />
+    <ClInclude Include="HUDComponent.h" />
+    <ClInclude Include="Input.h" />
+    <ClInclude Include="IInputFacade.h" />
+    <ClInclude Include="InputFacade.h" />
+    <ClInclude Include="InputWrapper.h" />
+    <ClInclude Include="Keyboardevent.h" />
+    <ClInclude Include="Keycodes.h" />
+    <ClInclude Include="Renderer.h" />
+    <ClInclude Include="Rectangle.h" />
+    <ClInclude Include="RenderFacade.h" />
+    <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="Sound.h" />
+    <ClInclude Include="TextureManager.h" />
+    <ClInclude Include="Transform.h" />
+    <ClInclude Include="Vector2D.h" />
+    <ClInclude Include="framework.h" />
+    <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Berry.h" />
-    <ClInclude Include="Boomerang.h" />
-    <ClInclude Include="Button.h" />
-    <ClInclude Include="Creditscreen.h" />
-    <ClInclude Include="DialoguePopup.h" />
-    <ClInclude Include="EquipmentManager.h" />
-    <ClInclude Include="GameManager.h" />
-    <ClInclude Include="GameOverScreen.h" />
-    <ClInclude Include="HealingItem.h" />
-    <ClInclude Include="HelpScreen.h" />
-    <ClInclude Include="HUD.h" />
-    <ClInclude Include="ParserData.h" />
-    <ClInclude Include="XMLFacade.h" />
-    <ClInclude Include="XMLParser.h" />
-    <ClInclude Include="XMLSceneParser.h" />
-    <ClInclude Include="InteractiveManager.h" />
-    <ClInclude Include="InteractiveObject.h" />
-    <ClInclude Include="MainMenu.h" />
-    <ClInclude Include="NPC.h" />
-    <ClInclude Include="PauseScreen.h" />
-    <ClInclude Include="Player.h" />
-    <ClInclude Include="Pokeball.h" />
-    <ClInclude Include="Pokemon.h" />
-    <ClInclude Include="PuzzleObject.h" />
-    <ClInclude Include="rapidxml.hpp" />
-    <ClInclude Include="rapidxml_iterators.hpp" />
-    <ClInclude Include="rapidxml_print.hpp" />
-    <ClInclude Include="rapidxml_utils.hpp" />
-    <ClInclude Include="Runningshoes.h" />
-    <ClInclude Include="SceneParser.h" />
-    <ClInclude Include="Scene.h" />
-    <ClInclude Include="Screen.h" />
-    <ClInclude Include="Tile.h" />
-    <ClInclude Include="TileMap.h" />
-    <ClInclude Include="UIManager.h" />
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="AudioWrapper.cpp" />
+    <ClCompile Include="EngineController.cpp" />
+    <ClCompile Include="DrawController.cpp" />
+    <ClCompile Include="InputFacade.cpp" />
+    <ClCompile Include="InputWrapper.cpp" />
+    <ClCompile Include="AssetManager.cpp" />
+    <ClCompile Include="BehaviourObject.cpp" />
+    <ClCompile Include="ColliderComponent.cpp" />
+    <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="GraphicsComponent.cpp" />
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="RenderFacade.cpp" />
+    <ClCompile Include="Rectangle.cpp" />
+    <ClCompile Include="Renderer.cpp" />
+    <ClCompile Include="FrameManager.cpp" />
+    <ClCompile Include="HUDComponent.cpp" />
+    <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="Sound.cpp" />
+    <ClCompile Include="TextureManager.cpp" />
+    <ClCompile Include="Transform.cpp" />
+    <ClCompile Include="Vector2D.cpp" />
+    <ClCompile Include="Input.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

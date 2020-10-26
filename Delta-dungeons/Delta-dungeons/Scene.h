@@ -1,10 +1,11 @@
 #pragma once
-#include "Tile.h"
+
 #include <list>
 #include <iostream>
 #include <array>
 #include <vector>
 #include "ParserData.h"
+#include "Tile.h"
 
 class Scene {
 public: 
