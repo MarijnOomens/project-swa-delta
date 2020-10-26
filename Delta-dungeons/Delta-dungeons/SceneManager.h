@@ -4,7 +4,7 @@
 
 class SceneManager {
 private:
-	std::list<Scene> scenes;
+	std::vector<Scene> scenes;
 
 public:
 	SceneManager();

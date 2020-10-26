@@ -1,11 +1,15 @@
 #include "EngineController.h"
-#include <vector>
 #include "GraphicsComponent.h"
+#include <vector>
 //Debug
 #include "Button.h"
+#include "Player.h"
+#include "Tile.h"
 #include "MainMenu.h"
+#include "XMLSceneParser.h"
 
-EngineController::EngineController() {
+EngineController::EngineController()
+{
 	renderFacade = std::make_shared<RenderFacade>();
 	assetManager = std::make_shared<AssetManager>();
 	textureManager = std::make_shared<TextureManager>(renderFacade, assetManager);
@@ -13,31 +17,59 @@ EngineController::EngineController() {
 
 	//DEBUG//
 	//Main menu tests
-	assetManager->addTexture("mainmenu", "Assets/mainmenu-1024x768.png");
-	GraphicsComponent* gcmm = new GraphicsComponent();
-	gcmm->addTextureManager(textureManager);
-	behaviourObjects.emplace_back(gcmm);	
-	MainMenu* menu = new MainMenu(gcmm);
-	behaviourObjects.emplace_back(menu);
+	// assetManager->addTexture("mainmenu", "Assets/mainmenu-1024x768.png");
+	// GraphicsComponent* gcmm = new GraphicsComponent();
+	// gcmm->addTextureManager(textureManager);
+	// behaviourObjects.emplace_back(gcmm);	
+	// MainMenu* menu = new MainMenu(gcmm);
+	// behaviourObjects.emplace_back(menu);
 
-	//Button tests
+	// //Button tests
 
-	assetManager->addTexture("button_play", "Assets/button_play.png");
-	GraphicsComponent* gc = new GraphicsComponent();
-	gc->addTextureManager(textureManager);
-	behaviourObjects.emplace_back(gc);
-	Button* button = new Button(300, 400, { "button_play", "button_play_hover" }, gc);
-	behaviourObjects.emplace_back(button);
+	// assetManager->addTexture("button_play", "Assets/button_play.png");
+	// GraphicsComponent* gc = new GraphicsComponent();
+	// gc->addTextureManager(textureManager);
+	// behaviourObjects.emplace_back(gc);
+	// Button* button = new Button(300, 400, { "button_play", "button_play_hover" }, gc);
+	// behaviourObjects.emplace_back(button);
 
 	//END DEBUG//
+	// TILEMAP
+	std::unique_ptr<XMLSceneParser> scene = std::make_unique<XMLSceneParser>();
+	std::vector<std::shared_ptr<Tile>> tiles = scene.get()->loadScene("Assets\\collisionmap.xml");
+	assetManager->addTexture("Level1", "Assets\\Level1_terrain.png");
+	for (std::shared_ptr<Tile> t : tiles)
+	{
+		std::shared_ptr<GraphicsComponent> gc = std::make_shared<GraphicsComponent>();
+		gc.get()->addTextureManager(textureManager);
+		t->addGraphicsComponent(gc, "Level1");
+		behaviourObjects.emplace_back(gc);
+		behaviourObjects.emplace_back(t);
+	}
+
+	// PLAYER
+	assetManager->addTexture("player_anims", "Assets\\player_anims.png");
+	std::shared_ptr<GraphicsComponent> gcPlayer = std::make_shared<GraphicsComponent>();
+	gcPlayer.get()->addTextureManager(textureManager);
+	behaviourObjects.emplace_back(gcPlayer);
+	std::shared_ptr<Player> player = std::make_shared<Player>("player_anims", gcPlayer);
+	behaviourObjects.emplace_back(player);
 
 	initRenderer("delta dungeons", 1024, 768, false);
 	startGame();
 }
 
-EngineController::~EngineController() {};
+EngineController::~EngineController() {}
 
-#pragma region input
+void EngineController::update(std::vector<std::shared_ptr<BehaviourObject>>& bhObjects)
+{
+	for (auto& bo : bhObjects)
+	{
+		bo.get()->update();
+	}
+};
+
+#pragma region Input
 // Get callback from Input
 void EngineController::staticInputCallbackFunction(void* p, const KeyCodes keyCode, const KeyboardEvent keyboardEvent)
 {
@@ -57,42 +89,31 @@ void EngineController::inputCallbackFunction(const KeyCodes keyCode, const Keybo
 void EngineController::addTexture(std::string name, std::string path) {
 	assetManager->addTexture(name, path);
 }
+#pragma endregion Input Handling
 
-void EngineController::createGameObject() {
-
-};
-
-void EngineController::Update(std::list<std::shared_ptr<BehaviourObject>>& bhObjects) {
-	for(auto& bo : bhObjects)
-	{
-		bo.get()->Update();
-	}
-};
-
-void EngineController::initRenderer(const char* title, int width, int height, bool fullscreen) {
+void EngineController::initRenderer(const char* title, int width, int height, bool fullscreen)
+{
 	EngineController::renderFacade->init(title, width, height, fullscreen);
 };
 
-SDL_Event evt;
-
-void EngineController::startGame() {
-
+void EngineController::startGame()
+{
 	while (renderFacade->renderer->isRunning) {
-
+		/*SDL_Event evt;
 		SDL_WaitEvent(&evt);
 		if (evt.type == SDL_QUIT)
-			renderFacade->renderer.get()->stop();
+			renderFacade->renderer.get()->stop();*/
 
 		renderFacade->setFrameStart();
 		renderFacade->beforeFrame();
 
-		EngineController::Update(behaviourObjects);
-		
+		input.get()->handleInput();
+
+		EngineController::update(behaviourObjects);
+
 		renderFacade->afterFrame();
 
 		// handle input
-		input.get()->getKeyPressed();
-		input.get()->getKeyReleased();
 
 		//EngineController::Render(gameObjects);
 		//loop through draw method

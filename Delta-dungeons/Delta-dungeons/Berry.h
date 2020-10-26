@@ -1,7 +1,7 @@
 #pragma once
-#include "Equipment.h"
+#include "IEquipment.h"
 
-class Berry : Equipment
+class Berry : IEquipment
 {
 
 private:

@@ -1,9 +1,12 @@
 #define SDL_MAIN_HANDLED
-#include "EngineFacade.h"
+#include "EngineController.h"
+#define _CRTDBG_MAP_ALLOC  
+#include <stdlib.h>  
+#include <crtdbg.h>  
 
 int main(int argc, char* argv[])
 {
-    EngineFacade* engineFacade = new EngineFacade();
-    //std::unique_ptr<EngineController> engineController = std::make_unique<EngineController>();
-    //  return 0;
+    std::unique_ptr<EngineController> engineController = std::make_unique<EngineController>();
+    _CrtDumpMemoryLeaks();
+      return 0;
 }

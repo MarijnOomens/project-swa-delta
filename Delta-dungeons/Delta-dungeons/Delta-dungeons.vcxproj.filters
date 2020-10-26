@@ -67,6 +67,12 @@
     <Filter Include="Source Files\SDL\Input">
       <UniqueIdentifier>{d788796d-e34c-45e5-aed6-24c38e4a0123}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Engine\XMLParser">
+      <UniqueIdentifier>{9ccfb478-9f35-4d96-849d-c877a0f982f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\XMLParser">
+      <UniqueIdentifier>{5d2ec776-f080-497e-b7f7-0315870065ef}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameManager.cpp">
@@ -88,9 +94,6 @@
       <Filter>Source Files\Game\GameObjects\Items</Filter>
     </ClCompile>
     <ClCompile Include="Boomerang.cpp">
-      <Filter>Source Files\Game\GameObjects\Items</Filter>
-    </ClCompile>
-    <ClCompile Include="Equipment.cpp">
       <Filter>Source Files\Game\GameObjects\Items</Filter>
     </ClCompile>
     <ClCompile Include="HealingItem.cpp">
@@ -180,9 +183,6 @@
     <ClCompile Include="SceneManager.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="JSONSceneParser.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
     <ClCompile Include="HUDComponent.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
@@ -227,6 +227,21 @@
     </ClCompile>
     <ClCompile Include="EngineFacade.cpp">
       <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="XMLFacade.cpp">
+      <Filter>Source Files\Engine\XMLParser</Filter>
+    </ClCompile>
+    <ClCompile Include="XMLParser.cpp">
+      <Filter>Source Files\Engine\XMLParser</Filter>
+    </ClCompile>
+    <ClCompile Include="XMLSceneParser.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="ParserData.cpp">
+      <Filter>Source Files\Engine\XMLParser</Filter>
+	  </ClCompile>
+    <ClCompile Include="IEquipment.h">
+      <Filter>Header Files\Game\GameObjects\Items</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -284,9 +299,6 @@
     <ClInclude Include="Runningshoes.h">
       <Filter>Header Files\Game\GameObjects\Items</Filter>
     </ClInclude>
-    <ClInclude Include="Equipment.h">
-      <Filter>Header Files\Game\GameObjects\Items</Filter>
-    </ClInclude>
     <ClInclude Include="InteractiveObject.h">
       <Filter>Header Files\Game\GameObjects\InteractiveObjects</Filter>
     </ClInclude>
@@ -330,9 +342,6 @@
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="SceneParser.h">
-      <Filter>Header Files\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="JSONSceneParser.h">
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Scene.h">
@@ -397,6 +406,30 @@
     </ClInclude>
     <ClInclude Include="EngineFacade.h">
       <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidxml_iterators.hpp">
+      <Filter>Header Files\Engine\XMLParser</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidxml_print.hpp">
+      <Filter>Header Files\Engine\XMLParser</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidxml_utils.hpp">
+      <Filter>Header Files\Engine\XMLParser</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidxml.hpp">
+      <Filter>Header Files\Engine\XMLParser</Filter>
+    </ClInclude>
+    <ClInclude Include="XMLParser.h">
+      <Filter>Header Files\Engine\XMLParser</Filter>
+    </ClInclude>
+    <ClInclude Include="XMLFacade.h">
+      <Filter>Header Files\Engine\XMLParser</Filter>
+    </ClInclude>
+    <ClInclude Include="XMLSceneParser.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="ParserData.h">
+      <Filter>Header Files\Engine\XMLParser</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

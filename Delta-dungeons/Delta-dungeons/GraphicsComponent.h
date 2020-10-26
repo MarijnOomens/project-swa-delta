@@ -13,13 +13,15 @@ private:
 
 public:
 	int animationIndex = 0;
+	Vector2D imageCoordinates;
 	GraphicsComponent();
+
 	~GraphicsComponent();
-	void PlayAnimation(std::string path);
-	void SetTexture(std::string name);
+	void playAnimation(std::string path);
+	void setTexture(std::string name);
 	void callbackFunction() override;
 	//void draw();
-	void Update() override;
+	void update() override;
 	void connectCallback() override;
 	void addTextureManager(std::shared_ptr<TextureManager> tm);
 	void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent);

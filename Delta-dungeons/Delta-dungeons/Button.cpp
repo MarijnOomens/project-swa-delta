@@ -9,19 +9,27 @@ Button::Button(int x, int y, TextureList textureList, GraphicsComponent* gc) {
 	gc->transform = this->transform;
 
 	possibleTextures = textureList;
-	m_gc->SetTexture(possibleTextures[0]);
+	m_gc->setTexture(possibleTextures[0]);
 };
 Button::~Button() {};
 
 int count = 0;
 
-void Button::Update() {
+void Button::update() {}
 
-}
+void Button::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) {
+	std::cout << keyCode << std::endl;
+	if (keyCode == KEY_UP) {
+		this->transform.position.x + 1;
+	}
+	else if (keyCode == KEY_DOWN) {
+		this->transform.position.x - 1;
+	}
+	for (auto& comp : components)
+	{
+		comp->transform = this->transform;
+	}
+};
 
 void Button::connectCallback() {};
 void Button::callbackFunction() {};
-
-void Button::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) {
-
-}
