@@ -17,8 +17,9 @@ public:
 
 	SDL_Event event;
 
-	void handleKeyPressed();
+	void handleInput();
 	void handleKeyReleased();
 	void mapKeyBindings(const KeyCodes code);
+	void handleKeyPressed();
 
 };

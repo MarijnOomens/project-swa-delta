@@ -7,19 +7,27 @@ DrawController::DrawController(std::shared_ptr<Renderer> r)
 };
 DrawController::~DrawController() {};
 
-SDL_Texture* DrawController::loadTexture(const char* path) {
-	SDL_Surface* tempSurface = IMG_Load(path);
-	try {
-		if (!tempSurface) {
-			throw("Image not loaded in!");
+SDL_Texture* DrawController::loadTexture(std::string path) {
+	if (textures.count(path)) 
+	{
+		return textures.find(path)->second;
+	}
+	else 
+	{
+		SDL_Surface* tempSurface = IMG_Load(path.c_str());
+		try {
+			if (!tempSurface) {
+				throw("Image not loaded in!");
+			}
 		}
+		catch (std::string error) {
+			std::cout << "Error: " << error << std::endl;
+		}
+		SDL_Texture* tex = SDL_CreateTextureFromSurface(renderer.get()->sdlRenderer, tempSurface);
+		textures.insert({ path,tex });
+		SDL_FreeSurface(tempSurface);
+		return tex;
 	}
-	catch (std::string error) {
-		std::cout << "Error: " << error << std::endl;
-	}
-	SDL_Texture* tex = SDL_CreateTextureFromSurface(renderer.get()->sdlRenderer, tempSurface);
-	SDL_FreeSurface(tempSurface);
-	return tex;
 };
 
 void DrawController::drawTexture(SDL_Texture* texture, SDL_Rect source, SDL_Rect destination) {

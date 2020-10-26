@@ -15,14 +15,9 @@ Input::Input(const cbFunction f, void* p) :func(f), pointer(p)
 
 void Input::parseKeyBindings(std::string string) {};
 
-void Input::getKeyPressed()
+void Input::handleInput()
 {
-	facade->handleKeyPressed();
-}
-
-void Input::getKeyReleased()
-{
-	facade->handleKeyReleased();
+	facade->handleInput();
 }
 
 void Input::callBackFunction(KeyCodes keyCode, KeyboardEvent keyboardEvent)

@@ -6,14 +6,9 @@ InputFacade::InputFacade(const cbFunction f, void *p) {
 	wrapper = std::make_unique<InputWrapper>(f,p);
 }
 
-void IInputFacade::handleKeyPressed() 
+void IInputFacade::handleInput() 
 {
-	wrapper->handleKeyPressed();
-}
-
-void IInputFacade::handleKeyReleased() 
-{
-	wrapper->handleKeyReleased();
+	wrapper->handleInput();
 }
 
 void IInputFacade::mapKeyBindings(KeyCodes keyCode)

@@ -2,8 +2,9 @@
 #include "Runningshoes.h"
 #include "Boomerang.h"
 
+Player::Player() {}
 
-Player::Player(int x, int y, TextureList tex, GraphicsComponent* gc) {
+Player::Player(std::string texture, std::shared_ptr<GraphicsComponent> gc) {
 	std::shared_ptr<Runningshoes> running = std::make_shared<Runningshoes>(staticEquipmentCallbackFunction, this);
 	std::shared_ptr<Boomerang> boomerang = std::make_shared<Boomerang>();
 
@@ -12,13 +13,8 @@ Player::Player(int x, int y, TextureList tex, GraphicsComponent* gc) {
 
 	baseMovementSpeed = 32;
 
-	this->transform.position.x = x;
-	this->transform.position.y = y;
-
 	m_gc = gc;
-	textureList = tex;
-	m_gc->setTexture(textureList[0]);
-
+	m_gc->setTexture(texture);
 }
 
 Player::~Player() {}

@@ -29,10 +29,10 @@ EngineController::EngineController() {
 	}
 	tiles.clear();
 	assetManager->addTexture("player_anims", "Assets\\player_anims.png");
-	GraphicsComponent* gcPlayer = new GraphicsComponent();
-	gcPlayer->addTextureManager(textureManager);
+	std::shared_ptr<GraphicsComponent> gcPlayer = std::make_shared<GraphicsComponent>();
+	gcPlayer.get()->addTextureManager(textureManager);
 	behaviourObjects.emplace_back(gcPlayer);
-	Player* player = new Player(16, 16, { "player_anims" }, gcPlayer);
+	std::shared_ptr<Player> player = std::make_shared<Player>("player_anims", gcPlayer);
 	
 	behaviourObjects.emplace_back(player);
 
@@ -77,7 +77,6 @@ void EngineController::initRenderer(const char* title, int width, int height, bo
 void EngineController::startGame() {
 
 	while (renderFacade->renderer->isRunning) {
-
 		/*SDL_Event evt;
 		SDL_WaitEvent(&evt);
 		if (evt.type == SDL_QUIT) 
@@ -86,13 +85,13 @@ void EngineController::startGame() {
 		renderFacade->setFrameStart();
 		renderFacade->beforeFrame();
 
+		input.get()->handleInput();
+
 		EngineController::Update(behaviourObjects);
 		
 		renderFacade->afterFrame();
 
 		// handle input
-		input.get()->getKeyPressed();
-		input.get()->getKeyReleased();
 
 		//EngineController::Render(gameObjects);
 		//loop through draw method

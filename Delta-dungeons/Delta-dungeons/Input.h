@@ -15,8 +15,7 @@ public:
 	Input();
 	Input(const cbFunction f, void *p);
 	void parseKeyBindings(std::string string);
-	void getKeyPressed();
-	void getKeyReleased();
+	void handleInput();
 	static void staticCallbackFunction(void* p, const KeyCodes keyCode, const KeyboardEvent keyboardEvent);
 	void callBackFunction(KeyCodes keyCode, KeyboardEvent keyboardEvent);
 };

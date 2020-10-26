@@ -13,48 +13,62 @@ InputWrapper::~InputWrapper()
 {
 }
 
+void InputWrapper::handleInput() 
+{
+	while (SDL_PollEvent(&event) != 0)
+	{
+		switch (event.type) 
+		{
+		case SDL_KEYDOWN:
+			handleKeyPressed();
+			break;
+		case SDL_QUIT:
+			func(pointer, KEY_ESC, KEY_PRESSED);
+			break;
+		case SDL_KEYUP: 
+			handleKeyReleased();
+			break;
+
+		}
+	}
+}
+
 void InputWrapper::handleKeyPressed() 
 {
-	if (SDL_PollEvent(&event) == 1)
+	switch (event.key.keysym.sym)
 	{
-		if (event.type == SDL_KEYDOWN)
-		{
-			switch (event.key.keysym.sym)
-			{
-			case SDLK_UP:
-				func(pointer, KEY_UP, KEY_PRESSED);
-				break;
-			case SDLK_DOWN:
-				func(pointer, KEY_DOWN, KEY_PRESSED);
-				break;
-			case SDLK_LEFT:
-				func(pointer, KEY_LEFT, KEY_PRESSED);
-				break;
-			case SDLK_RIGHT:
-				func(pointer, KEY_RIGHT, KEY_PRESSED);
-				break;
-			case SDLK_w:
-				func(pointer, KEY_W, KEY_PRESSED);
-				break;
-			case SDLK_a:
-				func(pointer, KEY_A, KEY_PRESSED);
-				break;
-			case SDLK_s:
-				func(pointer, KEY_S, KEY_PRESSED);
-				break;
-			case SDLK_d:
-				func(pointer, KEY_D, KEY_PRESSED);
-				break;
-			case SDLK_q:
-				func(pointer, KEY_Q, KEY_PRESSED);
-				break;
-			case SDLK_e:
-				func(pointer, KEY_E, KEY_PRESSED);
-				break;
-			default:
-				break;
-			}
-		}
+	case SDLK_UP:
+		func(pointer, KEY_UP, KEY_PRESSED);
+		break;
+	case SDLK_DOWN:
+		func(pointer, KEY_DOWN, KEY_PRESSED);
+		break;
+	case SDLK_LEFT:
+		func(pointer, KEY_LEFT, KEY_PRESSED);
+		break;
+	case SDLK_RIGHT:
+		func(pointer, KEY_RIGHT, KEY_PRESSED);
+		break;
+	case SDLK_w:
+		func(pointer, KEY_W, KEY_PRESSED);
+		break;
+	case SDLK_a:
+		func(pointer, KEY_A, KEY_PRESSED);
+		break;
+	case SDLK_s:
+		func(pointer, KEY_S, KEY_PRESSED);
+		break;
+	case SDLK_d:
+		func(pointer, KEY_D, KEY_PRESSED);
+		break;
+	case SDLK_q:
+		func(pointer, KEY_Q, KEY_PRESSED);
+		break;
+	case SDLK_e:
+		func(pointer, KEY_E, KEY_PRESSED);
+		break;
+	default:
+		break;
 	}
 }
 

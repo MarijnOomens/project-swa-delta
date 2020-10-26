@@ -5,12 +5,11 @@
 #include "GraphicsComponent.h"
 #include <list>
 
-using TextureList = std::vector<std::string>;
-
 class Player : public GameObject {
 
 public:
-	Player(int x, int y, TextureList texture, GraphicsComponent* gc);
+	Player();
+	Player(std::string texture, std::shared_ptr<GraphicsComponent> gc);
 	~Player();
 	void damagePlayer(int damage);
 	void updateCaughtPokemon(int id);
@@ -31,7 +30,5 @@ private:
 	int amountCaught;
 	std::vector<int> pokemonCaught;
 	int baseMovementSpeed;
-	GraphicsComponent* m_gc;
-	TextureList textureList;
-
+	std::shared_ptr<GraphicsComponent> m_gc;
 };

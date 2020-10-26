@@ -38,7 +38,7 @@ void RenderFacade::clean()
 SDL_Texture* RenderFacade::loadTexture(const std::string* path) {
 	return RenderFacade::drawController->loadTexture(path->c_str());
 }
-void RenderFacade::drawTexture(const char* path, const Vector2D& destination2D, const Vector2D& coordinates) {
+void RenderFacade::drawTexture(std::string path, const Vector2D& destination2D, const Vector2D& coordinates) {
 	Vector2D size;
 	SDL_Rect source;
 	source.x = coordinates.x;	// Moet 0 zijn om de volledige texture te tekenen, omdat de source rectangle aangeeft welk deel van de texture wordt getekend. Dus als dit 32 is, wordt x positie 32 + width
@@ -55,7 +55,6 @@ void RenderFacade::drawTexture(const char* path, const Vector2D& destination2D, 
 
 
     RenderFacade::drawController->drawTexture(texture, source, destination);
-	SDL_DestroyTexture(texture);
 }
 
 void RenderFacade::beforeFrame()
