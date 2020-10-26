@@ -1,6 +1,6 @@
 #include "EngineController.h"
-#include <vector>
 #include "GraphicsComponent.h"
+#include <vector>
 //Debug
 #include "Button.h"
 #include "Player.h"
