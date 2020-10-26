@@ -17,43 +17,43 @@ EngineController::EngineController()
 
 	//DEBUG//
 	//Main menu tests
-	// assetManager->addTexture("mainmenu", "Assets/mainmenu-1024x768.png");
-	// GraphicsComponent* gcmm = new GraphicsComponent();
-	// gcmm->addTextureManager(textureManager);
-	// behaviourObjects.emplace_back(gcmm);	
-	// MainMenu* menu = new MainMenu(gcmm);
-	// behaviourObjects.emplace_back(menu);
+	 assetManager->addTexture("mainmenu", "Assets/mainmenu-1024x768.png");
+	 GraphicsComponent* gcmm = new GraphicsComponent();
+	 gcmm->addTextureManager(textureManager);
+	 behaviourObjects.emplace_back(gcmm);
+	 MainMenu* menu = new MainMenu(gcmm);
+	 behaviourObjects.emplace_back(menu);
 
-	// //Button tests
+	 //Button tests
 
-	// assetManager->addTexture("button_play", "Assets/button_play.png");
-	// GraphicsComponent* gc = new GraphicsComponent();
-	// gc->addTextureManager(textureManager);
-	// behaviourObjects.emplace_back(gc);
-	// Button* button = new Button(300, 400, { "button_play", "button_play_hover" }, gc);
-	// behaviourObjects.emplace_back(button);
+	 assetManager->addTexture("button_play", "Assets/button_play.png");
+	 GraphicsComponent* gc = new GraphicsComponent();
+	 gc->addTextureManager(textureManager);
+	 behaviourObjects.emplace_back(gc);
+	 Button* button = new Button(300, 400, { "button_play", "button_play_hover" }, gc);
+	 behaviourObjects.emplace_back(button);
 
 	//END DEBUG//
 	// TILEMAP
-	std::unique_ptr<XMLSceneParser> scene = std::make_unique<XMLSceneParser>();
-	std::vector<std::shared_ptr<Tile>> tiles = scene.get()->loadScene("Assets\\collisionmap.xml");
-	assetManager->addTexture("Level1", "Assets\\Level1_terrain.png");
-	for (std::shared_ptr<Tile> t : tiles)
-	{
-		std::shared_ptr<GraphicsComponent> gc = std::make_shared<GraphicsComponent>();
-		gc.get()->addTextureManager(textureManager);
-		t->addGraphicsComponent(gc, "Level1");
-		behaviourObjects.emplace_back(gc);
-		behaviourObjects.emplace_back(t);
-	}
+	//std::unique_ptr<XMLSceneParser> scene = std::make_unique<XMLSceneParser>();
+	//std::vector<std::shared_ptr<Tile>> tiles = scene.get()->loadScene("Assets\\collisionmap.xml");
+	//assetManager->addTexture("Level1", "Assets\\Level1_terrain.png");
+	//for (std::shared_ptr<Tile> t : tiles)
+	//{
+	//	std::shared_ptr<GraphicsComponent> gc = std::make_shared<GraphicsComponent>();
+	//	gc.get()->addTextureManager(textureManager);
+	//	t->addGraphicsComponent(gc, "Level1");
+	//	behaviourObjects.emplace_back(gc);
+	//	behaviourObjects.emplace_back(t);
+	//}
 
-	// PLAYER
-	assetManager->addTexture("player_anims", "Assets\\player_anims.png");
-	std::shared_ptr<GraphicsComponent> gcPlayer = std::make_shared<GraphicsComponent>();
-	gcPlayer.get()->addTextureManager(textureManager);
-	behaviourObjects.emplace_back(gcPlayer);
-	std::shared_ptr<Player> player = std::make_shared<Player>("player_anims", gcPlayer);
-	behaviourObjects.emplace_back(player);
+	//// PLAYER
+	//assetManager->addTexture("player_anims", "Assets\\player_anims.png");
+	//std::shared_ptr<GraphicsComponent> gcPlayer = std::make_shared<GraphicsComponent>();
+	//gcPlayer.get()->addTextureManager(textureManager);
+	//behaviourObjects.emplace_back(gcPlayer);
+	//std::shared_ptr<Player> player = std::make_shared<Player>("player_anims", gcPlayer);
+	//behaviourObjects.emplace_back(player);
 
 	initRenderer("delta dungeons", 1024, 768, false);
 	startGame();

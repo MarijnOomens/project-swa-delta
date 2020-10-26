@@ -16,7 +16,7 @@ void GraphicsComponent::callbackFunction() {}
 
 void GraphicsComponent::update()
 {
-	textureManager->drawTexture(textureName, this->transform.position, this->imageCoordinates);
+	textureManager->drawTexture(textureName, this->transform, this->imageCoordinates, this->imageDimensions);
 }
 
 void GraphicsComponent::connectCallback() {}

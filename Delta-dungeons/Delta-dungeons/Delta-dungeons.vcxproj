@@ -160,7 +160,6 @@
     <ClCompile Include="DrawController.cpp" />
     <ClCompile Include="EngineController.cpp" />
     <ClCompile Include="EngineFacade.cpp" />
-    <ClCompile Include="Equipment.cpp" />
     <ClCompile Include="EquipmentManager.cpp" />
     <ClCompile Include="FrameManager.cpp" />
     <ClCompile Include="GameManager.cpp" />
@@ -218,7 +217,6 @@
     <ClInclude Include="DrawController.h" />
     <ClInclude Include="EngineController.h" />
     <ClInclude Include="EngineFacade.h" />
-    <ClInclude Include="Equipment.h" />
     <ClInclude Include="EquipmentManager.h" />
     <ClInclude Include="FrameManager.h" />
     <ClInclude Include="GameManager.h" />

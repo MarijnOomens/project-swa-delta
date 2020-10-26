@@ -8,7 +8,8 @@ MainMenu::MainMenu() {
 
 MainMenu::MainMenu(GraphicsComponent* gcmm) {
 	gc = gcmm;
-	gc->SetTexture("mainmenu");
+	gc->setTexture("mainmenu");
+	gc->imageDimensions = { 1024, 768 };
 
 	//Maak hashmappie voor textures
 	//En daarna mooie buttons enzo
@@ -30,6 +31,7 @@ void MainMenu::closeScreen() {};
 
 void MainMenu::connectCallback() {};
 void MainMenu::callbackFunction() {};
+void MainMenu::update() {};
 
 void MainMenu::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) {
 

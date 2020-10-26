@@ -22,6 +22,7 @@ public:
 	void connectCallback() override;
 	void callbackFunction() override;
 	void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) override;
+	void update() override;
 
 	std::vector<BehaviourObject> getBehaviourObjects() override;
 };

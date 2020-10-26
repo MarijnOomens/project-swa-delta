@@ -3,10 +3,10 @@
 Button::Button(int x, int y, TextureList textureList, GraphicsComponent* gc) {
 	m_gc = gc;
 	components.push_back(m_gc);
-	transform.position.x = x;
-	transform.position.y = y;
+	transform.position = { x, y };
 
 	gc->transform = this->transform;
+	gc->imageDimensions = { 80, 50 };
 
 	possibleTextures = textureList;
 	m_gc->setTexture(possibleTextures[0]);

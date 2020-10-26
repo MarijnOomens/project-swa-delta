@@ -14,6 +14,7 @@ private:
 public:
 	int animationIndex = 0;
 	Vector2D imageCoordinates;
+	Vector2D imageDimensions = { 32, 32 };
 	GraphicsComponent();
 
 	~GraphicsComponent();
