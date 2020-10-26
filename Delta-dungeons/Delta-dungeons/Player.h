@@ -28,6 +28,6 @@ private:
 	int amountCaught;
 	int baseMovementSpeed;
 	std::vector<int> pokemonCaught;
-	std::list<std::shared_ptr<IEquipment>> equipment;
+	std::vector<std::shared_ptr<IEquipment>> equipment;
 	std::shared_ptr<GraphicsComponent> m_gc;
 };

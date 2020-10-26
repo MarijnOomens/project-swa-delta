@@ -54,12 +54,12 @@ void RenderFacade::init(const char* title, const int width, const int height, co
 	RenderFacade::renderer->init(title, width, height, fullscreen);
 }
 
-void RenderFacade::render(std::list<std::shared_ptr<GameObject>> gameObjects)
+void RenderFacade::render(std::vector<std::shared_ptr<GameObject>> gameObjects)
 {
 	RenderFacade::renderer->render(gameObjects);
 }
 
-void RenderFacade::update(std::list<GameObject> gameObjects) {}
+void RenderFacade::update(std::vector<GameObject> gameObjects) {}
 
 void RenderFacade::clean()
 {

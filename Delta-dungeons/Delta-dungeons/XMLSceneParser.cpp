@@ -9,6 +9,6 @@ XMLSceneParser::XMLSceneParser()
 
 XMLSceneParser::~XMLSceneParser() {}
 
-std::list<std::shared_ptr<Tile>> XMLSceneParser::loadScene(const char* path) {
+std::vector<std::shared_ptr<Tile>> XMLSceneParser::loadScene(const char* path) {
 	return scene.get()->makeTiles(facade->loadScene(path));
 }

@@ -15,6 +15,6 @@ public:
 	std::unique_ptr<XMLFacade> facade;
 	std::shared_ptr<Scene> scene;
 
-	std::list<std::shared_ptr<Tile>> loadScene(const char* path);
+	std::vector<std::shared_ptr<Tile>> loadScene(const char* path);
 private:
 };

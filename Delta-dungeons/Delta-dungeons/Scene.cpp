@@ -7,7 +7,7 @@ Scene::Scene(int x, int y) : x(x), y(y) {};
 
 Scene::~Scene() {}
 
-std::list<std::shared_ptr<Tile>> Scene::makeTiles(std::list<ParserData> data)
+std::vector<std::shared_ptr<Tile>> Scene::makeTiles(std::vector<ParserData> data)
 {
 	for(ParserData tile : data)
 	{

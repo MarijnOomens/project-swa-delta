@@ -5,8 +5,8 @@ XMLParser::XMLParser() {}
 XMLParser::~XMLParser() {}
 
 
-std::list<ParserData> XMLParser::parseXML(const char* path) {
-	std::list<ParserData> parserDataList;
+std::vector<ParserData> XMLParser::parseXML(const char* path) {
+	std::vector<ParserData> parserDataList;
 	rapidxml::file<> xmlFile(path);
 	rapidxml::xml_document<> doc;
 

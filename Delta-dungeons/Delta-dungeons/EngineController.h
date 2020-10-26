@@ -18,7 +18,7 @@ public:
 
 private:
 	std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects;
-	std::list<int> hudLayers;
+	std::vector<int> hudLayers;
 	std::shared_ptr<SceneManager> sceneManager;
 	std::shared_ptr<RenderFacade> renderFacade;
 	std::shared_ptr<TextureManager> textureManager;

@@ -11,10 +11,10 @@ public:
 	Scene();
 	Scene(int x, int y);
 	~Scene();
-	std::list<std::shared_ptr<Tile>> makeTiles(std::list<ParserData> data);
+	std::vector<std::shared_ptr<Tile>> makeTiles(std::vector<ParserData> data);
 
 private:
 	int x;
 	int y;
-	std::list<std::shared_ptr<Tile>> tileMap;
+	std::vector<std::shared_ptr<Tile>> tileMap;
 };

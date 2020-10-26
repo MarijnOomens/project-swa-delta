@@ -17,7 +17,7 @@ EngineController::EngineController()
 
 	// TILEMAP
 	std::unique_ptr<XMLSceneParser> scene = std::make_unique<XMLSceneParser>();
-	std::list<std::shared_ptr<Tile>> tiles = scene.get()->loadScene("Assets\\collisionmap.xml");
+	std::vector<std::shared_ptr<Tile>> tiles = scene.get()->loadScene("Assets\\collisionmap.xml");
 	assetManager->addTexture("Level1", "Assets\\Level1_terrain.png");
 	for (std::shared_ptr<Tile> t : tiles)
 	{

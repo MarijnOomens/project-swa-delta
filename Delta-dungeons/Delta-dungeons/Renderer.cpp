@@ -73,7 +73,7 @@ void Renderer::updateCamera() {
 	}
 }
 
-void Renderer::render(std::list<std::shared_ptr<GameObject>> gameObjects) {
+void Renderer::render(std::vector<std::shared_ptr<GameObject>> gameObjects) {
 	SDL_RenderClear(sdlRenderer);
 
 	try {
