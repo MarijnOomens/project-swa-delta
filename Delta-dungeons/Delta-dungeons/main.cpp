@@ -6,7 +6,7 @@
 
 int main(int argc, char* argv[])
 {
-    _CrtDumpMemoryLeaks();
     std::unique_ptr<EngineController> engineController = std::make_unique<EngineController>();
+    _CrtDumpMemoryLeaks();
       return 0;
 }
