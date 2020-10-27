@@ -56,7 +56,6 @@ EngineController::EngineController()
 	//behaviourObjects.emplace_back(player);
 
 	initRenderer("delta dungeons", 1024, 768, false);
-	startGame();
 }
 
 EngineController::~EngineController() {}
@@ -127,11 +126,23 @@ void EngineController::startGame()
 	std::cout << "Game cleaned" << std::endl;
 };
 
-void EngineController::registerBehaviourObjects(std::vector<std::unique_ptr<BehaviourObject>> objects) {
+void EngineController::registerBehaviourObjects(std::vector<std::shared_ptr<BehaviourObject>> objects) {
 	for (auto& o : objects) {
 		if (dynamic_cast<GraphicsComponent*>(o.get()) != nullptr)
 		{
 			std::cout << "gc" << std::endl;
+			auto ngc = dynamic_cast<GraphicsComponent*>(o.get());
+			ngc->addTextureManager(textureManager);
+			this->behaviourObjects.emplace_back(ngc);
 		}
+		else {
+			this->behaviourObjects.emplace_back(o);
+		}
+	}
+}
+
+void EngineController::registerTextures(std::map<std::string, std::string> textures) {
+	for (auto& t : textures) {
+		assetManager.get()->addTexture(t.first, t.second);
 	}
 }

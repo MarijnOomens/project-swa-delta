@@ -7,7 +7,7 @@
 
 class GameManager {
 private:
-	std::vector<std::unique_ptr<BehaviourObject>> objects; //TODO: split into scenes
+	std::vector<std::shared_ptr<BehaviourObject>> objects; //TODO: split into scenes
 
 public: 
 	EngineFacade engineFacade;
@@ -15,5 +15,6 @@ public:
 	EquipmentManager* eqManager;
 
 	GameManager();
-	void RegisterGameObjects();
+	void registerBehaviourObjects();
+	void registerTextures(std::map<std::string, std::string> textures);
 };

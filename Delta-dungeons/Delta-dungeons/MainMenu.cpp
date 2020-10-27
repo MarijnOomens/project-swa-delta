@@ -1,8 +1,11 @@
 #include "MainMenu.h"
 
 MainMenu::MainMenu() {
+	this->textures.try_emplace("mainmenu", "Assets/mainmenu-1024x768.png");
+	this->textures.try_emplace("button_play", "Assets/button_play.png");
+
 	text = "Delta Dungeons";
-	gc = std::make_unique<GraphicsComponent>();
+	gc = std::make_shared<GraphicsComponent>();
 	gc->setTexture("mainmenu");
 	gc->imageDimensions = { 1024, 768 };
 	this->components.emplace_back(gc);

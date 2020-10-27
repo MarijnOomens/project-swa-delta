@@ -8,7 +8,8 @@ class Screen : public GameObject
 public:
 	virtual void closeScreen() = 0;
 	std::string text;
-	std::unique_ptr<GraphicsComponent> gc;
+	std::shared_ptr<GraphicsComponent> gc;
+	std::map<std::string, std::string> textures;
 
 	void connectCallback() override;
 	void callbackFunction() override;

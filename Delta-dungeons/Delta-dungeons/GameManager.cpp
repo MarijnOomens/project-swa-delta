@@ -5,15 +5,21 @@ GameManager::GameManager() {
 	engineFacade.init();
 	uiManager = UIManager();
 	uiManager.createBaseScreens();
-	//for (auto& o : uiManager.screens)
-	//{
-		//std::cout << o.first << std::endl;
-		//for (auto& c : o.second.get()->components) {
-		//	this->objects.emplace_back(o);
-		//}
-	//}
+	registerTextures(uiManager.passTextures());
+	registerBehaviourObjects();
+	engineFacade.startGame();
 }
 
-void GameManager::RegisterGameObjects() {
+void GameManager::registerBehaviourObjects() {
+	for (auto& o : uiManager.screens)
+	{
+		for (auto& c : o.second.get()->components) {
+			this->objects.emplace_back(c);
+		}
+	}
+	engineFacade.registerBehaviourObjects(objects);
+}
 
+void GameManager::registerTextures(std::map<std::string, std::string> textures) {
+	engineFacade.registerTextures(textures);
 }

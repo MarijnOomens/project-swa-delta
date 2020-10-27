@@ -1,15 +1,15 @@
 #include "Button.h"
 
-Button::Button(int x, int y, TextureList textureList, GraphicsComponent* gc) {
-	m_gc = gc;
-	components.push_back(m_gc);
+Button::Button(int x, int y, TextureList textureList) {
+	m_gc = std::make_shared<GraphicsComponent>();
 	transform.position = { x, y };
 
-	gc->transform = this->transform;
-	gc->imageDimensions = { 80, 50 };
+	m_gc->transform = this->transform;
+	m_gc->imageDimensions = { 80, 50 };
 
 	possibleTextures = textureList;
 	m_gc->setTexture(possibleTextures[0]);
+	this->components.emplace_back(m_gc);
 };
 Button::~Button() {};
 
