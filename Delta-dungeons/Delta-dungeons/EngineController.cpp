@@ -15,15 +15,6 @@ EngineController::EngineController()
 	textureManager = std::make_shared<TextureManager>(renderFacade, assetManager);
 	input = std::make_shared<Input>(staticInputCallbackFunction, this);
 
-	//DEBUG//
-	//Main menu tests
-	 //assetManager->addTexture("mainmenu", "Assets/mainmenu-1024x768.png");
-	 //GraphicsComponent* gcmm = new GraphicsComponent();
-	 //gcmm->addTextureManager(textureManager);
-	 //behaviourObjects.emplace_back(gcmm);
-	 //MainMenu* menu = new MainMenu(gcmm);
-	 //behaviourObjects.emplace_back(menu);
-
 	 ////Button tests
 
 	 //assetManager->addTexture("button_play", "Assets/button_play.png");
