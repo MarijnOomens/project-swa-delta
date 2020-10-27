@@ -13,8 +13,6 @@ void Input::staticCallbackFunction(void* p, const KeyCodes keyCode, const Keyboa
 	((Input*)p)->callBackFunction(keyCode, keyboardEvent);
 }
 
-void Input::parseKeyBindings(std::string string) {}
-
 void Input::handleInput()
 {
 	facade->handleInput();
@@ -24,3 +22,5 @@ void Input::callBackFunction(KeyCodes keyCode, KeyboardEvent keyboardEvent)
 {
 	func(pointer, keyCode, keyboardEvent);
 }
+
+void Input::parseKeyBindings(std::string string) {}

@@ -8,5 +8,6 @@ private:
 public:
 	SceneManager();
 	~SceneManager();
+
 	int LoadScene(int scene);
 };

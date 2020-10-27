@@ -3,9 +3,11 @@
 #include <string>
 
 class ColliderComponent {
-	std::string tag;
-	void CallbackFunction();
 public:
+	std::string tag;
+
 	ColliderComponent();
 	~ColliderComponent();
+
+	void CallbackFunction();
 };

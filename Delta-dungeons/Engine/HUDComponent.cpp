@@ -1,5 +1,3 @@
 #include "HUDComponent.h"
 
-HUDComponent::HUDComponent(int layerlevel): layer(layerlevel) {
-
-};
+HUDComponent::HUDComponent(int layerlevel) : layer(layerlevel) {}

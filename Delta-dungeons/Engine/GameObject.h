@@ -6,12 +6,13 @@
 
 class GameObject : public BehaviourObject {
 public:
+	std::vector<BehaviourObject*> components;
+
 	ENGINE_API GameObject();
 	ENGINE_API ~GameObject();
 
-	ENGINE_API virtual void ConnectCallback(); //Add callbackfunction
-	ENGINE_API virtual void Update();
-	ENGINE_API virtual void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent);
-	std::vector<BehaviourObject*> components;
 	ENGINE_API void addComponent(BehaviourObject* comp);
+	ENGINE_API virtual void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent);
+	ENGINE_API virtual void connectCallback(); //Add callbackfunction
+	ENGINE_API virtual void update();
 };

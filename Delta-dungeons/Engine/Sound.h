@@ -1,12 +1,13 @@
 #pragma once
-#include <string>
 
+#include <string>
 
 static class Sound {
 public:
 	Sound();
 	~Sound();
-	void PlaySound(std::string string);
-	void PauseSound(std::string string);
-	void StopSound(std::string string);
+
+	void playSound(std::string string);
+	void pauseSound(std::string string);
+	void stopSound(std::string string);
 };

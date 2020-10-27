@@ -16,4 +16,4 @@ void TextureManager::drawTexture(std::string name, Vector2D position, Vector2D c
 {
 	std::string texturePath = assetManager->getTexture(name);
 	renderFacade->drawTexture(texturePath, position, coordinates);
-};
+}

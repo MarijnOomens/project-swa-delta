@@ -1,9 +1,9 @@
 #pragma once
-#include <string>
 
-#include <memory>
 #include "AssetManager.h"
 #include "RenderFacade.h"
+#include <memory>
+#include <string>
 
 class TextureManager {
 public:

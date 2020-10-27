@@ -1,13 +1,14 @@
 #include "EngineController.h"
 #include "GraphicsComponent.h"
 #include <vector>
-
 //Debug
 #include "Button.h"
 #include "Player.h"
 #include "Tile.h"
 #include "MainMenu.h"
 #include "XMLSceneParser.h"
+
+EngineController::EngineController() {}
 
 EngineController::EngineController(std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects, std::shared_ptr<RenderFacade>renderFacade, std::shared_ptr<AssetManager>assetManager, std::shared_ptr<TextureManager>textureManager)
 {
@@ -28,7 +29,7 @@ void EngineController::update(std::vector<std::shared_ptr<BehaviourObject>>& bhO
 	{
 		bo.get()->update();
 	}
-};
+}
 
 #pragma region Input
 // Get callback from Input
@@ -50,7 +51,7 @@ void EngineController::inputCallbackFunction(const KeyCodes keyCode, const Keybo
 void EngineController::initRenderer(const char* title, int width, int height, bool fullscreen)
 {
 	EngineController::renderFacade->init(title, width, height, fullscreen);
-};
+}
 
 void EngineController::startGame()
 {
@@ -81,4 +82,4 @@ void EngineController::startGame()
 
 	renderFacade->clean();
 	std::cout << "Game cleaned" << std::endl;
-};
+}
