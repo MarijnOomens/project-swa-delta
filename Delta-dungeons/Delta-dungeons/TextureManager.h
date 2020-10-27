@@ -11,7 +11,7 @@ public:
 	~TextureManager();
 
 	void loadTexture();
-	void drawTexture(std::string name, Vector2D position, Vector2D coordinates);
+	void drawTexture(const std::string name, const Transform& transform, const Vector2D& coordinates, const Vector2D& sourceDimensions);
 private:
 	std::shared_ptr<AssetManager> assetManager;
 	std::shared_ptr<RenderFacade> renderFacade;

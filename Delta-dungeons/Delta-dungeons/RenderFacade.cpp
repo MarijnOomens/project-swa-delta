@@ -29,21 +29,21 @@ void RenderFacade::setFrameDelay()
 	RenderFacade::frameManager->setFrameDelay();
 }
 
-void RenderFacade::drawTexture(std::string path, const Vector2D& destination2D, const Vector2D& coordinates)
+void RenderFacade::drawTexture(std::string path, const Transform& transform, const Vector2D& coordinates, const Vector2D& sourceDimensions)
 {
 	Vector2D size;
 	SDL_Rect source;
 	source.x = coordinates.x;	// Moet 0 zijn om de volledige texture te tekenen, omdat de source rectangle aangeeft welk deel van de texture wordt getekend. Dus als dit 32 is, wordt x positie 32 + width
 	source.y = coordinates.y;	// getekend en dat kan niet met een 32 x 32 texture. Dan wordt als het ware de 'data' buiten de texture getekend, terwijl daar niets zit.
-	source.w = 32; // Moet eigenlijk width en height zijn, maar 'Vector2D' heeft alleen x en y variabelen.
-	source.h = 32; //
+	source.w = sourceDimensions.x; // Moet eigenlijk width en height zijn, maar 'Vector2D' heeft alleen x en y variabelen.
+	source.h = sourceDimensions.y; //
 	SDL_Texture* texture = drawController->loadTexture(path);
 
 	SDL_Rect destination;
-	destination.x = destination2D.x; // Locatie waar je de texture wilt tekenen.
-	destination.y = destination2D.y; //
-	destination.w = 32; // Moet eigenlijk width en height zijn, maar 'Vector2D' heeft alleen x en y variabelen.
-	destination.h = 32; //
+	destination.x = transform.position.x; // Locatie waar je de texture wilt tekenen.
+	destination.y = transform.position.y; //
+	destination.w = sourceDimensions.x * transform.scale.x; // Moet eigenlijk width en height zijn, maar 'Vector2D' heeft alleen x en y variabelen.
+	destination.h = sourceDimensions.y * transform.scale.y; //
 
 	RenderFacade::drawController->drawTexture(texture, source, destination);
 }

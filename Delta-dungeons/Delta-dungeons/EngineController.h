@@ -8,7 +8,7 @@
 #include "Input.h"
 #include <vector>
 
-/// Engincontroller class
+/// Enginecontroller class
 ///
 /// This class is the main controller class of the Engine, where all other controllers and managers get instantiated and passed into other objects.
 
@@ -19,6 +19,10 @@ public:
 		void update(std::vector<std::shared_ptr<BehaviourObject>>& bhObjects);
 		static void staticInputCallbackFunction(void* p, const KeyCodes keyCode, const KeyboardEvent keyboardEvent);
 		void inputCallbackFunction(const KeyCodes keyCode, const KeyboardEvent keyboardEvent);
+		void addTexture(std::string name, std::string path);
+		void registerBehaviourObjects(std::vector<std::shared_ptr<BehaviourObject>> objects);
+		void registerTextures(std::map<std::string, std::string> textures);
+		void startGame();
 
 private:
 	std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects;
@@ -30,5 +34,4 @@ private:
 	std::shared_ptr<Input> input;
 
 	void initRenderer(const char* title, int width, int height, bool fullscreen);
-	void startGame();
 };
