@@ -1,11 +1,10 @@
 #pragma once
-#include <string>
+
 #include "InteractiveObject.h"
+#include <string>
 
-class PuzzleObject: InteractiveObject
-{;
-
+class PuzzleObject : InteractiveObject
+{
 protected:
 	std::string sfxPath;
-
 };

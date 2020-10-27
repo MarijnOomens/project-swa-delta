@@ -1,12 +1,12 @@
 #pragma once
-#include <string>
+
 #include "GameObject.h"
-#include <memory>
 #include "GraphicsComponent.h"
+#include <string>
+#include <memory>
 
 class Button : public GameObject
 {
-
 public:
 	Button();
 	Button(int x, int y, std::vector<std::string> textureList);

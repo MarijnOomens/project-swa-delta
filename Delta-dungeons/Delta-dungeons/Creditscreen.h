@@ -1,7 +1,4 @@
 #pragma once
 #include "Screen.h"
 
-class CreditScreen: Screen
-{
-
-};
+class CreditScreen : Screen {};

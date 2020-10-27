@@ -1,4 +1,5 @@
 #pragma once
+
 #include "Screen.h"
 #include <string>
 #include <vector>
@@ -9,12 +10,14 @@
 class MainMenu : public Screen
 {
 public:
+	Screen* creditScreen;
+	Vector2D textLocation; //Maybe?
+	std::vector<Button> buttons;
+
 	MainMenu(); //yes or no
 	~MainMenu();
 
-	Screen* creditScreen;
 	void startGame();
 	void openCreditScreen();
-
 	void closeScreen() override;
 };

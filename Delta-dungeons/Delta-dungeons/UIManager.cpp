@@ -1,13 +1,9 @@
 #include "UIManager.h"
 
+void UIManager::playDialogue(std::vector<std::string>) {}
 void UIManager::createBaseScreens() {
 	std::shared_ptr<MainMenu> mainMenu = std::make_shared<MainMenu>();
 	screens.try_emplace("MainMenu", mainMenu);
-}
-
-void UIManager::playDialogue(std::vector<std::string>)
-{
-
 }
 
 void UIManager::updateHudHealth(int)

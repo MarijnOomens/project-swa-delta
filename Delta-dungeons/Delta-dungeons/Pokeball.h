@@ -3,8 +3,6 @@
 
 class Pokeball: IEquipment
 {
-
 private:
 	int catchChance;
-
 };

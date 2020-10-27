@@ -1,11 +1,11 @@
 #pragma once
+
+#include "Screen.h"
 #include <vector>
 #include <string>
-#include "Screen.h"
 #include "MainMenu.h"
 
 class UIManager {
-
 public:
 	std::map<std::string, std::shared_ptr<Screen>> screens;
 	void createBaseScreens();

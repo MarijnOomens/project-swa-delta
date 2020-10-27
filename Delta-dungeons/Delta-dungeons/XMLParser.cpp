@@ -2,10 +2,11 @@
 using namespace rapidxml;
 
 XMLParser::XMLParser() {}
+
 XMLParser::~XMLParser() {}
 
-
-std::vector<std::shared_ptr<ParserData>> XMLParser::parseXML(const char* path) {
+std::vector<std::shared_ptr<ParserData>> XMLParser::parseXML(const char* path)
+{
 	std::vector<std::shared_ptr<ParserData>> parserDataList;
 	rapidxml::file<> xmlFile(path);
 	rapidxml::xml_document<> doc;
@@ -21,5 +22,6 @@ std::vector<std::shared_ptr<ParserData>> XMLParser::parseXML(const char* path) {
 			parserDataList.push_back(p);
 		}
 	}
+
 	return parserDataList;
 }

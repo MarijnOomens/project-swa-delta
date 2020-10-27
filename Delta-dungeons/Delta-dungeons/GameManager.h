@@ -1,6 +1,5 @@
 #pragma once
-#include <vector>
-#include <string>
+
 #include "UIManager.h"
 #include "EquipmentManager.h"
 #include "EngineFacade.h"
@@ -15,6 +14,7 @@ public:
 	EquipmentManager* eqManager;
 
 	GameManager();
+	~GameManager();
 	void registerBehaviourObjects();
 	void registerTextures(std::map<std::string, std::string> textures);
 };
