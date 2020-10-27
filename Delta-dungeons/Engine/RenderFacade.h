@@ -1,14 +1,14 @@
 #pragma once
 
 #include "SDL.h"
-#include <iostream>
-#include <vector>
-#include "Vector2D.h"
+#include "main.h"
 #include "DrawController.h"
 #include "FrameManager.h"
 #include "Renderer.h"
-#include <map>]
-#include "main.h"
+#include "Vector2D.h"
+#include <iostream>
+#include <vector>
+#include <map>
 
 class RenderFacade {
 public:
@@ -32,5 +32,4 @@ public:
 	void clean();
 	void beforeFrame();
 	void afterFrame();
-private:
 };

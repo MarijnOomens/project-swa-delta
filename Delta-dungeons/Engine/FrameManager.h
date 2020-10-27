@@ -4,15 +4,14 @@
 
 class FrameManager {
 public:
+	int FPS;
+	int frameDelay;
+	int frameTime;
+	Uint32 frameStart;
+
 	FrameManager();
 	~FrameManager();
 
-	int FPS;
-	int frameDelay;
-	Uint32 frameStart;
-	int frameTime;
-
 	void setFrameStart();
 	void setFrameDelay();
-private:
 };

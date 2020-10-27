@@ -1,7 +1,6 @@
 #include "InputWrapper.h"
 #include <iostream>
 
-
 InputWrapper::InputWrapper() {}
 
 InputWrapper::InputWrapper(const cbFunction f, void* p) :func(f), pointer(p) {}

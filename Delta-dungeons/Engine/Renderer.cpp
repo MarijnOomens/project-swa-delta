@@ -3,6 +3,7 @@
 Renderer::Renderer() {
 	camera = { 0, 0, 0, 0 };
 };
+
 Renderer::~Renderer() {};
 
 void Renderer::init(const char* title, int width, int height, bool fullscreen) {
@@ -44,14 +45,32 @@ void Renderer::init(const char* title, int width, int height, bool fullscreen) {
 	catch (std::string error) {
 		std::cout << "Error: " << error << std::endl;
 	}
-
 }
 
-void Renderer::stop() {
-	isRunning = false;
+void Renderer::render(std::vector<std::shared_ptr<GameObject>> gameObjects)
+{
+	SDL_RenderClear(sdlRenderer);
+
+	try {
+		if (gameObjects.empty()) {
+			throw("There are no gameobjects to render!");
+		}
+		else {
+			for (auto& t : gameObjects)
+			{
+				// TODO: Render all GraphicsComponents instead of GameObjects
+			}
+		}
+	}
+	catch (std::string error) {
+		std::cout << "Error: " << error << std::endl;
+	}
+	//call SDL_RenderCopyEx() for every gameobject
+	SDL_RenderPresent(sdlRenderer);
 }
 
-void Renderer::updateCamera() {
+void Renderer::updateCamera()
+{
 
 	//update gameobjects positioning based on camera x and y
 
@@ -73,40 +92,25 @@ void Renderer::updateCamera() {
 	}
 }
 
-void Renderer::render(std::vector<std::shared_ptr<GameObject>> gameObjects) {
-	SDL_RenderClear(sdlRenderer);
-
-	try {
-		if (gameObjects.empty()) {
-			throw("There are no gameobjects to render!");
-		}
-		else {
-			for (auto& t : gameObjects)
-			{
-				// TODO: Render all GraphicsComponents instead of GameObjects
-			}
-		}
-	}
-	catch (std::string error) {
-		std::cout << "Error: " << error << std::endl;
-	}
-	//call SDL_RenderCopyEx() for every gameobject
-	SDL_RenderPresent(sdlRenderer);
-}
-
-void Renderer::clean() {
+void Renderer::clean()
+{
 	SDL_DestroyWindow(sdlWindow);
 	SDL_DestroyRenderer(sdlRenderer);
 	SDL_Quit();
 	std::cout << "Game Cleaned" << std::endl;
 }
 
-void Renderer::beforeFrame() {
+void Renderer::stop()
+{
+	isRunning = false;
+}
+
+void Renderer::beforeFrame()
+{
 	SDL_RenderClear(sdlRenderer);
 }
 
-void Renderer::afterFrame() {
+void Renderer::afterFrame()
+{
 	SDL_RenderPresent(sdlRenderer);
 }
-
-//graph->texturemaanger->facade

@@ -1,6 +1,5 @@
 #include "InputFacade.h"
 
-
 InputFacade::InputFacade() {}
 
 InputFacade::InputFacade(const cbFunction f, void* p)

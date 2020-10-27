@@ -5,7 +5,7 @@
 #include "InputWrapper.h"
 #include <memory>
 
-class IInputFacade 
+class IInputFacade
 {
 public:
 	std::unique_ptr<InputWrapper> wrapper;

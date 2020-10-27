@@ -2,9 +2,10 @@
 
 #include "SDL.h"
 #include "SDL_image.h"
-#include <iostream>
 #include "Renderer.h"
+#include <iostream>
 #include <map>
+
 class DrawController {
 public:
 	std::shared_ptr<Renderer> renderer;

@@ -1,7 +1,9 @@
+#include "AudioWrapper.h"
+//#include <SDL_mixer.h>
 #include <SDL.h>
 #include <SDL_image.h>
-//#include <SDL_mixer.h>
 #include <stdio.h>
 #include <string>
-#include "AudioWrapper.h"
 
+AudioWrapper::AudioWrapper() {}
+AudioWrapper::~AudioWrapper() {}

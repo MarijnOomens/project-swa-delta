@@ -4,6 +4,4 @@ class AudioWrapper {
 public:
 	AudioWrapper();
 	~AudioWrapper();
-
-private:
 };

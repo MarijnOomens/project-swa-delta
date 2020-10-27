@@ -1,14 +1,13 @@
 #include "DrawController.h"
 
-
-DrawController::DrawController() {};
+DrawController::DrawController() {}
 
 DrawController::DrawController(std::shared_ptr<Renderer> r)
 {
 	renderer = r;
-};
+}
 
-DrawController::~DrawController() {};
+DrawController::~DrawController() {}
 
 SDL_Texture* DrawController::loadTexture(std::string path)
 {
@@ -32,7 +31,7 @@ SDL_Texture* DrawController::loadTexture(std::string path)
 		SDL_FreeSurface(tempSurface);
 		return tex;
 	}
-};
+}
 
 void DrawController::drawTexture(SDL_Texture* texture, SDL_Rect source, SDL_Rect destination)
 {

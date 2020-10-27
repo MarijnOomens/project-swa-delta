@@ -4,7 +4,6 @@
 #include "Keycodes.h"
 #include "Keyboardevent.h"
 
-
 typedef void(*cbFunction) (void*, KeyCodes, KeyboardEvent);
 
 class InputWrapper {
