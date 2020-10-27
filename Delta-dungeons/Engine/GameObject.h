@@ -6,13 +6,13 @@
 
 class GameObject : public BehaviourObject {
 public:
-	std::vector<BehaviourObject*> components;
+	std::vector<std::shared_ptr<BehaviourObject>> components;
 
 	ENGINE_API GameObject();
 	ENGINE_API ~GameObject();
 
-	ENGINE_API void addComponent(BehaviourObject* comp);
 	ENGINE_API virtual void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent);
 	ENGINE_API virtual void connectCallback(); //Add callbackfunction
 	ENGINE_API virtual void update();
+	ENGINE_API std::vector<std::shared_ptr<BehaviourObject>> getComponentsRecursive();//ENGINE_API IF NEEDED FOR GAME
 };

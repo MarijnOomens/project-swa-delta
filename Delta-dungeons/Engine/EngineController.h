@@ -1,5 +1,4 @@
 #pragma once
-
 #include "BehaviourObject.h"
 #include "AssetManager.h"
 #include "GameObject.h"
@@ -22,6 +21,10 @@ public:
 	void update(std::vector<std::shared_ptr<BehaviourObject>>& bhObjects);
 	static void staticInputCallbackFunction(void* p, const KeyCodes keyCode, const KeyboardEvent keyboardEvent);
 	void inputCallbackFunction(const KeyCodes keyCode, const KeyboardEvent keyboardEvent);
+	ENGINE_API void addTexture(std::string name, std::string path);
+	ENGINE_API void registerBehaviourObjects(std::vector<std::shared_ptr<BehaviourObject>> objects);
+	ENGINE_API void registerTextures(std::map<std::string, std::string> textures);
+	ENGINE_API void startGame();
 
 private:
 	std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects;
@@ -33,5 +36,4 @@ private:
 	std::shared_ptr<Input> input;
 
 	void initRenderer(const char* title, int width, int height, bool fullscreen);
-	void startGame();
 };

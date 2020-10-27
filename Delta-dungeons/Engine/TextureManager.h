@@ -12,7 +12,7 @@ public:
 	ENGINE_API ~TextureManager();
 
 	ENGINE_API void loadTexture();
-	ENGINE_API void drawTexture(std::string name, Vector2D position, Vector2D coordinates);
+	ENGINE_API void drawTexture(const std::string name, const Transform& transform, const Vector2D& coordinates, const Vector2D& sourceDimensions);
 private:
 	std::shared_ptr<AssetManager> assetManager;
 	std::shared_ptr<RenderFacade> renderFacade;

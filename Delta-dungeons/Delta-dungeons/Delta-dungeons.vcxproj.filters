@@ -147,6 +147,9 @@
     <ClCompile Include="IEquipment.h">
       <Filter>Header Files\Game\GameObjects\Items</Filter>
     </ClCompile>
+    <ClCompile Include="EngineFacade.cpp">
+      <Filter>Source Files\Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h">
@@ -246,10 +249,13 @@
       <Filter>Header Files\Game\GameObjects</Filter>
     </ClInclude>
     <ClInclude Include="Scene.h">
-      <Filter>Source Files\XMLParser</Filter>
+      <Filter>Header Files\Game</Filter>
     </ClInclude>
     <ClInclude Include="ParserData.h">
-      <Filter>Source Files\XMLParser</Filter>
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineFacade.h">
+      <Filter>Header Files\Game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

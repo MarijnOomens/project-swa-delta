@@ -14,7 +14,7 @@ public:
 	EquipmentManager* eqManager;
 
 	GameManager();
-	~GameManager();d
+	~GameManager();
 	void registerBehaviourObjects();
 	void registerTextures(std::map<std::string, std::string> textures);
 };

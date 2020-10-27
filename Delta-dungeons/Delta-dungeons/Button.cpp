@@ -7,7 +7,7 @@ Button::Button(int x, int y, std::vector<std::string> textureList) {
 
 	m_gc->transform = this->transform;
 	m_gc->imageDimensions = { 140, 50 };
-	m_gc->transform.scale.Multiply({ 2, 2 });
+	m_gc->transform.scale.multiply({ 2, 2 });
 
 	possibleTextures = textureList;
 	m_gc->setTexture(possibleTextures[0]);
