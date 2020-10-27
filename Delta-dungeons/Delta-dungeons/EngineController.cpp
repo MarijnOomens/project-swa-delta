@@ -15,16 +15,7 @@ EngineController::EngineController()
 	textureManager = std::make_shared<TextureManager>(renderFacade, assetManager);
 	input = std::make_shared<Input>(staticInputCallbackFunction, this);
 
-	 ////Button tests
-
-	 //assetManager->addTexture("button_play", "Assets/button_play.png");
-	 //GraphicsComponent* gc = new GraphicsComponent();
-	 //gc->addTextureManager(textureManager);
-	 //behaviourObjects.emplace_back(gc);
-	 //Button* button = new Button(300, 400, { "button_play", "button_play_hover" }, gc);
-	 //behaviourObjects.emplace_back(button);
-
-	//END DEBUG//
+	//DEBUG//
 	// TILEMAP
 	//std::unique_ptr<XMLSceneParser> scene = std::make_unique<XMLSceneParser>();
 	//std::vector<std::shared_ptr<Tile>> tiles = scene.get()->loadScene("Assets\\collisionmap.xml");
@@ -45,6 +36,7 @@ EngineController::EngineController()
 	//behaviourObjects.emplace_back(gcPlayer);
 	//std::shared_ptr<Player> player = std::make_shared<Player>("player_anims", gcPlayer);
 	//behaviourObjects.emplace_back(player);
+	//END DEBUG//
 
 	initRenderer("delta dungeons", 1024, 768, false);
 }
@@ -121,7 +113,6 @@ void EngineController::registerBehaviourObjects(std::vector<std::shared_ptr<Beha
 	for (auto& o : objects) {
 		if (dynamic_cast<GraphicsComponent*>(o.get()) != nullptr)
 		{
-			std::cout << "gc" << std::endl;
 			auto ngc = dynamic_cast<GraphicsComponent*>(o.get());
 			ngc->addTextureManager(textureManager);
 			this->behaviourObjects.emplace_back(ngc);

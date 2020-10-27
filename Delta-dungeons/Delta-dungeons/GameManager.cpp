@@ -13,7 +13,7 @@ GameManager::GameManager() {
 void GameManager::registerBehaviourObjects() {
 	for (auto& o : uiManager.screens)
 	{
-		for (auto& c : o.second.get()->components) {
+		for (auto& c : o.second.get()->getComponentsRecursive()) {
 			this->objects.emplace_back(c);
 		}
 	}

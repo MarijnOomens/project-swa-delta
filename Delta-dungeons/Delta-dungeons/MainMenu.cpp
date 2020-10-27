@@ -1,8 +1,10 @@
 #include "MainMenu.h"
 
 MainMenu::MainMenu() {
-	this->textures.try_emplace("mainmenu", "Assets/mainmenu-1024x768.png");
+	this->textures.try_emplace("mainmenu", "Assets/mainmenu.png");
 	this->textures.try_emplace("button_play", "Assets/button_play.png");
+	this->textures.try_emplace("button_credits", "Assets/button_credits.png");
+	this->textures.try_emplace("button_exit", "Assets/button_exit.png");
 
 	text = "Delta Dungeons";
 	gc = std::make_shared<GraphicsComponent>();
@@ -10,15 +12,20 @@ MainMenu::MainMenu() {
 	gc->imageDimensions = { 1024, 768 };
 	this->components.emplace_back(gc);
 
-	//Maak hashmappie voor textures
-	//En daarna mooie buttons enzo
-	//yeet
+	// Play button
+	std::vector<std::string> possibleButtonTexPlay = { "button_play" };
+	std::shared_ptr<Button> playButton = std::make_shared<Button>(380, 400, possibleButtonTexPlay);
+	this->components.emplace_back(playButton);
 
-	//engineFacade->addTexture("button_play", "Assets/button_play.png");
-	//GraphicsComponent* gc = new GraphicsComponent();
-	//objects.emplace_back(gc);
-	//Button* button = new Button(300, 400, { "button_play", "button_play_hover" }, gc);
-	//objects.emplace_back(button);
+	// Credits button
+	std::vector<std::string> possibleButtonTexCredits = { "button_credits" };
+	std::shared_ptr<Button> creditsButton = std::make_shared<Button>(380, 520, possibleButtonTexCredits);
+	this->components.emplace_back(creditsButton);
+
+	// Exit button
+	std::vector<std::string> possibleButtonTexExit = { "button_exit" };
+	std::shared_ptr<Button> exitButton = std::make_shared<Button>(380, 640, possibleButtonTexExit);
+	this->components.emplace_back(exitButton);
 };
 
 MainMenu::~MainMenu() {};

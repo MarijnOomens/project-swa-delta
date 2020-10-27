@@ -1,19 +1,20 @@
 #include "Button.h"
 
-Button::Button(int x, int y, TextureList textureList) {
+Button::Button() {};
+
+Button::Button(int x, int y, std::vector<std::string> textureList) {
 	m_gc = std::make_shared<GraphicsComponent>();
 	transform.position = { x, y };
 
 	m_gc->transform = this->transform;
-	m_gc->imageDimensions = { 80, 50 };
+	m_gc->imageDimensions = { 140, 50 };
+	m_gc->transform.scale.Multiply({ 2, 2 });
 
 	possibleTextures = textureList;
 	m_gc->setTexture(possibleTextures[0]);
 	this->components.emplace_back(m_gc);
 };
 Button::~Button() {};
-
-int count = 0;
 
 void Button::update() {}
 

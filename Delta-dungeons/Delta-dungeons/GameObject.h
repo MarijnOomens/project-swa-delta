@@ -12,4 +12,5 @@ public:
 	virtual void Update();
 	virtual void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent);
 	std::vector<std::shared_ptr<BehaviourObject>> components;
+	std::vector<std::shared_ptr<BehaviourObject>> getComponentsRecursive();
 };

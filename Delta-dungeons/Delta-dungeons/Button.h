@@ -4,13 +4,12 @@
 #include <memory>
 #include "GraphicsComponent.h"
 
-using TextureList = std::vector<std::string>;
-
 class Button : public GameObject
 {
 
 public:
-	Button(int x, int y, TextureList textureList);
+	Button();
+	Button(int x, int y, std::vector<std::string> textureList);
 	~Button();
 	void update() override;
 	void connectCallback() override;
@@ -18,6 +17,6 @@ public:
 	void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) override;
 private:
 	std::string text;
-	TextureList possibleTextures;
+	std::vector<std::string> possibleTextures;
 	std::shared_ptr<GraphicsComponent> m_gc;
 };
