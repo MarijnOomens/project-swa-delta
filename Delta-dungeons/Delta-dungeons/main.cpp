@@ -13,9 +13,11 @@
 #include <crtdbg.h>  
 #include <memory>
 #include <vector>
+#include "GameManager.h
 
 int main(int argc, char* argv[])
 {
+    std::unique_ptr<GameManager> gameManager = std::make_unique<GameManager>();
 	std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects;
 	std::shared_ptr<RenderFacade>renderFacade = std::make_shared<RenderFacade>();
 	std::shared_ptr<AssetManager>assetManager = std::make_shared<AssetManager>();

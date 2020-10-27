@@ -13,7 +13,7 @@ void GraphicsComponent::setTexture(std::string name)
 
 void GraphicsComponent::update()
 {
-	textureManager->drawTexture(textureName, this->transform.position, this->imageCoordinates);
+	textureManager->drawTexture(textureName, this->transform, this->imageCoordinates, this->imageDimensions);
 }
 
 void GraphicsComponent::addTextureManager(std::shared_ptr<TextureManager> tm)
@@ -26,3 +26,7 @@ void GraphicsComponent::callbackFunction() {}
 void GraphicsComponent::connectCallback() {}
 
 void GraphicsComponent::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) {}
+
+std::shared_ptr<TextureManager> GraphicsComponent::getTextureManager() {
+	return this->textureManager;
+}
