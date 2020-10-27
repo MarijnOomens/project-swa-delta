@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include "main.h"
 
 
 class Vector2D
@@ -10,8 +11,8 @@ public:
 
 	int spriteLocationInPNGWidth;
 	int spriteLocationInPNGHeight;
-	Vector2D();
-	Vector2D(int x, int y);
+	ENGINE_API Vector2D();
+	ENGINE_API Vector2D(int x, int y);
 
 	Vector2D& Add(const Vector2D& vec);
 	Vector2D& Subtract(const Vector2D& vec);

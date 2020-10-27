@@ -15,12 +15,12 @@
 
 class EngineController {
 public:
-		EngineController();
-		EngineController(std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects, std::shared_ptr<RenderFacade>renderFacade, std::shared_ptr<AssetManager>assetManager, std::shared_ptr<TextureManager>textureManager);
-		~EngineController();
-		void update(std::vector<std::shared_ptr<BehaviourObject>>& bhObjects);
-		static void staticInputCallbackFunction(void* p, const KeyCodes keyCode, const KeyboardEvent keyboardEvent);
-		void inputCallbackFunction(const KeyCodes keyCode, const KeyboardEvent keyboardEvent);
+	ENGINE_API EngineController();
+	ENGINE_API EngineController(std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects, std::shared_ptr<RenderFacade>renderFacade, std::shared_ptr<AssetManager>assetManager, std::shared_ptr<TextureManager>textureManager);
+	ENGINE_API ~EngineController();
+	void update(std::vector<std::shared_ptr<BehaviourObject>>& bhObjects);
+	static void staticInputCallbackFunction(void* p, const KeyCodes keyCode, const KeyboardEvent keyboardEvent);
+	void inputCallbackFunction(const KeyCodes keyCode, const KeyboardEvent keyboardEvent);
 
 private:
 	std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects;

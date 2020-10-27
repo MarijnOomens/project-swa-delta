@@ -2,13 +2,14 @@
 
 #include <string>
 #include <map>
+#include "main.h"
 
 class AssetManager {
 public:
-	AssetManager();
-	~AssetManager();
+	ENGINE_API AssetManager();
+	ENGINE_API ~AssetManager();
 
-	void addTexture(std::string id, std::string path);
+	ENGINE_API void addTexture(std::string id, std::string path);
 	std::string getTexture(std::string id);
 
 	void addFont(std::string id, std::string path, int fontSize);

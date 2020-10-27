@@ -2,15 +2,16 @@
 
 #include "BehaviourObject.h"
 #include <vector>
+#include "main.h"
 
 class GameObject : public BehaviourObject {
 public:
-	GameObject();
-	~GameObject();
+	ENGINE_API GameObject();
+	ENGINE_API ~GameObject();
 
-	virtual void ConnectCallback(); //Add callbackfunction
-	virtual void Update();
-	virtual void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent);
+	ENGINE_API virtual void ConnectCallback(); //Add callbackfunction
+	ENGINE_API virtual void Update();
+	ENGINE_API virtual void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent);
 	std::vector<BehaviourObject*> components;
-	void addComponent(BehaviourObject* comp);
+	ENGINE_API void addComponent(BehaviourObject* comp);
 };

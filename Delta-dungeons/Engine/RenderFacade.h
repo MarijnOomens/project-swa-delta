@@ -7,12 +7,13 @@
 #include "DrawController.h"
 #include "FrameManager.h"
 #include "Renderer.h"
-#include <map>
+#include <map>]
+#include "main.h"
 
 class RenderFacade {
 public:
-	RenderFacade();
-	~RenderFacade();
+	ENGINE_API RenderFacade();
+	ENGINE_API ~RenderFacade();
 
 	std::shared_ptr<DrawController> drawController;
 	std::shared_ptr<FrameManager> frameManager;
