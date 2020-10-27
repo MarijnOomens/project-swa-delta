@@ -1,13 +1,11 @@
 #pragma once
+
 #include <string>
 
-class Screen 
+class Screen
 {
-	
 public:
-	void closeScreen();
 	std::string text;
+	void closeScreen();
 private:
-	
-
 };

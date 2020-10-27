@@ -1,8 +1,7 @@
 #pragma once
 
-class HUD 
+class HUD
 {
-
 private:
 	int health;
 	int collectedCrystals;
@@ -11,5 +10,4 @@ private:
 	void updateHealth(int);
 	void updateCollectedCrystals(int);
 	void updateHighScore(int);
-
 };

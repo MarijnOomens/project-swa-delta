@@ -1,14 +1,14 @@
 #pragma once
-#include <string>
+
 #include "GameObject.h"
-#include <memory>
 #include "GraphicsComponent.h"
+#include <string>
+#include <memory>
 
 using TextureList = std::vector<std::string>;
 
 class Button : public GameObject
 {
-
 public:
 	Button(int x, int y, TextureList textureList, GraphicsComponent* gc);
 	~Button();

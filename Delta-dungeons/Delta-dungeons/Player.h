@@ -1,12 +1,11 @@
 #pragma once
-#include <vector>
+
 #include "IEquipment.h"
 #include "GameObject.h"
 #include "GraphicsComponent.h"
-#include <list>
+#include <vector>
 
 class Player : public GameObject {
-
 public:
 	Player();
 	Player(std::string texture, std::shared_ptr<GraphicsComponent> gc);
@@ -22,7 +21,6 @@ public:
 	void callbackFunction() override;
 	void connectCallback() override;
 	void update() override;
-
 private:
 	int health;
 	int amountCaught;

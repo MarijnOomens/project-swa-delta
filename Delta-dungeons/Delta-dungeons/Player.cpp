@@ -1,10 +1,10 @@
+#include "Boomerang.h"
 #include "Player.h"
 #include "Runningshoes.h"
-#include "Boomerang.h"
 
 Player::Player() {}
 
-Player::Player(std::string texture, std::shared_ptr<GraphicsComponent> gc) 
+Player::Player(std::string texture, std::shared_ptr<GraphicsComponent> gc)
 {
 	std::shared_ptr<Runningshoes> running = std::make_shared<Runningshoes>(staticEquipmentCallbackFunction, this);
 	std::shared_ptr<Boomerang> boomerang = std::make_shared<Boomerang>();

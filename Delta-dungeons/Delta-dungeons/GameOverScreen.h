@@ -1,10 +1,8 @@
 #pragma once
 #include "Screen.h"
 
-class GameOverScreen: Screen
+class GameOverScreen : Screen
 {
-
 public:
 	void restartGame();
-
 };
