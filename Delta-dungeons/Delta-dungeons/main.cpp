@@ -1,18 +1,18 @@
 #define SDL_MAIN_HANDLED
 #define _CRTDBG_MAP_ALLOC  
+#include "AssetManager.h"
+#include "BehaviourObject.h"
 #include "EngineController.h"
+#include "GraphicsComponent.h"
+#include "Player.h"
+#include "RenderFacade.h"
+#include "TextureManager.h"
+#include "Tile.h"
+#include "XMLSceneParser.h"
 #include <stdlib.h>  
 #include <crtdbg.h>  
 #include <memory>
 #include <vector>
-#include "XMLSceneParser.h"
-#include "AssetManager.h"
-#include "TextureManager.h"
-#include "Player.h"
-#include "BehaviourObject.h"
-#include "RenderFacade.h"
-#include "Tile.h"
-#include "GraphicsComponent.h"
 
 int main(int argc, char* argv[])
 {
@@ -41,7 +41,7 @@ int main(int argc, char* argv[])
 	std::shared_ptr<Player> player = std::make_shared<Player>("player_anims", gcPlayer);
 	behaviourObjects.emplace_back(player);
 
-    std::unique_ptr<EngineController> engineController = std::make_unique<EngineController>(behaviourObjects,renderFacade,assetManager,textureManager);
-    _CrtDumpMemoryLeaks();
-      return 0;
+	std::unique_ptr<EngineController> engineController = std::make_unique<EngineController>(behaviourObjects, renderFacade, assetManager, textureManager);
+	_CrtDumpMemoryLeaks();
+	return 0;
 }

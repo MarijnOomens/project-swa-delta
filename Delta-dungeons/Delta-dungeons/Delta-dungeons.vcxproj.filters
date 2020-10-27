@@ -155,9 +155,6 @@
     <ClInclude Include="UIManager.h">
       <Filter>Header Files\Game</Filter>
     </ClInclude>
-    <ClInclude Include="SceneParser.h">
-      <Filter>Header Files\XMLParser</Filter>
-    </ClInclude>
     <ClInclude Include="rapidxml_iterators.hpp">
       <Filter>Header Files\XMLParser</Filter>
     </ClInclude>
