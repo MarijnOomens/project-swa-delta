@@ -4,9 +4,10 @@
 
 class EngineFacade {
 public:
-	EngineFacade();
-	~EngineFacade();
-
-	void addTexture(std::string name, std::string path);
 	std::unique_ptr<EngineController> engineController;
+	void init();
+	void addTexture(std::string name, std::string path);
+	void registerBehaviourObjects(std::vector<std::shared_ptr<BehaviourObject>> objects);
+	void registerTextures(std::map<std::string, std::string> textures);
+	void startGame();
 };

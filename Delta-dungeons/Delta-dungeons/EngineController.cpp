@@ -15,23 +15,14 @@ EngineController::EngineController()
 	textureManager = std::make_shared<TextureManager>(renderFacade, assetManager);
 	input = std::make_shared<Input>(staticInputCallbackFunction, this);
 
-	//DEBUG//
-	//Main menu tests
-	 assetManager->addTexture("mainmenu", "Assets/mainmenu-1024x768.png");
-	 GraphicsComponent* gcmm = new GraphicsComponent();
-	 gcmm->addTextureManager(textureManager);
-	 behaviourObjects.emplace_back(gcmm);
-	 MainMenu* menu = new MainMenu(gcmm);
-	 behaviourObjects.emplace_back(menu);
+	 ////Button tests
 
-	 //Button tests
-
-	 assetManager->addTexture("button_play", "Assets/button_play.png");
-	 GraphicsComponent* gc = new GraphicsComponent();
-	 gc->addTextureManager(textureManager);
-	 behaviourObjects.emplace_back(gc);
-	 Button* button = new Button(300, 400, { "button_play", "button_play_hover" }, gc);
-	 behaviourObjects.emplace_back(button);
+	 //assetManager->addTexture("button_play", "Assets/button_play.png");
+	 //GraphicsComponent* gc = new GraphicsComponent();
+	 //gc->addTextureManager(textureManager);
+	 //behaviourObjects.emplace_back(gc);
+	 //Button* button = new Button(300, 400, { "button_play", "button_play_hover" }, gc);
+	 //behaviourObjects.emplace_back(button);
 
 	//END DEBUG//
 	// TILEMAP
@@ -56,7 +47,6 @@ EngineController::EngineController()
 	//behaviourObjects.emplace_back(player);
 
 	initRenderer("delta dungeons", 1024, 768, false);
-	startGame();
 }
 
 EngineController::~EngineController() {}
@@ -126,3 +116,24 @@ void EngineController::startGame()
 	renderFacade->clean();
 	std::cout << "Game cleaned" << std::endl;
 };
+
+void EngineController::registerBehaviourObjects(std::vector<std::shared_ptr<BehaviourObject>> objects) {
+	for (auto& o : objects) {
+		if (dynamic_cast<GraphicsComponent*>(o.get()) != nullptr)
+		{
+			std::cout << "gc" << std::endl;
+			auto ngc = dynamic_cast<GraphicsComponent*>(o.get());
+			ngc->addTextureManager(textureManager);
+			this->behaviourObjects.emplace_back(ngc);
+		}
+		else {
+			this->behaviourObjects.emplace_back(o);
+		}
+	}
+}
+
+void EngineController::registerTextures(std::map<std::string, std::string> textures) {
+	for (auto& t : textures) {
+		assetManager.get()->addTexture(t.first, t.second);
+	}
+}

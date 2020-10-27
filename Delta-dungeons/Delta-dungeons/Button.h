@@ -10,7 +10,7 @@ class Button : public GameObject
 {
 
 public:
-	Button(int x, int y, TextureList textureList, GraphicsComponent* gc);
+	Button(int x, int y, TextureList textureList);
 	~Button();
 	void update() override;
 	void connectCallback() override;
@@ -19,5 +19,5 @@ public:
 private:
 	std::string text;
 	TextureList possibleTextures;
-	GraphicsComponent* m_gc;
+	std::shared_ptr<GraphicsComponent> m_gc;
 };

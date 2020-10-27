@@ -27,3 +27,7 @@ void GraphicsComponent::addTextureManager(std::shared_ptr<TextureManager> tm)
 }
 
 void GraphicsComponent::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) {}
+
+std::shared_ptr<TextureManager> GraphicsComponent::getTextureManager() {
+	return this->textureManager;
+}
