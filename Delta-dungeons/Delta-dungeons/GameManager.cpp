@@ -4,9 +4,15 @@ GameManager::GameManager()
 {
 	engineFacade = EngineFacade();
 	engineFacade.init();
-	uiManager = UIManager();
+	/*uiManager = UIManager();
 	uiManager.createBaseScreens();
-	registerTextures(uiManager.passTextures());
+	registerTextures(uiManager.passTextures());*/
+
+	playerManager = PlayerManager();
+	playerManager.createPlayer();
+	registerTextures(playerManager.passTextures());
+
+
 	registerBehaviourObjects();
 	engineFacade.startGame();
 }
@@ -22,6 +28,16 @@ void GameManager::registerBehaviourObjects()
 			this->objects.emplace_back(c);
 		}
 	}
+
+	for (auto& o : playerManager.sprites)
+	{
+		for (auto& c : o.second.get()->getComponentsRecursive())
+		{
+			this->objects.emplace_back(c);
+		}
+	}
+
+
 	engineFacade.registerBehaviourObjects(objects);
 }
 

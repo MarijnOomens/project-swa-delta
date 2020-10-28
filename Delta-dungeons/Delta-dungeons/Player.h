@@ -11,6 +11,8 @@ public:
 	Player(std::string texture, std::shared_ptr<GraphicsComponent> gc);
 	~Player();
 
+	std::map<std::string, std::string> textures;
+
 	void handleInput(const KeyCodes keyCodes, const KeyboardEvent keyboardEvent) override;
 	void addEquipment(std::shared_ptr<IEquipment> equipment);
 	static void staticEquipmentCallbackFunction(void* p, const bool runningActivated);

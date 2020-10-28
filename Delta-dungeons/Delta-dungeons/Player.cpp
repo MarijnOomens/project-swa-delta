@@ -2,9 +2,7 @@
 #include "Player.h"
 #include "Runningshoes.h"
 
-Player::Player() {}
-
-Player::Player(std::string texture, std::shared_ptr<GraphicsComponent> gc)
+Player::Player()
 {
 	std::shared_ptr<Runningshoes> running = std::make_shared<Runningshoes>(staticEquipmentCallbackFunction, this);
 	std::shared_ptr<Boomerang> boomerang = std::make_shared<Boomerang>();
@@ -14,8 +12,12 @@ Player::Player(std::string texture, std::shared_ptr<GraphicsComponent> gc)
 
 	baseMovementSpeed = 32;
 
-	m_gc = gc;
-	m_gc->setTexture(texture);
+	this->textures.try_emplace("player", "Assets/player_anims.png");
+
+	m_gc = std::make_shared<GraphicsComponent>();
+	m_gc->setTexture("player");
+	m_gc->imageDimensions = { 32, 32 };
+	this->components.emplace_back(m_gc);
 }
 
 Player::~Player() {}
