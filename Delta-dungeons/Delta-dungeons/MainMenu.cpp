@@ -1,15 +1,15 @@
 #include "MainMenu.h"
 
 MainMenu::MainMenu() {
-	this->textures.try_emplace("mainmenu", "Assets/mainmenu-2.png");
-	this->textures.try_emplace("button_play", "Assets/button-play-1.png");
-	this->textures.try_emplace("button_credits", "Assets/button-credits-1.png");
-	this->textures.try_emplace("button_exit", "Assets/button-exit-1.png");
+	this->textures.try_emplace("mainmenu", "Assets/mainmenu.png");
+	this->textures.try_emplace("button_play", "Assets/button_play.png");
+	this->textures.try_emplace("button_credits", "Assets/button_credits.png");
+	this->textures.try_emplace("button_exit", "Assets/button_exit.png");
 
 	text = "Delta Dungeons";
 	gc = std::make_shared<GraphicsComponent>();
 	gc->setTexture("mainmenu");
-	gc->imageDimensions = { 1024, 768 };
+	gc->imageDimensions = { 1280, 960 };
 	this->components.emplace_back(gc);
 
 	// Play button
