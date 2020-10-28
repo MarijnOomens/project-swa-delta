@@ -167,6 +167,7 @@
     <ClInclude Include="AssetManager.h" />
     <ClInclude Include="BehaviourObject.h" />
     <ClInclude Include="ColliderComponent.h" />
+    <ClInclude Include="Colour.h" />
     <ClInclude Include="DrawController.h" />
     <ClInclude Include="EngineController.h" />
     <ClInclude Include="FrameManager.h" />
@@ -191,6 +192,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AudioWrapper.cpp" />
+    <ClCompile Include="Colour.cpp" />
     <ClCompile Include="EngineController.cpp" />
     <ClCompile Include="DrawController.cpp" />
     <ClCompile Include="InputFacade.cpp" />
