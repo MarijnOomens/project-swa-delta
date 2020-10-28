@@ -38,6 +38,7 @@ void RenderFacade::drawTexture(std::string path, const Transform& transform, con
 
 	source.w = sourceDimensions.x; 
 	source.h = sourceDimensions.y; 
+
 	if (animated)
 	{
 		source.x = source.w * static_cast<int>((SDL_GetTicks() / speed) % frames);
@@ -60,7 +61,7 @@ void RenderFacade::drawTexture(std::string path, const Transform& transform, con
 	destination.w = sourceDimensions.x * transform.scale.x; 
 	destination.h = sourceDimensions.y * transform.scale.y; 
 
-	RenderFacade::drawController->drawTexture(texture, source, destination, frames, speed, animated, flip);
+	RenderFacade::drawController->drawTexture(texture, source, destination, flip);
 }
 
 void RenderFacade::init(const char* title, const int width, const int height, const bool fullscreen)

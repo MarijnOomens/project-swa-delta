@@ -4,68 +4,57 @@ GraphicsComponent::GraphicsComponent() {};
 
 GraphicsComponent::~GraphicsComponent() {};
 
-void GraphicsComponent::playAnimation(std::string animationType, AnimFlip flipS) 
+void GraphicsComponent::playAnimation(AnimTypes animationType, AnimFlip flipS) 
 {
 	// IMPLEMENTEER SWITCH HIER OOIT
-	animSpeed = 500;
+	animSpeed = 200;
 	animated = true;
-	
+	flipped = false;
+
 	if (flipS == FLIP)
 	{
 		flipped = true;
 	}
-	else
-	{
-		flipped = false;
-	}
 
-
-	if (animationType == "idle_front")
+	switch (animationType)
 	{
+	case IDLE_FRONT:
 		animRow = 0;
 		animFrames = 3;
-	}
-	else if (animationType == "idle_back")
-	{
+		break;
+	case IDLE_BACK:
 		animRow = 4;
 		animFrames = 3;
-	}
-	else if (animationType == "idle_side")
-	{
+		break;
+	case IDLE_SIDE:
 		animRow = 5;
 		animFrames = 3;
-	}
-	else if (animationType == "walk_front")
-	{
+		break;
+	case WALK_FRONT:
 		animRow = 1;
 		animFrames = 4;
-	}
-	else if (animationType == "walk_back")
-	{
+		break;
+	case WALK_BACK:
 		animRow = 2;
 		animFrames = 4;
-	}
-	else if (animationType == "walk_side")
-	{
+		break;
+	case WALK_SIDE:
 		animRow = 3;
 		animFrames = 4;
-	}
-	else if (animationType == "run_front")
-	{
+		break;
+	case RUN_FRONT:
 		animRow = 6;
 		animFrames = 3;
-	}
-	else if (animationType == "run_back")
-	{
+		break;
+	case RUN_BACK:
 		animRow = 7;
 		animFrames = 3;
-	}
-	else if (animationType == "run_side")
-	{
+		break;
+	case RUN_SIDE:
 		animRow = 8;
-		animFrames = 4;
+		animFrames = 3;
+		break;
 	}
-
 	
 	// We kunnen mogelijk de waarden in RenderFacade.cpp aanpassen, zodat we dan niet animRow mee hoeven te geven...
 	// Fix enum switch statement

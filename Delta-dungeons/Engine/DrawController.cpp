@@ -33,7 +33,7 @@ SDL_Texture* DrawController::loadTexture(std::string path)
 	}
 }
 
-void DrawController::drawTexture(SDL_Texture* texture, SDL_Rect source, SDL_Rect destination, int frames, int speed, bool animated, SDL_RendererFlip flip)
+void DrawController::drawTexture(SDL_Texture* texture, SDL_Rect source, SDL_Rect destination, SDL_RendererFlip flip)
 {
 	try {
 		if (renderer.get()->sdlRenderer == NULL) {

@@ -12,7 +12,6 @@ GameManager::GameManager()
 	playerManager.createPlayer();
 	registerTextures(playerManager.passTextures());
 
-
 	registerBehaviourObjects();
 	engineFacade.startGame();
 }

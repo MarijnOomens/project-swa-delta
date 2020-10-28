@@ -14,7 +14,7 @@ public:
 	ENGINE_API GraphicsComponent();
 	ENGINE_API ~GraphicsComponent();
 
-	ENGINE_API void playAnimation(std::string path, AnimFlip flip);
+	ENGINE_API void playAnimation(AnimTypes animType, AnimFlip flip);
 	ENGINE_API void setTexture(std::string name);
 	ENGINE_API void update() override;
 	ENGINE_API void addTextureManager(std::shared_ptr<TextureManager> tm);

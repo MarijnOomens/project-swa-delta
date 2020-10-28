@@ -27,6 +27,7 @@ private:
 	int health;
 	int amountCaught;
 	int baseMovementSpeed;
+	bool runActivated;
 	std::vector<int> pokemonCaught;
 	std::vector<std::shared_ptr<IEquipment>> equipment;
 	std::shared_ptr<GraphicsComponent> m_gc;
