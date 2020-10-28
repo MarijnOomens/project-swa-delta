@@ -29,7 +29,7 @@ private:
 	int animRow = 0;
 
 	std::map<std::string, AnimTypes> animTypes;
-	bool flipped;
+	bool flipped = false;
 
 	std::shared_ptr<TextureManager> textureManager;
 	std::string textureName;

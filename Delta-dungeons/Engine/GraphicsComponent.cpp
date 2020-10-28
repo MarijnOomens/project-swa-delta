@@ -6,7 +6,6 @@ GraphicsComponent::~GraphicsComponent() {};
 
 void GraphicsComponent::playAnimation(AnimTypes animationType, AnimFlip flipS) 
 {
-	// IMPLEMENTEER SWITCH HIER OOIT
 	animSpeed = 200;
 	animated = true;
 	flipped = false;
@@ -55,11 +54,9 @@ void GraphicsComponent::playAnimation(AnimTypes animationType, AnimFlip flipS)
 		animFrames = 3;
 		break;
 	}
-	
-	// We kunnen mogelijk de waarden in RenderFacade.cpp aanpassen, zodat we dan niet animRow mee hoeven te geven...
-	// Fix enum switch statement
-	// Alleen geschikt voor een player. Wat als er andere objecten zijn met animations?
 
+	// Alleen geschikt voor een player. Wat als er andere objecten zijn met animations?
+	// Mogelijk Animation klasse met properties animRow, animFrames, animSpeed etc.
 }
 
 void GraphicsComponent::setTexture(std::string name)
@@ -70,8 +67,6 @@ void GraphicsComponent::setTexture(std::string name)
 void GraphicsComponent::update()
 {
 	textureManager->drawTexture(textureName, this->transform, this->imageCoordinates, this->imageDimensions, animRow, animFrames, animSpeed, animated, flipped);
-
-
 }
 
 void GraphicsComponent::addTextureManager(std::shared_ptr<TextureManager> tm)
@@ -85,6 +80,7 @@ void GraphicsComponent::connectCallback() {}
 
 void GraphicsComponent::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) {}
 
-std::shared_ptr<TextureManager> GraphicsComponent::getTextureManager() {
+std::shared_ptr<TextureManager> GraphicsComponent::getTextureManager() 
+{
 	return this->textureManager;
 }

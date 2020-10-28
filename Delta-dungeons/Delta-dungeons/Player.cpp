@@ -22,9 +22,6 @@ Player::Player()
 	m_gc->playAnimation(IDLE_FRONT, NO_FLIP);
 
 	this->components.emplace_back(m_gc);
-
-
-
 }
 
 Player::~Player() {}
@@ -81,14 +78,13 @@ void Player::handleInput(const KeyCodes keyCodes, const KeyboardEvent keyboardEv
 				comp.get()->use();
 			}
 		}
+		std::cout << "X: " << transform.position.x << ", Y: " << transform.position.y << std::endl;
 	}
-
 
 	for (auto& comp : components)
 	{
 		comp->transform.position = this->transform.position;
 	}
-	//std::cout << "X: " << transform.position.x << ", Y: " << transform.position.y << std::endl;
 }
 
 void Player::addEquipment(std::shared_ptr<IEquipment> item)
@@ -104,18 +100,17 @@ void Player::staticEquipmentCallbackFunction(void* p, const bool runningActivate
 
 void Player::equipmentCallbackFunction(const bool runningActivated)
 {
-	if (runningActivated) {
+	if (runningActivated) 
+	{
 		runActivated = true;
 		baseMovementSpeed = 64;
 		std::cout << " runningshoes activated" << std::endl;
-
 	}
 	else 
 	{
 		runActivated = false;
 		baseMovementSpeed = 32;
 		std::cout << " runningshoes deactivate" << std::endl;
-
 	}
 	std::cout << runningActivated << " runningshoes" << std::endl;
 }

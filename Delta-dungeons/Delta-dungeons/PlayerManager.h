@@ -19,7 +19,7 @@ public:
 	
 	void createPlayer();
 	std::shared_ptr<Player> getPlayerObject();
-	std::string passTexture();
+	std::map<std::string, std::string> passTextures() const;
 
 
 

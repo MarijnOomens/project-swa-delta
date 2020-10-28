@@ -1,7 +1,9 @@
 #include "Runningshoes.h"
 #include <iostream>
 
-Runningshoes::Runningshoes() {}
+Runningshoes::Runningshoes() 
+{
+}
 
 Runningshoes::Runningshoes(const cbFunction f, void* p) : func(f), pointer(p) {}
 

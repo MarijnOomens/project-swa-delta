@@ -17,18 +17,10 @@ void PlayerManager::createPlayer()
 	sprites.try_emplace("Player", player);
 }
 
-std::string PlayerManager::passTexture()
+std::map<std::string, std::string> PlayerManager::passTextures() const
 {
-    std::string texture;
-    
-
-    std::map<std::string, std::string> totalTextures;
-    for (auto& sprite : sprites) {
-        for (auto& t : sprite.second.get()->textures) {
-            totalTextures.try_emplace(t.first, t.second);
-        }
-    }
-    return totalTextures;
+    std::map<std::string, std::string> texture = sprites.begin()->second.get()->textures;
+    return texture;
 }
 
 std::shared_ptr<Player> PlayerManager::getPlayerObject()

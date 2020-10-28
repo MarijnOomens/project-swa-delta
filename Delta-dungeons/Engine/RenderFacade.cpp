@@ -36,23 +36,18 @@ void RenderFacade::drawTexture(std::string path, const Transform& transform, con
 	SDL_RendererFlip flip = SDL_FLIP_NONE;
 	SDL_Texture* texture = drawController->loadTexture(path);
 
+	if (flipped)
+		flip = SDL_FLIP_HORIZONTAL;
+
 	source.w = sourceDimensions.x; 
 	source.h = sourceDimensions.y; 
+	source.x = coordinates.x;
+	source.y = coordinates.y;
 
 	if (animated)
 	{
 		source.x = source.w * static_cast<int>((SDL_GetTicks() / speed) % frames);
 		source.y = row * source.h;
-	}
-	else
-	{
-		source.x = coordinates.x;
-		source.y = coordinates.y;
-	}
-
-	if (flipped)
-	{
-		flip = SDL_FLIP_HORIZONTAL;
 	}
 
 	SDL_Rect destination;
