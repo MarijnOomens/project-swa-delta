@@ -4,7 +4,10 @@ GraphicsComponent::GraphicsComponent() {};
 
 GraphicsComponent::~GraphicsComponent() {};
 
-void GraphicsComponent::playAnimation(std::string path) {}
+void GraphicsComponent::playAnimation(std::string path) 
+{
+
+}
 
 void GraphicsComponent::setTexture(std::string name)
 {
