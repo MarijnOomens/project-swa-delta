@@ -1,0 +1,13 @@
+#pragma once
+
+enum AnimTypes {
+	IDLE_FRONT,
+	IDLE_BACK,
+	IDLE_SIDE,
+	WALK_FRONT,
+	WALK_BACK,
+	WALK_SIDE,
+	RUN_FRONT,
+	RUN_BACK,
+	RUN_SIDE
+};

@@ -24,31 +24,41 @@ Player::~Player() {}
 
 void Player::handleInput(const KeyCodes keyCodes, const KeyboardEvent keyboardEvent)
 {
-	if (keyCodes == KEY_UP) {
+	if (keyboardEvent == KEY_PRESSED)
+	{
+		if (keyCodes == KEY_UP) {
 
-		this->transform.position.y -= baseMovementSpeed;
-		m_gc->transform.position.y = this->transform.position.y;
-	}
-	else if (keyCodes == KEY_DOWN) {
-		this->transform.position.y += baseMovementSpeed;
-		m_gc->transform.position.y = this->transform.position.y;
-	}
-	else if (keyCodes == KEY_RIGHT)
-	{
-		this->transform.position.x += baseMovementSpeed;
-		m_gc->transform.position.x = this->transform.position.x;
-	}
-	else if (keyCodes == KEY_LEFT)
-	{
-		this->transform.position.x -= baseMovementSpeed;
-		m_gc->transform.position.x = this->transform.position.x;
-	}
-	else if (keyCodes == KEY_Q) {
-		for (auto& comp : equipment)
+			this->transform.position.y -= baseMovementSpeed;
+			m_gc->transform.position.y = this->transform.position.y;
+			m_gc->playAnimation("walk_back", NO_FLIP);
+
+
+		}
+		else if (keyCodes == KEY_DOWN) {
+			this->transform.position.y += baseMovementSpeed;
+			m_gc->transform.position.y = this->transform.position.y;
+			m_gc->playAnimation("walk_front", NO_FLIP);
+		}
+		else if (keyCodes == KEY_RIGHT)
 		{
-			comp.get()->use();
+			this->transform.position.x += baseMovementSpeed;
+			m_gc->transform.position.x = this->transform.position.x;
+			m_gc->playAnimation("walk_side", FLIP);
+		}
+		else if (keyCodes == KEY_LEFT)
+		{
+			this->transform.position.x -= baseMovementSpeed;
+			m_gc->transform.position.x = this->transform.position.x;
+			m_gc->playAnimation("walk_side", NO_FLIP);
+		}
+		else if (keyCodes == KEY_Q) {
+			for (auto& comp : equipment)
+			{
+				comp.get()->use();
+			}
 		}
 	}
+
 
 	for (auto& comp : components)
 	{

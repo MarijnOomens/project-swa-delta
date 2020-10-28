@@ -16,5 +16,5 @@ public:
 	~DrawController();
 
 	SDL_Texture* loadTexture(std::string texture);
-	void drawTexture(SDL_Texture* texture, SDL_Rect source, SDL_Rect destination);
+	void drawTexture(SDL_Texture* texture, SDL_Rect source, SDL_Rect destination, int frames, int speed, bool animated, SDL_RendererFlip flip);
 };

@@ -37,6 +37,9 @@
     <Filter Include="Source Files\SDL\Input">
       <UniqueIdentifier>{d788796d-e34c-45e5-aed6-24c38e4a0123}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Engine\Animations">
+      <UniqueIdentifier>{0fdb897c-c03d-47b7-b8a4-a916d4e6abd7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Vector2D.h">
@@ -116,6 +119,12 @@
     </ClInclude>
     <ClInclude Include="main.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimTypes.h">
+      <Filter>Header Files\Engine\Animations</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimFlip.h">
+      <Filter>Header Files\Engine\Animations</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
