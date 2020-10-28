@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include "MainMenu.h"
+#include "Creditscreen.h"
 
 class UIManager {
 public:

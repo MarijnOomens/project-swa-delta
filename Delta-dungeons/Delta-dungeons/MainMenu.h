@@ -10,7 +10,6 @@
 class MainMenu : public Screen
 {
 public:
-	Screen* creditScreen;
 	Vector2D textLocation; //Maybe?
 	std::vector<Button> buttons;
 

@@ -14,7 +14,7 @@ EngineController::EngineController()
 	renderFacade = std::make_shared<RenderFacade>();
 	textureManager = std::make_shared<TextureManager>(renderFacade,assetManager);
 	input = std::make_shared<Input>(staticInputCallbackFunction, this);
-	initRenderer("delta dungeons", 1280, 960, false);
+	initRenderer("Delta Dungeons", 1280, 960, false);
 }
 
 EngineController::EngineController(std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects, std::shared_ptr<RenderFacade>renderFacade, std::shared_ptr<AssetManager>assetManager, std::shared_ptr<TextureManager>textureManager)
