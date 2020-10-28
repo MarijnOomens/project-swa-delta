@@ -37,6 +37,8 @@ void GameManager::registerBehaviourObjects()
 		}
 	}
 
+	this->objects.emplace_back(playerManager.getPlayerObject());
+
 
 	engineFacade.registerBehaviourObjects(objects);
 }

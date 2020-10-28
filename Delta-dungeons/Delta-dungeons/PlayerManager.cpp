@@ -13,7 +13,7 @@ PlayerManager::~PlayerManager()
 
 void PlayerManager::createPlayer()
 {
-	std::shared_ptr<Player> player = std::make_shared<Player>();
+	player = std::make_shared<Player>();
 	sprites.try_emplace("Player", player);
 }
 
@@ -26,4 +26,9 @@ std::map<std::string, std::string> PlayerManager::passTextures()
         }
     }
     return totalTextures;
+}
+
+std::shared_ptr<Player> PlayerManager::getPlayerObject()
+{
+    return player;
 }

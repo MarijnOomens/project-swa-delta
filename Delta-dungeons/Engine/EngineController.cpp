@@ -120,14 +120,16 @@ void EngineController::startGame()
 };
 
 void EngineController::registerBehaviourObjects(std::vector<std::shared_ptr<BehaviourObject>> objects) {
-	for (auto& o : objects) {
+	for (auto& o : objects) 
+	{
 		if (dynamic_cast<GraphicsComponent*>(o.get()) != nullptr)
 		{
 			auto ngc = dynamic_cast<GraphicsComponent*>(o.get());
 			ngc->addTextureManager(textureManager);
 			this->behaviourObjects.emplace_back(ngc);
 		}
-		else {
+		else 
+		{
 			this->behaviourObjects.emplace_back(o);
 		}
 	}
