@@ -6,50 +6,56 @@ GraphicsComponent::~GraphicsComponent() {};
 
 void GraphicsComponent::playAnimation(AnimTypes animationType, AnimFlip flipS) 
 {
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <param name="animationType"></param>
+	/// <param name="flipS"></param>
+	
 	animSpeed = 200;
 	animated = true;
 	flipped = false;
 
-	if (flipS == FLIP)
+	if (flipS == AnimFlip::FLIP)
 	{
 		flipped = true;
 	}
 
 	switch (animationType)
 	{
-	case IDLE_FRONT:
+	case AnimTypes::IDLE_FRONT:
 		animRow = 0;
 		animFrames = 3;
 		break;
-	case IDLE_BACK:
+	case AnimTypes::IDLE_BACK:
 		animRow = 4;
 		animFrames = 3;
 		break;
-	case IDLE_SIDE:
+	case AnimTypes::IDLE_SIDE:
 		animRow = 5;
 		animFrames = 3;
 		break;
-	case WALK_FRONT:
+	case AnimTypes::WALK_FRONT:
 		animRow = 1;
 		animFrames = 4;
 		break;
-	case WALK_BACK:
+	case AnimTypes::WALK_BACK:
 		animRow = 2;
 		animFrames = 4;
 		break;
-	case WALK_SIDE:
+	case AnimTypes::WALK_SIDE:
 		animRow = 3;
 		animFrames = 4;
 		break;
-	case RUN_FRONT:
+	case AnimTypes::RUN_FRONT:
 		animRow = 6;
 		animFrames = 3;
 		break;
-	case RUN_BACK:
+	case AnimTypes::RUN_BACK:
 		animRow = 7;
 		animFrames = 3;
 		break;
-	case RUN_SIDE:
+	case AnimTypes::RUN_SIDE:
 		animRow = 8;
 		animFrames = 3;
 		break;

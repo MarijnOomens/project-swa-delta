@@ -1,6 +1,6 @@
 #pragma once
 
-enum AnimTypes {
+enum class AnimTypes {
 	IDLE_FRONT,
 	IDLE_BACK,
 	IDLE_SIDE,

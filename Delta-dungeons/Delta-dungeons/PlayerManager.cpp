@@ -1,5 +1,8 @@
-
 #include "PlayerManager.h"
+
+/// <summary>
+/// This is a manager class for the player in which the Player is created and the texture is stored.
+/// </summary>
 
 PlayerManager::PlayerManager()
 {

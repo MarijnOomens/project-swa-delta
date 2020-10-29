@@ -7,11 +7,10 @@
 
 class Player : public GameObject {
 public:
-	Player();
-	Player(std::string texture, std::shared_ptr<GraphicsComponent> gc);
-	~Player();
-
 	std::map<std::string, std::string> textures;
+
+	Player();
+	~Player();
 
 	void handleInput(const KeyCodes keyCodes, const KeyboardEvent keyboardEvent) override;
 	void addEquipment(std::shared_ptr<IEquipment> equipment);
@@ -23,6 +22,7 @@ public:
 	void callbackFunction() override;
 	void connectCallback() override;
 	void update() override;
+
 private:
 	int health;
 	int amountCaught;
