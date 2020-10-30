@@ -1,6 +1,7 @@
 #pragma once
 
-enum class AnimFlip {
+enum class AnimFlip 
+{
 	FLIP,
 	NO_FLIP
 };

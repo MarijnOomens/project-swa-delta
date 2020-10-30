@@ -13,6 +13,15 @@ public:
 	~Player();
 
 	void handleInput(const KeyCodes keyCodes, const KeyboardEvent keyboardEvent) override;
+	void handleKeyPressed(const KeyCodes keyCodes);
+	void handleKeyReleased(const KeyCodes keyCodes);
+
+	void moveUp();
+	void moveDown();
+	void moveLeft();
+	void moveRight();
+
+
 	void addEquipment(std::shared_ptr<IEquipment> equipment);
 	static void staticEquipmentCallbackFunction(void* p, const bool runningActivated);
 	void equipmentCallbackFunction(const bool runningActivated);
@@ -31,4 +40,5 @@ private:
 	std::vector<int> pokemonCaught;
 	std::vector<std::shared_ptr<IEquipment>> equipment;
 	std::shared_ptr<GraphicsComponent> m_gc;
+	AnimCategory animCategory;
 };

@@ -4,6 +4,7 @@
 #include "BehaviourObject.h"
 #include "AnimTypes.h"
 #include "AnimFlip.h"
+#include "AnimCategory.h"
 #include <iostream>
 
 class GraphicsComponent : public BehaviourObject {
@@ -14,7 +15,11 @@ public:
 	ENGINE_API GraphicsComponent();
 	ENGINE_API ~GraphicsComponent();
 
-	ENGINE_API void playAnimation(AnimTypes animType, AnimFlip flip);
+	ENGINE_API void playAnimation(AnimTypes animType, AnimFlip flip, AnimCategory animCat, int speed);
+	ENGINE_API void playIdleAnimation(AnimTypes animType);
+	ENGINE_API void playWalkAnimation(AnimTypes animType);
+	ENGINE_API void playRunAnimation(AnimTypes animType);
+
 	ENGINE_API void setTexture(std::string name);
 	ENGINE_API void update() override;
 	ENGINE_API void addTextureManager(std::shared_ptr<TextureManager> tm);
@@ -25,7 +30,7 @@ public:
 private:
 	bool animated = false;
 	int animFrames = 0;
-	int animSpeed = 100;
+	int animSpeed = 0;
 	int animRow = 0;
 
 	std::map<std::string, AnimTypes> animTypes;

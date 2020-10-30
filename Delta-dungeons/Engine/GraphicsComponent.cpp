@@ -4,24 +4,32 @@ GraphicsComponent::GraphicsComponent() {};
 
 GraphicsComponent::~GraphicsComponent() {};
 
-void GraphicsComponent::playAnimation(AnimTypes animationType, AnimFlip flipS) 
+void GraphicsComponent::playAnimation(AnimTypes animationType, AnimFlip flipS, AnimCategory animCat, int speed) 
 {
-	/// <summary>
-	/// 
-	/// </summary>
-	/// <param name="animationType"></param>
-	/// <param name="flipS"></param>
-	
-	animSpeed = 200;
+	animSpeed = speed;
 	animated = true;
-	flipped = false;
 
-	if (flipS == AnimFlip::FLIP)
+	flipS == AnimFlip::FLIP ? flipped = true : flipped = false;
+
+	if (animCat == AnimCategory::ANIM_IDLE)
 	{
-		flipped = true;
+		playIdleAnimation(animationType);
 	}
+	else if (animCat == AnimCategory::ANIM_WALK)
+	{
+		playWalkAnimation(animationType);
+	}
+	else if (animCat == AnimCategory::ANIM_RUN)
+	{
+		playRunAnimation(animationType);
+	}
+	// Alleen geschikt voor een player. Wat als er andere objecten zijn met animations?
+	// Mogelijk Animation klasse met properties animRow, animFrames, animSpeed etc.
+}
 
-	switch (animationType)
+void GraphicsComponent::playIdleAnimation(AnimTypes animType)
+{
+	switch (animType)
 	{
 	case AnimTypes::IDLE_FRONT:
 		animRow = 0;
@@ -35,6 +43,13 @@ void GraphicsComponent::playAnimation(AnimTypes animationType, AnimFlip flipS)
 		animRow = 5;
 		animFrames = 3;
 		break;
+	}
+}
+
+void GraphicsComponent::playWalkAnimation(AnimTypes animType)
+{
+	switch (animType)
+	{
 	case AnimTypes::WALK_FRONT:
 		animRow = 1;
 		animFrames = 4;
@@ -47,6 +62,13 @@ void GraphicsComponent::playAnimation(AnimTypes animationType, AnimFlip flipS)
 		animRow = 3;
 		animFrames = 4;
 		break;
+	}
+}
+
+void GraphicsComponent::playRunAnimation(AnimTypes animType)
+{
+	switch (animType)
+	{
 	case AnimTypes::RUN_FRONT:
 		animRow = 6;
 		animFrames = 3;
@@ -60,10 +82,8 @@ void GraphicsComponent::playAnimation(AnimTypes animationType, AnimFlip flipS)
 		animFrames = 3;
 		break;
 	}
-
-	// Alleen geschikt voor een player. Wat als er andere objecten zijn met animations?
-	// Mogelijk Animation klasse met properties animRow, animFrames, animSpeed etc.
 }
+
 
 void GraphicsComponent::setTexture(std::string name)
 {

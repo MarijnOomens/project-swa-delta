@@ -126,6 +126,9 @@
     <ClInclude Include="AnimFlip.h">
       <Filter>Header Files\Engine\Animations</Filter>
     </ClInclude>
+    <ClInclude Include="AnimCategory.h">
+      <Filter>Header Files\Engine\Animations</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Vector2D.cpp">
