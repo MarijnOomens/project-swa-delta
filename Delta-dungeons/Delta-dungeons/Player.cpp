@@ -9,7 +9,7 @@
 /// 
 /// </summary>
 
-const int animationSpeed = 100; // Misschien met namespaces scheiden van de rest van de code.
+const int animationSpeed = 100; 
 
 Player::Player()
 {
@@ -19,9 +19,8 @@ Player::Player()
 	addEquipment(running);
 	addEquipment(boomerang);
 
-	baseMovementSpeed = 1;
+	baseMovementSpeed = 32;
 	runActivated = false;
-	animCategory = AnimCategory::ANIM_WALK;
 
 	this->textures.try_emplace("player", "Assets/player_anims.png");
 
@@ -29,7 +28,7 @@ Player::Player()
 	m_gc->setTexture("player");
 	m_gc->imageDimensions = { 32, 32 };
 	m_gc->transform.scale.multiply({ 3, 3 });
-	m_gc->playAnimation(AnimTypes::IDLE_FRONT, AnimFlip::NO_FLIP, AnimCategory::ANIM_IDLE, animationSpeed);
+	m_gc->playAnimation(0, 3, animationSpeed, false);
 
 	this->components.emplace_back(m_gc);
 }
@@ -91,16 +90,16 @@ void Player::handleKeyReleased(const KeyCodes keyCodes)
 	switch (keyCodes)
 	{
 	case KeyCodes::KEY_UP:
-		m_gc->playAnimation(AnimTypes::IDLE_BACK, AnimFlip::NO_FLIP, AnimCategory::ANIM_IDLE, animationSpeed);
+		m_gc->playAnimation(4, 3, animationSpeed, false);
 		break;
 	case KeyCodes::KEY_DOWN:
-		m_gc->playAnimation(AnimTypes::IDLE_FRONT, AnimFlip::NO_FLIP, AnimCategory::ANIM_IDLE, animationSpeed);
+		m_gc->playAnimation(0, 3, animationSpeed, false);
 		break;
 	case KeyCodes::KEY_LEFT:
-		m_gc->playAnimation(AnimTypes::IDLE_SIDE, AnimFlip::NO_FLIP, AnimCategory::ANIM_IDLE, animationSpeed);
+		m_gc->playAnimation(5, 3, animationSpeed, false);
 		break;
 	case KeyCodes::KEY_RIGHT:
-		m_gc->playAnimation(AnimTypes::IDLE_SIDE, AnimFlip::FLIP, AnimCategory::ANIM_IDLE, animationSpeed);
+		m_gc->playAnimation(5, 3, animationSpeed, true);
 		break;
 	default:
 		break;
@@ -110,29 +109,29 @@ void Player::handleKeyReleased(const KeyCodes keyCodes)
 void Player::moveUp()
 {
 	this->transform.position.y -= baseMovementSpeed;
-	runActivated ? m_gc->playAnimation(AnimTypes::RUN_BACK, AnimFlip::NO_FLIP, animCategory, animationSpeed) :
-		m_gc->playAnimation(AnimTypes::WALK_BACK, AnimFlip::NO_FLIP, animCategory, animationSpeed);
+	runActivated ? m_gc->playAnimation(7, 3, animationSpeed, false) :
+		m_gc->playAnimation(2, 4, animationSpeed, false);
 }
 
 void Player::moveDown()
 {
 	this->transform.position.y += baseMovementSpeed;
-	runActivated ? m_gc->playAnimation(AnimTypes::RUN_FRONT, AnimFlip::NO_FLIP, animCategory, animationSpeed) :
-		m_gc->playAnimation(AnimTypes::WALK_FRONT, AnimFlip::NO_FLIP, animCategory, animationSpeed);
+	runActivated ? m_gc->playAnimation(6, 3, animationSpeed, false) :
+		m_gc->playAnimation(1, 4, animationSpeed, false);
 }
 
 void Player::moveLeft()
 {
 	this->transform.position.x -= baseMovementSpeed;
-	runActivated ? m_gc->playAnimation(AnimTypes::RUN_SIDE, AnimFlip::NO_FLIP, animCategory, animationSpeed) :
-		m_gc->playAnimation(AnimTypes::WALK_SIDE, AnimFlip::NO_FLIP, animCategory, animationSpeed);
+	runActivated ? m_gc->playAnimation(8, 3, animationSpeed, false) :
+		m_gc->playAnimation(3, 4, animationSpeed, false);
 }
 
 void Player::moveRight()
 {
 	this->transform.position.x += baseMovementSpeed;
-	runActivated ? m_gc->playAnimation(AnimTypes::RUN_SIDE, AnimFlip::FLIP, animCategory, animationSpeed) :
-		m_gc->playAnimation(AnimTypes::WALK_SIDE, AnimFlip::FLIP, animCategory, animationSpeed);
+	runActivated ? m_gc->playAnimation(8, 3, animationSpeed, true) :
+		m_gc->playAnimation(3, 4, animationSpeed, true);
 }
 
 void Player::addEquipment(std::shared_ptr<IEquipment> item)
@@ -150,14 +149,12 @@ void Player::equipmentCallbackFunction(const bool runningActivated)
 {
 	if (runningActivated) 
 	{
-		animCategory = AnimCategory::ANIM_RUN;
 		runActivated = true;
 		baseMovementSpeed = 64;
 		std::cout << " runningshoes enabled" << std::endl;
 	}
 	else 
 	{
-		animCategory = AnimCategory::ANIM_WALK;
 		runActivated = false;
 		baseMovementSpeed = 32;
 		std::cout << " runningshoes disabled" << std::endl;

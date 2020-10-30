@@ -15,10 +15,7 @@ public:
 	ENGINE_API GraphicsComponent();
 	ENGINE_API ~GraphicsComponent();
 
-	ENGINE_API void playAnimation(AnimTypes animType, AnimFlip flip, AnimCategory animCat, int speed);
-	ENGINE_API void playIdleAnimation(AnimTypes animType);
-	ENGINE_API void playWalkAnimation(AnimTypes animType);
-	ENGINE_API void playRunAnimation(AnimTypes animType);
+	ENGINE_API void playAnimation(int row, int frames, int speed, bool flip);
 
 	ENGINE_API void setTexture(std::string name);
 	ENGINE_API void update() override;
@@ -28,13 +25,13 @@ public:
 	ENGINE_API void callbackFunction() override;
 	ENGINE_API std::shared_ptr<TextureManager>getTextureManager();
 private:
-	bool animated = false;
-	int animFrames = 0;
-	int animSpeed = 0;
-	int animRow = 0;
+	bool animated;
+	int animFrames;
+	int animSpeed;
+	int animRow;
+	bool flipped;
 
 	std::map<std::string, AnimTypes> animTypes;
-	bool flipped = false;
 
 	std::shared_ptr<TextureManager> textureManager;
 	std::string textureName;

@@ -163,9 +163,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="AnimCategory.h" />
-    <ClInclude Include="AnimFlip.h" />
-    <ClInclude Include="AnimTypes.h" />
     <ClInclude Include="AudioWrapper.h" />
     <ClInclude Include="AssetManager.h" />
     <ClInclude Include="BehaviourObject.h" />
