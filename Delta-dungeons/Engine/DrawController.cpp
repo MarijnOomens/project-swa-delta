@@ -33,6 +33,15 @@ SDL_Texture* DrawController::loadTexture(std::string path)
 	}
 }
 
+SDL_Texture* DrawController::loadFont(std::string font) 
+{
+	if (textures.count(font))
+	{
+		return textures.find(font)->second;
+	}
+
+}
+
 void DrawController::drawTexture(SDL_Texture* texture, SDL_Rect source, SDL_Rect destination)
 {
 	try {
