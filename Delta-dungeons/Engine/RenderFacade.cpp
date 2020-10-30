@@ -48,14 +48,14 @@ void RenderFacade::drawTexture(std::string path, const Transform& transform, con
 	RenderFacade::drawController->drawTexture(texture, source, destination);
 }
 
+void RenderFacade::drawText(std::string path, std::string text, Colour colour, const Transform& transform) 
+{
+
+}
+
 void RenderFacade::init(const char* title, const int width, const int height, const bool fullscreen)
 {
 	RenderFacade::renderer->init(title, width, height, fullscreen);
-}
-
-void RenderFacade::render(std::vector<std::shared_ptr<GameObject>> gameObjects)
-{
-	RenderFacade::renderer->render(gameObjects);
 }
 
 void RenderFacade::update(std::vector<GameObject> gameObjects) {}

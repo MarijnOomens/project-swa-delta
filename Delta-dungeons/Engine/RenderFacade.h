@@ -9,6 +9,7 @@
 #include <iostream>
 #include <vector>
 #include <map>
+#include "Colour.h"
 
 class RenderFacade {
 public:
@@ -26,8 +27,8 @@ public:
 	void setFrameStart();
 	void setFrameDelay();
 	void drawTexture(std::string path, const Transform& transform, const Vector2D& coordinates, const Vector2D& sourceDimensions);
+	void drawText(std::string path, std::string text, Colour colour, const Transform& transform);
 	void init(const char* title, const int width, const int height, const bool fullscreen);
-	void render(std::vector<std::shared_ptr<GameObject>> gameObjects);
 	void update(std::vector<GameObject> gameObjects);
 	void clean();
 	void beforeFrame();
