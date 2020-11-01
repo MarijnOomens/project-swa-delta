@@ -7,6 +7,8 @@ void UIManager::createBaseScreens() {
 
 	std::shared_ptr<CreditScreen> credits = std::make_shared<CreditScreen>();
 	screens.try_emplace("Credits", credits);
+
+
 }
 
 void UIManager::updateHudHealth(int)

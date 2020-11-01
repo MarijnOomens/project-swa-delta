@@ -12,9 +12,8 @@ public:
 
 	ENGINE_API void addTexture(std::string id, std::string path);
 	std::string getTexture(std::string id);
-
 	std::string getFont(std::string id);
-	void addFont(std::string id, std::string path, int fontSize);
+	void addFont(std::string id, std::string path);
 private:
 	std::map<std::string, std::string> textures;
 	std::map<std::string, std::string> fonts;

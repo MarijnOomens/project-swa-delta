@@ -1,6 +1,7 @@
 #pragma once
 #include "Screen.h"
 #include "Button.h"
+#include "UIText.h"
 
 class CreditScreen : public Screen {
 public:
