@@ -35,9 +35,9 @@ SDL_Texture* DrawController::loadTexture(std::string path)
 
 SDL_Texture* DrawController::loadFont(std::string text, std::string font, Colour colour, int fontSize)
 {
-	if (textures.count(font))
+	if (textures.count(text))
 	{
-		return textures.find(font)->second;
+		return textures.find(text)->second;
 	}
 	else {
 		SDL_Color textColour = { colour.r, colour.g, colour.b, colour.a };
@@ -54,7 +54,7 @@ SDL_Texture* DrawController::loadFont(std::string text, std::string font, Colour
 			std::cout << "Error: " << error << std::endl;
 		}
 		SDL_Texture* tex = SDL_CreateTextureFromSurface(renderer.get()->sdlRenderer, tempSurface);
-		textures.insert({ font, tex });
+		textures.insert({ text, tex }); // TODO: Meer unieke manier vinden om op te zoeken
 		SDL_FreeSurface(tempSurface);
 		return tex;
 	}

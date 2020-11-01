@@ -91,10 +91,6 @@ void EngineController::initRenderer(const char* title, int width, int height, bo
 void EngineController::startGame()
 {
 	while (renderFacade->renderer->isRunning) {
-		/*SDL_Event evt;
-		SDL_WaitEvent(&evt);
-		if (evt.type == SDL_QUIT)
-			renderFacade->renderer.get()->stop();*/
 
 		renderFacade->setFrameStart();
 		renderFacade->beforeFrame();
@@ -104,13 +100,6 @@ void EngineController::startGame()
 		EngineController::update(behaviourObjects);
 
 		renderFacade->afterFrame();
-
-		// handle input
-
-		//EngineController::Render(gameObjects);
-		//loop through draw method
-
-		//change the values 
 
 		renderFacade->setFrameDelay();
 	}
@@ -128,6 +117,12 @@ void EngineController::registerBehaviourObjects(std::vector<std::shared_ptr<Beha
 			ngc->addTextureManager(textureManager);
 			this->behaviourObjects.emplace_back(ngc);
 		}
+		else if (dynamic_cast<TextComponent*>(o.get()) != nullptr)
+		{
+			auto ntc = dynamic_cast<TextComponent*>(o.get());
+			ntc->addTextureManager(textureManager);
+			this->behaviourObjects.emplace_back(ntc);
+		}
 		else 
 		{
 			this->behaviourObjects.emplace_back(o);
@@ -138,5 +133,11 @@ void EngineController::registerBehaviourObjects(std::vector<std::shared_ptr<Beha
 void EngineController::registerTextures(std::map<std::string, std::string> textures) {
 	for (auto& t : textures) {
 		assetManager.get()->addTexture(t.first, t.second);
+	}
+}
+
+void EngineController::registerFonts(std::map<std::string, std::string> fonts) {
+	for (auto& t : fonts) {
+		assetManager.get()->addFont(t.first, t.second);
 	}
 }

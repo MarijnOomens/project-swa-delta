@@ -15,4 +15,5 @@ public:
 	void updateHudCollectedCrystals(int);
 	void updateHighScore(int);
 	std::map<std::string, std::string> passTextures();
+	std::map<std::string, std::string> passFonts();
 };

@@ -16,6 +16,7 @@ public:
 	~GameManager();
 	void registerBehaviourObjects();
 	void registerTextures(std::map<std::string, std::string> textures);
+	void registerFonts(std::map<std::string, std::string> fonts);
 
 private:
 	std::vector<std::shared_ptr<BehaviourObject>> objects; //TODO: split into scenes

@@ -36,3 +36,14 @@ std::map<std::string, std::string> UIManager::passTextures()
 	}
 	return totalTextures;
 }
+
+std::map<std::string, std::string> UIManager::passFonts()
+{
+	std::map<std::string, std::string> totalFonts;
+	for (auto& screen : screens) {
+		for (auto& t : screen.second.get()->fonts) {
+			totalFonts.try_emplace(t.first, t.second);
+		}
+	}
+	return totalFonts;
+}

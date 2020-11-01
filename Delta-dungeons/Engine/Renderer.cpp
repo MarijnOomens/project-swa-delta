@@ -41,6 +41,10 @@ void Renderer::init(const char* title, int width, int height, bool fullscreen) {
 			isRunning = false;
 		}
 		std::cout << "Image is loaded and created!" << std::endl;
+		if (TTF_Init() == -1)
+		{
+			std::cout << "Failed to initialise SDL_ttf!" << std::endl;
+		}
 	}
 	catch (std::string error) {
 		std::cout << "Error: " << error << std::endl;
