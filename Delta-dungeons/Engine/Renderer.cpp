@@ -69,7 +69,7 @@ void Renderer::render(std::vector<std::shared_ptr<GameObject>> gameObjects)
 	SDL_RenderPresent(sdlRenderer);
 }
 
-void Renderer::updateCamera()
+void Renderer::updateCamera(int playerX, int playerY)
 {
 
 	//update gameobjects positioning based on camera x and y

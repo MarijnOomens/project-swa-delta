@@ -9,8 +9,9 @@ GameManager::GameManager()
 	registerTextures(uiManager.passTextures());*/
 
 	playerManager = PlayerManager();
-	playerManager.createPlayer(this);
+	playerManager.createPlayer();
 	registerTextures(playerManager.passTextures());
+	
 
 	scene = Scene();	
 	scene.addGraphics();
@@ -56,4 +57,9 @@ void GameManager::registerBehaviourObjects()
 void GameManager::registerTextures(std::map<std::string, std::string> textures) 
 {
 	engineFacade.registerTextures(textures);
+}
+
+void GameManager::passPlayerPosition()
+{
+	engineFacade.passPlayerPosition(playerManager.player.get()->transform.position.x, playerManager.player.get()->transform.position.y);
 }

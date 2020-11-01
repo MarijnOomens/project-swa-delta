@@ -18,6 +18,7 @@ public:
 	~GameManager();
 	void registerBehaviourObjects();
 	void registerTextures(std::map<std::string, std::string> textures);
+	void passPlayerPosition();
 
 private:
 	std::vector<std::shared_ptr<BehaviourObject>> objects; //TODO: split into scenes

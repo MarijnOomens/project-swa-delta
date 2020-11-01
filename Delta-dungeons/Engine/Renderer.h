@@ -18,7 +18,7 @@ public:
 
 	void init(const char* title, const int width, const int height, const bool fullscreen);
 	void render(std::vector<std::shared_ptr<GameObject>> value);
-	void updateCamera();
+	void updateCamera(int playerX, int playerY);
 	void clean();
 	void stop();
 	void beforeFrame();

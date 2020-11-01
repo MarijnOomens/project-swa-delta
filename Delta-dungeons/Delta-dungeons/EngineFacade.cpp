@@ -23,3 +23,8 @@ void EngineFacade::registerTextures(std::map<std::string, std::string> textures)
 void EngineFacade::startGame() {
 	engineController.get()->startGame();
 }
+
+void EngineFacade::passPlayerPosition(int x, int y)
+{
+	engineController.get()->passPlayerPosition(x, y);
+}

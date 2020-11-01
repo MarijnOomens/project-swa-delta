@@ -87,6 +87,28 @@ void EngineController::initRenderer(const char* title, int width, int height, bo
 	EngineController::renderFacade->init(title, width, height, fullscreen);
 }
 
+void EngineController::registerBehaviourObjects(std::vector<std::shared_ptr<BehaviourObject>> objects) {
+	for (auto& o : objects) 
+	{
+		if (dynamic_cast<GraphicsComponent*>(o.get()) != nullptr)
+		{
+			auto ngc = dynamic_cast<GraphicsComponent*>(o.get());
+			ngc->addTextureManager(textureManager);
+			this->behaviourObjects.emplace_back(ngc);
+		}
+		else 
+		{
+			this->behaviourObjects.emplace_back(o);
+		}
+	}
+}
+
+void EngineController::registerTextures(std::map<std::string, std::string> textures) {
+	for (auto& t : textures) {
+		assetManager.get()->addTexture(t.first, t.second);
+	}
+}
+
 void EngineController::startGame()
 {
 	while (renderFacade->renderer->isRunning) {
@@ -116,26 +138,10 @@ void EngineController::startGame()
 
 	renderFacade->clean();
 	std::cout << "Game cleaned" << std::endl;
-};
-
-void EngineController::registerBehaviourObjects(std::vector<std::shared_ptr<BehaviourObject>> objects) {
-	for (auto& o : objects) 
-	{
-		if (dynamic_cast<GraphicsComponent*>(o.get()) != nullptr)
-		{
-			auto ngc = dynamic_cast<GraphicsComponent*>(o.get());
-			ngc->addTextureManager(textureManager);
-			this->behaviourObjects.emplace_back(ngc);
-		}
-		else 
-		{
-			this->behaviourObjects.emplace_back(o);
-		}
-	}
 }
 
-void EngineController::registerTextures(std::map<std::string, std::string> textures) {
-	for (auto& t : textures) {
-		assetManager.get()->addTexture(t.first, t.second);
-	}
+void EngineController::passPlayerPosition(int x, int y)
+{
+	renderFacade->passPlayerPosition(x, y);
 }
+

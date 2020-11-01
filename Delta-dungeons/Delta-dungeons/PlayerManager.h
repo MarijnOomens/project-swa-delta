@@ -7,6 +7,7 @@
 
 #include "Player.h"
 
+
 class PlayerManager
 {
 public:
@@ -17,10 +18,8 @@ public:
 	std::map<std::string, std::shared_ptr<Player>> sprites;
 	std::shared_ptr<Player> player;
 	
-	void createPlayer(GameManager* gameManager);
+	void createPlayer();
+
 	std::shared_ptr<Player> getPlayerObject();
 	std::map<std::string, std::string> passTextures() const;
-
-
-
 };

@@ -6,7 +6,7 @@ GraphicsComponent::~GraphicsComponent() {};
 
 void GraphicsComponent::playAnimation(int row, int frames, int speed, bool flip) 
 {
-	animated = false;
+	animated = true;
 
 	animRow = row;
 	animFrames = frames;

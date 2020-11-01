@@ -1,5 +1,4 @@
 #include "PlayerManager.h"
-#include "GameManager.h"
 
 /// <summary>
 /// This is a manager class for the player in which the Player is created and the texture is stored.
@@ -15,7 +14,7 @@ PlayerManager::~PlayerManager()
 
 }
 
-void PlayerManager::createPlayer(GameManager* gameManager)
+void PlayerManager::createPlayer()
 {
 	player = std::make_shared<Player>();
 	sprites.try_emplace("Player", player);

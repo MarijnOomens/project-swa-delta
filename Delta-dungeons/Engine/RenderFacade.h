@@ -32,4 +32,5 @@ public:
 	void clean();
 	void beforeFrame();
 	void afterFrame();
+	void passPlayerPosition(int x, int y);
 };
