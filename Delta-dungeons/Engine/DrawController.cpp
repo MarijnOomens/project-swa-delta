@@ -42,7 +42,6 @@ SDL_Texture* DrawController::loadFont(std::string font)
 
 }
 
-void DrawController::drawTexture(SDL_Texture* texture, SDL_Rect source, SDL_Rect destination)
 void DrawController::drawTexture(SDL_Texture* texture, SDL_Rect source, SDL_Rect destination, SDL_RendererFlip flip)
 {
 	try {

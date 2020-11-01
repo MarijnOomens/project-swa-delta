@@ -26,7 +26,6 @@ public:
 
 	void setFrameStart();
 	void setFrameDelay();
-	void drawTexture(std::string path, const Transform& transform, const Vector2D& coordinates, const Vector2D& sourceDimensions);
 	void drawText(std::string path, std::string text, Colour colour, const Transform& transform);
 	void drawTexture(std::string path, const Transform& transform, const Vector2D& coordinates, const Vector2D& sourceDimensions, int row, int frames, int speed, bool animated, bool flipped);
 	void init(const char* title, const int width, const int height, const bool fullscreen);

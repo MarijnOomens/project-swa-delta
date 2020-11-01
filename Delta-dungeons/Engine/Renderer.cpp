@@ -27,7 +27,7 @@ void Renderer::init(const char* title, int width, int height, bool fullscreen) {
 			sdlRenderer = SDL_CreateRenderer(sdlWindow, -1, 0);
 			if (sdlRenderer)
 			{
-				SDL_SetRenderDrawColor(sdlRenderer, 255, 0, 255, 255);
+				SDL_SetRenderDrawColor(sdlRenderer, 128, 128, 128, 255);
 				std::cout << "Renderer created!" << std::endl;
 			}
 			else {
