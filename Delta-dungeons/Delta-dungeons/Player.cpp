@@ -27,7 +27,7 @@ Player::Player()
 	m_gc = std::make_shared<GraphicsComponent>();
 	m_gc->setTexture("player");
 	m_gc->imageDimensions = { 32, 32 };
-	m_gc->transform.scale.multiply({ 3, 3 });
+	m_gc->transform.scale.multiply({ 2, 2 });
 	m_gc->playAnimation(0, 3, animationSpeed, false);
 
 	this->components.emplace_back(m_gc);

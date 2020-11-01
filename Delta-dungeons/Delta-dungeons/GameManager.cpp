@@ -10,7 +10,13 @@ GameManager::GameManager()
 
 	playerManager = PlayerManager();
 	playerManager.createPlayer();
+	player = playerManager.getPlayerObject();
 	registerTextures(playerManager.passTextures());
+
+	scene = Scene();	
+	scene.addGraphics();
+	registerTextures(scene.passTextures());
+
 
 	registerBehaviourObjects();
 	engineFacade.startGame();
@@ -28,6 +34,11 @@ void GameManager::registerBehaviourObjects()
 		}
 	}
 
+	for (auto& t : scene.getComponentsRecursive())
+	{
+		this->objects.emplace_back(t);
+	}
+	
 	for (auto& o : playerManager.sprites)
 	{
 		for (auto& c : o.second.get()->getComponentsRecursive())
@@ -37,6 +48,7 @@ void GameManager::registerBehaviourObjects()
 	}
 
 	this->objects.emplace_back(playerManager.getPlayerObject());
+
 
 
 	engineFacade.registerBehaviourObjects(objects);

@@ -4,6 +4,7 @@
 #include "EquipmentManager.h"
 #include "PlayerManager.h"
 #include "EngineFacade.h"
+#include "XMLSceneParser.h"
 
 class GameManager {
 public: 
@@ -11,6 +12,8 @@ public:
 	UIManager uiManager;
 	PlayerManager playerManager;
 	EquipmentManager eqManager;
+	Scene scene;
+	std::shared_ptr<Player> player;
 
 	GameManager();
 	~GameManager();

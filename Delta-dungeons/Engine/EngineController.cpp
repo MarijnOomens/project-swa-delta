@@ -27,17 +27,17 @@ EngineController::EngineController(std::vector<std::shared_ptr<BehaviourObject>>
 
 	//DEBUG//
 	// TILEMAP
-	//std::unique_ptr<XMLSceneParser> scene = std::make_unique<XMLSceneParser>();
-	//std::vector<std::shared_ptr<Tile>> tiles = scene.get()->loadScene("Assets\\collisionmap.xml");
-	//assetManager->addTexture("Level1", "Assets\\Level1_terrain.png");
-	//for (std::shared_ptr<Tile> t : tiles)
-	//{
-	//	std::shared_ptr<GraphicsComponent> gc = std::make_shared<GraphicsComponent>();
-	//	gc.get()->addTextureManager(textureManager);
-	//	t->addGraphicsComponent(gc, "Level1");
-	//	behaviourObjects.emplace_back(gc);
-	//	behaviourObjects.emplace_back(t);
-	//}
+	/*std::unique_ptr<XMLSceneParser> scene = std::make_unique<XMLSceneParser>();
+	std::vector<std::shared_ptr<Tile>> tiles = scene.get()->loadScene("Assets\\collisionmap.xml");
+	assetManager->addTexture("Level1", "Assets\\Level1_terrain.png");
+	for (std::shared_ptr<Tile> t : tiles)
+	{
+		std::shared_ptr<GraphicsComponent> gc = std::make_shared<GraphicsComponent>();
+		gc.get()->addTextureManager(textureManager);
+		t->addGraphicsComponent(gc, "Level1");
+		behaviourObjects.emplace_back(gc);
+		behaviourObjects.emplace_back(t);
+	}*/
 
 	//// PLAYER
 	//assetManager->addTexture("player_anims", "Assets\\player_anims.png");
@@ -76,12 +76,11 @@ void EngineController::inputCallbackFunction(const KeyCodes keyCode, const Keybo
 		gameObject.get()->handleInput(keyCode, keyboardEvent);
 	}
 }
-#pragma endregion input handling
+#pragma endregion Input handling
 
 void EngineController::addTexture(std::string name, std::string path) {
 	assetManager->addTexture(name, path);
 }
-#pragma endregion Input Handling
 
 void EngineController::initRenderer(const char* title, int width, int height, bool fullscreen)
 {
