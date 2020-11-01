@@ -13,7 +13,6 @@ public:
 	PlayerManager playerManager;
 	EquipmentManager eqManager;
 	Scene scene;
-	std::shared_ptr<Player> player;
 
 	GameManager();
 	~GameManager();

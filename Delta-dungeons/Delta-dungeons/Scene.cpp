@@ -51,4 +51,12 @@ void Scene::connectCallback() {}
 
 void Scene::callbackFunction() {}
 
-void Scene::update() {}
+void Scene::update() 
+{
+	/*for (auto& t : tileMap)
+	{
+		t.get()->transform.position.x += playerpos.x * 
+	}*/
+
+
+}

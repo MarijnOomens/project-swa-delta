@@ -9,8 +9,7 @@ GameManager::GameManager()
 	registerTextures(uiManager.passTextures());*/
 
 	playerManager = PlayerManager();
-	playerManager.createPlayer();
-	player = playerManager.getPlayerObject();
+	playerManager.createPlayer(this);
 	registerTextures(playerManager.passTextures());
 
 	scene = Scene();	

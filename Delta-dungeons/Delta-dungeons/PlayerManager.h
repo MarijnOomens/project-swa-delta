@@ -17,7 +17,7 @@ public:
 	std::map<std::string, std::shared_ptr<Player>> sprites;
 	std::shared_ptr<Player> player;
 	
-	void createPlayer();
+	void createPlayer(GameManager* gameManager);
 	std::shared_ptr<Player> getPlayerObject();
 	std::map<std::string, std::string> passTextures() const;
 

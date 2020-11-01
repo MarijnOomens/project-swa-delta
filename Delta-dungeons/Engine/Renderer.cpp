@@ -90,6 +90,7 @@ void Renderer::updateCamera()
 	if (Renderer::camera.y > camera.h) {
 		Renderer::camera.y = camera.h;
 	}
+
 }
 
 void Renderer::clean()
