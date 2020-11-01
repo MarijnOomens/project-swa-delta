@@ -20,6 +20,10 @@ void EngineFacade::registerTextures(std::map<std::string, std::string> textures)
 	engineController.get()->registerTextures(textures);
 }
 
+void EngineFacade::registerFonts(std::map<std::string, std::string> fonts) {
+	engineController.get()->registerFonts(fonts);
+}
+
 void EngineFacade::startGame() {
 	engineController.get()->startGame();
 }

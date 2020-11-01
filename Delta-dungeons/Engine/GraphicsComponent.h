@@ -25,11 +25,11 @@ public:
 	ENGINE_API void callbackFunction() override;
 	ENGINE_API std::shared_ptr<TextureManager>getTextureManager();
 private:
-	bool animated;
+	bool animated = false;
 	int animFrames;
 	int animSpeed;
 	int animRow;
-	bool flipped;
+	bool flipped = false;
 
 	std::map<std::string, AnimTypes> animTypes;
 

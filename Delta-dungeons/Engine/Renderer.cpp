@@ -27,7 +27,7 @@ void Renderer::init(const char* title, int width, int height, bool fullscreen) {
 			sdlRenderer = SDL_CreateRenderer(sdlWindow, -1, 0);
 			if (sdlRenderer)
 			{
-				SDL_SetRenderDrawColor(sdlRenderer, 255, 0, 255, 255);
+				SDL_SetRenderDrawColor(sdlRenderer, 128, 128, 128, 255);
 				std::cout << "Renderer created!" << std::endl;
 			}
 			else {
@@ -41,6 +41,10 @@ void Renderer::init(const char* title, int width, int height, bool fullscreen) {
 			isRunning = false;
 		}
 		std::cout << "Image is loaded and created!" << std::endl;
+		if (TTF_Init() == -1)
+		{
+			std::cout << "Failed to initialise SDL_ttf!" << std::endl;
+		}
 	}
 	catch (std::string error) {
 		std::cout << "Error: " << error << std::endl;

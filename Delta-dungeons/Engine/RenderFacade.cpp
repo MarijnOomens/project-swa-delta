@@ -59,14 +59,28 @@ void RenderFacade::drawTexture(std::string path, const Transform& transform, con
 	RenderFacade::drawController->drawTexture(texture, source, destination, flip);
 }
 
+void RenderFacade::drawText(std::string path, std::string text, Colour colour, const Transform& transform, int fontSize)
+{
+	SDL_Texture* textTexture = drawController->loadFont(text, path, colour, fontSize);
+	SDL_RendererFlip flip = SDL_FLIP_NONE;
+	SDL_Rect source;
+	source.x = 0;
+	source.y = 0;
+	SDL_QueryTexture(textTexture, NULL, NULL, &source.w, &source.h);
+
+	SDL_Rect destination;
+	destination.x = transform.position.x;
+	destination.y = transform.position.y;
+	destination.w = source.w * transform.scale.x;
+	destination.h = source.h * transform.scale.y;
+
+	RenderFacade::drawController->drawTexture(textTexture, source, destination, flip);
+
+}
+
 void RenderFacade::init(const char* title, const int width, const int height, const bool fullscreen)
 {
 	RenderFacade::renderer->init(title, width, height, fullscreen);
-}
-
-void RenderFacade::render(std::vector<std::shared_ptr<GameObject>> gameObjects)
-{
-	RenderFacade::renderer->render(gameObjects);
 }
 
 void RenderFacade::update(std::vector<GameObject> gameObjects) {}

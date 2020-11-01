@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include "MainMenu.h"
+#include "Creditscreen.h"
 
 class UIManager {
 public:
@@ -14,4 +15,5 @@ public:
 	void updateHudCollectedCrystals(int);
 	void updateHighScore(int);
 	std::map<std::string, std::string> passTextures();
+	std::map<std::string, std::string> passFonts();
 };

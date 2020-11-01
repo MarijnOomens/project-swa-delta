@@ -6,7 +6,7 @@ TextureManager::TextureManager(std::shared_ptr<RenderFacade> rf, std::shared_ptr
 {
 	assetManager = am;
 	renderFacade = rf;
-};
+}
 
 TextureManager::~TextureManager() {}
 
@@ -16,4 +16,11 @@ void TextureManager::drawTexture(const std::string name, const Transform& transf
 {
 	std::string texturePath = assetManager->getTexture(name);
 	renderFacade->drawTexture(texturePath, transform, coordinates, sourceDimensions, row, frames, speed, animated, flipped);
+
+}
+
+void TextureManager::drawText(std::string text, std::string fontName, Colour colour, const Transform& transform, int fontSize) 
+{
+	std::string fontPath = assetManager->getFont(fontName);
+	renderFacade->drawText(fontPath, text, colour, transform, fontSize);
 };
