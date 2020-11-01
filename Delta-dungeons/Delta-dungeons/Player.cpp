@@ -19,7 +19,7 @@ Player::Player()
 	addEquipment(running);
 	addEquipment(boomerang);
 
-	baseMovementSpeed = 32;
+	baseMovementSpeed = 12;
 	runActivated = false;
 
 	this->textures.try_emplace("player", "Assets/player_anims.png");
@@ -48,10 +48,10 @@ void Player::handleInput(const KeyCodes keyCodes, const KeyboardEvent keyboardEv
 		handleKeyReleased(keyCodes);
 	}
 
-	for (auto& comp : components)
+	/*for (auto& comp : components)
 	{
 		comp->transform.position = this->transform.position;
-	}
+	}*/
 }
 
 void Player::handleKeyPressed(const KeyCodes keyCodes)
@@ -87,18 +87,28 @@ void Player::handleKeyPressed(const KeyCodes keyCodes)
 
 void Player::handleKeyReleased(const KeyCodes keyCodes)
 {
+	int y = this->transform.position.y / 32;
+	int x = this->transform.position.x / 32;
 	switch (keyCodes)
 	{
 	case KeyCodes::KEY_UP:
+		transform.position.y = y * 32;
+		m_gc.get()->transform.position.y = y * 32;
 		m_gc->playAnimation(4, 3, animationSpeed, false);
 		break;
 	case KeyCodes::KEY_DOWN:
+		transform.position.y = y * 32;
+		m_gc.get()->transform.position.y = y * 32;
 		m_gc->playAnimation(0, 3, animationSpeed, false);
 		break;
 	case KeyCodes::KEY_LEFT:
+		transform.position.x = x * 32;
+		m_gc.get()->transform.position.x = x * 32;
 		m_gc->playAnimation(5, 3, animationSpeed, false);
 		break;
 	case KeyCodes::KEY_RIGHT:
+		transform.position.x = x * 32;
+		m_gc.get()->transform.position.x = x * 32;
 		m_gc->playAnimation(5, 3, animationSpeed, true);
 		break;
 	default:
@@ -109,6 +119,7 @@ void Player::handleKeyReleased(const KeyCodes keyCodes)
 void Player::moveUp()
 {
 	this->transform.position.y -= baseMovementSpeed;
+	this->m_gc.get()->transform.position.y -= baseMovementSpeed;
 	runActivated ? m_gc->playAnimation(7, 3, animationSpeed, false) :
 		m_gc->playAnimation(2, 4, animationSpeed, false);
 }
@@ -116,6 +127,7 @@ void Player::moveUp()
 void Player::moveDown()
 {
 	this->transform.position.y += baseMovementSpeed;
+	this->m_gc.get()->transform.position.y += baseMovementSpeed;
 	runActivated ? m_gc->playAnimation(6, 3, animationSpeed, false) :
 		m_gc->playAnimation(1, 4, animationSpeed, false);
 }
@@ -123,6 +135,7 @@ void Player::moveDown()
 void Player::moveLeft()
 {
 	this->transform.position.x -= baseMovementSpeed;
+	this->m_gc.get()->transform.position.x -= baseMovementSpeed;
 	runActivated ? m_gc->playAnimation(8, 3, animationSpeed, false) :
 		m_gc->playAnimation(3, 4, animationSpeed, false);
 }
@@ -130,6 +143,7 @@ void Player::moveLeft()
 void Player::moveRight()
 {
 	this->transform.position.x += baseMovementSpeed;
+	this->m_gc.get()->transform.position.x += baseMovementSpeed;
 	runActivated ? m_gc->playAnimation(8, 3, animationSpeed, true) :
 		m_gc->playAnimation(3, 4, animationSpeed, true);
 }
@@ -150,13 +164,13 @@ void Player::equipmentCallbackFunction(const bool runningActivated)
 	if (runningActivated) 
 	{
 		runActivated = true;
-		baseMovementSpeed = 64;
+		baseMovementSpeed = 18;
 		std::cout << " runningshoes enabled" << std::endl;
 	}
 	else 
 	{
 		runActivated = false;
-		baseMovementSpeed = 32;
+		baseMovementSpeed = 12;
 		std::cout << " runningshoes disabled" << std::endl;
 	}
 	//std::cout << runningActivated << " runningshoes" << std::endl;
