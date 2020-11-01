@@ -4,7 +4,15 @@ GraphicsComponent::GraphicsComponent() {};
 
 GraphicsComponent::~GraphicsComponent() {};
 
-void GraphicsComponent::playAnimation(std::string path) {}
+void GraphicsComponent::playAnimation(int row, int frames, int speed, bool flip) 
+{
+	animated = true;
+
+	animRow = row;
+	animFrames = frames;
+	animSpeed = speed;
+	flipped = flip;
+}
 
 void GraphicsComponent::setTexture(std::string name)
 {
@@ -13,7 +21,7 @@ void GraphicsComponent::setTexture(std::string name)
 
 void GraphicsComponent::update()
 {
-	textureManager->drawTexture(textureName, this->transform, this->imageCoordinates, this->imageDimensions);
+	textureManager->drawTexture(textureName, this->transform, this->imageCoordinates, this->imageDimensions, animRow, animFrames, animSpeed, animated, flipped);
 }
 
 void GraphicsComponent::addTextureManager(std::shared_ptr<TextureManager> tm)
@@ -27,6 +35,7 @@ void GraphicsComponent::connectCallback() {}
 
 void GraphicsComponent::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) {}
 
-std::shared_ptr<TextureManager> GraphicsComponent::getTextureManager() {
+std::shared_ptr<TextureManager> GraphicsComponent::getTextureManager() 
+{
 	return this->textureManager;
 }

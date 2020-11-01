@@ -1,6 +1,6 @@
 #pragma once
 
-enum KeyCodes {
+enum class KeyCodes {
 	KEY_UP,
 	KEY_DOWN,
 	KEY_LEFT,

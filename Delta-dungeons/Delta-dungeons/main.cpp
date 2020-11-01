@@ -45,5 +45,4 @@ int main(int argc, char* argv[])
 
 	//std::unique_ptr<EngineController> engineController = std::make_unique<EngineController>(behaviourObjects, renderFacade, assetManager, textureManager);
 	_CrtDumpMemoryLeaks();
-	return 0;
 }

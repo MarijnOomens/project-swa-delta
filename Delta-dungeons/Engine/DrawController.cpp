@@ -43,6 +43,7 @@ SDL_Texture* DrawController::loadFont(std::string font)
 }
 
 void DrawController::drawTexture(SDL_Texture* texture, SDL_Rect source, SDL_Rect destination)
+void DrawController::drawTexture(SDL_Texture* texture, SDL_Rect source, SDL_Rect destination, SDL_RendererFlip flip)
 {
 	try {
 		if (renderer.get()->sdlRenderer == NULL) {
@@ -51,9 +52,11 @@ void DrawController::drawTexture(SDL_Texture* texture, SDL_Rect source, SDL_Rect
 		else if (texture == NULL) {
 			throw("SDL_Texture is NULL!");
 		}
-		SDL_RenderCopyEx(renderer.get()->sdlRenderer, texture, &source, &destination, NULL, NULL, SDL_FLIP_NONE);
+		SDL_RenderCopyEx(renderer.get()->sdlRenderer, texture, &source, &destination, NULL, NULL, flip);
+		
 	}
 	catch (std::string error) {
 		std::cout << "Error: " << error << std::endl;
 	}
 }
+

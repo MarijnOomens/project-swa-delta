@@ -29,23 +29,34 @@ void RenderFacade::setFrameDelay()
 	RenderFacade::frameManager->setFrameDelay();
 }
 
-void RenderFacade::drawTexture(std::string path, const Transform& transform, const Vector2D& coordinates, const Vector2D& sourceDimensions)
+void RenderFacade::drawTexture(std::string path, const Transform& transform, const Vector2D& coordinates, const Vector2D& sourceDimensions, int row, int frames, int speed, bool animated, bool flipped)
 {
 	Vector2D size;
 	SDL_Rect source;
-	source.x = coordinates.x;	// Moet 0 zijn om de volledige texture te tekenen, omdat de source rectangle aangeeft welk deel van de texture wordt getekend. Dus als dit 32 is, wordt x positie 32 + width
-	source.y = coordinates.y;	// getekend en dat kan niet met een 32 x 32 texture. Dan wordt als het ware de 'data' buiten de texture getekend, terwijl daar niets zit.
-	source.w = sourceDimensions.x; // Moet eigenlijk width en height zijn, maar 'Vector2D' heeft alleen x en y variabelen.
-	source.h = sourceDimensions.y; //
+	SDL_RendererFlip flip = SDL_FLIP_NONE;
 	SDL_Texture* texture = drawController->loadTexture(path);
 
-	SDL_Rect destination;
-	destination.x = transform.position.x; // Locatie waar je de texture wilt tekenen.
-	destination.y = transform.position.y; //
-	destination.w = sourceDimensions.x * transform.scale.x; // Moet eigenlijk width en height zijn, maar 'Vector2D' heeft alleen x en y variabelen.
-	destination.h = sourceDimensions.y * transform.scale.y; //
+	if (flipped)
+		flip = SDL_FLIP_HORIZONTAL;
 
-	RenderFacade::drawController->drawTexture(texture, source, destination);
+	source.w = sourceDimensions.x; 
+	source.h = sourceDimensions.y; 
+	source.x = coordinates.x;
+	source.y = coordinates.y;
+
+	if (animated)
+	{
+		source.x = source.w * static_cast<int>((SDL_GetTicks() / speed) % frames);
+		source.y = row * source.h;
+	}
+
+	SDL_Rect destination;
+	destination.x = transform.position.x; 
+	destination.y = transform.position.y; 
+	destination.w = sourceDimensions.x * transform.scale.x; 
+	destination.h = sourceDimensions.y * transform.scale.y; 
+
+	RenderFacade::drawController->drawTexture(texture, source, destination, flip);
 }
 
 void RenderFacade::drawText(std::string path, std::string text, Colour colour, const Transform& transform) 
