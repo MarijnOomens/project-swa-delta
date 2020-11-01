@@ -25,7 +25,7 @@ public:
 
 	void setFrameStart();
 	void setFrameDelay();
-	void drawTexture(std::string path, const Transform& transform, const Vector2D& coordinates, const Vector2D& sourceDimensions);
+	void drawTexture(std::string path, const Transform& transform, const Vector2D& coordinates, const Vector2D& sourceDimensions, int row, int frames, int speed, bool animated, bool flipped);
 	void init(const char* title, const int width, const int height, const bool fullscreen);
 	void render(std::vector<std::shared_ptr<GameObject>> gameObjects);
 	void update(std::vector<GameObject> gameObjects);

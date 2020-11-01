@@ -175,6 +175,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PauseScreen.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerManager.cpp" />
     <ClCompile Include="Pokeball.cpp" />
     <ClCompile Include="Pokemon.cpp" />
     <ClCompile Include="PuzzleObject.cpp" />
@@ -203,6 +204,7 @@
     <ClInclude Include="HelpScreen.h" />
     <ClInclude Include="HUD.h" />
     <ClInclude Include="ParserData.h" />
+    <ClInclude Include="PlayerManager.h" />
     <ClInclude Include="XMLFacade.h" />
     <ClInclude Include="XMLParser.h" />
     <ClInclude Include="XMLSceneParser.h" />
