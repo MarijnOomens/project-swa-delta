@@ -2,6 +2,7 @@
 #include "BehaviourObject.h"
 #include "Colour.h"
 #include "TextureManager.h"
+#include "main.h"
 
 class TextComponent : public BehaviourObject {
 public:
