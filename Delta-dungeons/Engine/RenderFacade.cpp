@@ -59,8 +59,9 @@ void RenderFacade::drawTexture(std::string path, const Transform& transform, con
 	RenderFacade::drawController->drawTexture(texture, source, destination, flip);
 }
 
-void RenderFacade::drawText(std::string path, std::string text, Colour colour, const Transform& transform) 
+void RenderFacade::drawText(std::string path, std::string text, Colour colour, const Transform& transform, int fontSize) 
 {
+	SDL_Texture* textTexture = drawController->loadFont(text, path, colour, fontSize);
 
 }
 
