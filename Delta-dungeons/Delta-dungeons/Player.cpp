@@ -19,11 +19,11 @@ Player::Player(const cbCamera f, void* p): func(f), pointer(p)
 	addEquipment(running);
 	addEquipment(boomerang);
 
-	baseMovementSpeed = 16;
+	baseMovementSpeed = 32;
 	runActivated = false;
 
-	this->transform.position.x = 500;
-	this->transform.position.y = 300;
+	this->transform.position.x = 512;
+	this->transform.position.y = 384;
 	x = this->transform.position.x;
 	y = this->transform.position.y;
 
@@ -155,13 +155,13 @@ void Player::equipmentCallbackFunction(const bool runningActivated)
 	if (runningActivated) 
 	{
 		runActivated = true;
-		baseMovementSpeed = 18;
+		baseMovementSpeed = 64;
 		std::cout << " runningshoes enabled" << std::endl;
 	}
 	else 
 	{
 		runActivated = false;
-		baseMovementSpeed = 12;
+		baseMovementSpeed = 32;
 		std::cout << " runningshoes disabled" << std::endl;
 	}
 	//std::cout << runningActivated << " runningshoes" << std::endl;
