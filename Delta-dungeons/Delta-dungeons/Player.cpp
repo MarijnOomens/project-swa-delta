@@ -11,7 +11,7 @@
 
 const int animationSpeed = 100; 
 
-Player::Player()
+Player::Player(const cbCamera f, void* p): func(f), pointer(p)
 {
 	std::shared_ptr<Runningshoes> running = std::make_shared<Runningshoes>(staticEquipmentCallbackFunction, this);
 	std::shared_ptr<Boomerang> boomerang = std::make_shared<Boomerang>();
@@ -146,6 +146,7 @@ void Player::moveRight()
 	this->m_gc.get()->transform.position.x += baseMovementSpeed;
 	runActivated ? m_gc->playAnimation(8, 3, animationSpeed, true) :
 		m_gc->playAnimation(3, 4, animationSpeed, true);
+	func(pointer,transform.position.x,transform.position.y);
 }
 
 void Player::addEquipment(std::shared_ptr<IEquipment> item)

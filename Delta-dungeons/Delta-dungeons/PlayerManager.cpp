@@ -14,9 +14,9 @@ PlayerManager::~PlayerManager()
 
 }
 
-void PlayerManager::createPlayer()
+void PlayerManager::createPlayer(cbCamera cb, void* p)
 {
-	player = std::make_shared<Player>();
+	player = std::make_shared<Player>(cb, p);
 	sprites.try_emplace("Player", player);
 }
 

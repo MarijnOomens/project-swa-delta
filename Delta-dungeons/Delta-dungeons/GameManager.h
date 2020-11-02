@@ -10,7 +10,7 @@ class GameManager {
 public: 
 	EngineFacade engineFacade;
 	UIManager uiManager;
-	PlayerManager playerManager;
+	std::shared_ptr<PlayerManager> playerManager;
 	EquipmentManager eqManager;
 	Scene scene;
 
@@ -18,7 +18,8 @@ public:
 	~GameManager();
 	void registerBehaviourObjects();
 	void registerTextures(std::map<std::string, std::string> textures);
-	void passPlayerPosition();
+	static void staticCameraCallbackFunction(void* p,int x, int y);
+	void passPlayerPosition(int x, int y);
 
 private:
 	std::vector<std::shared_ptr<BehaviourObject>> objects; //TODO: split into scenes

@@ -35,6 +35,8 @@ void Renderer::init(const char* title, int width, int height, bool fullscreen) {
 				throw("Failed to create Render!");
 			}
 			isRunning = true;
+			camera.w = 1024;
+			camera.h = 1024;
 		}
 		else {
 			throw("Subsystems are not initialised!");
@@ -71,11 +73,8 @@ void Renderer::render(std::vector<std::shared_ptr<GameObject>> gameObjects)
 
 void Renderer::updateCamera(int playerX, int playerY)
 {
-
-	//update gameobjects positioning based on camera x and y
-
-	//camera.x = player.position.x - 400;
-	//camera.y = player.position.y - 320;
+	camera.w = playerX - 500;
+	camera.h = playerY - 350;
 
 	if (Renderer::camera.x < 0) {
 		Renderer::camera.x = 0;
@@ -91,6 +90,7 @@ void Renderer::updateCamera(int playerX, int playerY)
 		Renderer::camera.y = camera.h;
 	}
 
+	//update gameobjects positioning based on camera x and y
 }
 
 void Renderer::clean()

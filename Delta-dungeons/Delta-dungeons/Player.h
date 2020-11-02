@@ -3,13 +3,15 @@
 #include "IEquipment.h"
 #include "GameObject.h"
 #include "GraphicsComponent.h"
-#include <vector>
+typedef void(*cbCamera) (void*,int,int);
 
 class Player : public GameObject {
 public:
 	std::map<std::string, std::string> textures;
+	cbCamera func;
+	void* pointer;
 
-	Player();
+	Player(const cbCamera f, void* p);
 	~Player();
 
 	void handleInput(const KeyCodes keyCodes, const KeyboardEvent keyboardEvent) override;

@@ -4,7 +4,6 @@
 #include <string>
 #include "XMLFacade.h"
 #include "Scene.h"
-#include <list>
 #include "ParserData.h"
 #include "Tile.h"
 

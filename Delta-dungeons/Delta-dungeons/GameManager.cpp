@@ -8,9 +8,9 @@ GameManager::GameManager()
 	uiManager.createBaseScreens();
 	registerTextures(uiManager.passTextures());*/
 
-	playerManager = PlayerManager();
-	playerManager.createPlayer();
-	registerTextures(playerManager.passTextures());
+	playerManager = std::make_shared<PlayerManager>();
+	playerManager.get()->createPlayer(staticCameraCallbackFunction, this);
+	registerTextures(playerManager.get()->passTextures());
 	
 
 	scene = Scene();	
@@ -39,7 +39,7 @@ void GameManager::registerBehaviourObjects()
 		this->objects.emplace_back(t);
 	}
 	
-	for (auto& o : playerManager.sprites)
+	for (auto& o : playerManager.get()->sprites)
 	{
 		for (auto& c : o.second.get()->getComponentsRecursive())
 		{
@@ -47,7 +47,7 @@ void GameManager::registerBehaviourObjects()
 		}
 	}
 
-	this->objects.emplace_back(playerManager.getPlayerObject());
+	this->objects.emplace_back(playerManager.get()->getPlayerObject());
 
 
 
@@ -59,7 +59,12 @@ void GameManager::registerTextures(std::map<std::string, std::string> textures)
 	engineFacade.registerTextures(textures);
 }
 
-void GameManager::passPlayerPosition()
+void GameManager:: staticCameraCallbackFunction(void* p, int x, int y) 
 {
-	engineFacade.passPlayerPosition(playerManager.player.get()->transform.position.x, playerManager.player.get()->transform.position.y);
+	((GameManager*)p)->passPlayerPosition(x, y);
+}
+
+void GameManager::passPlayerPosition(int x, int y)
+{
+	engineFacade.passPlayerPosition(playerManager.get()->player.get()->transform.position.x, playerManager.get()->player.get()->transform.position.y);
 }
