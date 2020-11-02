@@ -1,11 +1,21 @@
 #include "Renderer.h"
 
+/// <summary>
+/// The renderer class is responsible for setting up everything before rendering.
+/// </summary>
 Renderer::Renderer() {
 	camera = { 0, 0, 0, 0 };
 };
 
 Renderer::~Renderer() {};
 
+/// <summary>
+/// The init methods creates all SDL required items to render a screen and textures within that screen.
+/// </summary>
+/// <param name="title">The title of the screen.</param>
+/// <param name="width">The width of the screen.</param>
+/// <param name="height">The height of the screen.</param>
+/// <param name="fullscreen">If the screen is fullscreen or not.</param>
 void Renderer::init(const char* title, int width, int height, bool fullscreen) {
 	camera = { 0,0, width, height };
 
@@ -51,28 +61,10 @@ void Renderer::init(const char* title, int width, int height, bool fullscreen) {
 	}
 }
 
-void Renderer::render(std::vector<std::shared_ptr<GameObject>> gameObjects)
-{
-	SDL_RenderClear(sdlRenderer);
 
-	try {
-		if (gameObjects.empty()) {
-			throw("There are no gameobjects to render!");
-		}
-		else {
-			for (auto& t : gameObjects)
-			{
-				// TODO: Render all GraphicsComponents instead of GameObjects
-			}
-		}
-	}
-	catch (std::string error) {
-		std::cout << "Error: " << error << std::endl;
-	}
-	//call SDL_RenderCopyEx() for every gameobject
-	SDL_RenderPresent(sdlRenderer);
-}
-
+/// <summary>
+/// updateCamera updates the camera based on the position of the player.
+/// </summary>
 void Renderer::updateCamera()
 {
 
@@ -96,6 +88,10 @@ void Renderer::updateCamera()
 	}
 }
 
+
+/// <summary>
+/// This methods cleans the game files and destroys all sdl components to makes sure all memory is cleared.
+/// </summary>
 void Renderer::clean()
 {
 	SDL_DestroyWindow(sdlWindow);
@@ -104,16 +100,25 @@ void Renderer::clean()
 	std::cout << "Game Cleaned" << std::endl;
 }
 
+/// <summary>
+/// This method pauzes the game.
+/// </summary>
 void Renderer::stop()
 {
 	isRunning = false;
 }
 
+/// <summary>
+/// This methods cleans the screen before the frame is called.
+/// </summary>
 void Renderer::beforeFrame()
 {
 	SDL_RenderClear(sdlRenderer);
 }
 
+/// <summary>
+/// This method draws the screen after the frame is done.
+/// </summary>
 void Renderer::afterFrame()
 {
 	SDL_RenderPresent(sdlRenderer);

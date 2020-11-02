@@ -2,6 +2,10 @@
 
 DrawController::DrawController() {}
 
+/// <summary>
+/// The drawcontroller renders all the items in the game using a single renderer.
+/// </summary>
+/// <param name="r">The game renderer (SDL)</param>
 DrawController::DrawController(std::shared_ptr<Renderer> r)
 {
 	renderer = r;
@@ -9,6 +13,11 @@ DrawController::DrawController(std::shared_ptr<Renderer> r)
 
 DrawController::~DrawController() {}
 
+/// <summary>
+/// The loadtexture method loads in a textures based on a given path. If the texture is already made, it will return it without creating a new one.
+/// </summary>
+/// <param name="path">The path of where the .png can be found.</param>
+/// <returns>Returns a SDL_Texture to be drawn on the screen in another method.</returns>
 SDL_Texture* DrawController::loadTexture(std::string path)
 {
 	if (textures.count(path))
@@ -33,6 +42,14 @@ SDL_Texture* DrawController::loadTexture(std::string path)
 	}
 }
 
+/// <summary>
+/// The loadFont method loads in a textures based on a font and string of text. If the texture is already made, it will return it without creating a new one.
+/// </summary>
+/// <param name="text">This is the text that will appear in the label.</param>
+/// <param name="font">This is the font the text will be written in.</param>
+/// <param name="colour">This is the color the text will appear in.</param>
+/// <param name="fontSize">This is the size of the text.</param>
+/// <returns>Returns a SDL_Texture to be drawn on the screen in another method.</returns>
 SDL_Texture* DrawController::loadFont(std::string text, std::string font, Colour colour, int fontSize)
 {
 	if (textures.count(text))
@@ -61,6 +78,13 @@ SDL_Texture* DrawController::loadFont(std::string text, std::string font, Colour
 
 }
 
+/// <summary>
+/// This function will draw the texture within the renderer with the given parameters.
+/// </summary>
+/// <param name="texture">This is the texture that will be drawn.</param>
+/// <param name="source">The source is the width and height of the texture.</param>
+/// <param name="destination">The destination is the X and Y position of the texture.</param>
+/// <param name="flip">The flip is to determine if the texture needs to drawn upside down, flipped or normal. (Used for animations)</param>
 void DrawController::drawTexture(SDL_Texture* texture, SDL_Rect source, SDL_Rect destination, SDL_RendererFlip flip)
 {
 	try {
