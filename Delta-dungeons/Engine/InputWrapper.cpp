@@ -1,12 +1,18 @@
 #include "InputWrapper.h"
 #include <iostream>
-
+/// <summary>
+/// Inputwrapper is a class which holds what the inputs are supposed to do.
+/// </summary>
 InputWrapper::InputWrapper() {}
 
 InputWrapper::InputWrapper(const cbFunction f, void* p) :func(f), pointer(p) {}
 
 InputWrapper::~InputWrapper() {}
 
+
+/// <summary>
+/// The handleInput calls the input based on which keyevent is called.
+/// </summary>
 void InputWrapper::handleInput()
 {
 	while (SDL_PollEvent(&event) != 0)
@@ -27,6 +33,9 @@ void InputWrapper::handleInput()
 	}
 }
 
+/// <summary>
+/// The handleInput calls the input based on which key is pressed
+/// </summary>
 void InputWrapper::handleKeyPressed()
 {
 	switch (event.key.keysym.sym)
@@ -66,6 +75,10 @@ void InputWrapper::handleKeyPressed()
 	}
 }
 
+
+/// <summary>
+/// The handleInput calls the input based on which key is released
+/// </summary>
 void InputWrapper::handleKeyReleased()
 {
 	switch (event.key.keysym.sym)
