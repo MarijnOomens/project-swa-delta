@@ -29,12 +29,12 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="papier.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Delta Dungeons
-   &#160;<span id="projectnumber">Alpha 0.2</span>
+   &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">Game engine and game</div>
+   <div id="projectbrief">Game engine</div>
   </td>
    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -105,15 +105,16 @@ $(document).ready(function(){initNavTree('class_renderer.html',''); initResizabl
   <tr><td class="entry"><a class="el" href="class_renderer.html#abac30c11ed12f70fda98a6cdadabfc28">beforeFrame</a>()</td><td class="entry"><a class="el" href="class_renderer.html">Renderer</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_renderer.html#a7ffbe476d5facdeee9599d7986628f73">camera</a></td><td class="entry"><a class="el" href="class_renderer.html">Renderer</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_renderer.html#a609184e9e7ed6bf88448458ffc229981">clean</a>()</td><td class="entry"><a class="el" href="class_renderer.html">Renderer</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_renderer.html#a99c53ba5038dd01d9a1db7b2f3de2a76">init</a>(const char *title, const int width, const int height, const bool fullscreen)</td><td class="entry"><a class="el" href="class_renderer.html">Renderer</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_renderer.html#ab7f25b308e222af21bfddb6ba7f0a123">isRunning</a></td><td class="entry"><a class="el" href="class_renderer.html">Renderer</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_renderer.html#afc6b0d0cb01aa2960e0ad540352fe9b5">render</a>(std::list&lt; std::shared_ptr&lt; GameObject &gt;&gt; value)</td><td class="entry"><a class="el" href="class_renderer.html">Renderer</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_renderer.html#a7ebf46f54dab9905f79b80f7fddb76a6">Renderer</a>()</td><td class="entry"><a class="el" href="class_renderer.html">Renderer</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_renderer.html#a785de8b89acc27606fb022ce19bb1080">sdlRenderer</a></td><td class="entry"><a class="el" href="class_renderer.html">Renderer</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_renderer.html#abb3b9ee3c0d5573f0aea3b35e7b199b2">sdlWindow</a></td><td class="entry"><a class="el" href="class_renderer.html">Renderer</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_renderer.html#ac4396b06c7ebaf654de55a70983ee385">stop</a>()</td><td class="entry"><a class="el" href="class_renderer.html">Renderer</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_renderer.html#ad6bdaec4fc8f3df83dfa173bfaec0253">updateCamera</a>()</td><td class="entry"><a class="el" href="class_renderer.html">Renderer</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_renderer.html#afeee408862d5bd6255a6882d47e6d5cd">~Renderer</a>()</td><td class="entry"><a class="el" href="class_renderer.html">Renderer</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_renderer.html#af5576694a8935efe0e849c8d1a914b46">createCamera</a>(int x, int y)</td><td class="entry"><a class="el" href="class_renderer.html">Renderer</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_renderer.html#a99c53ba5038dd01d9a1db7b2f3de2a76">init</a>(const char *title, const int width, const int height, const bool fullscreen)</td><td class="entry"><a class="el" href="class_renderer.html">Renderer</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_renderer.html#ab7f25b308e222af21bfddb6ba7f0a123">isRunning</a></td><td class="entry"><a class="el" href="class_renderer.html">Renderer</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_renderer.html#aa920f9344705325eaea879bf7c89231c">render</a>(std::vector&lt; std::shared_ptr&lt; GameObject &gt;&gt; value)</td><td class="entry"><a class="el" href="class_renderer.html">Renderer</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_renderer.html#a7ebf46f54dab9905f79b80f7fddb76a6">Renderer</a>()</td><td class="entry"><a class="el" href="class_renderer.html">Renderer</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_renderer.html#a785de8b89acc27606fb022ce19bb1080">sdlRenderer</a></td><td class="entry"><a class="el" href="class_renderer.html">Renderer</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_renderer.html#abb3b9ee3c0d5573f0aea3b35e7b199b2">sdlWindow</a></td><td class="entry"><a class="el" href="class_renderer.html">Renderer</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_renderer.html#ac4396b06c7ebaf654de55a70983ee385">stop</a>()</td><td class="entry"><a class="el" href="class_renderer.html">Renderer</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_renderer.html#a9edf92afced0701e8f83890c85a344d9">updateCamera</a>(int playerX, int playerY)</td><td class="entry"><a class="el" href="class_renderer.html">Renderer</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_renderer.html#afeee408862d5bd6255a6882d47e6d5cd">~Renderer</a>()</td><td class="entry"><a class="el" href="class_renderer.html">Renderer</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

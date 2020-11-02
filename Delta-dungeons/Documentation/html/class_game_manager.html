@@ -108,16 +108,30 @@ $(document).ready(function(){initNavTree('class_game_manager.html',''); initResi
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aa0e2424dc1a39d380e5b6605b179bf05"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_manager.html#aa0e2424dc1a39d380e5b6605b179bf05">GameManager</a> ()</td></tr>
+<tr class="memdesc:aa0e2424dc1a39d380e5b6605b179bf05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inside the Gamemanager all managers in the game are managed and called when the game needs them.  <a href="class_game_manager.html#aa0e2424dc1a39d380e5b6605b179bf05">More...</a><br /></td></tr>
 <tr class="separator:aa0e2424dc1a39d380e5b6605b179bf05"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d08c85eb8add2cd006faf88cf1fc37c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_manager.html#a7d08c85eb8add2cd006faf88cf1fc37c">RegisterGameObjects</a> ()</td></tr>
-<tr class="separator:a7d08c85eb8add2cd006faf88cf1fc37c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaae63e38e358379c1fe507c5197a8435"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_manager.html#aaae63e38e358379c1fe507c5197a8435">~GameManager</a> ()</td></tr>
+<tr class="separator:aaae63e38e358379c1fe507c5197a8435"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adedcd0d25f5274a33605833a6c8921e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_manager.html#adedcd0d25f5274a33605833a6c8921e5">registerBehaviourObjects</a> ()</td></tr>
+<tr class="memdesc:adedcd0d25f5274a33605833a6c8921e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">This methods registers all BehaviourObjects from all managers into one big list within the <a class="el" href="class_game_manager.html">GameManager</a>.  <a href="class_game_manager.html#adedcd0d25f5274a33605833a6c8921e5">More...</a><br /></td></tr>
+<tr class="separator:adedcd0d25f5274a33605833a6c8921e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18789adbcedc9251a62b2e2f5cafa542"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_manager.html#a18789adbcedc9251a62b2e2f5cafa542">registerTextures</a> (std::map&lt; std::string, std::string &gt; textures)</td></tr>
+<tr class="memdesc:a18789adbcedc9251a62b2e2f5cafa542"><td class="mdescLeft">&#160;</td><td class="mdescRight">This methods gives the engineFacade all textures to give to the engine.  <a href="class_game_manager.html#a18789adbcedc9251a62b2e2f5cafa542">More...</a><br /></td></tr>
+<tr class="separator:a18789adbcedc9251a62b2e2f5cafa542"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9b94187c3ee3723d259d01868974e3b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_manager.html#ad9b94187c3ee3723d259d01868974e3b">registerFonts</a> (std::map&lt; std::string, std::string &gt; fonts)</td></tr>
+<tr class="memdesc:ad9b94187c3ee3723d259d01868974e3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This methods gives the engineFacade all fonts to give to the engine.  <a href="class_game_manager.html#ad9b94187c3ee3723d259d01868974e3b">More...</a><br /></td></tr>
+<tr class="separator:ad9b94187c3ee3723d259d01868974e3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a9d0a43b9cbcabf662c63dc1b3e55a471"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_u_i_manager.html">UIManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_manager.html#a9d0a43b9cbcabf662c63dc1b3e55a471">uiManager</a></td></tr>
-<tr class="separator:a9d0a43b9cbcabf662c63dc1b3e55a471"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9de9be6445882313696a4eeef6b3476b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_equipment_manager.html">EquipmentManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_manager.html#a9de9be6445882313696a4eeef6b3476b">eqManager</a></td></tr>
-<tr class="separator:a9de9be6445882313696a4eeef6b3476b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0267dd65c65891f687a217e70e598e12"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_engine_facade.html">EngineFacade</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_manager.html#a0267dd65c65891f687a217e70e598e12">engineFacade</a></td></tr>
+<tr class="separator:a0267dd65c65891f687a217e70e598e12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4eee8ed4e5cdeebbe69a2e6bc36664da"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_u_i_manager.html">UIManager</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_manager.html#a4eee8ed4e5cdeebbe69a2e6bc36664da">uiManager</a></td></tr>
+<tr class="separator:a4eee8ed4e5cdeebbe69a2e6bc36664da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cb0f6c6d59fbdc507e7d0b103d1b3ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_player_manager.html">PlayerManager</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_manager.html#a6cb0f6c6d59fbdc507e7d0b103d1b3ff">playerManager</a></td></tr>
+<tr class="separator:a6cb0f6c6d59fbdc507e7d0b103d1b3ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab35570af7f1b76866634b2e12375c3db"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_equipment_manager.html">EquipmentManager</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_manager.html#ab35570af7f1b76866634b2e12375c3db">eqManager</a></td></tr>
+<tr class="separator:ab35570af7f1b76866634b2e12375c3db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aa0e2424dc1a39d380e5b6605b179bf05"></a>
@@ -135,17 +149,18 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Inside the Gamemanager all managers in the game are managed and called when the game needs them. </p>
+
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a7d08c85eb8add2cd006faf88cf1fc37c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d08c85eb8add2cd006faf88cf1fc37c">&#9670;&nbsp;</a></span>RegisterGameObjects()</h2>
+<a id="aaae63e38e358379c1fe507c5197a8435"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaae63e38e358379c1fe507c5197a8435">&#9670;&nbsp;</a></span>~GameManager()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void GameManager::RegisterGameObjects </td>
+          <td class="memname">GameManager::~GameManager </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -155,29 +170,117 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a9de9be6445882313696a4eeef6b3476b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9de9be6445882313696a4eeef6b3476b">&#9670;&nbsp;</a></span>eqManager</h2>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="adedcd0d25f5274a33605833a6c8921e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adedcd0d25f5274a33605833a6c8921e5">&#9670;&nbsp;</a></span>registerBehaviourObjects()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_equipment_manager.html">EquipmentManager</a>* GameManager::eqManager</td>
+          <td class="memname">void GameManager::registerBehaviourObjects </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This methods registers all BehaviourObjects from all managers into one big list within the <a class="el" href="class_game_manager.html">GameManager</a>. </p>
+
+</div>
+</div>
+<a id="ad9b94187c3ee3723d259d01868974e3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9b94187c3ee3723d259d01868974e3b">&#9670;&nbsp;</a></span>registerFonts()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GameManager::registerFonts </td>
+          <td>(</td>
+          <td class="paramtype">std::map&lt; std::string, std::string &gt;&#160;</td>
+          <td class="paramname"><em>fonts</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This methods gives the engineFacade all fonts to give to the engine. </p>
+
+</div>
+</div>
+<a id="a18789adbcedc9251a62b2e2f5cafa542"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18789adbcedc9251a62b2e2f5cafa542">&#9670;&nbsp;</a></span>registerTextures()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GameManager::registerTextures </td>
+          <td>(</td>
+          <td class="paramtype">std::map&lt; std::string, std::string &gt;&#160;</td>
+          <td class="paramname"><em>textures</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This methods gives the engineFacade all textures to give to the engine. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a0267dd65c65891f687a217e70e598e12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0267dd65c65891f687a217e70e598e12">&#9670;&nbsp;</a></span>engineFacade</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_engine_facade.html">EngineFacade</a> GameManager::engineFacade</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a9d0a43b9cbcabf662c63dc1b3e55a471"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9d0a43b9cbcabf662c63dc1b3e55a471">&#9670;&nbsp;</a></span>uiManager</h2>
+<a id="ab35570af7f1b76866634b2e12375c3db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab35570af7f1b76866634b2e12375c3db">&#9670;&nbsp;</a></span>eqManager</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_u_i_manager.html">UIManager</a>* GameManager::uiManager</td>
+          <td class="memname"><a class="el" href="class_equipment_manager.html">EquipmentManager</a> GameManager::eqManager</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6cb0f6c6d59fbdc507e7d0b103d1b3ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6cb0f6c6d59fbdc507e7d0b103d1b3ff">&#9670;&nbsp;</a></span>playerManager</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_player_manager.html">PlayerManager</a> GameManager::playerManager</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4eee8ed4e5cdeebbe69a2e6bc36664da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4eee8ed4e5cdeebbe69a2e6bc36664da">&#9670;&nbsp;</a></span>uiManager</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_u_i_manager.html">UIManager</a> GameManager::uiManager</td>
         </tr>
       </table>
 </div><div class="memdoc">

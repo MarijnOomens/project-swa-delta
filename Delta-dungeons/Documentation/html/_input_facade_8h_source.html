@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.20"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Delta Dungeons: InputFacade.h Source File</title>
+<title>Delta Dungeons: C:/Users/marij/Documents/GitHub/project-swa-delta/Delta-dungeons/Engine/InputFacade.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,12 +29,12 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="papier.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Delta Dungeons
-   &#160;<span id="projectnumber">Alpha 0.2</span>
+   &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">Game engine and game</div>
+   <div id="projectbrief">Game engine</div>
   </td>
    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -99,32 +99,33 @@ $(document).ready(function(){initNavTree('_input_facade_8h_source.html',''); ini
 </div><!--header-->
 <div class="contents">
 <a href="_input_facade_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_i_input_facade_8h.html">IInputFacade.h</a>&quot;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_input_wrapper_8h.html">InputWrapper.h</a>&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="_input_facade_8h.html#ae1b2c0b12d502e3d5b7edbe45add5545">    5</a></span>&#160;<span class="keyword">typedef</span> void(*<a class="code" href="_input_facade_8h.html#ae1b2c0b12d502e3d5b7edbe45add5545">callbackFunction</a>) (<span class="keywordtype">void</span>*,<a class="code" href="_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fc">KeyCodes</a>, <a class="code" href="_keyboardevent_8h.html#abfaf4f911065374ca6c765029ec086ae">KeyboardEvent</a>);</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_input_facade.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_input_facade.html">InputFacade</a>: <span class="keyword">public</span> <a class="code" href="class_i_input_facade.html">IInputFacade</a></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="class_input_facade.html#aceb402cf8b7e18b668a0a5bfbccaba17">InputFacade</a>();</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="class_input_facade.html#aceb402cf8b7e18b668a0a5bfbccaba17">InputFacade</a>(<span class="keyword">const</span> <a class="code" href="_input_8h.html#ad6366276ff7081cb14c06c7500006f3b">cbFunction</a> f, <span class="keywordtype">void</span> *p);</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;};</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_i_input_facade_8h.html">IInputFacade.h</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_input_wrapper_8h.html">InputWrapper.h</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="_input_facade_8h.html#ae1b2c0b12d502e3d5b7edbe45add5545">    6</a></span>&#160;<span class="keyword">typedef</span> void(*<a class="code" href="_input_facade_8h.html#ae1b2c0b12d502e3d5b7edbe45add5545">callbackFunction</a>) (<span class="keywordtype">void</span>*, <a class="code" href="_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fc">KeyCodes</a>, <a class="code" href="_keyboardevent_8h.html#abfaf4f911065374ca6c765029ec086ae">KeyboardEvent</a>);</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="class_input_facade.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_input_facade.html">InputFacade</a> : <span class="keyword">public</span> <a class="code" href="class_i_input_facade.html">IInputFacade</a></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="class_input_facade.html#aceb402cf8b7e18b668a0a5bfbccaba17">InputFacade</a>();</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="class_input_facade.html#aceb402cf8b7e18b668a0a5bfbccaba17">InputFacade</a>(<span class="keyword">const</span> <a class="code" href="_input_8h.html#ad6366276ff7081cb14c06c7500006f3b">cbFunction</a> f, <span class="keywordtype">void</span>* p);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="a_input_wrapper_8h_html"><div class="ttname"><a href="_input_wrapper_8h.html">InputWrapper.h</a></div></div>
 <div class="ttc" id="a_i_input_facade_8h_html"><div class="ttname"><a href="_i_input_facade_8h.html">IInputFacade.h</a></div></div>
 <div class="ttc" id="a_keyboardevent_8h_html_abfaf4f911065374ca6c765029ec086ae"><div class="ttname"><a href="_keyboardevent_8h.html#abfaf4f911065374ca6c765029ec086ae">KeyboardEvent</a></div><div class="ttdeci">KeyboardEvent</div><div class="ttdef"><b>Definition:</b> Keyboardevent.h:3</div></div>
 <div class="ttc" id="a_keycodes_8h_html_a269a8dff901283db1b9fb996933b07fc"><div class="ttname"><a href="_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fc">KeyCodes</a></div><div class="ttdeci">KeyCodes</div><div class="ttdef"><b>Definition:</b> Keycodes.h:3</div></div>
-<div class="ttc" id="aclass_input_facade_html_aceb402cf8b7e18b668a0a5bfbccaba17"><div class="ttname"><a href="class_input_facade.html#aceb402cf8b7e18b668a0a5bfbccaba17">InputFacade::InputFacade</a></div><div class="ttdeci">InputFacade()</div><div class="ttdef"><b>Definition:</b> InputFacade.cpp:3</div></div>
-<div class="ttc" id="aclass_i_input_facade_html"><div class="ttname"><a href="class_i_input_facade.html">IInputFacade</a></div><div class="ttdef"><b>Definition:</b> IInputFacade.h:8</div></div>
-<div class="ttc" id="a_input_8h_html_ad6366276ff7081cb14c06c7500006f3b"><div class="ttname"><a href="_input_8h.html#ad6366276ff7081cb14c06c7500006f3b">cbFunction</a></div><div class="ttdeci">void(* cbFunction)(void *, KeyCodes, KeyboardEvent)</div><div class="ttdef"><b>Definition:</b> Input.h:7</div></div>
-<div class="ttc" id="a_input_facade_8h_html_ae1b2c0b12d502e3d5b7edbe45add5545"><div class="ttname"><a href="_input_facade_8h.html#ae1b2c0b12d502e3d5b7edbe45add5545">callbackFunction</a></div><div class="ttdeci">void(* callbackFunction)(void *, KeyCodes, KeyboardEvent)</div><div class="ttdef"><b>Definition:</b> InputFacade.h:5</div></div>
-<div class="ttc" id="aclass_input_facade_html"><div class="ttname"><a href="class_input_facade.html">InputFacade</a></div><div class="ttdef"><b>Definition:</b> InputFacade.h:8</div></div>
+<div class="ttc" id="aclass_input_facade_html_aceb402cf8b7e18b668a0a5bfbccaba17"><div class="ttname"><a href="class_input_facade.html#aceb402cf8b7e18b668a0a5bfbccaba17">InputFacade::InputFacade</a></div><div class="ttdeci">InputFacade()</div><div class="ttdoc">Inputfacade takes all the input from the engine and gives it to the class who will handle the input.</div><div class="ttdef"><b>Definition:</b> InputFacade.cpp:5</div></div>
+<div class="ttc" id="aclass_i_input_facade_html"><div class="ttname"><a href="class_i_input_facade.html">IInputFacade</a></div><div class="ttdef"><b>Definition:</b> IInputFacade.h:9</div></div>
+<div class="ttc" id="a_input_8h_html_ad6366276ff7081cb14c06c7500006f3b"><div class="ttname"><a href="_input_8h.html#ad6366276ff7081cb14c06c7500006f3b">cbFunction</a></div><div class="ttdeci">void(* cbFunction)(void *, KeyCodes, KeyboardEvent)</div><div class="ttdef"><b>Definition:</b> Input.h:8</div></div>
+<div class="ttc" id="a_input_facade_8h_html_ae1b2c0b12d502e3d5b7edbe45add5545"><div class="ttname"><a href="_input_facade_8h.html#ae1b2c0b12d502e3d5b7edbe45add5545">callbackFunction</a></div><div class="ttdeci">void(* callbackFunction)(void *, KeyCodes, KeyboardEvent)</div><div class="ttdef"><b>Definition:</b> InputFacade.h:6</div></div>
+<div class="ttc" id="aclass_input_facade_html"><div class="ttname"><a href="class_input_facade.html">InputFacade</a></div><div class="ttdef"><b>Definition:</b> InputFacade.h:9</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="_input_facade_8h.html">InputFacade.h</a></li>
+    <li class="navelem"><a class="el" href="dir_f396504afdc959660871b003fa10164d.html">Documents</a></li><li class="navelem"><a class="el" href="dir_7e17ac9cf8fba2cb04bc248c85b0ceb7.html">GitHub</a></li><li class="navelem"><a class="el" href="dir_b722e01de0d5eae16000869531b44421.html">project-swa-delta</a></li><li class="navelem"><a class="el" href="dir_c12faaf3e2462b2657cf2bf295d40c89.html">Delta-dungeons</a></li><li class="navelem"><a class="el" href="dir_255e96664e55e2f9e08c4c1c0be64c6d.html">Engine</a></li><li class="navelem"><a class="el" href="_input_facade_8h.html">InputFacade.h</a></li>
     <li class="footer">Generated by <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
   </ul>
 </div>

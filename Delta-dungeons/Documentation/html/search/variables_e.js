@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['uimanager_592',['uiManager',['../class_game_manager.html#a9d0a43b9cbcabf662c63dc1b3e55a471',1,'GameManager']]]
+  ['wrapper_624',['wrapper',['../class_i_input_facade.html#a7e4cb64bc4f9f09bb98bf7ba8e09de2f',1,'IInputFacade']]]
 ];

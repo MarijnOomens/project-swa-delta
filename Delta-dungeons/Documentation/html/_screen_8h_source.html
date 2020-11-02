@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.20"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Delta Dungeons: Screen.h Source File</title>
+<title>Delta Dungeons: C:/Users/marij/Documents/GitHub/project-swa-delta/Delta-dungeons/Delta-dungeons/Screen.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -99,27 +99,41 @@ $(document).ready(function(){initNavTree('_screen_8h_source.html',''); initResiz
 </div><!--header-->
 <div class="contents">
 <a href="_screen_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno"><a class="line" href="class_screen.html">    4</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_screen.html">Screen</a> </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;{</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="class_screen.html#a96e44107378128dd209652e8c61e1b0a">    8</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_screen.html#a96e44107378128dd209652e8c61e1b0a">closeScreen</a>();</div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_screen.html#a612186435b7fea46b78b59e6c6b553f4">    9</a></span>&#160;    std::string <a class="code" href="class_screen.html#a612186435b7fea46b78b59e6c6b553f4">text</a>;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;};</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;GraphicsComponent.h&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_screen.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_screen.html">Screen</a> : <span class="keyword">public</span> GameObject</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="class_screen.html#ade04179fc468a4131c71c3b224799791">   10</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_screen.html#ade04179fc468a4131c71c3b224799791">closeScreen</a>() = 0;</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="class_screen.html#a612186435b7fea46b78b59e6c6b553f4">   11</a></span>&#160;    std::string <a class="code" href="class_screen.html#a612186435b7fea46b78b59e6c6b553f4">text</a>;</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="class_screen.html#a6e16c6fd81e1f772a20c4348d94d1cb4">   12</a></span>&#160;    std::shared_ptr&lt;GraphicsComponent&gt; <a class="code" href="class_screen.html#a6e16c6fd81e1f772a20c4348d94d1cb4">gc</a>;</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_screen.html#ad9466a8d99ff8d9e1254f9e570892955">   13</a></span>&#160;    std::map&lt;std::string, std::string&gt; <a class="code" href="class_screen.html#ad9466a8d99ff8d9e1254f9e570892955">textures</a>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_screen.html#ac0382a3e434b6581ba03e374de072707">   14</a></span>&#160;    std::map&lt;std::string, std::string&gt; <a class="code" href="class_screen.html#ac0382a3e434b6581ba03e374de072707">fonts</a>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_screen.html#ae41d369f9bf2b65c41f7d753c0698423">connectCallback</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_screen.html#a871c509d0665d2d512be57ceee0d6171">callbackFunction</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_screen.html#a27e6f1042e6bf51843a0c092aee13f51">handleInput</a>(<span class="keyword">const</span> KeyCodes keyCode, <span class="keyword">const</span> KeyboardEvent keyboardEvent) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_screen.html#a09dff62af9d750e0fdf85a8cf83faec0">update</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_screen_html_a612186435b7fea46b78b59e6c6b553f4"><div class="ttname"><a href="class_screen.html#a612186435b7fea46b78b59e6c6b553f4">Screen::text</a></div><div class="ttdeci">std::string text</div><div class="ttdef"><b>Definition:</b> Screen.h:9</div></div>
-<div class="ttc" id="aclass_screen_html_a96e44107378128dd209652e8c61e1b0a"><div class="ttname"><a href="class_screen.html#a96e44107378128dd209652e8c61e1b0a">Screen::closeScreen</a></div><div class="ttdeci">void closeScreen()</div></div>
-<div class="ttc" id="aclass_screen_html"><div class="ttname"><a href="class_screen.html">Screen</a></div><div class="ttdef"><b>Definition:</b> Screen.h:5</div></div>
+<div class="ttc" id="aclass_screen_html_ade04179fc468a4131c71c3b224799791"><div class="ttname"><a href="class_screen.html#ade04179fc468a4131c71c3b224799791">Screen::closeScreen</a></div><div class="ttdeci">virtual void closeScreen()=0</div></div>
+<div class="ttc" id="aclass_screen_html_ae41d369f9bf2b65c41f7d753c0698423"><div class="ttname"><a href="class_screen.html#ae41d369f9bf2b65c41f7d753c0698423">Screen::connectCallback</a></div><div class="ttdeci">void connectCallback() override</div><div class="ttdef"><b>Definition:</b> Screen.cpp:3</div></div>
+<div class="ttc" id="aclass_screen_html_a612186435b7fea46b78b59e6c6b553f4"><div class="ttname"><a href="class_screen.html#a612186435b7fea46b78b59e6c6b553f4">Screen::text</a></div><div class="ttdeci">std::string text</div><div class="ttdef"><b>Definition:</b> Screen.h:11</div></div>
+<div class="ttc" id="aclass_screen_html_ad9466a8d99ff8d9e1254f9e570892955"><div class="ttname"><a href="class_screen.html#ad9466a8d99ff8d9e1254f9e570892955">Screen::textures</a></div><div class="ttdeci">std::map&lt; std::string, std::string &gt; textures</div><div class="ttdef"><b>Definition:</b> Screen.h:13</div></div>
+<div class="ttc" id="aclass_screen_html_ac0382a3e434b6581ba03e374de072707"><div class="ttname"><a href="class_screen.html#ac0382a3e434b6581ba03e374de072707">Screen::fonts</a></div><div class="ttdeci">std::map&lt; std::string, std::string &gt; fonts</div><div class="ttdef"><b>Definition:</b> Screen.h:14</div></div>
+<div class="ttc" id="aclass_screen_html_a09dff62af9d750e0fdf85a8cf83faec0"><div class="ttname"><a href="class_screen.html#a09dff62af9d750e0fdf85a8cf83faec0">Screen::update</a></div><div class="ttdeci">void update() override</div><div class="ttdef"><b>Definition:</b> Screen.cpp:5</div></div>
+<div class="ttc" id="aclass_screen_html"><div class="ttname"><a href="class_screen.html">Screen</a></div><div class="ttdef"><b>Definition:</b> Screen.h:8</div></div>
+<div class="ttc" id="aclass_screen_html_a871c509d0665d2d512be57ceee0d6171"><div class="ttname"><a href="class_screen.html#a871c509d0665d2d512be57ceee0d6171">Screen::callbackFunction</a></div><div class="ttdeci">void callbackFunction() override</div><div class="ttdef"><b>Definition:</b> Screen.cpp:4</div></div>
+<div class="ttc" id="aclass_screen_html_a6e16c6fd81e1f772a20c4348d94d1cb4"><div class="ttname"><a href="class_screen.html#a6e16c6fd81e1f772a20c4348d94d1cb4">Screen::gc</a></div><div class="ttdeci">std::shared_ptr&lt; GraphicsComponent &gt; gc</div><div class="ttdef"><b>Definition:</b> Screen.h:12</div></div>
+<div class="ttc" id="aclass_screen_html_a27e6f1042e6bf51843a0c092aee13f51"><div class="ttname"><a href="class_screen.html#a27e6f1042e6bf51843a0c092aee13f51">Screen::handleInput</a></div><div class="ttdeci">void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) override</div><div class="ttdef"><b>Definition:</b> Screen.cpp:6</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="_screen_8h.html">Screen.h</a></li>
+    <li class="navelem"><a class="el" href="dir_f396504afdc959660871b003fa10164d.html">Documents</a></li><li class="navelem"><a class="el" href="dir_7e17ac9cf8fba2cb04bc248c85b0ceb7.html">GitHub</a></li><li class="navelem"><a class="el" href="dir_b722e01de0d5eae16000869531b44421.html">project-swa-delta</a></li><li class="navelem"><a class="el" href="dir_c12faaf3e2462b2657cf2bf295d40c89.html">Delta-dungeons</a></li><li class="navelem"><a class="el" href="dir_1a2e7c1ca8d068fefc1d7ce860ea1ade.html">Delta-dungeons</a></li><li class="navelem"><a class="el" href="_screen_8h.html">Screen.h</a></li>
     <li class="footer">Generated by <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
   </ul>
 </div>

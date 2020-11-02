@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['pausescreen_320',['PauseScreen',['../class_pause_screen.html',1,'']]],
-  ['player_321',['Player',['../class_player.html',1,'']]],
-  ['pokeball_322',['Pokeball',['../class_pokeball.html',1,'']]],
-  ['pokemon_323',['Pokemon',['../class_pokemon.html',1,'']]],
-  ['puzzleobject_324',['PuzzleObject',['../class_puzzle_object.html',1,'']]]
+  ['rectangle_341',['Rectangle',['../class_rectangle.html',1,'']]],
+  ['renderer_342',['Renderer',['../class_renderer.html',1,'']]],
+  ['renderfacade_343',['RenderFacade',['../class_render_facade.html',1,'']]]
 ];

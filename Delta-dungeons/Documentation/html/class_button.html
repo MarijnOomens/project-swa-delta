@@ -107,17 +107,17 @@ $(document).ready(function(){initNavTree('class_button.html',''); initResizable(
 Inheritance diagram for Button:</div>
 <div class="dyncontent">
  <div class="center">
-  <img src="class_button.png" usemap="#Button_map" alt=""/>
-  <map id="Button_map" name="Button_map">
-<area href="class_game_object.html" alt="GameObject" shape="rect" coords="0,56,107,80"/>
-<area href="class_behaviour_object.html" alt="BehaviourObject" shape="rect" coords="0,0,107,24"/>
-  </map>
-</div></div>
+  <img src="class_button.png" alt=""/>
+ </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a38c1ab84261f41033eca60fa80696537"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_button.html#a38c1ab84261f41033eca60fa80696537">Button</a> (int x, int y, <a class="el" href="_button_8h.html#a436e425ff9ea999db13b19cc94d1c005">TextureList</a> textureList, <a class="el" href="class_graphics_component.html">GraphicsComponent</a> *gc)</td></tr>
-<tr class="separator:a38c1ab84261f41033eca60fa80696537"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b36df1ae23c58aedb9e15a713159459"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_button.html#a3b36df1ae23c58aedb9e15a713159459">Button</a> ()</td></tr>
+<tr class="memdesc:a3b36df1ae23c58aedb9e15a713159459"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class creates the button which will be used within, credit- and mainmenu screen  <a href="class_button.html#a3b36df1ae23c58aedb9e15a713159459">More...</a><br /></td></tr>
+<tr class="separator:a3b36df1ae23c58aedb9e15a713159459"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31d716745a3a2354328029093de6db32"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_button.html#a31d716745a3a2354328029093de6db32">Button</a> (int x, int y, std::vector&lt; std::string &gt; textureList)</td></tr>
+<tr class="memdesc:a31d716745a3a2354328029093de6db32"><td class="mdescLeft">&#160;</td><td class="mdescRight">The constructor intialises the graphicscomponent and defines the size, scale and textures.  <a href="class_button.html#a31d716745a3a2354328029093de6db32">More...</a><br /></td></tr>
+<tr class="separator:a31d716745a3a2354328029093de6db32"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a001eb9c3cc8ae54768a850dd345002"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_button.html#a2a001eb9c3cc8ae54768a850dd345002">~Button</a> ()</td></tr>
 <tr class="separator:a2a001eb9c3cc8ae54768a850dd345002"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abda97f1ae8e081da3dbd0b77a27cad9d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_button.html#abda97f1ae8e081da3dbd0b77a27cad9d">update</a> () override</td></tr>
@@ -126,37 +126,31 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a353f9851a109e484d03c40183cc57c4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acbca000ba826ab848f1899f5bf73a277"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_button.html#acbca000ba826ab848f1899f5bf73a277">callbackFunction</a> () override</td></tr>
 <tr class="separator:acbca000ba826ab848f1899f5bf73a277"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ab7fe68a14a6495286bdeb7d16d9ba9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_button.html#a1ab7fe68a14a6495286bdeb7d16d9ba9">handleInput</a> (const <a class="el" href="_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fc">KeyCodes</a> keyCode, const <a class="el" href="_keyboardevent_8h.html#abfaf4f911065374ca6c765029ec086ae">KeyboardEvent</a> keyboardEvent) override</td></tr>
+<tr class="memitem:a1ab7fe68a14a6495286bdeb7d16d9ba9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_button.html#a1ab7fe68a14a6495286bdeb7d16d9ba9">handleInput</a> (const KeyCodes keyCode, const KeyboardEvent keyboardEvent) override</td></tr>
 <tr class="separator:a1ab7fe68a14a6495286bdeb7d16d9ba9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_class_game_object"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_game_object')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_game_object.html">GameObject</a></td></tr>
-<tr class="memitem:a0348e3ee2e83d56eafca7a3547f432c4 inherit pub_methods_class_game_object"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a0348e3ee2e83d56eafca7a3547f432c4">GameObject</a> ()</td></tr>
-<tr class="separator:a0348e3ee2e83d56eafca7a3547f432c4 inherit pub_methods_class_game_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab82dfdb656f9051c0587e6593b2dda97 inherit pub_methods_class_game_object"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#ab82dfdb656f9051c0587e6593b2dda97">~GameObject</a> ()</td></tr>
-<tr class="separator:ab82dfdb656f9051c0587e6593b2dda97 inherit pub_methods_class_game_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68f28cca5abb0ca04a0ede9319f45770 inherit pub_methods_class_game_object"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a68f28cca5abb0ca04a0ede9319f45770">ConnectCallback</a> ()</td></tr>
-<tr class="separator:a68f28cca5abb0ca04a0ede9319f45770 inherit pub_methods_class_game_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1bd14aa169f501f94f1721943d716535 inherit pub_methods_class_game_object"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a1bd14aa169f501f94f1721943d716535">Update</a> ()</td></tr>
-<tr class="separator:a1bd14aa169f501f94f1721943d716535 inherit pub_methods_class_game_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89ea8a20cd30eb91faefa888bdb41bad inherit pub_methods_class_game_object"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a89ea8a20cd30eb91faefa888bdb41bad">addComponent</a> (<a class="el" href="class_behaviour_object.html">BehaviourObject</a> *comp)</td></tr>
-<tr class="separator:a89ea8a20cd30eb91faefa888bdb41bad inherit pub_methods_class_game_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_class_behaviour_object"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_behaviour_object')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_behaviour_object.html">BehaviourObject</a></td></tr>
-<tr class="memitem:a40e5c088df0ae76d107b1df16f49dfe9 inherit pub_methods_class_behaviour_object"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_behaviour_object.html#a40e5c088df0ae76d107b1df16f49dfe9">BehaviourObject</a> ()</td></tr>
-<tr class="separator:a40e5c088df0ae76d107b1df16f49dfe9 inherit pub_methods_class_behaviour_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaabecc80a062bee2ac8895a504d6a61b inherit pub_methods_class_behaviour_object"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_behaviour_object.html#aaabecc80a062bee2ac8895a504d6a61b">~BehaviourObject</a> ()</td></tr>
-<tr class="separator:aaabecc80a062bee2ac8895a504d6a61b inherit pub_methods_class_behaviour_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pub_attribs_class_game_object"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_class_game_object')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="class_game_object.html">GameObject</a></td></tr>
-<tr class="memitem:a241a1f404a06f885d49d3b895cd706fc inherit pub_attribs_class_game_object"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_behaviour_object.html">BehaviourObject</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_object.html#a241a1f404a06f885d49d3b895cd706fc">components</a></td></tr>
-<tr class="separator:a241a1f404a06f885d49d3b895cd706fc inherit pub_attribs_class_game_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_attribs_class_behaviour_object"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_class_behaviour_object')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="class_behaviour_object.html">BehaviourObject</a></td></tr>
-<tr class="memitem:a425b1e7b7178a010ba59da77bcc8090b inherit pub_attribs_class_behaviour_object"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_transform.html">Transform</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_behaviour_object.html#a425b1e7b7178a010ba59da77bcc8090b">transform</a></td></tr>
-<tr class="separator:a425b1e7b7178a010ba59da77bcc8090b inherit pub_attribs_class_behaviour_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a38c1ab84261f41033eca60fa80696537"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a38c1ab84261f41033eca60fa80696537">&#9670;&nbsp;</a></span>Button()</h2>
+<a id="a3b36df1ae23c58aedb9e15a713159459"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b36df1ae23c58aedb9e15a713159459">&#9670;&nbsp;</a></span>Button() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Button::Button </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This class creates the button which will be used within, credit- and mainmenu screen </p>
+
+</div>
+</div>
+<a id="a31d716745a3a2354328029093de6db32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31d716745a3a2354328029093de6db32">&#9670;&nbsp;</a></span>Button() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -176,14 +170,8 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="_button_8h.html#a436e425ff9ea999db13b19cc94d1c005">TextureList</a>&#160;</td>
-          <td class="paramname"><em>textureList</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_graphics_component.html">GraphicsComponent</a> *&#160;</td>
-          <td class="paramname"><em>gc</em>&#160;</td>
+          <td class="paramtype">std::vector&lt; std::string &gt;&#160;</td>
+          <td class="paramname"><em>textureList</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -192,6 +180,16 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>The constructor intialises the graphicscomponent and defines the size, scale and textures. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The horizontal position</td></tr>
+    <tr><td class="paramname">y</td><td>The vertical position</td></tr>
+    <tr><td class="paramname">textureList</td><td>Information of texture names.</td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -231,12 +229,10 @@ Additional Inherited Members</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Implements <a class="el" href="class_behaviour_object.html">BehaviourObject</a>.</p>
 
 </div>
 </div>
@@ -258,12 +254,10 @@ Additional Inherited Members</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Implements <a class="el" href="class_behaviour_object.html">BehaviourObject</a>.</p>
 
 </div>
 </div>
@@ -279,13 +273,13 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">void Button::handleInput </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fc">KeyCodes</a>&#160;</td>
+          <td class="paramtype">const KeyCodes&#160;</td>
           <td class="paramname"><em>keyCode</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="_keyboardevent_8h.html#abfaf4f911065374ca6c765029ec086ae">KeyboardEvent</a>&#160;</td>
+          <td class="paramtype">const KeyboardEvent&#160;</td>
           <td class="paramname"><em>keyboardEvent</em>&#160;</td>
         </tr>
         <tr>
@@ -296,12 +290,10 @@ Additional Inherited Members</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Reimplemented from <a class="el" href="class_game_object.html#ac46c9cd9ef6ec5b55bdae41d323548c1">GameObject</a>.</p>
 
 </div>
 </div>
@@ -323,12 +315,10 @@ Additional Inherited Members</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Implements <a class="el" href="class_behaviour_object.html#a37997beec7885f5a3886e702c56cf043">BehaviourObject</a>.</p>
 
 </div>
 </div>

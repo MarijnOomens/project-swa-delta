@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['texturelist_598',['TextureList',['../_button_8h.html#a436e425ff9ea999db13b19cc94d1c005',1,'TextureList():&#160;Button.h'],['../_player_8h.html#a436e425ff9ea999db13b19cc94d1c005',1,'TextureList():&#160;Player.h']]]
+  ['difference_5ftype_629',['difference_type',['../classrapidxml_1_1node__iterator.html#a5bdc462b980a52c5fa2d99ac9f4f4bff',1,'rapidxml::node_iterator::difference_type()'],['../classrapidxml_1_1attribute__iterator.html#accfd6d8527d32b427496b42f71a2e37a',1,'rapidxml::attribute_iterator::difference_type()']]]
 ];

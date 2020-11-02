@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.20"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Delta Dungeons: Tile.h Source File</title>
+<title>Delta Dungeons: C:/Users/marij/Documents/GitHub/project-swa-delta/Delta-dungeons/Delta-dungeons/Tile.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -100,16 +100,40 @@ $(document).ready(function(){initNavTree('_tile_8h_source.html',''); initResizab
 <div class="contents">
 <a href="_tile_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno"><a class="line" href="class_tile.html">    3</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_tile.html">Tile</a> {</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;};</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;GameObject.h&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;GraphicsComponent.h&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_tile.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_tile.html">Tile</a> : <span class="keyword">public</span> GameObject {</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_tile.html#a4a6de661bea40205bd55dedc73fd5716">    9</a></span>&#160;    Vector2D <a class="code" href="class_tile.html#a4a6de661bea40205bd55dedc73fd5716">imageCoordinates</a>;</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="class_tile.html#ac310fcd01d322ff7432f5dce97d7b5a0">   10</a></span>&#160;    std::shared_ptr&lt;GraphicsComponent&gt; <a class="code" href="class_tile.html#ac310fcd01d322ff7432f5dce97d7b5a0">gc</a>;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="class_tile.html#aeeb5593bb6b75aae2edfcccbc84ab378">Tile</a>();</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="class_tile.html#aeeb5593bb6b75aae2edfcccbc84ab378">Tile</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> xImage);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="class_tile.html#aeeb5593bb6b75aae2edfcccbc84ab378">Tile</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> xImage, <span class="keywordtype">int</span> yImage);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_tile.html#a5f01e2fb688956ad0eeb4a0493c0cf4b">addGraphicsComponent</a>(std::shared_ptr&lt;GraphicsComponent&gt;&amp; <a class="code" href="class_tile.html#ac310fcd01d322ff7432f5dce97d7b5a0">gc</a>, std::string imageName);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_tile.html#a11610be5efc2ef2c64af84087b551bf0">handleInput</a>(<span class="keyword">const</span> KeyCodes keyCode, <span class="keyword">const</span> KeyboardEvent keyboardEvent) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_tile.html#a09d3d8ac649c41512d02bd897bd3f6ff">callbackFunction</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_tile.html#ad6b20a0fe88930b8bc5bb1ae9af97c4e">connectCallback</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_tile.html#a8be60a42870eaa5a1c76d1b3ab506960">update</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_tile_html"><div class="ttname"><a href="class_tile.html">Tile</a></div><div class="ttdef"><b>Definition:</b> Tile.h:3</div></div>
+<div class="ttc" id="aclass_tile_html_a11610be5efc2ef2c64af84087b551bf0"><div class="ttname"><a href="class_tile.html#a11610be5efc2ef2c64af84087b551bf0">Tile::handleInput</a></div><div class="ttdeci">void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) override</div><div class="ttdef"><b>Definition:</b> Tile.cpp:46</div></div>
+<div class="ttc" id="aclass_tile_html_a5f01e2fb688956ad0eeb4a0493c0cf4b"><div class="ttname"><a href="class_tile.html#a5f01e2fb688956ad0eeb4a0493c0cf4b">Tile::addGraphicsComponent</a></div><div class="ttdeci">void addGraphicsComponent(std::shared_ptr&lt; GraphicsComponent &gt; &amp;gc, std::string imageName)</div><div class="ttdoc">Add the graphics component and set the tranform-, imagecoordinate- and texture values.</div><div class="ttdef"><b>Definition:</b> Tile.cpp:38</div></div>
+<div class="ttc" id="aclass_tile_html_a8be60a42870eaa5a1c76d1b3ab506960"><div class="ttname"><a href="class_tile.html#a8be60a42870eaa5a1c76d1b3ab506960">Tile::update</a></div><div class="ttdeci">void update() override</div><div class="ttdef"><b>Definition:</b> Tile.cpp:49</div></div>
+<div class="ttc" id="aclass_tile_html_a4a6de661bea40205bd55dedc73fd5716"><div class="ttname"><a href="class_tile.html#a4a6de661bea40205bd55dedc73fd5716">Tile::imageCoordinates</a></div><div class="ttdeci">Vector2D imageCoordinates</div><div class="ttdef"><b>Definition:</b> Tile.h:9</div></div>
+<div class="ttc" id="aclass_tile_html_aeeb5593bb6b75aae2edfcccbc84ab378"><div class="ttname"><a href="class_tile.html#aeeb5593bb6b75aae2edfcccbc84ab378">Tile::Tile</a></div><div class="ttdeci">Tile()</div><div class="ttdef"><b>Definition:</b> Tile.cpp:3</div></div>
+<div class="ttc" id="aclass_tile_html_ad6b20a0fe88930b8bc5bb1ae9af97c4e"><div class="ttname"><a href="class_tile.html#ad6b20a0fe88930b8bc5bb1ae9af97c4e">Tile::connectCallback</a></div><div class="ttdeci">void connectCallback() override</div><div class="ttdef"><b>Definition:</b> Tile.cpp:48</div></div>
+<div class="ttc" id="aclass_tile_html_a09d3d8ac649c41512d02bd897bd3f6ff"><div class="ttname"><a href="class_tile.html#a09d3d8ac649c41512d02bd897bd3f6ff">Tile::callbackFunction</a></div><div class="ttdeci">void callbackFunction() override</div><div class="ttdef"><b>Definition:</b> Tile.cpp:47</div></div>
+<div class="ttc" id="aclass_tile_html_ac310fcd01d322ff7432f5dce97d7b5a0"><div class="ttname"><a href="class_tile.html#ac310fcd01d322ff7432f5dce97d7b5a0">Tile::gc</a></div><div class="ttdeci">std::shared_ptr&lt; GraphicsComponent &gt; gc</div><div class="ttdef"><b>Definition:</b> Tile.h:10</div></div>
+<div class="ttc" id="aclass_tile_html"><div class="ttname"><a href="class_tile.html">Tile</a></div><div class="ttdef"><b>Definition:</b> Tile.h:7</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="_tile_8h.html">Tile.h</a></li>
+    <li class="navelem"><a class="el" href="dir_f396504afdc959660871b003fa10164d.html">Documents</a></li><li class="navelem"><a class="el" href="dir_7e17ac9cf8fba2cb04bc248c85b0ceb7.html">GitHub</a></li><li class="navelem"><a class="el" href="dir_b722e01de0d5eae16000869531b44421.html">project-swa-delta</a></li><li class="navelem"><a class="el" href="dir_c12faaf3e2462b2657cf2bf295d40c89.html">Delta-dungeons</a></li><li class="navelem"><a class="el" href="dir_1a2e7c1ca8d068fefc1d7ce860ea1ade.html">Delta-dungeons</a></li><li class="navelem"><a class="el" href="_tile_8h.html">Tile.h</a></li>
     <li class="footer">Generated by <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
   </ul>
 </div>
