@@ -1,6 +1,10 @@
 #include "Input.h"
 #include <iostream>
 
+/// <summary>
+/// This class serves as a communication class between InputFacade and EngineController. Input data is received from InputFacade here.
+/// </summary>
+
 Input::Input() {}
 
 Input::Input(const cbFunction f, void* p) :func(f), pointer(p)
