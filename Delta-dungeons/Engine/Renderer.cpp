@@ -7,7 +7,6 @@ Renderer::Renderer() {
 Renderer::~Renderer() {};
 
 void Renderer::init(const char* title, int width, int height, bool fullscreen) {
-	camera = { 0,0, width, height };
 
 	int flags = 0;
 	if (fullscreen) {
@@ -35,8 +34,6 @@ void Renderer::init(const char* title, int width, int height, bool fullscreen) {
 				throw("Failed to create Render!");
 			}
 			isRunning = true;
-			camera.w = 1024;
-			camera.h = 1024;
 		}
 		else {
 			throw("Subsystems are not initialised!");
@@ -71,25 +68,19 @@ void Renderer::render(std::vector<std::shared_ptr<GameObject>> gameObjects)
 	SDL_RenderPresent(sdlRenderer);
 }
 
+void Renderer::createCamera(int x, int y) 
+{
+	camera = { x,y, 1024, 1024 };
+}
+
 std::tuple<int, int> Renderer::updateCamera(int playerX, int playerY)
 {
-	camera.x = playerX;
-	camera.y = playerY;
+	int differenceX = (playerX - camera.x);
+	int differenceY = (playerY - camera.y);
+	camera.x = camera.x + differenceX;
+	camera.y = camera.y +differenceY;
 
-	/*if (Renderer::camera.x < 0) {
-		Renderer::camera.x = 0;
-	}
-	if (Renderer::camera.y < 0) {
-		Renderer::camera.y = 0;
-	}*/
-	if (Renderer::camera.x > camera.w) {
-		Renderer::camera.x = camera.w;
-	}
-
-	if (Renderer::camera.y > camera.h) {
-		Renderer::camera.y = camera.h;
-	}
-	return std::make_tuple(camera.x, camera.y);
+	return std::make_tuple(differenceX, differenceY);
 }
 
 void Renderer::clean()
