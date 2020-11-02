@@ -32,5 +32,5 @@ public:
 	void clean();
 	void beforeFrame();
 	void afterFrame();
-	void passPlayerPosition(int x, int y);
+	std::tuple<int, int> passPlayerPosition(int x, int y);
 };

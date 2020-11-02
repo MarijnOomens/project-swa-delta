@@ -71,10 +71,10 @@ void Renderer::render(std::vector<std::shared_ptr<GameObject>> gameObjects)
 	SDL_RenderPresent(sdlRenderer);
 }
 
-void Renderer::updateCamera(int playerX, int playerY)
+std::tuple<int, int> Renderer::updateCamera(int playerX, int playerY)
 {
-	camera.w = playerX - 500;
-	camera.h = playerY - 350;
+	camera.x = playerX;
+	camera.y = playerY;
 
 	if (Renderer::camera.x < 0) {
 		Renderer::camera.x = 0;
@@ -89,8 +89,7 @@ void Renderer::updateCamera(int playerX, int playerY)
 	if (Renderer::camera.y > camera.h) {
 		Renderer::camera.y = camera.h;
 	}
-
-	//update gameobjects positioning based on camera x and y
+	return std::make_tuple(camera.x, camera.y);
 }
 
 void Renderer::clean()

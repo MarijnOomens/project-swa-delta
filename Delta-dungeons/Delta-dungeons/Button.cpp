@@ -23,3 +23,5 @@ void Button::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEve
 void Button::connectCallback() {}
 
 void Button::callbackFunction() {}
+
+void Button::updatePositions(int x, int y){}

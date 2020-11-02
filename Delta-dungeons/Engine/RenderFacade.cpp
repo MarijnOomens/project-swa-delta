@@ -86,7 +86,7 @@ void RenderFacade::afterFrame()
 	RenderFacade::renderer->afterFrame();
 }
 
-void RenderFacade::passPlayerPosition(int x, int y)
+std::tuple<int, int> RenderFacade::passPlayerPosition(int x, int y)
 {
-	RenderFacade::renderer->updateCamera(x, y);
+	return RenderFacade::renderer->updateCamera(x, y);
 }

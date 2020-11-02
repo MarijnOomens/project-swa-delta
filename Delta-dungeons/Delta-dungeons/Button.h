@@ -15,6 +15,7 @@ public:
 	void connectCallback() override;
 	void callbackFunction() override;
 	void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) override;
+	void updatePositions(int x, int y)override;
 private:
 	std::string text;
 	std::vector<std::string> possibleTextures;

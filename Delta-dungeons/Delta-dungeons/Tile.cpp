@@ -30,3 +30,9 @@ void Tile::callbackFunction() {}
 void Tile::connectCallback() {}
 
 void Tile::update() {}
+
+void Tile::updatePositions(int x, int y)
+{
+	this->transform.position.x = this->transform.position.x - x;
+	this->transform.position.y = this->transform.position.y - y;
+}

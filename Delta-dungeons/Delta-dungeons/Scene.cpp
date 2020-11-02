@@ -60,3 +60,5 @@ void Scene::update()
 
 
 }
+
+void Scene::updatePositions(int x, int y){}

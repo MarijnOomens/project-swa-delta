@@ -5,6 +5,7 @@
 #include <iostream>
 #include <list>
 #include <memory>
+#include <tuple>
 
 class Renderer {
 public:
@@ -18,7 +19,7 @@ public:
 
 	void init(const char* title, const int width, const int height, const bool fullscreen);
 	void render(std::vector<std::shared_ptr<GameObject>> value);
-	void updateCamera(int playerX, int playerY);
+	std::tuple<int, int> updateCamera(int playerX, int playerY);
 	void clean();
 	void stop();
 	void beforeFrame();

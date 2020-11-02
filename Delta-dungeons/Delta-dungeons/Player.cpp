@@ -114,6 +114,7 @@ void Player::handleKeyReleased(const KeyCodes keyCodes)
 	default:
 		break;
 	}
+	func(pointer, transform.position.x, transform.position.y);
 }
 
 void Player::moveUp()
@@ -122,6 +123,7 @@ void Player::moveUp()
 	this->m_gc.get()->transform.position.y -= baseMovementSpeed;
 	runActivated ? m_gc->playAnimation(7, 3, animationSpeed, false) :
 		m_gc->playAnimation(2, 4, animationSpeed, false);
+	func(pointer, transform.position.x, transform.position.y);
 }
 
 void Player::moveDown()
@@ -130,6 +132,7 @@ void Player::moveDown()
 	this->m_gc.get()->transform.position.y += baseMovementSpeed;
 	runActivated ? m_gc->playAnimation(6, 3, animationSpeed, false) :
 		m_gc->playAnimation(1, 4, animationSpeed, false);
+	func(pointer, transform.position.x, transform.position.y);
 }
 
 void Player::moveLeft()
@@ -138,6 +141,7 @@ void Player::moveLeft()
 	this->m_gc.get()->transform.position.x -= baseMovementSpeed;
 	runActivated ? m_gc->playAnimation(8, 3, animationSpeed, false) :
 		m_gc->playAnimation(3, 4, animationSpeed, false);
+	func(pointer, transform.position.x, transform.position.y);
 }
 
 void Player::moveRight()
@@ -196,3 +200,5 @@ void Player::connectCallback()
 void Player::update() 
 {
 }
+
+void Player::updatePositions(int x, int y){}
