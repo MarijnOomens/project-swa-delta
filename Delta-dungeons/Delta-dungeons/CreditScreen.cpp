@@ -1,5 +1,8 @@
 #include "Creditscreen.h"
-
+/// <summary>
+/// This class creates the credits, exitbutton and font and saves them in the components list as a graphicscomponent.
+/// </summary>
+ 
 CreditScreen::CreditScreen()
 {
 	this->textures.try_emplace("credits", "Assets/credit-scherm.png");
