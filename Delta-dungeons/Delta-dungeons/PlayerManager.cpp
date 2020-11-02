@@ -14,18 +14,29 @@ PlayerManager::~PlayerManager()
 
 }
 
+/// <summary>
+/// This method creates a player object and places it in the sprites list.
+/// </summary>
 void PlayerManager::createPlayer()
 {
 	player = std::make_shared<Player>();
 	sprites.try_emplace("Player", player);
 }
 
+/// <summary>
+/// This method gives all the textures back in a map.
+/// </summary>
+/// <returns>Returns a map of the textures.</returns>
 std::map<std::string, std::string> PlayerManager::passTextures() const
 {
     std::map<std::string, std::string> texture = sprites.begin()->second.get()->textures;
     return texture;
 }
 
+/// <summary>
+/// This method gives back the playerObject as a shared_pointer.
+/// </summary>
+/// <returns>Returns the playerObject shared_pointer.</returns>
 std::shared_ptr<Player> PlayerManager::getPlayerObject()
 {
     return player;
