@@ -24,6 +24,8 @@ Player::Player(const cbCamera f, void* p): func(f), pointer(p)
 
 	this->transform.position.x = 500;
 	this->transform.position.y = 300;
+	x = this->transform.position.x;
+	y = this->transform.position.y;
 
 
 	this->textures.try_emplace("player", "Assets/player_anims.png");
@@ -91,23 +93,15 @@ void Player::handleKeyReleased(const KeyCodes keyCodes)
 	switch (keyCodes)
 	{
 	case KeyCodes::KEY_UP:
-	//	transform.position.y = y * 32;
-		//m_gc.get()->transform.position.y = y * 32;
 		m_gc->playAnimation(4, 3, animationSpeed, false);
 		break;
 	case KeyCodes::KEY_DOWN:
-	//	transform.position.y = y * 32;
-	//	m_gc.get()->transform.position.y = y * 32;
 		m_gc->playAnimation(0, 3, animationSpeed, false);
 		break;
 	case KeyCodes::KEY_LEFT:
-	//	transform.position.x = x * 32;
-	//	m_gc.get()->transform.position.x = x * 32;
 		m_gc->playAnimation(5, 3, animationSpeed, false);
 		break;
 	case KeyCodes::KEY_RIGHT:
-	//	transform.position.x = x * 32;
-	//	m_gc.get()->transform.position.x = x * 32;
 		m_gc->playAnimation(5, 3, animationSpeed, true);
 		break;
 	default:
@@ -117,38 +111,34 @@ void Player::handleKeyReleased(const KeyCodes keyCodes)
 
 void Player::moveUp()
 {
-	this->transform.position.y -= baseMovementSpeed;
-	m_gc.get()->transform.position = transform.position;
+	y -= baseMovementSpeed;
 	runActivated ? m_gc->playAnimation(7, 3, animationSpeed, false) :
 		m_gc->playAnimation(2, 4, animationSpeed, false);
-	func(pointer, transform.position.x, transform.position.y);
+	func(pointer, x, y);
 }
 
 void Player::moveDown()
 {
-	this->transform.position.y += baseMovementSpeed;
-	m_gc.get()->transform.position = transform.position;
+	y += baseMovementSpeed;
 	runActivated ? m_gc->playAnimation(6, 3, animationSpeed, false) :
 		m_gc->playAnimation(1, 4, animationSpeed, false);
-	func(pointer, transform.position.x, transform.position.y);
+	func(pointer, x, y);
 }
 
 void Player::moveLeft()
 {
-	this->transform.position.x -= baseMovementSpeed;
-	m_gc.get()->transform.position = transform.position;
+	x -= baseMovementSpeed;
 	runActivated ? m_gc->playAnimation(8, 3, animationSpeed, false) :
 		m_gc->playAnimation(3, 4, animationSpeed, false);
-	func(pointer, transform.position.x, transform.position.y);
+	func(pointer, x, y);
 }
 
 void Player::moveRight()
 {
-	this->transform.position.x += baseMovementSpeed;
-	m_gc.get()->transform.position = transform.position;
+	x += baseMovementSpeed;
 	runActivated ? m_gc->playAnimation(8, 3, animationSpeed, true) :
 		m_gc->playAnimation(3, 4, animationSpeed, true);
-	func(pointer,transform.position.x,transform.position.y);
+	func(pointer, x, y);
 }
 
 void Player::addEquipment(std::shared_ptr<IEquipment> item)

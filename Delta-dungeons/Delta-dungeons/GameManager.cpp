@@ -67,5 +67,5 @@ void GameManager:: staticCameraCallbackFunction(void* p, int x, int y)
 
 void GameManager::passPlayerPosition(int x, int y)
 {
-	engineFacade.passPlayerPosition(playerManager.get()->player.get()->transform.position.x, playerManager.get()->player.get()->transform.position.y);
+	engineFacade.passPlayerPosition(x, y);
 }

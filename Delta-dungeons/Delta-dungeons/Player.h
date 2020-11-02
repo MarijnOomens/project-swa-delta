@@ -39,6 +39,8 @@ private:
 	int health;
 	int amountCaught;
 	int baseMovementSpeed;
+	int x, y;
+
 	bool runActivated;
 	std::vector<int> pokemonCaught;
 	std::vector<std::shared_ptr<IEquipment>> equipment;
