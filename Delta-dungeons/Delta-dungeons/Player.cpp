@@ -88,8 +88,6 @@ void Player::handleKeyPressed(const KeyCodes keyCodes)
 
 void Player::handleKeyReleased(const KeyCodes keyCodes)
 {
-	int y = this->transform.position.y / 32;
-	int x = this->transform.position.x / 32;
 	switch (keyCodes)
 	{
 	case KeyCodes::KEY_UP:
