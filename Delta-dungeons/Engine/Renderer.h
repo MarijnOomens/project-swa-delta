@@ -20,6 +20,7 @@ public:
 	void init(const char* title, const int width, const int height, const bool fullscreen);
 	void render(std::vector<std::shared_ptr<GameObject>> value);
 	std::tuple<int, int> updateCamera(int playerX, int playerY);
+	void createCamera(int x, int y);
 	void clean();
 	void stop();
 	void beforeFrame();

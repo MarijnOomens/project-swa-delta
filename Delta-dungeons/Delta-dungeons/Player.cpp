@@ -19,13 +19,18 @@ Player::Player(const cbCamera f, void* p): func(f), pointer(p)
 	addEquipment(running);
 	addEquipment(boomerang);
 
-	baseMovementSpeed = 12;
+	baseMovementSpeed = 16;
 	runActivated = false;
+
+	this->transform.position.x = 500;
+	this->transform.position.y = 300;
+
 
 	this->textures.try_emplace("player", "Assets/player_anims.png");
 
 	m_gc = std::make_shared<GraphicsComponent>();
 	m_gc->setTexture("player");
+	m_gc.get()->transform = this->transform;
 	m_gc->imageDimensions = { 32, 32 };
 	m_gc->transform.scale.multiply({ 2, 2 });
 	m_gc->playAnimation(0, 3, animationSpeed, false);
@@ -47,11 +52,6 @@ void Player::handleInput(const KeyCodes keyCodes, const KeyboardEvent keyboardEv
 	{
 		handleKeyReleased(keyCodes);
 	}
-
-	/*for (auto& comp : components)
-	{
-		comp->transform.position = this->transform.position;
-	}*/
 }
 
 void Player::handleKeyPressed(const KeyCodes keyCodes)
@@ -82,7 +82,6 @@ void Player::handleKeyPressed(const KeyCodes keyCodes)
 	default:
 		break;
 	}
-	//std::cout << "X: " << transform.position.x << ", Y: " << transform.position.y << std::endl;
 }
 
 void Player::handleKeyReleased(const KeyCodes keyCodes)
@@ -92,35 +91,34 @@ void Player::handleKeyReleased(const KeyCodes keyCodes)
 	switch (keyCodes)
 	{
 	case KeyCodes::KEY_UP:
-		transform.position.y = y * 32;
-		m_gc.get()->transform.position.y = y * 32;
+	//	transform.position.y = y * 32;
+		//m_gc.get()->transform.position.y = y * 32;
 		m_gc->playAnimation(4, 3, animationSpeed, false);
 		break;
 	case KeyCodes::KEY_DOWN:
-		transform.position.y = y * 32;
-		m_gc.get()->transform.position.y = y * 32;
+	//	transform.position.y = y * 32;
+	//	m_gc.get()->transform.position.y = y * 32;
 		m_gc->playAnimation(0, 3, animationSpeed, false);
 		break;
 	case KeyCodes::KEY_LEFT:
-		transform.position.x = x * 32;
-		m_gc.get()->transform.position.x = x * 32;
+	//	transform.position.x = x * 32;
+	//	m_gc.get()->transform.position.x = x * 32;
 		m_gc->playAnimation(5, 3, animationSpeed, false);
 		break;
 	case KeyCodes::KEY_RIGHT:
-		transform.position.x = x * 32;
-		m_gc.get()->transform.position.x = x * 32;
+	//	transform.position.x = x * 32;
+	//	m_gc.get()->transform.position.x = x * 32;
 		m_gc->playAnimation(5, 3, animationSpeed, true);
 		break;
 	default:
 		break;
 	}
-	func(pointer, transform.position.x, transform.position.y);
 }
 
 void Player::moveUp()
 {
 	this->transform.position.y -= baseMovementSpeed;
-	this->m_gc.get()->transform.position.y -= baseMovementSpeed;
+	m_gc.get()->transform.position = transform.position;
 	runActivated ? m_gc->playAnimation(7, 3, animationSpeed, false) :
 		m_gc->playAnimation(2, 4, animationSpeed, false);
 	func(pointer, transform.position.x, transform.position.y);
@@ -129,7 +127,7 @@ void Player::moveUp()
 void Player::moveDown()
 {
 	this->transform.position.y += baseMovementSpeed;
-	this->m_gc.get()->transform.position.y += baseMovementSpeed;
+	m_gc.get()->transform.position = transform.position;
 	runActivated ? m_gc->playAnimation(6, 3, animationSpeed, false) :
 		m_gc->playAnimation(1, 4, animationSpeed, false);
 	func(pointer, transform.position.x, transform.position.y);
@@ -138,7 +136,7 @@ void Player::moveDown()
 void Player::moveLeft()
 {
 	this->transform.position.x -= baseMovementSpeed;
-	this->m_gc.get()->transform.position.x -= baseMovementSpeed;
+	m_gc.get()->transform.position = transform.position;
 	runActivated ? m_gc->playAnimation(8, 3, animationSpeed, false) :
 		m_gc->playAnimation(3, 4, animationSpeed, false);
 	func(pointer, transform.position.x, transform.position.y);
@@ -147,7 +145,7 @@ void Player::moveLeft()
 void Player::moveRight()
 {
 	this->transform.position.x += baseMovementSpeed;
-	this->m_gc.get()->transform.position.x += baseMovementSpeed;
+	m_gc.get()->transform.position = transform.position;
 	runActivated ? m_gc->playAnimation(8, 3, animationSpeed, true) :
 		m_gc->playAnimation(3, 4, animationSpeed, true);
 	func(pointer,transform.position.x,transform.position.y);

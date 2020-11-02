@@ -10,5 +10,6 @@ public:
 	void registerBehaviourObjects(std::vector<std::shared_ptr<BehaviourObject>> objects);
 	void registerTextures(std::map<std::string, std::string> textures);
 	void startGame();
+	void createCamera(int x, int y);
 	void passPlayerPosition(int x, int y);
 };

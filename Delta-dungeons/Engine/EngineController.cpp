@@ -109,6 +109,11 @@ void EngineController::registerTextures(std::map<std::string, std::string> textu
 	}
 }
 
+void EngineController::createCamera(int x, int y)
+{
+	renderFacade->createCamera(x,y);
+}
+
 void EngineController::startGame()
 {
 	while (renderFacade->renderer->isRunning) {
@@ -142,7 +147,7 @@ void EngineController::startGame()
 
 void EngineController::passPlayerPosition(int x, int y)
 {
-	std::tuple<int, int> positions =renderFacade->passPlayerPosition(x, y);
+	std::tuple<int, int> positions = renderFacade->passPlayerPosition(x, y);
 	updatePositions(std::get<0>(positions), std::get<1>(positions));
 }
 
