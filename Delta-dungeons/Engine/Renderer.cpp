@@ -49,6 +49,28 @@ void Renderer::init(const char* title, int width, int height, bool fullscreen) {
 	}
 }
 
+void Renderer::render(std::vector<std::shared_ptr<GameObject>> gameObjects)
+{
+	SDL_RenderClear(sdlRenderer);
+
+	try {
+		if (gameObjects.empty()) {
+			throw("There are no gameobjects to render!");
+		}
+		else {
+			for (auto& t : gameObjects)
+			{
+				// TODO: Render all GraphicsComponents instead of GameObjects
+			}
+		}
+	}
+	catch (std::string error) {
+		std::cout << "Error: " << error << std::endl;
+	}
+	//call SDL_RenderCopyEx() for every gameobject
+	SDL_RenderPresent(sdlRenderer);
+}
+
 std::tuple<int, int> Renderer::updateCamera(int playerX, int playerY)
 {
 	camera.x = playerX;
