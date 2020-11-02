@@ -1,5 +1,8 @@
 #include "GameManager.h"
 
+/// <summary>
+/// Inside the Gamemanager all managers in the game are managed and called when the game needs them.
+/// </summary>
 GameManager::GameManager()
 {
 	engineFacade = EngineFacade();
@@ -20,6 +23,9 @@ GameManager::GameManager()
 
 GameManager::~GameManager() {}
 
+/// <summary>
+/// This methods registers all BehaviourObjects from all managers into one big list within the GameManager.
+/// </summary>
 void GameManager::registerBehaviourObjects()
 {
 	for (auto& o : uiManager.screens)
@@ -44,11 +50,17 @@ void GameManager::registerBehaviourObjects()
 	engineFacade.registerBehaviourObjects(objects);
 }
 
+/// <summary>
+/// This methods gives the engineFacade all textures to give to the engine.
+/// </summary>
 void GameManager::registerTextures(std::map<std::string, std::string> textures)
 {
 	engineFacade.registerTextures(textures);
 }
 
+/// <summary>
+/// This methods gives the engineFacade all fonts to give to the engine.
+/// </summary>
 void GameManager::registerFonts(std::map<std::string, std::string> fonts) 
 {
 	engineFacade.registerFonts(fonts);
