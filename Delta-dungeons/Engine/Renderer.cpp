@@ -76,12 +76,12 @@ std::tuple<int, int> Renderer::updateCamera(int playerX, int playerY)
 	camera.x = playerX;
 	camera.y = playerY;
 
-	if (Renderer::camera.x < 0) {
+	/*if (Renderer::camera.x < 0) {
 		Renderer::camera.x = 0;
 	}
 	if (Renderer::camera.y < 0) {
 		Renderer::camera.y = 0;
-	}
+	}*/
 	if (Renderer::camera.x > camera.w) {
 		Renderer::camera.x = camera.w;
 	}
