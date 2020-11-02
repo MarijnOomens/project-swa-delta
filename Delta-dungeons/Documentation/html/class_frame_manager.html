@@ -29,12 +29,12 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="papier.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Delta Dungeons
-   &#160;<span id="projectnumber">Alpha 0.2</span>
+   &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">Game engine and game</div>
+   <div id="projectbrief">Game engine</div>
   </td>
    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -108,12 +108,15 @@ $(document).ready(function(){initNavTree('class_frame_manager.html',''); initRes
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a65ee65debd3f67e359c5f880099e5fcb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_frame_manager.html#a65ee65debd3f67e359c5f880099e5fcb">FrameManager</a> ()</td></tr>
+<tr class="memdesc:a65ee65debd3f67e359c5f880099e5fcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="class_frame_manager.html">FrameManager</a> makes sure the game runs at a max 60FPS to limit the memory usage.  <a href="class_frame_manager.html#a65ee65debd3f67e359c5f880099e5fcb">More...</a><br /></td></tr>
 <tr class="separator:a65ee65debd3f67e359c5f880099e5fcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6faa76013844357a107061aafacc2d7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_frame_manager.html#ad6faa76013844357a107061aafacc2d7">~FrameManager</a> ()</td></tr>
 <tr class="separator:ad6faa76013844357a107061aafacc2d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad20cb917dde3e7bbfb9342e02d6ba299"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_frame_manager.html#ad20cb917dde3e7bbfb9342e02d6ba299">setFrameStart</a> ()</td></tr>
+<tr class="memdesc:ad20cb917dde3e7bbfb9342e02d6ba299"><td class="mdescLeft">&#160;</td><td class="mdescRight">setFrameStart is used to get the start of the second, to determine later if a delay needs to be called to stay 60FPS  <a href="class_frame_manager.html#ad20cb917dde3e7bbfb9342e02d6ba299">More...</a><br /></td></tr>
 <tr class="separator:ad20cb917dde3e7bbfb9342e02d6ba299"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90b105fac669cc2398be89be559f3529"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_frame_manager.html#a90b105fac669cc2398be89be559f3529">setFrameDelay</a> ()</td></tr>
+<tr class="memdesc:a90b105fac669cc2398be89be559f3529"><td class="mdescLeft">&#160;</td><td class="mdescRight">setFrameDelay is used if the FPS is higher than 60.  <a href="class_frame_manager.html#a90b105fac669cc2398be89be559f3529">More...</a><br /></td></tr>
 <tr class="separator:a90b105fac669cc2398be89be559f3529"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -122,10 +125,10 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a47b5644900d841a027f8f8d826fc3a4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a167452f5f77c291f32d858ef9ede31dc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_frame_manager.html#a167452f5f77c291f32d858ef9ede31dc">frameDelay</a></td></tr>
 <tr class="separator:a167452f5f77c291f32d858ef9ede31dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7df2a8c3f6febce5e8e445c3f94503d7"><td class="memItemLeft" align="right" valign="top">Uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_frame_manager.html#a7df2a8c3f6febce5e8e445c3f94503d7">frameStart</a></td></tr>
-<tr class="separator:a7df2a8c3f6febce5e8e445c3f94503d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e9f38874df3a542bf21f87fd45cd819"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_frame_manager.html#a9e9f38874df3a542bf21f87fd45cd819">frameTime</a></td></tr>
 <tr class="separator:a9e9f38874df3a542bf21f87fd45cd819"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7df2a8c3f6febce5e8e445c3f94503d7"><td class="memItemLeft" align="right" valign="top">Uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_frame_manager.html#a7df2a8c3f6febce5e8e445c3f94503d7">frameStart</a></td></tr>
+<tr class="separator:a7df2a8c3f6febce5e8e445c3f94503d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a65ee65debd3f67e359c5f880099e5fcb"></a>
@@ -142,6 +145,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>The <a class="el" href="class_frame_manager.html">FrameManager</a> makes sure the game runs at a max 60FPS to limit the memory usage. </p>
 
 </div>
 </div>
@@ -178,6 +183,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>setFrameDelay is used if the FPS is higher than 60. </p>
+<p>This will put it back down to 60 and limit the redraws.</p>
+
 </div>
 </div>
 <a id="ad20cb917dde3e7bbfb9342e02d6ba299"></a>
@@ -194,6 +202,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>setFrameStart is used to get the start of the second, to determine later if a delay needs to be called to stay 60FPS </p>
 
 </div>
 </div>

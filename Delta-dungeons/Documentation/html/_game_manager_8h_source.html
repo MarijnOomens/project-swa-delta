@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.20"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Delta Dungeons: GameManager.h Source File</title>
+<title>Delta Dungeons: C:/Users/marij/Documents/GitHub/project-swa-delta/Delta-dungeons/Delta-dungeons/GameManager.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -99,36 +99,52 @@ $(document).ready(function(){initNavTree('_game_manager_8h_source.html',''); ini
 </div><!--header-->
 <div class="contents">
 <a href="_game_manager_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_u_i_manager_8h.html">UIManager.h</a>&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_equipment_manager_8h.html">EquipmentManager.h</a>&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_game_manager.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_game_manager.html">GameManager</a> {</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_u_i_manager_8h.html">UIManager.h</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_equipment_manager_8h.html">EquipmentManager.h</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_player_manager_8h.html">PlayerManager.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_engine_facade_8h.html">EngineFacade.h</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="class_game_manager.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_game_manager.html">GameManager</a> {</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">public</span>: </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="class_game_manager.html#a9d0a43b9cbcabf662c63dc1b3e55a471">   11</a></span>&#160;    <a class="code" href="class_u_i_manager.html">UIManager</a>* <a class="code" href="class_game_manager.html#a9d0a43b9cbcabf662c63dc1b3e55a471">uiManager</a>;</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="class_game_manager.html#a9de9be6445882313696a4eeef6b3476b">   12</a></span>&#160;    <a class="code" href="class_equipment_manager.html">EquipmentManager</a>* <a class="code" href="class_game_manager.html#a9de9be6445882313696a4eeef6b3476b">eqManager</a>;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_game_manager.html#aa0e2424dc1a39d380e5b6605b179bf05">   14</a></span>&#160;    <a class="code" href="class_game_manager.html#aa0e2424dc1a39d380e5b6605b179bf05">GameManager</a>();</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_game_manager.html#a7d08c85eb8add2cd006faf88cf1fc37c">   15</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_manager.html#a7d08c85eb8add2cd006faf88cf1fc37c">RegisterGameObjects</a>();</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;};</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="class_game_manager.html#a0267dd65c65891f687a217e70e598e12">   10</a></span>&#160;    <a class="code" href="class_engine_facade.html">EngineFacade</a> <a class="code" href="class_game_manager.html#a0267dd65c65891f687a217e70e598e12">engineFacade</a>;</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="class_game_manager.html#a4eee8ed4e5cdeebbe69a2e6bc36664da">   11</a></span>&#160;    <a class="code" href="class_u_i_manager.html">UIManager</a> <a class="code" href="class_game_manager.html#a4eee8ed4e5cdeebbe69a2e6bc36664da">uiManager</a>;</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="class_game_manager.html#a6cb0f6c6d59fbdc507e7d0b103d1b3ff">   12</a></span>&#160;    <a class="code" href="class_player_manager.html">PlayerManager</a> <a class="code" href="class_game_manager.html#a6cb0f6c6d59fbdc507e7d0b103d1b3ff">playerManager</a>;</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_game_manager.html#ab35570af7f1b76866634b2e12375c3db">   13</a></span>&#160;    <a class="code" href="class_equipment_manager.html">EquipmentManager</a> <a class="code" href="class_game_manager.html#ab35570af7f1b76866634b2e12375c3db">eqManager</a>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="class_game_manager.html#aa0e2424dc1a39d380e5b6605b179bf05">GameManager</a>();</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="class_game_manager.html#aaae63e38e358379c1fe507c5197a8435">~GameManager</a>();</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_manager.html#adedcd0d25f5274a33605833a6c8921e5">registerBehaviourObjects</a>();</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_manager.html#a18789adbcedc9251a62b2e2f5cafa542">registerTextures</a>(std::map&lt;std::string, std::string&gt; textures);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_game_manager.html#ad9b94187c3ee3723d259d01868974e3b">registerFonts</a>(std::map&lt;std::string, std::string&gt; fonts);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    std::vector&lt;std::shared_ptr&lt;BehaviourObject&gt;&gt; objects; <span class="comment">//TODO: split into scenes</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_game_manager_html_a7d08c85eb8add2cd006faf88cf1fc37c"><div class="ttname"><a href="class_game_manager.html#a7d08c85eb8add2cd006faf88cf1fc37c">GameManager::RegisterGameObjects</a></div><div class="ttdeci">void RegisterGameObjects()</div></div>
-<div class="ttc" id="aclass_game_manager_html"><div class="ttname"><a href="class_game_manager.html">GameManager</a></div><div class="ttdef"><b>Definition:</b> GameManager.h:7</div></div>
+<div class="ttc" id="a_player_manager_8h_html"><div class="ttname"><a href="_player_manager_8h.html">PlayerManager.h</a></div></div>
+<div class="ttc" id="aclass_game_manager_html"><div class="ttname"><a href="class_game_manager.html">GameManager</a></div><div class="ttdef"><b>Definition:</b> GameManager.h:8</div></div>
 <div class="ttc" id="a_u_i_manager_8h_html"><div class="ttname"><a href="_u_i_manager_8h.html">UIManager.h</a></div></div>
-<div class="ttc" id="aclass_game_manager_html_a9de9be6445882313696a4eeef6b3476b"><div class="ttname"><a href="class_game_manager.html#a9de9be6445882313696a4eeef6b3476b">GameManager::eqManager</a></div><div class="ttdeci">EquipmentManager * eqManager</div><div class="ttdef"><b>Definition:</b> GameManager.h:12</div></div>
-<div class="ttc" id="aclass_game_manager_html_aa0e2424dc1a39d380e5b6605b179bf05"><div class="ttname"><a href="class_game_manager.html#aa0e2424dc1a39d380e5b6605b179bf05">GameManager::GameManager</a></div><div class="ttdeci">GameManager()</div></div>
+<div class="ttc" id="aclass_game_manager_html_adedcd0d25f5274a33605833a6c8921e5"><div class="ttname"><a href="class_game_manager.html#adedcd0d25f5274a33605833a6c8921e5">GameManager::registerBehaviourObjects</a></div><div class="ttdeci">void registerBehaviourObjects()</div><div class="ttdoc">This methods registers all BehaviourObjects from all managers into one big list within the GameManage...</div><div class="ttdef"><b>Definition:</b> GameManager.cpp:29</div></div>
+<div class="ttc" id="aclass_game_manager_html_aa0e2424dc1a39d380e5b6605b179bf05"><div class="ttname"><a href="class_game_manager.html#aa0e2424dc1a39d380e5b6605b179bf05">GameManager::GameManager</a></div><div class="ttdeci">GameManager()</div><div class="ttdoc">Inside the Gamemanager all managers in the game are managed and called when the game needs them.</div><div class="ttdef"><b>Definition:</b> GameManager.cpp:6</div></div>
 <div class="ttc" id="a_equipment_manager_8h_html"><div class="ttname"><a href="_equipment_manager_8h.html">EquipmentManager.h</a></div></div>
-<div class="ttc" id="aclass_u_i_manager_html"><div class="ttname"><a href="class_u_i_manager.html">UIManager</a></div><div class="ttdef"><b>Definition:</b> UIManager.h:6</div></div>
+<div class="ttc" id="aclass_engine_facade_html"><div class="ttname"><a href="class_engine_facade.html">EngineFacade</a></div><div class="ttdef"><b>Definition:</b> EngineFacade.h:5</div></div>
+<div class="ttc" id="aclass_u_i_manager_html"><div class="ttname"><a href="class_u_i_manager.html">UIManager</a></div><div class="ttdef"><b>Definition:</b> UIManager.h:9</div></div>
+<div class="ttc" id="aclass_game_manager_html_a4eee8ed4e5cdeebbe69a2e6bc36664da"><div class="ttname"><a href="class_game_manager.html#a4eee8ed4e5cdeebbe69a2e6bc36664da">GameManager::uiManager</a></div><div class="ttdeci">UIManager uiManager</div><div class="ttdef"><b>Definition:</b> GameManager.h:11</div></div>
 <div class="ttc" id="aclass_equipment_manager_html"><div class="ttname"><a href="class_equipment_manager.html">EquipmentManager</a></div><div class="ttdef"><b>Definition:</b> EquipmentManager.h:4</div></div>
-<div class="ttc" id="aclass_game_manager_html_a9d0a43b9cbcabf662c63dc1b3e55a471"><div class="ttname"><a href="class_game_manager.html#a9d0a43b9cbcabf662c63dc1b3e55a471">GameManager::uiManager</a></div><div class="ttdeci">UIManager * uiManager</div><div class="ttdef"><b>Definition:</b> GameManager.h:11</div></div>
+<div class="ttc" id="aclass_game_manager_html_ad9b94187c3ee3723d259d01868974e3b"><div class="ttname"><a href="class_game_manager.html#ad9b94187c3ee3723d259d01868974e3b">GameManager::registerFonts</a></div><div class="ttdeci">void registerFonts(std::map&lt; std::string, std::string &gt; fonts)</div><div class="ttdoc">This methods gives the engineFacade all fonts to give to the engine.</div><div class="ttdef"><b>Definition:</b> GameManager.cpp:64</div></div>
+<div class="ttc" id="aclass_game_manager_html_aaae63e38e358379c1fe507c5197a8435"><div class="ttname"><a href="class_game_manager.html#aaae63e38e358379c1fe507c5197a8435">GameManager::~GameManager</a></div><div class="ttdeci">~GameManager()</div><div class="ttdef"><b>Definition:</b> GameManager.cpp:24</div></div>
+<div class="ttc" id="aclass_game_manager_html_a6cb0f6c6d59fbdc507e7d0b103d1b3ff"><div class="ttname"><a href="class_game_manager.html#a6cb0f6c6d59fbdc507e7d0b103d1b3ff">GameManager::playerManager</a></div><div class="ttdeci">PlayerManager playerManager</div><div class="ttdef"><b>Definition:</b> GameManager.h:12</div></div>
+<div class="ttc" id="a_engine_facade_8h_html"><div class="ttname"><a href="_engine_facade_8h.html">EngineFacade.h</a></div></div>
+<div class="ttc" id="aclass_game_manager_html_a18789adbcedc9251a62b2e2f5cafa542"><div class="ttname"><a href="class_game_manager.html#a18789adbcedc9251a62b2e2f5cafa542">GameManager::registerTextures</a></div><div class="ttdeci">void registerTextures(std::map&lt; std::string, std::string &gt; textures)</div><div class="ttdoc">This methods gives the engineFacade all textures to give to the engine.</div><div class="ttdef"><b>Definition:</b> GameManager.cpp:56</div></div>
+<div class="ttc" id="aclass_game_manager_html_ab35570af7f1b76866634b2e12375c3db"><div class="ttname"><a href="class_game_manager.html#ab35570af7f1b76866634b2e12375c3db">GameManager::eqManager</a></div><div class="ttdeci">EquipmentManager eqManager</div><div class="ttdef"><b>Definition:</b> GameManager.h:13</div></div>
+<div class="ttc" id="aclass_game_manager_html_a0267dd65c65891f687a217e70e598e12"><div class="ttname"><a href="class_game_manager.html#a0267dd65c65891f687a217e70e598e12">GameManager::engineFacade</a></div><div class="ttdeci">EngineFacade engineFacade</div><div class="ttdef"><b>Definition:</b> GameManager.h:10</div></div>
+<div class="ttc" id="aclass_player_manager_html"><div class="ttname"><a href="class_player_manager.html">PlayerManager</a></div><div class="ttdef"><b>Definition:</b> PlayerManager.h:11</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="_game_manager_8h.html">GameManager.h</a></li>
+    <li class="navelem"><a class="el" href="dir_f396504afdc959660871b003fa10164d.html">Documents</a></li><li class="navelem"><a class="el" href="dir_7e17ac9cf8fba2cb04bc248c85b0ceb7.html">GitHub</a></li><li class="navelem"><a class="el" href="dir_b722e01de0d5eae16000869531b44421.html">project-swa-delta</a></li><li class="navelem"><a class="el" href="dir_c12faaf3e2462b2657cf2bf295d40c89.html">Delta-dungeons</a></li><li class="navelem"><a class="el" href="dir_1a2e7c1ca8d068fefc1d7ce860ea1ade.html">Delta-dungeons</a></li><li class="navelem"><a class="el" href="_game_manager_8h.html">GameManager.h</a></li>
     <li class="footer">Generated by <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
   </ul>
 </div>

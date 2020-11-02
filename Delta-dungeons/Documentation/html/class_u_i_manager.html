@@ -107,6 +107,9 @@ $(document).ready(function(){initNavTree('class_u_i_manager.html',''); initResiz
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a88d54201373c7c0366e135d8380ff0ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_u_i_manager.html#a88d54201373c7c0366e135d8380ff0ef">createBaseScreens</a> ()</td></tr>
+<tr class="memdesc:a88d54201373c7c0366e135d8380ff0ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">This methods creates all screens needed for the game to run.  <a href="class_u_i_manager.html#a88d54201373c7c0366e135d8380ff0ef">More...</a><br /></td></tr>
+<tr class="separator:a88d54201373c7c0366e135d8380ff0ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7100fa70245fd5477ff8b6c15638d96b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_u_i_manager.html#a7100fa70245fd5477ff8b6c15638d96b">playDialogue</a> (std::vector&lt; std::string &gt;)</td></tr>
 <tr class="separator:a7100fa70245fd5477ff8b6c15638d96b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac71e1a0793fdec4e281eaf1f4878d3bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_u_i_manager.html#ac71e1a0793fdec4e281eaf1f4878d3bb">updateHudHealth</a> (int)</td></tr>
@@ -115,13 +118,79 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab9895ed0913e544b34f841a4c061186a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc1e87d4d7af3f4f037715f2721f7669"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_u_i_manager.html#afc1e87d4d7af3f4f037715f2721f7669">updateHighScore</a> (int)</td></tr>
 <tr class="separator:afc1e87d4d7af3f4f037715f2721f7669"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5e713d09f1a8f4eb619402cf2c4887d"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_u_i_manager.html#aa5e713d09f1a8f4eb619402cf2c4887d">passTextures</a> ()</td></tr>
+<tr class="memdesc:aa5e713d09f1a8f4eb619402cf2c4887d"><td class="mdescLeft">&#160;</td><td class="mdescRight">passTextures gets all the textures saved in the screens and gives them back in one big list for the <a class="el" href="class_game_manager.html">GameManager</a>.  <a href="class_u_i_manager.html#aa5e713d09f1a8f4eb619402cf2c4887d">More...</a><br /></td></tr>
+<tr class="separator:aa5e713d09f1a8f4eb619402cf2c4887d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09c71a4af5848f7ab863b38cfc3cd1d9"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_u_i_manager.html#a09c71a4af5848f7ab863b38cfc3cd1d9">passFonts</a> ()</td></tr>
+<tr class="memdesc:a09c71a4af5848f7ab863b38cfc3cd1d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">passFonts gets all the fonts saved in the screens and gives them back in one big list for the <a class="el" href="class_game_manager.html">GameManager</a>.  <a href="class_u_i_manager.html#a09c71a4af5848f7ab863b38cfc3cd1d9">More...</a><br /></td></tr>
+<tr class="separator:a09c71a4af5848f7ab863b38cfc3cd1d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a9a4e28b93400c009e7154d906becf328"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_screen.html">Screen</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_u_i_manager.html#a9a4e28b93400c009e7154d906becf328">screens</a></td></tr>
-<tr class="separator:a9a4e28b93400c009e7154d906becf328"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5441b66fc5e10ee24004b273ffbd5838"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, std::shared_ptr&lt; <a class="el" href="class_screen.html">Screen</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_u_i_manager.html#a5441b66fc5e10ee24004b273ffbd5838">screens</a></td></tr>
+<tr class="separator:a5441b66fc5e10ee24004b273ffbd5838"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a88d54201373c7c0366e135d8380ff0ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88d54201373c7c0366e135d8380ff0ef">&#9670;&nbsp;</a></span>createBaseScreens()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UIManager::createBaseScreens </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This methods creates all screens needed for the game to run. </p>
+<p>Examples are the "MainMenu" and "Credits" screens. These are added into a list.</p>
+
+</div>
+</div>
+<a id="a09c71a4af5848f7ab863b38cfc3cd1d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09c71a4af5848f7ab863b38cfc3cd1d9">&#9670;&nbsp;</a></span>passFonts()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt; std::string, std::string &gt; UIManager::passFonts </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>passFonts gets all the fonts saved in the screens and gives them back in one big list for the <a class="el" href="class_game_manager.html">GameManager</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>A map of all fonts inside the screens.</dd></dl>
+
+</div>
+</div>
+<a id="aa5e713d09f1a8f4eb619402cf2c4887d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5e713d09f1a8f4eb619402cf2c4887d">&#9670;&nbsp;</a></span>passTextures()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt; std::string, std::string &gt; UIManager::passTextures </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>passTextures gets all the textures saved in the screens and gives them back in one big list for the <a class="el" href="class_game_manager.html">GameManager</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>A map of all textures inside the screens.</dd></dl>
+
+</div>
+</div>
 <a id="a7100fa70245fd5477ff8b6c15638d96b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7100fa70245fd5477ff8b6c15638d96b">&#9670;&nbsp;</a></span>playDialogue()</h2>
 
@@ -195,14 +264,14 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a9a4e28b93400c009e7154d906becf328"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9a4e28b93400c009e7154d906becf328">&#9670;&nbsp;</a></span>screens</h2>
+<a id="a5441b66fc5e10ee24004b273ffbd5838"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5441b66fc5e10ee24004b273ffbd5838">&#9670;&nbsp;</a></span>screens</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="class_screen.html">Screen</a>&gt; UIManager::screens</td>
+          <td class="memname">std::map&lt;std::string, std::shared_ptr&lt;<a class="el" href="class_screen.html">Screen</a>&gt; &gt; UIManager::screens</td>
         </tr>
       </table>
 </div><div class="memdoc">

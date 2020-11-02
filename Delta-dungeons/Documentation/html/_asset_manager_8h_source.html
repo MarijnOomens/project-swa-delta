@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.20"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Delta Dungeons: AssetManager.h Source File</title>
+<title>Delta Dungeons: C:/Users/marij/Documents/GitHub/project-swa-delta/Delta-dungeons/Engine/AssetManager.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,12 +29,12 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="papier.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Delta Dungeons
-   &#160;<span id="projectnumber">Alpha 0.2</span>
+   &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">Game engine and game</div>
+   <div id="projectbrief">Game engine</div>
   </td>
    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -99,37 +99,40 @@ $(document).ready(function(){initNavTree('_asset_manager_8h_source.html',''); in
 </div><!--header-->
 <div class="contents">
 <a href="_asset_manager_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="class_asset_manager.html">    5</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_asset_manager.html">AssetManager</a> {</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <a class="code" href="class_asset_manager.html#a750ae7b39b633fbb6594443aa3ca704b">AssetManager</a>();</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <a class="code" href="class_asset_manager.html#a9c89817cbf3516f1451c116e89f47d30">~AssetManager</a>();</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="main_8h.html">main.h</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_asset_manager.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_asset_manager.html">AssetManager</a> {</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_asset_manager.html#ae5010cd1c61c5ab09d4f6577dad0574e">addTexture</a>(std::string <span class="keywordtype">id</span>, std::string path);</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    std::string <a class="code" href="class_asset_manager.html#a3a54698513a24f7ca990cc371cc0884d">getTexture</a>(std::string <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> <a class="code" href="class_asset_manager.html#a750ae7b39b633fbb6594443aa3ca704b">AssetManager</a>();</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> <a class="code" href="class_asset_manager.html#a9c89817cbf3516f1451c116e89f47d30">~AssetManager</a>();</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_asset_manager.html#a6562eed166417f1be31a5a72bfd03b7f">   13</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_asset_manager.html#a6562eed166417f1be31a5a72bfd03b7f">addFont</a>(std::string <span class="keywordtype">id</span>, std::string path, <span class="keywordtype">int</span> fontSize);</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_asset_manager.html#a0d44cc4776fb77635e8dcb43bbf8cd59">   14</a></span>&#160;    std::string <a class="code" href="class_asset_manager.html#a0d44cc4776fb77635e8dcb43bbf8cd59">getFont</a>(std::string <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    std::map&lt;std::string, std::string&gt; textures;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    std::map&lt;std::string, std::string&gt; fonts;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;};</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> <span class="keywordtype">void</span> <a class="code" href="class_asset_manager.html#ae5010cd1c61c5ab09d4f6577dad0574e">addTexture</a>(std::string <span class="keywordtype">id</span>, std::string path);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    std::string <a class="code" href="class_asset_manager.html#a3a54698513a24f7ca990cc371cc0884d">getTexture</a>(std::string <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    std::string <a class="code" href="class_asset_manager.html#a0d44cc4776fb77635e8dcb43bbf8cd59">getFont</a>(std::string <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_asset_manager.html#af439804ba526fde70370314f327720eb">addFont</a>(std::string <span class="keywordtype">id</span>, std::string path);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    std::map&lt;std::string, std::string&gt; textures;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    std::map&lt;std::string, std::string&gt; fonts;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_asset_manager_html"><div class="ttname"><a href="class_asset_manager.html">AssetManager</a></div><div class="ttdef"><b>Definition:</b> AssetManager.h:5</div></div>
-<div class="ttc" id="aclass_asset_manager_html_a9c89817cbf3516f1451c116e89f47d30"><div class="ttname"><a href="class_asset_manager.html#a9c89817cbf3516f1451c116e89f47d30">AssetManager::~AssetManager</a></div><div class="ttdeci">~AssetManager()</div><div class="ttdef"><b>Definition:</b> AssetManager.cpp:4</div></div>
-<div class="ttc" id="aclass_asset_manager_html_a0d44cc4776fb77635e8dcb43bbf8cd59"><div class="ttname"><a href="class_asset_manager.html#a0d44cc4776fb77635e8dcb43bbf8cd59">AssetManager::getFont</a></div><div class="ttdeci">std::string getFont(std::string id)</div></div>
-<div class="ttc" id="aclass_asset_manager_html_a750ae7b39b633fbb6594443aa3ca704b"><div class="ttname"><a href="class_asset_manager.html#a750ae7b39b633fbb6594443aa3ca704b">AssetManager::AssetManager</a></div><div class="ttdeci">AssetManager()</div><div class="ttdef"><b>Definition:</b> AssetManager.cpp:3</div></div>
-<div class="ttc" id="aclass_asset_manager_html_a6562eed166417f1be31a5a72bfd03b7f"><div class="ttname"><a href="class_asset_manager.html#a6562eed166417f1be31a5a72bfd03b7f">AssetManager::addFont</a></div><div class="ttdeci">void addFont(std::string id, std::string path, int fontSize)</div></div>
-<div class="ttc" id="aclass_asset_manager_html_a3a54698513a24f7ca990cc371cc0884d"><div class="ttname"><a href="class_asset_manager.html#a3a54698513a24f7ca990cc371cc0884d">AssetManager::getTexture</a></div><div class="ttdeci">std::string getTexture(std::string id)</div><div class="ttdef"><b>Definition:</b> AssetManager.cpp:10</div></div>
-<div class="ttc" id="aclass_asset_manager_html_ae5010cd1c61c5ab09d4f6577dad0574e"><div class="ttname"><a href="class_asset_manager.html#ae5010cd1c61c5ab09d4f6577dad0574e">AssetManager::addTexture</a></div><div class="ttdeci">void addTexture(std::string id, std::string path)</div><div class="ttdef"><b>Definition:</b> AssetManager.cpp:6</div></div>
+<div class="ttc" id="aclass_asset_manager_html"><div class="ttname"><a href="class_asset_manager.html">AssetManager</a></div><div class="ttdef"><b>Definition:</b> AssetManager.h:7</div></div>
+<div class="ttc" id="aclass_asset_manager_html_a9c89817cbf3516f1451c116e89f47d30"><div class="ttname"><a href="class_asset_manager.html#a9c89817cbf3516f1451c116e89f47d30">AssetManager::~AssetManager</a></div><div class="ttdeci">ENGINE_API ~AssetManager()</div><div class="ttdef"><b>Definition:</b> AssetManager.cpp:8</div></div>
+<div class="ttc" id="aclass_asset_manager_html_a0d44cc4776fb77635e8dcb43bbf8cd59"><div class="ttname"><a href="class_asset_manager.html#a0d44cc4776fb77635e8dcb43bbf8cd59">AssetManager::getFont</a></div><div class="ttdeci">std::string getFont(std::string id)</div><div class="ttdoc">This method returns one font from the map, depending upon the given parameter.</div><div class="ttdef"><b>Definition:</b> AssetManager.cpp:44</div></div>
+<div class="ttc" id="aclass_asset_manager_html_af439804ba526fde70370314f327720eb"><div class="ttname"><a href="class_asset_manager.html#af439804ba526fde70370314f327720eb">AssetManager::addFont</a></div><div class="ttdeci">void addFont(std::string id, std::string path)</div><div class="ttdoc">This method adds a font with a given id and path to a map of fonts.</div><div class="ttdef"><b>Definition:</b> AssetManager.cpp:35</div></div>
+<div class="ttc" id="aclass_asset_manager_html_a750ae7b39b633fbb6594443aa3ca704b"><div class="ttname"><a href="class_asset_manager.html#a750ae7b39b633fbb6594443aa3ca704b">AssetManager::AssetManager</a></div><div class="ttdeci">ENGINE_API AssetManager()</div><div class="ttdoc">This class is a manager for all assets.</div><div class="ttdef"><b>Definition:</b> AssetManager.cpp:7</div></div>
+<div class="ttc" id="amain_8h_html_a0697ee40f69dc5dab56d13131f4c4835"><div class="ttname"><a href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a></div><div class="ttdeci">#define ENGINE_API</div><div class="ttdef"><b>Definition:</b> main.h:15</div></div>
+<div class="ttc" id="aclass_asset_manager_html_a3a54698513a24f7ca990cc371cc0884d"><div class="ttname"><a href="class_asset_manager.html#a3a54698513a24f7ca990cc371cc0884d">AssetManager::getTexture</a></div><div class="ttdeci">std::string getTexture(std::string id)</div><div class="ttdoc">This method returns one texture from the map, depending upon the given parameter.</div><div class="ttdef"><b>Definition:</b> AssetManager.cpp:25</div></div>
+<div class="ttc" id="amain_8h_html"><div class="ttname"><a href="main_8h.html">main.h</a></div></div>
+<div class="ttc" id="aclass_asset_manager_html_ae5010cd1c61c5ab09d4f6577dad0574e"><div class="ttname"><a href="class_asset_manager.html#ae5010cd1c61c5ab09d4f6577dad0574e">AssetManager::addTexture</a></div><div class="ttdeci">ENGINE_API void addTexture(std::string id, std::string path)</div><div class="ttdoc">This method adds a texture with a given id and path to a map of textures.</div><div class="ttdef"><b>Definition:</b> AssetManager.cpp:15</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="_asset_manager_8h.html">AssetManager.h</a></li>
+    <li class="navelem"><a class="el" href="dir_f396504afdc959660871b003fa10164d.html">Documents</a></li><li class="navelem"><a class="el" href="dir_7e17ac9cf8fba2cb04bc248c85b0ceb7.html">GitHub</a></li><li class="navelem"><a class="el" href="dir_b722e01de0d5eae16000869531b44421.html">project-swa-delta</a></li><li class="navelem"><a class="el" href="dir_c12faaf3e2462b2657cf2bf295d40c89.html">Delta-dungeons</a></li><li class="navelem"><a class="el" href="dir_255e96664e55e2f9e08c4c1c0be64c6d.html">Engine</a></li><li class="navelem"><a class="el" href="_asset_manager_8h.html">AssetManager.h</a></li>
     <li class="footer">Generated by <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
   </ul>
 </div>

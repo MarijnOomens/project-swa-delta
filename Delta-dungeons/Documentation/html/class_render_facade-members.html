@@ -29,12 +29,12 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="papier.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Delta Dungeons
-   &#160;<span id="projectnumber">Alpha 0.2</span>
+   &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">Game engine and game</div>
+   <div id="projectbrief">Game engine</div>
   </td>
    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -105,18 +105,20 @@ $(document).ready(function(){initNavTree('class_render_facade.html',''); initRes
   <tr><td class="entry"><a class="el" href="class_render_facade.html#ae05029a2bba4ff7e5edc5ceb9757495a">beforeFrame</a>()</td><td class="entry"><a class="el" href="class_render_facade.html">RenderFacade</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_render_facade.html#abf94d515f3c08be975bb7312f135008b">clean</a>()</td><td class="entry"><a class="el" href="class_render_facade.html">RenderFacade</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_render_facade.html#a79b25a3fba2a0f11df498f7075fb3b8d">constructorError</a>() const noexcept</td><td class="entry"><a class="el" href="class_render_facade.html">RenderFacade</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_render_facade.html#af9d9cd1dab14385337093ca259e29f4b">drawController</a></td><td class="entry"><a class="el" href="class_render_facade.html">RenderFacade</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_render_facade.html#a40be9ffeab52376baade2278ba4b4296">drawTexture</a>(const char *path, const Vector2D &amp;destination2D, const Vector2D &amp;sprite2D)</td><td class="entry"><a class="el" href="class_render_facade.html">RenderFacade</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_render_facade.html#aac3c5eb4e6a7df9db14601174b88062c">createCamera</a>(int x, int y)</td><td class="entry"><a class="el" href="class_render_facade.html">RenderFacade</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_render_facade.html#af9d9cd1dab14385337093ca259e29f4b">drawController</a></td><td class="entry"><a class="el" href="class_render_facade.html">RenderFacade</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_render_facade.html#a3412ad56f60800b0f7eb65699fb35d7a">drawText</a>(std::string path, std::string text, Colour colour, const Transform &amp;transform, int fontSize)</td><td class="entry"><a class="el" href="class_render_facade.html">RenderFacade</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_render_facade.html#afdaaba7ccd97d3ab5b5b52f18c1a0bad">drawTexture</a>(std::string path, const Transform &amp;transform, const Vector2D &amp;coordinates, const Vector2D &amp;sourceDimensions, int row, int frames, int speed, bool animated, bool flipped)</td><td class="entry"><a class="el" href="class_render_facade.html">RenderFacade</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_render_facade.html#abce9a57c87e11c5d02544aba62cbc5ce">frameManager</a></td><td class="entry"><a class="el" href="class_render_facade.html">RenderFacade</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_render_facade.html#a3cbd6ad84d866b376d6cd97a00463064">init</a>(const char *title, const int width, const int height, const bool fullscreen)</td><td class="entry"><a class="el" href="class_render_facade.html">RenderFacade</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_render_facade.html#acf1169a2cfc8387d7c566b3d0ba4956b">loadFontTexture</a>(const std::string *fontLocation, const std::string *color, const std::string *stringValue)</td><td class="entry"><a class="el" href="class_render_facade.html">RenderFacade</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_render_facade.html#ae9b964965537ac0ee1c15a414b08cdae">loadTexture</a>(const std::string *imageLocation)</td><td class="entry"><a class="el" href="class_render_facade.html">RenderFacade</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_render_facade.html#aaf3d5b4d4b84c486994cb4b57c12c0ab">render</a>(std::list&lt; std::shared_ptr&lt; GameObject &gt;&gt; gameObjects)</td><td class="entry"><a class="el" href="class_render_facade.html">RenderFacade</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_render_facade.html#a7ce5848901fd0d4d28a0ec8aacf4ae13">passPlayerPosition</a>(int x, int y)</td><td class="entry"><a class="el" href="class_render_facade.html">RenderFacade</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_render_facade.html#ac9d3a422f74846879134b9ff71da93aa">renderer</a></td><td class="entry"><a class="el" href="class_render_facade.html">RenderFacade</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_render_facade.html#a714ca10c424791fed3dabc80078e3faf">RenderFacade</a>()</td><td class="entry"><a class="el" href="class_render_facade.html">RenderFacade</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_render_facade.html#a8c62c96e79d32872a9e2b277909dcbec">setFrameDelay</a>()</td><td class="entry"><a class="el" href="class_render_facade.html">RenderFacade</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_render_facade.html#a81f1d737d24fad04abad997666d3fb68">setFrameStart</a>()</td><td class="entry"><a class="el" href="class_render_facade.html">RenderFacade</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_render_facade.html#ab5656dbfece99d2396a3fe69e0846566">update</a>(std::list&lt; GameObject &gt; gameObjects)</td><td class="entry"><a class="el" href="class_render_facade.html">RenderFacade</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_render_facade.html#a0291c2526fcd7b4f1b91d2bd83ae7ff1">update</a>(std::vector&lt; GameObject &gt; gameObjects)</td><td class="entry"><a class="el" href="class_render_facade.html">RenderFacade</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_render_facade.html#a8aea040f37738af75cd377002a5a372e">~RenderFacade</a>()</td><td class="entry"><a class="el" href="class_render_facade.html">RenderFacade</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->

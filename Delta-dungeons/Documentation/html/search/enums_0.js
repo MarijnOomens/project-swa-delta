@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['keyboardevent_599',['KeyboardEvent',['../_keyboardevent_8h.html#abfaf4f911065374ca6c765029ec086ae',1,'Keyboardevent.h']]],
-  ['keycodes_600',['KeyCodes',['../_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fc',1,'Keycodes.h']]]
+  ['animcategory_634',['AnimCategory',['../_anim_category_8h.html#aa4a0f6cca5661af9e06e4b101c03e4f6',1,'AnimCategory.h']]],
+  ['animflip_635',['AnimFlip',['../_anim_flip_8h.html#a8837445c3f9efa05a4a7bb7820859a71',1,'AnimFlip.h']]],
+  ['animtypes_636',['AnimTypes',['../_anim_types_8h.html#a7e9009cdea76688d7c0313344c435471',1,'AnimTypes.h']]]
 ];

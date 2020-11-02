@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.20"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Delta Dungeons: InputWrapper.h Source File</title>
+<title>Delta Dungeons: C:/Users/marij/Documents/GitHub/project-swa-delta/Delta-dungeons/Engine/InputWrapper.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,12 +29,12 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="papier.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Delta Dungeons
-   &#160;<span id="projectnumber">Alpha 0.2</span>
+   &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">Game engine and game</div>
+   <div id="projectbrief">Game engine</div>
   </td>
    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -99,49 +99,49 @@ $(document).ready(function(){initNavTree('_input_wrapper_8h_source.html',''); in
 </div><!--header-->
 <div class="contents">
 <a href="_input_wrapper_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;SDL.h&quot;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_keycodes_8h.html">Keycodes.h</a>&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_keyboardevent_8h.html">Keyboardevent.h</a>&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;SDL.h&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_keycodes_8h.html">Keycodes.h</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_keyboardevent_8h.html">Keyboardevent.h</a>&quot;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
 <div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="_input_wrapper_8h.html#ad6366276ff7081cb14c06c7500006f3b">    7</a></span>&#160;<span class="keyword">typedef</span> void(*<a class="code" href="_input_wrapper_8h.html#ad6366276ff7081cb14c06c7500006f3b">cbFunction</a>) (<span class="keywordtype">void</span>*, <a class="code" href="_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fc">KeyCodes</a>, <a class="code" href="_keyboardevent_8h.html#abfaf4f911065374ca6c765029ec086ae">KeyboardEvent</a>);</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
 <div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_input_wrapper.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_input_wrapper.html">InputWrapper</a> {</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="class_input_wrapper.html#a4360241869539fac375f2c26f0ff9858">   11</a></span>&#160;    <a class="code" href="_input_wrapper_8h.html#ad6366276ff7081cb14c06c7500006f3b">cbFunction</a> <a class="code" href="class_input_wrapper.html#a4360241869539fac375f2c26f0ff9858">func</a>;</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="class_input_wrapper.html#a61ab5bb0df3fb8c0e0718784797779c3">   12</a></span>&#160;    <span class="keywordtype">void</span>* <a class="code" href="class_input_wrapper.html#a61ab5bb0df3fb8c0e0718784797779c3">pointer</a>;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="class_input_wrapper.html#a4b411c74072f4c8a1a0cdc098002f99e">InputWrapper</a>();</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="class_input_wrapper.html#a4b411c74072f4c8a1a0cdc098002f99e">InputWrapper</a>(<span class="keyword">const</span> <a class="code" href="_input_wrapper_8h.html#ad6366276ff7081cb14c06c7500006f3b">cbFunction</a> f, <span class="keywordtype">void</span> *p);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="class_input_wrapper.html#a022c4d03077cce8459ad912b4dbd7762">~InputWrapper</a>();</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_input_wrapper.html#a1e7b55b87835a93b2e9b6eac24575f95">   18</a></span>&#160;    SDL_Event <a class="code" href="class_input_wrapper.html#a1e7b55b87835a93b2e9b6eac24575f95">event</a>;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="class_input_wrapper.html#a1e7b55b87835a93b2e9b6eac24575f95">   12</a></span>&#160;    SDL_Event <a class="code" href="class_input_wrapper.html#a1e7b55b87835a93b2e9b6eac24575f95">event</a>;</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_input_wrapper.html#a61ab5bb0df3fb8c0e0718784797779c3">   13</a></span>&#160;    <span class="keywordtype">void</span>* <a class="code" href="class_input_wrapper.html#a61ab5bb0df3fb8c0e0718784797779c3">pointer</a>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="class_input_wrapper.html#a4b411c74072f4c8a1a0cdc098002f99e">InputWrapper</a>();</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="class_input_wrapper.html#a4b411c74072f4c8a1a0cdc098002f99e">InputWrapper</a>(<span class="keyword">const</span> <a class="code" href="_input_wrapper_8h.html#ad6366276ff7081cb14c06c7500006f3b">cbFunction</a> f, <span class="keywordtype">void</span>* p);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="class_input_wrapper.html#a022c4d03077cce8459ad912b4dbd7762">~InputWrapper</a>();</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_input_wrapper.html#afd2507c8dd3912fd41c8884d0b648b78">handleInput</a>();</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_input_wrapper.html#ab35c536d05ad72489babd2d3536e7158">handleKeyPressed</a>();</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_input_wrapper.html#a45071924e7c47568c6f14f701ec33e27">handleKeyReleased</a>();</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_input_wrapper.html#ac0ae99e41e98a1ab079282614e988e03">mapKeyBindings</a>(<span class="keyword">const</span> <a class="code" href="_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fc">KeyCodes</a> code);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;};</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_input_wrapper_html"><div class="ttname"><a href="class_input_wrapper.html">InputWrapper</a></div><div class="ttdef"><b>Definition:</b> InputWrapper.h:9</div></div>
 <div class="ttc" id="a_keyboardevent_8h_html"><div class="ttname"><a href="_keyboardevent_8h.html">Keyboardevent.h</a></div></div>
 <div class="ttc" id="a_input_wrapper_8h_html_ad6366276ff7081cb14c06c7500006f3b"><div class="ttname"><a href="_input_wrapper_8h.html#ad6366276ff7081cb14c06c7500006f3b">cbFunction</a></div><div class="ttdeci">void(* cbFunction)(void *, KeyCodes, KeyboardEvent)</div><div class="ttdef"><b>Definition:</b> InputWrapper.h:7</div></div>
-<div class="ttc" id="aclass_input_wrapper_html_a4b411c74072f4c8a1a0cdc098002f99e"><div class="ttname"><a href="class_input_wrapper.html#a4b411c74072f4c8a1a0cdc098002f99e">InputWrapper::InputWrapper</a></div><div class="ttdeci">InputWrapper()</div><div class="ttdef"><b>Definition:</b> InputWrapper.cpp:4</div></div>
-<div class="ttc" id="aclass_input_wrapper_html_a45071924e7c47568c6f14f701ec33e27"><div class="ttname"><a href="class_input_wrapper.html#a45071924e7c47568c6f14f701ec33e27">InputWrapper::handleKeyReleased</a></div><div class="ttdeci">void handleKeyReleased()</div><div class="ttdef"><b>Definition:</b> InputWrapper.cpp:61</div></div>
+<div class="ttc" id="aclass_input_wrapper_html_a4b411c74072f4c8a1a0cdc098002f99e"><div class="ttname"><a href="class_input_wrapper.html#a4b411c74072f4c8a1a0cdc098002f99e">InputWrapper::InputWrapper</a></div><div class="ttdeci">InputWrapper()</div><div class="ttdoc">Inputwrapper is a class which holds what the inputs are supposed to do.</div><div class="ttdef"><b>Definition:</b> InputWrapper.cpp:6</div></div>
+<div class="ttc" id="aclass_input_wrapper_html_a45071924e7c47568c6f14f701ec33e27"><div class="ttname"><a href="class_input_wrapper.html#a45071924e7c47568c6f14f701ec33e27">InputWrapper::handleKeyReleased</a></div><div class="ttdeci">void handleKeyReleased()</div><div class="ttdoc">The handleInput calls the input based on which key is released</div><div class="ttdef"><b>Definition:</b> InputWrapper.cpp:82</div></div>
 <div class="ttc" id="aclass_input_wrapper_html_a4360241869539fac375f2c26f0ff9858"><div class="ttname"><a href="class_input_wrapper.html#a4360241869539fac375f2c26f0ff9858">InputWrapper::func</a></div><div class="ttdeci">cbFunction func</div><div class="ttdef"><b>Definition:</b> InputWrapper.h:11</div></div>
 <div class="ttc" id="a_keyboardevent_8h_html_abfaf4f911065374ca6c765029ec086ae"><div class="ttname"><a href="_keyboardevent_8h.html#abfaf4f911065374ca6c765029ec086ae">KeyboardEvent</a></div><div class="ttdeci">KeyboardEvent</div><div class="ttdef"><b>Definition:</b> Keyboardevent.h:3</div></div>
 <div class="ttc" id="a_keycodes_8h_html"><div class="ttname"><a href="_keycodes_8h.html">Keycodes.h</a></div></div>
 <div class="ttc" id="a_keycodes_8h_html_a269a8dff901283db1b9fb996933b07fc"><div class="ttname"><a href="_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fc">KeyCodes</a></div><div class="ttdeci">KeyCodes</div><div class="ttdef"><b>Definition:</b> Keycodes.h:3</div></div>
-<div class="ttc" id="aclass_input_wrapper_html_ab35c536d05ad72489babd2d3536e7158"><div class="ttname"><a href="class_input_wrapper.html#ab35c536d05ad72489babd2d3536e7158">InputWrapper::handleKeyPressed</a></div><div class="ttdeci">void handleKeyPressed()</div><div class="ttdef"><b>Definition:</b> InputWrapper.cpp:16</div></div>
-<div class="ttc" id="aclass_input_wrapper_html_a61ab5bb0df3fb8c0e0718784797779c3"><div class="ttname"><a href="class_input_wrapper.html#a61ab5bb0df3fb8c0e0718784797779c3">InputWrapper::pointer</a></div><div class="ttdeci">void * pointer</div><div class="ttdef"><b>Definition:</b> InputWrapper.h:12</div></div>
-<div class="ttc" id="aclass_input_wrapper_html_a1e7b55b87835a93b2e9b6eac24575f95"><div class="ttname"><a href="class_input_wrapper.html#a1e7b55b87835a93b2e9b6eac24575f95">InputWrapper::event</a></div><div class="ttdeci">SDL_Event event</div><div class="ttdef"><b>Definition:</b> InputWrapper.h:18</div></div>
-<div class="ttc" id="aclass_input_wrapper_html_a022c4d03077cce8459ad912b4dbd7762"><div class="ttname"><a href="class_input_wrapper.html#a022c4d03077cce8459ad912b4dbd7762">InputWrapper::~InputWrapper</a></div><div class="ttdeci">~InputWrapper()</div><div class="ttdef"><b>Definition:</b> InputWrapper.cpp:12</div></div>
-<div class="ttc" id="aclass_input_wrapper_html_ac0ae99e41e98a1ab079282614e988e03"><div class="ttname"><a href="class_input_wrapper.html#ac0ae99e41e98a1ab079282614e988e03">InputWrapper::mapKeyBindings</a></div><div class="ttdeci">void mapKeyBindings(const KeyCodes code)</div><div class="ttdef"><b>Definition:</b> InputWrapper.cpp:106</div></div>
+<div class="ttc" id="aclass_input_wrapper_html_ab35c536d05ad72489babd2d3536e7158"><div class="ttname"><a href="class_input_wrapper.html#ab35c536d05ad72489babd2d3536e7158">InputWrapper::handleKeyPressed</a></div><div class="ttdeci">void handleKeyPressed()</div><div class="ttdoc">The handleInput calls the input based on which key is pressed</div><div class="ttdef"><b>Definition:</b> InputWrapper.cpp:39</div></div>
+<div class="ttc" id="aclass_input_wrapper_html_a61ab5bb0df3fb8c0e0718784797779c3"><div class="ttname"><a href="class_input_wrapper.html#a61ab5bb0df3fb8c0e0718784797779c3">InputWrapper::pointer</a></div><div class="ttdeci">void * pointer</div><div class="ttdef"><b>Definition:</b> InputWrapper.h:13</div></div>
+<div class="ttc" id="aclass_input_wrapper_html_a1e7b55b87835a93b2e9b6eac24575f95"><div class="ttname"><a href="class_input_wrapper.html#a1e7b55b87835a93b2e9b6eac24575f95">InputWrapper::event</a></div><div class="ttdeci">SDL_Event event</div><div class="ttdef"><b>Definition:</b> InputWrapper.h:12</div></div>
+<div class="ttc" id="aclass_input_wrapper_html_a022c4d03077cce8459ad912b4dbd7762"><div class="ttname"><a href="class_input_wrapper.html#a022c4d03077cce8459ad912b4dbd7762">InputWrapper::~InputWrapper</a></div><div class="ttdeci">~InputWrapper()</div><div class="ttdef"><b>Definition:</b> InputWrapper.cpp:10</div></div>
+<div class="ttc" id="aclass_input_wrapper_html_afd2507c8dd3912fd41c8884d0b648b78"><div class="ttname"><a href="class_input_wrapper.html#afd2507c8dd3912fd41c8884d0b648b78">InputWrapper::handleInput</a></div><div class="ttdeci">void handleInput()</div><div class="ttdoc">The handleInput calls the input based on which keyevent is called.</div><div class="ttdef"><b>Definition:</b> InputWrapper.cpp:16</div></div>
+<div class="ttc" id="aclass_input_wrapper_html_ac0ae99e41e98a1ab079282614e988e03"><div class="ttname"><a href="class_input_wrapper.html#ac0ae99e41e98a1ab079282614e988e03">InputWrapper::mapKeyBindings</a></div><div class="ttdeci">void mapKeyBindings(const KeyCodes code)</div><div class="ttdef"><b>Definition:</b> InputWrapper.cpp:121</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="_input_wrapper_8h.html">InputWrapper.h</a></li>
+    <li class="navelem"><a class="el" href="dir_f396504afdc959660871b003fa10164d.html">Documents</a></li><li class="navelem"><a class="el" href="dir_7e17ac9cf8fba2cb04bc248c85b0ceb7.html">GitHub</a></li><li class="navelem"><a class="el" href="dir_b722e01de0d5eae16000869531b44421.html">project-swa-delta</a></li><li class="navelem"><a class="el" href="dir_c12faaf3e2462b2657cf2bf295d40c89.html">Delta-dungeons</a></li><li class="navelem"><a class="el" href="dir_255e96664e55e2f9e08c4c1c0be64c6d.html">Engine</a></li><li class="navelem"><a class="el" href="_input_wrapper_8h.html">InputWrapper.h</a></li>
     <li class="footer">Generated by <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
   </ul>
 </div>

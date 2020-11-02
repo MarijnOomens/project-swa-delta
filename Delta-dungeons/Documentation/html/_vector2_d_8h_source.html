@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.20"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Delta Dungeons: Vector2D.h Source File</title>
+<title>Delta Dungeons: C:/Users/marij/Documents/GitHub/project-swa-delta/Delta-dungeons/Engine/Vector2D.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,12 +29,12 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="papier.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Delta Dungeons
-   &#160;<span id="projectnumber">Alpha 0.2</span>
+   &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">Game engine and game</div>
+   <div id="projectbrief">Game engine</div>
   </td>
    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -100,39 +100,38 @@ $(document).ready(function(){initNavTree('_vector2_d_8h_source.html',''); initRe
 <div class="contents">
 <a href="_vector2_d_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno"><a class="line" href="class_vector2_d.html">    4</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_vector2_d.html">Vector2D</a></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;{</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_vector2_d.html#a8b2576972ac38462ef547a63e45ebe27">    7</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_vector2_d.html#a8b2576972ac38462ef547a63e45ebe27">x</a>;</div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="class_vector2_d.html#a1322c5f0371c25b68ae3045774d746d9">    8</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_vector2_d.html#a1322c5f0371c25b68ae3045774d746d9">y</a>;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="class_vector2_d.html#a0423b9da2dfe853b74b494de66f4e637">   10</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_vector2_d.html#a0423b9da2dfe853b74b494de66f4e637">spriteLocationInPNGWidth</a>;</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="class_vector2_d.html#a6c265736eb39e82fd82ddca444566b08">   11</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_vector2_d.html#a6c265736eb39e82fd82ddca444566b08">spriteLocationInPNGHeight</a>;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="class_vector2_d.html#a98e9997ebb7a629f4db52397d4e0d653">Vector2D</a>();</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="class_vector2_d.html#a98e9997ebb7a629f4db52397d4e0d653">Vector2D</a>(<span class="keywordtype">int</span> <a class="code" href="class_vector2_d.html#a8b2576972ac38462ef547a63e45ebe27">x</a>, <span class="keywordtype">int</span> <a class="code" href="class_vector2_d.html#a1322c5f0371c25b68ae3045774d746d9">y</a>);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="class_vector2_d.html">Vector2D</a>&amp; <a class="code" href="class_vector2_d.html#a6acdd446682d31eed66e4a08d13d7f2a">Add</a>(<span class="keyword">const</span> <a class="code" href="class_vector2_d.html">Vector2D</a>&amp; vec);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="class_vector2_d.html">Vector2D</a>&amp; <a class="code" href="class_vector2_d.html#a298f4d774e813de7318b7ee00229fe1b">Subtract</a>(<span class="keyword">const</span> <a class="code" href="class_vector2_d.html">Vector2D</a>&amp; vec);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="class_vector2_d.html">Vector2D</a>&amp; <a class="code" href="class_vector2_d.html#a6bd1e5779f29522c8589a577c3e9c6e3">Multiply</a>(<span class="keyword">const</span> <a class="code" href="class_vector2_d.html">Vector2D</a>&amp; vec);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="class_vector2_d.html">Vector2D</a>&amp; <a class="code" href="class_vector2_d.html#afd4e50dcad2b4311a1b2e6c0afe93b02">Divide</a>(<span class="keyword">const</span> <a class="code" href="class_vector2_d.html">Vector2D</a>&amp; vec);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;};</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="main_8h.html">main.h</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="class_vector2_d.html">    5</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_vector2_d.html">Vector2D</a></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;{</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="class_vector2_d.html#a8b2576972ac38462ef547a63e45ebe27">    8</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_vector2_d.html#a8b2576972ac38462ef547a63e45ebe27">x</a>;</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_vector2_d.html#a1322c5f0371c25b68ae3045774d746d9">    9</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_vector2_d.html#a1322c5f0371c25b68ae3045774d746d9">y</a>;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> <a class="code" href="class_vector2_d.html#a98e9997ebb7a629f4db52397d4e0d653">Vector2D</a>();</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> <a class="code" href="class_vector2_d.html#a98e9997ebb7a629f4db52397d4e0d653">Vector2D</a>(<span class="keywordtype">int</span> <a class="code" href="class_vector2_d.html#a8b2576972ac38462ef547a63e45ebe27">x</a>, <span class="keywordtype">int</span> <a class="code" href="class_vector2_d.html#a1322c5f0371c25b68ae3045774d746d9">y</a>);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> <a class="code" href="class_vector2_d.html">Vector2D</a>&amp; <a class="code" href="class_vector2_d.html#ad7adc812d640289c64ab2bdb35e42ccb">add</a>(<span class="keyword">const</span> <a class="code" href="class_vector2_d.html">Vector2D</a>&amp; vec);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> <a class="code" href="class_vector2_d.html">Vector2D</a>&amp; <a class="code" href="class_vector2_d.html#aaf803254b766f294a150c79babec4850">subtract</a>(<span class="keyword">const</span> <a class="code" href="class_vector2_d.html">Vector2D</a>&amp; vec);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> <a class="code" href="class_vector2_d.html">Vector2D</a>&amp; <a class="code" href="class_vector2_d.html#a23b696a0e8213e977fb314a70bcae2ef">multiply</a>(<span class="keyword">const</span> <a class="code" href="class_vector2_d.html">Vector2D</a>&amp; vec);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> <a class="code" href="class_vector2_d.html">Vector2D</a>&amp; <a class="code" href="class_vector2_d.html#a66a5743b3f268ca81270877861a1ba17">divide</a>(<span class="keyword">const</span> <a class="code" href="class_vector2_d.html">Vector2D</a>&amp; vec);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_vector2_d_html"><div class="ttname"><a href="class_vector2_d.html">Vector2D</a></div><div class="ttdef"><b>Definition:</b> Vector2D.h:5</div></div>
-<div class="ttc" id="aclass_vector2_d_html_a298f4d774e813de7318b7ee00229fe1b"><div class="ttname"><a href="class_vector2_d.html#a298f4d774e813de7318b7ee00229fe1b">Vector2D::Subtract</a></div><div class="ttdeci">Vector2D &amp; Subtract(const Vector2D &amp;vec)</div><div class="ttdef"><b>Definition:</b> Vector2D.cpp:19</div></div>
-<div class="ttc" id="aclass_vector2_d_html_a8b2576972ac38462ef547a63e45ebe27"><div class="ttname"><a href="class_vector2_d.html#a8b2576972ac38462ef547a63e45ebe27">Vector2D::x</a></div><div class="ttdeci">int x</div><div class="ttdef"><b>Definition:</b> Vector2D.h:7</div></div>
-<div class="ttc" id="aclass_vector2_d_html_afd4e50dcad2b4311a1b2e6c0afe93b02"><div class="ttname"><a href="class_vector2_d.html#afd4e50dcad2b4311a1b2e6c0afe93b02">Vector2D::Divide</a></div><div class="ttdeci">Vector2D &amp; Divide(const Vector2D &amp;vec)</div><div class="ttdef"><b>Definition:</b> Vector2D.cpp:31</div></div>
-<div class="ttc" id="aclass_vector2_d_html_a1322c5f0371c25b68ae3045774d746d9"><div class="ttname"><a href="class_vector2_d.html#a1322c5f0371c25b68ae3045774d746d9">Vector2D::y</a></div><div class="ttdeci">int y</div><div class="ttdef"><b>Definition:</b> Vector2D.h:8</div></div>
-<div class="ttc" id="aclass_vector2_d_html_a0423b9da2dfe853b74b494de66f4e637"><div class="ttname"><a href="class_vector2_d.html#a0423b9da2dfe853b74b494de66f4e637">Vector2D::spriteLocationInPNGWidth</a></div><div class="ttdeci">int spriteLocationInPNGWidth</div><div class="ttdef"><b>Definition:</b> Vector2D.h:10</div></div>
-<div class="ttc" id="aclass_vector2_d_html_a6c265736eb39e82fd82ddca444566b08"><div class="ttname"><a href="class_vector2_d.html#a6c265736eb39e82fd82ddca444566b08">Vector2D::spriteLocationInPNGHeight</a></div><div class="ttdeci">int spriteLocationInPNGHeight</div><div class="ttdef"><b>Definition:</b> Vector2D.h:11</div></div>
-<div class="ttc" id="aclass_vector2_d_html_a98e9997ebb7a629f4db52397d4e0d653"><div class="ttname"><a href="class_vector2_d.html#a98e9997ebb7a629f4db52397d4e0d653">Vector2D::Vector2D</a></div><div class="ttdeci">Vector2D()</div><div class="ttdef"><b>Definition:</b> Vector2D.cpp:3</div></div>
-<div class="ttc" id="aclass_vector2_d_html_a6acdd446682d31eed66e4a08d13d7f2a"><div class="ttname"><a href="class_vector2_d.html#a6acdd446682d31eed66e4a08d13d7f2a">Vector2D::Add</a></div><div class="ttdeci">Vector2D &amp; Add(const Vector2D &amp;vec)</div><div class="ttdef"><b>Definition:</b> Vector2D.cpp:13</div></div>
-<div class="ttc" id="aclass_vector2_d_html_a6bd1e5779f29522c8589a577c3e9c6e3"><div class="ttname"><a href="class_vector2_d.html#a6bd1e5779f29522c8589a577c3e9c6e3">Vector2D::Multiply</a></div><div class="ttdeci">Vector2D &amp; Multiply(const Vector2D &amp;vec)</div><div class="ttdef"><b>Definition:</b> Vector2D.cpp:25</div></div>
+<div class="ttc" id="aclass_vector2_d_html_aaf803254b766f294a150c79babec4850"><div class="ttname"><a href="class_vector2_d.html#aaf803254b766f294a150c79babec4850">Vector2D::subtract</a></div><div class="ttdeci">ENGINE_API Vector2D &amp; subtract(const Vector2D &amp;vec)</div><div class="ttdoc">Subtracts another vectors positions from this vectors positions.</div><div class="ttdef"><b>Definition:</b> Vector2D.cpp:40</div></div>
+<div class="ttc" id="aclass_vector2_d_html"><div class="ttname"><a href="class_vector2_d.html">Vector2D</a></div><div class="ttdef"><b>Definition:</b> Vector2D.h:6</div></div>
+<div class="ttc" id="aclass_vector2_d_html_ad7adc812d640289c64ab2bdb35e42ccb"><div class="ttname"><a href="class_vector2_d.html#ad7adc812d640289c64ab2bdb35e42ccb">Vector2D::add</a></div><div class="ttdeci">ENGINE_API Vector2D &amp; add(const Vector2D &amp;vec)</div><div class="ttdoc">Add another vectors positions onto this vectors positions.</div><div class="ttdef"><b>Definition:</b> Vector2D.cpp:28</div></div>
+<div class="ttc" id="aclass_vector2_d_html_a66a5743b3f268ca81270877861a1ba17"><div class="ttname"><a href="class_vector2_d.html#a66a5743b3f268ca81270877861a1ba17">Vector2D::divide</a></div><div class="ttdeci">ENGINE_API Vector2D &amp; divide(const Vector2D &amp;vec)</div><div class="ttdoc">Divides another vectors positions from this vectors positions.</div><div class="ttdef"><b>Definition:</b> Vector2D.cpp:64</div></div>
+<div class="ttc" id="aclass_vector2_d_html_a8b2576972ac38462ef547a63e45ebe27"><div class="ttname"><a href="class_vector2_d.html#a8b2576972ac38462ef547a63e45ebe27">Vector2D::x</a></div><div class="ttdeci">int x</div><div class="ttdef"><b>Definition:</b> Vector2D.h:8</div></div>
+<div class="ttc" id="amain_8h_html_a0697ee40f69dc5dab56d13131f4c4835"><div class="ttname"><a href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a></div><div class="ttdeci">#define ENGINE_API</div><div class="ttdef"><b>Definition:</b> main.h:15</div></div>
+<div class="ttc" id="aclass_vector2_d_html_a1322c5f0371c25b68ae3045774d746d9"><div class="ttname"><a href="class_vector2_d.html#a1322c5f0371c25b68ae3045774d746d9">Vector2D::y</a></div><div class="ttdeci">int y</div><div class="ttdef"><b>Definition:</b> Vector2D.h:9</div></div>
+<div class="ttc" id="aclass_vector2_d_html_a98e9997ebb7a629f4db52397d4e0d653"><div class="ttname"><a href="class_vector2_d.html#a98e9997ebb7a629f4db52397d4e0d653">Vector2D::Vector2D</a></div><div class="ttdeci">ENGINE_API Vector2D()</div><div class="ttdoc">Vector2D holds an X and Y of an object.</div><div class="ttdef"><b>Definition:</b> Vector2D.cpp:6</div></div>
+<div class="ttc" id="amain_8h_html"><div class="ttname"><a href="main_8h.html">main.h</a></div></div>
+<div class="ttc" id="aclass_vector2_d_html_a23b696a0e8213e977fb314a70bcae2ef"><div class="ttname"><a href="class_vector2_d.html#a23b696a0e8213e977fb314a70bcae2ef">Vector2D::multiply</a></div><div class="ttdeci">ENGINE_API Vector2D &amp; multiply(const Vector2D &amp;vec)</div><div class="ttdoc">Multiplies another vectors positions with this vectors positions.</div><div class="ttdef"><b>Definition:</b> Vector2D.cpp:52</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="_vector2_d_8h.html">Vector2D.h</a></li>
+    <li class="navelem"><a class="el" href="dir_f396504afdc959660871b003fa10164d.html">Documents</a></li><li class="navelem"><a class="el" href="dir_7e17ac9cf8fba2cb04bc248c85b0ceb7.html">GitHub</a></li><li class="navelem"><a class="el" href="dir_b722e01de0d5eae16000869531b44421.html">project-swa-delta</a></li><li class="navelem"><a class="el" href="dir_c12faaf3e2462b2657cf2bf295d40c89.html">Delta-dungeons</a></li><li class="navelem"><a class="el" href="dir_255e96664e55e2f9e08c4c1c0be64c6d.html">Engine</a></li><li class="navelem"><a class="el" href="_vector2_d_8h.html">Vector2D.h</a></li>
     <li class="footer">Generated by <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
   </ul>
 </div>

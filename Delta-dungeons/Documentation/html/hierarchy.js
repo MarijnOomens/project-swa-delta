@@ -1,60 +1,43 @@
 var hierarchy =
 [
     [ "AssetManager", "class_asset_manager.html", null ],
+    [ "rapidxml::attribute_iterator< Ch >", "classrapidxml_1_1attribute__iterator.html", null ],
     [ "AudioWrapper", "class_audio_wrapper.html", null ],
     [ "BehaviourObject", "class_behaviour_object.html", [
-      [ "GameObject", "class_game_object.html", [
-        [ "Button", "class_button.html", null ],
-        [ "Player", "class_player.html", null ]
-      ] ],
+      [ "GameObject", "class_game_object.html", null ],
       [ "GraphicsComponent", "class_graphics_component.html", null ],
-      [ "HUDComponent", "class_h_u_d_component.html", null ]
+      [ "HUDComponent", "class_h_u_d_component.html", null ],
+      [ "TextComponent", "class_text_component.html", null ],
+      [ "UIComponent", "class_u_i_component.html", null ]
     ] ],
     [ "ColliderComponent", "class_collider_component.html", null ],
-    [ "DialoguePopup", "class_dialogue_popup.html", null ],
+    [ "Colour", "class_colour.html", null ],
     [ "DrawController", "class_draw_controller.html", null ],
     [ "EngineController", "class_engine_controller.html", null ],
-    [ "EquipmentManager", "class_equipment_manager.html", null ],
-    [ "FrameManager", "class_frame_manager.html", null ],
-    [ "GameManager", "class_game_manager.html", null ],
-    [ "HUD", "class_h_u_d.html", null ],
-    [ "IEquipment", "class_i_equipment.html", [
-      [ "Berry", "class_berry.html", null ],
-      [ "Boomerang", "class_boomerang.html", null ],
-      [ "HealingItem", "class_healing_item.html", null ],
-      [ "Pokeball", "class_pokeball.html", null ],
-      [ "Runningshoes", "class_runningshoes.html", null ]
+    [ "exception", null, [
+      [ "rapidxml::parse_error", "classrapidxml_1_1parse__error.html", null ]
     ] ],
+    [ "rapidxml::file< Ch >", "classrapidxml_1_1file.html", null ],
+    [ "FrameManager", "class_frame_manager.html", null ],
     [ "IInputFacade", "class_i_input_facade.html", [
       [ "InputFacade", "class_input_facade.html", null ]
     ] ],
     [ "Input", "class_input.html", null ],
     [ "InputWrapper", "class_input_wrapper.html", null ],
-    [ "InteractiveManager", "class_interactive_manager.html", null ],
-    [ "InteractiveObject", "class_interactive_object.html", [
-      [ "NPC", "class_n_p_c.html", null ],
-      [ "Pokemon", "class_pokemon.html", null ],
-      [ "PuzzleObject", "class_puzzle_object.html", null ]
-    ] ],
+    [ "rapidxml::memory_pool< Ch >", "classrapidxml_1_1memory__pool.html", null ],
+    [ "rapidxml::node_iterator< Ch >", "classrapidxml_1_1node__iterator.html", null ],
     [ "Rectangle", "class_rectangle.html", null ],
     [ "Renderer", "class_renderer.html", null ],
     [ "RenderFacade", "class_render_facade.html", null ],
-    [ "Scene", "class_scene.html", null ],
     [ "SceneManager", "class_scene_manager.html", null ],
-    [ "SceneParser", "class_scene_parser.html", [
-      [ "JSONSceneParser", "class_j_s_o_n_scene_parser.html", null ]
-    ] ],
-    [ "Screen", "class_screen.html", [
-      [ "CreditScreen", "class_credit_screen.html", null ],
-      [ "GameOverScreen", "class_game_over_screen.html", null ],
-      [ "HelpScreen", "class_help_screen.html", null ],
-      [ "MainMenu", "class_main_menu.html", null ],
-      [ "PauseScreen", "class_pause_screen.html", null ]
-    ] ],
+    [ "SceneParser", "class_scene_parser.html", null ],
     [ "TextureManager", "class_texture_manager.html", null ],
-    [ "Tile", "class_tile.html", null ],
-    [ "TileMap", "class_tile_map.html", null ],
     [ "Transform", "class_transform.html", null ],
-    [ "UIManager", "class_u_i_manager.html", null ],
-    [ "Vector2D", "class_vector2_d.html", null ]
+    [ "Vector2D", "class_vector2_d.html", null ],
+    [ "rapidxml::xml_attribute< Ch >", "classrapidxml_1_1xml__attribute.html", null ],
+    [ "rapidxml::xml_attribute< char >", "classrapidxml_1_1xml__attribute.html", null ],
+    [ "rapidxml::xml_base< Ch >", "classrapidxml_1_1xml__base.html", null ],
+    [ "rapidxml::xml_document< Ch >", "classrapidxml_1_1xml__document.html", null ],
+    [ "rapidxml::xml_node< Ch >", "classrapidxml_1_1xml__node.html", null ],
+    [ "rapidxml::xml_node< char >", "classrapidxml_1_1xml__node.html", null ]
 ];

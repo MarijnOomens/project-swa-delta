@@ -29,12 +29,12 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="papier.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Delta Dungeons
-   &#160;<span id="projectnumber">Alpha 0.2</span>
+   &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">Game engine and game</div>
+   <div id="projectbrief">Game engine</div>
   </td>
    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -103,33 +103,55 @@ $(document).ready(function(){initNavTree('class_engine_controller.html',''); ini
 </div><!--header-->
 <div class="contents">
 
-<p>Engincontroller class.  
- <a href="class_engine_controller.html#details">More...</a></p>
-
 <p><code>#include &lt;<a class="el" href="_engine_controller_8h_source.html">EngineController.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a046ba741e7683358a38778a92d083947"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#a046ba741e7683358a38778a92d083947">EngineController</a> ()</td></tr>
+<tr class="memitem:a046ba741e7683358a38778a92d083947"><td class="memItemLeft" align="right" valign="top"><a class="el" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#a046ba741e7683358a38778a92d083947">EngineController</a> ()</td></tr>
+<tr class="memdesc:a046ba741e7683358a38778a92d083947"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class has the responsibility of managing different classes in the engine.  <a href="class_engine_controller.html#a046ba741e7683358a38778a92d083947">More...</a><br /></td></tr>
 <tr class="separator:a046ba741e7683358a38778a92d083947"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af49b8503ec1964013a1a232de4d5ec39"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#af49b8503ec1964013a1a232de4d5ec39">~EngineController</a> ()</td></tr>
+<tr class="memitem:a0ffbe2702e0a1b1b70c98fcd7500c025"><td class="memItemLeft" align="right" valign="top"><a class="el" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#a0ffbe2702e0a1b1b70c98fcd7500c025">EngineController</a> (std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_behaviour_object.html">BehaviourObject</a> &gt;&gt; behaviourObjects, std::shared_ptr&lt; <a class="el" href="class_render_facade.html">RenderFacade</a> &gt;renderFacade, std::shared_ptr&lt; <a class="el" href="class_asset_manager.html">AssetManager</a> &gt;assetManager, std::shared_ptr&lt; <a class="el" href="class_texture_manager.html">TextureManager</a> &gt;textureManager)</td></tr>
+<tr class="memdesc:a0ffbe2702e0a1b1b70c98fcd7500c025"><td class="mdescLeft">&#160;</td><td class="mdescRight">This overloaded constructor sets a list of behaviour objects and other instances.  <a href="class_engine_controller.html#a0ffbe2702e0a1b1b70c98fcd7500c025">More...</a><br /></td></tr>
+<tr class="separator:a0ffbe2702e0a1b1b70c98fcd7500c025"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af49b8503ec1964013a1a232de4d5ec39"><td class="memItemLeft" align="right" valign="top"><a class="el" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#af49b8503ec1964013a1a232de4d5ec39">~EngineController</a> ()</td></tr>
 <tr class="separator:af49b8503ec1964013a1a232de4d5ec39"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a203380ea48cd48a2949acc83cd77ea3c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#a203380ea48cd48a2949acc83cd77ea3c">Update</a> (std::list&lt; std::shared_ptr&lt; <a class="el" href="class_behaviour_object.html">BehaviourObject</a> &gt;&gt; &amp;bhObjects)</td></tr>
-<tr class="separator:a203380ea48cd48a2949acc83cd77ea3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e3859817f33a70cb2f0f13717bca73f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#a9e3859817f33a70cb2f0f13717bca73f">update</a> (std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_behaviour_object.html">BehaviourObject</a> &gt;&gt; &amp;bhObjects)</td></tr>
+<tr class="memdesc:a9e3859817f33a70cb2f0f13717bca73f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method keeps executing while the gaming is running.  <a href="class_engine_controller.html#a9e3859817f33a70cb2f0f13717bca73f">More...</a><br /></td></tr>
+<tr class="separator:a9e3859817f33a70cb2f0f13717bca73f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f7a73286c21b539bcbc6630ab9415cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#a2f7a73286c21b539bcbc6630ab9415cd">inputCallbackFunction</a> (const <a class="el" href="_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fc">KeyCodes</a> keyCode, const <a class="el" href="_keyboardevent_8h.html#abfaf4f911065374ca6c765029ec086ae">KeyboardEvent</a> keyboardEvent)</td></tr>
+<tr class="memdesc:a2f7a73286c21b539bcbc6630ab9415cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls the handleInput function for each game object.  <a href="class_engine_controller.html#a2f7a73286c21b539bcbc6630ab9415cd">More...</a><br /></td></tr>
 <tr class="separator:a2f7a73286c21b539bcbc6630ab9415cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6050011919267e4353fc2874daa53dd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#ab6050011919267e4353fc2874daa53dd">addTexture</a> (std::string name, std::string path)</td></tr>
+<tr class="memdesc:ab6050011919267e4353fc2874daa53dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method adds a texture to the <a class="el" href="class_asset_manager.html">AssetManager</a> so that the texture is a known asset.  <a href="class_engine_controller.html#ab6050011919267e4353fc2874daa53dd">More...</a><br /></td></tr>
+<tr class="separator:ab6050011919267e4353fc2874daa53dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab03696f412bc1e8e1f859afe40f1c0aa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#ab03696f412bc1e8e1f859afe40f1c0aa">registerBehaviourObjects</a> (std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_behaviour_object.html">BehaviourObject</a> &gt;&gt; objects)</td></tr>
+<tr class="memdesc:ab03696f412bc1e8e1f859afe40f1c0aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method registers all behaviour objects in a vector.  <a href="class_engine_controller.html#ab03696f412bc1e8e1f859afe40f1c0aa">More...</a><br /></td></tr>
+<tr class="separator:ab03696f412bc1e8e1f859afe40f1c0aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada99fe254107a6c72afdbdadeea94438"><td class="memItemLeft" align="right" valign="top"><a class="el" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#ada99fe254107a6c72afdbdadeea94438">registerTextures</a> (std::map&lt; std::string, std::string &gt; textures)</td></tr>
+<tr class="memdesc:ada99fe254107a6c72afdbdadeea94438"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method registers all given textures, in the <a class="el" href="class_asset_manager.html">AssetManager</a>.  <a href="class_engine_controller.html#ada99fe254107a6c72afdbdadeea94438">More...</a><br /></td></tr>
+<tr class="separator:ada99fe254107a6c72afdbdadeea94438"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c7105c71a23503b88943f191286044d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#a6c7105c71a23503b88943f191286044d">registerFonts</a> (std::map&lt; std::string, std::string &gt; fonts)</td></tr>
+<tr class="memdesc:a6c7105c71a23503b88943f191286044d"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method registers all given fonts, in the <a class="el" href="class_asset_manager.html">AssetManager</a>.  <a href="class_engine_controller.html#a6c7105c71a23503b88943f191286044d">More...</a><br /></td></tr>
+<tr class="separator:a6c7105c71a23503b88943f191286044d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3dc60692c41160165cccd85c7094f6e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#ac3dc60692c41160165cccd85c7094f6e">startGame</a> ()</td></tr>
+<tr class="memdesc:ac3dc60692c41160165cccd85c7094f6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method contains the game loop from which a few functions that need constant updating, are executed.  <a href="class_engine_controller.html#ac3dc60692c41160165cccd85c7094f6e">More...</a><br /></td></tr>
+<tr class="separator:ac3dc60692c41160165cccd85c7094f6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0624f2134dfb5c22fe57ddadf74c9f7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#ad0624f2134dfb5c22fe57ddadf74c9f7">createCamera</a> (int x, int y)</td></tr>
+<tr class="separator:ad0624f2134dfb5c22fe57ddadf74c9f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74243f61c51cfdaecfda7d3a170e37cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#a74243f61c51cfdaecfda7d3a170e37cf">passPlayerPosition</a> (int x, int y)</td></tr>
+<tr class="separator:a74243f61c51cfdaecfda7d3a170e37cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c17977d131401336c079f7d7ae4ce4d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#a4c17977d131401336c079f7d7ae4ce4d">updatePositions</a> (int cameraX, int cameraY)</td></tr>
+<tr class="separator:a4c17977d131401336c079f7d7ae4ce4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ac1c928150e46b149ad269f6f77109d50"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#ac1c928150e46b149ad269f6f77109d50">staticInputCallbackFunction</a> (void *p, const <a class="el" href="_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fc">KeyCodes</a> keyCode, const <a class="el" href="_keyboardevent_8h.html#abfaf4f911065374ca6c765029ec086ae">KeyboardEvent</a> keyboardEvent)</td></tr>
+<tr class="memdesc:ac1c928150e46b149ad269f6f77109d50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives input data from the class <a class="el" href="class_input.html">Input</a> and passes it to a new function.  <a href="class_engine_controller.html#ac1c928150e46b149ad269f6f77109d50">More...</a><br /></td></tr>
 <tr class="separator:ac1c928150e46b149ad269f6f77109d50"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Engincontroller class. </p>
-<p>This class is the main controller class of the Engine, where all other controllers and managers get instantiated and passed into other objects. </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a046ba741e7683358a38778a92d083947"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a046ba741e7683358a38778a92d083947">&#9670;&nbsp;</a></span>EngineController()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a046ba741e7683358a38778a92d083947">&#9670;&nbsp;</a></span>EngineController() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -142,6 +164,61 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>This class has the responsibility of managing different classes in the engine. </p>
+<p>It communicaties with classes like <a class="el" href="class_texture_manager.html">TextureManager</a> and <a class="el" href="class_render_facade.html">RenderFacade</a>.</p>
+
+</div>
+</div>
+<a id="a0ffbe2702e0a1b1b70c98fcd7500c025"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ffbe2702e0a1b1b70c98fcd7500c025">&#9670;&nbsp;</a></span>EngineController() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">EngineController::EngineController </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_behaviour_object.html">BehaviourObject</a> &gt;&gt;&#160;</td>
+          <td class="paramname"><em>behaviourObjects</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_render_facade.html">RenderFacade</a> &gt;&#160;</td>
+          <td class="paramname"><em>renderFacade</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_asset_manager.html">AssetManager</a> &gt;&#160;</td>
+          <td class="paramname"><em>assetManager</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_texture_manager.html">TextureManager</a> &gt;&#160;</td>
+          <td class="paramname"><em>textureManager</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This overloaded constructor sets a list of behaviour objects and other instances. </p>
+<p>It also calls a function for render initialisation.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">behaviourObjects</td><td>Vector of behaviour objects.</td></tr>
+    <tr><td class="paramname">renderFacade</td><td>Instance of <a class="el" href="class_render_facade.html">RenderFacade</a>.</td></tr>
+    <tr><td class="paramname">assetManager</td><td>Instance of AssestManager.</td></tr>
+    <tr><td class="paramname">textureManager</td><td>Instance of <a class="el" href="class_texture_manager.html">TextureManager</a>.</td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -163,6 +240,71 @@ Static Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="ab6050011919267e4353fc2874daa53dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6050011919267e4353fc2874daa53dd">&#9670;&nbsp;</a></span>addTexture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EngineController::addTexture </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>path</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This method adds a texture to the <a class="el" href="class_asset_manager.html">AssetManager</a> so that the texture is a known asset. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>Texture name.</td></tr>
+    <tr><td class="paramname">path</td><td>Texture path.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad0624f2134dfb5c22fe57ddadf74c9f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0624f2134dfb5c22fe57ddadf74c9f7">&#9670;&nbsp;</a></span>createCamera()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EngineController::createCamera </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a2f7a73286c21b539bcbc6630ab9415cd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2f7a73286c21b539bcbc6630ab9415cd">&#9670;&nbsp;</a></span>inputCallbackFunction()</h2>
 
@@ -188,6 +330,140 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Calls the handleInput function for each game object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">keyCode</td><td>The key that is read, like 'W'.</td></tr>
+    <tr><td class="paramname">keyboardEvent</td><td>The key that is read, like 'W'.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a74243f61c51cfdaecfda7d3a170e37cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74243f61c51cfdaecfda7d3a170e37cf">&#9670;&nbsp;</a></span>passPlayerPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EngineController::passPlayerPosition </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab03696f412bc1e8e1f859afe40f1c0aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab03696f412bc1e8e1f859afe40f1c0aa">&#9670;&nbsp;</a></span>registerBehaviourObjects()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EngineController::registerBehaviourObjects </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_behaviour_object.html">BehaviourObject</a> &gt;&gt;&#160;</td>
+          <td class="paramname"><em>objects</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This method registers all behaviour objects in a vector. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">objects</td><td>Vector of behaviour objects.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6c7105c71a23503b88943f191286044d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c7105c71a23503b88943f191286044d">&#9670;&nbsp;</a></span>registerFonts()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EngineController::registerFonts </td>
+          <td>(</td>
+          <td class="paramtype">std::map&lt; std::string, std::string &gt;&#160;</td>
+          <td class="paramname"><em>fonts</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This method registers all given fonts, in the <a class="el" href="class_asset_manager.html">AssetManager</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fonts</td><td>Map of multiple fonts.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ada99fe254107a6c72afdbdadeea94438"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada99fe254107a6c72afdbdadeea94438">&#9670;&nbsp;</a></span>registerTextures()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EngineController::registerTextures </td>
+          <td>(</td>
+          <td class="paramtype">std::map&lt; std::string, std::string &gt;&#160;</td>
+          <td class="paramname"><em>textures</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This method registers all given textures, in the <a class="el" href="class_asset_manager.html">AssetManager</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">textures</td><td>Map of multiple textures.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac3dc60692c41160165cccd85c7094f6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3dc60692c41160165cccd85c7094f6e">&#9670;&nbsp;</a></span>startGame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EngineController::startGame </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This method contains the game loop from which a few functions that need constant updating, are executed. </p>
 
 </div>
 </div>
@@ -231,20 +507,67 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Receives input data from the class <a class="el" href="class_input.html">Input</a> and passes it to a new function. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>Void pointer.</td></tr>
+    <tr><td class="paramname">keyCode</td><td>The key that is read, like 'W'.</td></tr>
+    <tr><td class="paramname">keyboardEvent</td><td>The key that is read, like 'W'.</td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
-<a id="a203380ea48cd48a2949acc83cd77ea3c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a203380ea48cd48a2949acc83cd77ea3c">&#9670;&nbsp;</a></span>Update()</h2>
+<a id="a9e3859817f33a70cb2f0f13717bca73f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e3859817f33a70cb2f0f13717bca73f">&#9670;&nbsp;</a></span>update()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void EngineController::Update </td>
+          <td class="memname">void EngineController::update </td>
           <td>(</td>
-          <td class="paramtype">std::list&lt; std::shared_ptr&lt; <a class="el" href="class_behaviour_object.html">BehaviourObject</a> &gt;&gt; &amp;&#160;</td>
+          <td class="paramtype">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_behaviour_object.html">BehaviourObject</a> &gt;&gt; &amp;&#160;</td>
           <td class="paramname"><em>bhObjects</em></td><td>)</td>
           <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This method keeps executing while the gaming is running. </p>
+<p>It keeps updating all behaviour objects.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bhObjects</td><td>Vector of all available behaviour objects.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4c17977d131401336c079f7d7ae4ce4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c17977d131401336c079f7d7ae4ce4d">&#9670;&nbsp;</a></span>updatePositions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EngineController::updatePositions </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>cameraX</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>cameraY</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">

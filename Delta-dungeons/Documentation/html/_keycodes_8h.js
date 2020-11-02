@@ -1,16 +1,16 @@
 var _keycodes_8h =
 [
     [ "KeyCodes", "_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fc", [
-      [ "KEY_UP", "_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fca0848a442d907968b211b97bc2bd88acd", null ],
-      [ "KEY_DOWN", "_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fcaa9cdac7967bf7d88fdb761138a2a3416", null ],
-      [ "KEY_LEFT", "_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fca612120b69c7dfd46086db7aaebdbcf65", null ],
-      [ "KEY_RIGHT", "_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fca6504370d9c6391e1a9da6a1a529b089d", null ],
-      [ "KEY_W", "_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fca2e6a652ccd7afc5ce75ac4d902b6a60a", null ],
-      [ "KEY_A", "_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fcaa7b3a3d0503a46bec51c6e3da95747cc", null ],
-      [ "KEY_S", "_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fcabb2f0ce8efc3067757dbf091437f89f5", null ],
-      [ "KEY_D", "_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fca2fd73a4d527efe137e8f259db2092766", null ],
-      [ "KEY_ESC", "_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fcae53e9370c0243e9b0260458d3a55f315", null ],
-      [ "KEY_Q", "_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fcac8234231b36474d3666ad56752fe6f5e", null ],
-      [ "KEY_E", "_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fca2af9840d90c49239339bfd42f9f32868", null ]
+      [ "KEY_UP", "_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fcac248b44c41333613a8ad29b656f8950e", null ],
+      [ "KEY_DOWN", "_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fcae27439eebd778013c33fbb14dd19fd04", null ],
+      [ "KEY_LEFT", "_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fca199730aec8ce398d74880833785a8b79", null ],
+      [ "KEY_RIGHT", "_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fca8e25f52bf32130ac4a96fb5447a35e40", null ],
+      [ "KEY_W", "_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fcaae848ca92fa46bd4bf34b825f757a527", null ],
+      [ "KEY_A", "_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fca5df3f2093c573770f204c77c0dd75a31", null ],
+      [ "KEY_S", "_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fcab0c514a9a11ed6a9b20285c1bf615cd6", null ],
+      [ "KEY_D", "_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fcaffb9d8d5d9b1e0c548cb91307952398c", null ],
+      [ "KEY_ESC", "_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fcaef59a7dcbd344ec6463cd4cdfc03621f", null ],
+      [ "KEY_Q", "_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fca8133433c20f714c5a0fd3d878fae6f8c", null ],
+      [ "KEY_E", "_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fcaa526cf087f5ab1a7827d014e3bd10725", null ]
     ] ]
 ];

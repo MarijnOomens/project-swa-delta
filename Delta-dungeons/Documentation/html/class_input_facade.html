@@ -29,12 +29,12 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="papier.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Delta Dungeons
-   &#160;<span id="projectnumber">Alpha 0.2</span>
+   &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">Game engine and game</div>
+   <div id="projectbrief">Game engine</div>
   </td>
    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -116,14 +116,15 @@ Inheritance diagram for InputFacade:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aceb402cf8b7e18b668a0a5bfbccaba17"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_facade.html#aceb402cf8b7e18b668a0a5bfbccaba17">InputFacade</a> ()</td></tr>
+<tr class="memdesc:aceb402cf8b7e18b668a0a5bfbccaba17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inputfacade takes all the input from the engine and gives it to the class who will handle the input.  <a href="class_input_facade.html#aceb402cf8b7e18b668a0a5bfbccaba17">More...</a><br /></td></tr>
 <tr class="separator:aceb402cf8b7e18b668a0a5bfbccaba17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4fb8f1f32b659994cc96f6094729ed7d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_facade.html#a4fb8f1f32b659994cc96f6094729ed7d">InputFacade</a> (const <a class="el" href="_runningshoes_8h.html#ae8c9c7d7a1f07db3e2e6b8cf994cef0d">cbFunction</a> f, void *p)</td></tr>
+<tr class="memitem:a4fb8f1f32b659994cc96f6094729ed7d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_facade.html#a4fb8f1f32b659994cc96f6094729ed7d">InputFacade</a> (const <a class="el" href="_input_wrapper_8h.html#ad6366276ff7081cb14c06c7500006f3b">cbFunction</a> f, void *p)</td></tr>
+<tr class="memdesc:a4fb8f1f32b659994cc96f6094729ed7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor to give functions for callbacks  <a href="class_input_facade.html#a4fb8f1f32b659994cc96f6094729ed7d">More...</a><br /></td></tr>
 <tr class="separator:a4fb8f1f32b659994cc96f6094729ed7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_i_input_facade"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_i_input_facade')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_i_input_facade.html">IInputFacade</a></td></tr>
-<tr class="memitem:a362cd6d8f8d052d8b8e6cc558e2c045e inherit pub_methods_class_i_input_facade"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_input_facade.html#a362cd6d8f8d052d8b8e6cc558e2c045e">handleKeyPressed</a> ()</td></tr>
-<tr class="separator:a362cd6d8f8d052d8b8e6cc558e2c045e inherit pub_methods_class_i_input_facade"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a787f080da8c52efd5974c4ca28aff7ea inherit pub_methods_class_i_input_facade"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_input_facade.html#a787f080da8c52efd5974c4ca28aff7ea">handleKeyReleased</a> ()</td></tr>
-<tr class="separator:a787f080da8c52efd5974c4ca28aff7ea inherit pub_methods_class_i_input_facade"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67fc3482014a7d177f847fca712c1c73 inherit pub_methods_class_i_input_facade"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_input_facade.html#a67fc3482014a7d177f847fca712c1c73">handleInput</a> ()</td></tr>
+<tr class="memdesc:a67fc3482014a7d177f847fca712c1c73 inherit pub_methods_class_i_input_facade"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function takes the input and gives it to the code behind the facade.  <a href="class_i_input_facade.html#a67fc3482014a7d177f847fca712c1c73">More...</a><br /></td></tr>
+<tr class="separator:a67fc3482014a7d177f847fca712c1c73 inherit pub_methods_class_i_input_facade"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adbb983e91284fc8186812eeffb0136c8 inherit pub_methods_class_i_input_facade"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_input_facade.html#adbb983e91284fc8186812eeffb0136c8">mapKeyBindings</a> (<a class="el" href="_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fc">KeyCodes</a> code)</td></tr>
 <tr class="separator:adbb983e91284fc8186812eeffb0136c8 inherit pub_methods_class_i_input_facade"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -149,6 +150,8 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Inputfacade takes all the input from the engine and gives it to the class who will handle the input. </p>
+
 </div>
 </div>
 <a id="a4fb8f1f32b659994cc96f6094729ed7d"></a>
@@ -160,7 +163,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">InputFacade::InputFacade </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="_runningshoes_8h.html#ae8c9c7d7a1f07db3e2e6b8cf994cef0d">cbFunction</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="_input_wrapper_8h.html#ad6366276ff7081cb14c06c7500006f3b">cbFunction</a>&#160;</td>
           <td class="paramname"><em>f</em>, </td>
         </tr>
         <tr>
@@ -176,6 +179,15 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Constructor to give functions for callbacks </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td>Function</td></tr>
+    <tr><td class="paramname">p</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
