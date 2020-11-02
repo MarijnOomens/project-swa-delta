@@ -27,6 +27,9 @@ public:
 	ENGINE_API void registerTextures(std::map<std::string, std::string> textures);
 	ENGINE_API void registerFonts(std::map<std::string, std::string> fonts);
 	ENGINE_API void startGame();
+	ENGINE_API void createCamera(int x, int y);
+	ENGINE_API void passPlayerPosition(int x, int y);
+	void updatePositions(int cameraX, int cameraY);
 
 private:
 	std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects;

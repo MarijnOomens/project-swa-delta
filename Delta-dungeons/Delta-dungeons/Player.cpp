@@ -4,19 +4,20 @@
 #include <windows.h>
 
 /// <summary>
-/// This class defines everything that has to do with the player character. Textures, input handling, health and caught Pokémon
+/// This class defines everything that has to do with the player character. Textures, input handling, health and caught Pokï¿½mon
 /// are all defined in the Player class. Interaction with the player's equipment is handled here too.
 /// 
 /// </summary>
 
 const int animationSpeed = 100; 
 
+
 /// <summary>
 /// Creates the running and boomerang equipments. And added to the equipment vector list.
 /// Defines the movementspeed and the runactivated bool
 /// Creates the graphicscomponent for the player sprite and saves the texturename and png location, width, height
 /// </summary>
-Player::Player()
+Player::Player(const cbCamera f, void* p): func(f), pointer(p)
 {
 	std::shared_ptr<Runningshoes> running = std::make_shared<Runningshoes>(staticEquipmentCallbackFunction, this);
 	std::shared_ptr<Boomerang> boomerang = std::make_shared<Boomerang>();
@@ -24,15 +25,22 @@ Player::Player()
 	addEquipment(running);
 	addEquipment(boomerang);
 
-	baseMovementSpeed = 12;
+	baseMovementSpeed = 32;
 	runActivated = false;
+
+	this->transform.position.x = 512;
+	this->transform.position.y = 384;
+	x = this->transform.position.x;
+	y = this->transform.position.y;
+
 
 	this->textures.try_emplace("player", "Assets/player_anims.png");
 
 	m_gc = std::make_shared<GraphicsComponent>();
 	m_gc->setTexture("player");
+	m_gc.get()->transform = this->transform;
 	m_gc->imageDimensions = { 32, 32 };
-	m_gc->transform.scale.multiply({ 3, 3 });
+	m_gc->transform.scale.multiply({ 2, 2 });
 	m_gc->playAnimation(0, 3, animationSpeed, false);
 
 	this->components.emplace_back(m_gc);
@@ -57,11 +65,6 @@ void Player::handleInput(const KeyCodes keyCodes, const KeyboardEvent keyboardEv
 	{
 		handleKeyReleased(keyCodes);
 	}
-
-	/*for (auto& comp : components)
-	{
-		comp->transform.position = this->transform.position;
-	}*/
 }
 
 /// <summary>
@@ -96,7 +99,6 @@ void Player::handleKeyPressed(const KeyCodes keyCodes)
 	default:
 		break;
 	}
-	//std::cout << "X: " << transform.position.x << ", Y: " << transform.position.y << std::endl;
 }
 
 /// <summary>
@@ -105,28 +107,18 @@ void Player::handleKeyPressed(const KeyCodes keyCodes)
 /// <param name="keyCodes"></param>
 void Player::handleKeyReleased(const KeyCodes keyCodes)
 {
-	int y = this->transform.position.y / 32;
-	int x = this->transform.position.x / 32;
 	switch (keyCodes)
 	{
 	case KeyCodes::KEY_UP:
-		transform.position.y = y * 32;
-		m_gc.get()->transform.position.y = y * 32;
 		m_gc->playAnimation(4, 3, animationSpeed, false);
 		break;
 	case KeyCodes::KEY_DOWN:
-		transform.position.y = y * 32;
-		m_gc.get()->transform.position.y = y * 32;
 		m_gc->playAnimation(0, 3, animationSpeed, false);
 		break;
 	case KeyCodes::KEY_LEFT:
-		transform.position.x = x * 32;
-		m_gc.get()->transform.position.x = x * 32;
 		m_gc->playAnimation(5, 3, animationSpeed, false);
 		break;
 	case KeyCodes::KEY_RIGHT:
-		transform.position.x = x * 32;
-		m_gc.get()->transform.position.x = x * 32;
 		m_gc->playAnimation(5, 3, animationSpeed, true);
 		break;
 	default:
@@ -140,10 +132,10 @@ void Player::handleKeyReleased(const KeyCodes keyCodes)
 /// </summary>
 void Player::moveUp()
 {
-	this->transform.position.y -= baseMovementSpeed;
-	this->m_gc.get()->transform.position.y -= baseMovementSpeed;
+	y -= baseMovementSpeed;
 	runActivated ? m_gc->playAnimation(7, 3, animationSpeed, false) :
 		m_gc->playAnimation(2, 4, animationSpeed, false);
+	func(pointer, x, y);
 }
 
 /// <summary>
@@ -152,10 +144,10 @@ void Player::moveUp()
 /// </summary>
 void Player::moveDown()
 {
-	this->transform.position.y += baseMovementSpeed;
-	this->m_gc.get()->transform.position.y += baseMovementSpeed;
+	y += baseMovementSpeed;
 	runActivated ? m_gc->playAnimation(6, 3, animationSpeed, false) :
 		m_gc->playAnimation(1, 4, animationSpeed, false);
+	func(pointer, x, y);
 }
 
 /// <summary>
@@ -164,10 +156,10 @@ void Player::moveDown()
 /// </summary>
 void Player::moveLeft()
 {
-	this->transform.position.x -= baseMovementSpeed;
-	this->m_gc.get()->transform.position.x -= baseMovementSpeed;
+	x -= baseMovementSpeed;
 	runActivated ? m_gc->playAnimation(8, 3, animationSpeed, false) :
 		m_gc->playAnimation(3, 4, animationSpeed, false);
+	func(pointer, x, y);
 }
 
 /// <summary>
@@ -176,10 +168,10 @@ void Player::moveLeft()
 /// </summary>
 void Player::moveRight()
 {
-	this->transform.position.x += baseMovementSpeed;
-	this->m_gc.get()->transform.position.x += baseMovementSpeed;
+	x += baseMovementSpeed;
 	runActivated ? m_gc->playAnimation(8, 3, animationSpeed, true) :
 		m_gc->playAnimation(3, 4, animationSpeed, true);
+	func(pointer, x, y);
 }
 
 /// <summary>
@@ -211,13 +203,13 @@ void Player::equipmentCallbackFunction(const bool runningActivated)
 	if (runningActivated) 
 	{
 		runActivated = true;
-		baseMovementSpeed = 18;
+		baseMovementSpeed = 64;
 		std::cout << " runningshoes enabled" << std::endl;
 	}
 	else 
 	{
 		runActivated = false;
-		baseMovementSpeed = 12;
+		baseMovementSpeed = 32;
 		std::cout << " runningshoes disabled" << std::endl;
 	}
 	//std::cout << runningActivated << " runningshoes" << std::endl;
@@ -242,3 +234,5 @@ void Player::connectCallback()
 void Player::update() 
 {
 }
+
+void Player::updatePositions(int x, int y){}

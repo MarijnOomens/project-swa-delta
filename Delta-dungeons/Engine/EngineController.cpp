@@ -37,17 +37,17 @@ EngineController::EngineController(std::vector<std::shared_ptr<BehaviourObject>>
 
 	//DEBUG//
 	// TILEMAP
-	//std::unique_ptr<XMLSceneParser> scene = std::make_unique<XMLSceneParser>();
-	//std::vector<std::shared_ptr<Tile>> tiles = scene.get()->loadScene("Assets\\collisionmap.xml");
-	//assetManager->addTexture("Level1", "Assets\\Level1_terrain.png");
-	//for (std::shared_ptr<Tile> t : tiles)
-	//{
-	//	std::shared_ptr<GraphicsComponent> gc = std::make_shared<GraphicsComponent>();
-	//	gc.get()->addTextureManager(textureManager);
-	//	t->addGraphicsComponent(gc, "Level1");
-	//	behaviourObjects.emplace_back(gc);
-	//	behaviourObjects.emplace_back(t);
-	//}
+	/*std::unique_ptr<XMLSceneParser> scene = std::make_unique<XMLSceneParser>();
+	std::vector<std::shared_ptr<Tile>> tiles = scene.get()->loadScene("Assets\\collisionmap.xml");
+	assetManager->addTexture("Level1", "Assets\\Level1_terrain.png");
+	for (std::shared_ptr<Tile> t : tiles)
+	{
+		std::shared_ptr<GraphicsComponent> gc = std::make_shared<GraphicsComponent>();
+		gc.get()->addTextureManager(textureManager);
+		t->addGraphicsComponent(gc, "Level1");
+		behaviourObjects.emplace_back(gc);
+		behaviourObjects.emplace_back(t);
+	}*/
 
 	//// PLAYER
 	//assetManager->addTexture("player_anims", "Assets\\player_anims.png");
@@ -99,6 +99,7 @@ void EngineController::inputCallbackFunction(const KeyCodes keyCode, const Keybo
 		gameObject.get()->handleInput(keyCode, keyboardEvent);
 	}
 }
+#pragma endregion Input handling
 
 /// <summary>
 /// This method adds a texture to the AssetManager so that the texture is a known asset.
@@ -119,6 +120,13 @@ void EngineController::addTexture(std::string name, std::string path) {
 void EngineController::initRenderer(const char* title, int width, int height, bool fullscreen)
 {
 	EngineController::renderFacade->init(title, width, height, fullscreen);
+}
+
+
+
+void EngineController::createCamera(int x, int y)
+{
+	renderFacade->createCamera(x,y);
 }
 
 /// <summary>
@@ -142,7 +150,21 @@ void EngineController::startGame()
 
 	renderFacade->clean();
 	std::cout << "Game cleaned" << std::endl;
-};
+}
+
+void EngineController::passPlayerPosition(int x, int y)
+{
+	std::tuple<int, int> positions = renderFacade->passPlayerPosition(x, y);
+	updatePositions(std::get<0>(positions), std::get<1>(positions));
+}
+
+void EngineController::updatePositions(int cameraX, int cameraY)
+{
+	for (auto& bo : behaviourObjects)
+	{
+		bo.get()->updatePositions(cameraX, cameraY);
+	}
+}
 
 /// <summary>
 /// This method registers all behaviour objects in a vector.

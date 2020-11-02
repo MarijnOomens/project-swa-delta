@@ -3,13 +3,15 @@
 #include "IEquipment.h"
 #include "GameObject.h"
 #include "GraphicsComponent.h"
-#include <vector>
+typedef void(*cbCamera) (void*,int,int);
 
 class Player : public GameObject {
 public:
 	std::map<std::string, std::string> textures;
+	cbCamera func;
+	void* pointer;
 
-	Player();
+	Player(const cbCamera f, void* p);
 	~Player();
 
 	void handleInput(const KeyCodes keyCodes, const KeyboardEvent keyboardEvent) override;
@@ -31,11 +33,14 @@ public:
 	void callbackFunction() override;
 	void connectCallback() override;
 	void update() override;
+	void updatePositions(int x, int y) override;
 
 private:
 	int health;
 	int amountCaught;
 	int baseMovementSpeed;
+	int x, y;
+
 	bool runActivated;
 	std::vector<int> pokemonCaught;
 	std::vector<std::shared_ptr<IEquipment>> equipment;

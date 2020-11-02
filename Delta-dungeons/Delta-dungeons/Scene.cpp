@@ -1,5 +1,6 @@
 #include "GraphicsComponent.h"
 #include "Scene.h"
+#include "XMLSceneParser.h"
 
 /// <summary>
 /// Scene is where a TileMap can be created.
@@ -10,6 +11,19 @@ Scene::Scene() {}
 Scene::Scene(int x, int y) : x(x), y(y) {};
 
 Scene::~Scene() {}
+
+void Scene::addGraphics()
+{
+	std::unique_ptr<XMLSceneParser> scene = std::make_unique<XMLSceneParser>();
+
+	tileMap = scene.get()->loadScene("Assets\\collisionmap.xml");
+
+	for (std::shared_ptr<Tile> t : tileMap)
+	{
+		t->addGraphicsComponent("Level1");
+		components.emplace_back(t);
+	}
+}
 
 /// <summary>
 /// Creates a Vector of Tiles according to the ParserData it has been given.
@@ -32,3 +46,28 @@ std::vector<std::shared_ptr<Tile>> Scene::makeTiles(std::vector<std::shared_ptr<
 	}
 	return tileMap;
 }
+
+std::map<std::string, std::string> Scene::passTextures() const
+{
+	std::map<std::string, std::string> texture;
+	texture.try_emplace("Level1", "Assets/Level1_terrain.png");
+	return texture;
+}
+
+void Scene::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) {}
+
+void Scene::connectCallback() {}
+
+void Scene::callbackFunction() {}
+
+void Scene::update() 
+{
+	/*for (auto& t : tileMap)
+	{
+		t.get()->transform.position.x += playerpos.x * 
+	}*/
+
+
+}
+
+void Scene::updatePositions(int x, int y){}

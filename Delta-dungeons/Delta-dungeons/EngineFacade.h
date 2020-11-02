@@ -11,4 +11,6 @@ public:
 	void registerTextures(std::map<std::string, std::string> textures);
 	void registerFonts(std::map<std::string, std::string> fonts);
 	void startGame();
+	void createCamera(int x, int y);
+	void passPlayerPosition(int x, int y);
 };

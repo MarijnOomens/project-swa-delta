@@ -35,15 +35,24 @@ Tile::Tile(int x, int y, int yImage, int xImage)
 /// </summary>
 /// <param name="graphicsComnponent">An clean graphicscomponent without tile information</param>
 /// <param name="name">Texture name of the png</param>
-void Tile::addGraphicsComponent(std::shared_ptr<GraphicsComponent>& graphicsComnponent, std::string name)
+void Tile::addGraphicsComponent(std::string name)
 {
-	gc = graphicsComnponent;
+	gc = std::make_shared<GraphicsComponent>();
 	gc.get()->transform = transform;
 	gc.get()->imageCoordinates = imageCoordinates;
 	gc.get()->setTexture(name);
+	this->components.emplace_back(gc);
 }
 
 void Tile::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) {}
 void Tile::callbackFunction() {}
 void Tile::connectCallback() {}
+
 void Tile::update() {}
+
+void Tile::updatePositions(int x, int y)
+{
+	this->transform.position.x = this->transform.position.x - x;
+	this->transform.position.y = this->transform.position.y - y;
+	gc.get()->transform = transform;
+}

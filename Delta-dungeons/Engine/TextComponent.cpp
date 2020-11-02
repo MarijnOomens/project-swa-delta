@@ -34,3 +34,5 @@ void TextComponent::handleInput(const KeyCodes keyCode, const KeyboardEvent keyb
 void TextComponent::connectCallback() {}
 
 void TextComponent::callbackFunction() {}
+
+void TextComponent::updatePositions(int x, int y) {}

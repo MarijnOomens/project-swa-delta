@@ -17,7 +17,6 @@ Renderer::~Renderer() {};
 /// <param name="height">The height of the screen.</param>
 /// <param name="fullscreen">If the screen is fullscreen or not.</param>
 void Renderer::init(const char* title, int width, int height, bool fullscreen) {
-	camera = { 0,0, width, height };
 
 	int flags = 0;
 	if (fullscreen) {
@@ -61,31 +60,19 @@ void Renderer::init(const char* title, int width, int height, bool fullscreen) {
 	}
 }
 
-
-/// <summary>
-/// updateCamera updates the camera based on the position of the player.
-/// </summary>
-void Renderer::updateCamera()
+void Renderer::createCamera(int x, int y) 
 {
+	camera = { x,y, 1024, 1024 };
+}
 
-	//update gameobjects positioning based on camera x and y
+std::tuple<int, int> Renderer::updateCamera(int playerX, int playerY)
+{
+	int differenceX = (playerX - camera.x);
+	int differenceY = (playerY - camera.y);
+	camera.x = camera.x + differenceX;
+	camera.y = camera.y +differenceY;
 
-	//camera.x = player.position.x - 400;
-	//camera.y = player.position.y - 320;
-
-	if (Renderer::camera.x < 0) {
-		Renderer::camera.x = 0;
-	}
-	if (Renderer::camera.y < 0) {
-		Renderer::camera.y = 0;
-	}
-	if (Renderer::camera.x > camera.w) {
-		Renderer::camera.x = camera.w;
-	}
-
-	if (Renderer::camera.y > camera.h) {
-		Renderer::camera.y = camera.h;
-	}
+	return std::make_tuple(differenceX, differenceY);
 }
 
 

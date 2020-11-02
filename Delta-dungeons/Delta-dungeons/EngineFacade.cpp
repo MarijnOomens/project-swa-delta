@@ -49,3 +49,13 @@ void EngineFacade::registerFonts(std::map<std::string, std::string> fonts) {
 void EngineFacade::startGame() {
 	engineController.get()->startGame();
 }
+
+void EngineFacade::createCamera(int x, int y) 
+{
+	engineController.get()->createCamera(x,y);
+}
+
+void EngineFacade::passPlayerPosition(int x, int y)
+{
+	engineController.get()->passPlayerPosition(x, y);
+}

@@ -13,11 +13,18 @@ GameManager::GameManager()
 	registerTextures(uiManager.passTextures());
 	registerFonts(uiManager.passFonts());
 
-	//playerManager = PlayerManager();
-	//playerManager.createPlayer();
-	//registerTextures(playerManager.passTextures());
+	playerManager = std::make_shared<PlayerManager>();
+	playerManager.get()->createPlayer(staticCameraCallbackFunction, this);
+	registerTextures(playerManager.get()->passTextures());
+	
+
+	scene = Scene();	
+	scene.addGraphics();
+	registerTextures(scene.passTextures());
+	
 
 	registerBehaviourObjects();
+	engineFacade.createCamera(playerManager.get()->player.get()->transform.position.x, playerManager.get()->player.get()->transform.position.y);
 	engineFacade.startGame();
 }
 
@@ -36,7 +43,12 @@ void GameManager::registerBehaviourObjects()
 		}
 	}
 
-	for (auto& o : playerManager.sprites)
+	for (auto& t : scene.getComponentsRecursive())
+	{
+		this->objects.emplace_back(t);
+	}
+	
+	for (auto& o : playerManager.get()->sprites)
 	{
 		for (auto& c : o.second.get()->getComponentsRecursive())
 		{
@@ -44,7 +56,8 @@ void GameManager::registerBehaviourObjects()
 		}
 	}
 
-	//this->objects.emplace_back(playerManager.getPlayerObject());
+	this->objects.emplace_back(playerManager.get()->getPlayerObject());
+
 
 
 	engineFacade.registerBehaviourObjects(objects);
@@ -58,10 +71,19 @@ void GameManager::registerTextures(std::map<std::string, std::string> textures)
 	engineFacade.registerTextures(textures);
 }
 
+void GameManager:: staticCameraCallbackFunction(void* p, int x, int y) 
+{
+	((GameManager*)p)->passPlayerPosition(x, y);
+}
+
+void GameManager::passPlayerPosition(int x, int y)
+{
+	engineFacade.passPlayerPosition(x, y);
+}
 /// <summary>
 /// This methods gives the engineFacade all fonts to give to the engine.
 /// </summary>
-void GameManager::registerFonts(std::map<std::string, std::string> fonts) 
+void GameManager::registerFonts(std::map<std::string, std::string> fonts)
 {
 	engineFacade.registerFonts(fonts);
 }
