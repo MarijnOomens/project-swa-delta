@@ -1,11 +1,11 @@
 #pragma once
 
 #include "SceneParser.h"
-#include <string>
 #include "XMLFacade.h"
 #include "Scene.h"
 #include "ParserData.h"
 #include "Tile.h"
+#include <string>
 
 class XMLSceneParser : public SceneParser {
 public:

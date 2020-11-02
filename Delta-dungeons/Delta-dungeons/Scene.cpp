@@ -2,6 +2,10 @@
 #include "Scene.h"
 #include "XMLSceneParser.h"
 
+/// <summary>
+/// Scene is where a TileMap can be created.
+/// </summary>
+
 Scene::Scene() {}
 
 Scene::Scene(int x, int y) : x(x), y(y) {};
@@ -21,6 +25,11 @@ void Scene::addGraphics()
 	}
 }
 
+/// <summary>
+/// Creates a Vector of Tiles according to the ParserData it has been given.
+/// </summary>
+/// <param name="data">All the information needed to properly create a TileMap.</param>
+/// <returns>If succeeded, it returns a TileMap that contains Tile objects.</returns>
 std::vector<std::shared_ptr<Tile>> Scene::makeTiles(std::vector<std::shared_ptr<ParserData>> data)
 {
 	for (std::shared_ptr<ParserData> tile : data)

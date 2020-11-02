@@ -6,6 +6,7 @@
 #include "RenderFacade.h"
 #include "SceneManager.h"
 #include "TextureManager.h"
+#include "TextComponent.h"
 #include <vector>
 
 // Engincontroller class
@@ -24,6 +25,7 @@ public:
 	ENGINE_API void addTexture(std::string name, std::string path);
 	ENGINE_API void registerBehaviourObjects(std::vector<std::shared_ptr<BehaviourObject>> objects);
 	ENGINE_API void registerTextures(std::map<std::string, std::string> textures);
+	ENGINE_API void registerFonts(std::map<std::string, std::string> fonts);
 	ENGINE_API void startGame();
 	ENGINE_API void createCamera(int x, int y);
 	ENGINE_API void passPlayerPosition(int x, int y);

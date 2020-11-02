@@ -11,6 +11,7 @@ public:
 	std::string text;
 	std::shared_ptr<GraphicsComponent> gc;
 	std::map<std::string, std::string> textures;
+	std::map<std::string, std::string> fonts;
 
 	void connectCallback() override;
 	void callbackFunction() override;

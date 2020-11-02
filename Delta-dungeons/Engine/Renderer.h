@@ -2,6 +2,7 @@
 
 #include "SDL.h"
 #include "GameObject.h"
+#include "SDL_ttf.h"
 #include <iostream>
 #include <list>
 #include <memory>

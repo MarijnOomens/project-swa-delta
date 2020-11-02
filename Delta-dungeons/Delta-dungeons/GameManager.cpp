@@ -1,12 +1,17 @@
 #include "GameManager.h"
 
-GameManager::GameManager() 
+/// <summary>
+/// Inside the Gamemanager all managers in the game are managed and called when the game needs them.
+/// </summary>
+GameManager::GameManager()
 {
 	engineFacade = EngineFacade();
 	engineFacade.init();
-	/*uiManager = UIManager();
+	uiManager = UIManager();
+
 	uiManager.createBaseScreens();
-	registerTextures(uiManager.passTextures());*/
+	registerTextures(uiManager.passTextures());
+	registerFonts(uiManager.passFonts());
 
 	playerManager = std::make_shared<PlayerManager>();
 	playerManager.get()->createPlayer(staticCameraCallbackFunction, this);
@@ -25,11 +30,14 @@ GameManager::GameManager()
 
 GameManager::~GameManager() {}
 
-void GameManager::registerBehaviourObjects() 
+/// <summary>
+/// This methods registers all BehaviourObjects from all managers into one big list within the GameManager.
+/// </summary>
+void GameManager::registerBehaviourObjects()
 {
 	for (auto& o : uiManager.screens)
 	{
-		for (auto& c : o.second.get()->getComponentsRecursive()) 
+		for (auto& c : o.second.get()->getComponentsRecursive())
 		{
 			this->objects.emplace_back(c);
 		}
@@ -55,7 +63,10 @@ void GameManager::registerBehaviourObjects()
 	engineFacade.registerBehaviourObjects(objects);
 }
 
-void GameManager::registerTextures(std::map<std::string, std::string> textures) 
+/// <summary>
+/// This methods gives the engineFacade all textures to give to the engine.
+/// </summary>
+void GameManager::registerTextures(std::map<std::string, std::string> textures)
 {
 	engineFacade.registerTextures(textures);
 }
@@ -68,4 +79,11 @@ void GameManager:: staticCameraCallbackFunction(void* p, int x, int y)
 void GameManager::passPlayerPosition(int x, int y)
 {
 	engineFacade.passPlayerPosition(x, y);
+}
+/// <summary>
+/// This methods gives the engineFacade all fonts to give to the engine.
+/// </summary>
+void GameManager::registerFonts(std::map<std::string, std::string> fonts)
+{
+	engineFacade.registerFonts(fonts);
 }
