@@ -4,13 +4,12 @@
 #include "TextComponent.h"
 #include "Button.h"
 
-class GameOverScreen : public Screen
+class GameWinScreen : public Screen
 {
 public:
-	GameOverScreen();
-	~GameOverScreen();
+	GameWinScreen();
+	~GameWinScreen();
 
 	void closeScreen() override;
-
-	void restartGame();
 };
+

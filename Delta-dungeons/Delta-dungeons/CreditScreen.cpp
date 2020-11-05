@@ -5,7 +5,7 @@
  
 CreditScreen::CreditScreen()
 {
-	this->textures.try_emplace("credits", "Assets/credit-scherm.png");
+	this->textures.try_emplace("credits", "Assets/credits.png");
 	this->textures.try_emplace("button_exit", "Assets/button_exit.png");
 	this->fonts.try_emplace("comic", "Assets/comic.ttf");
 
