@@ -18,6 +18,11 @@ void NPCManager::createNPC()
 
 	std::shared_ptr<NPC> leaf3 = std::make_shared<NPC>(192, 480, "npc");
 	npcs.try_emplace("leaf3", leaf3);
+
+	std::shared_ptr<Pokemon> shinx = std::make_shared<Pokemon>(128, 480, "shinx");
+	shinx->textures.try_emplace("shinx", "Assets/Pokemon/shinx_anims.png");
+	npcs.try_emplace("shinx", shinx);
+
 }
 
 std::map<std::string, std::string> NPCManager::passTextures() const
