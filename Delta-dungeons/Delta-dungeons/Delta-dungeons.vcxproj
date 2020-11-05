@@ -163,6 +163,7 @@
     <ClCompile Include="EngineFacade.cpp" />
     <ClCompile Include="EquipmentManager.cpp" />
     <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="GameObjectBuilder.cpp" />
     <ClCompile Include="GameOverScreen.cpp" />
     <ClCompile Include="HealingItem.cpp" />
     <ClCompile Include="HelpScreen.cpp" />
@@ -200,6 +201,7 @@
     <ClInclude Include="EngineFacade.h" />
     <ClInclude Include="EquipmentManager.h" />
     <ClInclude Include="GameManager.h" />
+    <ClInclude Include="GameObjectBuilder.h" />
     <ClInclude Include="GameOverScreen.h" />
     <ClInclude Include="HealingItem.h" />
     <ClInclude Include="HelpScreen.h" />

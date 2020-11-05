@@ -8,6 +8,7 @@ typedef void(*cbCamera) (void*,int,int);
 class Player : public GameObject {
 public:
 	std::map<std::string, std::string> textures;
+	std::string texture;
 	cbCamera func;
 	void* pointer;
 

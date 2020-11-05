@@ -1,6 +1,6 @@
 #include "NPC.h"
 
-const int animationSpeed = 100;
+const int animationSpeed = 120;
 
 NPC::NPC(int x, int y, std::string texture) 
 {
