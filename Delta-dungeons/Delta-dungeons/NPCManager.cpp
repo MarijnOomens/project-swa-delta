@@ -17,7 +17,6 @@ void NPCManager::createNPC()
 	umbreon->textures.try_emplace("umbreon", "Assets/Pokemon/umbreon_anims.png");
 	npcs.try_emplace("umbreon", umbreon);
 
-
 	std::shared_ptr<NPC> leaf2 = std::make_shared<NPC>(480, 480, "player");
 	npcs.try_emplace("leaf2", leaf2);
 
@@ -31,6 +30,18 @@ void NPCManager::createNPC()
 	std::shared_ptr<Pokemon> shinx = std::make_shared<Pokemon>(128, 480, "shinx");
 	shinx->textures.try_emplace("shinx", "Assets/Pokemon/shinx_anims.png");
 	npcs.try_emplace("shinx", shinx);
+
+	std::shared_ptr<Pokemon> eevee = std::make_shared<Pokemon>(256, 320, "eevee");
+	eevee->textures.try_emplace("eevee", "Assets/Pokemon/eevee_anims.png");
+	npcs.try_emplace("eevee", eevee);
+
+	std::shared_ptr<Pokemon> turtwig = std::make_shared<Pokemon>(128, 192, "turtwig");
+	turtwig->textures.try_emplace("turtwig", "Assets/Pokemon/turtwig_anims.png");
+	npcs.try_emplace("turtwig", turtwig);
+
+	std::shared_ptr<Pokemon> magmortar = std::make_shared<Pokemon>(320, 480, "magmortar");
+	magmortar->textures.try_emplace("magmortar", "Assets/Pokemon/magmortar_anims.png");
+	npcs.try_emplace("magmortar", magmortar);
 
 }
 
