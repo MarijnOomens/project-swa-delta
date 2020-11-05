@@ -5,7 +5,7 @@ const int animationSpeed = 100;
 NPC::NPC(int x, int y, std::string texture) 
 {
 	this->transform.position = { x, y };
-	this->transform.scale.multiply({ 2, 2 });
+	this->transform.scale.multiply({ 4, 4 });
 	gc = std::make_shared<GraphicsComponent>();
 	gc->setTexture(texture);
 	gc->imageDimensions = { 32, 32 };

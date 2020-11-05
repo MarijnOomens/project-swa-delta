@@ -40,7 +40,7 @@ Player::Player(const cbCamera f, void* p): func(f), pointer(p)
 	m_gc->setTexture("player");
 	m_gc.get()->transform = this->transform;
 	m_gc->imageDimensions = { 32, 32 };
-	m_gc->transform.scale.multiply({ 2, 2 });
+	m_gc->transform.scale.multiply({ 4, 4 });
 	m_gc->playAnimation(0, 3, animationSpeed, false);
 
 	this->components.emplace_back(m_gc);
