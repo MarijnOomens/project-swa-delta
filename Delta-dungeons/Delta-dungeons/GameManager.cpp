@@ -11,15 +11,15 @@ GameManager::GameManager()
 	registerTextures(uiManager.passTextures());
 	registerFonts(uiManager.passFonts());
 
-	playerManager.createPlayer(staticCameraCallbackFunction, this);
+	/*playerManager.createPlayer(staticCameraCallbackFunction, this);
 	registerTextures(playerManager.passTextures());
 	
 	scene.addGraphics();
-	registerTextures(scene.passTextures());
+	registerTextures(scene.passTextures());*/
 	
 
 	registerBehaviourObjects();
-	engineFacade.createCamera(playerManager.player.get()->transform.position.x, playerManager.player.get()->transform.position.y);
+	//engineFacade.createCamera(playerManager.player.get()->transform.position.x, playerManager.player.get()->transform.position.y);
 	engineFacade.startGame();
 }
 
@@ -38,20 +38,20 @@ void GameManager::registerBehaviourObjects()
 		}
 	}
 
-	for (auto& t : scene.getComponentsRecursive())
-	{
-		this->objects.emplace_back(t);
-	}
-	
-	for (auto& o : playerManager.sprites)
-	{
-		for (auto& c : o.second.get()->getComponentsRecursive())
-		{
-			this->objects.emplace_back(c);
-		}
-	}
+	//for (auto& t : scene.getComponentsRecursive())
+	//{
+	//	this->objects.emplace_back(t);
+	//}
+	//
+	//for (auto& o : playerManager.sprites)
+	//{
+	//	for (auto& c : o.second.get()->getComponentsRecursive())
+	//	{
+	//		this->objects.emplace_back(c);
+	//	}
+	//}
 
-	this->objects.emplace_back(playerManager.getPlayerObject());
+	//this->objects.emplace_back(playerManager.getPlayerObject());
 
 
 

@@ -1,7 +1,9 @@
 #pragma once
-#include "Screen.h"
 
-class HelpScreen : Screen
+#include "Screen.h"
+#include "TextComponent.h"
+
+class HelpScreen : public Screen
 {
 
 public:
