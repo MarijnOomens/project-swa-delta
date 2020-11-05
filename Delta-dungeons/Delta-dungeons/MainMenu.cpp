@@ -6,7 +6,6 @@ MainMenu::MainMenu() {
 	this->textures.try_emplace("button_credits", "Assets/button_credits.png");
 	this->textures.try_emplace("button_exit", "Assets/button_exit.png");
 
-	text = "Delta Dungeons";
 	gc = std::make_shared<GraphicsComponent>();
 	gc->setTexture("mainmenu");
 	gc->imageDimensions = { 1280, 960 };
@@ -22,14 +21,20 @@ MainMenu::MainMenu() {
 	std::shared_ptr<Button> creditsButton = std::make_shared<Button>(372, 334, possibleButtonTexCredits);
 	this->components.emplace_back(creditsButton);
 
+	// Help button
+	std::vector<std::string> possibleButtonTexHelp = { "button_help" };
+	std::shared_ptr<Button> helpButton = std::make_shared<Button>(372, 464, possibleButtonTexCredits);
+	this->components.emplace_back(helpButton);
+
 	// Exit button
 	std::vector<std::string> possibleButtonTexExit = { "button_exit" };
-	std::shared_ptr<Button> exitButton = std::make_shared<Button>(372, 464, possibleButtonTexExit);
+	std::shared_ptr<Button> exitButton = std::make_shared<Button>(372, 594, possibleButtonTexExit);
 	this->components.emplace_back(exitButton);
-};
+}
 
-MainMenu::~MainMenu() {};
+MainMenu::~MainMenu() {}
 
-void MainMenu::startGame() {};
-void MainMenu::openCreditScreen() {};
-void MainMenu::closeScreen() {};
+void MainMenu::startGame() {}
+void MainMenu::openCreditScreen() {}
+void MainMenu::openHelpScreen() {}
+void MainMenu::closeScreen() {}

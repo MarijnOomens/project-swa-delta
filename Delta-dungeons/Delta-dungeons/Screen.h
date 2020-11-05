@@ -8,7 +8,6 @@ class Screen : public GameObject
 {
 public:
 	virtual void closeScreen() = 0;
-	std::string text;
 	std::shared_ptr<GraphicsComponent> gc;
 	std::map<std::string, std::string> textures;
 	std::map<std::string, std::string> fonts;

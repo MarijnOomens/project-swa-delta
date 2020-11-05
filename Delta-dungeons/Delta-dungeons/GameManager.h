@@ -10,7 +10,7 @@ class GameManager {
 public: 
 	EngineFacade engineFacade;
 	UIManager uiManager;
-	std::shared_ptr<PlayerManager> playerManager;
+	PlayerManager playerManager;
 	EquipmentManager eqManager;
 	Scene scene;
 

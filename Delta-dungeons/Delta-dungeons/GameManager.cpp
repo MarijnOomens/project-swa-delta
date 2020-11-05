@@ -5,26 +5,21 @@
 /// </summary>
 GameManager::GameManager()
 {
-	engineFacade = EngineFacade();
 	engineFacade.init();
-	uiManager = UIManager();
 
 	uiManager.createBaseScreens();
 	registerTextures(uiManager.passTextures());
 	registerFonts(uiManager.passFonts());
 
-	playerManager = std::make_shared<PlayerManager>();
-	playerManager.get()->createPlayer(staticCameraCallbackFunction, this);
-	registerTextures(playerManager.get()->passTextures());
+	playerManager.createPlayer(staticCameraCallbackFunction, this);
+	registerTextures(playerManager.passTextures());
 	
-
-	scene = Scene();	
 	scene.addGraphics();
 	registerTextures(scene.passTextures());
 	
 
 	registerBehaviourObjects();
-	engineFacade.createCamera(playerManager.get()->player.get()->transform.position.x, playerManager.get()->player.get()->transform.position.y);
+	engineFacade.createCamera(playerManager.player.get()->transform.position.x, playerManager.player.get()->transform.position.y);
 	engineFacade.startGame();
 }
 
@@ -48,7 +43,7 @@ void GameManager::registerBehaviourObjects()
 		this->objects.emplace_back(t);
 	}
 	
-	for (auto& o : playerManager.get()->sprites)
+	for (auto& o : playerManager.sprites)
 	{
 		for (auto& c : o.second.get()->getComponentsRecursive())
 		{
@@ -56,7 +51,7 @@ void GameManager::registerBehaviourObjects()
 		}
 	}
 
-	this->objects.emplace_back(playerManager.get()->getPlayerObject());
+	this->objects.emplace_back(playerManager.getPlayerObject());
 
 
 

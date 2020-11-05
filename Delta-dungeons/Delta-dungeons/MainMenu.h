@@ -10,13 +10,13 @@
 class MainMenu : public Screen
 {
 public:
-	Vector2D textLocation; //Maybe?
 	std::vector<Button> buttons;
 
-	MainMenu(); //yes or no
+	MainMenu();
 	~MainMenu();
 
 	void startGame();
 	void openCreditScreen();
+	void openHelpScreen();
 	void closeScreen() override;
 };
