@@ -16,7 +16,7 @@ void Scene::addGraphics()
 {
 	std::unique_ptr<XMLSceneParser> scene = std::make_unique<XMLSceneParser>();
 
-	tileMap = scene.get()->loadScene("Assets\\collisionmap.xml");
+	tileMap = scene.get()->loadScene("Assets\\collidermap.xml");
 
 	for (std::shared_ptr<Tile> t : tileMap)
 	{
@@ -37,11 +37,11 @@ std::vector<std::shared_ptr<Tile>> Scene::makeTiles(std::vector<std::shared_ptr<
 		int first = tile.get()->tileId[0] - 48;
 		if (tile.get()->tileId[1]) {
 			int second = tile.get()->tileId[1] - 48;
-			tileMap.push_back(std::make_shared<Tile>(std::stoi(tile.get()->x), std::stoi(tile.get()->y), first, second));
+			tileMap.push_back(std::make_shared<Tile>(std::stoi(tile.get()->x), std::stoi(tile.get()->y), first, second, tile.get()->isCollider));
 		}
 		else
 		{
-			tileMap.push_back(std::make_shared<Tile>(std::stoi(tile.get()->x), std::stoi(tile.get()->y), first));
+			tileMap.push_back(std::make_shared<Tile>(std::stoi(tile.get()->x), std::stoi(tile.get()->y), first, tile.get()->isCollider));
 		}
 	}
 	return tileMap;
@@ -60,14 +60,14 @@ void Scene::connectCallback() {}
 
 void Scene::callbackFunction() {}
 
-void Scene::update() 
+void Scene::update()
 {
 	/*for (auto& t : tileMap)
 	{
-		t.get()->transform.position.x += playerpos.x * 
+		t.get()->transform.position.x += playerpos.x *
 	}*/
 
 
 }
 
-void Scene::updatePositions(int x, int y){}
+void Scene::updatePositions(int x, int y) {}

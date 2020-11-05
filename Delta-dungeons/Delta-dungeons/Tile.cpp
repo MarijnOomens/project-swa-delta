@@ -8,10 +8,11 @@ Tile::Tile() {}
 /// <param name="x">The horizontal placement of tile</param>
 /// <param name="y">The vertical placement of tile</param>
 /// <param name="xImage">Specific horizontal image location of tile png</param>
-Tile::Tile(int x, int y, int xImage)
+Tile::Tile(int x, int y, int xImage, bool collider)
 {
 	transform.position.x = x * 32;
 	transform.position.y = y * 32;
+	isCollider = collider;
 	imageCoordinates = Vector2D(xImage * 32, 0);
 }
 
@@ -23,10 +24,11 @@ Tile::Tile(int x, int y, int xImage)
 /// <param name="xImage">Horizontal image location of tile png</param>
 /// <param name="yImage">Vertical image location of tile png</param>
 
-Tile::Tile(int x, int y, int yImage, int xImage)
+Tile::Tile(int x, int y, int yImage, int xImage, bool collider)
 {
 	transform.position.x = x * 32;
 	transform.position.y = y * 32;
+	isCollider = collider;
 	imageCoordinates = Vector2D(xImage * 32, yImage * 32);
 }
 
