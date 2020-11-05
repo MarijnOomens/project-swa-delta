@@ -1,12 +1,11 @@
 #include "NPC.h"
 
-NPC::NPC() 
+NPC::NPC(int x, int y, std::string texture) 
 {
-	this->textures.try_emplace("npc", "Assets/npc_anims.png");
-	this->transform.position = { 200, 200 };
+	this->transform.position = { x, y };
 	this->transform.scale.multiply({ 2, 2 });
 	gc = std::make_shared<GraphicsComponent>();
-	gc->setTexture("npc");
+	gc->setTexture(texture);
 	gc->imageDimensions = { 32, 32 };
 	gc.get()->transform = this->transform;
 	//gc->playAnimation(0, 3, animationSpeed, false);
