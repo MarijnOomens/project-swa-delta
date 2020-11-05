@@ -13,8 +13,17 @@ void NPCManager::createNPC()
 	leaf->textures.try_emplace("npc", "Assets/player_anims.png");
 	npcs.try_emplace("leaf", leaf);
 
-	std::shared_ptr<NPC> leaf2 = std::make_shared<NPC>(288, 480, "npc");
+	std::shared_ptr<Pokemon> umbreon = std::make_shared<Pokemon>(256, 192, "umbreon");
+	umbreon->textures.try_emplace("umbreon", "Assets/Pokemon/umbreon_anims.png");
+	npcs.try_emplace("umbreon", umbreon);
+
+
+	std::shared_ptr<NPC> leaf2 = std::make_shared<NPC>(480, 480, "player");
 	npcs.try_emplace("leaf2", leaf2);
+
+	std::shared_ptr<Pokemon> dunsparce = std::make_shared<Pokemon>(544, 480, "dunsparce");
+	dunsparce->textures.try_emplace("dunsparce", "Assets/Pokemon/dunsparce_anims.png");
+	npcs.try_emplace("dunsparce", dunsparce);
 
 	std::shared_ptr<NPC> leaf3 = std::make_shared<NPC>(192, 480, "npc");
 	npcs.try_emplace("leaf3", leaf3);
