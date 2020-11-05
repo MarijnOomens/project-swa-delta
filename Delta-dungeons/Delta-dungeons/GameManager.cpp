@@ -5,26 +5,20 @@
 /// </summary>
 GameManager::GameManager()
 {
-	engineFacade = EngineFacade();
 	engineFacade.init();
-	uiManager = UIManager();
 
 	uiManager.createBaseScreens();
 	registerTextures(uiManager.passTextures());
 	registerFonts(uiManager.passFonts());
 
-	playerManager = std::make_shared<PlayerManager>();
-	playerManager.get()->createPlayer(staticCameraCallbackFunction, this);
-	registerTextures(playerManager.get()->passTextures());
+	/*playerManager.createPlayer(staticCameraCallbackFunction, this);
+	registerTextures(playerManager.passTextures());
 	
-
-	scene = Scene();	
 	scene.addGraphics();
-	registerTextures(scene.passTextures());
-	
+	registerTextures(scene.passTextures());*/
 
 	registerBehaviourObjects();
-	engineFacade.createCamera(playerManager.get()->player.get()->transform.position.x, playerManager.get()->player.get()->transform.position.y);
+	//engineFacade.createCamera(playerManager.player.get()->transform.position.x, playerManager.player.get()->transform.position.y);
 	engineFacade.startGame();
 }
 
@@ -37,31 +31,45 @@ void GameManager::registerBehaviourObjects()
 {
 	for (auto& o : uiManager.screens)
 	{
+		std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects;
+
 		for (auto& c : o.second.get()->getComponentsRecursive())
 		{
-			this->objects.emplace_back(c);
+			behaviourObjects.emplace_back(c);
+
 		}
+		this->scenes.try_emplace(o.first, behaviourObjects);
 	}
 
-	for (auto& t : scene.getComponentsRecursive())
+	//for (auto& t : scene.getComponentsRecursive())
+	//{
+	//	this->objects.emplace_back(t);
+	//}
+	//
+	//for (auto& o : playerManager.sprites)
+	//{
+	//	for (auto& c : o.second.get()->getComponentsRecursive())
+	//	{
+	//		this->objects.emplace_back(c);
+	//	}
+	//}
+
+	//this->objects.emplace_back(playerManager.getPlayerObject());
+
+	for (auto& s : scenes)
 	{
-		this->objects.emplace_back(t);
-	}
-	
-	for (auto& o : playerManager.get()->sprites)
-	{
-		for (auto& c : o.second.get()->getComponentsRecursive())
-		{
-			this->objects.emplace_back(c);
-		}
+		engineFacade.registerScene(s.first, s.second);
 	}
 
-	this->objects.emplace_back(playerManager.get()->getPlayerObject());
+	engineFacade.loadScene("Credits");
 
-
-
-	engineFacade.registerBehaviourObjects(objects);
 }
+
+void GameManager::loadScene(std::string sceneName)
+{
+	engineFacade.loadScene(sceneName);
+}
+
 
 /// <summary>
 /// This methods gives the engineFacade all textures to give to the engine.

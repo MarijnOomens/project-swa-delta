@@ -1,6 +1,7 @@
 #include "MainMenu.h"
 
-MainMenu::MainMenu() {
+MainMenu::MainMenu() 
+{
 	this->textures.try_emplace("mainmenu", "Assets/mainmenu.png");
 	this->textures.try_emplace("button_play", "Assets/button_play.png");
 	this->textures.try_emplace("button_credits", "Assets/button_credits.png");
@@ -14,22 +15,22 @@ MainMenu::MainMenu() {
 
 	// Play button
 	std::vector<std::string> possibleButtonTexPlay = { "button_play" };
-	std::shared_ptr<Button> playButton = std::make_shared<Button>(372, 204, possibleButtonTexPlay);
+	std::shared_ptr<Button> playButton = std::make_shared<Button>(500, 430, possibleButtonTexPlay);
 	this->components.emplace_back(playButton);
 
 	// Credits button
 	std::vector<std::string> possibleButtonTexCredits = { "button_credits" };
-	std::shared_ptr<Button> creditsButton = std::make_shared<Button>(372, 334, possibleButtonTexCredits);
+	std::shared_ptr<Button> creditsButton = std::make_shared<Button>(500, 560, possibleButtonTexCredits);
 	this->components.emplace_back(creditsButton);
 
 	// Exit button
 	std::vector<std::string> possibleButtonTexExit = { "button_exit" };
-	std::shared_ptr<Button> exitButton = std::make_shared<Button>(372, 464, possibleButtonTexExit);
+	std::shared_ptr<Button> exitButton = std::make_shared<Button>(500, 690, possibleButtonTexExit);
 	this->components.emplace_back(exitButton);
-};
+}
 
-MainMenu::~MainMenu() {};
+MainMenu::~MainMenu() {}
 
-void MainMenu::startGame() {};
-void MainMenu::openCreditScreen() {};
-void MainMenu::closeScreen() {};
+void MainMenu::startGame() {}
+void MainMenu::openCreditScreen() {}
+void MainMenu::closeScreen() {}
