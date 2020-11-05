@@ -34,7 +34,7 @@ Player::Player(const cbCamera f, void* p): func(f), pointer(p)
 	y = this->transform.position.y;
 
 
-	this->textures.try_emplace("player", "Assets/player_anims.png");
+	this->textures.try_emplace("player", "Assets/npc_anims.png");
 
 	m_gc = std::make_shared<GraphicsComponent>();
 	m_gc->setTexture("player");

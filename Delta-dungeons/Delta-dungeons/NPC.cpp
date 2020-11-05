@@ -1,5 +1,7 @@
 #include "NPC.h"
 
+const int animationSpeed = 100;
+
 NPC::NPC(int x, int y, std::string texture) 
 {
 	this->transform.position = { x, y };
@@ -8,7 +10,7 @@ NPC::NPC(int x, int y, std::string texture)
 	gc->setTexture(texture);
 	gc->imageDimensions = { 32, 32 };
 	gc.get()->transform = this->transform;
-	//gc->playAnimation(0, 3, animationSpeed, false);
+	gc->playAnimation(0, 3, animationSpeed, false);
 
 	this->components.emplace_back(gc);
 }

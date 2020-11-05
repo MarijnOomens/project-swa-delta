@@ -10,7 +10,7 @@ NPCManager::~NPCManager() {}
 void NPCManager::createNPC() 
 {
 	std::shared_ptr<NPC> leaf = std::make_shared<NPC>(200, 200, "npc");
-	leaf->textures.try_emplace("npc", "Assets/npc_anims.png");
+	leaf->textures.try_emplace("npc", "Assets/player_anims.png");
 	npcs.try_emplace("leaf", leaf);
 
 	std::shared_ptr<NPC> leaf2 = std::make_shared<NPC>(300, 500, "npc");
