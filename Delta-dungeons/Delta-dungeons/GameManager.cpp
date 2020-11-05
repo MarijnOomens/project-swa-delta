@@ -16,6 +16,10 @@ GameManager::GameManager()
 	playerManager = std::make_shared<PlayerManager>();
 	playerManager.get()->createPlayer(staticCameraCallbackFunction, this);
 	registerTextures(playerManager.get()->passTextures());
+
+	npcManager = NPCManager();
+	npcManager.createNPC();
+	registerTextures(npcManager.passTextures());
 	
 
 	scene = Scene();	
@@ -46,6 +50,14 @@ void GameManager::registerBehaviourObjects()
 	for (auto& t : scene.getComponentsRecursive())
 	{
 		this->objects.emplace_back(t);
+	}
+
+	for (auto& o : npcManager.npcs)
+	{
+		for (auto& n : o.second.get()->getComponentsRecursive())
+		{
+			this->objects.emplace_back(n);
+		}
 	}
 	
 	for (auto& o : playerManager.get()->sprites)

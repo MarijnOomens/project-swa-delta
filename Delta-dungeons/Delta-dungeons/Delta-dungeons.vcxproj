@@ -173,6 +173,7 @@
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="NPC.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="NPCManager.cpp" />
     <ClCompile Include="PauseScreen.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerManager.cpp" />
@@ -203,6 +204,7 @@
     <ClInclude Include="HealingItem.h" />
     <ClInclude Include="HelpScreen.h" />
     <ClInclude Include="HUD.h" />
+    <ClInclude Include="NPCManager.h" />
     <ClInclude Include="ParserData.h" />
     <ClInclude Include="PlayerManager.h" />
     <ClInclude Include="XMLFacade.h" />
