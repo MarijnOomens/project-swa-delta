@@ -11,6 +11,7 @@ public:
 	~NPC();
 	std::map<std::string, std::string> textures;
 	void interact() override;
+	void updatePositions(int x, int y) override;
 protected:
 	std::string sfxPath;
 private:

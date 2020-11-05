@@ -58,6 +58,7 @@ void GameManager::registerBehaviourObjects()
 		{
 			this->objects.emplace_back(n);
 		}
+		this->objects.emplace_back(o.second.get());
 	}
 	
 	for (auto& o : playerManager.get()->sprites)
