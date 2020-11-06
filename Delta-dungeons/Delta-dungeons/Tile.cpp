@@ -10,6 +10,9 @@ Tile::Tile() {}
 /// <param name="xImage">Specific horizontal image location of tile png</param>
 Tile::Tile(int x, int y, int xImage, bool collider)
 {
+	originX = x * 64;
+	originY = y * 64;
+
 	this->transform.scale.multiply({ 2, 2 });
 	transform.position.x = x * 64;
 	transform.position.y = y * 64;
@@ -26,6 +29,8 @@ Tile::Tile(int x, int y, int xImage, bool collider)
 
 Tile::Tile(int x, int y, int yImage, int xImage, bool collider)
 {
+	originX = x * 64;
+	originY = y * 64;
 	this->transform.scale.multiply({ 2, 2 });
 	transform.position.x = x * 64;
 	transform.position.y = y * 64;

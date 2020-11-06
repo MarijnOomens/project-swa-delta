@@ -28,8 +28,8 @@ Player::Player(const cbCamera f, const cbTile cbTile, void* p): func(f), tileFun
 	baseMovementSpeed = 32;
 	runActivated = false;
 
-	this->transform.position.x = 512;
-	this->transform.position.y = 384;
+	this->transform.position.x = 64;
+	this->transform.position.y = 64;
 	x = this->transform.position.x;
 	y = this->transform.position.y;
 
@@ -59,15 +59,35 @@ Player::~Player()
 /// <param name="keyboardEvent">KeyboardEvent will decide if handleKeyPressed or handleKeyReleased will be used</param>
 void Player::handleInput(const KeyCodes keyCodes, const KeyboardEvent keyboardEvent)
 {
-	tileFunc(pointer, transform.position.x, transform.position.y);
-	if (keyboardEvent == KeyboardEvent::KEY_PRESSED)
-	{
-		handleKeyPressed(keyCodes);
+	if (keyboardEvent == KeyboardEvent::KEY_PRESSED) {
+		if (KeyCodes::KEY_UP == keyCodes) {
+			tileFunc(pointer, x, y - 32);
+		}
+		else if (KeyCodes::KEY_LEFT == keyCodes) {
+			tileFunc(pointer, x - 32, y);
+		}
+		else if (KeyCodes::KEY_RIGHT == keyCodes) {
+			tileFunc(pointer, x + 32, y);
+		}
+		else if (KeyCodes::KEY_DOWN == keyCodes) {
+			tileFunc(pointer, x, y + 32);
+		}
 	}
-	else if (keyboardEvent == KeyboardEvent::KEY_RELEASED)
-	{
-		handleKeyReleased(keyCodes);
+
+	if (!foundTileCollision) {
+		if (keyboardEvent == KeyboardEvent::KEY_PRESSED)
+		{
+			handleKeyPressed(keyCodes);
+
+		}
+		else if (keyboardEvent == KeyboardEvent::KEY_RELEASED)
+		{
+			handleKeyReleased(keyCodes);
+		}
 	}
+
+
+	foundTileCollision = false;
 }
 
 /// <summary>

@@ -41,11 +41,14 @@ std::vector<std::shared_ptr<Tile>> Scene::makeTiles(std::vector<std::shared_ptr<
 		int first = tile.get()->tileId[0] - 48;
 		if (tile.get()->tileId[1]) {
 			int second = tile.get()->tileId[1] - 48;
-			tileMap.push_back(std::make_shared<Tile>(std::stoi(tile.get()->x), std::stoi(tile.get()->y), first, second, tile.get()->isCollider));
+			bool isCollider = tile.get()->isCollider;
+
+			tileMap.push_back(std::make_shared<Tile>(std::stoi(tile.get()->x), std::stoi(tile.get()->y), first, second, isCollider));
 		}
 		else
 		{
-			tileMap.push_back(std::make_shared<Tile>(std::stoi(tile.get()->x), std::stoi(tile.get()->y), first, tile.get()->isCollider));
+			bool isCollider = tile.get()->isCollider;
+			tileMap.push_back(std::make_shared<Tile>(std::stoi(tile.get()->x), std::stoi(tile.get()->y), first, isCollider));
 		}
 	}
 	return tileMap;
@@ -60,26 +63,35 @@ std::map<std::string, std::string> Scene::passTextures() const
 
 void Scene::checkCollision(int xPos, int yPos) {
 
-	//for (int x = 0; x < tileMap.size(); x++)
-	//{
-	//	std::cout << tileMap.at(x).get()->transform.position.x << std::endl;
-	//	std::cout << tileMap.at(x).get()->transform.position.x << std::endl;
 
-	//	break;
-	//}
+	//std::cout << "predicted player x " << xPos << std::endl;
+	//std::cout << "predicted player y " << yPos << std::endl;
 
 	for (int x = 0; x < tileMap.size(); x++)
 	{
-		int tileX = tileMap.at(x).get()->transform.position.x;
-		int tileY = tileMap.at(x).get()->transform.position.y;
+		int tileX = tileMap.at(x).get()->originX;
+		int tileY = tileMap.at(x).get()->originY;
+		bool isCollider = tileMap.at(x).get()->isCollider;
+
 		if (xPos == tileX && yPos == tileY)
 		{
-			std::cout << tileX << std::endl;
-			std::cout << tileY << std::endl;
+			std::cout << "predicted player x " << xPos << std::endl;
+			std::cout << "predicted player y " << yPos << std::endl;
+			std::cout << "tile x" << tileX << std::endl;
+			std::cout << "tile y" << tileY << std::endl;
+			std::cout << "tile collider" << isCollider << std::endl;
+			std::cout << "---------------" << isCollider << std::endl;
 
-		std::cout << "we in checkcollision" << std::endl;
-			func(pointer);
-			break;
+
+			if (isCollider) {
+				std::cout << tileX << std::endl;
+				std::cout << tileY << std::endl;
+
+				std::cout << "we in checkcollision" << std::endl;
+				func(pointer);
+				break;
+			}
+
 		}
 	}
 }
