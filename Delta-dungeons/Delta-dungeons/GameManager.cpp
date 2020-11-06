@@ -5,7 +5,9 @@
 /// </summary>
 GameManager::GameManager()
 {
-	engineFacade.init();
+	engineFacade = std::make_shared<EngineFacade>();
+	engineFacade->init();
+	SceneLoader::getInstance().setEngineFacade(engineFacade);
 
 	uiManager.createBaseScreens();
 	registerTextures(uiManager.passTextures());
@@ -19,7 +21,7 @@ GameManager::GameManager()
 
 	registerBehaviourObjects();
 	//engineFacade.createCamera(playerManager.player.get()->transform.position.x, playerManager.player.get()->transform.position.y);
-	engineFacade.startGame();
+	engineFacade->startGame();
 }
 
 GameManager::~GameManager() {}
@@ -32,13 +34,14 @@ void GameManager::registerBehaviourObjects()
 	for (auto& o : uiManager.screens)
 	{
 		std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects;
+		behaviourObjects.emplace_back(o.second);
 
 		for (auto& c : o.second.get()->getComponentsRecursive())
 		{
 			behaviourObjects.emplace_back(c);
-
 		}
-		this->scenes.try_emplace(o.first, behaviourObjects);
+
+		engineFacade->registerScene(o.first, behaviourObjects);
 	}
 
 	//for (auto& t : scene.getComponentsRecursive())
@@ -56,19 +59,10 @@ void GameManager::registerBehaviourObjects()
 
 	//this->objects.emplace_back(playerManager.getPlayerObject());
 
-	for (auto& s : scenes)
-	{
-		engineFacade.registerScene(s.first, s.second);
-	}
 
-	engineFacade.loadScene("Credits");
-
+	engineFacade->loadScene("MainMenu");
 }
 
-void GameManager::loadScene(std::string sceneName)
-{
-	engineFacade.loadScene(sceneName);
-}
 
 
 /// <summary>
@@ -76,7 +70,7 @@ void GameManager::loadScene(std::string sceneName)
 /// </summary>
 void GameManager::registerTextures(std::map<std::string, std::string> textures)
 {
-	engineFacade.registerTextures(textures);
+	engineFacade->registerTextures(textures);
 }
 
 void GameManager:: staticCameraCallbackFunction(void* p, int x, int y) 
@@ -86,12 +80,12 @@ void GameManager:: staticCameraCallbackFunction(void* p, int x, int y)
 
 void GameManager::passPlayerPosition(int x, int y)
 {
-	engineFacade.passPlayerPosition(x, y);
+	engineFacade->passPlayerPosition(x, y);
 }
 /// <summary>
 /// This methods gives the engineFacade all fonts to give to the engine.
 /// </summary>
 void GameManager::registerFonts(std::map<std::string, std::string> fonts)
 {
-	engineFacade.registerFonts(fonts);
+	engineFacade->registerFonts(fonts);
 }

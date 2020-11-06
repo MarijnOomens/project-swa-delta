@@ -40,3 +40,14 @@ void CreditScreen::closeScreen()
 {
 
 }
+
+void CreditScreen::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent)
+{
+	if (keyboardEvent == KeyboardEvent::KEY_PRESSED)
+	{
+		if (keyCode == KeyCodes::KEY_S)
+		{
+			SceneLoader::getInstance().loadScene("MainMenu");
+		}
+	}
+}

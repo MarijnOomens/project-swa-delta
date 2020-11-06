@@ -41,5 +41,7 @@ private:
 	std::shared_ptr<Input> input;
 	SceneManager sceneManager;
 
+	bool isSceneSwitched = false;
+
 	void initRenderer(const char* title, int width, int height, bool fullscreen);
 };

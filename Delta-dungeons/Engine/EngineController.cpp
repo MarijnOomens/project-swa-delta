@@ -45,9 +45,13 @@ void EngineController::staticInputCallbackFunction(void* p, const KeyCodes keyCo
 /// <param name="keyboardEvent">The key that is read, like 'W'.</param>
 void EngineController::inputCallbackFunction(const KeyCodes keyCode, const KeyboardEvent keyboardEvent)
 {
+	isSceneSwitched = false;
 	for (auto& gameObject : behaviourObjects)
 	{
-		gameObject.get()->handleInput(keyCode, keyboardEvent);
+		if (!isSceneSwitched)
+		{
+			gameObject.get()->handleInput(keyCode, keyboardEvent);
+		}
 	}
 }
 #pragma endregion Input handling
@@ -128,6 +132,7 @@ void EngineController::registerScene(std::string sceneName, std::vector<std::sha
 
 void EngineController::loadScene(std::string sceneName)
 {
+	isSceneSwitched = true;
 	behaviourObjects = sceneManager.loadScene(sceneName);
 }
 
