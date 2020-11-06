@@ -1,10 +1,9 @@
 #pragma once
-#include "Equipment.h"
 
-class Berry : Equipment
+#include "IEquipment.h"
+
+class Berry : IEquipment
 {
-
 private:
 	int catchChanceIncrease;
-
 };

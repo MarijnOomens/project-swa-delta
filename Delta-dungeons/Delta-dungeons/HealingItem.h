@@ -1,10 +1,9 @@
 #pragma once
-#include "Equipment.h"
 
-class HealingItem : Equipment
+#include "IEquipment.h"
+
+class HealingItem : IEquipment
 {
-
 private:
 	int healHealth;
-
 };

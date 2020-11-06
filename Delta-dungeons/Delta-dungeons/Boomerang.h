@@ -1,10 +1,11 @@
 #pragma once
-#include "Equipment.h"
 
-class Boomerang : Equipment
+#include "IEquipment.h"
+
+class Boomerang : public IEquipment
 {
-
+public:
+	void use() override;
 private:
 	bool isActivated;
-
 };

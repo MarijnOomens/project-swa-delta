@@ -78,13 +78,13 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <LibraryPath>$(SolutionDir)Dependencies\SDL2\lib\x64;$(SolutionDir)Dependencies\SDL2_image\lib\x64;$(LibraryPath)</LibraryPath>
-    <IncludePath>$(SolutionDir)Dependencies\SDL2\include;$(SolutionDir)Dependencies\SDL2_image\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Dependencies\SDL2\lib\x64;$(SolutionDir)Dependencies\SDL2_ttf\lib\x64;$(SolutionDir)Dependencies\SDL2_image\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)Dependencies\SDL2\include;$(SolutionDir)Dependencies\SDL2_ttf\include;$(SolutionDir)Dependencies\SDL2_image\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <LibraryPath>$(SolutionDir)Dependencies\SDL2\lib\x64;$(SolutionDir)Dependencies\SDL2_image\lib\x64;$(LibraryPath)</LibraryPath>
-    <IncludePath>$(SolutionDir)Dependencies\SDL2\include;$(SolutionDir)Dependencies\SDL2_image\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\Dependencies\SDL2_ttf\lib\x64;$(SolutionDir)Dependencies\SDL2\lib\x64;$(SolutionDir)Dependencies\SDL2_image\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)\Dependencies\SDL2_ttf\include;$(SolutionDir)Dependencies\SDL2\include;$(SolutionDir)Dependencies\SDL2_image\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -120,13 +120,17 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Engine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>sdl2.lib;sdl2main.lib;sdl2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Engine.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)$(IntDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /y/d "$(SolutionDir)$(IntDir)Engine.dll" "$(SolutionDir)Delta-dungeons\$(IntDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -136,97 +140,80 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Engine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>sdl2.lib;sdl2main.lib;sdl2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Engine.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)$(IntDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /y/d "$(SolutionDir)$(IntDir)Engine.dll" "$(SolutionDir)Delta-dungeons\$(IntDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AudioWrapper.cpp" />
-    <ClCompile Include="BehaviourComponent.cpp" />
     <ClCompile Include="Berry.cpp" />
     <ClCompile Include="Boomerang.cpp" />
     <ClCompile Include="Button.cpp" />
-    <ClCompile Include="ColliderComponent.cpp" />
     <ClCompile Include="CreditScreen.cpp" />
     <ClCompile Include="DialoguePopup.cpp" />
-    <ClCompile Include="DrawController.cpp" />
-    <ClCompile Include="EngineController.cpp" />
-    <ClCompile Include="Equipment.cpp" />
+    <ClCompile Include="EngineFacade.cpp" />
     <ClCompile Include="EquipmentManager.cpp" />
-    <ClCompile Include="FrameManager.cpp" />
     <ClCompile Include="GameManager.cpp" />
-    <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="GameObjectBuilder.cpp" />
     <ClCompile Include="GameOverScreen.cpp" />
-    <ClCompile Include="GraphicsComponent.cpp" />
     <ClCompile Include="HealingItem.cpp" />
     <ClCompile Include="HelpScreen.cpp" />
     <ClCompile Include="HUD.cpp" />
-    <ClCompile Include="HUDComponent.cpp" />
-    <ClCompile Include="Input.cpp" />
-    <ClCompile Include="InputFacade.cpp" />
-    <ClCompile Include="InputWrapper.cpp" />
+    <ClCompile Include="IEquipment.h" />
     <ClCompile Include="InteractiveManager.cpp" />
     <ClCompile Include="InteractiveObject.cpp" />
-    <ClCompile Include="JSONSceneParser.cpp" />
-    <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="NPC.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="NPCManager.cpp" />
     <ClCompile Include="PauseScreen.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerManager.cpp" />
     <ClCompile Include="Pokeball.cpp" />
     <ClCompile Include="Pokemon.cpp" />
     <ClCompile Include="PuzzleObject.cpp" />
-    <ClCompile Include="Rectangle.cpp" />
-    <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Runningshoes.cpp" />
+    <ClCompile Include="ParserData.cpp" />
+    <ClCompile Include="XMLFacade.cpp" />
+    <ClCompile Include="XMLParser.cpp" />
+    <ClCompile Include="XMLSceneParser.cpp" />
     <ClCompile Include="Scene.cpp" />
-    <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Screen.cpp" />
-    <ClCompile Include="RenderFacade.cpp" />
-    <ClCompile Include="Sound.cpp" />
-    <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="TileMap.cpp" />
-    <ClCompile Include="Transform.cpp" />
     <ClCompile Include="UIManager.cpp" />
-    <ClCompile Include="Vector2D.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AudioWrapper.h" />
-    <ClInclude Include="BehaviourObject.h" />
     <ClInclude Include="Berry.h" />
     <ClInclude Include="Boomerang.h" />
     <ClInclude Include="Button.h" />
-    <ClInclude Include="ColliderComponent.h" />
     <ClInclude Include="Creditscreen.h" />
     <ClInclude Include="DialoguePopup.h" />
-    <ClInclude Include="DrawController.h" />
-    <ClInclude Include="EngineController.h" />
-    <ClInclude Include="Equipment.h" />
+    <ClInclude Include="EngineFacade.h" />
     <ClInclude Include="EquipmentManager.h" />
-    <ClInclude Include="FrameManager.h" />
     <ClInclude Include="GameManager.h" />
-    <ClInclude Include="GameObject.h" />
+    <ClInclude Include="GameObjectBuilder.h" />
     <ClInclude Include="GameOverScreen.h" />
-    <ClInclude Include="GraphicsComponent.h" />
     <ClInclude Include="HealingItem.h" />
     <ClInclude Include="HelpScreen.h" />
     <ClInclude Include="HUD.h" />
-    <ClInclude Include="HUDComponent.h" />
-    <ClInclude Include="IInputFacade.h" />
-    <ClInclude Include="Input.h" />
-    <ClInclude Include="InputFacade.h" />
-    <ClInclude Include="InputWrapper.h" />
+    <ClInclude Include="NPCManager.h" />
+    <ClInclude Include="ParserData.h" />
+    <ClInclude Include="PlayerManager.h" />
+    <ClInclude Include="XMLFacade.h" />
+    <ClInclude Include="XMLParser.h" />
+    <ClInclude Include="XMLSceneParser.h" />
     <ClInclude Include="InteractiveManager.h" />
     <ClInclude Include="InteractiveObject.h" />
-    <ClInclude Include="JSONSceneParser.h" />
-    <ClInclude Include="Keycodes.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="NPC.h" />
     <ClInclude Include="PauseScreen.h" />
@@ -234,21 +221,16 @@
     <ClInclude Include="Pokeball.h" />
     <ClInclude Include="Pokemon.h" />
     <ClInclude Include="PuzzleObject.h" />
-    <ClInclude Include="Rectangle.h" />
-    <ClInclude Include="Renderer.h" />
+    <ClInclude Include="rapidxml.hpp" />
+    <ClInclude Include="rapidxml_iterators.hpp" />
+    <ClInclude Include="rapidxml_print.hpp" />
+    <ClInclude Include="rapidxml_utils.hpp" />
     <ClInclude Include="Runningshoes.h" />
     <ClInclude Include="Scene.h" />
-    <ClInclude Include="SceneManager.h" />
-    <ClInclude Include="SceneParser.h" />
     <ClInclude Include="Screen.h" />
-    <ClInclude Include="RenderFacade.h" />
-    <ClInclude Include="Sound.h" />
-    <ClInclude Include="TextureManager.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="TileMap.h" />
-    <ClInclude Include="Transform.h" />
     <ClInclude Include="UIManager.h" />
-    <ClInclude Include="Vector2D.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,16 +1,33 @@
 #pragma once
-#include "GameObject.h"
-#include <list>
-#include <iostream>
-#include <array>;
-#include <vector>;
 
-class Scene {
-public: 
+#include "ParserData.h"
+#include "Tile.h"
+#include <array>
+#include <iostream>
+#include <list>
+#include <vector>
+
+class Scene : public GameObject
+{
+public:
+	std::vector<std::shared_ptr<Tile>> tileMap;
+
+	Scene();
 	Scene(int x, int y);
+	~Scene();
+
+	void addGraphics();
+	std::vector<std::shared_ptr<Tile>> makeTiles(std::vector<std::shared_ptr<ParserData>> data);
+	std::map<std::string, std::string> passTextures() const;
+
+	void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) override;
+	void connectCallback() override; //Add callbackfunction
+	void callbackFunction() override;
+	void update() override;
+	void updatePositions(int x, int y)override;
 
 private:
 	int x;
 	int y;
-	std::vector<std::vector<GameObject>> tileMap;
+	
 };

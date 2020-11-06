@@ -1,10 +1,18 @@
 #pragma once
-#include "Equipment.h"
 
-class Runningshoes: Equipment 
+#include "IEquipment.h"
+typedef void(*cbFunction) (void*, bool);
+
+class Runningshoes: public IEquipment 
 {
+public: 
+	cbFunction func;
+	void* pointer;
+	bool isActivated = false;
 
-private:
-	bool isActivated;
+	Runningshoes();
+	Runningshoes(const cbFunction f, void* p);
+	~Runningshoes();
 
+	void use() override;
 };

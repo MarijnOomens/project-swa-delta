@@ -2,8 +2,6 @@
 
 class EquipmentManager
 {
-
 public:
 	void createBaseEquipment();
-
 };
