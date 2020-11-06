@@ -4,15 +4,19 @@
 #include "GameObject.h"
 #include "GraphicsComponent.h"
 typedef void(*cbCamera) (void*,int,int);
+typedef void(*cbTile) (void*, int, int);
+
 
 class Player : public GameObject {
 public:
 	std::map<std::string, std::string> textures;
 	std::string texture;
 	cbCamera func;
+	cbTile tileFunc;
 	void* pointer;
-
-	Player(const cbCamera f, void* p);
+	bool tileCollision;
+	Player();
+	Player(const cbCamera f, const cbTile cbTile, void* p);
 	~Player();
 
 	void handleInput(const KeyCodes keyCodes, const KeyboardEvent keyboardEvent) override;
@@ -29,19 +33,22 @@ public:
 	static void staticEquipmentCallbackFunction(void* p, const bool runningActivated);
 	void equipmentCallbackFunction(const bool runningActivated);
 
+	static void staticTileCallbackFunction(void* p);
+
 	void damagePlayer(int damage);
 	void updateCaughtPokemon(int pokemonId);
 	void callbackFunction() override;
 	void connectCallback() override;
 	void update() override;
 	void updatePositions(int x, int y) override;
-
+	void setToTrue();
 private:
 	int health;
 	int amountCaught;
 	int baseMovementSpeed;
 	int x, y;
 
+	bool foundTileCollision;
 	bool runActivated;
 	std::vector<int> pokemonCaught;
 	std::vector<std::shared_ptr<IEquipment>> equipment;

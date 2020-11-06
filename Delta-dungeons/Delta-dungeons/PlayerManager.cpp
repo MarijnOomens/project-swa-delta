@@ -14,9 +14,9 @@ PlayerManager::~PlayerManager()
 
 }
 
-void PlayerManager::createPlayer(cbCamera cb, void* p)
+void PlayerManager::createPlayer(cbCamera cb, cbCheckCollision tileCB, void* p)
 {
-	player = std::make_shared<Player>(cb, p);
+	player = std::make_shared<Player>(cb, tileCB, p);
 	sprites.try_emplace("Player", player);
 }
 
@@ -28,6 +28,10 @@ std::map<std::string, std::string> PlayerManager::passTextures() const
 {
     std::map<std::string, std::string> texture = sprites.begin()->second.get()->textures;
     return texture;
+}
+
+void PlayerManager::setCollisionToTrue() {
+	player.get()->setToTrue();
 }
 
 /// <summary>

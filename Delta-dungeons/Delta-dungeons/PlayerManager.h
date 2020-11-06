@@ -5,6 +5,7 @@
 
 #include "Player.h"
 typedef void(*cbCamera) (void*, int, int);
+typedef void(*cbCheckCollision) (void*, int, int);
 
 class PlayerManager
 {
@@ -16,8 +17,8 @@ public:
 	std::map<std::string, std::shared_ptr<Player>> sprites;
 	std::shared_ptr<Player> player;
 	
-	void createPlayer(cbCamera cb, void* p);
-
+	void createPlayer(cbCamera cb, cbCheckCollision tileCB, void* p);
+	void setCollisionToTrue();
 	std::shared_ptr<Player> getPlayerObject();
 	std::map<std::string, std::string> passTextures() const;
 };

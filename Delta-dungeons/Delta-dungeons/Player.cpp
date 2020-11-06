@@ -17,7 +17,7 @@ const int animationSpeed = 120;
 /// Defines the movementspeed and the runactivated bool
 /// Creates the graphicscomponent for the player sprite and saves the texturename and png location, width, height
 /// </summary>
-Player::Player(const cbCamera f, void* p): func(f), pointer(p)
+Player::Player(const cbCamera f, const cbTile cbTile, void* p): func(f), tileFunc(cbTile), pointer(p)
 {
 	std::shared_ptr<Runningshoes> running = std::make_shared<Runningshoes>(staticEquipmentCallbackFunction, this);
 	std::shared_ptr<Boomerang> boomerang = std::make_shared<Boomerang>();
@@ -59,6 +59,7 @@ Player::~Player()
 /// <param name="keyboardEvent">KeyboardEvent will decide if handleKeyPressed or handleKeyReleased will be used</param>
 void Player::handleInput(const KeyCodes keyCodes, const KeyboardEvent keyboardEvent)
 {
+	tileFunc(pointer, transform.position.x, transform.position.y);
 	if (keyboardEvent == KeyboardEvent::KEY_PRESSED)
 	{
 		handleKeyPressed(keyCodes);
@@ -225,6 +226,18 @@ void Player::equipmentCallbackFunction(const bool runningActivated)
 		std::cout << " runningshoes disabled" << std::endl;
 	}
 	//std::cout << runningActivated << " runningshoes" << std::endl;
+}
+
+void Player::staticTileCallbackFunction(void* p)
+{
+	//std::cout << "whassap" << std::endl;
+	((Player*)p)->setToTrue();
+
+}
+
+void Player::setToTrue()
+{
+	foundTileCollision = true;
 }
 
 void Player::damagePlayer(int damage) 

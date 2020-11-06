@@ -14,7 +14,7 @@ GameManager::GameManager()
 	registerFonts(uiManager.passFonts());
 
 	playerManager = std::make_shared<PlayerManager>();
-	playerManager.get()->createPlayer(staticCameraCallbackFunction, this);
+	playerManager.get()->createPlayer(staticCameraCallbackFunction, staticPlayerToTileCallbackFunction, this);
 	registerTextures(playerManager.get()->passTextures());
 
 	npcManager = NPCManager();
@@ -22,7 +22,7 @@ GameManager::GameManager()
 	registerTextures(npcManager.passTextures());
 	
 
-	scene = Scene();	
+	scene = Scene(staticTileToPlayerCallbackFunction, this);
 	scene.addGraphics();
 	registerTextures(scene.passTextures());
 	
@@ -84,7 +84,7 @@ void GameManager::registerTextures(std::map<std::string, std::string> textures)
 	engineFacade.registerTextures(textures);
 }
 
-void GameManager:: staticCameraCallbackFunction(void* p, int x, int y) 
+void GameManager::staticCameraCallbackFunction(void* p, int x, int y) 
 {
 	((GameManager*)p)->passPlayerPosition(x, y);
 }
@@ -99,4 +99,22 @@ void GameManager::passPlayerPosition(int x, int y)
 void GameManager::registerFonts(std::map<std::string, std::string> fonts)
 {
 	engineFacade.registerFonts(fonts);
+}
+
+void GameManager::staticTileToPlayerCallbackFunction(void* p) {
+	((GameManager*)p)->tileToPlayerCallbackFunction();
+}
+
+void GameManager::tileToPlayerCallbackFunction() {
+	playerManager.get()->setCollisionToTrue();
+}
+
+
+void GameManager::staticPlayerToTileCallbackFunction(void* p, int x, int y)
+{
+	((GameManager*)p)->playerToTileCallbackFunction(x, y);
+}
+
+void GameManager::playerToTileCallbackFunction(int x, int y) {
+	scene.checkCollision(x, y);
 }

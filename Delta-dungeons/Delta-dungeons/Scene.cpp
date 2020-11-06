@@ -8,6 +8,10 @@
 
 Scene::Scene() {}
 
+Scene::Scene(const cbTileToPlayer f, void* p) : func(f), pointer(p) {}
+
+
+
 Scene::Scene(int x, int y) : x(x), y(y) {};
 
 Scene::~Scene() {}
@@ -52,6 +56,32 @@ std::map<std::string, std::string> Scene::passTextures() const
 	std::map<std::string, std::string> texture;
 	texture.try_emplace("Level1", "Assets/Level1_terrain.png");
 	return texture;
+}
+
+void Scene::checkCollision(int xPos, int yPos) {
+
+	//for (int x = 0; x < tileMap.size(); x++)
+	//{
+	//	std::cout << tileMap.at(x).get()->transform.position.x << std::endl;
+	//	std::cout << tileMap.at(x).get()->transform.position.x << std::endl;
+
+	//	break;
+	//}
+
+	for (int x = 0; x < tileMap.size(); x++)
+	{
+		int tileX = tileMap.at(x).get()->transform.position.x;
+		int tileY = tileMap.at(x).get()->transform.position.y;
+		if (xPos == tileX && yPos == tileY)
+		{
+			std::cout << tileX << std::endl;
+			std::cout << tileY << std::endl;
+
+		std::cout << "we in checkcollision" << std::endl;
+			func(pointer);
+			break;
+		}
+	}
 }
 
 void Scene::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) {}
