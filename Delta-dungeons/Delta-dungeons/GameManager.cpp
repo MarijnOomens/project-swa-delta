@@ -39,14 +39,6 @@ GameManager::~GameManager() {}
 /// </summary>
 void GameManager::registerBehaviourObjects()
 {
-	for (auto& o : uiManager.screens)
-	{
-		for (auto& c : o.second.get()->getComponentsRecursive())
-		{
-			this->objects.emplace_back(c);
-		}
-	}
-
 	for (auto& t : scene.getComponentsRecursive())
 	{
 		this->objects.emplace_back(t);
@@ -71,7 +63,13 @@ void GameManager::registerBehaviourObjects()
 
 	this->objects.emplace_back(playerManager.get()->getPlayerObject());
 
-
+	for (auto& o : uiManager.screens)
+	{
+		for (auto& c : o.second.get()->getComponentsRecursive())
+		{
+			this->objects.emplace_back(c);
+		}
+	}
 
 	engineFacade.registerBehaviourObjects(objects);
 }

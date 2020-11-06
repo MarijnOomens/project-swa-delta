@@ -5,6 +5,7 @@
 #include <string>
 #include "MainMenu.h"
 #include "Creditscreen.h"
+#include "PauseScreen.h"
 
 class UIManager {
 public:
