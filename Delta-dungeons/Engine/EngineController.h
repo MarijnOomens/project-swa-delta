@@ -29,7 +29,7 @@ public:
 	ENGINE_API void startGame();
 	ENGINE_API void createCamera(int x, int y);
 	ENGINE_API void passPlayerPosition(int x, int y);
-	void updatePositions(int cameraX, int cameraY);
+	ENGINE_API void updateAllPositions(int cameraX, int cameraY);
 
 private:
 	std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects;
