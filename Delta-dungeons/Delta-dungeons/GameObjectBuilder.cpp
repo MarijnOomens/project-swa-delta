@@ -21,6 +21,6 @@ std::shared_ptr<Pokemon> GameObjectBuilder::getPokemon(int x, int y, std::string
 
 std::shared_ptr<NPC> GameObjectBuilder::getNPC(int x, int y, std::string name) {
 	std::shared_ptr<NPC> npc = std::make_shared<NPC>(x, y, name);
-	npc->textures.try_emplace(name, "Assets/" + name + "_anims.png");
+	npc->textures.try_emplace(name, "Assets/NPC/" + name + "_anims.png");
 	return npc;
 }

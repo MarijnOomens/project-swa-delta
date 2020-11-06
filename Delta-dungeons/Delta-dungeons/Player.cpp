@@ -34,11 +34,12 @@ Player::Player(const cbCamera f, void* p): func(f), pointer(p)
 	y = this->transform.position.y;
 
 
-	this->textures.try_emplace("player", "Assets/player_anims.png");
-	this->texture = "player";
+	this->textures.try_emplace("player_m", "Assets/player_m_anims.png");
+	this->textures.try_emplace("player_f", "Assets/player_f_anims.png");
+	this->texture = "player_m";
 
 	m_gc = std::make_shared<GraphicsComponent>();
-	m_gc->setTexture("player");
+	m_gc->setTexture("player_m");
 	m_gc.get()->transform = this->transform;
 	m_gc->imageDimensions = { 32, 32 };
 	m_gc->transform.scale.multiply({ 4, 4 });
@@ -98,13 +99,13 @@ void Player::handleKeyPressed(const KeyCodes keyCodes)
 		std::cout << "Interaction button pressed..." << std::endl;
 		break;
 	case KeyCodes::KEY_G:
-		if (this->texture == "player") {
-			m_gc->setTexture("npc");
+		if (this->texture == "player_m") {
+			m_gc->setTexture("player_f");
 			this->texture = "npc";
 		}
 		else {
-			m_gc->setTexture("player");
-			this->texture = "player";
+			m_gc->setTexture("player_m");
+			this->texture = "player_m";
 		}
 		break;
 	default:
