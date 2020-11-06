@@ -159,3 +159,8 @@ std::tuple<int, int> RenderFacade::passPlayerPosition(int x, int y)
 {
 	return RenderFacade::renderer->updateCamera(x, y);
 }
+
+void RenderFacade::quitGame()
+{
+	renderer.get()->quitGame();
+}

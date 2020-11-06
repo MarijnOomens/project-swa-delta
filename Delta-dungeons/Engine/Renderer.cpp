@@ -90,9 +90,11 @@ void Renderer::clean()
 /// <summary>
 /// This method pauzes the game.
 /// </summary>
-void Renderer::stop()
+void Renderer::quitGame()
 {
 	isRunning = false;
+	clean();
+	exit(0);
 }
 
 /// <summary>
