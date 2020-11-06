@@ -44,6 +44,7 @@ void Renderer::init(const char* title, int width, int height, bool fullscreen) {
 				throw("Failed to create Render!");
 			}
 			isRunning = true;
+			isPaused = false;
 		}
 		else {
 			throw("Subsystems are not initialised!");
@@ -85,6 +86,11 @@ void Renderer::clean()
 	SDL_DestroyRenderer(sdlRenderer);
 	SDL_Quit();
 	std::cout << "Game Cleaned" << std::endl;
+}
+
+void Renderer::pauseGame()
+{
+	isPaused = !isPaused;
 }
 
 /// <summary>

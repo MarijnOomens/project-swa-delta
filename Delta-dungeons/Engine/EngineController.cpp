@@ -57,6 +57,10 @@ void EngineController::inputCallbackFunction(const KeyCodes keyCode, const Keybo
 	{
 		renderFacade.get()->quitGame();
 	}
+	else if (keyCode == KeyCodes::KEY_P)
+	{
+		renderFacade.get()->pauseGame();
+	}
 	else {
 		for (auto& gameObject : behaviourObjects)
 		{
@@ -102,12 +106,13 @@ void EngineController::startGame()
 	while (renderFacade->renderer->isRunning) {
 
 		renderFacade->setFrameStart();
-		renderFacade->beforeFrame();
 
-		input.get()->handleInput();
-
-		EngineController::update(behaviourObjects);
-
+		input.get()->handleInput(renderFacade->renderer->isPaused);
+		if (!renderFacade->renderer->isPaused) 
+		{
+			renderFacade->beforeFrame();
+			EngineController::update(behaviourObjects);
+		}
 		renderFacade->afterFrame();
 
 		renderFacade->setFrameDelay();

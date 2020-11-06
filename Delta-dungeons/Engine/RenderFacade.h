@@ -35,5 +35,6 @@ public:
 	void afterFrame();
 	void createCamera(int x, int y);
 	void quitGame();
+	void pauseGame();
 	std::tuple<int, int> passPlayerPosition(int x, int y);
 };

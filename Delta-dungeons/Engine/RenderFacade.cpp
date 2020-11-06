@@ -164,3 +164,8 @@ void RenderFacade::quitGame()
 {
 	renderer.get()->quitGame();
 }
+
+void RenderFacade::pauseGame()
+{
+	renderer.get()->pauseGame();
+}
