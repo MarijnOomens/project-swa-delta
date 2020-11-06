@@ -41,15 +41,13 @@ std::vector<std::shared_ptr<Tile>> Scene::makeTiles(std::vector<std::shared_ptr<
 		int first = tile.get()->tileId[0] - 48;
 		if (tile.get()->tileId[1]) {
 			int second = tile.get()->tileId[1] - 48;
-			bool isCollider = tile.get()->isCollider;
-
-			tileMap.push_back(std::make_shared<Tile>(std::stoi(tile.get()->x), std::stoi(tile.get()->y), first, second, isCollider));
+			tileMap.push_back(std::make_shared<Tile>(std::stoi(tile.get()->x), std::stoi(tile.get()->y), first, second, tile.get()->isCollider));
 		}
 		else
 		{
-			bool isCollider = tile.get()->isCollider;
-			tileMap.push_back(std::make_shared<Tile>(std::stoi(tile.get()->x), std::stoi(tile.get()->y), first, isCollider));
+			tileMap.push_back(std::make_shared<Tile>(std::stoi(tile.get()->x), std::stoi(tile.get()->y), first, tile.get()->isCollider));
 		}
+
 	}
 	return tileMap;
 }

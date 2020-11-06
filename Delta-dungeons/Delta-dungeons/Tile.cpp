@@ -31,6 +31,7 @@ Tile::Tile(int x, int y, int yImage, int xImage, bool collider)
 {
 	originX = x * 64;
 	originY = y * 64;
+	isCollider = collider;
 	this->transform.scale.multiply({ 2, 2 });
 	transform.position.x = x * 64;
 	transform.position.y = y * 64;
