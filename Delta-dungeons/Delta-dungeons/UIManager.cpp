@@ -13,7 +13,7 @@ void UIManager::createBaseScreens() {
 	//screens.try_emplace("Credits", credits);
 
 	std::shared_ptr<PauseScreen> pause = std::make_shared<PauseScreen>();
-	screens.try_emplace("Pause", pause);
+	//screens.try_emplace("Pause", pause);
 }
 
 void UIManager::updateHudHealth(int) {}
