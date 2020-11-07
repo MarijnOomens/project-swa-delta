@@ -11,13 +11,12 @@
 
 const int animationSpeed = 120;
 
-
 /// <summary>
 /// Creates the running and boomerang equipments. And added to the equipment vector list.
 /// Defines the movementspeed and the runactivated bool
 /// Creates the graphicscomponent for the player sprite and saves the texturename and png location, width, height
 /// </summary>
-Player::Player(const cbCamera f, const cbTile cbTile, void* p): func(f), tileFunc(cbTile), pointer(p)
+Player::Player(const cbCamera f, const cbTile cbTile, void* p) : func(f), tileFunc(cbTile), pointer(p)
 {
 	std::shared_ptr<Runningshoes> running = std::make_shared<Runningshoes>(staticEquipmentCallbackFunction, this);
 	std::shared_ptr<Boomerang> boomerang = std::make_shared<Boomerang>();
@@ -25,7 +24,7 @@ Player::Player(const cbCamera f, const cbTile cbTile, void* p): func(f), tileFun
 	addEquipment(running);
 	addEquipment(boomerang);
 
-	baseMovementSpeed = 32;
+	baseMovementSpeed = 64;
 	runActivated = false;
 
 	this->transform.position.x = 512;
@@ -48,9 +47,7 @@ Player::Player(const cbCamera f, const cbTile cbTile, void* p): func(f), tileFun
 	this->components.emplace_back(m_gc);
 }
 
-Player::~Player() 
-{
-}
+Player::~Player() {}
 
 /// <summary>
 ///	handleInput receives the keyboard input through keycodes and keyboardevents
@@ -59,34 +56,38 @@ Player::~Player()
 /// <param name="keyboardEvent">KeyboardEvent will decide if handleKeyPressed or handleKeyReleased will be used</param>
 void Player::handleInput(const KeyCodes keyCodes, const KeyboardEvent keyboardEvent)
 {
+	// predicts player next position & tileFunc checks for collision with that coordinate and returns a bool accordingly.
 	if (keyboardEvent == KeyboardEvent::KEY_PRESSED) {
 		if (KeyCodes::KEY_UP == keyCodes) {
-			tileFunc(pointer, x, y - 32);
+			/*if ((y - 32) - y == -32) { tileFunc(pointer, x, y - 32); }
+			else {*/ tileFunc(pointer, x, y - 64); /*}*/
 		}
 		else if (KeyCodes::KEY_LEFT == keyCodes) {
-			tileFunc(pointer, x - 32, y);
+			/*if ((x - 32) - x == -32) { tileFunc(pointer, x - 32, y); }
+			else {*/ tileFunc(pointer, x - 64, y); /*}*/
 		}
 		else if (KeyCodes::KEY_RIGHT == keyCodes) {
-			tileFunc(pointer, x + 32, y);
+			/*if ((x - 32) - x == -32) { tileFunc(pointer, x + 32, y); }
+			else {*/ tileFunc(pointer, x + 64, y); /*}*/
 		}
 		else if (KeyCodes::KEY_DOWN == keyCodes) {
-			tileFunc(pointer, x, y + 32);
+			/*if ((y - 32) - y == -32) { tileFunc(pointer, x, y + 32); }
+			else {*/ tileFunc(pointer, x, y + 64); /*}*/
 		}
 	}
-
 
 	if (keyboardEvent == KeyboardEvent::KEY_PRESSED && !tileCollision)
 	{
 		handleKeyPressed(keyCodes);
 
 	}
+
 	else if (keyboardEvent == KeyboardEvent::KEY_RELEASED)
 	{
 		handleKeyReleased(keyCodes);
 	}
-	
 
-
+	// resets collision for next move with collsion check.
 	tileCollision = false;
 }
 
@@ -166,8 +167,7 @@ void Player::handleKeyReleased(const KeyCodes keyCodes)
 void Player::moveUp()
 {
 	y -= baseMovementSpeed;
-	runActivated ? m_gc->playAnimation(7, 3, animationSpeed, false) :
-		m_gc->playAnimation(2, 4, animationSpeed, false);
+	runActivated ? m_gc->playAnimation(7, 3, animationSpeed, false) : m_gc->playAnimation(2, 4, animationSpeed, false);
 	func(pointer, x, y);
 }
 
@@ -178,8 +178,7 @@ void Player::moveUp()
 void Player::moveDown()
 {
 	y += baseMovementSpeed;
-	runActivated ? m_gc->playAnimation(6, 3, animationSpeed, false) :
-		m_gc->playAnimation(1, 4, animationSpeed, false);
+	runActivated ? m_gc->playAnimation(6, 3, animationSpeed, false) : m_gc->playAnimation(1, 4, animationSpeed, false);
 	func(pointer, x, y);
 }
 
@@ -190,8 +189,7 @@ void Player::moveDown()
 void Player::moveLeft()
 {
 	x -= baseMovementSpeed;
-	runActivated ? m_gc->playAnimation(8, 3, animationSpeed, false) :
-		m_gc->playAnimation(3, 4, animationSpeed, false);
+	runActivated ? m_gc->playAnimation(8, 3, animationSpeed, false) : m_gc->playAnimation(3, 4, animationSpeed, false);
 	func(pointer, x, y);
 }
 
@@ -202,8 +200,7 @@ void Player::moveLeft()
 void Player::moveRight()
 {
 	x += baseMovementSpeed;
-	runActivated ? m_gc->playAnimation(8, 3, animationSpeed, true) :
-		m_gc->playAnimation(3, 4, animationSpeed, true);
+	runActivated ? m_gc->playAnimation(8, 3, animationSpeed, true) : m_gc->playAnimation(3, 4, animationSpeed, true);
 	func(pointer, x, y);
 }
 
@@ -233,13 +230,13 @@ void Player::staticEquipmentCallbackFunction(void* p, const bool runningActivate
 /// <param name="runningActivated">This value will be used to set the runActivated property</param>
 void Player::equipmentCallbackFunction(const bool runningActivated)
 {
-	if (runningActivated) 
+	if (runningActivated)
 	{
 		runActivated = true;
 		baseMovementSpeed = 64;
 		std::cout << " runningshoes enabled" << std::endl;
 	}
-	else 
+	else
 	{
 		runActivated = false;
 		baseMovementSpeed = 32;
@@ -260,24 +257,14 @@ void Player::setToTrue()
 	tileCollision = true;
 }
 
-void Player::damagePlayer(int damage) 
-{
-}
+void Player::damagePlayer(int damage) {}
 
-void::Player::updateCaughtPokemon(int pokemonId) 
-{
-}
+void::Player::updateCaughtPokemon(int pokemonId) {}
 
-void Player::callbackFunction() 
-{
-}
+void Player::callbackFunction() {}
 
-void Player::connectCallback() 
-{
-}
+void Player::connectCallback() {}
 
-void Player::update() 
-{
-}
+void Player::update() {}
 
-void Player::updatePositions(int x, int y){}
+void Player::updatePositions(int x, int y) {}

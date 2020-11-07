@@ -109,7 +109,6 @@ void GameManager::tileToPlayerCallbackFunction() {
 	playerManager.get()->setCollisionToTrue();
 }
 
-
 void GameManager::staticPlayerToTileCallbackFunction(void* p, int x, int y)
 {
 	((GameManager*)p)->playerToTileCallbackFunction(x, y);

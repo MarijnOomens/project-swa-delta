@@ -71,24 +71,19 @@ void Scene::checkCollision(int xPos, int yPos) {
 
 		if (xPos == tileX && yPos == tileY)
 		{
-			std::cout << "Tile and player coordinate match " << xPos << std::endl;
-			std::cout << "predicted player x " << xPos << std::endl;
-			std::cout << "predicted player y " << yPos << std::endl;
-			std::cout << "tile x" << tileX << std::endl;
-			std::cout << "tile y" << tileY << std::endl;
-			std::cout << "tile collider " << isCollider << std::endl;
-			std::cout << "---------------" << isCollider << std::endl;
-
+			std::cout << "Tile and player collision prediction." << std::endl;
+			std::cout << "Tries moving to x: " << xPos << std::endl;
+			std::cout << "Tries moving to y: " << yPos << std::endl;
+			std::cout << "Target tile x: " << tileX << std::endl;
+			std::cout << "Target tile y: " << tileY << std::endl;
+			std::cout << "Tile isCollider " << isCollider << std::endl;
+			std::cout << "-------------------------------------" << std::endl;
 
 			if (isCollider) {
-				std::cout << tileX << std::endl;
-				std::cout << tileY << std::endl;
-
-				std::cout << "we in checkcollision" << std::endl;
+				std::cout << "This is a Tile with Collision" << std::endl;
 				func(pointer);
 				break;
 			}
-
 		}
 	}
 }
@@ -99,14 +94,6 @@ void Scene::connectCallback() {}
 
 void Scene::callbackFunction() {}
 
-void Scene::update()
-{
-	/*for (auto& t : tileMap)
-	{
-		t.get()->transform.position.x += playerpos.x *
-	}*/
-
-
-}
+void Scene::update() {}
 
 void Scene::updatePositions(int x, int y) {}
