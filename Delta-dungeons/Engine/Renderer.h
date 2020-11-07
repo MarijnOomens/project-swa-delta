@@ -11,7 +11,7 @@
 class Renderer {
 public:
 	SDL_Renderer* sdlRenderer;
-	SDL_Rect camera = { 0, 0, 0, 0 };
+	SDL_Rect camera;
 	SDL_Window* sdlWindow;
 	bool isRunning;
 

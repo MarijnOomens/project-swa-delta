@@ -20,7 +20,7 @@ void Scene::addGraphics()
 {
 	std::unique_ptr<XMLSceneParser> scene = std::make_unique<XMLSceneParser>();
 
-	tileMap = scene.get()->loadScene("Assets\\collidermap.xml");
+	tileMap = scene.get()->loadScene("Assets\\level1.xml");
 
 	for (std::shared_ptr<Tile> t : tileMap)
 	{
@@ -55,7 +55,7 @@ std::vector<std::shared_ptr<Tile>> Scene::makeTiles(std::vector<std::shared_ptr<
 std::map<std::string, std::string> Scene::passTextures() const
 {
 	std::map<std::string, std::string> texture;
-	texture.try_emplace("Level1", "Assets/Level1_terrain.png");
+	texture.try_emplace("Level1", "Assets/tileset-1.png");
 	return texture;
 }
 

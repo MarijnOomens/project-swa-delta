@@ -3,11 +3,9 @@
 /// <summary>
 /// The renderer class is responsible for setting up everything before rendering.
 /// </summary>
-Renderer::Renderer() {
-	camera = { 0, 0, 0, 0 };
-};
+Renderer::Renderer() {}
 
-Renderer::~Renderer() {};
+Renderer::~Renderer() {}
 
 /// <summary>
 /// The init methods creates all SDL required items to render a screen and textures within that screen.
@@ -60,7 +58,7 @@ void Renderer::init(const char* title, int width, int height, bool fullscreen) {
 	}
 }
 
-void Renderer::createCamera(int x, int y) 
+void Renderer::createCamera(int x, int y)
 {
 	camera = { x,y, 1024, 1024 };
 }
@@ -70,7 +68,7 @@ std::tuple<int, int> Renderer::updateCamera(int playerX, int playerY)
 	int differenceX = (playerX - camera.x);
 	int differenceY = (playerY - camera.y);
 	camera.x = camera.x + differenceX;
-	camera.y = camera.y +differenceY;
+	camera.y = camera.y + differenceY;
 
 	return std::make_tuple(differenceX, differenceY);
 }
