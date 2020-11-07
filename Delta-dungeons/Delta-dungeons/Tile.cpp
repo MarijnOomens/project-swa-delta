@@ -10,9 +10,9 @@ Tile::Tile() {}
 /// <param name="xImage">Specific horizontal image location of tile png</param>
 Tile::Tile(int x, int y, int xImage)
 {
-	this->transform.scale.multiply({ 2, 2 });
-	transform.position.x = x * 64;
-	transform.position.y = y * 64;
+	this->transform.scale.multiply({ 4, 4 });
+	transform.position.x = x * 128;
+	transform.position.y = y * 128;
 	imageCoordinates = Vector2D(xImage * 32, 0);
 }
 
@@ -26,9 +26,9 @@ Tile::Tile(int x, int y, int xImage)
 
 Tile::Tile(int x, int y, int yImage, int xImage)
 {
-	this->transform.scale.multiply({ 2, 2 });
-	transform.position.x = x * 64;
-	transform.position.y = y * 64;
+	this->transform.scale.multiply({ 4, 4 });
+	transform.position.x = x * 128;
+	transform.position.y = y * 128;
 	imageCoordinates = Vector2D(xImage * 32, yImage * 32);
 }
 

@@ -34,7 +34,7 @@ Player::Player(const cbCamera f, void* p): func(f), pointer(p)
 	y = this->transform.position.y;
 
 
-	this->textures.try_emplace("player_m", "Assets/player_m_anims.png");
+	this->textures.try_emplace("player_m", "Assets/player2_m_anims.png");
 	this->textures.try_emplace("player_f", "Assets/player_f_anims.png");
 	this->texture = "player_m";
 
