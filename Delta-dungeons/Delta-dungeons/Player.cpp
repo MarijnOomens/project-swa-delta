@@ -28,8 +28,8 @@ Player::Player(const cbCamera f, const cbTile cbTile, void* p): func(f), tileFun
 	baseMovementSpeed = 32;
 	runActivated = false;
 
-	this->transform.position.x = 64;
-	this->transform.position.y = 64;
+	this->transform.position.x = 512;
+	this->transform.position.y = 384;
 	x = this->transform.position.x;
 	y = this->transform.position.y;
 
@@ -74,20 +74,20 @@ void Player::handleInput(const KeyCodes keyCodes, const KeyboardEvent keyboardEv
 		}
 	}
 
-	if (!foundTileCollision) {
-		if (keyboardEvent == KeyboardEvent::KEY_PRESSED)
-		{
-			handleKeyPressed(keyCodes);
 
-		}
-		else if (keyboardEvent == KeyboardEvent::KEY_RELEASED)
-		{
-			handleKeyReleased(keyCodes);
-		}
+	if (keyboardEvent == KeyboardEvent::KEY_PRESSED && !tileCollision)
+	{
+		handleKeyPressed(keyCodes);
+
 	}
+	else if (keyboardEvent == KeyboardEvent::KEY_RELEASED)
+	{
+		handleKeyReleased(keyCodes);
+	}
+	
 
 
-	foundTileCollision = false;
+	tileCollision = false;
 }
 
 /// <summary>
@@ -257,7 +257,7 @@ void Player::staticTileCallbackFunction(void* p)
 
 void Player::setToTrue()
 {
-	foundTileCollision = true;
+	tileCollision = true;
 }
 
 void Player::damagePlayer(int damage) 

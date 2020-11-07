@@ -60,8 +60,6 @@ std::map<std::string, std::string> Scene::passTextures() const
 }
 
 void Scene::checkCollision(int xPos, int yPos) {
-
-
 	//std::cout << "predicted player x " << xPos << std::endl;
 	//std::cout << "predicted player y " << yPos << std::endl;
 
@@ -73,11 +71,12 @@ void Scene::checkCollision(int xPos, int yPos) {
 
 		if (xPos == tileX && yPos == tileY)
 		{
+			std::cout << "Tile and player coordinate match " << xPos << std::endl;
 			std::cout << "predicted player x " << xPos << std::endl;
 			std::cout << "predicted player y " << yPos << std::endl;
 			std::cout << "tile x" << tileX << std::endl;
 			std::cout << "tile y" << tileY << std::endl;
-			std::cout << "tile collider" << isCollider << std::endl;
+			std::cout << "tile collider " << isCollider << std::endl;
 			std::cout << "---------------" << isCollider << std::endl;
 
 

@@ -50,7 +50,6 @@ private:
 	int predictedX; //cant initialise to 0 here, because it will still give random value
 	int	predictedY;
 	int count;
-	bool foundTileCollision;
 	bool runActivated;
 	std::vector<int> pokemonCaught;
 	std::vector<std::shared_ptr<IEquipment>> equipment;
