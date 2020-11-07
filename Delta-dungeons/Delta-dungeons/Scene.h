@@ -19,8 +19,6 @@ public:
 	cbTileToPlayer func;
 	void* pointer;
 
-
-
 	void addGraphics();
 	std::vector<std::shared_ptr<Tile>> makeTiles(std::vector<std::shared_ptr<ParserData>> data);
 	std::map<std::string, std::string> passTextures() const;
@@ -30,7 +28,6 @@ public:
 	void callbackFunction() override;
 	void update() override;
 	void updatePositions(int x, int y)override;
-
 	void checkCollision(int x, int y);
 
 private:

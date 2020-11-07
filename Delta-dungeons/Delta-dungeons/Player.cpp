@@ -24,8 +24,9 @@ Player::Player(const cbCamera f, const cbTile cbTile, void* p) : func(f), tileFu
 	addEquipment(running);
 	addEquipment(boomerang);
 
-	baseMovementSpeed = 64;
+	baseMovementSpeed = 128;
 	runActivated = false;
+	tileCollision = false; 
 
 	this->transform.position.x = 512;
 	this->transform.position.y = 384;
@@ -41,6 +42,7 @@ Player::Player(const cbCamera f, const cbTile cbTile, void* p) : func(f), tileFu
 	m_gc->setTexture("player_m");
 	m_gc.get()->transform = this->transform;
 	m_gc->imageDimensions = { 32, 32 };
+	// player scaling makes collision look odd due to different sizes. A tile is scaled x2, a player x4.
 	m_gc->transform.scale.multiply({ 4, 4 });
 	m_gc->playAnimation(0, 3, animationSpeed, false);
 
@@ -60,19 +62,19 @@ void Player::handleInput(const KeyCodes keyCodes, const KeyboardEvent keyboardEv
 	if (keyboardEvent == KeyboardEvent::KEY_PRESSED) {
 		if (KeyCodes::KEY_UP == keyCodes) {
 			/*if ((y - 32) - y == -32) { tileFunc(pointer, x, y - 32); }
-			else {*/ tileFunc(pointer, x, y - 64); /*}*/
+			else {*/ tileFunc(pointer, x, y - 128); /*}*/
 		}
 		else if (KeyCodes::KEY_LEFT == keyCodes) {
 			/*if ((x - 32) - x == -32) { tileFunc(pointer, x - 32, y); }
-			else {*/ tileFunc(pointer, x - 64, y); /*}*/
+			else {*/ tileFunc(pointer, x - 128, y); /*}*/
 		}
 		else if (KeyCodes::KEY_RIGHT == keyCodes) {
 			/*if ((x - 32) - x == -32) { tileFunc(pointer, x + 32, y); }
-			else {*/ tileFunc(pointer, x + 64, y); /*}*/
+			else {*/ tileFunc(pointer, x + 128, y); /*}*/
 		}
 		else if (KeyCodes::KEY_DOWN == keyCodes) {
 			/*if ((y - 32) - y == -32) { tileFunc(pointer, x, y + 32); }
-			else {*/ tileFunc(pointer, x, y + 64); /*}*/
+			else {*/ tileFunc(pointer, x, y + 128); /*}*/
 		}
 	}
 
