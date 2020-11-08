@@ -10,9 +10,7 @@ Scene::Scene() {}
 
 Scene::Scene(const cbTileToPlayer f, void* p) : func(f), pointer(p) {}
 
-
-
-Scene::Scene(int x, int y) : x(x), y(y) {};
+Scene::Scene(int x, int y) : x(x), y(y) {}
 
 Scene::~Scene() {}
 
@@ -59,10 +57,8 @@ std::map<std::string, std::string> Scene::passTextures() const
 	return texture;
 }
 
-void Scene::checkCollision(int xPos, int yPos) {
-	//std::cout << "predicted player x " << xPos << std::endl;
-	//std::cout << "predicted player y " << yPos << std::endl;
-
+void Scene::checkCollision(int xPos, int yPos)
+{
 	for (int x = 0; x < tileMap.size(); x++)
 	{
 		int tileX = tileMap.at(x).get()->originX;
@@ -71,16 +67,16 @@ void Scene::checkCollision(int xPos, int yPos) {
 
 		if (xPos == tileX && yPos == tileY)
 		{
-			std::cout << "Tile and player collision prediction." << std::endl;
+			// Logs for collision debug purposes
+			/*std::cout << "Tile and player collision prediction." << std::endl;
 			std::cout << "Tries moving to x: " << xPos << std::endl;
 			std::cout << "Tries moving to y: " << yPos << std::endl;
 			std::cout << "Target tile x: " << tileX << std::endl;
 			std::cout << "Target tile y: " << tileY << std::endl;
 			std::cout << "Tile isCollider " << isCollider << std::endl;
-			std::cout << "-------------------------------------" << std::endl;
-
+			std::cout << "-------------------------------------" << std::endl;*/
 			if (isCollider) {
-				std::cout << "This is a Tile with Collision" << std::endl;
+				//std::cout << "This is a Tile with Collision" << std::endl;
 				func(pointer);
 				break;
 			}

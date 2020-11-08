@@ -51,6 +51,7 @@ private:
 	int	predictedY;
 	int count;
 	bool runActivated;
+	bool cheatCollision = false;
 	std::vector<int> pokemonCaught;
 	std::vector<std::shared_ptr<IEquipment>> equipment;
 	std::shared_ptr<GraphicsComponent> m_gc;

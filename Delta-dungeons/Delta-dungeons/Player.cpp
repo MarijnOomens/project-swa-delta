@@ -26,7 +26,7 @@ Player::Player(const cbCamera f, const cbTile cbTile, void* p) : func(f), tileFu
 
 	baseMovementSpeed = 128;
 	runActivated = false;
-	tileCollision = false; 
+	tileCollision = false;
 
 	this->transform.position.x = 512;
 	this->transform.position.y = 384;
@@ -59,22 +59,20 @@ Player::~Player() {}
 void Player::handleInput(const KeyCodes keyCodes, const KeyboardEvent keyboardEvent)
 {
 	// predicts player next position & tileFunc checks for collision with that coordinate and returns a bool accordingly.
-	if (keyboardEvent == KeyboardEvent::KEY_PRESSED) {
-		if (KeyCodes::KEY_UP == keyCodes) {
-			/*if ((y - 32) - y == -32) { tileFunc(pointer, x, y - 32); }
-			else {*/ tileFunc(pointer, x, y - 128); /*}*/
-		}
-		else if (KeyCodes::KEY_LEFT == keyCodes) {
-			/*if ((x - 32) - x == -32) { tileFunc(pointer, x - 32, y); }
-			else {*/ tileFunc(pointer, x - 128, y); /*}*/
-		}
-		else if (KeyCodes::KEY_RIGHT == keyCodes) {
-			/*if ((x - 32) - x == -32) { tileFunc(pointer, x + 32, y); }
-			else {*/ tileFunc(pointer, x + 128, y); /*}*/
-		}
-		else if (KeyCodes::KEY_DOWN == keyCodes) {
-			/*if ((y - 32) - y == -32) { tileFunc(pointer, x, y + 32); }
-			else {*/ tileFunc(pointer, x, y + 128); /*}*/
+	if (!cheatCollision) {
+		if (keyboardEvent == KeyboardEvent::KEY_PRESSED) {
+			if (KeyCodes::KEY_UP == keyCodes) {
+				tileFunc(pointer, x, y - 128);
+			}
+			else if (KeyCodes::KEY_LEFT == keyCodes) {
+				tileFunc(pointer, x - 128, y);
+			}
+			else if (KeyCodes::KEY_RIGHT == keyCodes) {
+				tileFunc(pointer, x + 128, y);
+			}
+			else if (KeyCodes::KEY_DOWN == keyCodes) {
+				tileFunc(pointer, x, y + 128);
+			}
 		}
 	}
 
@@ -113,6 +111,18 @@ void Player::handleKeyPressed(const KeyCodes keyCodes)
 	case KeyCodes::KEY_RIGHT:
 		moveRight();
 		break;
+	case KeyCodes::KEY_W:
+		moveUp();
+		break;
+	case KeyCodes::KEY_S:
+		moveDown();
+		break;
+	case KeyCodes::KEY_A:
+		moveLeft();
+		break;
+	case KeyCodes::KEY_D:
+		moveRight();
+		break;
 	case KeyCodes::KEY_Q:
 		for (auto& comp : equipment)
 		{
@@ -123,14 +133,21 @@ void Player::handleKeyPressed(const KeyCodes keyCodes)
 		std::cout << "Interaction button pressed..." << std::endl;
 		break;
 	case KeyCodes::KEY_G:
-		if (this->texture == "player_m") {
+		if (this->texture == "player_m")
+		{
 			m_gc->setTexture("player_f");
 			this->texture = "npc";
 		}
-		else {
+		else
+		{
 			m_gc->setTexture("player_m");
 			this->texture = "player_m";
+			this->texture = "player_m";
 		}
+		break;
+	case KeyCodes::KEY_C:
+		if (!cheatCollision) { cheatCollision = true; std::cout << "Cheat collision turned on." << std::endl; }
+		else { cheatCollision = false; std::cout << "Cheat collision turned off." << std::endl; }
 		break;
 	default:
 		break;
@@ -155,6 +172,18 @@ void Player::handleKeyReleased(const KeyCodes keyCodes)
 		m_gc->playAnimation(5, 3, animationSpeed, false);
 		break;
 	case KeyCodes::KEY_RIGHT:
+		m_gc->playAnimation(5, 3, animationSpeed, true);
+		break;
+	case KeyCodes::KEY_W:
+		m_gc->playAnimation(4, 3, animationSpeed, false);
+		break;
+	case KeyCodes::KEY_S:
+		m_gc->playAnimation(0, 3, animationSpeed, false);
+		break;
+	case KeyCodes::KEY_A:
+		m_gc->playAnimation(5, 3, animationSpeed, false);
+		break;
+	case KeyCodes::KEY_D:
 		m_gc->playAnimation(5, 3, animationSpeed, true);
 		break;
 	default:
