@@ -15,4 +15,5 @@ public:
 	~Runningshoes();
 
 	void use() override;
+
 };

@@ -159,6 +159,9 @@
     <ClCompile Include="GameObjectBuilder.cpp">
       <Filter>Source Files\Game\GameObjects</Filter>
     </ClCompile>
+    <ClCompile Include="Equipment.cpp">
+      <Filter>Source Files\Game\GameObjects\Items</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h">

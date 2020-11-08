@@ -12,6 +12,7 @@ Tile::Tile(int x, int y, int xImage, bool collider)
 {
 	originX = x * 128;
 	originY = y * 128;
+	isCollider = collider;
 
 	this->transform.scale.multiply({ 4, 4 });
 	transform.position.x = x * 128;

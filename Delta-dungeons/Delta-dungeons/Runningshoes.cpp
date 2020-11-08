@@ -4,9 +4,7 @@
 /// <summary>
 /// This class is an equipment that can be used to increase the movement speed.
 /// </summary>
-Runningshoes::Runningshoes() 
-{
-}
+Runningshoes::Runningshoes() {}
 
 Runningshoes::Runningshoes(const cbFunction f, void* p) : func(f), pointer(p) {}
 
@@ -22,3 +20,4 @@ void Runningshoes::use()
 	std::cout << isActivated << std::endl;
 	func(pointer, isActivated);
 }
+

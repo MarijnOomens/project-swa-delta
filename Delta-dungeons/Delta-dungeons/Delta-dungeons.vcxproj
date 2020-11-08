@@ -161,6 +161,7 @@
     <ClCompile Include="CreditScreen.cpp" />
     <ClCompile Include="DialoguePopup.cpp" />
     <ClCompile Include="EngineFacade.cpp" />
+    <ClCompile Include="Equipment.cpp" />
     <ClCompile Include="EquipmentManager.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameObjectBuilder.cpp" />

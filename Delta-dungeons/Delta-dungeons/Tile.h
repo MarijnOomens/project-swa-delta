@@ -10,6 +10,7 @@ public:
 	bool isCollider = false;
 	int originX;
 	int originY;
+	
 	Tile();
 	Tile(int x, int y, int xImage, bool collider);
 	Tile(int x, int y, int xImage, int yImage, bool collider);
