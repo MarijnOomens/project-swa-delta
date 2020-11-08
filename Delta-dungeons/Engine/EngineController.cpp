@@ -122,15 +122,6 @@ void EngineController::startGame()
 void EngineController::passPlayerPosition(int x, int y)
 {
 	std::tuple<int, int> positions = renderFacade->passPlayerPosition(x, y);
-	updateAllPositions(std::get<0>(positions), std::get<1>(positions));
-}
-
-void EngineController::updateAllPositions(int cameraX, int cameraY)
-{
-	for (auto& bo : behaviourObjects)
-	{
-		bo.get()->updatePositions(cameraX, cameraY);
-	}
 }
 
 /// <summary>

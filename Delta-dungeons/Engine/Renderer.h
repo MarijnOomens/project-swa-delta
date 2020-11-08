@@ -11,7 +11,7 @@
 class Renderer {
 public:
 	SDL_Renderer* sdlRenderer;
-	SDL_Rect camera = { 0, 0, 0, 0 };
+	SDL_Rect camera;
 	SDL_Window* sdlWindow;
 	bool isRunning;
 	bool isPaused;
@@ -26,5 +26,7 @@ public:
 	void pauseGame();
 	void quitGame();
 	void beforeFrame();
+	bool checkCameraPosition(const Transform& transform);
+	void drawTexture(SDL_Texture* texture, const Transform& transform, const Vector2D& coordinates, const Vector2D& sourceDimension, int row, int frames, int speed, bool animated, bool flipped);
 	void afterFrame();
 };

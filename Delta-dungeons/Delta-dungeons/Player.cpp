@@ -25,11 +25,11 @@ Player::Player(const cbCamera f, void* p): func(f), pointer(p)
 	addEquipment(running);
 	addEquipment(boomerang);
 
-	baseMovementSpeed = 32;
+	baseMovementSpeed = 64;
 	runActivated = false;
 
-	this->transform.position.x = 512;
-	this->transform.position.y = 384;
+	this->transform.position.x = 1024;
+	this->transform.position.y = 768;
 	x = this->transform.position.x;
 	y = this->transform.position.y;
 
@@ -144,10 +144,11 @@ void Player::handleKeyReleased(const KeyCodes keyCodes)
 /// </summary>
 void Player::moveUp()
 {
-	y -= baseMovementSpeed;
+	transform.position.y -= baseMovementSpeed;
+	m_gc.get()->transform.position = transform.position;
 	runActivated ? m_gc->playAnimation(7, 3, animationSpeed, false) :
 		m_gc->playAnimation(2, 4, animationSpeed, false);
-	func(pointer, x, y);
+	func(pointer, transform.position.x, transform.position.y);
 }
 
 /// <summary>
@@ -156,10 +157,11 @@ void Player::moveUp()
 /// </summary>
 void Player::moveDown()
 {
-	y += baseMovementSpeed;
+	transform.position.y += baseMovementSpeed;
+	m_gc.get()->transform.position = transform.position;
 	runActivated ? m_gc->playAnimation(6, 3, animationSpeed, false) :
 		m_gc->playAnimation(1, 4, animationSpeed, false);
-	func(pointer, x, y);
+	func(pointer, transform.position.x, transform.position.y);
 }
 
 /// <summary>
@@ -168,10 +170,11 @@ void Player::moveDown()
 /// </summary>
 void Player::moveLeft()
 {
-	x -= baseMovementSpeed;
+	transform.position.x -= baseMovementSpeed;
+	m_gc.get()->transform.position = transform.position;
 	runActivated ? m_gc->playAnimation(8, 3, animationSpeed, false) :
 		m_gc->playAnimation(3, 4, animationSpeed, false);
-	func(pointer, x, y);
+	func(pointer, transform.position.x, transform.position.y);
 }
 
 /// <summary>
@@ -180,10 +183,11 @@ void Player::moveLeft()
 /// </summary>
 void Player::moveRight()
 {
-	x += baseMovementSpeed;
+	transform.position.x += baseMovementSpeed;
+	m_gc.get()->transform.position = transform.position;
 	runActivated ? m_gc->playAnimation(8, 3, animationSpeed, true) :
 		m_gc->playAnimation(3, 4, animationSpeed, true);
-	func(pointer, x, y);
+	func(pointer, transform.position.x, transform.position.y);
 }
 
 /// <summary>
@@ -246,5 +250,3 @@ void Player::connectCallback()
 void Player::update() 
 {
 }
-
-void Player::updatePositions(int x, int y){}

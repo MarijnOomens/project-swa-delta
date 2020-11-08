@@ -64,5 +64,3 @@ std::shared_ptr<TextureManager> GraphicsComponent::getTextureManager()
 {
 	return this->textureManager;
 }
-
-void GraphicsComponent::updatePositions(int x, int y) {}

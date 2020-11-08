@@ -58,31 +58,8 @@ void RenderFacade::setFrameDelay()
 void RenderFacade::drawTexture(std::string path, const Transform& transform, const Vector2D& coordinates, const Vector2D& sourceDimensions, int row, int frames, int speed, bool animated, bool flipped)
 {
 	Vector2D size;
-	SDL_Rect source;
-	SDL_RendererFlip flip = SDL_FLIP_NONE;
 	SDL_Texture* texture = drawController->loadTexture(path);
-
-	if (flipped)
-		flip = SDL_FLIP_HORIZONTAL;
-
-	source.w = sourceDimensions.x; 
-	source.h = sourceDimensions.y; 
-	source.x = coordinates.x;
-	source.y = coordinates.y;
-
-	if (animated)
-	{
-		source.x = source.w * static_cast<int>((SDL_GetTicks() / speed) % frames);
-		source.y = row * source.h;
-	}
-
-	SDL_Rect destination;
-	destination.x = transform.position.x; 
-	destination.y = transform.position.y; 
-	destination.w = sourceDimensions.x * transform.scale.x; 
-	destination.h = sourceDimensions.y * transform.scale.y; 
-
-	RenderFacade::drawController->drawTexture(texture, source, destination, flip);
+	RenderFacade::renderer->drawTexture(texture, transform, coordinates,sourceDimensions,row,frames,speed,animated,flipped);
 }
 
 /// <summary>

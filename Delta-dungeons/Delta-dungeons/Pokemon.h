@@ -11,7 +11,6 @@ public:
 	Pokemon(int x, int y, std::string texture);
 	~Pokemon();
 	void interact() override;
-	void updatePositions(int x, int y) override;
 protected:
 	std::string sfxPath;
 private:
