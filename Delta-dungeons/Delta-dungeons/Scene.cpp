@@ -16,9 +16,9 @@ Scene::~Scene() {}
 
 void Scene::addGraphics()
 {
-	std::unique_ptr<XMLSceneParser> scene = std::make_unique<XMLSceneParser>();
+	std::unique_ptr<XMLSceneParser> xmlSceneParser = std::make_unique<XMLSceneParser>();
 
-	tileMap = scene.get()->loadScene("Assets/Level/level1.xml");
+	tileMap = xmlSceneParser.get()->loadScene("Assets/Level/level1.xml");
 
 	for (std::shared_ptr<Tile> t : tileMap)
 	{
@@ -32,6 +32,7 @@ void Scene::addGraphics()
 /// </summary>
 /// <param name="data">All the information needed to properly create a TileMap.</param>
 /// <returns>If succeeded, it returns a TileMap that contains Tile objects.</returns>
+
 std::vector<std::shared_ptr<Tile>> Scene::makeTiles(std::vector<std::shared_ptr<ParserData>> data)
 {
 	for (std::shared_ptr<ParserData> tile : data)

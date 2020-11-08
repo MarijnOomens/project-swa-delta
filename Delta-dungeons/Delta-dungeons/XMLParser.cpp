@@ -5,7 +5,10 @@ using namespace rapidxml;
 /// The XMLParser contains the logic to parse an .xml file into ParserData objects.
 /// </summary>
 
-XMLParser::XMLParser() {}
+XMLParser::XMLParser()
+{
+	equipmentDataList = std::vector<std::shared_ptr<ParserData>>();
+}
 
 XMLParser::~XMLParser() {}
 
@@ -18,6 +21,7 @@ XMLParser::~XMLParser() {}
 std::vector<std::shared_ptr<ParserData>> XMLParser::parseXML(const char* path)
 {
 	std::vector<std::shared_ptr<ParserData>> parserDataList;
+
 	rapidxml::file<> xmlFile(path);
 	rapidxml::xml_document<> doc;
 
@@ -55,10 +59,26 @@ std::vector<std::shared_ptr<ParserData>> XMLParser::parseXML(const char* path)
 							break;
 						}
 					}
+
+					if (tileId != "55")
+					{
+						std::shared_ptr<ParserData> p = std::make_shared<ParserData>(tile->first_attribute("x")->value(), tile->first_attribute("y")->value(), tile->first_attribute("tile")->value());
+						equipmentDataList.push_back(p);
+					}
 				}
 			}
 		}
 	}
 
 	return parserDataList;
+}
+
+/// <summary>
+///  Gets the ParserData only for equipment.
+/// </summary>
+/// <returns> A list with parserdata for equipment only.</returns>
+
+std::vector<std::shared_ptr<ParserData>> XMLParser::getEquipmentDataList()
+{
+	return equipmentDataList;
 }

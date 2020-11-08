@@ -16,5 +16,7 @@ public:
 	std::shared_ptr<Scene> scene;
 
 	std::vector<std::shared_ptr<Tile>> loadScene(const char* path);
+	std::vector<std::shared_ptr<ParserData>> getEquipmentDataList();
+	
 private:
 };

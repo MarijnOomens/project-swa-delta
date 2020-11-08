@@ -27,7 +27,8 @@ std::shared_ptr<NPC> GameObjectBuilder::getNPC(int x, int y, std::string name)
 	return npc;
 }
 
-//std::shared_ptr<NPC> getEquipment(int x, int y, std::string tileset)
+// TileId filtering must be done herre, so when the object is created it won't need that logic in that class.
+//std::shared_ptr<NPC> getEquipment(int x, int y, std::string tileset, int tileId)
 //{
 //
 //}

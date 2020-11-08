@@ -21,3 +21,13 @@ std::vector<std::shared_ptr<ParserData>> XMLFacade::loadScene(const char* path)
 {
 	return parser->parseXML(path);
 }
+
+/// <summary>
+///  Gets the ParserData only for equipment.
+/// </summary>
+/// <returns> A list with parserdata for equipment only.</returns>
+
+std::vector<std::shared_ptr<ParserData>> XMLFacade::getEquipmentDataList()
+{
+	return parser->getEquipmentDataList();
+}

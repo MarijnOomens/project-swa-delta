@@ -23,3 +23,13 @@ std::vector<std::shared_ptr<Tile>> XMLSceneParser::loadScene(const char* path)
 {
 	return scene.get()->makeTiles(facade->loadScene(path));
 }
+
+/// <summary>
+///  Gets the ParserData only for equipment.
+/// </summary>
+/// <returns> A list with parserdata for equipment only.</returns>
+
+std::vector<std::shared_ptr<ParserData>> XMLSceneParser::getEquipmentDataList()
+{
+	return facade->getEquipmentDataList();
+}
