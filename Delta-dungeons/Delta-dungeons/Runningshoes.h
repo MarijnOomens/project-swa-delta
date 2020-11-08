@@ -15,5 +15,5 @@ public:
 	~Runningshoes();
 
 	void use() override;
-
+	void updatePositions(int x, int y) override;
 };

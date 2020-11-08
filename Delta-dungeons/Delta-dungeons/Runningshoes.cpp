@@ -21,3 +21,4 @@ void Runningshoes::use()
 	func(pointer, isActivated);
 }
 
+void Runningshoes::updatePositions(int x, int y) {}
