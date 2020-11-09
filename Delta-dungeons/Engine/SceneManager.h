@@ -11,8 +11,8 @@ public:
 	SceneManager();
 	~SceneManager();
 
-	std::vector<std::shared_ptr<BehaviourObject>> loadScene(std::string sceneName);
-	void registerScene(std::string sceneName, std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects);
+	std::vector<std::shared_ptr<BehaviourObject>>& loadScene(const std::string& sceneName);
+	void registerScene(const std::string& sceneName, const std::vector<std::shared_ptr<BehaviourObject>>& behaviourObjects);
 
 
 private:
