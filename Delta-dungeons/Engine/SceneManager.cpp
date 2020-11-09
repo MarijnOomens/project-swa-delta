@@ -3,7 +3,7 @@
 SceneManager::SceneManager() {}
 SceneManager::~SceneManager() {}
 
-std::vector<std::shared_ptr<BehaviourObject>>& SceneManager::loadScene(const std::string& sceneName)
+std::vector<std::shared_ptr<BehaviourObject>>& SceneManager::loadScene(std::string& sceneName, std::string& fromScene, bool clearPrevious)
 { 
 	if (clearPrevious)
 		previousScenes.clear();
