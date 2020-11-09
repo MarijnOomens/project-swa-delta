@@ -9,6 +9,6 @@ class IInputFacade
 {
 public:
 	std::unique_ptr<InputWrapper> wrapper;
-	virtual void handleInput();
+	virtual void handleInput(bool isPaused);
 	virtual void mapKeyBindings(KeyCodes code);
 };

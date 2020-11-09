@@ -1,11 +1,18 @@
 #pragma once
 #include "Screen.h"
+#include "Button.h"
+#include "TextComponent.h"
 
-class PauseScreen : Screen
+class PauseScreen : public Screen
 {
 public:
-	Screen* helpScreen;
+	PauseScreen();
+	~PauseScreen();
+
+	//Screen* helpScreen;
+	std::vector<Button> buttons;
 
 	void saveGame();
-	void openHelp();
+	void openHelp(); 
+	void closeScreen() override;
 };

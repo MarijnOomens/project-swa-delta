@@ -6,6 +6,7 @@
 #include "Button.h"
 #include "Color.h"
 #include "GraphicsComponent.h"
+#include "SceneLoader.h"
 
 class MainMenu : public Screen
 {
@@ -17,6 +18,7 @@ public:
 
 	void startGame();
 	void openCreditScreen();
-	void openHelpScreen();
+	void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) override;
 	void closeScreen() override;
+
 };

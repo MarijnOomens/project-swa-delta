@@ -5,22 +5,27 @@
 /// </summary>
 GameManager::GameManager()
 {
-	engineFacade.init();
+	engineFacade = std::make_shared<EngineFacade>();
+	engineFacade->init();
+	SceneLoader::getInstance().setEngineFacade(engineFacade);
 
 	uiManager.createBaseScreens();
 	registerTextures(uiManager.passTextures());
 	registerFonts(uiManager.passFonts());
 
-	/*playerManager.createPlayer(staticCameraCallbackFunction, this);
+	playerManager.createPlayer(staticCameraCallbackFunction, this);
 	registerTextures(playerManager.passTextures());
+
+	npcManager = NPCManager();
+	npcManager.createNPC();
+	registerTextures(npcManager.passTextures());
 	
 	scene.addGraphics();
-	registerTextures(scene.passTextures());*/
-	
+	registerTextures(scene.passTextures());
 
 	registerBehaviourObjects();
-	//engineFacade.createCamera(playerManager.player.get()->transform.position.x, playerManager.player.get()->transform.position.y);
-	engineFacade.startGame();
+	engineFacade->createCamera(playerManager.player.get()->transform.position.x, playerManager.player.get()->transform.position.y);
+	engineFacade->startGame();
 }
 
 GameManager::~GameManager() {}
@@ -32,38 +37,51 @@ void GameManager::registerBehaviourObjects()
 {
 	for (auto& o : uiManager.screens)
 	{
+		std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects;
+		behaviourObjects.emplace_back(o.second);
 		for (auto& c : o.second.get()->getComponentsRecursive())
 		{
-			this->objects.emplace_back(c);
+			behaviourObjects.emplace_back(c);
 		}
+		engineFacade->registerScene(o.first, behaviourObjects);
 	}
 
-	//for (auto& t : scene.getComponentsRecursive())
-	//{
-	//	this->objects.emplace_back(t);
-	//}
-	//
-	//for (auto& o : playerManager.sprites)
-	//{
-	//	for (auto& c : o.second.get()->getComponentsRecursive())
-	//	{
-	//		this->objects.emplace_back(c);
-	//	}
-	//}
+	std::vector<std::shared_ptr<BehaviourObject>> level1;
+	for (auto& t : scene.getComponentsRecursive())
+	{
+		level1.emplace_back(t);
+	}
 
-	//this->objects.emplace_back(playerManager.getPlayerObject());
+	for (auto& o : npcManager.npcs)
+	{
+		for (auto& n : o.second.get()->getComponentsRecursive())
+		{
+			level1.emplace_back(n);
+		}
+		level1.emplace_back(o.second.get());
+	}
+	
+	for (auto& o : playerManager.sprites)
+	{
+		for (auto& c : o.second.get()->getComponentsRecursive())
+		{
+			level1.emplace_back(c);
+		}
+		level1.emplace_back(o.second);
+	}
+	engineFacade->registerScene("Level1", level1);
 
-
-
-	engineFacade.registerBehaviourObjects(objects);
+	engineFacade->loadScene("MainMenu", "", true);
 }
+
+
 
 /// <summary>
 /// This methods gives the engineFacade all textures to give to the engine.
 /// </summary>
 void GameManager::registerTextures(std::map<std::string, std::string> textures)
 {
-	engineFacade.registerTextures(textures);
+	engineFacade->registerTextures(textures);
 }
 
 void GameManager:: staticCameraCallbackFunction(void* p, int x, int y) 
@@ -73,12 +91,12 @@ void GameManager:: staticCameraCallbackFunction(void* p, int x, int y)
 
 void GameManager::passPlayerPosition(int x, int y)
 {
-	engineFacade.passPlayerPosition(x, y);
+	engineFacade->passPlayerPosition(x, y);
 }
 /// <summary>
 /// This methods gives the engineFacade all fonts to give to the engine.
 /// </summary>
 void GameManager::registerFonts(std::map<std::string, std::string> fonts)
 {
-	engineFacade.registerFonts(fonts);
+	engineFacade->registerFonts(fonts);
 }

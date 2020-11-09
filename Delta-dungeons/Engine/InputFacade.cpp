@@ -17,9 +17,9 @@ InputFacade::InputFacade(const cbFunction f, void* p)
 /// <summary>
 /// This function takes the input and gives it to the code behind the facade.
 /// </summary>
-void IInputFacade::handleInput()
+void IInputFacade::handleInput(bool isPaused)
 {
-	wrapper->handleInput();
+	wrapper->handleInput(isPaused);
 }
 
 void IInputFacade::mapKeyBindings(KeyCodes keyCode) {}

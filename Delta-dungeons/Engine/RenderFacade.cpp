@@ -55,34 +55,11 @@ void RenderFacade::setFrameDelay()
 /// <param name="speed">The speed of the animation in case its animated</param>
 /// <param name="animated">A boolean to represent if it is animated or not.</param>
 /// <param name="flipped">A boolean to represent if it is flipped or not.</param>
-void RenderFacade::drawTexture(std::string path, const Transform& transform, const Vector2D& coordinates, const Vector2D& sourceDimensions, int row, int frames, int speed, bool animated, bool flipped)
+void RenderFacade::drawTexture(std::string path, const Transform& transform, const Vector2D& coordinates, const Vector2D& sourceDimensions, int row, int frames, int speed, bool animated, bool flipped, bool isScreen)
 {
 	Vector2D size;
-	SDL_Rect source;
-	SDL_RendererFlip flip = SDL_FLIP_NONE;
 	SDL_Texture* texture = drawController->loadTexture(path);
-
-	if (flipped)
-		flip = SDL_FLIP_HORIZONTAL;
-
-	source.w = sourceDimensions.x; 
-	source.h = sourceDimensions.y; 
-	source.x = coordinates.x;
-	source.y = coordinates.y;
-
-	if (animated)
-	{
-		source.x = source.w * static_cast<int>((SDL_GetTicks() / speed) % frames);
-		source.y = row * source.h;
-	}
-
-	SDL_Rect destination;
-	destination.x = transform.position.x; 
-	destination.y = transform.position.y; 
-	destination.w = sourceDimensions.x * transform.scale.x; 
-	destination.h = sourceDimensions.y * transform.scale.y; 
-
-	RenderFacade::drawController->drawTexture(texture, source, destination, flip);
+	RenderFacade::renderer->drawTexture(texture, transform, coordinates,sourceDimensions,row,frames,speed,animated,flipped,isScreen);
 }
 
 /// <summary>
@@ -158,4 +135,14 @@ void RenderFacade::createCamera(int x, int y)
 std::tuple<int, int> RenderFacade::passPlayerPosition(int x, int y)
 {
 	return RenderFacade::renderer->updateCamera(x, y);
+}
+
+void RenderFacade::quitGame()
+{
+	renderer.get()->quitGame();
+}
+
+void RenderFacade::pauseGame()
+{
+	renderer.get()->pauseGame();
 }

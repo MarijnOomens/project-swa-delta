@@ -11,6 +11,7 @@ class GraphicsComponent : public BehaviourObject {
 public:
 	Vector2D imageCoordinates;
 	Vector2D imageDimensions = { 32, 32 };
+	bool isScreen;
 
 	ENGINE_API GraphicsComponent();
 	ENGINE_API ~GraphicsComponent();
@@ -24,7 +25,6 @@ public:
 	ENGINE_API void connectCallback() override;
 	ENGINE_API void callbackFunction() override;
 	ENGINE_API std::shared_ptr<TextureManager>getTextureManager();
-	ENGINE_API void updatePositions(int x, int y) override;
 private:
 	bool animated = false;
 	int animFrames;

@@ -7,6 +7,7 @@
 #include "Creditscreen.h"
 #include "Helpscreen.h"
 #include "GameOverScreen.h"
+#include "PauseScreen.h"
 
 class UIManager {
 public:

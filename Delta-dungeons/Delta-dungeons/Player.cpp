@@ -9,7 +9,7 @@
 /// 
 /// </summary>
 
-const int animationSpeed = 100; 
+const int animationSpeed = 120;
 
 
 /// <summary>
@@ -25,22 +25,25 @@ Player::Player(const cbCamera f, void* p): func(f), pointer(p)
 	addEquipment(running);
 	addEquipment(boomerang);
 
-	baseMovementSpeed = 32;
+	baseMovementSpeed = 64;
 	runActivated = false;
 
-	this->transform.position.x = 512;
-	this->transform.position.y = 384;
+	this->transform.position.x = 1024;
+	this->transform.position.y = 768;
 	x = this->transform.position.x;
 	y = this->transform.position.y;
 
 
-	this->textures.try_emplace("player", "Assets/player_anims.png");
+	this->textures.try_emplace("player_m", "Assets/player2_m_anims.png");
+	this->textures.try_emplace("player_f", "Assets/player_f_anims.png");
+	this->texture = "player_m";
 
 	m_gc = std::make_shared<GraphicsComponent>();
-	m_gc->setTexture("player");
+	m_gc->setTexture("player_m");
+	m_gc->isScreen = false;
 	m_gc.get()->transform = this->transform;
 	m_gc->imageDimensions = { 32, 32 };
-	m_gc->transform.scale.multiply({ 2, 2 });
+	m_gc->transform.scale.multiply({ 4, 4 });
 	m_gc->playAnimation(0, 3, animationSpeed, false);
 
 	this->components.emplace_back(m_gc);
@@ -96,6 +99,16 @@ void Player::handleKeyPressed(const KeyCodes keyCodes)
 	case KeyCodes::KEY_E:
 		std::cout << "Interaction button pressed..." << std::endl;
 		break;
+	case KeyCodes::KEY_G:
+		if (this->texture == "player_m") {
+			m_gc->setTexture("player_f");
+			this->texture = "npc";
+		}
+		else {
+			m_gc->setTexture("player_m");
+			this->texture = "player_m";
+		}
+		break;
 	default:
 		break;
 	}
@@ -132,10 +145,11 @@ void Player::handleKeyReleased(const KeyCodes keyCodes)
 /// </summary>
 void Player::moveUp()
 {
-	y -= baseMovementSpeed;
+	transform.position.y -= baseMovementSpeed;
+	m_gc.get()->transform.position = transform.position;
 	runActivated ? m_gc->playAnimation(7, 3, animationSpeed, false) :
 		m_gc->playAnimation(2, 4, animationSpeed, false);
-	func(pointer, x, y);
+	func(pointer, transform.position.x, transform.position.y);
 }
 
 /// <summary>
@@ -144,10 +158,11 @@ void Player::moveUp()
 /// </summary>
 void Player::moveDown()
 {
-	y += baseMovementSpeed;
+	transform.position.y += baseMovementSpeed;
+	m_gc.get()->transform.position = transform.position;
 	runActivated ? m_gc->playAnimation(6, 3, animationSpeed, false) :
 		m_gc->playAnimation(1, 4, animationSpeed, false);
-	func(pointer, x, y);
+	func(pointer, transform.position.x, transform.position.y);
 }
 
 /// <summary>
@@ -156,10 +171,11 @@ void Player::moveDown()
 /// </summary>
 void Player::moveLeft()
 {
-	x -= baseMovementSpeed;
+	transform.position.x -= baseMovementSpeed;
+	m_gc.get()->transform.position = transform.position;
 	runActivated ? m_gc->playAnimation(8, 3, animationSpeed, false) :
 		m_gc->playAnimation(3, 4, animationSpeed, false);
-	func(pointer, x, y);
+	func(pointer, transform.position.x, transform.position.y);
 }
 
 /// <summary>
@@ -168,10 +184,11 @@ void Player::moveLeft()
 /// </summary>
 void Player::moveRight()
 {
-	x += baseMovementSpeed;
+	transform.position.x += baseMovementSpeed;
+	m_gc.get()->transform.position = transform.position;
 	runActivated ? m_gc->playAnimation(8, 3, animationSpeed, true) :
 		m_gc->playAnimation(3, 4, animationSpeed, true);
-	func(pointer, x, y);
+	func(pointer, transform.position.x, transform.position.y);
 }
 
 /// <summary>
@@ -234,5 +251,3 @@ void Player::connectCallback()
 void Player::update() 
 {
 }
-
-void Player::updatePositions(int x, int y){}
