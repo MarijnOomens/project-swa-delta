@@ -39,7 +39,7 @@ MainMenu::~MainMenu() {}
 void MainMenu::startGame() {}
 void MainMenu::openCreditScreen() {}
 
-void MainMenu::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent)
+void MainMenu::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos)
 {
 	if (keyboardEvent == KeyboardEvent::KEY_PRESSED)
 	{

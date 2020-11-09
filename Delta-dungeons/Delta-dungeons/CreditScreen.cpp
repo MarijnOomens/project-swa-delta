@@ -62,7 +62,7 @@ void CreditScreen::closeScreen()
 
 }
 
-void CreditScreen::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent)
+void CreditScreen::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos)
 {
 	if (keyboardEvent == KeyboardEvent::KEY_PRESSED)
 	{

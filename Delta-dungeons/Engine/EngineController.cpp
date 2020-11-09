@@ -59,7 +59,7 @@ void EngineController::inputCallbackFunction(const KeyCodes keyCode, const Keybo
 		for (auto& gameObject : behaviourObjects)
 		{
 			if (!isSceneSwitched) {
-				gameObject.get()->handleInput(keyCode, keyboardEvent);
+				gameObject.get()->handleInput(keyCode, keyboardEvent, mousePos);
 			}
 		}
 	}

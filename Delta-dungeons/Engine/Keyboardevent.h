@@ -2,5 +2,6 @@
 
 enum class KeyboardEvent {
 	KEY_PRESSED,
-	KEY_RELEASED
+	KEY_RELEASED,
+	MOUSE_CLICKED
 };

@@ -20,5 +20,6 @@ public:
 	void handleInput(bool isPaused);
 	void handleKeyPressed(bool isPaused);
 	void handleKeyReleased();
+	void handleMouseClicked();
 	void mapKeyBindings(const KeyCodes code);
 };

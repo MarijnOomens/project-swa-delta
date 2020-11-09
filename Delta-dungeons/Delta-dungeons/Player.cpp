@@ -58,7 +58,7 @@ Player::~Player()
 /// </summary> 
 /// <param name="Keycodes are enums and will be used to decide what action the user will make."></param>
 /// <param name="keyboardEvent">KeyboardEvent will decide if handleKeyPressed or handleKeyReleased will be used</param>
-void Player::handleInput(const KeyCodes keyCodes, const KeyboardEvent keyboardEvent)
+void Player::handleInput(const KeyCodes keyCodes, const KeyboardEvent keyboardEvent, Vector2D mousePos)
 {
 	if (keyboardEvent == KeyboardEvent::KEY_PRESSED)
 	{

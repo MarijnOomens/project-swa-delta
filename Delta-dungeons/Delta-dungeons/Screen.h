@@ -14,6 +14,6 @@ public:
 
 	void connectCallback() override;
 	void callbackFunction() override;
-	void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) override;
+	void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos) override;
 	void update() override;
 };

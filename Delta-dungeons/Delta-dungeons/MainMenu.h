@@ -18,7 +18,7 @@ public:
 
 	void startGame();
 	void openCreditScreen();
-	void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) override;
+	void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos) override;
 	void closeScreen() override;
 
 };

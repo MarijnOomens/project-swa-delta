@@ -14,7 +14,7 @@ public:
 	void update() override;
 	void connectCallback() override;
 	void callbackFunction() override;
-	void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) override;
+	void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos) override;
 
 private:
 	std::shared_ptr<TextureManager> textureManager;

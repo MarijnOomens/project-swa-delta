@@ -29,7 +29,7 @@ void InputWrapper::handleInput(bool isPaused)
 			handleKeyReleased();
 			break;
 		case SDL_MOUSEBUTTONDOWN:
-			std::cout << "Mouse clicked" << std::endl;
+			handleMouseClicked();
 			break;
 		}
 	}
@@ -145,6 +145,13 @@ void InputWrapper::handleKeyReleased()
 	default:
 		break;
 	}
+}
+
+void InputWrapper::handleMouseClicked() {
+	int x, y;
+	SDL_GetMouseState(&x, &y);
+	Vector2D mousePosition { x, y };
+	func(pointer, KeyCodes::MOUSE, KeyboardEvent::MOUSE_CLICKED, mousePosition);
 }
 
 void InputWrapper::mapKeyBindings(const KeyCodes code) {}
