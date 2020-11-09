@@ -10,7 +10,7 @@ Button::Button() {};
 /// <param name="x">The horizontal position</param>
 /// <param name="y">The vertical position</param>
 /// <param name="textureList">Information of texture names.</param>
-Button::Button(int x, int y, std::vector<std::string> textureList) {
+Button::Button(int x, int y, std::vector<std::string> textureList, buttonCb onClick, void* p) : onCLickFunc(onClick), pointer(p) {
 	m_gc = std::make_shared<GraphicsComponent>();
 	transform.position = { x, y };
 
@@ -35,6 +35,7 @@ void Button::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEve
 			&& mousePos.y > m_gc.get()->transform.position.y && mousePos.y < m_gc.get()->transform.position.y + m_gc.get()->imageDimensions.y * m_gc.get()->transform.scale.y)
 		{
 			std::cout << "Button clicked" << std::endl;
+			onCLickFunc(pointer);
 		}
 	}
 }

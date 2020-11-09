@@ -15,12 +15,12 @@ MainMenu::MainMenu()
 
 	// Play button
 	std::vector<std::string> possibleButtonTexPlay = { "button_play" };
-	std::shared_ptr<Button> playButton = std::make_shared<Button>(500, 300, possibleButtonTexPlay);
+	std::shared_ptr<Button> playButton = std::make_shared<Button>(500, 300, possibleButtonTexPlay, staticOpenGameCallbackFunction, this);
 	this->components.emplace_back(playButton);
 
 	// Credits button
 	std::vector<std::string> possibleButtonTexCredits = { "button_credits" };
-	std::shared_ptr<Button> creditsButton = std::make_shared<Button>(500, 430, possibleButtonTexCredits);
+	std::shared_ptr<Button> creditsButton = std::make_shared<Button>(500, 430, possibleButtonTexCredits, staticOpenGameCallbackFunction, this);
 	this->components.emplace_back(creditsButton);
 
 	// Help button
@@ -30,7 +30,7 @@ MainMenu::MainMenu()
 
 	// Exit button
 	std::vector<std::string> possibleButtonTexExit = { "button_exit" };
-	std::shared_ptr<Button> exitButton = std::make_shared<Button>(500, 560, possibleButtonTexExit);
+	std::shared_ptr<Button> exitButton = std::make_shared<Button>(500, 560, possibleButtonTexExit, staticOpenGameCallbackFunction, this);
 	this->components.emplace_back(exitButton);
 }
 
@@ -56,6 +56,14 @@ void MainMenu::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardE
 			SceneLoader::getInstance().loadPreviousScene();
 		}
 	}
+}
+
+void MainMenu::staticOpenGameCallbackFunction(void* p) {
+	((MainMenu*)p)->openGameCallbackFunction();
+}
+
+void MainMenu::openGameCallbackFunction() {
+	SceneLoader::getInstance().loadScene("Level1", "MainMenu", false);
 }
 
 void MainMenu::closeScreen() {}

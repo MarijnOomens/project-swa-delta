@@ -8,10 +8,15 @@
 #include "GraphicsComponent.h"
 #include "SceneLoader.h"
 
+typedef void(*buttonCb) (void*);
+
 class MainMenu : public Screen
 {
 public:
 	std::vector<Button> buttons;
+
+	static void staticOpenGameCallbackFunction(void* p);
+	void openGameCallbackFunction();
 
 	MainMenu();
 	~MainMenu();

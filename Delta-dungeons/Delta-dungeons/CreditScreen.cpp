@@ -15,9 +15,9 @@ CreditScreen::CreditScreen()
 	gc->imageDimensions = { 1280, 960 };
 	this->components.emplace_back(gc);
 
-	std::vector<std::string> possibleButtonTexExit = { "button_exit" };
-	std::shared_ptr<Button> exitButton = std::make_shared<Button>(500, 800, possibleButtonTexExit);
-	this->components.emplace_back(exitButton);
+	//std::vector<std::string> possibleButtonTexExit = { "button_exit" };
+	//std::shared_ptr<Button> exitButton = std::make_shared<Button>(500, 800, possibleButtonTexExit);
+	//this->components.emplace_back(exitButton);
 
 	Colour color = { 0, 0, 0, 255 };
 	std::shared_ptr<TextComponent> creditsText = std::make_shared<TextComponent>("Credits", "comic", color, 64);
