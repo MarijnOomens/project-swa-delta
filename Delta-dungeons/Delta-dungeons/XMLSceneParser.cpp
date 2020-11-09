@@ -29,7 +29,7 @@ std::vector<std::shared_ptr<Tile>> XMLSceneParser::loadScene(const char* path)
 /// </summary>
 /// <returns> A list with parserdata for equipment only.</returns>
 
-std::vector<std::shared_ptr<ParserData>> XMLSceneParser::getEquipmentDataList()
+std::vector<std::shared_ptr<ParserData>> XMLSceneParser::getEquipmentDataList(const char* path)
 {
-	return facade->getEquipmentDataList();
+	return facade->getEquipmentDataList(path);
 }

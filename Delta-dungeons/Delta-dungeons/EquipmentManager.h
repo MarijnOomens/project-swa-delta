@@ -5,10 +5,12 @@
 #include <map>
 #include <memory>
 
+
 class EquipmentManager
 {
 public:
 	std::shared_ptr<GameObjectBuilder> builder;
+	std::vector<std::shared_ptr<IEquipment>> equipments;
 
 	EquipmentManager();
 	~EquipmentManager();

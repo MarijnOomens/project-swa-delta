@@ -25,7 +25,6 @@ GameManager::GameManager()
 	scene = Scene(staticTileToPlayerCallbackFunction, this);
 	scene.addGraphics();
 	registerTextures(scene.passTextures());
-	
 
 	registerBehaviourObjects();
 	engineFacade.createCamera(playerManager.get()->player.get()->transform.position.x, playerManager.get()->player.get()->transform.position.y);

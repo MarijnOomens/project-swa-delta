@@ -5,10 +5,7 @@ using namespace rapidxml;
 /// The XMLParser contains the logic to parse an .xml file into ParserData objects.
 /// </summary>
 
-XMLParser::XMLParser()
-{
-	equipmentDataList = std::vector<std::shared_ptr<ParserData>>();
-}
+XMLParser::XMLParser() {}
 
 XMLParser::~XMLParser() {}
 
@@ -60,11 +57,11 @@ std::vector<std::shared_ptr<ParserData>> XMLParser::parseXML(const char* path)
 						}
 					}
 
-					if (tileId != "55")
-					{
-						std::shared_ptr<ParserData> p = std::make_shared<ParserData>(tile->first_attribute("x")->value(), tile->first_attribute("y")->value(), tile->first_attribute("tile")->value());
-						equipmentDataList.push_back(p);
-					}
+					//if (tileId == "77")
+					//{
+					//	std::shared_ptr<ParserData> p = std::make_shared<ParserData>(tile->first_attribute("x")->value(), tile->first_attribute("y")->value(), tile->first_attribute("tile")->value());
+					//	equipmentDataList.push_back(p);
+					//}
 				}
 			}
 		}
@@ -78,7 +75,33 @@ std::vector<std::shared_ptr<ParserData>> XMLParser::parseXML(const char* path)
 /// </summary>
 /// <returns> A list with parserdata for equipment only.</returns>
 
-std::vector<std::shared_ptr<ParserData>> XMLParser::getEquipmentDataList()
+std::vector<std::shared_ptr<ParserData>> XMLParser::getEquipmentDataList(const char* path)
 {
-	return equipmentDataList;
+	std::vector<std::shared_ptr<ParserData>> parserDataList;
+
+	rapidxml::file<> xmlFile(path);
+	rapidxml::xml_document<> doc;
+
+	doc.parse<0>(xmlFile.data());
+	xml_node<>* node = doc.first_node("tilemap");
+
+	for (xml_node<>* layer = node->first_node(); layer; layer = layer->next_sibling())
+	{
+		std::string layerName = layer->first_attribute("name")->value();
+		if (layerName == "collider")
+		{
+			for (xml_node<>* tile = layer->first_node(); tile; tile = tile->next_sibling())
+			{
+				std::string xVal = tile->first_attribute("x")->value();
+				std::string yVal = tile->first_attribute("y")->value();
+				std::string tileId = tile->first_attribute("tile")->value();
+
+				if (tileId == "77") {
+					std::shared_ptr<ParserData> p = std::make_shared<ParserData>(tile->first_attribute("x")->value(), tile->first_attribute("y")->value(), tile->first_attribute("tile")->value());
+					parserDataList.push_back(p);
+				}
+			}
+		}
+	}
+	return parserDataList;
 }
