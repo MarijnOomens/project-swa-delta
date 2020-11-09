@@ -20,8 +20,8 @@ public:
 	ENGINE_API ~EngineController();
 
 	void update(std::vector<std::shared_ptr<BehaviourObject>>& bhObjects);
-	static void staticInputCallbackFunction(void* p, const KeyCodes keyCode, const KeyboardEvent keyboardEvent);
-	void inputCallbackFunction(const KeyCodes keyCode, const KeyboardEvent keyboardEvent);
+	static void staticInputCallbackFunction(void* p, const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos);
+	void inputCallbackFunction(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos);
 	ENGINE_API void addTexture(std::string name, std::string path);
 	ENGINE_API void registerTextures(std::map<std::string, std::string> textures);
 	ENGINE_API void registerFonts(std::map<std::string, std::string> fonts);

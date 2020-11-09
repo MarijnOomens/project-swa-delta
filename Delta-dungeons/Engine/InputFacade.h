@@ -3,7 +3,7 @@
 #include "IInputFacade.h"
 #include "InputWrapper.h"
 #include <memory>
-typedef void(*callbackFunction) (void*, KeyCodes, KeyboardEvent);
+typedef void(*callbackFunction) (void*, KeyCodes, KeyboardEvent, Vector2D);
 
 class InputFacade : public IInputFacade
 {

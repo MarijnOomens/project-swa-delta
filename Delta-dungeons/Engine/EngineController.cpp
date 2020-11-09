@@ -33,9 +33,9 @@ void EngineController::update(std::vector<std::shared_ptr<BehaviourObject>>& bhO
 /// <param name="p">Void pointer.</param>
 /// <param name="keyCode">The key that is read, like 'W'.</param>
 /// <param name="keyboardEvent">The key that is read, like 'W'.</param>
-void EngineController::staticInputCallbackFunction(void* p, const KeyCodes keyCode, const KeyboardEvent keyboardEvent)
+void EngineController::staticInputCallbackFunction(void* p, const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos)
 {
-	((EngineController*)p)->inputCallbackFunction(keyCode, keyboardEvent);
+	((EngineController*)p)->inputCallbackFunction(keyCode, keyboardEvent, mousePos);
 }
 
 /// <summary>
@@ -43,7 +43,7 @@ void EngineController::staticInputCallbackFunction(void* p, const KeyCodes keyCo
 /// </summary>
 /// <param name="keyCode">The key that is read, like 'W'.</param>
 /// <param name="keyboardEvent">The key that is read, like 'W'.</param>
-void EngineController::inputCallbackFunction(const KeyCodes keyCode, const KeyboardEvent keyboardEvent)
+void EngineController::inputCallbackFunction(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos)
 {
 	isSceneSwitched = false;
 	if (keyCode == KeyCodes::KEY_ESC) 

@@ -24,9 +24,9 @@ MainMenu::MainMenu()
 	this->components.emplace_back(creditsButton);
 
 	// Help button
-	std::vector<std::string> possibleButtonTexHelp = { "button_help" };
-	std::shared_ptr<Button> helpButton = std::make_shared<Button>(500, 690, possibleButtonTexHelp);
-	this->components.emplace_back(helpButton);
+	//std::vector<std::string> possibleButtonTexHelp = { "button_help" };
+	//std::shared_ptr<Button> helpButton = std::make_shared<Button>(500, 690, possibleButtonTexHelp);
+	//this->components.emplace_back(helpButton);
 
 	// Exit button
 	std::vector<std::string> possibleButtonTexExit = { "button_exit" };
