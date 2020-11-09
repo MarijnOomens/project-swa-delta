@@ -71,7 +71,12 @@ void EngineFacade::registerScene(std::string sceneName, std::vector<std::shared_
 	engineController.get()->registerScene(sceneName, behaviourObjects);
 }
 
-void EngineFacade::loadScene(std::string sceneName)
+void EngineFacade::loadScene(std::string sceneName, std::string fromScene, bool clearPrevious)
 {
-	engineController.get()->loadScene(sceneName);
+	engineController.get()->loadScene(sceneName, fromScene, clearPrevious);
+}
+
+void EngineFacade::loadPreviousScene()
+{
+	engineController.get()->loadPreviousScene();
 }

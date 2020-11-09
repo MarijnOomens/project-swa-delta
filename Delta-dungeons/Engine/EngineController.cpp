@@ -130,10 +130,16 @@ void EngineController::registerScene(std::string sceneName, std::vector<std::sha
 	sceneManager.registerScene(sceneName, tempObjects);
 }
 
-void EngineController::loadScene(std::string sceneName)
+void EngineController::loadScene(std::string sceneName, std::string fromScene, bool clearPrevious)
 {
 	isSceneSwitched = true;
-	behaviourObjects = sceneManager.loadScene(sceneName);
+	behaviourObjects = sceneManager.loadScene(sceneName, fromScene, clearPrevious);
+}
+
+void EngineController::loadPreviousScene()
+{
+	isSceneSwitched = true;
+	behaviourObjects = sceneManager.loadPreviousScene();
 }
 
 void EngineController::passPlayerPosition(int x, int y)

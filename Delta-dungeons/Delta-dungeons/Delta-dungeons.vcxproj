@@ -204,7 +204,6 @@
     <ClInclude Include="HealingItem.h" />
     <ClInclude Include="HelpScreen.h" />
     <ClInclude Include="HUD.h" />
-    <ClInclude Include="ISceneState.h" />
     <ClInclude Include="ParserData.h" />
     <ClInclude Include="PlayerManager.h" />
     <ClInclude Include="SceneLoader.h" />
