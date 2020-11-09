@@ -6,6 +6,7 @@
 #include "EngineFacade.h"
 #include "XMLSceneParser.h"
 #include "SceneLoader.h"
+#include "NPCManager.h"
 
 class GameManager {
 public: 
@@ -14,6 +15,7 @@ public:
 	PlayerManager playerManager;
 	EquipmentManager eqManager;
 	Scene scene;
+	NPCManager npcManager;
 
 	GameManager();
 	~GameManager();

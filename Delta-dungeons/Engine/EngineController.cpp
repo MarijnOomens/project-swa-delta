@@ -46,11 +46,16 @@ void EngineController::staticInputCallbackFunction(void* p, const KeyCodes keyCo
 void EngineController::inputCallbackFunction(const KeyCodes keyCode, const KeyboardEvent keyboardEvent)
 {
 	isSceneSwitched = false;
-	for (auto& gameObject : behaviourObjects)
+	if (keyCode == KeyCodes::KEY_ESC) 
 	{
-		if (!isSceneSwitched)
+		renderFacade.get()->quitGame();
+	}
+	else {
+		for (auto& gameObject : behaviourObjects)
 		{
-			gameObject.get()->handleInput(keyCode, keyboardEvent);
+			if (!isSceneSwitched) {
+				gameObject.get()->handleInput(keyCode, keyboardEvent);
+			}
 		}
 	}
 }
@@ -99,9 +104,6 @@ void EngineController::startGame()
 		renderFacade->afterFrame();
 		renderFacade->setFrameDelay();
 	}
-
-	renderFacade->clean();
-	std::cout << "Game cleaned" << std::endl;
 }
 
 void EngineController::registerScene(std::string sceneName, std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects)

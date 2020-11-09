@@ -13,8 +13,13 @@ GameManager::GameManager()
 	registerTextures(uiManager.passTextures());
 	registerFonts(uiManager.passFonts());
 
-	/*playerManager.createPlayer(staticCameraCallbackFunction, this);
-	registerTextures(playerManager.passTextures());
+	playerManager = std::make_shared<PlayerManager>();
+	playerManager.get()->createPlayer(staticCameraCallbackFunction, this);
+	registerTextures(playerManager.get()->passTextures());
+
+	npcManager = NPCManager();
+	npcManager.createNPC();
+	registerTextures(npcManager.passTextures());
 	
 	scene.addGraphics();
 	registerTextures(scene.passTextures());*/
@@ -36,6 +41,22 @@ void GameManager::registerBehaviourObjects()
 		std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects;
 		behaviourObjects.emplace_back(o.second);
 
+	for (auto& t : scene.getComponentsRecursive())
+	{
+		this->objects.emplace_back(t);
+	}
+
+	for (auto& o : npcManager.npcs)
+	{
+		for (auto& n : o.second.get()->getComponentsRecursive())
+		{
+			this->objects.emplace_back(n);
+		}
+		this->objects.emplace_back(o.second.get());
+	}
+	
+	for (auto& o : playerManager.get()->sprites)
+	{
 		for (auto& c : o.second.get()->getComponentsRecursive())
 		{
 			behaviourObjects.emplace_back(c);

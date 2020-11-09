@@ -73,6 +73,12 @@ void InputWrapper::handleKeyPressed()
 	case SDLK_BACKSPACE:
 		func(pointer, KeyCodes::KEY_BACKSPACE, KeyboardEvent::KEY_PRESSED);
 		break;
+	case SDLK_g:
+		func(pointer, KeyCodes::KEY_G, KeyboardEvent::KEY_PRESSED);
+		break;
+	case SDLK_ESCAPE:
+		func(pointer, KeyCodes::KEY_ESC, KeyboardEvent::KEY_PRESSED);
+		break;
 	default:
 		break;
 	}
