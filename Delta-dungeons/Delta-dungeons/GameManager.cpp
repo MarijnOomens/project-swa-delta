@@ -24,7 +24,7 @@ GameManager::GameManager()
 	registerTextures(scene.passTextures());
 
 	registerBehaviourObjects();
-	//engineFacade.createCamera(playerManager.player.get()->transform.position.x, playerManager.player.get()->transform.position.y);
+	engineFacade->createCamera(playerManager.player.get()->transform.position.x, playerManager.player.get()->transform.position.y);
 	engineFacade->startGame();
 }
 

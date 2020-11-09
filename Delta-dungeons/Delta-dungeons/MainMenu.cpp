@@ -10,6 +10,7 @@ MainMenu::MainMenu()
 	text = "Delta Dungeons";
 	gc = std::make_shared<GraphicsComponent>();
 	gc->setTexture("mainmenu");
+	gc->isScreen = true;
 	gc->imageDimensions = { 1280, 960 };
 	this->components.emplace_back(gc);
 
@@ -41,6 +42,10 @@ void MainMenu::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardE
 		if (keyCode == KeyCodes::KEY_E)
 		{
 			SceneLoader::getInstance().loadScene("Level1", "MainMenu", false);
+		}
+		else if (keyCode == KeyCodes::KEY_G)
+		{
+			SceneLoader::getInstance().loadScene("CreditScreen", "MainMenu", false);
 		}
 		else if (keyCode == KeyCodes::KEY_BACKSPACE)
 		{
