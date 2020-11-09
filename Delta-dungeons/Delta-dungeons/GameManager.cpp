@@ -17,14 +17,15 @@ GameManager::GameManager()
 	playerManager.get()->createPlayer(staticCameraCallbackFunction, staticPlayerToTileCallbackFunction, this);
 	registerTextures(playerManager.get()->passTextures());
 
-	npcManager = NPCManager();
-	npcManager.createNPC();
-	registerTextures(npcManager.passTextures());
+
 	
 
 	scene = Scene(staticTileToPlayerCallbackFunction, this);
 	scene.addGraphics();
 	registerTextures(scene.passTextures());
+
+	eqManager.createEquipment();
+	registerTextures(eqManager.passTextures());
 
 	registerBehaviourObjects();
 	engineFacade.createCamera(playerManager.get()->player.get()->transform.position.x, playerManager.get()->player.get()->transform.position.y);
@@ -59,7 +60,16 @@ void GameManager::registerBehaviourObjects()
 		}
 		this->objects.emplace_back(o.second.get());
 	}
-	
+
+	for (auto& o : eqManager.equipments)
+	{
+		for (auto& n : o.get()->getComponentsRecursive())
+		{
+			this->objects.emplace_back(n);
+		}
+		this->objects.emplace_back(o);
+	}
+
 	for (auto& o : playerManager.get()->sprites)
 	{
 		for (auto& c : o.second.get()->getComponentsRecursive())

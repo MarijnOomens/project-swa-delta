@@ -9,25 +9,24 @@ EquipmentManager::~EquipmentManager() {}
 
 void EquipmentManager::createEquipment()
 {
-	std::unique_ptr<XMLSceneParser> parsedDatas = std::make_unique<XMLSceneParser>();
-	std::vector<std::shared_ptr<Pokeball>> createdEquipments;
-
-	for (std::shared_ptr<ParserData> equipment : parsedDatas.get()->getEquipmentDataList("Assets/Level/collidermap.xml"))
+	std::unique_ptr<XMLSceneParser> xmlSceneParser = std::make_unique<XMLSceneParser>();
+	std::vector<std::shared_ptr<ParserData>> parserData = xmlSceneParser.get()->getEquipmentDataList("Assets/Level/level1.xml");
+	
+	for (auto parsedEquipment : parserData)
 	{
-		int first = equipment.get()->tileId[0] - 48;
-
-		if (equipment.get()->tileId[1]) {
-			int second = equipment.get()->tileId[1] - 48;
-			createdEquipments.push_back(std::make_shared<Pokeball>(std::stoi(equipment.get()->x), std::stoi(equipment.get()->y), first, second, true, std::stoi(equipment.get()->tileId)));
+		int first = parsedEquipment.get()->tileId[0] - 48;
+		if (parsedEquipment.get()->tileId[1]) {
+			int second = parsedEquipment.get()->tileId[1] - 48;
+			std::shared_ptr<Pokeball> pokeball = std::make_shared<Pokeball>(std::stoi(parsedEquipment.get()->x), std::stoi(parsedEquipment.get()->y), first, second, true, std::stoi(parsedEquipment.get()->tileId));
+			equipments.emplace_back(pokeball);
 		}
 		else
 		{
-			createdEquipments.push_back(std::make_shared<Pokeball>(std::stoi(equipment.get()->x), std::stoi(equipment.get()->y), first, true, std::stoi(equipment.get()->tileId)));
+			std::shared_ptr<Pokeball> pokeball = std::make_shared<Pokeball>(std::stoi(parsedEquipment.get()->x), std::stoi(parsedEquipment.get()->y), first, true, std::stoi(parsedEquipment.get()->tileId));
+
+			equipments.emplace_back(pokeball);
 		}
 	}
-
-
-	//return tileMap;
 }
 
 std::map<std::string, std::string> EquipmentManager::passTextures() const

@@ -77,7 +77,7 @@ std::vector<std::shared_ptr<ParserData>> XMLParser::parseXML(const char* path)
 
 std::vector<std::shared_ptr<ParserData>> XMLParser::getEquipmentDataList(const char* path)
 {
-	std::vector<std::shared_ptr<ParserData>> parserDataList;
+	std::vector<std::shared_ptr<ParserData>> equipmentDataList;
 
 	rapidxml::file<> xmlFile(path);
 	rapidxml::xml_document<> doc;
@@ -98,10 +98,10 @@ std::vector<std::shared_ptr<ParserData>> XMLParser::getEquipmentDataList(const c
 
 				if (tileId == "77") {
 					std::shared_ptr<ParserData> p = std::make_shared<ParserData>(tile->first_attribute("x")->value(), tile->first_attribute("y")->value(), tile->first_attribute("tile")->value());
-					parserDataList.push_back(p);
+					equipmentDataList.push_back(p);
 				}
 			}
 		}
 	}
-	return parserDataList;
+	return equipmentDataList;
 }

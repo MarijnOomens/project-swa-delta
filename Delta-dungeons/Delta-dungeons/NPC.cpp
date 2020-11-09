@@ -15,7 +15,7 @@ NPC::NPC(int x, int y, std::string texture)
 	this->components.emplace_back(gc);
 }
 
-NPC::~NPC(){}
+NPC::~NPC() {}
 
 void NPC::interact(){}
 

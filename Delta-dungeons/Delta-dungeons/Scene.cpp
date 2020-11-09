@@ -69,15 +69,15 @@ void Scene::checkCollision(int xPos, int yPos)
 		if (xPos == tileX && yPos == tileY)
 		{
 			// Logs for collision debug purposes
-			/*std::cout << "Tile and player collision prediction." << std::endl;
+			std::cout << "Tile and player collision prediction." << std::endl;
 			std::cout << "Tries moving to x: " << xPos << std::endl;
 			std::cout << "Tries moving to y: " << yPos << std::endl;
 			std::cout << "Target tile x: " << tileX << std::endl;
 			std::cout << "Target tile y: " << tileY << std::endl;
 			std::cout << "Tile isCollider " << isCollider << std::endl;
-			std::cout << "-------------------------------------" << std::endl;*/
+			std::cout << "-------------------------------------" << std::endl;
 			if (isCollider) {
-				//std::cout << "This is a Tile with Collision" << std::endl;
+				std::cout << "This is a Tile with Collision" << std::endl;
 				func(pointer);
 				break;
 			}
