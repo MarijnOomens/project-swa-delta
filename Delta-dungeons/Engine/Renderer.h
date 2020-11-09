@@ -15,7 +15,6 @@ public:
 	SDL_Window* sdlWindow;
 	bool isRunning;
 	bool isPaused;
-	bool isInGame;
 
 	Renderer();
 	~Renderer();

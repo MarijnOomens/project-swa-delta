@@ -43,7 +43,6 @@ void Renderer::init(const char* title, int width, int height, bool fullscreen) {
 			}
 			isRunning = true;
 			isPaused = false;
-			isInGame = false;
 		}
 		else {
 			throw("Subsystems are not initialised!");
@@ -77,7 +76,6 @@ void Renderer::createCamera(int x, int y)
 
 std::tuple<int, int> Renderer::updateCamera(int playerX, int playerY)
 {
-	isInGame = true;
 	int differenceX = (playerX - (camera.x + 640));
 	int differenceY = (playerY - (camera.y + 512));
 	camera.x = camera.x + differenceX;
@@ -88,7 +86,7 @@ std::tuple<int, int> Renderer::updateCamera(int playerX, int playerY)
 
 void Renderer::drawTexture(SDL_Texture* texture, const Transform& transform, const Vector2D& coordinates, const Vector2D& sourceDimensions, int row, int frames, int speed, bool animated, bool flipped, bool isScreen)
 {
-	if (checkCameraPosition(transform)) {
+	if (checkCameraPosition(transform) || isScreen) {
 		SDL_Rect source;
 		SDL_RendererFlip flip = SDL_FLIP_NONE;
 		if (flipped)
@@ -138,11 +136,7 @@ void Renderer::drawTexture(SDL_Texture* texture, const Transform& transform, con
 
 bool Renderer::checkCameraPosition(const Transform& transform)
 {
-	if (!isInGame) 
-	{
-		return true;
-	}
-	else if (transform.position.x >= camera.x -128 && transform.position.x < camera.x + 1408 && transform.position.y >= camera.y -128 && transform.position.y < camera.y + 1024)
+	if (transform.position.x >= camera.x -128 && transform.position.x < camera.x + 1408 && transform.position.y >= camera.y -128 && transform.position.y < camera.y + 1024)
 	{
 		return true;
 	}
@@ -163,7 +157,6 @@ void Renderer::clean()
 void Renderer::pauseGame()
 {
 	isPaused = !isPaused;
-	isInGame = !isInGame;
 }
 
 /// <summary>
