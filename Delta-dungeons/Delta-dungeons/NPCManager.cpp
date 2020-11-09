@@ -10,16 +10,16 @@ NPCManager::~NPCManager() {}
 
 void NPCManager::createNPC() 
 {
-	npcs.try_emplace("bugtrainer", builder.get()->getNPC(192, 192, "bugtrainer"));
-	npcs.try_emplace("umbreon", builder.get()->getPokemon(256, 192, "umbreon"));
-	//npcs.try_emplace("leaf2", builder.get()->getNPC(480, 480, "npc"));
-	npcs.try_emplace("dunsparce", builder.get()->getPokemon(544, 480, "dunsparce"));
-	npcs.try_emplace("shinx", builder.get()->getPokemon(128, 480, "shinx"));
-	npcs.try_emplace("eevee", builder.get()->getPokemon(256, 320, "eevee"));
-	npcs.try_emplace("turtwig", builder.get()->getPokemon(128, 192, "turtwig"));
-	npcs.try_emplace("magmortar", builder.get()->getPokemon(320, 480, "magmortar"));
-	npcs.try_emplace("ralts", builder.get()->getPokemon(320, 544, "ralts"));
-	npcs.try_emplace("deoxys_standard", builder.get()->getPokemon(608, 608, "deoxys_standard"));
+	npcs.try_emplace("bugtrainer", builder.get()->getNPC(640, 896, "bugtrainer"));
+	npcs.try_emplace("eevee", builder.get()->getPokemon(768, 896, "eevee"));
+	npcs.try_emplace("flareon", builder.get()->getPokemon(896, 896, "flareon"));
+	npcs.try_emplace("vaporeon", builder.get()->getPokemon(1024, 896, "vaporeon"));
+	npcs.try_emplace("jolteon", builder.get()->getPokemon(1152, 896, "jolteon"));
+	npcs.try_emplace("espeon", builder.get()->getPokemon(1280, 896, "espeon"));
+	npcs.try_emplace("umbreon", builder.get()->getPokemon(1408, 896, "umbreon"));
+	npcs.try_emplace("leafeon", builder.get()->getPokemon(1536, 896, "leafeon"));
+	npcs.try_emplace("glaceon", builder.get()->getPokemon(1664, 896, "glaceon"));
+	npcs.try_emplace("sylveon", builder.get()->getPokemon(1792, 896, "sylveon"));
 }
 
 std::map<std::string, std::string> NPCManager::passTextures() const

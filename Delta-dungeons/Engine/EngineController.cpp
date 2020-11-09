@@ -50,6 +50,11 @@ void EngineController::inputCallbackFunction(const KeyCodes keyCode, const Keybo
 	{
 		renderFacade.get()->quitGame();
 	}
+	else if (keyCode == KeyCodes::KEY_P)
+	{
+		renderFacade.get()->pauseGame();
+		pauseScreen();
+	}
 	else {
 		for (auto& gameObject : behaviourObjects)
 		{
@@ -95,12 +100,13 @@ void EngineController::startGame()
 	while (renderFacade->renderer->isRunning) {
 
 		renderFacade->setFrameStart();
-		renderFacade->beforeFrame();
 
-		input.get()->handleInput();
-
-		EngineController::update(behaviourObjects);
-
+		input.get()->handleInput(renderFacade->renderer->isPaused);
+		if (!renderFacade->renderer->isPaused) 
+		{
+			renderFacade->beforeFrame();
+			EngineController::update(behaviourObjects);
+		}
 		renderFacade->afterFrame();
 		renderFacade->setFrameDelay();
 	}
@@ -154,15 +160,6 @@ void EngineController::addOverlayScene(const std::string& sceneName)
 void EngineController::passPlayerPosition(int x, int y)
 {
 	std::tuple<int, int> positions = renderFacade->passPlayerPosition(x, y);
-	updatePositions(std::get<0>(positions), std::get<1>(positions));
-}
-
-void EngineController::updatePositions(int cameraX, int cameraY)
-{
-	for (auto& bo : behaviourObjects)
-	{
-		bo.get()->updatePositions(cameraX, cameraY);
-	}
 }
 
 /// <summary>
@@ -182,5 +179,18 @@ void EngineController::registerTextures(std::map<std::string, std::string> textu
 void EngineController::registerFonts(std::map<std::string, std::string> fonts) {
 	for (auto& t : fonts) {
 		assetManager.get()->addFont(t.first, t.second);
+	}
+}
+
+void EngineController::pauseScreen()
+{
+	if (renderFacade->renderer->isPaused) 
+	{
+		addOverlayScene("Pause");
+		EngineController::update(behaviourObjects);
+	}
+	else 
+	{
+		loadPreviousScene();
 	}
 }

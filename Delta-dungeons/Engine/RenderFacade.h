@@ -27,7 +27,7 @@ public:
 	void setFrameStart();
 	void setFrameDelay();
 	void drawText(std::string path, std::string text, Colour colour, const Transform& transform, int fontSize);
-	void drawTexture(std::string path, const Transform& transform, const Vector2D& coordinates, const Vector2D& sourceDimensions, int row, int frames, int speed, bool animated, bool flipped);
+	void drawTexture(std::string path, const Transform& transform, const Vector2D& coordinates, const Vector2D& sourceDimensions, int row, int frames, int speed, bool animated, bool flipped, bool isScreen);
 	void init(const char* title, const int width, const int height, const bool fullscreen);
 	void update(std::vector<GameObject> gameObjects);
 	void clean();
@@ -35,5 +35,6 @@ public:
 	void afterFrame();
 	void createCamera(int x, int y);
 	void quitGame();
+	void pauseGame();
 	std::tuple<int, int> passPlayerPosition(int x, int y);
 };

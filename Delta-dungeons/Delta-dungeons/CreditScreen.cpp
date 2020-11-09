@@ -10,6 +10,7 @@ CreditScreen::CreditScreen()
 	this->fonts.try_emplace("comic", "Assets/comic.ttf");
 
 	gc = std::make_shared<GraphicsComponent>();
+	gc->isScreen = true;
 	gc->setTexture("credits");
 	gc->imageDimensions = { 1280, 960 };
 	this->components.emplace_back(gc);
@@ -32,6 +33,26 @@ CreditScreen::CreditScreen()
 	std::shared_ptr<TextComponent> creditsText2 = std::make_shared<TextComponent>("Marijn", "comic", color, 32);
 	creditsText2->transform.position = { 550, 375 };
 	this->components.emplace_back(creditsText2);
+
+	color = { 0, 0, 255, 255 };
+	std::shared_ptr<TextComponent> creditsText3 = std::make_shared<TextComponent>("Robin", "comic", color, 32);
+	creditsText3->transform.position = { 550, 425 };
+	this->components.emplace_back(creditsText3);
+
+	color = { 210, 105, 30, 255 };
+	std::shared_ptr<TextComponent> creditsText4 = std::make_shared<TextComponent>("Raymond", "comic", color, 32);
+	creditsText4->transform.position = { 550, 475 };
+	this->components.emplace_back(creditsText4);
+
+	color = { 148, 0, 211, 255 };
+	std::shared_ptr<TextComponent> creditsText5 = std::make_shared<TextComponent>("Yoran", "comic", color, 32);
+	creditsText5->transform.position = { 550, 525 };
+	this->components.emplace_back(creditsText5);
+
+	color = { 0, 0, 0, 255 };
+	std::shared_ptr<TextComponent> creditsText6 = std::make_shared<TextComponent>("Tristan", "comic", color, 32);
+	creditsText6->transform.position = { 550, 575 };
+	this->components.emplace_back(creditsText6);
 }
 
 CreditScreen::~CreditScreen() {}

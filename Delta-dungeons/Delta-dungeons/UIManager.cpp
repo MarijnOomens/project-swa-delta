@@ -8,7 +8,8 @@ void UIManager::playDialogue(std::vector<std::string>) {}
 void UIManager::createBaseScreens() {
 	std::shared_ptr<MainMenu> mainMenu = std::make_shared<MainMenu>();
 	screens.try_emplace("MainMenu", mainMenu);
-
+	std::shared_ptr<PauseScreen> pause = std::make_shared<PauseScreen>();
+	screens.try_emplace("Pause", pause);
 	std::shared_ptr<CreditScreen> credits = std::make_shared<CreditScreen>();
 	screens.try_emplace("CreditScreen", credits);
 }

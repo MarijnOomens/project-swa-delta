@@ -32,7 +32,7 @@ public:
 	ENGINE_API void addOverlayScene(const std::string& sceneName);
 	ENGINE_API void createCamera(int x, int y);
 	ENGINE_API void passPlayerPosition(int x, int y);
-	void updatePositions(int cameraX, int cameraY);
+	void pauseScreen();
 
 private:
 	std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects;
