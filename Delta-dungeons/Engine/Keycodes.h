@@ -13,7 +13,7 @@ enum class KeyCodes {
 	KEY_Q,
 	KEY_E,
 	KEY_G,
-	KEY_C
+	KEY_C,
 	KEY_P,
-	KEY_BACKSPACE,
+	KEY_BACKSPACE
 };

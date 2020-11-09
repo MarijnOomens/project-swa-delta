@@ -13,9 +13,8 @@ GameManager::GameManager()
 	registerTextures(uiManager.passTextures());
 	registerFonts(uiManager.passFonts());
 
-	playerManager = std::make_shared<PlayerManager>();
-	playerManager.get()->createPlayer(staticCameraCallbackFunction, staticPlayerToTileCallbackFunction, this);
-	registerTextures(playerManager.get()->passTextures());
+	playerManager.createPlayer(staticCameraCallbackFunction, staticPlayerToTileCallbackFunction, this);
+	registerTextures(playerManager.passTextures());
 
 	scene = Scene(staticTileToPlayerCallbackFunction, this);
 	scene.addGraphics();

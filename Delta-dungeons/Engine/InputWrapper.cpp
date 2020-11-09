@@ -82,15 +82,14 @@ void InputWrapper::handleKeyPressed(bool isPaused)
 			break;
 		case SDLK_BACKSPACE:
 			func(pointer, KeyCodes::KEY_BACKSPACE, KeyboardEvent::KEY_PRESSED);
-		break;
-	case SDLK_c:
-		func(pointer, KeyCodes::KEY_C, KeyboardEvent::KEY_PRESSED);
-		break;
-	case SDLK_ESCAPE:
+			break;
+		case SDLK_c:
+			func(pointer, KeyCodes::KEY_C, KeyboardEvent::KEY_PRESSED);
+			break;
 		default:
 			break;
+			}
 		}
-	}
 	else if (event.key.keysym.sym == SDLK_p) 
 	{
 		func(pointer, KeyCodes::KEY_P, KeyboardEvent::KEY_PRESSED);
