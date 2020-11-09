@@ -22,9 +22,6 @@
     <Filter Include="Header Files\Engine\Input">
       <UniqueIdentifier>{31479452-c0e8-46be-b33a-46975b643728}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Engine\input">
-      <UniqueIdentifier>{540a8c5b-d7a8-49df-97e9-c24a5cc4e3ca}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\SDL">
       <UniqueIdentifier>{06c380c4-5411-4021-96f5-e3cf304d9850}</UniqueIdentifier>
     </Filter>
@@ -36,6 +33,9 @@
     </Filter>
     <Filter Include="Source Files\SDL\Input">
       <UniqueIdentifier>{d788796d-e34c-45e5-aed6-24c38e4a0123}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Input">
+      <UniqueIdentifier>{540a8c5b-d7a8-49df-97e9-c24a5cc4e3ca}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -121,7 +121,7 @@
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="TextComponent.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Engine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -189,7 +189,7 @@
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
     <ClCompile Include="Input.cpp">
-      <Filter>Source Files\Engine\input</Filter>
+      <Filter>Source Files\Engine\Input</Filter>
     </ClCompile>
     <ClCompile Include="Colour.cpp">
       <Filter>Source Files\Engine</Filter>

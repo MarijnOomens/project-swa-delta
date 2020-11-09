@@ -5,13 +5,14 @@
 #include "PlayerManager.h"
 #include "EngineFacade.h"
 #include "XMLSceneParser.h"
+#include "SceneLoader.h"
 #include "NPCManager.h"
 
 class GameManager {
 public: 
-	EngineFacade engineFacade;
+	std::shared_ptr<EngineFacade> engineFacade;
 	UIManager uiManager;
-	std::shared_ptr<PlayerManager> playerManager;
+	PlayerManager playerManager;
 	EquipmentManager eqManager;
 	Scene scene;
 	NPCManager npcManager;
@@ -32,5 +33,5 @@ public:
 	void registerFonts(std::map<std::string, std::string> fonts);
 
 private:
-	std::vector<std::shared_ptr<BehaviourObject>> objects; //TODO: split into scenes
+
 };

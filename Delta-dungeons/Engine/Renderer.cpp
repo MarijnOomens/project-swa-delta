@@ -42,6 +42,7 @@ void Renderer::init(const char* title, int width, int height, bool fullscreen) {
 				throw("Failed to create Render!");
 			}
 			isRunning = true;
+			isPaused = false;
 		}
 		else {
 			throw("Subsystems are not initialised!");
@@ -60,19 +61,87 @@ void Renderer::init(const char* title, int width, int height, bool fullscreen) {
 
 void Renderer::createCamera(int x, int y)
 {
-	camera = { x,y, 1024, 1024 };
+	int cameraX = x - 640;
+	if (cameraX < 0) 
+	{
+		cameraX = 0;
+	}
+	int cameraY = y - 512;
+	if (cameraY < 0)
+	{
+		cameraY = 0;
+	}
+	camera = {cameraX ,cameraY, 4608, 4096 };
 }
 
 std::tuple<int, int> Renderer::updateCamera(int playerX, int playerY)
 {
-	int differenceX = (playerX - camera.x);
-	int differenceY = (playerY - camera.y);
+	int differenceX = (playerX - (camera.x + 640));
+	int differenceY = (playerY - (camera.y + 512));
 	camera.x = camera.x + differenceX;
 	camera.y = camera.y + differenceY;
 
 	return std::make_tuple(differenceX, differenceY);
 }
 
+void Renderer::drawTexture(SDL_Texture* texture, const Transform& transform, const Vector2D& coordinates, const Vector2D& sourceDimensions, int row, int frames, int speed, bool animated, bool flipped, bool isScreen)
+{
+	if (checkCameraPosition(transform) || isScreen) {
+		SDL_Rect source;
+		SDL_RendererFlip flip = SDL_FLIP_NONE;
+		if (flipped)
+			flip = SDL_FLIP_HORIZONTAL;
+
+		source.w = sourceDimensions.x;
+		source.h = sourceDimensions.y;
+		source.x = coordinates.x;
+		source.y = coordinates.y;
+
+		if (animated)
+		{
+			source.x = source.w * static_cast<int>((SDL_GetTicks() / speed) % frames);
+			source.y = row * source.h;
+		}
+
+		SDL_Rect destination;
+		if (!isScreen) 
+		{
+			destination.x = transform.position.x - camera.x;
+			destination.y = transform.position.y - camera.y;
+		}
+		else
+		{
+			destination.x = transform.position.x;
+			destination.y = transform.position.y;
+		}
+		destination.w = sourceDimensions.x * transform.scale.x;
+		destination.h = sourceDimensions.y * transform.scale.y;
+
+		try {
+			if (sdlRenderer == NULL) {
+				throw("Renderer is NULL!");
+			}
+			else if (texture == NULL) {
+				throw("SDL_Texture is NULL!");
+			}
+			SDL_RenderCopyEx(sdlRenderer, texture, &source, &destination, NULL, NULL, flip);
+
+		}
+		catch (std::string error) {
+			std::cout << "Error: " << error << std::endl;
+		}
+	}
+}
+
+
+bool Renderer::checkCameraPosition(const Transform& transform)
+{
+	if (transform.position.x >= camera.x -128 && transform.position.x < camera.x + 1408 && transform.position.y >= camera.y -128 && transform.position.y < camera.y + 1024)
+	{
+		return true;
+	}
+	return false;
+}
 
 /// <summary>
 /// This methods cleans the game files and destroys all sdl components to makes sure all memory is cleared.
@@ -83,6 +152,11 @@ void Renderer::clean()
 	SDL_DestroyRenderer(sdlRenderer);
 	SDL_Quit();
 	std::cout << "Game Cleaned" << std::endl;
+}
+
+void Renderer::pauseGame()
+{
+	isPaused = !isPaused;
 }
 
 /// <summary>

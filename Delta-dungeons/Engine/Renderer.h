@@ -14,6 +14,7 @@ public:
 	SDL_Rect camera;
 	SDL_Window* sdlWindow;
 	bool isRunning;
+	bool isPaused;
 
 	Renderer();
 	~Renderer();
@@ -22,7 +23,11 @@ public:
 	std::tuple<int, int> updateCamera(int playerX, int playerY);
 	void createCamera(int x, int y);
 	void clean();
+	void pauseGame();
 	void quitGame();
 	void beforeFrame();
+	bool checkCameraPosition(const Transform& transform);
+	void drawTexture(SDL_Texture* texture, const Transform& transform, const Vector2D& coordinates, const Vector2D& sourceDimension, int row, int frames, int speed, bool animated, bool flipped, bool isScreen);
 	void afterFrame();
+
 };

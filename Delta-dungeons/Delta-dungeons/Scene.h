@@ -27,7 +27,6 @@ public:
 	void connectCallback() override; //Add callbackfunction
 	void callbackFunction() override;
 	void update() override;
-	void updatePositions(int x, int y)override;
 	void checkCollision(int x, int y);
 
 private:

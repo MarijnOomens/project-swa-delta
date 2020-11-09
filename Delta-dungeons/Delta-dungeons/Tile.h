@@ -20,5 +20,4 @@ public:
 	void callbackFunction() override;
 	void connectCallback() override;
 	void update() override;
-	void updatePositions(int x, int y) override;
 };

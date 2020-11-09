@@ -28,18 +28,19 @@ Player::Player(const cbCamera f, const cbTile cbTile, void* p) : func(f), tileFu
 	runActivated = false;
 	tileCollision = false;
 
-	this->transform.position.x = 512;
-	this->transform.position.y = 384;
+	this->transform.position.x = 1024;
+	this->transform.position.y = 768;
 	x = this->transform.position.x;
 	y = this->transform.position.y;
 
 
-	this->textures.try_emplace("player_m", "Assets/player_m_anims.png");
+	this->textures.try_emplace("player_m", "Assets/player2_m_anims.png");
 	this->textures.try_emplace("player_f", "Assets/player_f_anims.png");
 	this->texture = "player_m";
 
 	m_gc = std::make_shared<GraphicsComponent>();
 	m_gc->setTexture("player_m");
+	m_gc->isScreen = false;
 	m_gc.get()->transform = this->transform;
 	m_gc->imageDimensions = { 32, 32 };
 	// player scaling makes collision look odd due to different sizes. A tile is scaled x2, a player x4.
@@ -197,9 +198,11 @@ void Player::handleKeyReleased(const KeyCodes keyCodes)
 /// </summary>
 void Player::moveUp()
 {
-	y -= baseMovementSpeed;
-	runActivated ? m_gc->playAnimation(7, 3, animationSpeed, false) : m_gc->playAnimation(2, 4, animationSpeed, false);
-	func(pointer, x, y);
+	transform.position.y -= baseMovementSpeed;
+	m_gc.get()->transform.position = transform.position;
+	runActivated ? m_gc->playAnimation(7, 3, animationSpeed, false) :
+		m_gc->playAnimation(2, 4, animationSpeed, false);
+	func(pointer, transform.position.x, transform.position.y);
 }
 
 /// <summary>
@@ -208,9 +211,11 @@ void Player::moveUp()
 /// </summary>
 void Player::moveDown()
 {
-	y += baseMovementSpeed;
-	runActivated ? m_gc->playAnimation(6, 3, animationSpeed, false) : m_gc->playAnimation(1, 4, animationSpeed, false);
-	func(pointer, x, y);
+	transform.position.y += baseMovementSpeed;
+	m_gc.get()->transform.position = transform.position;
+	runActivated ? m_gc->playAnimation(6, 3, animationSpeed, false) :
+		m_gc->playAnimation(1, 4, animationSpeed, false);
+	func(pointer, transform.position.x, transform.position.y);
 }
 
 /// <summary>
@@ -219,9 +224,11 @@ void Player::moveDown()
 /// </summary>
 void Player::moveLeft()
 {
-	x -= baseMovementSpeed;
-	runActivated ? m_gc->playAnimation(8, 3, animationSpeed, false) : m_gc->playAnimation(3, 4, animationSpeed, false);
-	func(pointer, x, y);
+	transform.position.x -= baseMovementSpeed;
+	m_gc.get()->transform.position = transform.position;
+	runActivated ? m_gc->playAnimation(8, 3, animationSpeed, false) :
+		m_gc->playAnimation(3, 4, animationSpeed, false);
+	func(pointer, transform.position.x, transform.position.y);
 }
 
 /// <summary>
@@ -230,9 +237,11 @@ void Player::moveLeft()
 /// </summary>
 void Player::moveRight()
 {
-	x += baseMovementSpeed;
-	runActivated ? m_gc->playAnimation(8, 3, animationSpeed, true) : m_gc->playAnimation(3, 4, animationSpeed, true);
-	func(pointer, x, y);
+	transform.position.x += baseMovementSpeed;
+	m_gc.get()->transform.position = transform.position;
+	runActivated ? m_gc->playAnimation(8, 3, animationSpeed, true) :
+		m_gc->playAnimation(3, 4, animationSpeed, true);
+	func(pointer, transform.position.x, transform.position.y);
 }
 
 /// <summary>
@@ -290,12 +299,8 @@ void Player::setToTrue()
 
 void Player::damagePlayer(int damage) {}
 
-void::Player::updateCaughtPokemon(int pokemonId) {}
+void Player::updateCaughtPokemon(int pokemonId) {}
 
-void Player::callbackFunction() {}
-
-void Player::connectCallback() {}
-
-void Player::update() {}
-
-void Player::updatePositions(int x, int y) {}
+void Player::update() 
+{
+}

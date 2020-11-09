@@ -184,6 +184,7 @@
     <ClCompile Include="PuzzleObject.cpp" />
     <ClCompile Include="Runningshoes.cpp" />
     <ClCompile Include="ParserData.cpp" />
+    <ClCompile Include="SceneLoader.cpp" />
     <ClCompile Include="XMLFacade.cpp" />
     <ClCompile Include="XMLParser.cpp" />
     <ClCompile Include="XMLSceneParser.cpp" />
@@ -210,6 +211,7 @@
     <ClInclude Include="NPCManager.h" />
     <ClInclude Include="ParserData.h" />
     <ClInclude Include="PlayerManager.h" />
+    <ClInclude Include="SceneLoader.h" />
     <ClInclude Include="XMLFacade.h" />
     <ClInclude Include="XMLParser.h" />
     <ClInclude Include="XMLSceneParser.h" />

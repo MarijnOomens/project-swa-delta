@@ -6,11 +6,12 @@ void UIManager::playDialogue(std::vector<std::string>) {}
 /// This methods creates all screens needed for the game to run. Examples are the "MainMenu" and "Credits" screens. These are added into a list.
 /// </summary>
 void UIManager::createBaseScreens() {
-	//std::shared_ptr<MainMenu> mainMenu = std::make_shared<MainMenu>();
-	//screens.try_emplace("MainMenu", mainMenu);
-
-	//std::shared_ptr<CreditScreen> credits = std::make_shared<CreditScreen>();
-	//screens.try_emplace("Credits", credits);
+	std::shared_ptr<MainMenu> mainMenu = std::make_shared<MainMenu>();
+	screens.try_emplace("MainMenu", mainMenu);
+	std::shared_ptr<PauseScreen> pause = std::make_shared<PauseScreen>();
+	screens.try_emplace("Pause", pause);
+	std::shared_ptr<CreditScreen> credits = std::make_shared<CreditScreen>();
+	screens.try_emplace("CreditScreen", credits);
 }
 
 void UIManager::updateHudHealth(int) {}

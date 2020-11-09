@@ -13,4 +13,9 @@ public:
 	void startGame();
 	void createCamera(int x, int y);
 	void passPlayerPosition(int x, int y);
+	void registerScene(std::string sceneName, std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects);
+	void loadScene(std::string sceneName, std::string fromScene, bool clearPrevious);
+	void loadPreviousScene();
+	void addOverlayScene(const std::string& sceneName);
+
 };

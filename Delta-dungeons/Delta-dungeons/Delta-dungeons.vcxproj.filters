@@ -153,6 +153,9 @@
     <ClCompile Include="PlayerManager.cpp">
       <Filter>Source Files\Game</Filter>
     </ClCompile>
+    <ClCompile Include="SceneLoader.cpp">
+      <Filter>Source Files\Game</Filter>
+    </ClCompile>
     <ClCompile Include="NPCManager.cpp">
       <Filter>Source Files\Game</Filter>
     </ClCompile>
@@ -270,6 +273,9 @@
       <Filter>Header Files\Game</Filter>
     </ClInclude>
     <ClInclude Include="PlayerManager.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneLoader.h">
       <Filter>Header Files\Game</Filter>
     </ClInclude>
     <ClInclude Include="NPCManager.h">

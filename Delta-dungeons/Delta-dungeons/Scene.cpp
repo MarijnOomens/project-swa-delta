@@ -92,5 +92,3 @@ void Scene::connectCallback() {}
 void Scene::callbackFunction() {}
 
 void Scene::update() {}
-
-void Scene::updatePositions(int x, int y) {}

@@ -15,7 +15,6 @@ public:
 	void connectCallback() override;
 	void callbackFunction() override;
 	void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) override;
-	void updatePositions(int x, int y)override;
 
 private:
 	std::shared_ptr<TextureManager> textureManager;
