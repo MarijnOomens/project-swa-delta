@@ -12,14 +12,9 @@ void UIManager::createBaseScreens() {
 	//std::shared_ptr<CreditScreen> credits = std::make_shared<CreditScreen>();
 	//screens.try_emplace("Credits", credits);
 
-	/*std::shared_ptr<HelpScreen> help = std::make_shared<HelpScreen>();
-	screens.try_emplace("Help", help);*/
+	std::shared_ptr<HelpScreen> help = std::make_shared<HelpScreen>();
+	screens.try_emplace("Help", help);
 
-	//std::shared_ptr<GameOverScreen> gameOver = std::make_shared<GameOverScreen>();
-	//screens.try_emplace("GameOver", gameOver);
-
-	std::shared_ptr<GameWinScreen> gameWin = std::make_shared<GameWinScreen>();
-	screens.try_emplace("GameWin", gameWin);
 
 }
 
