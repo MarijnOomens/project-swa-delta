@@ -43,6 +43,7 @@ void Tile::addGraphicsComponent(std::string name)
 	gc.get()->transform = transform;
 	gc.get()->imageCoordinates = imageCoordinates;
 	gc.get()->setTexture(name);
+	gc->isScreen = false;
 	this->components.emplace_back(gc);
 }
 

@@ -8,6 +8,7 @@ PauseScreen::PauseScreen() {
 
 	gc = std::make_shared<GraphicsComponent>();
 	gc->setTexture("pause");
+	gc->isScreen = true;
 	gc->imageDimensions = { 1280, 960 };
 	this->components.emplace_back(gc);
 

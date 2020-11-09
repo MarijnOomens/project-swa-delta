@@ -11,6 +11,7 @@ class GraphicsComponent : public BehaviourObject {
 public:
 	Vector2D imageCoordinates;
 	Vector2D imageDimensions = { 32, 32 };
+	bool isScreen;
 
 	ENGINE_API GraphicsComponent();
 	ENGINE_API ~GraphicsComponent();

@@ -38,7 +38,7 @@ void GraphicsComponent::setTexture(std::string name)
 /// </summary>
 void GraphicsComponent::update()
 {
-	textureManager->drawTexture(textureName, this->transform, this->imageCoordinates, this->imageDimensions, animRow, animFrames, animSpeed, animated, flipped);
+	textureManager->drawTexture(textureName, this->transform, this->imageCoordinates, this->imageDimensions, animRow, animFrames, animSpeed, animated, flipped,isScreen);
 }
 
 /// <summary>

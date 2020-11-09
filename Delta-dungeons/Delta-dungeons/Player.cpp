@@ -40,6 +40,7 @@ Player::Player(const cbCamera f, void* p): func(f), pointer(p)
 
 	m_gc = std::make_shared<GraphicsComponent>();
 	m_gc->setTexture("player_m");
+	m_gc->isScreen = false;
 	m_gc.get()->transform = this->transform;
 	m_gc->imageDimensions = { 32, 32 };
 	m_gc->transform.scale.multiply({ 4, 4 });

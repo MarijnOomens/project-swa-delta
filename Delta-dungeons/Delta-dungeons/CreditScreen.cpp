@@ -10,6 +10,7 @@ CreditScreen::CreditScreen()
 	this->fonts.try_emplace("comic", "Assets/comic.ttf");
 
 	gc = std::make_shared<GraphicsComponent>();
+	gc->isScreen = true;
 	gc->setTexture("credits");
 	gc->imageDimensions = { 1280, 960 };
 	this->components.emplace_back(gc);
@@ -35,7 +36,7 @@ CreditScreen::CreditScreen()
 
 	color = { 0, 0, 255, 255 };
 	std::shared_ptr<TextComponent> creditsText3 = std::make_shared<TextComponent>("Robin", "comic", color, 32);
-	creditsText3->transform.position = { 550, 400 };
+	creditsText3->transform.position = { 550, 425 };
 	this->components.emplace_back(creditsText3);
 }
 

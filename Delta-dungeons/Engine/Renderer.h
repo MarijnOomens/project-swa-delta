@@ -15,6 +15,7 @@ public:
 	SDL_Window* sdlWindow;
 	bool isRunning;
 	bool isPaused;
+	bool isInGame;
 
 	Renderer();
 	~Renderer();
@@ -27,6 +28,7 @@ public:
 	void quitGame();
 	void beforeFrame();
 	bool checkCameraPosition(const Transform& transform);
-	void drawTexture(SDL_Texture* texture, const Transform& transform, const Vector2D& coordinates, const Vector2D& sourceDimension, int row, int frames, int speed, bool animated, bool flipped);
+	void drawTexture(SDL_Texture* texture, const Transform& transform, const Vector2D& coordinates, const Vector2D& sourceDimension, int row, int frames, int speed, bool animated, bool flipped, bool isScreen);
 	void afterFrame();
+
 };

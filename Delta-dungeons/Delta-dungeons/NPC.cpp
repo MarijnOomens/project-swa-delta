@@ -11,7 +11,7 @@ NPC::NPC(int x, int y, std::string texture)
 	gc->imageDimensions = { 32, 32 };
 	gc.get()->transform = this->transform;
 	gc->playAnimation(0, 3, animationSpeed, false);
-
+	gc->isScreen = false;
 	this->components.emplace_back(gc);
 }
 

@@ -55,11 +55,11 @@ void RenderFacade::setFrameDelay()
 /// <param name="speed">The speed of the animation in case its animated</param>
 /// <param name="animated">A boolean to represent if it is animated or not.</param>
 /// <param name="flipped">A boolean to represent if it is flipped or not.</param>
-void RenderFacade::drawTexture(std::string path, const Transform& transform, const Vector2D& coordinates, const Vector2D& sourceDimensions, int row, int frames, int speed, bool animated, bool flipped)
+void RenderFacade::drawTexture(std::string path, const Transform& transform, const Vector2D& coordinates, const Vector2D& sourceDimensions, int row, int frames, int speed, bool animated, bool flipped, bool isScreen)
 {
 	Vector2D size;
 	SDL_Texture* texture = drawController->loadTexture(path);
-	RenderFacade::renderer->drawTexture(texture, transform, coordinates,sourceDimensions,row,frames,speed,animated,flipped);
+	RenderFacade::renderer->drawTexture(texture, transform, coordinates,sourceDimensions,row,frames,speed,animated,flipped,isScreen);
 }
 
 /// <summary>
