@@ -20,5 +20,3 @@ void Runningshoes::use()
 	std::cout << isActivated << std::endl;
 	func(pointer, isActivated);
 }
-
-void Runningshoes::updatePositions(int x, int y) {}

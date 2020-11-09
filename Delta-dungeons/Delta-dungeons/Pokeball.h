@@ -19,6 +19,5 @@ public:
 
 	void addGraphicsComponent(std::string imageName);
 	void use() override;
-	void updatePositions(int x, int y) override;
 private:
 };

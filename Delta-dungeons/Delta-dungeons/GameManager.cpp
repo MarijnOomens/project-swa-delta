@@ -65,12 +65,12 @@ void GameManager::registerBehaviourObjects()
 	{
 		for (auto& n : o.get()->getComponentsRecursive())
 		{
-			this->objects.emplace_back(n);
+			level1.emplace_back(n);
 		}
-		this->objects.emplace_back(o);
+		level1.emplace_back(o);
 	}
 
-	for (auto& o : playerManager.get()->sprites)
+	for (auto& o : playerManager.sprites)
 	{
 		for (auto& c : o.second.get()->getComponentsRecursive())
 		{
@@ -107,7 +107,7 @@ void GameManager::passPlayerPosition(int x, int y)
 /// </summary>
 void GameManager::registerFonts(std::map<std::string, std::string> fonts)
 {
-	engineFacade.registerFonts(fonts);
+	engineFacade.get()->registerFonts(fonts);
 }
 
 void GameManager::staticTileToPlayerCallbackFunction(void* p) {
@@ -115,7 +115,7 @@ void GameManager::staticTileToPlayerCallbackFunction(void* p) {
 }
 
 void GameManager::tileToPlayerCallbackFunction() {
-	playerManager.get()->setCollisionToTrue();
+	playerManager.setCollisionToTrue();
 }
 
 void GameManager::staticPlayerToTileCallbackFunction(void* p, int x, int y)

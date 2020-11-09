@@ -55,7 +55,4 @@ void Tile::addGraphicsComponent(std::string name)
 }
 
 void Tile::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) {}
-void Tile::callbackFunction() {}
-void Tile::connectCallback() {}
-
 void Tile::update() {}

@@ -28,7 +28,3 @@ Button::~Button() {}
 void Button::update() {}
 
 void Button::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) {}
-
-void Button::connectCallback() {}
-
-void Button::callbackFunction() {}

@@ -86,9 +86,4 @@ void Scene::checkCollision(int xPos, int yPos)
 }
 
 void Scene::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) {}
-
-void Scene::connectCallback() {}
-
-void Scene::callbackFunction() {}
-
 void Scene::update() {}

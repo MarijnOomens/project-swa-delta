@@ -39,10 +39,3 @@ Pokeball::Pokeball(int x, int y, int yImage, int xImage, bool collider, int tile
 Pokeball::~Pokeball() {}
 
 void Pokeball::use() {}
-
-void Pokeball::updatePositions(int x, int y)
-{
-	this->transform.position.x = this->transform.position.x - x;
-	this->transform.position.y = this->transform.position.y - y;
-	gc.get()->transform = transform;
-}

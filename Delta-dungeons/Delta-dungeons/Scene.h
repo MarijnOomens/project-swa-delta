@@ -24,8 +24,6 @@ public:
 	std::map<std::string, std::string> passTextures() const;
 
 	void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) override;
-	void connectCallback() override; //Add callbackfunction
-	void callbackFunction() override;
 	void update() override;
 	void checkCollision(int x, int y);
 

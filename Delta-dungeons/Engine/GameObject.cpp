@@ -7,9 +7,6 @@ GameObject::GameObject() {}
 GameObject::~GameObject() {}
 
 void GameObject::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) {}
-
-void GameObject::connectCallback() {}
-
 void GameObject::update() {}
 
 /// <summary>

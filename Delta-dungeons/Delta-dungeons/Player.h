@@ -37,8 +37,6 @@ public:
 
 	void damagePlayer(int damage);
 	void updateCaughtPokemon(int pokemonId);
-	void callbackFunction() override;
-	void connectCallback() override;
 	void update() override;
 	void setToTrue();
 private:
