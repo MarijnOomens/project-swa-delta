@@ -49,12 +49,6 @@
     <Filter Include="Source Files\XMLParser">
       <UniqueIdentifier>{5d2ec776-f080-497e-b7f7-0315870065ef}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Game\SceneStates">
-      <UniqueIdentifier>{b47f0605-c4e2-4a6f-aef1-a2e5286ce979}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Game\SceneStates">
-      <UniqueIdentifier>{5f89c9f8-827f-47d9-b325-7ceee4e6fd14}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameManager.cpp">
@@ -271,9 +265,6 @@
     </ClInclude>
     <ClInclude Include="PlayerManager.h">
       <Filter>Header Files\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="ISceneState.h">
-      <Filter>Header Files\Game\SceneStates</Filter>
     </ClInclude>
     <ClInclude Include="SceneLoader.h">
       <Filter>Header Files\Game</Filter>

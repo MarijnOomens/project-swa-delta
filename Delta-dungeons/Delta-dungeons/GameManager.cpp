@@ -60,7 +60,7 @@ void GameManager::registerBehaviourObjects()
 	//this->objects.emplace_back(playerManager.getPlayerObject());
 
 
-	engineFacade->loadScene("MainMenu");
+	engineFacade->loadScene("MainMenu", "", true);
 }
 
 
