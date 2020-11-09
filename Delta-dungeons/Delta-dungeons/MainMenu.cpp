@@ -40,7 +40,7 @@ void MainMenu::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardE
 	{
 		if (keyCode == KeyCodes::KEY_E)
 		{
-			SceneLoader::getInstance().loadScene("CreditScreen", "MainMenu", false);
+			SceneLoader::getInstance().loadScene("Level1", "MainMenu", false);
 		}
 		else if (keyCode == KeyCodes::KEY_BACKSPACE)
 		{

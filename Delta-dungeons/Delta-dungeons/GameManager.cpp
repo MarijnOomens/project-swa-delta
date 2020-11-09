@@ -13,16 +13,15 @@ GameManager::GameManager()
 	registerTextures(uiManager.passTextures());
 	registerFonts(uiManager.passFonts());
 
-	playerManager = std::make_shared<PlayerManager>();
-	playerManager.get()->createPlayer(staticCameraCallbackFunction, this);
-	registerTextures(playerManager.get()->passTextures());
+	playerManager.createPlayer(staticCameraCallbackFunction, this);
+	registerTextures(playerManager.passTextures());
 
 	npcManager = NPCManager();
 	npcManager.createNPC();
 	registerTextures(npcManager.passTextures());
 	
 	scene.addGraphics();
-	registerTextures(scene.passTextures());*/
+	registerTextures(scene.passTextures());
 
 	registerBehaviourObjects();
 	//engineFacade.createCamera(playerManager.player.get()->transform.position.x, playerManager.player.get()->transform.position.y);
@@ -40,46 +39,37 @@ void GameManager::registerBehaviourObjects()
 	{
 		std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects;
 		behaviourObjects.emplace_back(o.second);
+		for (auto& c : o.second.get()->getComponentsRecursive())
+		{
+			behaviourObjects.emplace_back(c);
+		}
+		engineFacade->registerScene(o.first, behaviourObjects);
+	}
 
+	std::vector<std::shared_ptr<BehaviourObject>> level1;
 	for (auto& t : scene.getComponentsRecursive())
 	{
-		this->objects.emplace_back(t);
+		level1.emplace_back(t);
 	}
 
 	for (auto& o : npcManager.npcs)
 	{
 		for (auto& n : o.second.get()->getComponentsRecursive())
 		{
-			this->objects.emplace_back(n);
+			level1.emplace_back(n);
 		}
-		this->objects.emplace_back(o.second.get());
+		level1.emplace_back(o.second.get());
 	}
 	
-	for (auto& o : playerManager.get()->sprites)
+	for (auto& o : playerManager.sprites)
 	{
 		for (auto& c : o.second.get()->getComponentsRecursive())
 		{
-			behaviourObjects.emplace_back(c);
+			level1.emplace_back(c);
 		}
-
-		engineFacade->registerScene(o.first, behaviourObjects);
+		level1.emplace_back(o.second);
 	}
-
-	//for (auto& t : scene.getComponentsRecursive())
-	//{
-	//	this->objects.emplace_back(t);
-	//}
-	//
-	//for (auto& o : playerManager.sprites)
-	//{
-	//	for (auto& c : o.second.get()->getComponentsRecursive())
-	//	{
-	//		this->objects.emplace_back(c);
-	//	}
-	//}
-
-	//this->objects.emplace_back(playerManager.getPlayerObject());
-
+	engineFacade->registerScene("Level1", level1);
 
 	engineFacade->loadScene("MainMenu", "", true);
 }
