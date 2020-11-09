@@ -142,6 +142,13 @@ void EngineController::loadPreviousScene()
 	behaviourObjects = sceneManager.loadPreviousScene();
 }
 
+void EngineController::addOverlayScene(const std::string& sceneName)
+{
+	isSceneSwitched = true;
+	auto tempObjects = sceneManager.addOverlayScene(sceneName);
+	behaviourObjects.insert(behaviourObjects.end(), tempObjects.begin(), tempObjects.end());
+}
+
 void EngineController::passPlayerPosition(int x, int y)
 {
 	std::tuple<int, int> positions = renderFacade->passPlayerPosition(x, y);

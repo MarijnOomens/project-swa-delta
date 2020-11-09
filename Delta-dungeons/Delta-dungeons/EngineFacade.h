@@ -16,5 +16,6 @@ public:
 	void registerScene(std::string sceneName, std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects);
 	void loadScene(std::string sceneName, std::string fromScene, bool clearPrevious);
 	void loadPreviousScene();
+	void addOverlayScene(const std::string& sceneName);
 
 };

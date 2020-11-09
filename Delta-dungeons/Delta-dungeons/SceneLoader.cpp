@@ -17,6 +17,11 @@ void SceneLoader::loadPreviousScene()
 	engineFacade->loadPreviousScene();
 }
 
+void SceneLoader::addOverlayScene(const std::string& sceneName)
+{
+	engineFacade->addOverlayScene(sceneName);
+}
+
 void SceneLoader::setEngineFacade(std::shared_ptr<EngineFacade> engineFacade)
 {
 	this->engineFacade = engineFacade;

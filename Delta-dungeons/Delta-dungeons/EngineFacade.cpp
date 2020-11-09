@@ -80,3 +80,8 @@ void EngineFacade::loadPreviousScene()
 {
 	engineController.get()->loadPreviousScene();
 }
+
+void EngineFacade::addOverlayScene(const std::string& sceneName)
+{
+	engineController.get()->addOverlayScene(sceneName);
+}
