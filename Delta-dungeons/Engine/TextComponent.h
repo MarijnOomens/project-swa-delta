@@ -9,6 +9,7 @@ public:
 	ENGINE_API TextComponent(std::string text, std::string font, Colour colour, int fontSize);
 	ENGINE_API ~TextComponent();
 
+	ENGINE_API void changeText(std::string text);
 	ENGINE_API void addTextureManager(std::shared_ptr<TextureManager> tm);
 
 	void update() override;

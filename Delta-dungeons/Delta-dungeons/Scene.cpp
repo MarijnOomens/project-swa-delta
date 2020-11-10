@@ -23,6 +23,11 @@ void Scene::addGraphics()
 		t->addGraphicsComponent("Level1");
 		components.emplace_back(t);
 	}
+
+	Colour color = { 0, 255, 0, 255 };
+	fpsText = std::make_shared<TextComponent>("60", "comic", color, 32);
+	fpsText->transform.position = { 1200, 10 };
+	components.emplace_back(fpsText);
 }
 
 /// <summary>
@@ -62,10 +67,7 @@ void Scene::callbackFunction() {}
 
 void Scene::update() 
 {
-	/*for (auto& t : tileMap)
-	{
-		t.get()->transform.position.x += playerpos.x * 
-	}*/
-
-
+	fpsString.str(std::to_string(test));
+	fpsText->changeText(fpsString.str());
+	++test;
 }

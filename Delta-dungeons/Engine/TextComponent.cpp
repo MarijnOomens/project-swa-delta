@@ -20,6 +20,10 @@ void TextComponent::update() {
 	textureManager->drawText(text, font, colour, this->transform, fontSize);
 }
 
+void TextComponent::changeText(std::string text) {
+	this->text = text;
+}
+
 /// <summary>
 /// This methods adds a reference to the gobal TextureManager.
 /// </summary>
