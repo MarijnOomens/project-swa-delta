@@ -6,10 +6,7 @@
 /// Scene is where a TileMap can be created.
 /// </summary>
 
-Scene::Scene() 
-{
-	std::cout << "scene" << std::endl;
-}
+Scene::Scene() {}
 
 Scene::Scene(int x, int y) : x(x), y(y) {};
 
