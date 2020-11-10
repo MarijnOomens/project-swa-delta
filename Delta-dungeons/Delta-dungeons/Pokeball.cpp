@@ -2,7 +2,7 @@
 
 Pokeball::Pokeball() {}
 
-
+// does not get used if the tileMap remains the same order.
 Pokeball::Pokeball(int x, int y, int xImage, bool collider, int tileId) {
 	originX = x * 128;
 	originY = y * 128;
@@ -16,6 +16,7 @@ Pokeball::Pokeball(int x, int y, int xImage, bool collider, int tileId) {
 	gc.get()->transform = transform;
 	gc.get()->imageCoordinates = Vector2D(xImage * 32, 0);
 	gc->setTexture("Level1");
+	gc->isScreen = false;
 	this->components.emplace_back(gc);
 }
 
@@ -33,6 +34,7 @@ Pokeball::Pokeball(int x, int y, int yImage, int xImage, bool collider, int tile
 	gc.get()->imageCoordinates.x = xImage * 32;
 	gc.get()->imageCoordinates.y = yImage * 32;
 	gc->setTexture("Level1");
+	gc->isScreen = false;
 	this->components.emplace_back(gc);
 }
 

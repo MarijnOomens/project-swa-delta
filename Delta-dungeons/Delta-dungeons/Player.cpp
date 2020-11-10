@@ -269,13 +269,13 @@ void Player::equipmentCallbackFunction(const bool runningActivated)
 	if (runningActivated)
 	{
 		runActivated = true;
-		baseMovementSpeed = 64;
+		baseMovementSpeed = 256;
 		std::cout << " runningshoes enabled" << std::endl;
 	}
 	else
 	{
 		runActivated = false;
-		baseMovementSpeed = 32;
+		baseMovementSpeed = 128;
 		std::cout << " runningshoes disabled" << std::endl;
 	}
 	//std::cout << runningActivated << " runningshoes" << std::endl;

@@ -9,7 +9,6 @@ public:
 	int originX;
 	int originY;
 	bool isCollider;
-	Vector2D imageCoordinates;
 	std::shared_ptr<GraphicsComponent> gc;
 
 	Pokeball();

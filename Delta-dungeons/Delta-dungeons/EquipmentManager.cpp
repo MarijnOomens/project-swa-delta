@@ -23,7 +23,6 @@ void EquipmentManager::createEquipment()
 		else
 		{
 			std::shared_ptr<Pokeball> pokeball = std::make_shared<Pokeball>(std::stoi(parsedEquipment.get()->x), std::stoi(parsedEquipment.get()->y), first, true, std::stoi(parsedEquipment.get()->tileId));
-
 			equipments.emplace_back(pokeball);
 		}
 	}
