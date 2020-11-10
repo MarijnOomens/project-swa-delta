@@ -17,6 +17,7 @@ Button::Button(int x, int y, std::vector<std::string> textureList, buttonCb onCl
 	m_gc->transform = this->transform;
 	m_gc->imageDimensions = { 140, 50 };
 	m_gc->transform.scale.multiply({ 2, 2 });
+	m_gc.get()->isScreen = true;
 
 	possibleTextures = textureList;
 	m_gc->setTexture(possibleTextures[0]);
