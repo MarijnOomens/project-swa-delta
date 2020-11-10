@@ -85,3 +85,7 @@ void EngineFacade::addOverlayScene(const std::string& sceneName)
 {
 	engineController.get()->addOverlayScene(sceneName);
 }
+
+void EngineFacade::quitGame() {
+	engineController->quitGame();
+}

@@ -17,5 +17,6 @@ public:
 	void loadScene(std::string sceneName, std::string fromScene, bool clearPrevious);
 	void loadPreviousScene();
 	void addOverlayScene(const std::string& sceneName);
+	void quitGame();
 
 };

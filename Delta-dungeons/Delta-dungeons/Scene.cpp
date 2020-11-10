@@ -54,7 +54,7 @@ std::map<std::string, std::string> Scene::passTextures() const
 	return texture;
 }
 
-void Scene::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) {}
+void Scene::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos) {}
 
 void Scene::connectCallback() {}
 

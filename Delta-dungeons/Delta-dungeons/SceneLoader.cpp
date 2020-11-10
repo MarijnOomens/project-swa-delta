@@ -26,3 +26,8 @@ void SceneLoader::setEngineFacade(std::shared_ptr<EngineFacade> engineFacade)
 {
 	this->engineFacade = engineFacade;
 }
+
+void SceneLoader::quitGame() 
+{
+	this->engineFacade->quitGame();
+}
