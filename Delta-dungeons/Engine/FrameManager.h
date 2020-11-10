@@ -16,6 +16,7 @@ public:
 	void setFrameDelay();
 	int getFPS();
 private:
-	int framesAmount = 0;
+	Uint32 frames = 0;
 	Uint32 startTime;
+	Uint32 fps;
 };

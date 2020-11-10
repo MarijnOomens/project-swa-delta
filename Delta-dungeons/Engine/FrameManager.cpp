@@ -29,13 +29,16 @@ void FrameManager::setFrameStart()
 /// </summary>
 void FrameManager::setFrameDelay()
 {
-	//++framesAmount;
+
+	frames++;
+	if (startTime < SDL_GetTicks() - 1000)
+	{
+		startTime = SDL_GetTicks();
+		fps = frames - 1;
+		frames = 0;
+	}
+
 	frameTime = SDL_GetTicks() - frameStart;
-	//if (frameTime)
-	//{
-	//	double time = frameTime;
-	//	double averageFPS = framesAmount / time;
-	//}
 	if (frameDelay > frameTime) {
 		SDL_Delay(frameDelay - frameTime);
 	}
@@ -43,5 +46,5 @@ void FrameManager::setFrameDelay()
 
 int FrameManager::getFPS() 
 {
-	return 60;
+	return fps;
 }
