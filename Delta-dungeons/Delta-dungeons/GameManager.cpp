@@ -20,8 +20,9 @@ GameManager::GameManager()
 	npcManager.createNPC();
 	registerTextures(npcManager.passTextures());
 	
-	scene.addGraphics();
-	registerTextures(scene.passTextures());
+	scene = std::make_shared<Scene>();
+	scene->addGraphics();
+	registerTextures(scene->passTextures());
 
 	registerBehaviourObjects();
 	engineFacade->createCamera(playerManager.player.get()->transform.position.x, playerManager.player.get()->transform.position.y);
@@ -47,10 +48,11 @@ void GameManager::registerBehaviourObjects()
 	}
 
 	std::vector<std::shared_ptr<BehaviourObject>> level1;
-	for (auto& t : scene.getComponentsRecursive())
+	for (auto& t : scene->getComponentsRecursive())
 	{
 		level1.emplace_back(t);
 	}
+	level1.emplace_back(scene);
 
 	for (auto& o : npcManager.npcs)
 	{

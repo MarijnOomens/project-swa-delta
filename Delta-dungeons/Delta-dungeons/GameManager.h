@@ -14,7 +14,7 @@ public:
 	UIManager uiManager;
 	PlayerManager playerManager;
 	EquipmentManager eqManager;
-	Scene scene;
+	std::shared_ptr<Scene> scene;
 	NPCManager npcManager;
 
 	GameManager();
