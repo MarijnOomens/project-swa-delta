@@ -17,7 +17,10 @@ TextComponent::~TextComponent() {}
 /// The update methods calls the TextureManager to draw the item.
 /// </summary>
 void TextComponent::update() {
-	textureManager->drawText(text, font, colour, this->transform, fontSize);
+	if (text != "")
+	{
+		textureManager->drawText(text, font, colour, this->transform, fontSize);
+	}
 }
 
 void TextComponent::changeText(const std::string& text) {

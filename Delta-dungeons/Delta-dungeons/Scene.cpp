@@ -25,7 +25,7 @@ void Scene::addGraphics()
 	}
 
 	Colour color = { 0, 255, 0, 255 };
-	fpsText = std::make_shared<TextComponent>("60", "comic", color, 32);
+	fpsText = std::make_shared<TextComponent>("", "comic", color, 32);
 	fpsText->transform.position = { 1200, 10 };
 	components.emplace_back(fpsText);
 }
@@ -59,7 +59,16 @@ std::map<std::string, std::string> Scene::passTextures() const
 	return texture;
 }
 
-void Scene::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos) {}
+void Scene::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos) 
+{
+	if (keyboardEvent == KeyboardEvent::KEY_PRESSED)
+	{
+		if (keyCode == KeyCodes::KEY_TAB)
+		{
+			DebugUtilities::getInstance().toggleShowFPS();
+		}
+	}
+}
 
 void Scene::connectCallback() {}
 
@@ -67,6 +76,12 @@ void Scene::callbackFunction() {}
 
 void Scene::update() 
 {
-	fpsString.str(std::to_string(DebugUtilities::getInstance().getFPS()));
-	fpsText->changeText(fpsString.str());
+	if (DebugUtilities::getInstance().isShowingFPS())
+	{
+		fpsString.str(std::to_string(DebugUtilities::getInstance().getFPS()));
+		fpsText->changeText(fpsString.str());
+	}
+	else {
+		fpsText->changeText("");
+	}
 }
