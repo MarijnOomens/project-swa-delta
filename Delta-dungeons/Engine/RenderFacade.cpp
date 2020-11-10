@@ -151,17 +151,17 @@ int RenderFacade::getFPS()
 	return frameManager->getFPS();
 }
 
-void RenderFacade::slowDown()
+void RenderFacade::slowDownGame()
 {
-	frameManager.get()->slowDown();
+	frameManager.get()->slowDownGame();
 }
 
-void RenderFacade::speedUp()
+void RenderFacade::speedUpGame()
 {
-	frameManager.get()->speedUp();
+	frameManager.get()->speedUpGame();
 }
 
-void RenderFacade::resetSpeed()
+void RenderFacade::resetSpeedGame()
 {
-	frameManager.get()->resetSpeed();
+	frameManager.get()->resetSpeedGame();
 }

@@ -9,6 +9,9 @@ public:
 	void setEngineFacade(std::shared_ptr<EngineFacade> engineFacade);
 	void toggleShowFPS();
 	bool isShowingFPS();
+	void slowDownGame();
+	void speedUpGame();
+	void resetSpeedGame();
 
 private:
 	static DebugUtilities debugUtilities;

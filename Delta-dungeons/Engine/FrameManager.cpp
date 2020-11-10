@@ -50,19 +50,19 @@ int FrameManager::getFPS()
 	return fps;
 }
 
-void FrameManager::slowDown()
+void FrameManager::slowDownGame()
 {
 	FPS = FPS * 0.9;
 	frameDelay = 1000 / FPS;
 }
 
-void FrameManager::speedUp()
+void FrameManager::speedUpGame()
 {
 	FPS = FPS * 1.1;
 	frameDelay = 1000 / FPS;
 }
 
-void FrameManager::resetSpeed()
+void FrameManager::resetSpeedGame()
 {
 	FPS = 60;
 	frameDelay = 1000 / FPS;

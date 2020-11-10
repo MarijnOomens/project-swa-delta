@@ -26,3 +26,18 @@ bool DebugUtilities::isShowingFPS()
 {
 	return showFPS;
 }
+
+void DebugUtilities::slowDownGame()
+{
+	engineFacade->slowDownGame();
+}
+
+void DebugUtilities::speedUpGame()
+{
+	engineFacade->speedUpGame();
+}
+
+void DebugUtilities::resetSpeedGame()
+{
+	engineFacade->resetSpeedGame();
+}
