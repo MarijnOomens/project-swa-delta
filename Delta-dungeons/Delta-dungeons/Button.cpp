@@ -34,7 +34,6 @@ void Button::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEve
 		if (mousePos.x > m_gc.get()->transform.position.x && mousePos.x < m_gc.get()->transform.position.x + m_gc.get()->imageDimensions.x * m_gc.get()->transform.scale.x
 			&& mousePos.y > m_gc.get()->transform.position.y && mousePos.y < m_gc.get()->transform.position.y + m_gc.get()->imageDimensions.y * m_gc.get()->transform.scale.y)
 		{
-			std::cout << "Button clicked" << std::endl;
 			onCLickFunc(pointer);
 		}
 	}

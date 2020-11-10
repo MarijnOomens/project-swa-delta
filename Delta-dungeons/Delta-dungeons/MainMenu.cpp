@@ -20,17 +20,17 @@ MainMenu::MainMenu()
 
 	// Credits button
 	std::vector<std::string> possibleButtonTexCredits = { "button_credits" };
-	std::shared_ptr<Button> creditsButton = std::make_shared<Button>(500, 430, possibleButtonTexCredits, staticOpenGameCallbackFunction, this);
+	std::shared_ptr<Button> creditsButton = std::make_shared<Button>(500, 430, possibleButtonTexCredits, staticOpenCreditsCallbackFunction, this);
 	this->components.emplace_back(creditsButton);
 
 	// Help button
-	//std::vector<std::string> possibleButtonTexHelp = { "button_help" };
-	//std::shared_ptr<Button> helpButton = std::make_shared<Button>(500, 690, possibleButtonTexHelp);
-	//this->components.emplace_back(helpButton);
+	std::vector<std::string> possibleButtonTexHelp = { "button_help" };
+	std::shared_ptr<Button> helpButton = std::make_shared<Button>(500, 560, possibleButtonTexHelp, staticOpenHelpCallbackFunction, this);
+	this->components.emplace_back(helpButton);
 
 	// Exit button
 	std::vector<std::string> possibleButtonTexExit = { "button_exit" };
-	std::shared_ptr<Button> exitButton = std::make_shared<Button>(500, 560, possibleButtonTexExit, staticOpenGameCallbackFunction, this);
+	std::shared_ptr<Button> exitButton = std::make_shared<Button>(500, 690, possibleButtonTexExit, staticExitCallbackFunction, this);
 	this->components.emplace_back(exitButton);
 }
 
@@ -55,16 +55,49 @@ void MainMenu::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardE
 		{
 			SceneLoader::getInstance().loadPreviousScene();
 		}
+		else if (keyCode == KeyCodes::KEY_H)
+		{
+			SceneLoader::getInstance().loadScene("HelpScreen", "MainMenu", false);
+		}
 	}
 }
 
-void MainMenu::staticOpenGameCallbackFunction(void* p) {
+void MainMenu::staticOpenGameCallbackFunction(void* p) 
+{
 	((MainMenu*)p)->openGameCallbackFunction();
 }
 
-void MainMenu::openGameCallbackFunction() {
+void MainMenu::openGameCallbackFunction() 
+{
 	SceneLoader::getInstance().loadScene("Level1", "MainMenu", false);
 }
 
-void MainMenu::closeScreen() {}
+void MainMenu::staticOpenCreditsCallbackFunction(void* p) 
+{
+	((MainMenu*)p)->openCreditsCallbackFunction();
+}
 
+void MainMenu::openCreditsCallbackFunction() 
+{
+	SceneLoader::getInstance().loadScene("CreditsScreen", "MainMenu", false);
+}
+
+void MainMenu::staticOpenHelpCallbackFunction(void* p)
+{
+	((MainMenu*)p)->openHelpCallbackFunction();
+}
+
+void MainMenu::openHelpCallbackFunction()
+{
+	SceneLoader::getInstance().loadScene("HelpScreen", "MainMenu", false);
+}
+
+void MainMenu::staticExitCallbackFunction(void* p) 
+{
+
+}
+
+void MainMenu::exitCallbackFunction() 
+{
+
+}

@@ -15,9 +15,9 @@ CreditScreen::CreditScreen()
 	gc->imageDimensions = { 1280, 960 };
 	this->components.emplace_back(gc);
 
-	//std::vector<std::string> possibleButtonTexExit = { "button_exit" };
-	//std::shared_ptr<Button> exitButton = std::make_shared<Button>(500, 800, possibleButtonTexExit);
-	//this->components.emplace_back(exitButton);
+	std::vector<std::string> possibleButtonTexExit = { "button_exit" };
+	std::shared_ptr<Button> exitButton = std::make_shared<Button>(500, 800, possibleButtonTexExit, staticBackCallbackFunction, this);
+	this->components.emplace_back(exitButton);
 
 	Colour color = { 0, 0, 0, 255 };
 	std::shared_ptr<TextComponent> creditsText = std::make_shared<TextComponent>("Credits", "comic", color, 64);
@@ -57,11 +57,6 @@ CreditScreen::CreditScreen()
 
 CreditScreen::~CreditScreen() {}
 
-void CreditScreen::closeScreen()
-{
-
-}
-
 void CreditScreen::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos)
 {
 	if (keyboardEvent == KeyboardEvent::KEY_PRESSED)
@@ -71,4 +66,14 @@ void CreditScreen::handleInput(const KeyCodes keyCode, const KeyboardEvent keybo
 			SceneLoader::getInstance().loadPreviousScene();
 		}
 	}
+}
+
+void CreditScreen::staticBackCallbackFunction(void* p)
+{
+	((CreditScreen*)p)->backCallbackFunction();
+}
+
+void CreditScreen::backCallbackFunction()
+{
+	SceneLoader::getInstance().loadPreviousScene();
 }

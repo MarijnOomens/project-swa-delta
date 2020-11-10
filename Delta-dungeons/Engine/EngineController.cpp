@@ -148,6 +148,7 @@ void EngineController::loadPreviousScene()
 {
 	isSceneSwitched = true;
 	behaviourObjects = sceneManager.loadPreviousScene();
+	update(behaviourObjects);
 }
 
 void EngineController::addOverlayScene(const std::string& sceneName)
@@ -155,6 +156,7 @@ void EngineController::addOverlayScene(const std::string& sceneName)
 	isSceneSwitched = true;
 	auto tempObjects = sceneManager.addOverlayScene(sceneName);
 	behaviourObjects.insert(behaviourObjects.end(), tempObjects.begin(), tempObjects.end());
+	update(behaviourObjects);
 }
 
 void EngineController::passPlayerPosition(int x, int y)
@@ -186,7 +188,7 @@ void EngineController::pauseScreen()
 {
 	if (renderFacade->renderer->isPaused) 
 	{
-		addOverlayScene("Pause");
+		addOverlayScene("PauseScreen");
 		EngineController::update(behaviourObjects);
 	}
 	else 

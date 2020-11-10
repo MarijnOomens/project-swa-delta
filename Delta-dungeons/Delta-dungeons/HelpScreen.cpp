@@ -29,8 +29,30 @@ HelpScreen::HelpScreen()
 	helpBack->transform.position = { 100, 470 };
 	this->components.emplace_back(helpBack);
 
+	std::vector<std::string> possibleButtonTexExit = { "button_exit" };
+	std::shared_ptr<Button> exitButton = std::make_shared<Button>(500, 560, possibleButtonTexExit, staticBackCallbackFunction, this);
+	this->components.emplace_back(exitButton);
 }
 
 HelpScreen::~HelpScreen() {}
 
-void HelpScreen::closeScreen() {}
+void HelpScreen::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos)
+{
+	if (keyboardEvent == KeyboardEvent::KEY_PRESSED)
+	{
+		if (keyCode == KeyCodes::KEY_BACKSPACE)
+		{
+			SceneLoader::getInstance().loadPreviousScene();
+		}
+	}
+}
+
+void HelpScreen::staticBackCallbackFunction(void* p)
+{
+	((HelpScreen*)p)->backCallbackFunction();
+}
+
+void HelpScreen::backCallbackFunction()
+{
+	SceneLoader::getInstance().loadPreviousScene();
+}
