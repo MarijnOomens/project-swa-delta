@@ -8,6 +8,7 @@ GameManager::GameManager()
 	engineFacade = std::make_shared<EngineFacade>();
 	engineFacade->init();
 	SceneLoader::getInstance().setEngineFacade(engineFacade);
+	DebugUtilities::getInstance().setEngineFacade(engineFacade);
 
 	uiManager.createBaseScreens();
 	registerTextures(uiManager.passTextures());
@@ -19,6 +20,14 @@ GameManager::GameManager()
 	scene = Scene(staticTileToPlayerCallbackFunction, this);
 	scene.addGraphics();
 	registerTextures(scene.passTextures());
+	
+	npcManager = NPCManager();
+	npcManager.createNPC();
+	registerTextures(npcManager.passTextures());
+	
+	scene = std::make_shared<Scene>();
+	scene->addGraphics();
+	registerTextures(scene->passTextures());
 
 	eqManager.createEquipment();
 	registerTextures(eqManager.passTextures());
@@ -47,10 +56,11 @@ void GameManager::registerBehaviourObjects()
 	}
 
 	std::vector<std::shared_ptr<BehaviourObject>> level1;
-	for (auto& t : scene.getComponentsRecursive())
+	for (auto& t : scene->getComponentsRecursive())
 	{
 		level1.emplace_back(t);
 	}
+	level1.emplace_back(scene);
 
 	for (auto& o : npcManager.npcs)
 	{

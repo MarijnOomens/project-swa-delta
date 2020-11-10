@@ -8,6 +8,7 @@
 #include "SceneLoader.h"
 #include "NPCManager.h"
 #include "Scene.h"
+#include "DebugUtilities.h"
 
 class GameManager {
 public: 
@@ -15,7 +16,7 @@ public:
 	UIManager uiManager;
 	PlayerManager playerManager;
 	EquipmentManager eqManager;
-	Scene scene;
+	std::shared_ptr<Scene> scene;
 	NPCManager npcManager;
 
 	GameManager();

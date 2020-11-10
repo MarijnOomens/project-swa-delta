@@ -201,3 +201,8 @@ void EngineController::quitGame()
 {
 	renderFacade.get()->quitGame();
 }
+
+int EngineController::getFPS()
+{
+	return renderFacade->getFPS();
+}

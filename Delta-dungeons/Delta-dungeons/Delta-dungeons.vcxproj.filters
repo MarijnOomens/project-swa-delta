@@ -165,6 +165,9 @@
     <ClCompile Include="Equipment.cpp">
       <Filter>Source Files\Game\GameObjects\Items</Filter>
     </ClCompile>
+    <ClCompile Include="DebugUtilities.cpp">
+      <Filter>Source Files\Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h">
@@ -283,6 +286,9 @@
     </ClInclude>
     <ClInclude Include="GameObjectBuilder.h">
       <Filter>Header Files\Game\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugUtilities.h">
+      <Filter>Header Files\Game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
