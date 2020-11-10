@@ -83,6 +83,15 @@ void InputWrapper::handleKeyPressed(bool isPaused)
 		case SDLK_h:
 			func(pointer, KeyCodes::KEY_H, KeyboardEvent::KEY_PRESSED, mousePosition);
 			break;
+		case SDLK_COMMA:
+			func(pointer, KeyCodes::KEY_COMMA, KeyboardEvent::KEY_PRESSED, mousePosition);
+			break;
+		case SDLK_SLASH:
+			func(pointer, KeyCodes::KEY_SLASH, KeyboardEvent::KEY_PRESSED, mousePosition);
+			break;
+		case SDLK_PERIOD:
+			func(pointer, KeyCodes::KEY_POINT, KeyboardEvent::KEY_PRESSED, mousePosition);
+			break;
 		case SDLK_ESCAPE:
 			func(pointer, KeyCodes::KEY_ESC, KeyboardEvent::KEY_PRESSED, mousePosition);
 			break;

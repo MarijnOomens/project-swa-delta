@@ -94,3 +94,18 @@ int EngineFacade::getFPS()
 {
 	return engineController->getFPS();
 }
+
+void EngineFacade::slowDownGame()
+{
+	engineController->slowDownGame();
+}
+
+void EngineFacade::speedUpGame()
+{
+	engineController->speedUpGame();
+}
+
+void EngineFacade::resetSpeedGame()
+{
+	engineController->resetSpeedGame();
+}

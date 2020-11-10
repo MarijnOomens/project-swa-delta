@@ -35,6 +35,9 @@ public:
 	void pauseScreen();
 	ENGINE_API void quitGame();
 	ENGINE_API int getFPS();
+	ENGINE_API void slowDownGame();
+	ENGINE_API void speedUpGame();
+	ENGINE_API void resetSpeedGame();
 
 private:
 	std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects;

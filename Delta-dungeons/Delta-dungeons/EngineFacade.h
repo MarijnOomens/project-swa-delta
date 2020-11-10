@@ -19,4 +19,7 @@ public:
 	void addOverlayScene(const std::string& sceneName);
 	void quitGame();
 	int getFPS();
+	void slowDownGame();
+	void speedUpGame();
+	void resetSpeedGame();
 };
