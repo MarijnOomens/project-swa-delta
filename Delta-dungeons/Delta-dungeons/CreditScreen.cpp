@@ -49,7 +49,7 @@ CreditScreen::CreditScreen()
 	creditsText5->transform.position = { 550, 525 };
 	this->components.emplace_back(creditsText5);
 
-	color = { 0, 0, 0, 255 };
+	color = { 255,215,0, 255 };
 	std::shared_ptr<TextComponent> creditsText6 = std::make_shared<TextComponent>("Tristan", "comic", color, 32);
 	creditsText6->transform.position = { 550, 575 };
 	this->components.emplace_back(creditsText6);
