@@ -12,10 +12,12 @@ class Scene : public GameObject
 {
 public:
 	std::vector<std::shared_ptr<Tile>> tileMap;
+
 	Scene();
 	Scene(const cbTileToPlayer f, void* p);
 	Scene(int x, int y);
 	~Scene();
+
 	cbTileToPlayer func;
 	void* pointer;
 
@@ -24,8 +26,6 @@ public:
 	std::map<std::string, std::string> passTextures() const;
 
 	void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos) override;
-	void connectCallback() override; //Add callbackfunction
-	void callbackFunction() override;
 	void update() override;
 	void checkCollision(int x, int y);
 

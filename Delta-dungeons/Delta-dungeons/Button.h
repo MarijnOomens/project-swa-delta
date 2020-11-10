@@ -16,8 +16,6 @@ public:
 	Button(int x, int y, std::vector<std::string> textureList, const buttonCb onClick, void* p);
 	~Button();
 	void update() override;
-	void connectCallback() override;
-	void callbackFunction() override;
 	void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos) override;
 private:
 	std::string text;

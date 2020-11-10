@@ -7,6 +7,7 @@
 #include "XMLSceneParser.h"
 #include "SceneLoader.h"
 #include "NPCManager.h"
+#include "Scene.h"
 
 class GameManager {
 public: 

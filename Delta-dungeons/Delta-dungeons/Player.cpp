@@ -63,16 +63,16 @@ void Player::handleInput(const KeyCodes keyCodes, const KeyboardEvent keyboardEv
 	if (!cheatCollision) {
 		if (keyboardEvent == KeyboardEvent::KEY_PRESSED) {
 			if (KeyCodes::KEY_UP == keyCodes) {
-				tileFunc(pointer, x, y - 128);
+				tileFunc(pointer, transform.position.x, transform.position.y - 128);
 			}
 			else if (KeyCodes::KEY_LEFT == keyCodes) {
-				tileFunc(pointer, x - 128, y);
+				tileFunc(pointer, transform.position.x - 128, transform.position.y);
 			}
 			else if (KeyCodes::KEY_RIGHT == keyCodes) {
-				tileFunc(pointer, x + 128, y);
+				tileFunc(pointer, transform.position.x + 128, transform.position.y);
 			}
 			else if (KeyCodes::KEY_DOWN == keyCodes) {
-				tileFunc(pointer, x, y + 128);
+				tileFunc(pointer, transform.position.x, transform.position.y + 128);
 			}
 		}
 	}
@@ -200,8 +200,7 @@ void Player::moveUp()
 {
 	transform.position.y -= baseMovementSpeed;
 	m_gc.get()->transform.position = transform.position;
-	runActivated ? m_gc->playAnimation(7, 3, animationSpeed, false) :
-		m_gc->playAnimation(2, 4, animationSpeed, false);
+	runActivated ? m_gc->playAnimation(7, 3, animationSpeed, false) : m_gc->playAnimation(2, 4, animationSpeed, false);
 	func(pointer, transform.position.x, transform.position.y);
 }
 
@@ -213,8 +212,7 @@ void Player::moveDown()
 {
 	transform.position.y += baseMovementSpeed;
 	m_gc.get()->transform.position = transform.position;
-	runActivated ? m_gc->playAnimation(6, 3, animationSpeed, false) :
-		m_gc->playAnimation(1, 4, animationSpeed, false);
+	runActivated ? m_gc->playAnimation(6, 3, animationSpeed, false) : m_gc->playAnimation(1, 4, animationSpeed, false);
 	func(pointer, transform.position.x, transform.position.y);
 }
 
@@ -226,8 +224,7 @@ void Player::moveLeft()
 {
 	transform.position.x -= baseMovementSpeed;
 	m_gc.get()->transform.position = transform.position;
-	runActivated ? m_gc->playAnimation(8, 3, animationSpeed, false) :
-		m_gc->playAnimation(3, 4, animationSpeed, false);
+	runActivated ? m_gc->playAnimation(8, 3, animationSpeed, false) : m_gc->playAnimation(3, 4, animationSpeed, false);
 	func(pointer, transform.position.x, transform.position.y);
 }
 
@@ -239,8 +236,7 @@ void Player::moveRight()
 {
 	transform.position.x += baseMovementSpeed;
 	m_gc.get()->transform.position = transform.position;
-	runActivated ? m_gc->playAnimation(8, 3, animationSpeed, true) :
-		m_gc->playAnimation(3, 4, animationSpeed, true);
+	runActivated ? m_gc->playAnimation(8, 3, animationSpeed, true) : m_gc->playAnimation(3, 4, animationSpeed, true);
 	func(pointer, transform.position.x, transform.position.y);
 }
 
@@ -287,7 +283,6 @@ void Player::equipmentCallbackFunction(const bool runningActivated)
 
 void Player::staticTileCallbackFunction(void* p)
 {
-	//std::cout << "whassap" << std::endl;
 	((Player*)p)->setToTrue();
 
 }
@@ -301,6 +296,4 @@ void Player::damagePlayer(int damage) {}
 
 void Player::updateCaughtPokemon(int pokemonId) {}
 
-void Player::update() 
-{
-}
+void Player::update() {}

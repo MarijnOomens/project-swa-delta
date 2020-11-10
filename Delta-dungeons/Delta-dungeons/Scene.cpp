@@ -60,11 +60,9 @@ std::map<std::string, std::string> Scene::passTextures() const
 
 void Scene::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos) {}
 
-void Scene::connectCallback() {}
+void Scene::update() {}
 
-void Scene::callbackFunction() {}
-
-void Scene::update() 
+void Scene::checkCollision(int xPos, int yPos)
 {
 	for (int x = 0; x < tileMap.size(); x++)
 	{
@@ -90,6 +88,3 @@ void Scene::update()
 		}
 	}
 }
-
-void Scene::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) {}
-void Scene::update() {}

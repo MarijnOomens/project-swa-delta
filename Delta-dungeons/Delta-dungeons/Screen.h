@@ -11,8 +11,6 @@ public:
 	std::map<std::string, std::string> textures;
 	std::map<std::string, std::string> fonts;
 
-	void connectCallback() override;
-	void callbackFunction() override;
 	void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos) override;
 	void update() override;
 };
