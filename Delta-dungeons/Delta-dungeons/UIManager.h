@@ -5,6 +5,8 @@
 #include <string>
 #include "MainMenu.h"
 #include "Creditscreen.h"
+#include "Helpscreen.h"
+#include "GameOverScreen.h"
 #include "PauseScreen.h"
 
 class UIManager {

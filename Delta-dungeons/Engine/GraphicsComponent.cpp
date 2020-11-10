@@ -50,7 +50,11 @@ void GraphicsComponent::addTextureManager(std::shared_ptr<TextureManager> tm)
 	textureManager = tm;
 }
 
-void GraphicsComponent::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) {}
+void GraphicsComponent::callbackFunction() {}
+
+void GraphicsComponent::connectCallback() {}
+
+void GraphicsComponent::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos) {}
 
 /// <summary>
 /// Gets the textureManager pointer.

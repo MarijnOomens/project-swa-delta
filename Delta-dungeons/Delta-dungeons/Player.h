@@ -19,7 +19,7 @@ public:
 	Player(const cbCamera f, const cbTile cbTile, void* p);
 	~Player();
 
-	void handleInput(const KeyCodes keyCodes, const KeyboardEvent keyboardEvent) override;
+	void handleInput(const KeyCodes keyCodes, const KeyboardEvent keyboardEvent, Vector2D mousePos) override;
 	void handleKeyPressed(const KeyCodes keyCodes);
 	void handleKeyReleased(const KeyCodes keyCodes);
 

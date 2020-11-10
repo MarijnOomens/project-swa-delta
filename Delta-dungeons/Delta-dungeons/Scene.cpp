@@ -58,7 +58,13 @@ std::map<std::string, std::string> Scene::passTextures() const
 	return texture;
 }
 
-void Scene::checkCollision(int xPos, int yPos)
+void Scene::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos) {}
+
+void Scene::connectCallback() {}
+
+void Scene::callbackFunction() {}
+
+void Scene::update() 
 {
 	for (int x = 0; x < tileMap.size(); x++)
 	{

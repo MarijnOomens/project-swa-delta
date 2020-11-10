@@ -9,9 +9,11 @@ void UIManager::createBaseScreens() {
 	std::shared_ptr<MainMenu> mainMenu = std::make_shared<MainMenu>();
 	screens.try_emplace("MainMenu", mainMenu);
 	std::shared_ptr<PauseScreen> pause = std::make_shared<PauseScreen>();
-	screens.try_emplace("Pause", pause);
+	screens.try_emplace("PauseScreen", pause);
 	std::shared_ptr<CreditScreen> credits = std::make_shared<CreditScreen>();
-	screens.try_emplace("CreditScreen", credits);
+	screens.try_emplace("CreditsScreen", credits);
+	std::shared_ptr<HelpScreen> help = std::make_shared<HelpScreen>();
+	screens.try_emplace("HelpScreen", help);
 }
 
 void UIManager::updateHudHealth(int) {}

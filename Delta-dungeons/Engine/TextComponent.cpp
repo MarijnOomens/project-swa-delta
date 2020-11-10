@@ -29,4 +29,8 @@ void TextComponent::addTextureManager(std::shared_ptr<TextureManager> tm)
 	textureManager = tm;
 }
 
-void TextComponent::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) {}
+void TextComponent::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos) {}
+
+void TextComponent::connectCallback() {}
+
+void TextComponent::callbackFunction() {}

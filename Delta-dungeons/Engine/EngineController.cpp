@@ -33,9 +33,9 @@ void EngineController::update(std::vector<std::shared_ptr<BehaviourObject>>& bhO
 /// <param name="p">Void pointer.</param>
 /// <param name="keyCode">The key that is read, like 'W'.</param>
 /// <param name="keyboardEvent">The key that is read, like 'W'.</param>
-void EngineController::staticInputCallbackFunction(void* p, const KeyCodes keyCode, const KeyboardEvent keyboardEvent)
+void EngineController::staticInputCallbackFunction(void* p, const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos)
 {
-	((EngineController*)p)->inputCallbackFunction(keyCode, keyboardEvent);
+	((EngineController*)p)->inputCallbackFunction(keyCode, keyboardEvent, mousePos);
 }
 
 /// <summary>
@@ -43,12 +43,12 @@ void EngineController::staticInputCallbackFunction(void* p, const KeyCodes keyCo
 /// </summary>
 /// <param name="keyCode">The key that is read, like 'W'.</param>
 /// <param name="keyboardEvent">The key that is read, like 'W'.</param>
-void EngineController::inputCallbackFunction(const KeyCodes keyCode, const KeyboardEvent keyboardEvent)
+void EngineController::inputCallbackFunction(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos)
 {
 	isSceneSwitched = false;
 	if (keyCode == KeyCodes::KEY_ESC) 
 	{
-		renderFacade.get()->quitGame();
+		quitGame();
 	}
 	else if (keyCode == KeyCodes::KEY_P)
 	{
@@ -59,7 +59,7 @@ void EngineController::inputCallbackFunction(const KeyCodes keyCode, const Keybo
 		for (auto& gameObject : behaviourObjects)
 		{
 			if (!isSceneSwitched) {
-				gameObject.get()->handleInput(keyCode, keyboardEvent);
+				gameObject.get()->handleInput(keyCode, keyboardEvent, mousePos);
 			}
 		}
 	}
@@ -148,6 +148,7 @@ void EngineController::loadPreviousScene()
 {
 	isSceneSwitched = true;
 	behaviourObjects = sceneManager.loadPreviousScene();
+	update(behaviourObjects);
 }
 
 void EngineController::addOverlayScene(const std::string& sceneName)
@@ -155,6 +156,7 @@ void EngineController::addOverlayScene(const std::string& sceneName)
 	isSceneSwitched = true;
 	auto tempObjects = sceneManager.addOverlayScene(sceneName);
 	behaviourObjects.insert(behaviourObjects.end(), tempObjects.begin(), tempObjects.end());
+	update(behaviourObjects);
 }
 
 void EngineController::passPlayerPosition(int x, int y)
@@ -186,11 +188,16 @@ void EngineController::pauseScreen()
 {
 	if (renderFacade->renderer->isPaused) 
 	{
-		addOverlayScene("Pause");
+		addOverlayScene("PauseScreen");
 		EngineController::update(behaviourObjects);
 	}
 	else 
 	{
 		loadPreviousScene();
 	}
+}
+
+void EngineController::quitGame() 
+{
+	renderFacade.get()->quitGame();
 }

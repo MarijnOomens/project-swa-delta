@@ -8,4 +8,4 @@ BehaviourObject::~BehaviourObject() {}
 
 void BehaviourObject::update() {}
 
-void BehaviourObject::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) {}
+void BehaviourObject::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos) {}
