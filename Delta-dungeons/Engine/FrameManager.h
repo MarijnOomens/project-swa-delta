@@ -15,6 +15,9 @@ public:
 	void setFrameStart();
 	void setFrameDelay();
 	int getFPS();
+	void slowDown();
+	void speedUp();
+	void resetSpeed();
 private:
 	Uint32 frames = 0;
 	Uint32 startTime;

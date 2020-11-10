@@ -55,6 +55,10 @@ void EngineController::inputCallbackFunction(const KeyCodes keyCode, const Keybo
 		renderFacade.get()->pauseGame();
 		pauseScreen();
 	}
+	else if (keyCode == KeyCodes::KEY_COMMA || keyCode == KeyCodes::KEY_POINT || keyCode == KeyCodes::KEY_SLASH)
+	{
+		changeSpeed(keyCode);
+	}
 	else {
 		for (auto& gameObject : behaviourObjects)
 		{
@@ -205,4 +209,23 @@ void EngineController::quitGame()
 int EngineController::getFPS()
 {
 	return renderFacade->getFPS();
+}
+
+void EngineController::changeSpeed(KeyCodes keyCode)
+{
+	switch (keyCode)
+	{
+	case KeyCodes::KEY_COMMA :
+		renderFacade.get()->slowDown();
+		break;
+	case KeyCodes::KEY_POINT:
+		renderFacade.get()->speedUp();
+		break;
+	case KeyCodes::KEY_SLASH:
+		renderFacade.get()->resetSpeed();
+		break;
+
+	default:
+		break;
+	}
 }

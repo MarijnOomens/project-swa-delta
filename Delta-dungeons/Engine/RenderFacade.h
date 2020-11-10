@@ -36,6 +36,9 @@ public:
 	void createCamera(int x, int y);
 	void quitGame();
 	void pauseGame();
+	void slowDown();
+	void speedUp();
+	void resetSpeed();
 	std::tuple<int, int> passPlayerPosition(int x, int y);
 	int getFPS();
 };

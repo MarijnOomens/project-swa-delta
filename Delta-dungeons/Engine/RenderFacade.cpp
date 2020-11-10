@@ -150,3 +150,18 @@ int RenderFacade::getFPS()
 {
 	return frameManager->getFPS();
 }
+
+void RenderFacade::slowDown()
+{
+	frameManager.get()->slowDown();
+}
+
+void RenderFacade::speedUp()
+{
+	frameManager.get()->speedUp();
+}
+
+void RenderFacade::resetSpeed()
+{
+	frameManager.get()->resetSpeed();
+}
