@@ -6,6 +6,9 @@
 #include <iostream>
 #include <list>
 #include <vector>
+#include "TextComponent.h"
+#include <sstream>
+#include "DebugUtilities.h"
 
 class Scene : public GameObject
 {
@@ -28,5 +31,6 @@ public:
 private:
 	int x;
 	int y;
-	
+	std::shared_ptr<TextComponent> fpsText;
+	std::stringstream fpsString;
 };

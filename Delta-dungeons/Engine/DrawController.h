@@ -17,7 +17,6 @@ public:
 	~DrawController();
 
 	SDL_Texture* loadTexture(std::string texture);
-	SDL_Texture* loadFont(std::string text, std::string font, Colour colour, int fontSize);
-	void drawTexture(SDL_Texture* texture, SDL_Rect source, SDL_Rect destination);
+	SDL_Texture* loadFont(const std::string& text, const std::string& font, const Colour& colour, int fontSize);
 	void drawTexture(SDL_Texture* texture, SDL_Rect source, SDL_Rect destination, SDL_RendererFlip flip);
 };

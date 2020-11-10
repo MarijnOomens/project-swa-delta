@@ -34,6 +34,7 @@ public:
 	ENGINE_API void passPlayerPosition(int x, int y);
 	void pauseScreen();
 	ENGINE_API void quitGame();
+	ENGINE_API int getFPS();
 
 private:
 	std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects;

@@ -7,6 +7,7 @@
 #include "Color.h"
 #include "GraphicsComponent.h"
 #include "SceneLoader.h"
+#include <sstream>
 
 typedef void(*buttonCb) (void*);
 
