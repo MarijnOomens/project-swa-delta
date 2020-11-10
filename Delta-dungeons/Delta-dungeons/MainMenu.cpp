@@ -94,10 +94,10 @@ void MainMenu::openHelpCallbackFunction()
 
 void MainMenu::staticExitCallbackFunction(void* p) 
 {
-
+	((MainMenu*)p)->exitCallbackFunction();
 }
 
 void MainMenu::exitCallbackFunction() 
 {
-
+	SceneLoader::getInstance().quitGame();
 }

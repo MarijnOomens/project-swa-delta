@@ -48,7 +48,7 @@ void EngineController::inputCallbackFunction(const KeyCodes keyCode, const Keybo
 	isSceneSwitched = false;
 	if (keyCode == KeyCodes::KEY_ESC) 
 	{
-		renderFacade.get()->quitGame();
+		quitGame();
 	}
 	else if (keyCode == KeyCodes::KEY_P)
 	{
@@ -195,4 +195,9 @@ void EngineController::pauseScreen()
 	{
 		loadPreviousScene();
 	}
+}
+
+void EngineController::quitGame() 
+{
+	renderFacade.get()->quitGame();
 }

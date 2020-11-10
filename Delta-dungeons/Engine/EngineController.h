@@ -33,6 +33,7 @@ public:
 	ENGINE_API void createCamera(int x, int y);
 	ENGINE_API void passPlayerPosition(int x, int y);
 	void pauseScreen();
+	ENGINE_API void quitGame();
 
 private:
 	std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects;
