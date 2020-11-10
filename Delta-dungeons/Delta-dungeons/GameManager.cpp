@@ -17,15 +17,11 @@ GameManager::GameManager()
 	playerManager.createPlayer(staticCameraCallbackFunction, staticPlayerToTileCallbackFunction, this);
 	registerTextures(playerManager.passTextures());
 
-	scene = Scene(staticTileToPlayerCallbackFunction, this);
-	scene.addGraphics();
-	registerTextures(scene.passTextures());
-	
 	npcManager = NPCManager();
 	npcManager.createNPC();
 	registerTextures(npcManager.passTextures());
-	
-	scene = std::make_shared<Scene>();
+
+	scene = std::make_shared<Scene>(staticTileToPlayerCallbackFunction, this);
 	scene->addGraphics();
 	registerTextures(scene->passTextures());
 
@@ -103,7 +99,7 @@ void GameManager::registerTextures(std::map<std::string, std::string> textures)
 	engineFacade->registerTextures(textures);
 }
 
-void GameManager::staticCameraCallbackFunction(void* p, int x, int y) 
+void GameManager::staticCameraCallbackFunction(void* p, int x, int y)
 {
 	((GameManager*)p)->passPlayerPosition(x, y);
 }
@@ -134,5 +130,5 @@ void GameManager::staticPlayerToTileCallbackFunction(void* p, int x, int y)
 }
 
 void GameManager::playerToTileCallbackFunction(int x, int y) {
-	scene.checkCollision(x, y);
+	scene.get()->checkCollision(x, y);
 }

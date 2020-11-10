@@ -6,7 +6,6 @@
 /// <summary>
 /// This class defines everything that has to do with the player character. Textures, input handling, health and caught Pok�mon
 /// are all defined in the Player class. Interaction with the player's equipment is handled here too.
-/// 
 /// </summary>
 
 const int animationSpeed = 120;

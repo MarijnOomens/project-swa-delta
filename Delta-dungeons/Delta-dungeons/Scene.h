@@ -9,7 +9,6 @@
 #include "TextComponent.h"
 #include <sstream>
 #include "DebugUtilities.h"
-
 typedef void(*cbTileToPlayer) (void*);
 
 class Scene : public GameObject

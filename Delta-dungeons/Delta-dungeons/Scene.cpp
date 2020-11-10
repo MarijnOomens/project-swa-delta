@@ -105,6 +105,7 @@ void Scene::checkCollision(int xPos, int yPos)
 			std::cout << "Target tile y: " << tileY << std::endl;
 			std::cout << "Tile isCollider " << isCollider << std::endl;
 			std::cout << "-------------------------------------" << std::endl;
+			
 			if (isCollider) {
 				std::cout << "This is a Tile with Collision" << std::endl;
 				func(pointer);
