@@ -14,4 +14,7 @@ public:
 
 	void setFrameStart();
 	void setFrameDelay();
+private:
+	int framesAmount = 0;
+	Uint32 startTime;
 };

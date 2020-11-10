@@ -1,5 +1,4 @@
 #include "XMLSceneParser.h"
-#include "Tile.h"
 
 /// <summary>
 /// XMLSceneParser is a child of the SceneParser. This class is the connection between Scene and the XMLFacade.
