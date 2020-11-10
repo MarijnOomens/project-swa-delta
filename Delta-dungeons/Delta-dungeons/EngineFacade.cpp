@@ -89,3 +89,8 @@ void EngineFacade::addOverlayScene(const std::string& sceneName)
 void EngineFacade::quitGame() {
 	engineController->quitGame();
 }
+
+int EngineFacade::getFPS() 
+{
+	return engineController->getFPS();
+}

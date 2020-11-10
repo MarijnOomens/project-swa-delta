@@ -8,6 +8,7 @@
 #include "SceneLoader.h"
 #include "NPCManager.h"
 #include "Scene.h"
+#include "DebugUtilities.h"
 
 class GameManager {
 public: 

@@ -37,4 +37,5 @@ public:
 	void quitGame();
 	void pauseGame();
 	std::tuple<int, int> passPlayerPosition(int x, int y);
+	int getFPS();
 };

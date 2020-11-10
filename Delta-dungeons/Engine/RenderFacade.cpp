@@ -145,3 +145,8 @@ void RenderFacade::pauseGame()
 {
 	renderer.get()->pauseGame();
 }
+
+int RenderFacade::getFPS()
+{
+	return frameManager->getFPS();
+}

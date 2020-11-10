@@ -18,5 +18,5 @@ public:
 	void loadPreviousScene();
 	void addOverlayScene(const std::string& sceneName);
 	void quitGame();
-
+	int getFPS();
 };

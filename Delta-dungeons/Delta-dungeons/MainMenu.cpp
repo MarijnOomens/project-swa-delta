@@ -32,11 +32,6 @@ MainMenu::MainMenu()
 	std::vector<std::string> possibleButtonTexExit = { "button_exit" };
 	std::shared_ptr<Button> exitButton = std::make_shared<Button>(500, 690, possibleButtonTexExit, staticExitCallbackFunction, this);
 	this->components.emplace_back(exitButton);
-
-	Colour color = { 0, 255, 0, 255 };
-	fpsText = std::make_shared<TextComponent>("60", "comic", color, 32);
-	fpsText->transform.position = { 1200, 10 };
-	components.emplace_back(fpsText);
 }
 
 MainMenu::~MainMenu() {}

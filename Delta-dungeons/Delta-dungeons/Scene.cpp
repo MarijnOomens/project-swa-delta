@@ -6,7 +6,10 @@
 /// Scene is where a TileMap can be created.
 /// </summary>
 
-Scene::Scene() {}
+Scene::Scene() 
+{
+	std::cout << "scene" << std::endl;
+}
 
 Scene::Scene(int x, int y) : x(x), y(y) {};
 
@@ -67,7 +70,6 @@ void Scene::callbackFunction() {}
 
 void Scene::update() 
 {
-	fpsString.str(std::to_string(test));
+	fpsString.str(std::to_string(DebugUtilities::getInstance().getFPS()));
 	fpsText->changeText(fpsString.str());
-	++test;
 }

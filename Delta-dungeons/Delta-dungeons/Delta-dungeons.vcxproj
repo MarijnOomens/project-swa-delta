@@ -159,6 +159,7 @@
     <ClCompile Include="Boomerang.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="CreditScreen.cpp" />
+    <ClCompile Include="DebugUtilities.cpp" />
     <ClCompile Include="DialoguePopup.cpp" />
     <ClCompile Include="EngineFacade.cpp" />
     <ClCompile Include="EquipmentManager.cpp" />
@@ -198,6 +199,7 @@
     <ClInclude Include="Boomerang.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="Creditscreen.h" />
+    <ClInclude Include="DebugUtilities.h" />
     <ClInclude Include="DialoguePopup.h" />
     <ClInclude Include="EngineFacade.h" />
     <ClInclude Include="EquipmentManager.h" />

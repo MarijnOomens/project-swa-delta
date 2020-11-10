@@ -8,6 +8,7 @@ GameManager::GameManager()
 	engineFacade = std::make_shared<EngineFacade>();
 	engineFacade->init();
 	SceneLoader::getInstance().setEngineFacade(engineFacade);
+	DebugUtilities::getInstance().setEngineFacade(engineFacade);
 
 	uiManager.createBaseScreens();
 	registerTextures(uiManager.passTextures());
