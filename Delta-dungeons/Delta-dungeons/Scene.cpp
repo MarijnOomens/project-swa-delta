@@ -71,6 +71,18 @@ void Scene::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEven
 		{
 			DebugUtilities::getInstance().toggleShowFPS();
 		}
+		else if (keyCode == KeyCodes::KEY_COMMA)
+		{
+			DebugUtilities::getInstance().slowDownGame();
+		}
+		else if (keyCode == KeyCodes::KEY_POINT)
+		{
+			DebugUtilities::getInstance().speedUpGame();
+		}
+		else if (keyCode == KeyCodes::KEY_SLASH)
+		{
+			DebugUtilities::getInstance().resetSpeedGame();
+		}
 	}
 }
 

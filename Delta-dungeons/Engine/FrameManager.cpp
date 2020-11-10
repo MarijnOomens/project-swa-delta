@@ -1,4 +1,5 @@
 #include "FrameManager.h"
+#include <iostream>
 
 /// <summary>
 /// The FrameManager makes sure the game runs at a max 60FPS to limit the memory usage.
@@ -44,7 +45,39 @@ void FrameManager::setFrameDelay()
 	}
 }
 
-int FrameManager::getFPS() 
+int FrameManager::getFPS()
 {
 	return fps;
+}
+
+void FrameManager::slowDownGame()
+{
+	if (FPS > 3) 
+	{
+		FPS = FPS * 0.9;
+	}
+	else 
+	{
+		FPS = 3;
+	}
+		frameDelay = 1000 / FPS;
+}
+
+void FrameManager::speedUpGame()
+{
+	if (FPS < 144) 
+	{
+		FPS = FPS * 1.1;
+	}
+	else 
+	{
+		FPS = 144;
+	}
+	frameDelay = 1000 / FPS;
+}
+
+void FrameManager::resetSpeedGame()
+{
+	FPS = 60;
+	frameDelay = 1000 / FPS;
 }

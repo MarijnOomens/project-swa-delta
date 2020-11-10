@@ -206,3 +206,18 @@ int EngineController::getFPS()
 {
 	return renderFacade->getFPS();
 }
+
+void EngineController::slowDownGame()
+{
+	renderFacade.get()->slowDownGame();
+}
+
+void EngineController::speedUpGame()
+{
+	renderFacade.get()->speedUpGame();
+}
+
+void EngineController::resetSpeedGame()
+{
+	renderFacade.get()->resetSpeedGame();
+}

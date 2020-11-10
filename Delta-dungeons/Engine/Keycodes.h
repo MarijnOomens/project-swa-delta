@@ -16,6 +16,9 @@ enum class KeyCodes {
 	KEY_C,
 	KEY_P,
 	KEY_H,
+	KEY_COMMA,
+	KEY_POINT,
+	KEY_SLASH,
 	KEY_BACKSPACE,
 	KEY_TAB,
 	MOUSE
