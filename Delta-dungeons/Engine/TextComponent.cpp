@@ -20,7 +20,7 @@ void TextComponent::update() {
 	textureManager->drawText(text, font, colour, this->transform, fontSize);
 }
 
-void TextComponent::changeText(std::string text) {
+void TextComponent::changeText(const std::string& text) {
 	this->text = text;
 }
 

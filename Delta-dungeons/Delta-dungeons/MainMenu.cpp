@@ -106,10 +106,3 @@ void MainMenu::exitCallbackFunction()
 {
 	SceneLoader::getInstance().quitGame();
 }
-
-void MainMenu::update() {
-	std::stringstream fpsString;
-	fpsString.str(std::to_string(test));
-	fpsText->changeText(fpsString.str());
-	++test;
-}

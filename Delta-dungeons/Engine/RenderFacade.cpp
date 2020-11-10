@@ -86,7 +86,6 @@ void RenderFacade::drawText(std::string path, std::string text, Colour colour, c
 	destination.h = source.h * transform.scale.y;
 
 	RenderFacade::drawController->drawTexture(textTexture, source, destination, flip);
-
 }
 
 /// <summary>

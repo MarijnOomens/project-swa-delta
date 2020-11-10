@@ -25,14 +25,8 @@ public:
 	static void staticExitCallbackFunction(void* p);
 	void exitCallbackFunction();
 
-	void update() override;
-
 	MainMenu();
 	~MainMenu();
-
-	int test = 0;
-
-	std::shared_ptr<TextComponent> fpsText;
 
 	void startGame();
 	void openCreditScreen();

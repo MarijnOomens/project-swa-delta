@@ -50,7 +50,7 @@ SDL_Texture* DrawController::loadTexture(std::string path)
 /// <param name="colour">This is the color the text will appear in.</param>
 /// <param name="fontSize">This is the size of the text.</param>
 /// <returns>Returns a SDL_Texture to be drawn on the screen in another method.</returns>
-SDL_Texture* DrawController::loadFont(std::string text, std::string font, Colour colour, int fontSize)
+SDL_Texture* DrawController::loadFont(const std::string& text, const std::string& font, const Colour& colour, int fontSize)
 {
 	if (textures.count(text))
 	{
