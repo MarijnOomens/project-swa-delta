@@ -93,7 +93,7 @@ void RenderFacade::drawTexture(const std::string& path, const Transform& transfo
 /// <param name="width">The width of the screen.</param>
 /// <param name="height">The height of the screen.</param>
 /// <param name="fullscreen">If the screen is fullscreen or not.</param>
-void RenderFacade::init(const std::string& title, const int width, const int height, const bool fullscreen) const
+void RenderFacade::init(const std::string& title, int width, int height, bool fullscreen) const
 {
 	renderer->init(title, width, height, fullscreen);
 }
