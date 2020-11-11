@@ -5,20 +5,16 @@ using namespace rapidxml;
 /// The XMLParser contains the logic to parse an .xml file into ParserData objects.
 /// </summary>
 
-XMLParser::XMLParser() {}
-
-XMLParser::~XMLParser() {}
-
 /// <summary>
 /// parseXML makes use of rapidxml. rapidxml is used to parse the given xml file path into ParserData objects. By selecting the right nodes, the nodes information can be saved in a new ParserData object.
 /// </summary>
 /// <param name="path">The location of the .xml file that will be parsed.</param>
 /// <returns>A list of ParserData objects that can be used to create Tiles</returns>
 
-std::vector<std::shared_ptr<ParserData>> XMLParser::parseXML(const char* path)
+std::vector<std::shared_ptr<ParserData>> XMLParser::parseXML(const std::string& path)
 {
 	std::vector<std::shared_ptr<ParserData>> parserDataList;
-	rapidxml::file<> xmlFile(path);
+	rapidxml::file<> xmlFile(path.c_str());
 	rapidxml::xml_document<> doc;
 
 	doc.parse<0>(xmlFile.data());

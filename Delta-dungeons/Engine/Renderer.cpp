@@ -24,19 +24,23 @@ Renderer::~Renderer()
 /// <param name="fullscreen">If the screen is fullscreen or not.</param>
 void Renderer::init(const std::string& title, int width, int height, bool fullscreen) 
 {
-
 	int flags = 0;
-	if (fullscreen) {
+	if (fullscreen) 
+	{
 		flags = SDL_WINDOW_FULLSCREEN;
 	}
-	try {
-		if (SDL_Init(SDL_INIT_EVERYTHING) == 0) {
+	try 
+	{
+		if (SDL_Init(SDL_INIT_EVERYTHING) == 0) 
+		{
 			std::cout << "Subsystems initialised!!!" << std::endl;
 			sdlWindow = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, flags);
-			if (sdlWindow) {
+			if (sdlWindow) 
+			{
 				std::cout << "Window created!" << std::endl;
 			}
-			else {
+			else 
+			{
 				isRunning = false;
 				throw("Failed to create window!");
 			}
@@ -46,14 +50,16 @@ void Renderer::init(const std::string& title, int width, int height, bool fullsc
 				SDL_SetRenderDrawColor(sdlRenderer, 128, 128, 128, 255);
 				std::cout << "Renderer created!" << std::endl;
 			}
-			else {
+			else 
+			{
 				isRunning = false;
 				throw("Failed to create Render!");
 			}
 			isRunning = true;
 			isPaused = false;
 		}
-		else {
+		else 
+		{
 			throw("Subsystems are not initialised!");
 			isRunning = false;
 		}
@@ -63,7 +69,8 @@ void Renderer::init(const std::string& title, int width, int height, bool fullsc
 			std::cout << "Failed to initialise SDL_ttf!" << std::endl;
 		}
 	}
-	catch (std::string error) {
+	catch (std::string error) 
+	{
 		std::cout << "Error: " << error << std::endl;
 	}
 }
@@ -146,7 +153,8 @@ void Renderer::afterFrame() const
 
 void Renderer::drawTexture(SDL_Texture* texture, const Transform& transform, const Vector2D& coordinates, const Vector2D& sourceDimensions, int row, int frames, int speed, bool animated, bool flipped, bool isScreen) const
 {
-	if (checkCameraPosition(transform) || isScreen) {
+	if (checkCameraPosition(transform) || isScreen) 
+	{
 		SDL_Rect source;
 		SDL_RendererFlip flip = SDL_FLIP_NONE;
 		if (flipped)
@@ -177,17 +185,21 @@ void Renderer::drawTexture(SDL_Texture* texture, const Transform& transform, con
 		destination.w = sourceDimensions.x * transform.scale.x;
 		destination.h = sourceDimensions.y * transform.scale.y;
 
-		try {
-			if (sdlRenderer == NULL) {
+		try 
+		{
+			if (sdlRenderer == NULL) 
+			{
 				throw("Renderer is NULL!");
 			}
-			else if (texture == NULL) {
+			else if (texture == NULL) 
+			{
 				throw("SDL_Texture is NULL!");
 			}
 			SDL_RenderCopyEx(sdlRenderer, texture, &source, &destination, NULL, NULL, flip);
 
 		}
-		catch (std::string error) {
+		catch (std::string error) 
+		{
 			std::cout << "Error: " << error << std::endl;
 		}
 	}

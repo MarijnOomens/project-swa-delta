@@ -1,11 +1,8 @@
 #include "Input.h"
-#include <iostream>
 
 /// <summary>
 /// This class serves as a communication class between InputFacade and EngineController. Input data is received from InputFacade here.
 /// </summary>
-
-Input::Input() {}
 
 Input::Input(const cbFunction f, void* p) :func(f), pointer(p)
 {
@@ -17,14 +14,14 @@ void Input::staticCallbackFunction(void* p, const KeyCodes keyCode, const Keyboa
 	((Input*)p)->callBackFunction(keyCode, keyboardEvent, mousePos);
 }
 
-void Input::handleInput(bool isPaused)
+void Input::handleInput(bool isPaused) const
 {
 	facade->handleInput(isPaused);
 }
 
-void Input::callBackFunction(KeyCodes keyCode, KeyboardEvent keyboardEvent, Vector2D mousePos)
+void Input::callBackFunction(KeyCodes keyCode, KeyboardEvent keyboardEvent, Vector2D mousePos) const
 {
 	func(pointer, keyCode, keyboardEvent, mousePos);
 }
 
-void Input::parseKeyBindings(std::string string) {}
+void Input::parseKeyBindings(const std::string& string) const {}

@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-
+#include <iostream>
 #include "Keycodes.h"
 #include "Keyboardevent.h"
 #include "InputFacade.h"
@@ -14,11 +14,10 @@ public:
 	std::unique_ptr<InputFacade> facade;
 	void* pointer;
 
-	Input();
 	Input(const cbFunction f, void* p);
 
-	static void staticCallbackFunction(void* p, const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos);
-	void handleInput(bool isPaused);
-	void callBackFunction(KeyCodes keyCode, KeyboardEvent keyboardEvent, Vector2D mousePos);
-	void parseKeyBindings(std::string string);
+	static void staticCallbackFunction(void* p, const KeyCodes keyCode, const KeyboardEvent keyboardEvent, const Vector2D mousePos);
+	void handleInput(bool isPaused) const;
+	void callBackFunction(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, const Vector2D mousePos) const;
+	void parseKeyBindings(const std::string& string) const;
 };
