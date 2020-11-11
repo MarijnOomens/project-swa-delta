@@ -1,6 +1,6 @@
 #include "SceneManager.h"
 
-std::vector<std::shared_ptr<BehaviourObject>>& SceneManager::loadScene(std::string& sceneName, std::string& fromScene, bool clearPrevious)
+std::vector<std::shared_ptr<BehaviourObject>> SceneManager::loadScene(std::string& sceneName, std::string& fromScene, bool clearPrevious)
 { 
 	activeScenes.clear();
 
@@ -20,7 +20,7 @@ std::vector<std::shared_ptr<BehaviourObject>>& SceneManager::loadScene(std::stri
 	return this->scenes[sceneName];
 }
 
-std::vector<std::shared_ptr<BehaviourObject>>& SceneManager::loadPreviousScene()
+std::vector<std::shared_ptr<BehaviourObject>> SceneManager::loadPreviousScene()
 {
 
 	if (activeScenes.size() > 1)

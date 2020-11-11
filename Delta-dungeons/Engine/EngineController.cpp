@@ -120,17 +120,17 @@ void EngineController::registerScene(const std::string& sceneName, const std::ve
 		{
 			auto ngc = dynamic_cast<GraphicsComponent*>(o.get());
 			ngc->addTextureManager(textureManager);		
-			tempObjects.emplace_back(std::move(ngc));
+			tempObjects.emplace_back(ngc);
 		}
 		else if (dynamic_cast<TextComponent*>(o.get()) != nullptr)
 		{
 			auto ntc = dynamic_cast<TextComponent*>(o.get());
 			ntc->addTextureManager(textureManager);
-			tempObjects.emplace_back(std::move(ntc));
+			tempObjects.emplace_back(ntc);
 		}
 		else
 		{
-			tempObjects.emplace_back(std::move(o));
+			tempObjects.emplace_back(o);
 		}
 	}
 
@@ -147,7 +147,6 @@ void EngineController::loadPreviousScene()
 {
 	isSceneSwitched = true;
 	behaviourObjects = sceneManager.loadPreviousScene();
-	update();
 }
 
 void EngineController::addOverlayScene(const std::string& sceneName)
@@ -188,7 +187,6 @@ void EngineController::pauseScreen()
 	if (renderFacade->renderer->isPaused) 
 	{
 		addOverlayScene("PauseScreen");
-		update();
 	}
 	else 
 	{

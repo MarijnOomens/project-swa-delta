@@ -10,16 +10,16 @@ NPCManager::~NPCManager() {}
 
 void NPCManager::createNPC() 
 {
-	npcs.try_emplace("bugtrainer", builder.get()->getNPC(640, 896, "bugtrainer"));
-	npcs.try_emplace("eevee", builder.get()->getPokemon(768, 896, "eevee"));
-	npcs.try_emplace("flareon", builder.get()->getPokemon(896, 896, "flareon"));
-	npcs.try_emplace("vaporeon", builder.get()->getPokemon(1024, 896, "vaporeon"));
-	npcs.try_emplace("jolteon", builder.get()->getPokemon(1152, 896, "jolteon"));
-	npcs.try_emplace("espeon", builder.get()->getPokemon(1280, 896, "espeon"));
-	npcs.try_emplace("umbreon", builder.get()->getPokemon(1408, 896, "umbreon"));
-	npcs.try_emplace("leafeon", builder.get()->getPokemon(1536, 896, "leafeon"));
-	npcs.try_emplace("glaceon", builder.get()->getPokemon(1664, 896, "glaceon"));
-	npcs.try_emplace("sylveon", builder.get()->getPokemon(1792, 896, "sylveon"));
+	npcs.emplace("bugtrainer", builder->getNPC(640, 896, "bugtrainer"));
+	npcs.emplace("eevee", builder->getPokemon(768, 896, "eevee"));
+	npcs.emplace("flareon", builder->getPokemon(896, 896, "flareon"));
+	npcs.emplace("vaporeon", builder->getPokemon(1024, 896, "vaporeon"));
+	npcs.emplace("jolteon", builder->getPokemon(1152, 896, "jolteon"));
+	npcs.emplace("espeon", builder->getPokemon(1280, 896, "espeon"));
+	npcs.emplace("umbreon", builder->getPokemon(1408, 896, "umbreon"));
+	npcs.emplace("leafeon", builder->getPokemon(1536, 896, "leafeon"));
+	npcs.emplace("glaceon", builder->getPokemon(1664, 896, "glaceon"));
+	npcs.emplace("sylveon", builder->getPokemon(1792, 896, "sylveon"));
 }
 
 std::map<std::string, std::string> NPCManager::passTextures() const
@@ -27,7 +27,7 @@ std::map<std::string, std::string> NPCManager::passTextures() const
 	std::map<std::string, std::string> totalTextures;
 	for (auto& npc : npcs) {
 		for (auto& t : npc.second->textures) {
-			totalTextures.try_emplace(t.first, t.second);
+			totalTextures.emplace(t.first, t.second);
 		}
 	}
 	return totalTextures;
