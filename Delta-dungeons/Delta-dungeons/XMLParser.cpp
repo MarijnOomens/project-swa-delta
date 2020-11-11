@@ -96,7 +96,9 @@ std::vector<std::shared_ptr<ParserData>> XMLParser::getEquipmentDataList(const c
 				std::string yVal = tile->first_attribute("y")->value();
 				std::string tileId = tile->first_attribute("tile")->value();
 
-				if (tileId == "77") {
+				//filters data for all equipment in the game.
+				if (tileId == "3" || tileId == "4" || tileId == "5" || tileId == "6")
+				{
 					std::shared_ptr<ParserData> p = std::make_shared<ParserData>(tile->first_attribute("x")->value(), tile->first_attribute("y")->value(), tile->first_attribute("tile")->value());
 					equipmentDataList.push_back(p);
 				}

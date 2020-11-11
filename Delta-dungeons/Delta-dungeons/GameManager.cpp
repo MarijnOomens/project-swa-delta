@@ -69,11 +69,11 @@ void GameManager::registerBehaviourObjects()
 
 	for (auto& o : eqManager.equipments)
 	{
-		for (auto& n : o.get()->getComponentsRecursive())
+		for (auto& n : o.second.get()->getComponentsRecursive())
 		{
 			level1.emplace_back(n);
 		}
-		level1.emplace_back(o);
+		level1.emplace_back(o.second.get());
 	}
 
 	for (auto& o : playerManager.sprites)

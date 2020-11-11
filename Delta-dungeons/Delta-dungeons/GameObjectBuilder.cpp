@@ -27,8 +27,9 @@ std::shared_ptr<NPC> GameObjectBuilder::getNPC(int x, int y, std::string name)
 	return npc;
 }
 
-// TileId filtering must be done herre, so when the object is created it won't need that logic in that class.
-//std::shared_ptr<NPC> getEquipment(int x, int y, std::string tileset, int tileId)
-//{
-//
-//}
+std::shared_ptr<IEquipment> GameObjectBuilder::getEquipment(int x, int y, std::string name)
+{
+	std::shared_ptr<Pokeball> pokeball = std::make_shared<Pokeball>(x, y, name);
+	pokeball->textures.try_emplace(name, "Assets/Equipment/" + name + ".png");
+	return pokeball;
+}

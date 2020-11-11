@@ -1,9 +1,9 @@
 #pragma once
-#include <string>
-#include <map>
 #include "NPC.h"
 #include "Pokemon.h"
 #include "GameObjectBuilder.h"
+#include <string>
+#include <map>
 #include <memory>
 
 class NPCManager 
