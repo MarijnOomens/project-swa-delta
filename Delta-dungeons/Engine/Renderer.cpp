@@ -14,7 +14,7 @@ Renderer::~Renderer() {};
 /// <param name="width">The width of the screen.</param>
 /// <param name="height">The height of the screen.</param>
 /// <param name="fullscreen">If the screen is fullscreen or not.</param>
-void Renderer::init(const char* title, int width, int height, bool fullscreen) {
+void Renderer::init(const std::string& title, int width, int height, bool fullscreen) {
 
 	int flags = 0;
 	if (fullscreen) {
@@ -23,7 +23,7 @@ void Renderer::init(const char* title, int width, int height, bool fullscreen) {
 	try {
 		if (SDL_Init(SDL_INIT_EVERYTHING) == 0) {
 			std::cout << "Subsystems initialised!!!" << std::endl;
-			sdlWindow = SDL_CreateWindow(title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, flags);
+			sdlWindow = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, flags);
 			if (sdlWindow) {
 				std::cout << "Window created!" << std::endl;
 			}

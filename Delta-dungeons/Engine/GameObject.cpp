@@ -3,9 +3,6 @@
 /// <summary>
 /// A gameObject is an object within the game.
 /// </summary>
-GameObject::GameObject() {}
-GameObject::~GameObject() {}
-
 void GameObject::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos) {}
 
 void GameObject::connectCallback() {}

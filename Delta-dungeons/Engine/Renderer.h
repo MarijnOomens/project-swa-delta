@@ -19,7 +19,7 @@ public:
 	Renderer();
 	~Renderer();
 
-	void init(const char* title, const int width, const int height, const bool fullscreen);
+	void init(const std::string& title, const int width, const int height, const bool fullscreen);
 	std::tuple<int, int> updateCamera(int playerX, int playerY);
 	void createCamera(int x, int y);
 	void clean();
