@@ -37,7 +37,6 @@ void Scene::addGraphics()
 /// </summary>
 /// <param name="data">All the information needed to properly create a TileMap.</param>
 /// <returns>If succeeded, it returns a TileMap that contains Tile objects.</returns>
-
 std::vector<std::shared_ptr<Tile>> Scene::makeTiles(std::vector<std::shared_ptr<ParserData>> data)
 {
 	for (std::shared_ptr<ParserData> tile : data)
@@ -110,16 +109,16 @@ void Scene::checkCollision(int xPos, int yPos)
 		if (xPos == tileX && yPos == tileY)
 		{
 			// Logs for collision debug purposes
-			std::cout << "Tile and player collision prediction." << std::endl;
-			std::cout << "Tries moving to x: " << xPos << std::endl;
-			std::cout << "Tries moving to y: " << yPos << std::endl;
-			std::cout << "Target tile x: " << tileX << std::endl;
-			std::cout << "Target tile y: " << tileY << std::endl;
-			std::cout << "Tile isCollider " << isCollider << std::endl;
-			std::cout << "-------------------------------------" << std::endl;
+			//std::cout << "Tile and player collision prediction." << std::endl;
+			//std::cout << "Tries moving to x: " << xPos << std::endl;
+			//std::cout << "Tries moving to y: " << yPos << std::endl;
+			//std::cout << "Target tile x: " << tileX << std::endl;
+			//std::cout << "Target tile y: " << tileY << std::endl;
+			//std::cout << "Tile isCollider " << isCollider << std::endl;
+			//std::cout << "-------------------------------------" << std::endl;
 			
 			if (isCollider) {
-				std::cout << "This is a Tile with Collision" << std::endl;
+				//std::cout << "This is a Tile with Collision" << std::endl;
 				func(pointer);
 				break;
 			}

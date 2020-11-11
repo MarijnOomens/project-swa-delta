@@ -42,7 +42,6 @@ Player::Player(const cbCamera f, const cbTile cbTile, void* p) : func(f), tileFu
 	m_gc->isScreen = false;
 	m_gc.get()->transform = this->transform;
 	m_gc->imageDimensions = { 32, 32 };
-	// player scaling makes collision look odd due to different sizes. A tile is scaled x2, a player x4.
 	m_gc->transform.scale.multiply({ 4, 4 });
 	m_gc->playAnimation(0, 3, animationSpeed, false);
 

@@ -84,12 +84,10 @@ void GameManager::registerBehaviourObjects()
 		}
 		level1.emplace_back(o.second);
 	}
-	engineFacade->registerScene("Level1", level1);
 
+	engineFacade->registerScene("Level1", level1);
 	engineFacade->loadScene("MainMenu", "", true);
 }
-
-
 
 /// <summary>
 /// This methods gives the engineFacade all textures to give to the engine.
@@ -108,6 +106,7 @@ void GameManager::passPlayerPosition(int x, int y)
 {
 	engineFacade->passPlayerPosition(x, y);
 }
+
 /// <summary>
 /// This methods gives the engineFacade all fonts to give to the engine.
 /// </summary>

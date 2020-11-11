@@ -3,5 +3,5 @@
 
 void Boomerang::use() {
 	std::string test = "testtest";
-	std::cout << test << std::endl;
+	//std::cout << test << std::endl;
 }
