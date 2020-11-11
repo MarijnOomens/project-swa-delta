@@ -1,6 +1,6 @@
 #include "Boomerang.h"
 #include "Player.h"
-#include "Runningshoes.h"
+#include "EquippedRunningShoes.h"
 #include <windows.h>
 
 /// <summary>
@@ -17,7 +17,7 @@ const int animationSpeed = 120;
 /// </summary>
 Player::Player(const cbCamera f, const cbTile cbTile, void* p) : func(f), tileFunc(cbTile), pointer(p)
 {
-	std::shared_ptr<Runningshoes> running = std::make_shared<Runningshoes>(staticEquipmentCallbackFunction, this);
+	std::shared_ptr<EquippedRunningShoes> running = std::make_shared<EquippedRunningShoes>(staticEquipmentCallbackFunction, this);
 	std::shared_ptr<Boomerang> boomerang = std::make_shared<Boomerang>();
 
 	addEquipment(running);

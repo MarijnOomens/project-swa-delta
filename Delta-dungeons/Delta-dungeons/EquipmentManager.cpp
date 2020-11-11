@@ -16,7 +16,13 @@ void EquipmentManager::createEquipment()
 	for (auto parsedEquipment : equipmentData)
 	{
 		if (parsedEquipment.get()->tileId == "3") {
-			equipments.try_emplace("pokeball" + parsedEquipment.get()->x + parsedEquipment.get()->y, builder.get()->getEquipment(std::stoi(parsedEquipment.get()->x), std::stoi(parsedEquipment.get()->y), "pokeball"));
+			equipments.try_emplace("pokeball" + parsedEquipment.get()->x + parsedEquipment.get()->y, builder.get()->getPokeball(std::stoi(parsedEquipment.get()->x), std::stoi(parsedEquipment.get()->y), "pokeball"));
+		}
+		else if (parsedEquipment.get()->tileId == "4") {
+			equipments.try_emplace("running_shoes" + parsedEquipment.get()->x + parsedEquipment.get()->y, builder.get()->getBerry(std::stoi(parsedEquipment.get()->x), std::stoi(parsedEquipment.get()->y), "running_shoes"));
+		}
+		else if (parsedEquipment.get()->tileId == "5") {
+			equipments.try_emplace("berry" + parsedEquipment.get()->x + parsedEquipment.get()->y, builder.get()->getBerry(std::stoi(parsedEquipment.get()->x), std::stoi(parsedEquipment.get()->y), "berry"));
 		}
 	}
 }

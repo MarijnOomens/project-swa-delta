@@ -4,7 +4,6 @@
 
 class Pokeball : public IEquipment
 {
-
 public:
 	bool isCollider;
 	std::shared_ptr<GraphicsComponent> gc;

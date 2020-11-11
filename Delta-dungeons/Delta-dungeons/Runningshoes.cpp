@@ -1,22 +1,19 @@
-#include "Runningshoes.h"
-#include <iostream>
+#include "RunningShoes.h"
 
-/// <summary>
-/// This class is an equipment that can be used to increase the movement speed.
-/// </summary>
-Runningshoes::Runningshoes() {}
+RunningShoes::RunningShoes() {}
 
-Runningshoes::Runningshoes(const cbFunction f, void* p) : func(f), pointer(p) {}
-
-Runningshoes::~Runningshoes() {}
-
-/// <summary>
-/// This method gets called to change the isActivated boolean property. 
-/// Afterwards it will pass the isActivated boolean to the Player.cpp class.
-/// </summary>
-void Runningshoes::use()
+RunningShoes::RunningShoes(int x, int y, std::string texture)
 {
-	isActivated = !isActivated;
-	std::cout << isActivated << std::endl;
-	func(pointer, isActivated);
+    this->transform.position = { x * 128, y * 128 };
+    this->transform.scale.multiply({ 4, 4 });
+
+    gc = std::make_shared<GraphicsComponent>();
+    gc->setTexture(texture);
+    gc->imageDimensions = { 32, 32 };
+    gc.get()->transform = transform;
+    gc->isScreen = false;
+    this->components.emplace_back(gc);
 }
+RunningShoes::~RunningShoes() {}
+
+void RunningShoes::use() {}

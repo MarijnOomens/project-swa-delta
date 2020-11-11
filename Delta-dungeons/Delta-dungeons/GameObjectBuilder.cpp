@@ -27,9 +27,23 @@ std::shared_ptr<NPC> GameObjectBuilder::getNPC(int x, int y, std::string name)
 	return npc;
 }
 
-std::shared_ptr<IEquipment> GameObjectBuilder::getEquipment(int x, int y, std::string name)
+std::shared_ptr<IEquipment> GameObjectBuilder::getPokeball(int x, int y, std::string name)
 {
 	std::shared_ptr<Pokeball> pokeball = std::make_shared<Pokeball>(x, y, name);
 	pokeball->textures.try_emplace(name, "Assets/Equipment/" + name + ".png");
 	return pokeball;
+}
+
+std::shared_ptr<IEquipment> GameObjectBuilder::getBerry(int x, int y, std::string name)
+{
+	std::shared_ptr<Berry> berry = std::make_shared<Berry>(x, y, name);
+	berry->textures.try_emplace(name, "Assets/Equipment/" + name + ".png");
+	return berry;
+}
+
+std::shared_ptr<IEquipment> GameObjectBuilder::getRunningShoes(int x, int y, std::string name)
+{
+	std::shared_ptr<RunningShoes> runningShoes = std::make_shared<RunningShoes>(x, y, name);
+	runningShoes->textures.try_emplace(name, "Assets/Equipment/" + name + ".png");
+	return runningShoes;
 }
