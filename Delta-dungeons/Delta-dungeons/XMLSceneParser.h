@@ -8,11 +8,11 @@
 
 class XMLSceneParser : public SceneParser {
 public:
-	XMLSceneParser();
-	~XMLSceneParser();
+	XMLSceneParser() {};
+	~XMLSceneParser() {};
 
-	std::unique_ptr<XMLFacade> facade;
+	XMLFacade facade;
 
-	std::vector<std::shared_ptr<Tile>> loadScene(const char* path);
+	std::vector<std::shared_ptr<Tile>> loadScene(const std::string& path);
 private:
 };

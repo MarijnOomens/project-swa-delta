@@ -7,11 +7,7 @@
 /// <param name="font">The font of the text.</param>
 /// <param name="colour">The colour of the text.</param>
 /// <param name="fontSize">The size of the text.</param>
-TextComponent::TextComponent(std::string text, std::string font, Colour colour, int fontSize) : text(text), font(font), colour(colour), fontSize(fontSize) {
-
-}
-
-TextComponent::~TextComponent() {}
+TextComponent::TextComponent(std::string text, std::string font, Colour colour, int fontSize) : text(text), font(font), colour(colour), fontSize(fontSize) {}
 
 /// <summary>
 /// The update methods calls the TextureManager to draw the item.

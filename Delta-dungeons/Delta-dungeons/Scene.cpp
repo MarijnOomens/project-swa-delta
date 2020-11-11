@@ -14,9 +14,9 @@ Scene::~Scene() {}
 
 void Scene::addGraphics()
 {
-	std::unique_ptr<XMLSceneParser> scene = std::make_unique<XMLSceneParser>();
+	XMLSceneParser sceneParser;
 
-	tileMap = scene.get()->loadScene("Assets\\level1.xml");
+	tileMap = sceneParser.loadScene("Assets\\level1.xml");
 
 	for (std::shared_ptr<Tile> t : tileMap)
 	{
@@ -38,7 +38,7 @@ void Scene::addGraphics()
 /// <returns>If succeeded, it returns a TileMap that contains Tile objects.</returns>
 std::vector<std::shared_ptr<Tile>> Scene::makeTiles(std::vector<std::shared_ptr<ParserData>> data)
 {
-	for (std::shared_ptr<ParserData>& tile : data)
+	for (const std::shared_ptr<ParserData> tile : data)
 	{
 		int first = tile.get()->tileId[0] - 48;
 		if (tile.get()->tileId[1]) {
@@ -64,21 +64,22 @@ void Scene::handleInput(const KeyCodes &keyCode, const KeyboardEvent &keyboardEv
 {
 	if (keyboardEvent == KeyboardEvent::KEY_PRESSED)
 	{
-		if (keyCode == KeyCodes::KEY_TAB)
+		switch (keyCode)
 		{
+		case KeyCodes::KEY_TAB:
 			DebugUtilities::getInstance().toggleShowFPS();
-		}
-		else if (keyCode == KeyCodes::KEY_COMMA)
-		{
+			break;
+		case KeyCodes::KEY_COMMA:
 			DebugUtilities::getInstance().slowDownGame();
-		}
-		else if (keyCode == KeyCodes::KEY_POINT)
-		{
+			break;
+		case KeyCodes::KEY_POINT:
 			DebugUtilities::getInstance().speedUpGame();
-		}
-		else if (keyCode == KeyCodes::KEY_SLASH)
-		{
+			break;
+		case KeyCodes::KEY_SLASH:
 			DebugUtilities::getInstance().resetSpeedGame();
+			break;
+		default:
+			break;
 		}
 	}
 }

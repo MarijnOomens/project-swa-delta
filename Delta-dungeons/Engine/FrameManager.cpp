@@ -1,21 +1,20 @@
 #include "FrameManager.h"
-#include <iostream>
 
 /// <summary>
 /// The FrameManager makes sure the game runs at a max 60FPS to limit the memory usage.
 /// </summary>
 FrameManager::FrameManager()
 {
-	FPS = 60;
-	frameDelay = 1000 / FPS;
+	fpsLimit = 60.0;
+	frameDelay = 1000.0 / fpsLimit;
 
+	framesAmount = 0;
+	startTime = SDL_GetTicks();
 	frameStart = 0;
 	frameTime = 0;
 
-	startTime = SDL_GetTicks();
+	fps = 0;
 }
-
-FrameManager::~FrameManager() {}
 
 /// <summary>
 /// setFrameStart is used to get the start of the second, to determine later if a delay needs to be called to stay 60FPS
@@ -30,54 +29,53 @@ void FrameManager::setFrameStart()
 /// </summary>
 void FrameManager::setFrameDelay()
 {
-
-	frames++;
+	framesAmount++;
 	if (startTime < SDL_GetTicks() - 1000)
 	{
 		startTime = SDL_GetTicks();
-		fps = frames - 1;
-		frames = 0;
+		fps = framesAmount - 1;
+		framesAmount = 0;
 	}
 
 	frameTime = SDL_GetTicks() - frameStart;
 	if (frameDelay > frameTime) {
-		SDL_Delay(frameDelay - frameTime);
+		SDL_Delay(static_cast<Uint32>(frameDelay - frameTime));
 	}
-}
-
-int FrameManager::getFPS()
-{
-	return fps;
 }
 
 void FrameManager::slowDownGame()
 {
-	if (FPS > 3) 
+	if (fpsLimit > 3.0)
 	{
-		FPS = FPS * 0.9;
+		fpsLimit = fpsLimit * 0.9;
 	}
 	else 
 	{
-		FPS = 3;
+		fpsLimit = 3.0;
 	}
-		frameDelay = 1000 / FPS;
+	frameDelay = 1000.0 / fpsLimit;
 }
 
 void FrameManager::speedUpGame()
 {
-	if (FPS < 144) 
+	if (fpsLimit < 144.0)
 	{
-		FPS = FPS * 1.1;
+		fpsLimit = fpsLimit * 1.1;
 	}
 	else 
 	{
-		FPS = 144;
+		fpsLimit = 144.0;
 	}
-	frameDelay = 1000 / FPS;
+	frameDelay = 1000.0 / fpsLimit;
 }
 
 void FrameManager::resetSpeedGame()
 {
-	FPS = 60;
-	frameDelay = 1000 / FPS;
+	fpsLimit = 60.0;
+	frameDelay = 1000.0 / fpsLimit;
+}
+
+int FrameManager::getFPS() const
+{
+	return fps;
 }

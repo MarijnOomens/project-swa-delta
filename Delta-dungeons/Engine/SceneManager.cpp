@@ -1,17 +1,18 @@
 #include "SceneManager.h"
 
-SceneManager::SceneManager() {}
-SceneManager::~SceneManager() {}
-
 std::vector<std::shared_ptr<BehaviourObject>>& SceneManager::loadScene(std::string& sceneName, std::string& fromScene, bool clearPrevious)
 { 
 	activeScenes.clear();
 
 	if (clearPrevious)
+	{
 		previousScenes.clear();
+	}
 
 	if (!fromScene.empty())
+	{
 		previousScenes.push_back(fromScene);
+	}
 
 	activeScenes.push_back(sceneName);
 	currentScene = sceneName;
@@ -19,7 +20,7 @@ std::vector<std::shared_ptr<BehaviourObject>>& SceneManager::loadScene(std::stri
 	return this->scenes[sceneName];
 }
 
-std::vector<std::shared_ptr<BehaviourObject>> SceneManager::loadPreviousScene()
+std::vector<std::shared_ptr<BehaviourObject>>& SceneManager::loadPreviousScene()
 {
 
 	if (activeScenes.size() > 1)
@@ -27,7 +28,7 @@ std::vector<std::shared_ptr<BehaviourObject>> SceneManager::loadPreviousScene()
 		activeScenes.pop_back();
 		std::vector<std::shared_ptr<BehaviourObject>> tempObjects;
 
-		for (auto& a : activeScenes)
+		for (const auto& a : activeScenes)
 		{
 			tempObjects.insert(tempObjects.end(), scenes[a].begin(), scenes[a].end());
 		}

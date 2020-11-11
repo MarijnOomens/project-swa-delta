@@ -1,8 +1,4 @@
 #include "InputFacade.h"
-/// <summary>
-/// Inputfacade takes all the input from the engine and gives it to the class who will handle the input.
-/// </summary>
-InputFacade::InputFacade() {}
 
 /// <summary>
 /// Constructor to give functions for callbacks
@@ -11,15 +7,15 @@ InputFacade::InputFacade() {}
 /// <param name="p"></param>
 InputFacade::InputFacade(const cbFunction f, void* p)
 {
-	wrapper = std::make_unique<InputWrapper>(f, p);
+	inputWrapper = std::make_unique<InputWrapper>(f, p);
 }
 
 /// <summary>
 /// This function takes the input and gives it to the code behind the facade.
 /// </summary>
-void IInputFacade::handleInput(bool isPaused)
+void InputFacade::handleInput(bool isPaused)
 {
-	wrapper->handleInput(isPaused);
+	inputWrapper->handleInput(isPaused);
 }
 
-void IInputFacade::mapKeyBindings(KeyCodes keyCode) {}
+void InputFacade::mapKeyBindings(const KeyCodes& keyCode) {}

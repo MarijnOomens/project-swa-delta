@@ -10,24 +10,26 @@
 
 class Renderer {
 public:
-	SDL_Renderer* sdlRenderer;
-	SDL_Rect camera;
-	SDL_Window* sdlWindow;
 	bool isRunning;
 	bool isPaused;
+	SDL_Renderer* sdlRenderer;
 
 	Renderer();
 	~Renderer();
 
-	void init(const char* title, const int width, const int height, const bool fullscreen);
-	std::tuple<int, int> updateCamera(int playerX, int playerY);
+	void init(const std::string& title, const int width, const int height, const bool fullscreen);
 	void createCamera(int x, int y);
-	void clean();
+	bool checkCameraPosition(const Transform& transform) const;
+	std::tuple<int, int> updateCamera(int playerX, int playerY);
+
+	void clean() const;
 	void pauseGame();
 	void quitGame();
-	void beforeFrame();
-	bool checkCameraPosition(const Transform& transform);
-	void drawTexture(SDL_Texture* texture, const Transform& transform, const Vector2D& coordinates, const Vector2D& sourceDimension, int row, int frames, int speed, bool animated, bool flipped, bool isScreen);
-	void afterFrame();
+	void beforeFrame() const;
+	void afterFrame() const;
+	void drawTexture(SDL_Texture* texture, const Transform& transform, const Vector2D& coordinates, const Vector2D& sourceDimension, int row, int frames, int speed, bool animated, bool flipped, bool isScreen) const;
 
+private:
+	SDL_Window* sdlWindow;
+	SDL_Rect camera;
 };

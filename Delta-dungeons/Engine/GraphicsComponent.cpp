@@ -3,9 +3,6 @@
 /// <summary>
 /// A GraphicsComponent holds the graphical details of a gameObject, like animation and textures.
 /// </summary>
-GraphicsComponent::GraphicsComponent() {};
-
-GraphicsComponent::~GraphicsComponent() {};
 
 /// <summary>
 /// If the graphicsComponent is animated, this method will start to play the animation.
@@ -28,7 +25,7 @@ void GraphicsComponent::playAnimation(int row, int frames, int speed, bool flip)
 /// Sets the texture of the graphicsComponent.
 /// </summary>
 /// <param name="name">Texture name.</param>
-void GraphicsComponent::setTexture(std::string name)
+void GraphicsComponent::setTexture(const std::string& name)
 {
 	this->textureName = name;
 }
