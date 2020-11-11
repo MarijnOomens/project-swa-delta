@@ -5,11 +5,9 @@
 /// </summary>
 Rectangle::Rectangle()
 {
-	destination = SDL_Rect();
-	source = SDL_Rect();
+	destination = { 0,0,0,0 };
+	source = { 0,0,0,0 };
 }
-
-Rectangle::~Rectangle() {}
 
 /// <summary>
 /// DefineSource sets the Width and Height and X and Y of the source Rectangle.

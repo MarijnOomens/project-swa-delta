@@ -4,6 +4,3 @@
 #include <SDL_image.h>
 #include <stdio.h>
 #include <string>
-
-AudioWrapper::AudioWrapper() {}
-AudioWrapper::~AudioWrapper() {}

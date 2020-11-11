@@ -1,11 +1,19 @@
 #include "Renderer.h"
 
-/// <summary>
-/// The renderer class is responsible for setting up everything before rendering.
-/// </summary>
-Renderer::Renderer() {};
+Renderer::Renderer()
+{
+	isRunning = false;
+	isPaused = false;
+	camera = { 0,0,0,0 };
+	sdlRenderer = nullptr;
+	sdlWindow = nullptr;
+}
 
-Renderer::~Renderer() {};
+Renderer::~Renderer()
+{
+	SDL_DestroyWindow(sdlWindow);
+	SDL_DestroyRenderer(sdlRenderer);
+}
 
 /// <summary>
 /// The init methods creates all SDL required items to render a screen and textures within that screen.
@@ -14,7 +22,8 @@ Renderer::~Renderer() {};
 /// <param name="width">The width of the screen.</param>
 /// <param name="height">The height of the screen.</param>
 /// <param name="fullscreen">If the screen is fullscreen or not.</param>
-void Renderer::init(const char* title, int width, int height, bool fullscreen) {
+void Renderer::init(const std::string& title, int width, int height, bool fullscreen) 
+{
 
 	int flags = 0;
 	if (fullscreen) {
@@ -23,7 +32,7 @@ void Renderer::init(const char* title, int width, int height, bool fullscreen) {
 	try {
 		if (SDL_Init(SDL_INIT_EVERYTHING) == 0) {
 			std::cout << "Subsystems initialised!!!" << std::endl;
-			sdlWindow = SDL_CreateWindow(title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, flags);
+			sdlWindow = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, flags);
 			if (sdlWindow) {
 				std::cout << "Window created!" << std::endl;
 			}
@@ -71,7 +80,16 @@ void Renderer::createCamera(int x, int y)
 	{
 		cameraY = 0;
 	}
-	camera = {cameraX ,cameraY, 4608, 4096 };
+	camera = { cameraX , cameraY, 4608, 4096 };
+}
+
+bool Renderer::checkCameraPosition(const Transform& transform) const
+{
+	if (transform.position.x >= camera.x - 128 && transform.position.x < camera.x + 1408 && transform.position.y >= camera.y - 128 && transform.position.y < camera.y + 1024)
+	{
+		return true;
+	}
+	return false;
 }
 
 std::tuple<int, int> Renderer::updateCamera(int playerX, int playerY)
@@ -84,7 +102,49 @@ std::tuple<int, int> Renderer::updateCamera(int playerX, int playerY)
 	return std::make_tuple(differenceX, differenceY);
 }
 
-void Renderer::drawTexture(SDL_Texture* texture, const Transform& transform, const Vector2D& coordinates, const Vector2D& sourceDimensions, int row, int frames, int speed, bool animated, bool flipped, bool isScreen)
+/// <summary>
+/// This methods cleans the game files and destroys all sdl components to makes sure all memory is cleared.
+/// </summary>
+void Renderer::clean() const
+{
+	SDL_DestroyWindow(sdlWindow);
+	SDL_DestroyRenderer(sdlRenderer);
+	SDL_Quit();
+	std::cout << "Game Cleaned" << std::endl;
+}
+
+void Renderer::pauseGame()
+{
+	isPaused = !isPaused;
+}
+
+/// <summary>
+/// This method pauzes the game.
+/// </summary>
+void Renderer::quitGame()
+{
+	isRunning = false;
+	clean();
+	exit(0);
+}
+
+/// <summary>
+/// This methods cleans the screen before the frame is called.
+/// </summary>
+void Renderer::beforeFrame() const
+{
+	SDL_RenderClear(sdlRenderer);
+}
+
+/// <summary>
+/// This method draws the screen after the frame is done.
+/// </summary>
+void Renderer::afterFrame() const
+{
+	SDL_RenderPresent(sdlRenderer);
+}
+
+void Renderer::drawTexture(SDL_Texture* texture, const Transform& transform, const Vector2D& coordinates, const Vector2D& sourceDimensions, int row, int frames, int speed, bool animated, bool flipped, bool isScreen) const
 {
 	if (checkCameraPosition(transform) || isScreen) {
 		SDL_Rect source;
@@ -104,7 +164,7 @@ void Renderer::drawTexture(SDL_Texture* texture, const Transform& transform, con
 		}
 
 		SDL_Rect destination;
-		if (!isScreen) 
+		if (!isScreen)
 		{
 			destination.x = transform.position.x - camera.x;
 			destination.y = transform.position.y - camera.y;
@@ -131,56 +191,4 @@ void Renderer::drawTexture(SDL_Texture* texture, const Transform& transform, con
 			std::cout << "Error: " << error << std::endl;
 		}
 	}
-}
-
-
-bool Renderer::checkCameraPosition(const Transform& transform)
-{
-	if (transform.position.x >= camera.x -128 && transform.position.x < camera.x + 1408 && transform.position.y >= camera.y -128 && transform.position.y < camera.y + 1024)
-	{
-		return true;
-	}
-	return false;
-}
-
-/// <summary>
-/// This methods cleans the game files and destroys all sdl components to makes sure all memory is cleared.
-/// </summary>
-void Renderer::clean()
-{
-	SDL_DestroyWindow(sdlWindow);
-	SDL_DestroyRenderer(sdlRenderer);
-	SDL_Quit();
-	std::cout << "Game Cleaned" << std::endl;
-}
-
-void Renderer::pauseGame()
-{
-	isPaused = !isPaused;
-}
-
-/// <summary>
-/// This method pauzes the game.
-/// </summary>
-void Renderer::quitGame()
-{
-	isRunning = false;
-	clean();
-	exit(0);
-}
-
-/// <summary>
-/// This methods cleans the screen before the frame is called.
-/// </summary>
-void Renderer::beforeFrame()
-{
-	SDL_RenderClear(sdlRenderer);
-}
-
-/// <summary>
-/// This method draws the screen after the frame is done.
-/// </summary>
-void Renderer::afterFrame()
-{
-	SDL_RenderPresent(sdlRenderer);
 }

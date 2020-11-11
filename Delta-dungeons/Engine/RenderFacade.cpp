@@ -1,5 +1,15 @@
 #include "RenderFacade.h"
 
+/// <summary>
+/// Inits the renderFacade. This class gives all logic to the correct classes.
+/// </summary>
+RenderFacade::RenderFacade()
+{
+	frameManager = std::make_unique<FrameManager>();
+	renderer = std::make_unique<Renderer>();
+	drawController = std::make_unique<DrawController>(renderer);
+}
+
 std::string RenderFacade::constructorError() const noexcept
 {
 	return "SDLFacade constructor is not called";
@@ -10,56 +20,25 @@ std::string RenderFacade::constructorError() const noexcept
 /// </summary>
 /// <param name="path">The path of the .png for the texture.</param>
 /// <returns>Returns a SDL_Texture to render.</returns>
-SDL_Texture* RenderFacade::loadTexture(const std::string* path)
+SDL_Texture* RenderFacade::loadTexture(const std::string& path) const
 {
-	return RenderFacade::drawController->loadTexture(path->c_str());
+	return drawController->loadTexture(path.c_str());
 }
-
-/// <summary>
-/// Inits the renderFacade. This class gives all logic to the correct classes.
-/// </summary>
-RenderFacade::RenderFacade()
-{
-	RenderFacade::frameManager = std::make_shared<FrameManager>();
-	RenderFacade::renderer = std::make_shared<Renderer>();
-	RenderFacade::drawController = std::make_shared<DrawController>(renderer);
-}
-
-RenderFacade::~RenderFacade() {}
 
 /// <summary>
 /// Calls the setFrameStart from the frameManager
 /// </summary>
-void RenderFacade::setFrameStart()
+void RenderFacade::setFrameStart() const
 {
-	RenderFacade::frameManager->setFrameStart();
+	frameManager->setFrameStart();
 }
 
 /// <summary>
 /// Calls the setFrameDelay from the frameManager
 /// </summary>
-void RenderFacade::setFrameDelay()
+void RenderFacade::setFrameDelay() const
 {
-	RenderFacade::frameManager->setFrameDelay();
-}
-
-/// <summary>
-/// Prepares a texture to be drawn to the screen.
-/// </summary>
-/// <param name="path">The path of the .png of the texture.</param>
-/// <param name="transform">The Transform Rectangle</param>
-/// <param name="coordinates">The x and y of the texture.</param>
-/// <param name="sourceDimensions">The dimensions of the texture.</param>
-/// <param name="row">The row of which animation, in case its animated.</param>
-/// <param name="frames">The total animation frames in case its animated</param>
-/// <param name="speed">The speed of the animation in case its animated</param>
-/// <param name="animated">A boolean to represent if it is animated or not.</param>
-/// <param name="flipped">A boolean to represent if it is flipped or not.</param>
-void RenderFacade::drawTexture(std::string path, const Transform& transform, const Vector2D& coordinates, const Vector2D& sourceDimensions, int row, int frames, int speed, bool animated, bool flipped, bool isScreen)
-{
-	Vector2D size;
-	SDL_Texture* texture = drawController->loadTexture(path);
-	RenderFacade::renderer->drawTexture(texture, transform, coordinates,sourceDimensions,row,frames,speed,animated,flipped,isScreen);
+	frameManager->setFrameDelay();
 }
 
 /// <summary>
@@ -70,7 +49,7 @@ void RenderFacade::drawTexture(std::string path, const Transform& transform, con
 /// <param name="colour">The colour of the text.</param>
 /// <param name="transform">The x and y of the text.</param>
 /// <param name="fontSize">The size of the text.</param>
-void RenderFacade::drawText(std::string path, std::string text, Colour colour, const Transform& transform, int fontSize)
+void RenderFacade::drawTexture(const std::string& path, const std::string& text, const Colour& colour, const Transform& transform, int fontSize) const
 {
 	SDL_Texture* textTexture = drawController->loadFont(text, path, colour, fontSize);
 	SDL_RendererFlip flip = SDL_FLIP_NONE;
@@ -85,7 +64,26 @@ void RenderFacade::drawText(std::string path, std::string text, Colour colour, c
 	destination.w = source.w * transform.scale.x;
 	destination.h = source.h * transform.scale.y;
 
-	RenderFacade::drawController->drawTexture(textTexture, source, destination, flip);
+	drawController->drawTexture(textTexture, source, destination, flip);
+}
+
+/// <summary>
+/// Prepares a texture to be drawn to the screen.
+/// </summary>
+/// <param name="path">The path of the .png of the texture.</param>
+/// <param name="transform">The Transform Rectangle</param>
+/// <param name="coordinates">The x and y of the texture.</param>
+/// <param name="sourceDimensions">The dimensions of the texture.</param>
+/// <param name="row">The row of which animation, in case its animated.</param>
+/// <param name="frames">The total animation frames in case its animated</param>
+/// <param name="speed">The speed of the animation in case its animated</param>
+/// <param name="animated">A boolean to represent if it is animated or not.</param>
+/// <param name="flipped">A boolean to represent if it is flipped or not.</param>
+void RenderFacade::drawTexture(const std::string& path, const Transform& transform, const Vector2D& coordinates, const Vector2D& sourceDimensions, int row, int frames, int speed, bool animated, bool flipped, bool isScreen) const
+{
+	Vector2D size;
+	SDL_Texture* texture = drawController->loadTexture(path);
+	renderer->drawTexture(texture, transform, coordinates, sourceDimensions, row, frames, speed, animated, flipped, isScreen);
 }
 
 /// <summary>
@@ -95,73 +93,71 @@ void RenderFacade::drawText(std::string path, std::string text, Colour colour, c
 /// <param name="width">The width of the screen.</param>
 /// <param name="height">The height of the screen.</param>
 /// <param name="fullscreen">If the screen is fullscreen or not.</param>
-void RenderFacade::init(const char* title, const int width, const int height, const bool fullscreen)
+void RenderFacade::init(const std::string& title, const int width, const int height, const bool fullscreen) const
 {
-	RenderFacade::renderer->init(title, width, height, fullscreen);
+	renderer->init(title, width, height, fullscreen);
 }
-
-void RenderFacade::update(std::vector<GameObject> gameObjects) {}
 
 /// <summary>
 /// calls the clean methode in the renderer.
 /// </summary>
-void RenderFacade::clean()
+void RenderFacade::clean() const
 {
-	RenderFacade::renderer->clean();
+	renderer->clean();
 }
 
 /// <summary>
 ///  calls the beforeFrame methode in the renderer.
 /// </summary>
-void RenderFacade::beforeFrame()
+void RenderFacade::beforeFrame() const
 {
-	RenderFacade::renderer->beforeFrame();
+	renderer->beforeFrame();
 }
 
 /// <summary>
 ///  calls the afterFrame methode in the renderer.
 /// </summary>
-void RenderFacade::afterFrame()
+void RenderFacade::afterFrame() const
 {
-	RenderFacade::renderer->afterFrame();
+	renderer->afterFrame();
 }
 
-void RenderFacade::createCamera(int x, int y) 
+void RenderFacade::createCamera(int x, int y) const
 {
 	renderer->createCamera(x, y);
 }
 
-std::tuple<int, int> RenderFacade::passPlayerPosition(int x, int y)
+void RenderFacade::quitGame() const
 {
-	return RenderFacade::renderer->updateCamera(x, y);
+	renderer->quitGame();
 }
 
-void RenderFacade::quitGame()
+void RenderFacade::pauseGame() const
 {
-	renderer.get()->quitGame();
+	renderer->pauseGame();
 }
 
-void RenderFacade::pauseGame()
+void RenderFacade::slowDownGame() const
 {
-	renderer.get()->pauseGame();
+	frameManager->slowDownGame();
 }
 
-int RenderFacade::getFPS()
+void RenderFacade::speedUpGame() const
+{
+	frameManager->speedUpGame();
+}
+
+void RenderFacade::resetSpeedGame() const
+{
+	frameManager->resetSpeedGame();
+}
+
+int RenderFacade::getFPS() const
 {
 	return frameManager->getFPS();
 }
 
-void RenderFacade::slowDownGame()
+std::tuple<int, int> RenderFacade::passPlayerPosition(int x, int y) const
 {
-	frameManager.get()->slowDownGame();
-}
-
-void RenderFacade::speedUpGame()
-{
-	frameManager.get()->speedUpGame();
-}
-
-void RenderFacade::resetSpeedGame()
-{
-	frameManager.get()->resetSpeedGame();
+	return renderer->updateCamera(x, y);
 }

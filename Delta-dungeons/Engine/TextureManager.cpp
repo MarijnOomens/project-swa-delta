@@ -47,5 +47,5 @@ void TextureManager::drawTexture(const std::string name, const Transform& transf
 void TextureManager::drawText(std::string text, std::string fontName, Colour colour, const Transform& transform, int fontSize) 
 {
 	std::string fontPath = assetManager->getFont(fontName);
-	renderFacade->drawText(fontPath, text, colour, transform, fontSize);
+	renderFacade->drawTexture(fontPath, text, colour, transform, fontSize);
 };
