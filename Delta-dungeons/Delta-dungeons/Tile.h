@@ -14,7 +14,7 @@ public:
 	Tile(int x, int y, int xImage, int yImage);
 
 	void addGraphicsComponent(std::string imageName);
-	void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) override;
+	void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos) override;
 	void callbackFunction() override;
 	void connectCallback() override;
 	void update() override;

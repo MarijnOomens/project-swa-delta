@@ -14,5 +14,7 @@ enum class KeyCodes {
 	KEY_E,
 	KEY_G,
 	KEY_P,
+	KEY_H,
 	KEY_BACKSPACE,
+	MOUSE,
 };

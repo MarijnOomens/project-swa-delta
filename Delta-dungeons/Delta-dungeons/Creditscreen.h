@@ -9,8 +9,10 @@ public:
 	CreditScreen();
 	~CreditScreen();
 
+	static void staticBackCallbackFunction(void* p);
+	void backCallbackFunction();
+
 	std::vector<Button> buttons;
-	void closeScreen() override;
-	void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) override;
+	void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos) override;
 
 };

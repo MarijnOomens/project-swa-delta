@@ -54,7 +54,7 @@ void GraphicsComponent::callbackFunction() {}
 
 void GraphicsComponent::connectCallback() {}
 
-void GraphicsComponent::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) {}
+void GraphicsComponent::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos) {}
 
 /// <summary>
 /// Gets the textureManager pointer.

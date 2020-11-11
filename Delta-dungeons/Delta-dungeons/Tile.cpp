@@ -47,7 +47,7 @@ void Tile::addGraphicsComponent(std::string name)
 	this->components.emplace_back(gc);
 }
 
-void Tile::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) {}
+void Tile::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos) {}
 void Tile::callbackFunction() {}
 void Tile::connectCallback() {}
 

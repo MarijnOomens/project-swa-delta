@@ -15,6 +15,7 @@ public:
 	void loadPreviousScene();
 	void addOverlayScene(const std::string& sceneName);
 	void setEngineFacade(std::shared_ptr<EngineFacade> engineFacade);
+	void quitGame();
 
 private:
 	static SceneLoader sceneLoader;
