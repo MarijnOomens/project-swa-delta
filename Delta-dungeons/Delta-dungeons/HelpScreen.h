@@ -1,5 +1,4 @@
 #pragma once
-
 #include "Screen.h"
 #include "TextComponent.h"
 #include "SceneLoader.h"
@@ -10,11 +9,11 @@ class HelpScreen : public Screen
 
 public:
 	HelpScreen();
-	~HelpScreen();
+	~HelpScreen() {};
 
-	static void staticBackCallbackFunction(void* p);
+	static void staticBackCallbackFunction(const void* p);
 
-	void backCallbackFunction();
+	void backCallbackFunction()const;
 
-	void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos) override;
+	void handleInput(const KeyCodes &keyCode, const KeyboardEvent &keyboardEvent, Vector2D &mousePos) override;
 };

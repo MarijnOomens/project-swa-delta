@@ -6,9 +6,8 @@
 GameObject::GameObject() {}
 GameObject::~GameObject() {}
 
-void GameObject::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos) {}
+void GameObject::handleInput(const KeyCodes &keyCode, const KeyboardEvent &keyboardEvent, Vector2D &mousePos) {}
 
-void GameObject::connectCallback() {}
 
 void GameObject::update() {}
 

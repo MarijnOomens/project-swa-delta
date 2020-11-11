@@ -26,7 +26,7 @@ GameManager::GameManager()
 	registerTextures(scene->passTextures());
 
 	registerBehaviourObjects();
-	engineFacade->createCamera(playerManager.player.get()->transform.position.x, playerManager.player.get()->transform.position.y);
+	engineFacade->createCamera(playerManager.player->transform.position.x, playerManager.player->transform.position.y);
 	engineFacade->startGame();
 }
 
@@ -53,7 +53,6 @@ void GameManager::registerBehaviourObjects()
 	{
 		level1.emplace_back(t);
 	}
-	level1.emplace_back(scene);
 
 	for (auto& o : npcManager.npcs)
 	{
@@ -87,7 +86,7 @@ void GameManager::registerTextures(std::map<std::string, std::string> textures)
 	engineFacade->registerTextures(textures);
 }
 
-void GameManager:: staticCameraCallbackFunction(void* p, int x, int y) 
+void GameManager:: staticCameraCallbackFunction(const void* p, int x, int y) 
 {
 	((GameManager*)p)->passPlayerPosition(x, y);
 }

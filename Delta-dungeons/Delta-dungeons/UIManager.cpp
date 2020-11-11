@@ -7,13 +7,13 @@ void UIManager::playDialogue(std::vector<std::string>) {}
 /// </summary>
 void UIManager::createBaseScreens() {
 	std::shared_ptr<MainMenu> mainMenu = std::make_shared<MainMenu>();
-	screens.try_emplace("MainMenu", mainMenu);
+	screens.try_emplace("MainMenu", std::move(mainMenu));
 	std::shared_ptr<PauseScreen> pause = std::make_shared<PauseScreen>();
-	screens.try_emplace("PauseScreen", pause);
+	screens.try_emplace("PauseScreen", std::move(pause));
 	std::shared_ptr<CreditScreen> credits = std::make_shared<CreditScreen>();
-	screens.try_emplace("CreditsScreen", credits);
+	screens.try_emplace("CreditsScreen", std::move(credits));
 	std::shared_ptr<HelpScreen> help = std::make_shared<HelpScreen>();
-	screens.try_emplace("HelpScreen", help);
+	screens.try_emplace("HelpScreen", std::move(help));
 }
 
 void UIManager::updateHudHealth(int) {}

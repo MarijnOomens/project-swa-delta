@@ -13,7 +13,6 @@
 class Scene : public GameObject
 {
 public:
-	std::vector<std::shared_ptr<Tile>> tileMap;
 
 	Scene();
 	Scene(int x, int y);
@@ -23,14 +22,13 @@ public:
 	std::vector<std::shared_ptr<Tile>> makeTiles(std::vector<std::shared_ptr<ParserData>> data);
 	std::map<std::string, std::string> passTextures() const;
 
-	void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos) override;
-	void connectCallback() override; //Add callbackfunction
-	void callbackFunction() override;
+	void handleInput(const KeyCodes &keyCode, const KeyboardEvent &keyboardEvent, Vector2D &mousePos) override;
 	void update() override;
 
 private:
 	int x;
 	int y;
-	std::shared_ptr<TextComponent> fpsText;
+	std::vector<std::shared_ptr<Tile>> tileMap;
+	std::unique_ptr<TextComponent> fpsText;
 	std::stringstream fpsString;
 };

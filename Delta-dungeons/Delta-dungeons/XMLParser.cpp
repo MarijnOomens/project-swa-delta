@@ -29,7 +29,7 @@ std::vector<std::shared_ptr<ParserData>> XMLParser::parseXML(const char* path)
 		for (xml_node<>* tile = child->first_node(); tile; tile = tile->next_sibling())
 		{
 			std::shared_ptr<ParserData> p = std::make_shared<ParserData>(tile->first_attribute("x")->value(), tile->first_attribute("y")->value(), tile->first_attribute("tile")->value());
-			parserDataList.push_back(p);
+			parserDataList.emplace_back(p);
 		}
 	}
 

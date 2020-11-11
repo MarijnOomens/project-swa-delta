@@ -7,39 +7,34 @@ MainMenu::MainMenu()
 	this->textures.try_emplace("button_credits", "Assets/screen-components/button-designs/pastels/button-credits-1.png");
 	this->textures.try_emplace("button_exit", "Assets/screen-components/button-designs/pastels/button-exit-1.png");
 
-	gc = std::make_shared<GraphicsComponent>();
+	gc = std::make_unique<GraphicsComponent>();
 	gc->setTexture("mainmenu");
 	gc->isScreen = true;
 	gc->imageDimensions = { 1280, 960 };
-	this->components.emplace_back(gc);
+	this->components.emplace_back(std::move(gc));
 
 	// Play button
 	std::vector<std::string> possibleButtonTexPlay = { "button_play" };
-	std::shared_ptr<Button> playButton = std::make_shared<Button>(500, 300, possibleButtonTexPlay, staticOpenGameCallbackFunction, this);
-	this->components.emplace_back(playButton);
+	std::unique_ptr<Button> playButton = std::make_unique<Button>(500, 300, possibleButtonTexPlay, staticOpenGameCallbackFunction, this);
+	this->components.emplace_back(std::move(playButton));
 
 	// Credits button
 	std::vector<std::string> possibleButtonTexCredits = { "button_credits" };
-	std::shared_ptr<Button> creditsButton = std::make_shared<Button>(500, 430, possibleButtonTexCredits, staticOpenCreditsCallbackFunction, this);
-	this->components.emplace_back(creditsButton);
+	std::unique_ptr<Button> creditsButton = std::make_unique<Button>(500, 430, possibleButtonTexCredits, staticOpenCreditsCallbackFunction, this);
+	this->components.emplace_back(std::move(creditsButton));
 
 	// Help button
 	std::vector<std::string> possibleButtonTexHelp = { "button_help" };
-	std::shared_ptr<Button> helpButton = std::make_shared<Button>(500, 560, possibleButtonTexHelp, staticOpenHelpCallbackFunction, this);
-	this->components.emplace_back(helpButton);
+	std::unique_ptr<Button> helpButton = std::make_unique<Button>(500, 560, possibleButtonTexHelp, staticOpenHelpCallbackFunction, this);
+	this->components.emplace_back(std::move(helpButton));
 
 	// Exit button
 	std::vector<std::string> possibleButtonTexExit = { "button_exit" };
-	std::shared_ptr<Button> exitButton = std::make_shared<Button>(500, 690, possibleButtonTexExit, staticExitCallbackFunction, this);
-	this->components.emplace_back(exitButton);
+	std::unique_ptr<Button> exitButton = std::make_unique<Button>(500, 690, possibleButtonTexExit, staticExitCallbackFunction, this);
+	this->components.emplace_back(std::move(exitButton));
 }
 
-MainMenu::~MainMenu() {}
-
-void MainMenu::startGame() {}
-void MainMenu::openCreditScreen() {}
-
-void MainMenu::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos)
+void MainMenu::handleInput(const KeyCodes &keyCode, const KeyboardEvent &keyboardEvent, Vector2D &mousePos)
 {
 	if (keyboardEvent == KeyboardEvent::KEY_PRESSED)
 	{
@@ -62,42 +57,42 @@ void MainMenu::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardE
 	}
 }
 
-void MainMenu::staticOpenGameCallbackFunction(void* p) 
+void MainMenu::staticOpenGameCallbackFunction(const void* p) 
 {
 	((MainMenu*)p)->openGameCallbackFunction();
 }
 
-void MainMenu::openGameCallbackFunction() 
+void MainMenu::openGameCallbackFunction() const
 {
 	SceneLoader::getInstance().loadScene("Level1", "MainMenu", false);
 }
 
-void MainMenu::staticOpenCreditsCallbackFunction(void* p) 
+void MainMenu::staticOpenCreditsCallbackFunction(const void* p) 
 {
 	((MainMenu*)p)->openCreditsCallbackFunction();
 }
 
-void MainMenu::openCreditsCallbackFunction() 
+void MainMenu::openCreditsCallbackFunction() const
 {
 	SceneLoader::getInstance().loadScene("CreditsScreen", "MainMenu", false);
 }
 
-void MainMenu::staticOpenHelpCallbackFunction(void* p)
+void MainMenu::staticOpenHelpCallbackFunction(const void* p)
 {
 	((MainMenu*)p)->openHelpCallbackFunction();
 }
 
-void MainMenu::openHelpCallbackFunction()
+void MainMenu::openHelpCallbackFunction() const
 {
 	SceneLoader::getInstance().loadScene("HelpScreen", "MainMenu", false);
 }
 
-void MainMenu::staticExitCallbackFunction(void* p) 
+void MainMenu::staticExitCallbackFunction(const void* p) 
 {
 	((MainMenu*)p)->exitCallbackFunction();
 }
 
-void MainMenu::exitCallbackFunction() 
+void MainMenu::exitCallbackFunction() const
 {
 	SceneLoader::getInstance().quitGame();
 }

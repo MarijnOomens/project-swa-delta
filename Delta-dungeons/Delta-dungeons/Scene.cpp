@@ -20,14 +20,15 @@ void Scene::addGraphics()
 
 	for (std::shared_ptr<Tile> t : tileMap)
 	{
-		t->addGraphicsComponent("Level1");
-		components.emplace_back(t);
+		std::string test = "Level1";
+		t->addGraphicsComponent(test);
+		components.emplace_back(std::move(t));
 	}
 
 	Colour color = { 0, 255, 0, 255 };
-	fpsText = std::make_shared<TextComponent>("", "comic", color, 32);
+	fpsText = std::make_unique<TextComponent>("", "comic", color, 32);
 	fpsText->transform.position = { 1200, 10 };
-	components.emplace_back(fpsText);
+	components.emplace_back(std::move(fpsText));
 }
 
 /// <summary>
@@ -37,16 +38,16 @@ void Scene::addGraphics()
 /// <returns>If succeeded, it returns a TileMap that contains Tile objects.</returns>
 std::vector<std::shared_ptr<Tile>> Scene::makeTiles(std::vector<std::shared_ptr<ParserData>> data)
 {
-	for (std::shared_ptr<ParserData> tile : data)
+	for (std::shared_ptr<ParserData>& tile : data)
 	{
 		int first = tile.get()->tileId[0] - 48;
 		if (tile.get()->tileId[1]) {
 			int second = tile.get()->tileId[1] - 48;
-			tileMap.push_back(std::make_shared<Tile>(std::stoi(tile.get()->x), std::stoi(tile.get()->y), first, second));
+			tileMap.emplace_back(std::make_shared<Tile>(std::stoi(tile.get()->x), std::stoi(tile.get()->y), first, second));
 		}
 		else
 		{
-			tileMap.push_back(std::make_shared<Tile>(std::stoi(tile.get()->x), std::stoi(tile.get()->y), first));
+			tileMap.emplace_back(std::make_shared<Tile>(std::stoi(tile.get()->x), std::stoi(tile.get()->y), first));
 		}
 	}
 	return tileMap;
@@ -59,7 +60,7 @@ std::map<std::string, std::string> Scene::passTextures() const
 	return texture;
 }
 
-void Scene::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos) 
+void Scene::handleInput(const KeyCodes &keyCode, const KeyboardEvent &keyboardEvent, Vector2D &mousePos) 
 {
 	if (keyboardEvent == KeyboardEvent::KEY_PRESSED)
 	{
@@ -81,10 +82,6 @@ void Scene::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEven
 		}
 	}
 }
-
-void Scene::connectCallback() {}
-
-void Scene::callbackFunction() {}
 
 void Scene::update() 
 {

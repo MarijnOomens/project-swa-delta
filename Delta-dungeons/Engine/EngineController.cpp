@@ -121,17 +121,17 @@ void EngineController::registerScene(std::string sceneName, std::vector<std::sha
 		{
 			auto ngc = dynamic_cast<GraphicsComponent*>(o.get());
 			ngc->addTextureManager(textureManager);		
-			tempObjects.emplace_back(ngc);
+			tempObjects.emplace_back(std::move(ngc));
 		}
 		else if (dynamic_cast<TextComponent*>(o.get()) != nullptr)
 		{
 			auto ntc = dynamic_cast<TextComponent*>(o.get());
 			ntc->addTextureManager(textureManager);
-			tempObjects.emplace_back(ntc);
+			tempObjects.emplace_back(std::move(ntc));
 		}
 		else
 		{
-			tempObjects.emplace_back(o);
+			tempObjects.emplace_back(std::move(o));
 		}
 	}
 

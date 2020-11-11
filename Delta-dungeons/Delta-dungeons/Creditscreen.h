@@ -7,12 +7,12 @@
 class CreditScreen : public Screen {
 public:
 	CreditScreen();
-	~CreditScreen();
+	~CreditScreen() {};
 
-	static void staticBackCallbackFunction(void* p);
-	void backCallbackFunction();
+	static void staticBackCallbackFunction(const void* p);
+	void backCallbackFunction()const;
 
 	std::vector<Button> buttons;
-	void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos) override;
+	void handleInput(const KeyCodes &keyCode, const KeyboardEvent &keyboardEvent, Vector2D &mousePos) override;
 
 };

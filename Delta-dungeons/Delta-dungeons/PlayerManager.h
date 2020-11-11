@@ -4,19 +4,19 @@
 #include <string>
 
 #include "Player.h"
-typedef void(*cbCamera) (void*, int, int);
+typedef void(*cbCamera) (const void*, int, int);
 
 class PlayerManager
 {
 public:
-	PlayerManager();
-	~PlayerManager();
+	PlayerManager() {};
+	~PlayerManager() {};
 
 
 	std::map<std::string, std::shared_ptr<Player>> sprites;
 	std::shared_ptr<Player> player;
 	
-	void createPlayer(cbCamera cb, void* p);
+	void createPlayer(cbCamera cb, const void* p);
 
 	std::shared_ptr<Player> getPlayerObject();
 	std::map<std::string, std::string> passTextures() const;

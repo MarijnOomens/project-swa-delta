@@ -10,5 +10,5 @@ public:
 	XMLFacade();
 	~XMLFacade();
 
-	std::vector<std::shared_ptr<ParserData>>loadScene(const char* path);
+	std::vector<std::shared_ptr<ParserData>> loadScene(const char* path);
 };

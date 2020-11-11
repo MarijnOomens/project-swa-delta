@@ -21,9 +21,7 @@ public:
 	ENGINE_API void setTexture(std::string name);
 	ENGINE_API void update() override;
 	ENGINE_API void addTextureManager(std::shared_ptr<TextureManager> tm);
-	ENGINE_API void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos);
-	ENGINE_API void connectCallback() override;
-	ENGINE_API void callbackFunction() override;
+	ENGINE_API void handleInput(const KeyCodes &keyCode, const KeyboardEvent &keyboardEvent, Vector2D &mousePos);
 	ENGINE_API std::shared_ptr<TextureManager>getTextureManager();
 private:
 	bool animated = false;

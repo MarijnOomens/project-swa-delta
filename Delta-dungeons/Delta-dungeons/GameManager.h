@@ -23,7 +23,7 @@ public:
 	~GameManager();
 	void registerBehaviourObjects();
 	void registerTextures(std::map<std::string, std::string> textures);
-	static void staticCameraCallbackFunction(void* p,int x, int y);
+	static void staticCameraCallbackFunction(const void* p,int x, int y);
 	void passPlayerPosition(int x, int y);
 	void registerFonts(std::map<std::string, std::string> fonts);
 

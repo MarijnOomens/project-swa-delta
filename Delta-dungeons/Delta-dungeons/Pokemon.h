@@ -8,8 +8,8 @@
 class Pokemon : public InteractiveObject
 {
 public:
-	Pokemon(int x, int y, std::string texture);
-	~Pokemon();
+	Pokemon(int x, int y, std::string &texture);
+	~Pokemon() {};
 	void interact() override;
 protected:
 	std::string sfxPath;

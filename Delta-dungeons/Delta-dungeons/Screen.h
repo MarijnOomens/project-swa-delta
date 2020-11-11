@@ -7,12 +7,10 @@
 class Screen : public GameObject
 {
 public:
-	std::shared_ptr<GraphicsComponent> gc;
+	std::unique_ptr<GraphicsComponent> gc;
 	std::map<std::string, std::string> textures;
 	std::map<std::string, std::string> fonts;
 
-	void connectCallback() override;
-	void callbackFunction() override;
-	void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos) override;
+	void handleInput(const KeyCodes &keyCode, const KeyboardEvent &keyboardEvent, Vector2D &mousePos) override;
 	void update() override;
 };
