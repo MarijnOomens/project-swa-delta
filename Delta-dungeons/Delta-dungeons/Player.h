@@ -6,6 +6,7 @@
 typedef void(*cbCamera) (void*,int,int);
 typedef void(*cbTile) (void*, int, int);
 typedef void(*cbInteractWithEquipmentManager) (void*, int, int);
+typedef void(*cbInteractWithNPCManager) (void*, int, int);
 
 
 class Player : public GameObject {
@@ -15,6 +16,7 @@ public:
 	cbCamera func;
 	cbTile tileFunc;
 	cbInteractWithEquipmentManager eqManagerFunc;
+	cbInteractWithNPCManager npcManagerFunc;
 	KeyCodes currentDirection;
 	void* pointer;
 	bool tileCollision;

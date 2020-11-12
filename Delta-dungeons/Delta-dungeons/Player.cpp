@@ -1,6 +1,6 @@
 #include "Boomerang.h"
 #include "Player.h"
-#include "EquippedRunningShoes.h"
+#include "RunningShoes.h"
 #include <windows.h>
 
 /// <summary>
@@ -17,7 +17,7 @@ const int animationSpeed = 120;
 /// </summary>
 Player::Player(const cbCamera f, const cbTile cbTile, const cbInteractWithEquipmentManager eqMF, void* p) : func(f), tileFunc(cbTile), eqManagerFunc(eqMF), pointer(p)
 {
-	std::shared_ptr<EquippedRunningShoes> running = std::make_shared<EquippedRunningShoes>(staticEquipmentCallbackFunction, this);
+	std::shared_ptr<RunningShoes> running = std::make_shared<RunningShoes>(staticEquipmentCallbackFunction, this);
 	std::shared_ptr<Boomerang> boomerang = std::make_shared<Boomerang>();
 
 	addEquipment(running);
@@ -141,12 +141,11 @@ void Player::handleKeyPressed(const KeyCodes keyCodes)
 		if (this->texture == "player_m")
 		{
 			m_gc->setTexture("player_f");
-			this->texture = "npc";
+			this->texture = "player_f";
 		}
 		else
 		{
 			m_gc->setTexture("player_m");
-			this->texture = "player_m";
 			this->texture = "player_m";
 		}
 		break;

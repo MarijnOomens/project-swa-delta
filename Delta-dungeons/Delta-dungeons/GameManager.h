@@ -28,6 +28,7 @@ public:
 	static void staticPlayerToTileCallbackFunction(void* p, int x, int y);
 	static void staticTileToPlayerCallbackFunction(void* p);
 	static void staticEquipmentManagerCallbackFunction(void* p, int x, int y);
+	//static void staticNPCManagerCallbackFunction(void* p, int x, int y);
 
 
 	void playerToTileCallbackFunction(int x, int y);
@@ -35,6 +36,7 @@ public:
 	void tileToPlayerCallbackFunction();
 
 	void equipmentManagerCallbackFunction(int x, int y);
+	//void equipmentManagerCallbackFunction(int x, int y);
 
 
 	void passPlayerPosition(int x, int y);

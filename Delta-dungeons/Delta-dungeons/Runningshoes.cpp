@@ -2,6 +2,9 @@
 
 RunningShoes::RunningShoes() {}
 
+RunningShoes::RunningShoes(const cbFunction f, void* p) : func(f), pointer(p) {}
+
+
 RunningShoes::RunningShoes(int x, int y, std::string texture)
 {
     this->transform.position = { x * 128, y * 128 };
@@ -16,4 +19,13 @@ RunningShoes::RunningShoes(int x, int y, std::string texture)
 }
 RunningShoes::~RunningShoes() {}
 
-void RunningShoes::use() {}
+/// <summary>
+/// This method gets called to change the isActivated boolean property. 
+/// Afterwards it will pass the isActivated boolean to the Player.cpp class.
+/// </summary>
+void RunningShoes::use()
+{
+    isActivated = !isActivated;
+    std::cout << isActivated << std::endl;
+    func(pointer, isActivated);
+}
