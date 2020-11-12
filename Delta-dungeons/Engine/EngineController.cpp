@@ -25,6 +25,18 @@ void EngineController::update()
 }
 
 /// <summary>
+/// This method calls an initialization function in RenderFacade with the given data, like resolution of the game window.
+/// </summary>
+/// <param name="title">Title of game window.</param>
+/// <param name="width">Width of game window.</param>
+/// <param name="height">Height of game window.</param>
+/// <param name="fullscreen">Boolean whether game is fullscreen or not.</param>
+void EngineController::initRenderer(const std::string& title, int width, int height, bool fullscreen)
+{
+	renderFacade->init(title, width, height, fullscreen);
+}
+
+/// <summary>
 /// Receives input data from the class Input and passes it to a new function.
 /// </summary>
 /// <param name="p">Void pointer.</param>
@@ -71,18 +83,6 @@ void EngineController::inputCallbackFunction(const KeyCodes keyCode, const Keybo
 void EngineController::addTexture(const std::string& name, const std::string& path)
 {
 	assetManager->addTexture(name, path);
-}
-
-/// <summary>
-/// This method calls an initialization function in RenderFacade with the given data, like resolution of the game window.
-/// </summary>
-/// <param name="title">Title of game window.</param>
-/// <param name="width">Width of game window.</param>
-/// <param name="height">Height of game window.</param>
-/// <param name="fullscreen">Boolean whether game is fullscreen or not.</param>
-void EngineController::initRenderer(const std::string& title, int width, int height, bool fullscreen)
-{
-	renderFacade->init(title, width, height, fullscreen);
 }
 
 void EngineController::createCamera(const int x,const int y)const
@@ -137,7 +137,7 @@ void EngineController::registerScene(const std::string& sceneName, const std::ve
 	sceneManager.registerScene(sceneName, tempObjects);
 }
 
-void EngineController::loadScene(const std::string sceneName,const std::string fromScene,const bool clearPrevious)
+void EngineController::loadScene(const std::string& sceneName, const std::string& fromScene, bool clearPrevious)
 {
 	isSceneSwitched = true;
 	behaviourObjects = sceneManager.loadScene(sceneName, fromScene, clearPrevious);
@@ -199,7 +199,7 @@ void EngineController::quitGame() const
 	renderFacade->quitGame();
 }
 
-int EngineController::getFPS()
+int EngineController::getFPS() const
 {
 	return renderFacade->getFPS();
 }

@@ -8,7 +8,8 @@
 
 typedef void(*cbFunction) (void*, KeyCodes, KeyboardEvent, Vector2D);
 
-class Input {
+class Input 
+{
 public:
 	cbFunction func;
 	std::unique_ptr<InputFacade> facade;
