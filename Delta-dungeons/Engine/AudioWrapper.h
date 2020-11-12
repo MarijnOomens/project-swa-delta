@@ -1,7 +1,8 @@
 #pragma once
 
-class AudioWrapper {
+class AudioWrapper 
+{
 public:
-	AudioWrapper();
-	~AudioWrapper();
+	AudioWrapper() {}
+	~AudioWrapper() {}
 };

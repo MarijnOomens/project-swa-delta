@@ -6,16 +6,15 @@
 
 class Tile : public GameObject {
 public:
-	Vector2D imageCoordinates;
-	std::shared_ptr<GraphicsComponent> gc;
-
-	Tile();
 	Tile(int x, int y, int xImage);
 	Tile(int x, int y, int xImage, int yImage);
+	~Tile() {}
 
-	void addGraphicsComponent(std::string imageName);
-	void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos) override;
-	void callbackFunction() override;
-	void connectCallback() override;
+	void addGraphicsComponent(std::string &imageName);
+	void handleInput(const KeyCodes &keyCode, const KeyboardEvent &keyboardEvent, Vector2D &mousePos) override;
 	void update() override;
+
+private:
+	Vector2D imageCoordinates;
+	std::shared_ptr<GraphicsComponent> gc;
 };

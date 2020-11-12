@@ -26,11 +26,9 @@ GameManager::GameManager()
 	registerTextures(scene->passTextures());
 
 	registerBehaviourObjects();
-	engineFacade->createCamera(playerManager.player.get()->transform.position.x, playerManager.player.get()->transform.position.y);
+	engineFacade->createCamera(playerManager.player->transform.position.x, playerManager.player->transform.position.y);
 	engineFacade->startGame();
 }
-
-GameManager::~GameManager() {}
 
 /// <summary>
 /// This methods registers all BehaviourObjects from all managers into one big list within the GameManager.
@@ -87,7 +85,7 @@ void GameManager::registerTextures(std::map<std::string, std::string> textures)
 	engineFacade->registerTextures(textures);
 }
 
-void GameManager:: staticCameraCallbackFunction(void* p, int x, int y) 
+void GameManager:: staticCameraCallbackFunction(const void* p, int x, int y) 
 {
 	((GameManager*)p)->passPlayerPosition(x, y);
 }

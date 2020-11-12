@@ -63,9 +63,6 @@
     <ClCompile Include="InteractiveManager.cpp">
       <Filter>Source Files\Game</Filter>
     </ClCompile>
-    <ClCompile Include="TileMap.cpp">
-      <Filter>Source Files\Game</Filter>
-    </ClCompile>
     <ClCompile Include="Berry.cpp">
       <Filter>Source Files\Game\GameObjects\Items</Filter>
     </ClCompile>
@@ -147,9 +144,6 @@
     <ClCompile Include="IEquipment.h">
       <Filter>Header Files\Game\GameObjects\Items</Filter>
     </ClCompile>
-    <ClCompile Include="EngineFacade.cpp">
-      <Filter>Source Files\Game</Filter>
-    </ClCompile>
     <ClCompile Include="PlayerManager.cpp">
       <Filter>Source Files\Game</Filter>
     </ClCompile>
@@ -198,9 +192,6 @@
       <Filter>Header Files\Game</Filter>
     </ClInclude>
     <ClInclude Include="InteractiveManager.h">
-      <Filter>Header Files\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="TileMap.h">
       <Filter>Header Files\Game</Filter>
     </ClInclude>
     <ClInclude Include="Tile.h">
@@ -263,15 +254,6 @@
     <ClInclude Include="DialoguePopup.h">
       <Filter>Header Files\Game\GameObjects</Filter>
     </ClInclude>
-    <ClInclude Include="Scene.h">
-      <Filter>Header Files\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="ParserData.h">
-      <Filter>Header Files\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="EngineFacade.h">
-      <Filter>Header Files\Game</Filter>
-    </ClInclude>
     <ClInclude Include="PlayerManager.h">
       <Filter>Header Files\Game</Filter>
     </ClInclude>
@@ -286,6 +268,12 @@
     </ClInclude>
     <ClInclude Include="DebugUtilities.h">
       <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Header Files\XMLParser</Filter>
+    </ClInclude>
+    <ClInclude Include="ParserData.h">
+      <Filter>Header Files\XMLParser</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

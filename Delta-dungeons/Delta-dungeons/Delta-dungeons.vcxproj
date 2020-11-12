@@ -161,7 +161,6 @@
     <ClCompile Include="CreditScreen.cpp" />
     <ClCompile Include="DebugUtilities.cpp" />
     <ClCompile Include="DialoguePopup.cpp" />
-    <ClCompile Include="EngineFacade.cpp" />
     <ClCompile Include="EquipmentManager.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameObjectBuilder.cpp" />
@@ -191,7 +190,6 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Screen.cpp" />
     <ClCompile Include="Tile.cpp" />
-    <ClCompile Include="TileMap.cpp" />
     <ClCompile Include="UIManager.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -201,7 +199,6 @@
     <ClInclude Include="Creditscreen.h" />
     <ClInclude Include="DebugUtilities.h" />
     <ClInclude Include="DialoguePopup.h" />
-    <ClInclude Include="EngineFacade.h" />
     <ClInclude Include="EquipmentManager.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameObjectBuilder.h" />
@@ -233,7 +230,6 @@
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Screen.h" />
     <ClInclude Include="Tile.h" />
-    <ClInclude Include="TileMap.h" />
     <ClInclude Include="UIManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

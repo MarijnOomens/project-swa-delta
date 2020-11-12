@@ -7,11 +7,15 @@
 class NPC : public InteractiveObject
 {
 public:
-	NPC(int x, int y, std::string texture);
-	~NPC();
+	NPC(int x, int y, std::string &texture);
+	~NPC() {}
+
 	void interact() override;
+
 protected:
 	std::string sfxPath;
+
 private:
 	std::shared_ptr<GraphicsComponent> gc;
+	const int animationSpeed = 120;
 };

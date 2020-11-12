@@ -7,7 +7,7 @@ DebugUtilities& DebugUtilities::getInstance()
 	return debugUtilities;
 }
 
-int DebugUtilities::getFPS()
+int DebugUtilities::getFPS()const
 {
 	return engineFacade->getFPS();
 }
@@ -27,17 +27,17 @@ bool DebugUtilities::isShowingFPS()
 	return showFPS;
 }
 
-void DebugUtilities::slowDownGame()
+void DebugUtilities::slowDownGame()const
 {
 	engineFacade->slowDownGame();
 }
 
-void DebugUtilities::speedUpGame()
+void DebugUtilities::speedUpGame()const
 {
 	engineFacade->speedUpGame();
 }
 
-void DebugUtilities::resetSpeedGame()
+void DebugUtilities::resetSpeedGame()const
 {
 	engineFacade->resetSpeedGame();
 }

@@ -11,34 +11,36 @@
 #include <map>
 #include "Colour.h"
 
-class RenderFacade {
+class RenderFacade 
+{
 public:
-	ENGINE_API RenderFacade();
-	ENGINE_API ~RenderFacade();
-
-	std::shared_ptr<DrawController> drawController;
-	std::shared_ptr<FrameManager> frameManager;
 	std::shared_ptr<Renderer> renderer;
+
+	RenderFacade();
+	~RenderFacade() {}
+
 	std::string constructorError() const noexcept;
+	SDL_Texture* loadTexture(const std::string& imageLocation) const;
 
-	SDL_Texture* loadTexture(const std::string* imageLocation);
-	SDL_Texture* loadFontTexture(const std::string* fontLocation, const std::string* color, const std::string* stringValue);
+	void setFrameStart() const;
+	void setFrameDelay() const;
+	void drawTexture(const std::string& path, const std::string& text, const Colour& colour, const Transform& transform, int fontSize) const;
+	void drawTexture(const std::string& path, const Transform& transform, const Vector2D& coordinates, const Vector2D& sourceDimensions, int row, int frames, int speed, bool animated, bool flipped, bool isScreen) const;
+	void init(const std::string& title, int width, int height, bool fullscreen) const;
+	void clean() const;
+	void beforeFrame() const;
+	void afterFrame() const;
+	void createCamera(const int x, const int y) const;
+	void quitGame() const;
+	void pauseGame() const;
+	void slowDownGame() const;
+	void speedUpGame() const;
+	void resetSpeedGame() const;
 
-	void setFrameStart();
-	void setFrameDelay();
-	void drawText(std::string path, std::string text, Colour colour, const Transform& transform, int fontSize);
-	void drawTexture(std::string path, const Transform& transform, const Vector2D& coordinates, const Vector2D& sourceDimensions, int row, int frames, int speed, bool animated, bool flipped, bool isScreen);
-	void init(const char* title, const int width, const int height, const bool fullscreen);
-	void update(std::vector<GameObject> gameObjects);
-	void clean();
-	void beforeFrame();
-	void afterFrame();
-	void createCamera(int x, int y);
-	void quitGame();
-	void pauseGame();
-	void slowDownGame();
-	void speedUpGame();
-	void resetSpeedGame();
-	std::tuple<int, int> passPlayerPosition(int x, int y);
-	int getFPS();
+	std::tuple<int, int> passPlayerPosition(const int x,const int y) const;
+	int getFPS() const;
+
+private:
+	std::unique_ptr<DrawController> drawController;
+	std::unique_ptr<FrameManager> frameManager;
 };

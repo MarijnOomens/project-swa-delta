@@ -1,49 +1,52 @@
 #pragma once
 
 #include "IEquipment.h"
+#include "Boomerang.h"
 #include "GameObject.h"
 #include "GraphicsComponent.h"
-typedef void(*cbCamera) (void*,int,int);
 
-class Player : public GameObject {
+typedef void(*cbCamera) (const void*, int, int);
+
+class Player : public GameObject 
+{
 public:
 	std::map<std::string, std::string> textures;
-	std::string texture;
-	cbCamera func;
-	void* pointer;
 
-	Player(const cbCamera f, void* p);
-	~Player();
+	Player(cbCamera f, const void* p);
+	~Player() {};
 
-	void handleInput(const KeyCodes keyCodes, const KeyboardEvent keyboardEvent, Vector2D mousePos) override;
-	void handleKeyPressed(const KeyCodes keyCodes);
-	void handleKeyReleased(const KeyCodes keyCodes);
+	void handleInput(const KeyCodes &keyCodes, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
+	void handleKeyPressed(const KeyCodes& keyCodes);
+	void handleKeyReleased(const KeyCodes& keyCodes);
+
+	void update() override;
 
 	void moveUp();
 	void moveDown();
 	void moveLeft();
 	void moveRight();
 
-
-	void addEquipment(std::shared_ptr<IEquipment> equipment);
-	static void staticEquipmentCallbackFunction(void* p, const bool runningActivated);
-	void equipmentCallbackFunction(const bool runningActivated);
-
+	void addEquipment(std::unique_ptr<IEquipment> equipment);
 	void damagePlayer(int damage);
 	void updateCaughtPokemon(int pokemonId);
-	void callbackFunction() override;
-	void connectCallback() override;
-	void update() override;
+
+	static void staticEquipmentCallbackFunction(void* p, const bool runningActivated);
+	void equipmentCallbackFunction(const bool runningActivated);
 
 private:
 	int health;
 	int amountCaught;
 	int baseMovementSpeed;
-	int x, y;
+
+	std::string texture;
+	cbCamera func;
+	const void* pointer;
 
 	bool runActivated;
+	const int animationSpeed = 120;
+
 	std::vector<int> pokemonCaught;
-	std::vector<std::shared_ptr<IEquipment>> equipment;
-	std::shared_ptr<GraphicsComponent> m_gc;
+	std::vector<std::unique_ptr<IEquipment>> equipment;
+	std::shared_ptr<GraphicsComponent> gc;
 	AnimCategory animCategory;
 };

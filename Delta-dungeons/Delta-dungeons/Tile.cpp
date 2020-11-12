@@ -1,7 +1,5 @@
 #include "Tile.h"
 
-Tile::Tile() {}
-
 /// <summary>
 /// Grab the image from the first row only of the png
 /// </summary>
@@ -37,18 +35,16 @@ Tile::Tile(int x, int y, int yImage, int xImage)
 /// </summary>
 /// <param name="graphicsComnponent">An clean graphicscomponent without tile information</param>
 /// <param name="name">Texture name of the png</param>
-void Tile::addGraphicsComponent(std::string name)
+void Tile::addGraphicsComponent(std::string &name)
 {
 	gc = std::make_shared<GraphicsComponent>();
-	gc.get()->transform = transform;
-	gc.get()->imageCoordinates = imageCoordinates;
-	gc.get()->setTexture(name);
+	gc->transform = transform;
+	gc->imageCoordinates = imageCoordinates;
+	gc->setTexture(name);
 	gc->isScreen = false;
 	this->components.emplace_back(gc);
 }
 
-void Tile::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos) {}
-void Tile::callbackFunction() {}
-void Tile::connectCallback() {}
+void Tile::handleInput(const KeyCodes &keyCode, const KeyboardEvent &keyboardEvent, Vector2D &mousePos) {}
 
 void Tile::update() {}
