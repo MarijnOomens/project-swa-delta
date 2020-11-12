@@ -1,4 +1,5 @@
 #pragma once
+
 #include <string>
 #include <map>
 #include "NPC.h"
@@ -9,12 +10,14 @@
 class NPCManager 
 {
 public:
-	NPCManager();
-	~NPCManager();
-
 	std::map<std::string, std::shared_ptr<InteractiveObject>> npcs;
 
+	NPCManager();
+	~NPCManager() {}
+
 	void createNPC();
-	std::shared_ptr<GameObjectBuilder> builder;
 	std::map<std::string, std::string> passTextures() const;
+
+private:
+	std::shared_ptr<GameObjectBuilder> builder;
 };

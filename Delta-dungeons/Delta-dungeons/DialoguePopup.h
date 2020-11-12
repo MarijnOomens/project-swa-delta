@@ -6,5 +6,5 @@
 class DialoguePopup 
 {
 public:
-	void playDialogue(std::vector<std::string>);
+	void playDialogue(std::vector<std::string> param);
 };

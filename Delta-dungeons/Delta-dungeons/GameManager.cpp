@@ -8,6 +8,7 @@ GameManager::GameManager()
 	engineFacade = std::make_shared<EngineFacade>();
 	engineFacade->init();
 	SceneLoader::getInstance().setEngineFacade(engineFacade);
+	DebugUtilities::getInstance().setEngineFacade(engineFacade);
 
 	uiManager.createBaseScreens();
 	registerTextures(uiManager.passTextures());
@@ -20,15 +21,14 @@ GameManager::GameManager()
 	npcManager.createNPC();
 	registerTextures(npcManager.passTextures());
 	
-	scene.addGraphics();
-	registerTextures(scene.passTextures());
+	scene = std::make_shared<Scene>();
+	scene->addGraphics();
+	registerTextures(scene->passTextures());
 
 	registerBehaviourObjects();
-	engineFacade->createCamera(playerManager.player.get()->transform.position.x, playerManager.player.get()->transform.position.y);
+	engineFacade->createCamera(playerManager.player->transform.position.x, playerManager.player->transform.position.y);
 	engineFacade->startGame();
 }
-
-GameManager::~GameManager() {}
 
 /// <summary>
 /// This methods registers all BehaviourObjects from all managers into one big list within the GameManager.
@@ -47,10 +47,11 @@ void GameManager::registerBehaviourObjects()
 	}
 
 	std::vector<std::shared_ptr<BehaviourObject>> level1;
-	for (auto& t : scene.getComponentsRecursive())
+	for (auto& t : scene->getComponentsRecursive())
 	{
 		level1.emplace_back(t);
 	}
+	level1.emplace_back(scene);
 
 	for (auto& o : npcManager.npcs)
 	{
@@ -84,7 +85,7 @@ void GameManager::registerTextures(std::map<std::string, std::string> textures)
 	engineFacade->registerTextures(textures);
 }
 
-void GameManager:: staticCameraCallbackFunction(void* p, int x, int y) 
+void GameManager:: staticCameraCallbackFunction(const void* p, int x, int y) 
 {
 	((GameManager*)p)->passPlayerPosition(x, y);
 }

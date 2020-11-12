@@ -4,17 +4,7 @@
 /// This is a manager class for the player in which the Player is created and the texture is stored.
 /// </summary>
 
-PlayerManager::PlayerManager()
-{
-	
-}
-
-PlayerManager::~PlayerManager()
-{
-
-}
-
-void PlayerManager::createPlayer(cbCamera cb, void* p)
+void PlayerManager::createPlayer(cbCamera cb, const void* p)
 {
 	player = std::make_shared<Player>(cb, p);
 	sprites.try_emplace("Player", player);

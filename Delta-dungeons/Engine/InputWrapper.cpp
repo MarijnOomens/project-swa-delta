@@ -1,19 +1,11 @@
 #include "InputWrapper.h"
-#include <iostream>
-/// <summary>
-/// Inputwrapper is a class which holds what the inputs are supposed to do.
-/// </summary>
-InputWrapper::InputWrapper() {}
 
-InputWrapper::InputWrapper(const cbFunction f, void* p) :func(f), pointer(p) {}
-
-InputWrapper::~InputWrapper() {}
-
+InputWrapper::InputWrapper(const cbFunction f, void* p) : func(f), pointer(p) {}
 
 /// <summary>
 /// The handleInput calls the input based on which keyevent is called.
 /// </summary>
-void InputWrapper::handleInput(bool isPaused)
+void InputWrapper::handleInput(const bool isPaused)
 {
 	while (SDL_PollEvent(&event) != 0)
 	{
@@ -38,10 +30,11 @@ void InputWrapper::handleInput(bool isPaused)
 /// <summary>
 /// The handleInput calls the input based on which key is pressed
 /// </summary>
-void InputWrapper::handleKeyPressed(bool isPaused)
+void InputWrapper::handleKeyPressed(const bool isPaused)
 {
 	Vector2D mousePosition;
-	if (!isPaused) {
+	if (!isPaused) 
+	{
 		switch (event.key.keysym.sym)
 		{
 		case SDLK_UP:
@@ -83,12 +76,24 @@ void InputWrapper::handleKeyPressed(bool isPaused)
 		case SDLK_h:
 			func(pointer, KeyCodes::KEY_H, KeyboardEvent::KEY_PRESSED, mousePosition);
 			break;
+		case SDLK_COMMA:
+			func(pointer, KeyCodes::KEY_COMMA, KeyboardEvent::KEY_PRESSED, mousePosition);
+			break;
+		case SDLK_SLASH:
+			func(pointer, KeyCodes::KEY_SLASH, KeyboardEvent::KEY_PRESSED, mousePosition);
+			break;
+		case SDLK_PERIOD:
+			func(pointer, KeyCodes::KEY_POINT, KeyboardEvent::KEY_PRESSED, mousePosition);
+			break;
 		case SDLK_ESCAPE:
 			func(pointer, KeyCodes::KEY_ESC, KeyboardEvent::KEY_PRESSED, mousePosition);
 			break;
+		case SDLK_TAB:
+			func(pointer, KeyCodes::KEY_TAB, KeyboardEvent::KEY_PRESSED, mousePosition);
+			break;
 		case SDLK_BACKSPACE:
 			func(pointer, KeyCodes::KEY_BACKSPACE, KeyboardEvent::KEY_PRESSED, mousePosition);
-		break;
+			break;
 		default:
 			break;
 		}
@@ -157,4 +162,4 @@ void InputWrapper::handleMouseClicked() {
 	func(pointer, KeyCodes::MOUSE, KeyboardEvent::MOUSE_CLICKED, mousePosition);
 }
 
-void InputWrapper::mapKeyBindings(const KeyCodes code) {}
+void InputWrapper::mapKeyBindings(const KeyCodes& code) {}

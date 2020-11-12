@@ -7,27 +7,27 @@
 #include "Color.h"
 #include "GraphicsComponent.h"
 #include "SceneLoader.h"
+#include <sstream>
 
-typedef void(*buttonCb) (void*);
+typedef void(*buttonCb) (const void*);
 
 class MainMenu : public Screen
 {
 public:
-	std::vector<Button> buttons;
-
-	static void staticOpenGameCallbackFunction(void* p);
-	void openGameCallbackFunction();
-	static void staticOpenCreditsCallbackFunction(void* p);
-	void openCreditsCallbackFunction();
-	static void staticOpenHelpCallbackFunction(void* p);
-	void openHelpCallbackFunction();
-	static void staticExitCallbackFunction(void* p);
-	void exitCallbackFunction();
-
 	MainMenu();
-	~MainMenu();
+	~MainMenu() {}
 
-	void startGame();
-	void openCreditScreen();
-	void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos) override;
+	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
+
+	static void staticOpenGameCallbackFunction(const void* p);
+	void openGameCallbackFunction()const;
+	static void staticOpenCreditsCallbackFunction(const void* p);
+	void openCreditsCallbackFunction()const;
+	static void staticOpenHelpCallbackFunction(const void* p);
+	void openHelpCallbackFunction()const;
+	static void staticExitCallbackFunction(const void* p);
+	void exitCallbackFunction()const;
+
+private:
+	std::vector<Button> buttons;
 };
