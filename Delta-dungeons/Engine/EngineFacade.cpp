@@ -106,3 +106,8 @@ void EngineFacade::resetSpeedGame()
 {
 	engineController->resetSpeedGame();
 }
+
+void EngineFacade::pauseGame()
+{
+	engineController->pauseScreen();
+}

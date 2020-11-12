@@ -72,6 +72,9 @@ void Scene::handleInput(const KeyCodes &keyCode, const KeyboardEvent &keyboardEv
 		case KeyCodes::KEY_SLASH:
 			DebugUtilities::getInstance().resetSpeedGame();
 			break;
+		case KeyCodes::KEY_P:
+			DebugUtilities::getInstance().pauseGame();
+			break;
 		default:
 			break;
 		}

@@ -27,6 +27,7 @@ public:
 	ENGINE_API void slowDownGame();
 	ENGINE_API void speedUpGame();
 	ENGINE_API void resetSpeedGame();
+	ENGINE_API void pauseGame();
 
 private:
 	std::unique_ptr<EngineController> engineController;

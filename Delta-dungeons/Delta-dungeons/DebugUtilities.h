@@ -14,6 +14,7 @@ public:
 	void slowDownGame() const;
 	void speedUpGame() const;
 	void resetSpeedGame() const;
+	void pauseGame()const;
 
 private:
 	static DebugUtilities debugUtilities;
