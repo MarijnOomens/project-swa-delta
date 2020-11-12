@@ -58,7 +58,7 @@ std::vector<std::shared_ptr<Tile>> Scene::makeTiles(std::vector<std::shared_ptr<
 std::map<std::string, std::string> Scene::passTextures() const
 {
 	std::map<std::string, std::string> texture;
-	texture.try_emplace("Level1", "Assets/Tileset/tileset-1.png");
+	texture.try_emplace("Level1", "Assets/Maps/tileset-1.png");
 	return texture;
 }
 
