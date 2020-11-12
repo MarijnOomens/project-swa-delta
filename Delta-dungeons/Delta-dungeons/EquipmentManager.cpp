@@ -40,4 +40,9 @@ std::map<std::string, std::string> EquipmentManager::passTextures() const
 
 void EquipmentManager::interact(int x, int y) {
 	std::cout << "interact from equipmentmanager " << x << " " << y << std::endl;
+	for (auto& equipment : equipments) {
+		if (equipment.second.get()->transform.position.x == x && equipment.second.get()->transform.position.y == y) {
+			std::cout << "found " << equipment.first << x << " " << y << std::endl;
+		}
+	}
 }
