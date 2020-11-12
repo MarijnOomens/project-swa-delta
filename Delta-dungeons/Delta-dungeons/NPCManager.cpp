@@ -72,7 +72,6 @@ void NPCManager::addTrainers()
 
 std::string NPCManager::getRandomNPC()
 {
-	std::cout << rand() % trainerList.get()->size() << std::endl;
 	int randomTrainer = rand() % trainerList.get()->size();
 	return trainerList.get()->at(randomTrainer);
 }
