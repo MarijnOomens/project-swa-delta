@@ -5,6 +5,7 @@
 #include "GraphicsComponent.h"
 typedef void(*cbCamera) (void*,int,int);
 typedef void(*cbTile) (void*, int, int);
+typedef void(*cbInteractWithEquipmentManager) (void*, int, int);
 
 
 class Player : public GameObject {
@@ -13,10 +14,11 @@ public:
 	std::string texture;
 	cbCamera func;
 	cbTile tileFunc;
+	cbInteractWithEquipmentManager eqManagerFunc;
 	void* pointer;
 	bool tileCollision;
 	Player();
-	Player(const cbCamera f, const cbTile cbTile, void* p);
+	Player(const cbCamera f, const cbTile cbTile, const cbInteractWithEquipmentManager eqMF, void* p);
 	~Player();
 
 	void handleInput(const KeyCodes keyCodes, const KeyboardEvent keyboardEvent, Vector2D mousePos) override;

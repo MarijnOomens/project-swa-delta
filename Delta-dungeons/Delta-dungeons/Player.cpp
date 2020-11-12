@@ -15,7 +15,7 @@ const int animationSpeed = 120;
 /// Defines the movementspeed and the runactivated bool
 /// Creates the graphicscomponent for the player sprite and saves the texturename and png location, width, height
 /// </summary>
-Player::Player(const cbCamera f, const cbTile cbTile, void* p) : func(f), tileFunc(cbTile), pointer(p)
+Player::Player(const cbCamera f, const cbTile cbTile, const cbInteractWithEquipmentManager eqMF, void* p) : func(f), tileFunc(cbTile), eqManagerFunc(eqMF), pointer(p)
 {
 	std::shared_ptr<EquippedRunningShoes> running = std::make_shared<EquippedRunningShoes>(staticEquipmentCallbackFunction, this);
 	std::shared_ptr<Boomerang> boomerang = std::make_shared<Boomerang>();
@@ -130,6 +130,7 @@ void Player::handleKeyPressed(const KeyCodes keyCodes)
 		break;
 	case KeyCodes::KEY_E:
 		std::cout << "Interaction button pressed..." << std::endl;
+		eqManagerFunc(pointer, transform.position.x, transform.position.y);
 		break;
 	case KeyCodes::KEY_G:
 		if (this->texture == "player_m")

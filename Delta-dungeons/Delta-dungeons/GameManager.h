@@ -27,9 +27,15 @@ public:
 
 	static void staticPlayerToTileCallbackFunction(void* p, int x, int y);
 	static void staticTileToPlayerCallbackFunction(void* p);
+	static void staticEquipmentManagerCallbackFunction(void* p, int x, int y);
+
+
 	void playerToTileCallbackFunction(int x, int y);
 
 	void tileToPlayerCallbackFunction();
+
+	void equipmentManagerCallbackFunction(int x, int y);
+
 
 	void passPlayerPosition(int x, int y);
 	void registerFonts(std::map<std::string, std::string> fonts);
