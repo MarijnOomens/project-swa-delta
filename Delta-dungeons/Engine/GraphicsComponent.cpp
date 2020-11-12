@@ -14,7 +14,6 @@
 void GraphicsComponent::playAnimation(int row, int frames, int speed, bool flip) 
 {
 	animated = true;
-
 	animRow = row;
 	animFrames = frames;
 	animSpeed = speed;
@@ -53,7 +52,7 @@ void GraphicsComponent::handleInput(const KeyCodes &keyCode, const KeyboardEvent
 /// Gets the textureManager pointer.
 /// </summary>
 /// <returns>Returns the textureManager pointer.</returns>
-std::shared_ptr<TextureManager> GraphicsComponent::getTextureManager() 
+std::shared_ptr<TextureManager> GraphicsComponent::getTextureManager() const
 {
 	return this->textureManager;
 }

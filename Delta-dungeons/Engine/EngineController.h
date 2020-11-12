@@ -27,10 +27,10 @@ public:
 	ENGINE_API void registerFonts(std::map<std::string, std::string> fonts);
 	ENGINE_API void startGame();
 	ENGINE_API void registerScene(const std::string& sceneName, const std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects);
-	ENGINE_API void loadScene(std::string sceneName, std::string fromScene, bool clearPrevious);
+	ENGINE_API void loadScene(const std::string sceneName,const std::string fromScene,const bool clearPrevious);
 	ENGINE_API void loadPreviousScene();
 	ENGINE_API void addOverlayScene(const std::string& sceneName);
-	ENGINE_API void createCamera(int x, int y);
+	ENGINE_API void createCamera(const int x, const int y)const;
 	ENGINE_API void passPlayerPosition(int x, int y);
 	void pauseScreen();
 	ENGINE_API void quitGame() const;

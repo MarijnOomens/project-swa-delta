@@ -7,7 +7,7 @@ class AssetManager {
 public:
 
 	AssetManager();
-	~AssetManager() {};
+	~AssetManager(){};
 
 	void addTexture(const std::string& id, const std::string& path);
 	std::string getTexture(const std::string& id);

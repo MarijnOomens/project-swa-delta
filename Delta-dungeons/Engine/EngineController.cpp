@@ -85,7 +85,7 @@ void EngineController::initRenderer(const std::string& title, int width, int hei
 	renderFacade->init(title, width, height, fullscreen);
 }
 
-void EngineController::createCamera(int x, int y)
+void EngineController::createCamera(const int x,const int y)const
 {
 	renderFacade->createCamera(x,y);
 }
@@ -137,7 +137,7 @@ void EngineController::registerScene(const std::string& sceneName, const std::ve
 	sceneManager.registerScene(sceneName, tempObjects);
 }
 
-void EngineController::loadScene(std::string sceneName, std::string fromScene, bool clearPrevious)
+void EngineController::loadScene(const std::string sceneName,const std::string fromScene,const bool clearPrevious)
 {
 	isSceneSwitched = true;
 	behaviourObjects = sceneManager.loadScene(sceneName, fromScene, clearPrevious);

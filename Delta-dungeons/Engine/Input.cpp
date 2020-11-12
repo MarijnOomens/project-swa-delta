@@ -19,7 +19,7 @@ void Input::handleInput(bool isPaused) const
 	facade->handleInput(isPaused);
 }
 
-void Input::callBackFunction(KeyCodes keyCode, KeyboardEvent keyboardEvent, Vector2D mousePos) const
+void Input::callBackFunction(const KeyCodes keyCode,const KeyboardEvent keyboardEvent, Vector2D mousePos) const
 {
 	func(pointer, keyCode, keyboardEvent, mousePos);
 }

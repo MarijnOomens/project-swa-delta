@@ -13,8 +13,6 @@ TextureManager::TextureManager(std::shared_ptr<RenderFacade> rf, std::shared_ptr
 	renderFacade = rf;
 }
 
-TextureManager::~TextureManager() {}
-
 void TextureManager::loadTexture() {}
 
 /// <summary>
@@ -44,7 +42,7 @@ void TextureManager::drawTexture(const std::string name, const Transform& transf
 /// <param name="colour">The colour of the text.</param>
 /// <param name="transform">The x and y of the text.</param>
 /// <param name="fontSize">The size of the text.</param>
-void TextureManager::drawText(std::string text, std::string fontName, Colour colour, const Transform& transform, int fontSize) 
+void TextureManager::drawText(const std::string &text,const std::string &fontName,const Colour &colour, const Transform& transform,const int fontSize) 
 {
 	std::string fontPath = assetManager->getFont(fontName);
 	renderFacade->drawTexture(fontPath, text, colour, transform, fontSize);
