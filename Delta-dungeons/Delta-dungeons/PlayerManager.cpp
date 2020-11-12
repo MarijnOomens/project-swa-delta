@@ -26,5 +26,5 @@ std::map<std::string, std::string> PlayerManager::passTextures() const
 /// <returns>Returns the playerObject shared_pointer.</returns>
 std::shared_ptr<Player> PlayerManager::getPlayerObject()
 {
-    return std::move(player);
+    return player;
 }
