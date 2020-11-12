@@ -16,7 +16,7 @@ Rectangle::Rectangle()
 /// <param name="y">The Y position.</param>
 /// <param name="w">The width in numbers.</param>
 /// <param name="h">The height in numbers.</param>
-void Rectangle::defineSource(int x, int y, int w, int h)
+void Rectangle::defineSource(const int x, const int y, const int w, const int h)
 {
 	source.x = x;
 	source.y = y;
@@ -31,7 +31,7 @@ void Rectangle::defineSource(int x, int y, int w, int h)
 /// <param name="y">The Y position.</param>
 /// <param name="w">The width in numbers.</param>
 /// <param name="h">The height in numbers.</param>
-void Rectangle::defineDestination(int x, int y, int w, int h)
+void Rectangle::defineDestination(const int x, const int y, const int w, const int h)
 {
 	destination.x = x;
 	destination.y = y;

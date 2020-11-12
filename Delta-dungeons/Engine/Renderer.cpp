@@ -75,7 +75,7 @@ void Renderer::init(const std::string& title, int width, int height, bool fullsc
 	}
 }
 
-void Renderer::createCamera(int x, int y) 
+void Renderer::createCamera(const int x, const int y) 
 {
 	int cameraX = x - 640;
 	if (cameraX < 0) 
@@ -99,7 +99,7 @@ bool Renderer::checkCameraPosition(const Transform& transform) const
 	return false;
 }
 
-std::tuple<int, int> Renderer::updateCamera(int playerX, int playerY)
+std::tuple<int, int> Renderer::updateCamera(const int playerX,const int playerY)
 {
 	int differenceX = (playerX - (camera.x + 640));
 	int differenceY = (playerY - (camera.y + 512));
@@ -151,7 +151,7 @@ void Renderer::afterFrame() const
 	SDL_RenderPresent(sdlRenderer);
 }
 
-void Renderer::drawTexture(SDL_Texture* texture, const Transform& transform, const Vector2D& coordinates, const Vector2D& sourceDimensions, int row, int frames, int speed, bool animated, bool flipped, bool isScreen) const
+void Renderer::drawTexture(SDL_Texture* texture, const Transform& transform, const Vector2D& coordinates, const Vector2D& sourceDimensions, const int row, const int frames,const int speed,const bool animated,const bool flipped,const bool isScreen) const
 {
 	if (checkCameraPosition(transform) || isScreen) 
 	{

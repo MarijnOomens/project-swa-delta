@@ -30,14 +30,14 @@ public:
 	void clean() const;
 	void beforeFrame() const;
 	void afterFrame() const;
-	void createCamera(int x, int y) const;
+	void createCamera(const int x, const int y) const;
 	void quitGame() const;
 	void pauseGame() const;
 	void slowDownGame() const;
 	void speedUpGame() const;
 	void resetSpeedGame() const;
 
-	std::tuple<int, int> passPlayerPosition(int x, int y) const;
+	std::tuple<int, int> passPlayerPosition(const int x,const int y) const;
 	int getFPS() const;
 
 private:

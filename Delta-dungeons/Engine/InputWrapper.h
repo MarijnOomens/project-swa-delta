@@ -15,8 +15,8 @@ public:
 	InputWrapper(const cbFunction f, void* p);
 	~InputWrapper() {}
 
-	void handleInput(bool isPaused);
-	void handleKeyPressed(bool isPaused);
+	void handleInput(const bool isPaused);
+	void handleKeyPressed(const bool isPaused);
 	void handleKeyReleased();
 	void handleMouseClicked();
 	void mapKeyBindings(const KeyCodes& code);
