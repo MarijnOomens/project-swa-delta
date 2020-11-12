@@ -5,7 +5,7 @@ InputWrapper::InputWrapper(const cbFunction f, void* p) : func(f), pointer(p) {}
 /// <summary>
 /// The handleInput calls the input based on which keyevent is called.
 /// </summary>
-void InputWrapper::handleInput(bool isPaused)
+void InputWrapper::handleInput(const bool isPaused)
 {
 	while (SDL_PollEvent(&event) != 0)
 	{
@@ -30,7 +30,7 @@ void InputWrapper::handleInput(bool isPaused)
 /// <summary>
 /// The handleInput calls the input based on which key is pressed
 /// </summary>
-void InputWrapper::handleKeyPressed(bool isPaused)
+void InputWrapper::handleKeyPressed(const bool isPaused)
 {
 	Vector2D mousePosition;
 	if (!isPaused) 

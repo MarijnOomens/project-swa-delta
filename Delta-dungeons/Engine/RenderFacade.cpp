@@ -122,7 +122,7 @@ void RenderFacade::afterFrame() const
 	renderer->afterFrame();
 }
 
-void RenderFacade::createCamera(int x, int y) const
+void RenderFacade::createCamera(const int x, const int y) const
 {
 	renderer->createCamera(x, y);
 }
@@ -157,7 +157,7 @@ int RenderFacade::getFPS() const
 	return frameManager->getFPS();
 }
 
-std::tuple<int, int> RenderFacade::passPlayerPosition(int x, int y) const
+std::tuple<int, int> RenderFacade::passPlayerPosition(const int x,const int y) const
 {
 	return renderer->updateCamera(x, y);
 }

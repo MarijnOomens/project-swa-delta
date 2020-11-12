@@ -12,6 +12,6 @@ public:
 	InputFacade() {}
 	InputFacade(const cbFunction f, void* p);
 
-	void handleInput(bool isPaused) override;
+	void handleInput(const bool isPaused)const override;
 	void mapKeyBindings(const KeyCodes& code) override;
 };

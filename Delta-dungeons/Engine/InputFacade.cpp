@@ -13,7 +13,7 @@ InputFacade::InputFacade(const cbFunction f, void* p)
 /// <summary>
 /// This function takes the input and gives it to the code behind the facade.
 /// </summary>
-void InputFacade::handleInput(bool isPaused)
+void InputFacade::handleInput(const bool isPaused)const
 {
 	inputWrapper->handleInput(isPaused);
 }
