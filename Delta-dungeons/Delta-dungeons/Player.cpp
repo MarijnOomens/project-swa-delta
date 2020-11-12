@@ -46,6 +46,7 @@ Player::Player(const cbCamera f, const cbTile cbTile, const cbInteractWithEquipm
 	m_gc->playAnimation(0, 3, animationSpeed, false);
 
 	this->components.emplace_back(m_gc);
+	currentDirection = KeyCodes::KEY_DOWN;
 }
 
 Player::~Player() {}
@@ -75,10 +76,14 @@ void Player::handleInput(const KeyCodes keyCodes, const KeyboardEvent keyboardEv
 		}
 	}
 
+	if (keyboardEvent == KeyboardEvent::KEY_PRESSED && keyCodes == KeyCodes::KEY_UP || keyCodes == KeyCodes::KEY_LEFT || keyCodes == KeyCodes::KEY_RIGHT || keyCodes == KeyCodes::KEY_DOWN)
+	{
+		currentDirection = keyCodes;
+	}
+
 	if (keyboardEvent == KeyboardEvent::KEY_PRESSED && !tileCollision)
 	{
 		handleKeyPressed(keyCodes);
-
 	}
 
 	else if (keyboardEvent == KeyboardEvent::KEY_RELEASED)
@@ -130,7 +135,7 @@ void Player::handleKeyPressed(const KeyCodes keyCodes)
 		break;
 	case KeyCodes::KEY_E:
 		std::cout << "Interaction button pressed..." << std::endl;
-		eqManagerFunc(pointer, transform.position.x, transform.position.y);
+		handleInteraction();
 		break;
 	case KeyCodes::KEY_G:
 		if (this->texture == "player_m")
@@ -151,6 +156,21 @@ void Player::handleKeyPressed(const KeyCodes keyCodes)
 		break;
 	default:
 		break;
+	}
+}
+
+void Player::handleInteraction() {
+	if (KeyCodes::KEY_UP == currentDirection) {
+		eqManagerFunc(pointer, transform.position.x, transform.position.y - 128);
+	}
+	else if (KeyCodes::KEY_LEFT == currentDirection) {
+		eqManagerFunc(pointer, transform.position.x - 128, transform.position.y);
+	}
+	else if (KeyCodes::KEY_RIGHT == currentDirection) {
+		eqManagerFunc(pointer, transform.position.x + 128, transform.position.y);
+	}
+	else if (KeyCodes::KEY_DOWN == currentDirection) {
+		eqManagerFunc(pointer, transform.position.x, transform.position.y + 128);
 	}
 }
 

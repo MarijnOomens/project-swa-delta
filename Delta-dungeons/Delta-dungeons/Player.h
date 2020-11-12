@@ -15,6 +15,7 @@ public:
 	cbCamera func;
 	cbTile tileFunc;
 	cbInteractWithEquipmentManager eqManagerFunc;
+	KeyCodes currentDirection;
 	void* pointer;
 	bool tileCollision;
 	Player();
@@ -41,6 +42,7 @@ public:
 	void updateCaughtPokemon(int pokemonId);
 	void update() override;
 	void setToTrue();
+	void handleInteraction();
 private:
 	int health;
 	int amountCaught;
