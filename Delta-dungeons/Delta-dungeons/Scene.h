@@ -29,6 +29,6 @@ public:
 private:
 	int x = 0, y = 0;
 	std::vector<std::shared_ptr<Tile>> tileMap;
-	std::unique_ptr<TextComponent> fpsText;
+	std::shared_ptr<TextComponent> fpsText;
 	std::stringstream fpsString;
 };

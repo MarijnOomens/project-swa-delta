@@ -20,9 +20,9 @@ void Scene::addGraphics()
 	}
 
 	Colour color = { 0, 255, 0, 255 };
-	fpsText = std::make_unique<TextComponent>("", "comic", color, 32);
+	fpsText = std::make_shared<TextComponent>("", "comic", color, 32);
 	fpsText->transform.position = { 1200, 10 };
-	components.emplace_back(std::move(fpsText));
+	components.emplace_back(fpsText);
 }
 
 /// <summary>

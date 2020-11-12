@@ -51,6 +51,7 @@ void GameManager::registerBehaviourObjects()
 	{
 		level1.emplace_back(t);
 	}
+	level1.emplace_back(scene);
 
 	for (auto& o : npcManager.npcs)
 	{
