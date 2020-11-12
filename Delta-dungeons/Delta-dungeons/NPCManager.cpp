@@ -1,25 +1,33 @@
 #include "NPCManager.h"
+#include "XMLSceneParser.h"
 
-NPCManager::NPCManager() 
+NPCManager::NPCManager()
 {
 	builder = std::make_shared<GameObjectBuilder>();
+	pokemonList = std::make_unique<std::vector<std::string>>();
+	trainerList = std::make_unique<std::vector<std::string>>();
+	addPokemon();
+	addTrainers();
 }
 
 NPCManager::~NPCManager() {}
 
-
-void NPCManager::createNPC() 
+void NPCManager::createNPC()
 {
-	npcs.try_emplace("bugtrainer", builder.get()->getNPC(640, 896, "bugtrainer"));
-	npcs.try_emplace("eevee", builder.get()->getPokemon(768, 896, "eevee"));
-	npcs.try_emplace("flareon", builder.get()->getPokemon(896, 896, "flareon"));
-	npcs.try_emplace("vaporeon", builder.get()->getPokemon(1024, 896, "vaporeon"));
-	npcs.try_emplace("jolteon", builder.get()->getPokemon(1152, 896, "jolteon"));
-	npcs.try_emplace("espeon", builder.get()->getPokemon(1280, 896, "espeon"));
-	npcs.try_emplace("umbreon", builder.get()->getPokemon(1408, 896, "umbreon"));
-	npcs.try_emplace("leafeon", builder.get()->getPokemon(1536, 896, "leafeon"));
-	npcs.try_emplace("glaceon", builder.get()->getPokemon(1664, 896, "glaceon"));
-	npcs.try_emplace("sylveon", builder.get()->getPokemon(1792, 896, "sylveon"));
+	std::unique_ptr<XMLSceneParser> xmlSceneParser = std::make_unique<XMLSceneParser>();
+	std::vector<std::shared_ptr<ParserData>> npcData = xmlSceneParser.get()->getNPCDataList("Assets/maps/level1.xml");
+	srand(time(0));
+	for (auto parsedNPC : npcData)
+	{
+		if (parsedNPC.get()->tileId == "1") {
+			std::string trainer = getRandomNPC();
+			npcs.try_emplace(trainer + parsedNPC.get()->x + parsedNPC.get()->y, builder.get()->getNPC(std::stoi(parsedNPC.get()->x), std::stoi(parsedNPC.get()->y), trainer));
+		}
+		else if (parsedNPC.get()->tileId == "7") {
+			std::string pokemon = getRandomPokemon();
+			npcs.try_emplace(pokemon + parsedNPC.get()->x + parsedNPC.get()->y, builder.get()->getPokemon(std::stoi(parsedNPC.get()->x), std::stoi(parsedNPC.get()->y), pokemon));
+		}
+	}
 }
 
 std::map<std::string, std::string> NPCManager::passTextures() const
@@ -31,4 +39,40 @@ std::map<std::string, std::string> NPCManager::passTextures() const
 		}
 	}
 	return totalTextures;
+}
+
+void NPCManager::addPokemon()
+{
+	pokemonList.get()->push_back("eevee");
+	pokemonList.get()->push_back("flareon");
+	pokemonList.get()->push_back("vaporeon");
+	pokemonList.get()->push_back("jolteon");
+	pokemonList.get()->push_back("espeon");
+	pokemonList.get()->push_back("umbreon");
+	pokemonList.get()->push_back("leafeon");
+	pokemonList.get()->push_back("glaceon");
+	pokemonList.get()->push_back("sylveon");
+}
+
+std::string NPCManager::getRandomPokemon()
+{
+	int randomPokemon = rand() % pokemonList.get()->size();
+	return pokemonList.get()->at(randomPokemon);
+}
+
+void NPCManager::addTrainers()
+{
+	trainerList.get()->push_back("bugtrainer");
+	trainerList.get()->push_back("youngster");
+	trainerList.get()->push_back("bugtrainer");
+	trainerList.get()->push_back("youngster");
+	trainerList.get()->push_back("bugtrainer");
+	trainerList.get()->push_back("youngster");
+}
+
+std::string NPCManager::getRandomNPC()
+{
+	std::cout << rand() % trainerList.get()->size() << std::endl;
+	int randomTrainer = rand() % trainerList.get()->size();
+	return trainerList.get()->at(randomTrainer);
 }

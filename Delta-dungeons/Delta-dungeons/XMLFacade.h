@@ -12,4 +12,5 @@ public:
 
 	std::vector<std::shared_ptr<ParserData>>loadScene(const char* path);
 	std::vector<std::shared_ptr<ParserData>> getEquipmentDataList(const char* path);
+	std::vector<std::shared_ptr<ParserData>> getNPCDataList(const char* path);
 };

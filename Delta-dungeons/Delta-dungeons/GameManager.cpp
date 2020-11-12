@@ -17,7 +17,6 @@ GameManager::GameManager()
 	playerManager.createPlayer(staticCameraCallbackFunction, staticPlayerToTileCallbackFunction, staticEquipmentManagerCallbackFunction, this);
 	registerTextures(playerManager.passTextures());
 
-	npcManager = NPCManager();
 	npcManager.createNPC();
 	registerTextures(npcManager.passTextures());
 
@@ -134,7 +133,7 @@ void GameManager::playerToTileCallbackFunction(int x, int y) {
 
 
 
-void GameManager::staticEquipmentManagerCallbackFunction (void* p, int x, int y)
+void GameManager::staticEquipmentManagerCallbackFunction(void* p, int x, int y)
 {
 	((GameManager*)p)->equipmentManagerCallbackFunction(x, y);
 }

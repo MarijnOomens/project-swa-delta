@@ -31,3 +31,8 @@ std::vector<std::shared_ptr<ParserData>> XMLFacade::getEquipmentDataList(const c
 {
 	return parser->getEquipmentDataList(path);
 }
+
+std::vector<std::shared_ptr<ParserData>> XMLFacade::getNPCDataList(const char* path)
+{
+	return parser->getNPCDataList(path);
+}
