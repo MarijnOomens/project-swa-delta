@@ -41,3 +41,8 @@ void DebugUtilities::resetSpeedGame()const
 {
 	engineFacade->resetSpeedGame();
 }
+
+void DebugUtilities::pauseGame()const
+{
+	engineFacade->pauseGame();
+}

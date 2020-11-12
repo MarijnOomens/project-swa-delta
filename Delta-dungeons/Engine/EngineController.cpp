@@ -59,11 +59,6 @@ void EngineController::inputCallbackFunction(const KeyCodes keyCode, const Keybo
 	{
 		quitGame();
 	}
-	else if (keyCode == KeyCodes::KEY_P)
-	{
-		renderFacade->pauseGame();
-		pauseScreen();
-	}
 	else {
 		for (const auto& gameObject : behaviourObjects)
 		{
@@ -139,14 +134,20 @@ void EngineController::registerScene(const std::string& sceneName, const std::ve
 
 void EngineController::loadScene(const std::string& sceneName, const std::string& fromScene, bool clearPrevious)
 {
+	if (renderFacade->renderer->isPaused)
+	{
+		renderFacade->pauseGame();
+	}
 	isSceneSwitched = true;
 	behaviourObjects = sceneManager.loadScene(sceneName, fromScene, clearPrevious);
+
 }
 
 void EngineController::loadPreviousScene()
 {
 	isSceneSwitched = true;
 	behaviourObjects = sceneManager.loadPreviousScene();
+	update();
 }
 
 void EngineController::addOverlayScene(const std::string& sceneName)
@@ -184,13 +185,16 @@ void EngineController::registerFonts(std::map<std::string, std::string> fonts) {
 
 void EngineController::pauseScreen()
 {
-	if (renderFacade->renderer->isPaused) 
-	{
-		addOverlayScene("PauseScreen");
-	}
-	else 
-	{
-		loadPreviousScene();
+	if (sceneManager.getActiveScenesSize() < 3) {
+		renderFacade->pauseGame();
+		if (renderFacade->renderer->isPaused) 
+		{
+			addOverlayScene("PauseScreen");
+		}
+		else
+		{
+			loadPreviousScene();
+		}
 	}
 }
 
