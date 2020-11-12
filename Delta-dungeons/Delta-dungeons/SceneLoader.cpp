@@ -7,7 +7,7 @@ SceneLoader& SceneLoader::getInstance()
 	return sceneLoader;
 }
 
-void SceneLoader::loadScene(const std::string &sceneName, const std::string &fromScene, const bool clearPrevious)const
+void SceneLoader::loadScene(const std::string& sceneName, const std::string& fromScene, bool clearPrevious) const
 {
 	engineFacade->loadScene(sceneName, fromScene, clearPrevious);
 }

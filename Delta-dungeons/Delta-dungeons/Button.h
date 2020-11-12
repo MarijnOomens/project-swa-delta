@@ -9,10 +9,11 @@ typedef void(*buttonCb) (const void*);
 class Button : public GameObject
 {
 public:
-	Button(int x, int y, const std::vector<std::string> textureList, const buttonCb onClick, const void* p);
-	~Button() {};
+	Button(int x, int y, const std::vector<std::string>& textureList, const buttonCb onClick, const void* p);
+	~Button() {}
 	void update() override;
 	void handleInput(const KeyCodes &keyCode, const KeyboardEvent &keyboardEvent, Vector2D &mousePos) override;
+
 private:
 	buttonCb onCLickFunc;
 	const void* pointer;

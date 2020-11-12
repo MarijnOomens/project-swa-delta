@@ -1,6 +1,7 @@
 #include "PauseScreen.h"
 
-PauseScreen::PauseScreen() {
+PauseScreen::PauseScreen() 
+{
 	this->textures.try_emplace("pause", "Assets/Pause_filter.png");
 	this->textures.try_emplace("button_help", "Assets/button_help.png");
 	this->textures.try_emplace("button_save", "Assets/button_save.png");
@@ -46,10 +47,8 @@ void PauseScreen::staticSaveCallbackFunction(const void* p)
 	((PauseScreen*)p)->saveCallbackFunction();
 }
 
-void PauseScreen::saveCallbackFunction() const
-{
+void PauseScreen::saveCallbackFunction() const {}
 
-}
 void PauseScreen::staticExitCallbackFunction(const void* p) 
 {
 	((PauseScreen*)p)->exitCallbackFunction();

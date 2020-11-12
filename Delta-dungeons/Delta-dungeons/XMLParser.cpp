@@ -1,4 +1,5 @@
 #include "XMLParser.h"
+
 using namespace rapidxml;
 
 /// <summary>

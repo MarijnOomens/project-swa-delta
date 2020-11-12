@@ -5,9 +5,6 @@ NPCManager::NPCManager()
 	builder = std::make_shared<GameObjectBuilder>();
 }
 
-NPCManager::~NPCManager() {}
-
-
 void NPCManager::createNPC() 
 {
 	npcs.emplace("bugtrainer", builder->getNPC(640, 896, "bugtrainer"));

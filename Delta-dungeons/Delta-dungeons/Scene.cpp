@@ -1,16 +1,10 @@
-#include "GraphicsComponent.h"
 #include "Scene.h"
-#include "XMLSceneParser.h"
 
 /// <summary>
 /// Scene is where a TileMap can be created.
 /// </summary>
 
-Scene::Scene() {}
-
-Scene::Scene(int x, int y) : x(x), y(y) {};
-
-Scene::~Scene() {}
+Scene::Scene(int x, int y) : x(x), y(y) {}
 
 void Scene::addGraphics()
 {

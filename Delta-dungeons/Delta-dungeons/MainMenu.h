@@ -14,10 +14,10 @@ typedef void(*buttonCb) (const void*);
 class MainMenu : public Screen
 {
 public:
-	std::vector<Button> buttons;
-
 	MainMenu();
-	~MainMenu() {};
+	~MainMenu() {}
+
+	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
 
 	static void staticOpenGameCallbackFunction(const void* p);
 	void openGameCallbackFunction()const;
@@ -28,5 +28,6 @@ public:
 	static void staticExitCallbackFunction(const void* p);
 	void exitCallbackFunction()const;
 
-	void handleInput(const KeyCodes &keyCode, const KeyboardEvent &keyboardEvent, Vector2D &mousePos) override;
+private:
+	std::vector<Button> buttons;
 };

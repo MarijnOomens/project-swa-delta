@@ -5,10 +5,11 @@
 class XMLFacade
 {
 public:
+	XMLFacade() {}
+	~XMLFacade() {}
+
+	std::vector<std::shared_ptr<ParserData>> loadScene(const std::string& path);
+
+private:
 	XMLParser parser;
-
-	XMLFacade() {};
-	~XMLFacade() {};
-
-	std::vector<std::shared_ptr<ParserData>>loadScene(const std::string& path);
 };

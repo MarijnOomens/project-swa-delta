@@ -257,12 +257,6 @@
     <ClInclude Include="DialoguePopup.h">
       <Filter>Header Files\Game\GameObjects</Filter>
     </ClInclude>
-    <ClInclude Include="Scene.h">
-      <Filter>Header Files\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="ParserData.h">
-      <Filter>Header Files\Game</Filter>
-    </ClInclude>
     <ClInclude Include="EngineFacade.h">
       <Filter>Header Files\Game</Filter>
     </ClInclude>
@@ -280,6 +274,12 @@
     </ClInclude>
     <ClInclude Include="DebugUtilities.h">
       <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Header Files\XMLParser</Filter>
+    </ClInclude>
+    <ClInclude Include="ParserData.h">
+      <Filter>Header Files\XMLParser</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

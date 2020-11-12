@@ -1,7 +1,5 @@
 #include "Pokemon.h"
 
-const int animationSpeed = 120;
-
 Pokemon::Pokemon(int x, int y, std::string &texture)
 {
 	this->transform.position = { x, y };

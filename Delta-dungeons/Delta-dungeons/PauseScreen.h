@@ -1,4 +1,5 @@
 #pragma once
+
 #include "Screen.h"
 #include "Button.h"
 #include "TextComponent.h"
@@ -7,15 +8,16 @@
 class PauseScreen : public Screen
 {
 public:
-	std::vector<Button> buttons;
-
 	PauseScreen();
-	~PauseScreen() {};
+	~PauseScreen() {}
 
 	static void staticOpenHelpCallbackFunction(const void* p);
-	void openHelpCallbackFunction()const;
+	void openHelpCallbackFunction() const;
 	static void staticSaveCallbackFunction(const void* p);
-	void saveCallbackFunction()const;
+	void saveCallbackFunction() const;
 	static void staticExitCallbackFunction(const void* p);
-	void exitCallbackFunction()const;
+	void exitCallbackFunction() const;
+
+private:
+	std::vector<Button> buttons;
 };

@@ -6,7 +6,8 @@
 /// <param name="x">The horizontal position</param>
 /// <param name="y">The vertical position</param>
 /// <param name="textureList">Information of texture names.</param>
-Button::Button(int x, int y, const std::vector<std::string> textureList, buttonCb onClick, const void* p) : onCLickFunc(onClick), pointer(p) {
+Button::Button(int x, int y, const std::vector<std::string>& textureList, buttonCb onClick, const void* p) : onCLickFunc(onClick), pointer(p) 
+{
 	m_gc = std::make_shared<GraphicsComponent>();
 	transform.position = { x, y };
 
@@ -18,7 +19,7 @@ Button::Button(int x, int y, const std::vector<std::string> textureList, buttonC
 	possibleTextures = textureList;
 	m_gc->setTexture(possibleTextures[0]);
 	this->components.emplace_back(m_gc);
-};
+}
 
 void Button::update() {}
 

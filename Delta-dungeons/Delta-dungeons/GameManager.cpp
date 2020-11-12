@@ -30,8 +30,6 @@ GameManager::GameManager()
 	engineFacade->startGame();
 }
 
-GameManager::~GameManager() {}
-
 /// <summary>
 /// This methods registers all BehaviourObjects from all managers into one big list within the GameManager.
 /// </summary>

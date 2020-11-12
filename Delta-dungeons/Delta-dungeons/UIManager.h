@@ -1,4 +1,5 @@
 #pragma once
+
 #include <memory>
 #include "Screen.h"
 #include <vector>
@@ -9,14 +10,17 @@
 #include "GameOverScreen.h"
 #include "PauseScreen.h"
 
-class UIManager {
+class UIManager 
+{
 public:
 	std::map<std::string, std::shared_ptr<Screen>> screens;
+
 	void createBaseScreens();
-	void playDialogue(std::vector<std::string>);
-	void updateHudHealth(int);
-	void updateHudCollectedCrystals(int);
-	void updateHighScore(int);
+	void playDialogue(std::vector<std::string> param);
+	void updateHudHealth(int param);
+	void updateHudCollectedCrystals(int param);
+	void updateHighScore(int param);
 	std::map<std::string, std::string> passTextures();
 	std::map<std::string, std::string> passFonts();
+
 };

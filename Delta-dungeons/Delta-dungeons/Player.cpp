@@ -7,8 +7,6 @@
 /// 
 /// </summary>
 
-const int animationSpeed = 120;
-
 /// <summary>
 /// Creates the running and boomerang equipments. And added to the equipment vector list.
 /// Defines the movementspeed and the runactivated bool
@@ -64,7 +62,7 @@ void Player::handleInput(const KeyCodes &keyCodes, const KeyboardEvent &keyboard
 /// This method handles the logic when a keybutton has been pressed.
 /// </summary>
 /// <param name="keyCodes"></param>
-void Player::handleKeyPressed(const KeyCodes keyCodes)
+void Player::handleKeyPressed(const KeyCodes& keyCodes)
 {
 	switch (keyCodes)
 	{
@@ -108,7 +106,7 @@ void Player::handleKeyPressed(const KeyCodes keyCodes)
 /// This method handles the logic after the keybutton has been released.
 /// </summary>
 /// <param name="keyCodes"></param>
-void Player::handleKeyReleased(const KeyCodes keyCodes)
+void Player::handleKeyReleased(const KeyCodes& keyCodes)
 {
 	switch (keyCodes)
 	{
@@ -128,6 +126,8 @@ void Player::handleKeyReleased(const KeyCodes keyCodes)
 		break;
 	}
 }
+
+void Player::update() {}
 
 /// <summary>
 /// This method moves the character up by changing the sprite animation and adjusting the Y coordinate
@@ -190,6 +190,10 @@ void Player::addEquipment(std::unique_ptr<IEquipment> item)
 	equipment.emplace_back(std::move(item));
 }
 
+void Player::damagePlayer(int damage) {}
+
+void::Player::updateCaughtPokemon(int pokemonId) {}
+
 /// <summary>
 /// Callbackmethod to call the equipmentCallbackFunction.
 /// </summary>
@@ -210,23 +214,11 @@ void Player::equipmentCallbackFunction(const bool runningActivated)
 	if (runningActivated) 
 	{
 		runActivated = true;
-		baseMovementSpeed = 64;
+		baseMovementSpeed = 128;
 	}
 	else 
 	{
 		runActivated = false;
-		baseMovementSpeed = 32;
+		baseMovementSpeed = 64;
 	}
-}
-
-void Player::damagePlayer(int damage) 
-{
-}
-
-void::Player::updateCaughtPokemon(int pokemonId) 
-{
-}
-
-void Player::update() 
-{
 }

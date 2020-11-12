@@ -3,10 +3,6 @@
 /// Facade between EngineController & GameManager
 /// </summary>
 
-//EngineFacade::EngineFacade() {
-//	engineController = std::make_unique<EngineController>();
-//}
-
 /// <summary>
 ///  Init creates a unique EngineController object.
 /// </summary>
@@ -19,7 +15,7 @@ void EngineFacade::init()
 /// Init creates a unique EngineController object.
 /// </summary>
 
-void EngineFacade::addTexture(const std::string &name,const std::string &path) 
+void EngineFacade::addTexture(const std::string& name,const std::string& path) 
 {
 	engineController->addTexture(name, path);
 }
@@ -66,12 +62,12 @@ void EngineFacade::passPlayerPosition(int x, int y)
 	engineController->passPlayerPosition(x, y);
 }
 
-void EngineFacade::registerScene(const std::string &sceneName, std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects)
+void EngineFacade::registerScene(const std::string& sceneName, std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects)
 {
 	engineController->registerScene(sceneName, behaviourObjects);
 }
 
-void EngineFacade::loadScene(const std::string &sceneName, const std::string &fromScene,const bool clearPrevious)
+void EngineFacade::loadScene(const std::string& sceneName, const std::string& fromScene, bool clearPrevious)
 {
 	engineController->loadScene(sceneName, fromScene, clearPrevious);
 }

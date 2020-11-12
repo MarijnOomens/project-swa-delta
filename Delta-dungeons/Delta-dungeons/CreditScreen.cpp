@@ -2,7 +2,7 @@
 /// <summary>
 /// This class creates the credits, exitbutton and font and saves them in the components list as a graphicscomponent.
 /// </summary>
- 
+
 CreditScreen::CreditScreen()
 {
 	this->textures.try_emplace("credits", "Assets/screen-components/credit-scherm-design/creditscreen-2.png");
@@ -55,7 +55,7 @@ CreditScreen::CreditScreen()
 	this->components.emplace_back(std::move(creditsText6));
 }
 
-void CreditScreen::handleInput(const KeyCodes &keyCode, const KeyboardEvent &keyboardEvent, Vector2D &mousePos)
+void CreditScreen::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos)
 {
 	if (keyboardEvent == KeyboardEvent::KEY_PRESSED)
 	{

@@ -6,13 +6,13 @@
 #include "Tile.h"
 #include <string>
 
-class XMLSceneParser : public SceneParser {
+class XMLSceneParser : public SceneParser
+{
 public:
-	XMLSceneParser() {};
-	~XMLSceneParser() {};
-
-	XMLFacade facade;
+	XMLSceneParser() {}
+	~XMLSceneParser() {}
 
 	std::vector<std::shared_ptr<Tile>> loadScene(const std::string& path);
 private:
+	XMLFacade facade;
 };

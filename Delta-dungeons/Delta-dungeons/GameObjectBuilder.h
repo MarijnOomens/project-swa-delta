@@ -1,15 +1,17 @@
 #pragma once
+
 #include "GameObject.h"
 #include "Pokemon.h"
 #include "Player.h"
 #include "NPC.h"
 
-class GameObjectBuilder {
+class GameObjectBuilder 
+{
 public:
-	GameObjectBuilder() {};
-	~GameObjectBuilder() {};
+	GameObjectBuilder() {}
+	~GameObjectBuilder() {}
 
-	std::unique_ptr<Pokemon> getPokemon(int x, int y, std::string name);
 	//std::shared_ptr<Player> getPlayer(int x, int y);
+	std::unique_ptr<Pokemon> getPokemon(int x, int y, std::string name);
 	std::unique_ptr<NPC> getNPC(int x, int y, std::string name);
 };
