@@ -18,7 +18,7 @@ void Scene::addGraphics()
 {
 	std::unique_ptr<XMLSceneParser> xmlSceneParser = std::make_unique<XMLSceneParser>();
 
-	tileMap = xmlSceneParser.get()->loadScene("Assets/Level/level1.xml");
+	tileMap = xmlSceneParser.get()->loadScene("Assets/maps/level1.xml");
 
 	for (std::shared_ptr<Tile> t : tileMap)
 	{
