@@ -296,7 +296,6 @@ void Player::equipmentCallbackFunction(const bool runningActivated)
 		baseMovementSpeed = 128;
 		std::cout << " runningshoes disabled" << std::endl;
 	}
-	//std::cout << runningActivated << " runningshoes" << std::endl;
 }
 
 void Player::staticTileCallbackFunction(void* p)
