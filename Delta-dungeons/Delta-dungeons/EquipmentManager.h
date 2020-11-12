@@ -15,5 +15,6 @@ public:
 	~EquipmentManager();
 
 	void createEquipment();
+	void interact(int x, int y);
 	std::map<std::string, std::string> passTextures() const;
 };

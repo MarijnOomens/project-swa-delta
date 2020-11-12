@@ -14,7 +14,7 @@ GameManager::GameManager()
 	registerTextures(uiManager.passTextures());
 	registerFonts(uiManager.passFonts());
 
-	playerManager.createPlayer(staticCameraCallbackFunction, staticPlayerToTileCallbackFunction, this);
+	playerManager.createPlayer(staticCameraCallbackFunction, staticPlayerToTileCallbackFunction, staticEquipmentManagerCallbackFunction, this);
 	registerTextures(playerManager.passTextures());
 
 	npcManager = NPCManager();
@@ -131,3 +131,16 @@ void GameManager::staticPlayerToTileCallbackFunction(void* p, int x, int y)
 void GameManager::playerToTileCallbackFunction(int x, int y) {
 	scene.get()->checkCollision(x, y);
 }
+
+
+
+void GameManager::staticEquipmentManagerCallbackFunction (void* p, int x, int y)
+{
+	((GameManager*)p)->equipmentManagerCallbackFunction(x, y);
+}
+
+void GameManager::equipmentManagerCallbackFunction(int x, int y) {
+	eqManager.interact(x, y);
+}
+
+

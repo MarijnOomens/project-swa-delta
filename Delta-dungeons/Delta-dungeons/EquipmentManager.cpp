@@ -37,3 +37,7 @@ std::map<std::string, std::string> EquipmentManager::passTextures() const
 	}
 	return totalTextures;
 }
+
+void EquipmentManager::interact(int x, int y) {
+	std::cout << "interact from equipmentmanager " << x << " " << y << std::endl;
+}
