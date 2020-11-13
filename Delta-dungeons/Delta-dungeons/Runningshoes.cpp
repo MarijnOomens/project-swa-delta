@@ -2,7 +2,7 @@
 
 RunningShoes::RunningShoes() {}
 
-RunningShoes::RunningShoes(cbEquipment f, void* p) : func(f), pointer(p) {}
+RunningShoes::RunningShoes(const cbEquipment f, void* p) : func(f), pointer(p) {}
 
 
 RunningShoes::RunningShoes(int x, int y, std::string texture)

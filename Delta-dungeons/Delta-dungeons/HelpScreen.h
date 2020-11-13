@@ -10,11 +10,10 @@ class HelpScreen : public Screen
 
 public:
 	HelpScreen();
-	~HelpScreen();
+	~HelpScreen() {}
 
-	static void staticBackCallbackFunction(void* p);
+	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
 
-	void backCallbackFunction();
-
-	void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos) override;
+	static void staticBackCallbackFunction(const void* p);
+	void backCallbackFunction() const;
 };

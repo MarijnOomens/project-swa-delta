@@ -7,7 +7,7 @@ class Transform {
 public:
 	Vector2D position;
 	Vector2D rotation;
-	Vector2D scale;
+	Vector2D scale = { 1, 1 };
 
-	ENGINE_API Transform();
+	ENGINE_API Transform() {};
 };

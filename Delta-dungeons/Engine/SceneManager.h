@@ -8,13 +8,14 @@
 
 class SceneManager {
 public:
-	SceneManager();
-	~SceneManager();
+	SceneManager() {};
+	~SceneManager() {};
 
-	std::vector<std::shared_ptr<BehaviourObject>>& loadScene(std::string& sceneName, std::string& fromScene, bool clearPrevious);
+	std::vector<std::shared_ptr<BehaviourObject>> loadScene(const std::string& sceneName,const std::string& fromScene,const bool clearPrevious);
 	void registerScene(const std::string& sceneName, const std::vector<std::shared_ptr<BehaviourObject>>& behaviourObjects);
 	std::vector<std::shared_ptr<BehaviourObject>> loadPreviousScene();
 	std::vector<std::shared_ptr<BehaviourObject>> addOverlayScene(const std::string& sceneName);
+	int getActiveScenesSize();
 
 private:
 	std::map<std::string, std::vector<std::shared_ptr<BehaviourObject>>> scenes;

@@ -1,6 +1,4 @@
-#include "GraphicsComponent.h"
 #include "Scene.h"
-#include "XMLSceneParser.h"
 
 /// <summary>
 /// Scene is where a TileMap can be created.
@@ -16,17 +14,18 @@ Scene::~Scene() {}
 
 void Scene::addGraphics()
 {
-	std::unique_ptr<XMLSceneParser> xmlSceneParser = std::make_unique<XMLSceneParser>();
+	XMLSceneParser xmlSceneParser;
 
-	tileMap = xmlSceneParser.get()->loadScene("Assets/maps/level1.xml");
+	tileMap = xmlSceneParser.loadScene("Assets/maps/level1.xml");
 
 	for (std::shared_ptr<Tile> t : tileMap)
 	{
-		t->addGraphicsComponent("Level1");
-		components.emplace_back(t);
+		std::string test = "Level1";
+		t->addGraphicsComponent(test);
+		components.emplace_back(std::move(t));
 	}
 
-	Colour color = { 0, 255, 0, 255 };
+	Colour color = { 0, 0, 0, 255 };
 	fpsText = std::make_shared<TextComponent>("", "comic", color, 32);
 	fpsText->transform.position = { 1200, 10 };
 	components.emplace_back(fpsText);
@@ -39,7 +38,7 @@ void Scene::addGraphics()
 /// <returns>If succeeded, it returns a TileMap that contains Tile objects.</returns>
 std::vector<std::shared_ptr<Tile>> Scene::makeTiles(std::vector<std::shared_ptr<ParserData>> data)
 {
-	for (std::shared_ptr<ParserData> tile : data)
+	for (const std::shared_ptr<ParserData> tile : data)
 	{
 		int first = tile.get()->tileId[0] - 48;
 		if (tile.get()->tileId[1]) {
@@ -62,25 +61,29 @@ std::map<std::string, std::string> Scene::passTextures() const
 	return texture;
 }
 
-void Scene::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos) 
+void Scene::handleInput(const KeyCodes &keyCode, const KeyboardEvent &keyboardEvent, Vector2D &mousePos) 
 {
 	if (keyboardEvent == KeyboardEvent::KEY_PRESSED)
 	{
-		if (keyCode == KeyCodes::KEY_TAB)
+		switch (keyCode)
 		{
+		case KeyCodes::KEY_TAB:
 			DebugUtilities::getInstance().toggleShowFPS();
-		}
-		else if (keyCode == KeyCodes::KEY_COMMA)
-		{
+			break;
+		case KeyCodes::KEY_COMMA:
 			DebugUtilities::getInstance().slowDownGame();
-		}
-		else if (keyCode == KeyCodes::KEY_POINT)
-		{
+			break;
+		case KeyCodes::KEY_POINT:
 			DebugUtilities::getInstance().speedUpGame();
-		}
-		else if (keyCode == KeyCodes::KEY_SLASH)
-		{
+			break;
+		case KeyCodes::KEY_SLASH:
 			DebugUtilities::getInstance().resetSpeedGame();
+			break;
+		case KeyCodes::KEY_P:
+			DebugUtilities::getInstance().pauseGame();
+			break;
+		default:
+			break;
 		}
 	}
 }

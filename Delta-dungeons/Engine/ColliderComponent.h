@@ -6,8 +6,8 @@ class ColliderComponent {
 public:
 	std::string tag;
 
-	ColliderComponent();
-	~ColliderComponent();
+	ColliderComponent() {};
+	~ColliderComponent() {};
 
 	void CallbackFunction();
 };

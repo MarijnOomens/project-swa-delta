@@ -12,20 +12,29 @@ EngineController::EngineController()
 	initRenderer("Delta Dungeons", 1280, 960, false);
 }
 
-EngineController::~EngineController() {}
-
 /// <summary>
 /// This method keeps executing while the gaming is running. It keeps updating all behaviour objects.
 /// </summary>
 /// <param name="bhObjects">Vector of all available behaviour objects.</param>
-void EngineController::update(std::vector<std::shared_ptr<BehaviourObject>>& bhObjects)
+void EngineController::update()
 {
-	for (auto& bo : bhObjects)
+	for (const auto& bo : behaviourObjects)
 	{
-		bo.get()->update();
+		bo->update();
 	}
 }
 
+/// <summary>
+/// This method calls an initialization function in RenderFacade with the given data, like resolution of the game window.
+/// </summary>
+/// <param name="title">Title of game window.</param>
+/// <param name="width">Width of game window.</param>
+/// <param name="height">Height of game window.</param>
+/// <param name="fullscreen">Boolean whether game is fullscreen or not.</param>
+void EngineController::initRenderer(const std::string& title, int width, int height, bool fullscreen)
+{
+	renderFacade->init(title, width, height, fullscreen);
+}
 
 /// <summary>
 /// Receives input data from the class Input and passes it to a new function.
@@ -50,16 +59,11 @@ void EngineController::inputCallbackFunction(const KeyCodes keyCode, const Keybo
 	{
 		quitGame();
 	}
-	else if (keyCode == KeyCodes::KEY_P)
-	{
-		renderFacade.get()->pauseGame();
-		pauseScreen();
-	}
 	else {
-		for (auto& gameObject : behaviourObjects)
+		for (const auto& gameObject : behaviourObjects)
 		{
 			if (!isSceneSwitched) {
-				gameObject.get()->handleInput(keyCode, keyboardEvent, mousePos);
+				gameObject->handleInput(keyCode, keyboardEvent, mousePos);
 			}
 		}
 	}
@@ -71,23 +75,12 @@ void EngineController::inputCallbackFunction(const KeyCodes keyCode, const Keybo
 /// </summary>
 /// <param name="name">Texture name.</param>
 /// <param name="path">Texture path.</param>
-void EngineController::addTexture(std::string name, std::string path) {
+void EngineController::addTexture(const std::string& name, const std::string& path)
+{
 	assetManager->addTexture(name, path);
 }
 
-/// <summary>
-/// This method calls an initialization function in RenderFacade with the given data, like resolution of the game window.
-/// </summary>
-/// <param name="title">Title of game window.</param>
-/// <param name="width">Width of game window.</param>
-/// <param name="height">Height of game window.</param>
-/// <param name="fullscreen">Boolean whether game is fullscreen or not.</param>
-void EngineController::initRenderer(const char* title, int width, int height, bool fullscreen)
-{
-	EngineController::renderFacade->init(title, width, height, fullscreen);
-}
-
-void EngineController::createCamera(int x, int y)
+void EngineController::createCamera(const int x,const int y)const
 {
 	renderFacade->createCamera(x,y);
 }
@@ -97,25 +90,26 @@ void EngineController::createCamera(int x, int y)
 /// </summary>
 void EngineController::startGame()
 {
-	while (renderFacade->renderer->isRunning) {
+	while (renderFacade->renderer->isRunning)
+	{
 
 		renderFacade->setFrameStart();
 
-		input.get()->handleInput(renderFacade->renderer->isPaused);
+		input->handleInput(renderFacade->renderer->isPaused);
 		if (!renderFacade->renderer->isPaused) 
 		{
 			renderFacade->beforeFrame();
-			EngineController::update(behaviourObjects);
+			update();
 		}
 		renderFacade->afterFrame();
 		renderFacade->setFrameDelay();
 	}
 }
 
-void EngineController::registerScene(std::string sceneName, std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects)
+void EngineController::registerScene(const std::string& sceneName, const std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects)
 {
 	std::vector<std::shared_ptr<BehaviourObject>> tempObjects;
-	for (auto& o : behaviourObjects)
+	for (const auto& o : behaviourObjects)
 	{
 		if (dynamic_cast<GraphicsComponent*>(o.get()) != nullptr)
 		{
@@ -138,25 +132,30 @@ void EngineController::registerScene(std::string sceneName, std::vector<std::sha
 	sceneManager.registerScene(sceneName, tempObjects);
 }
 
-void EngineController::loadScene(std::string sceneName, std::string fromScene, bool clearPrevious)
+void EngineController::loadScene(const std::string& sceneName, const std::string& fromScene, bool clearPrevious)
 {
+	if (renderFacade->renderer->isPaused)
+	{
+		renderFacade->pauseGame();
+	}
 	isSceneSwitched = true;
 	behaviourObjects = sceneManager.loadScene(sceneName, fromScene, clearPrevious);
+
 }
 
 void EngineController::loadPreviousScene()
 {
 	isSceneSwitched = true;
 	behaviourObjects = sceneManager.loadPreviousScene();
-	update(behaviourObjects);
+	update();
 }
 
 void EngineController::addOverlayScene(const std::string& sceneName)
 {
 	isSceneSwitched = true;
-	auto tempObjects = sceneManager.addOverlayScene(sceneName);
+	const auto tempObjects = sceneManager.addOverlayScene(sceneName);
 	behaviourObjects.insert(behaviourObjects.end(), tempObjects.begin(), tempObjects.end());
-	update(behaviourObjects);
+	update();
 }
 
 void EngineController::passPlayerPosition(int x, int y)
@@ -168,9 +167,9 @@ void EngineController::passPlayerPosition(int x, int y)
 /// This method registers all given textures, in the AssetManager.
 /// </summary>
 /// <param name="textures">Map of multiple textures.</param>
-void EngineController::registerTextures(std::map<std::string, std::string> textures) {
-	for (auto& t : textures) {
-		assetManager.get()->addTexture(t.first, t.second);
+void EngineController::registerTextures(const std::map<std::string, std::string> textures) {
+	for (const auto& t : textures) {
+		assetManager->addTexture(t.first, t.second);
 	}
 }
 
@@ -186,38 +185,40 @@ void EngineController::registerFonts(std::map<std::string, std::string> fonts) {
 
 void EngineController::pauseScreen()
 {
-	if (renderFacade->renderer->isPaused) 
-	{
-		addOverlayScene("PauseScreen");
-		EngineController::update(behaviourObjects);
-	}
-	else 
-	{
-		loadPreviousScene();
+	if (sceneManager.getActiveScenesSize() < 3) {
+		renderFacade->pauseGame();
+		if (renderFacade->renderer->isPaused) 
+		{
+			addOverlayScene("PauseScreen");
+		}
+		else
+		{
+			loadPreviousScene();
+		}
 	}
 }
 
-void EngineController::quitGame() 
+void EngineController::quitGame() const
 {
-	renderFacade.get()->quitGame();
+	renderFacade->quitGame();
 }
 
-int EngineController::getFPS()
+int EngineController::getFPS() const
 {
 	return renderFacade->getFPS();
 }
 
-void EngineController::slowDownGame()
+void EngineController::slowDownGame() const
 {
-	renderFacade.get()->slowDownGame();
+	renderFacade->slowDownGame();
 }
 
-void EngineController::speedUpGame()
+void EngineController::speedUpGame() const
 {
-	renderFacade.get()->speedUpGame();
+	renderFacade->speedUpGame();
 }
 
-void EngineController::resetSpeedGame()
+void EngineController::resetSpeedGame() const
 {
-	renderFacade.get()->resetSpeedGame();
+	renderFacade->resetSpeedGame();
 }

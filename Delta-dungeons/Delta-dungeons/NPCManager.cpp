@@ -10,8 +10,6 @@ NPCManager::NPCManager()
 	addTrainers();
 }
 
-NPCManager::~NPCManager() {}
-
 void NPCManager::createNPC()
 {
 	std::unique_ptr<XMLSceneParser> xmlSceneParser = std::make_unique<XMLSceneParser>();
@@ -35,7 +33,7 @@ std::map<std::string, std::string> NPCManager::passTextures() const
 	std::map<std::string, std::string> totalTextures;
 	for (auto& npc : npcs) {
 		for (auto& t : npc.second->textures) {
-			totalTextures.try_emplace(t.first, t.second);
+			totalTextures.emplace(t.first, t.second);
 		}
 	}
 	return totalTextures;

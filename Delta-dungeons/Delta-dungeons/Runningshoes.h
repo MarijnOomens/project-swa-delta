@@ -8,15 +8,14 @@ class RunningShoes : public IEquipment
 public:
 	std::shared_ptr<GraphicsComponent> gc;
 	RunningShoes();
-	RunningShoes(cbEquipment f, void* p);
+	RunningShoes(const cbEquipment f, void* p);
 	RunningShoes(int x, int y, std::string texture);
 	~RunningShoes();
 	void use() override;
 
+private:
 	cbEquipment func;
 	void* pointer;
 	bool isActivated = false;
 	bool isCollider;
-
-private:
 };

@@ -3,9 +3,6 @@
 /// <summary>
 /// A GraphicsComponent holds the graphical details of a gameObject, like animation and textures.
 /// </summary>
-GraphicsComponent::GraphicsComponent() {};
-
-GraphicsComponent::~GraphicsComponent() {};
 
 /// <summary>
 /// If the graphicsComponent is animated, this method will start to play the animation.
@@ -17,7 +14,6 @@ GraphicsComponent::~GraphicsComponent() {};
 void GraphicsComponent::playAnimation(int row, int frames, int speed, bool flip) 
 {
 	animated = true;
-
 	animRow = row;
 	animFrames = frames;
 	animSpeed = speed;
@@ -28,7 +24,7 @@ void GraphicsComponent::playAnimation(int row, int frames, int speed, bool flip)
 /// Sets the texture of the graphicsComponent.
 /// </summary>
 /// <param name="name">Texture name.</param>
-void GraphicsComponent::setTexture(std::string name)
+void GraphicsComponent::setTexture(const std::string& name)
 {
 	this->textureName = name;
 }
@@ -50,13 +46,13 @@ void GraphicsComponent::addTextureManager(std::shared_ptr<TextureManager> tm)
 	textureManager = tm;
 }
 
-void GraphicsComponent::handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos) {}
+void GraphicsComponent::handleInput(const KeyCodes &keyCode, const KeyboardEvent &keyboardEvent, Vector2D &mousePos) {}
 
 /// <summary>
 /// Gets the textureManager pointer.
 /// </summary>
 /// <returns>Returns the textureManager pointer.</returns>
-std::shared_ptr<TextureManager> GraphicsComponent::getTextureManager() 
+std::shared_ptr<TextureManager> GraphicsComponent::getTextureManager() const
 {
 	return this->textureManager;
 }

@@ -1,14 +1,10 @@
-#include "Boomerang.h"
 #include "Player.h"
 #include "RunningShoes.h"
-#include <windows.h>
 
 /// <summary>
 /// This class defines everything that has to do with the player character. Textures, input handling, health and caught Pok�mon
 /// are all defined in the Player class. Interaction with the player's equipment is handled here too.
 /// </summary>
-
-const int animationSpeed = 120;
 
 /// <summary>
 /// Creates the running and boomerang equipments. And added to the equipment vector list.
@@ -20,8 +16,8 @@ Player::Player(const cbCamera f, const cbTile cbTile, const cbInteractWithEquipm
 	std::shared_ptr<RunningShoes> running = std::make_shared<RunningShoes>(staticEquipmentCallbackFunction, this);
 	std::shared_ptr<Boomerang> boomerang = std::make_shared<Boomerang>();
 
-	addEquipment(running);
-	addEquipment(boomerang);
+	addEquipment(std::move(running));
+	addEquipment(std::move(boomerang));
 
 	baseMovementSpeed = 128;
 	runActivated = false;
@@ -29,34 +25,29 @@ Player::Player(const cbCamera f, const cbTile cbTile, const cbInteractWithEquipm
 
 	this->transform.position.x = 1024;
 	this->transform.position.y = 768;
-	x = this->transform.position.x;
-	y = this->transform.position.y;
-
 
 	this->textures.try_emplace("player_m", "Assets/player2_m_anims.png");
 	this->textures.try_emplace("player_f", "Assets/player_f_anims.png");
 	this->texture = "player_m";
 
-	m_gc = std::make_shared<GraphicsComponent>();
-	m_gc->setTexture("player_m");
-	m_gc->isScreen = false;
-	m_gc.get()->transform = this->transform;
-	m_gc->imageDimensions = { 32, 32 };
-	m_gc->transform.scale.multiply({ 4, 4 });
-	m_gc->playAnimation(0, 3, animationSpeed, false);
+	gc = std::make_shared<GraphicsComponent>();
+	gc->setTexture("player_m");
+	gc->isScreen = false;
+	gc->transform = this->transform;
+	gc->imageDimensions = { 32, 32 };
+	gc->transform.scale.multiply({ 4, 4 });
+	gc->playAnimation(0, 3, animationSpeed, false);
 
-	this->components.emplace_back(m_gc);
+	this->components.emplace_back(gc);
 	currentDirection = KeyCodes::KEY_DOWN;
 }
-
-Player::~Player() {}
 
 /// <summary>
 ///	handleInput receives the keyboard input through keycodes and keyboardevents
 /// </summary> 
 /// <param name="Keycodes are enums and will be used to decide what action the user will make."></param>
 /// <param name="keyboardEvent">KeyboardEvent will decide if handleKeyPressed or handleKeyReleased will be used</param>
-void Player::handleInput(const KeyCodes keyCodes, const KeyboardEvent keyboardEvent, Vector2D mousePos)
+void Player::handleInput(const KeyCodes &keyCodes, const KeyboardEvent &keyboardEvent, Vector2D &mousePos)
 {
 	// predicts player next position & tileFunc checks for collision with that coordinate and returns a bool accordingly.
 	if (!cheatCollision) {
@@ -99,7 +90,7 @@ void Player::handleInput(const KeyCodes keyCodes, const KeyboardEvent keyboardEv
 /// This method handles the logic when a keybutton has been pressed.
 /// </summary>
 /// <param name="keyCodes"></param>
-void Player::handleKeyPressed(const KeyCodes keyCodes)
+void Player::handleKeyPressed(const KeyCodes& keyCodes)
 {
 	switch (keyCodes)
 	{
@@ -140,12 +131,12 @@ void Player::handleKeyPressed(const KeyCodes keyCodes)
 	case KeyCodes::KEY_G:
 		if (this->texture == "player_m")
 		{
-			m_gc->setTexture("player_f");
+			gc->setTexture("player_f");
 			this->texture = "player_f";
 		}
 		else
 		{
-			m_gc->setTexture("player_m");
+			gc->setTexture("player_m");
 			this->texture = "player_m";
 		}
 		break;
@@ -177,21 +168,21 @@ void Player::handleInteraction() {
 /// This method handles the logic after the keybutton has been released.
 /// </summary>
 /// <param name="keyCodes"></param>
-void Player::handleKeyReleased(const KeyCodes keyCodes)
+void Player::handleKeyReleased(const KeyCodes& keyCodes)
 {
 	switch (keyCodes)
 	{
 	case KeyCodes::KEY_UP:
-		m_gc->playAnimation(4, 3, animationSpeed, false);
+		gc->playAnimation(4, 3, animationSpeed, false);
 		break;
 	case KeyCodes::KEY_DOWN:
-		m_gc->playAnimation(0, 3, animationSpeed, false);
+		gc->playAnimation(0, 3, animationSpeed, false);
 		break;
 	case KeyCodes::KEY_LEFT:
-		m_gc->playAnimation(5, 3, animationSpeed, false);
+		gc->playAnimation(5, 3, animationSpeed, false);
 		break;
 	case KeyCodes::KEY_RIGHT:
-		m_gc->playAnimation(5, 3, animationSpeed, true);
+		gc->playAnimation(5, 3, animationSpeed, true);
 		break;
 	case KeyCodes::KEY_W:
 		m_gc->playAnimation(4, 3, animationSpeed, false);
@@ -210,6 +201,8 @@ void Player::handleKeyReleased(const KeyCodes keyCodes)
 	}
 }
 
+void Player::update() {}
+
 /// <summary>
 /// This method moves the character up by changing the sprite animation and adjusting the Y coordinate
 /// Running or walk animation will be used based on the runActivated boolean value.
@@ -217,8 +210,8 @@ void Player::handleKeyReleased(const KeyCodes keyCodes)
 void Player::moveUp()
 {
 	transform.position.y -= baseMovementSpeed;
-	m_gc.get()->transform.position = transform.position;
-	runActivated ? m_gc->playAnimation(7, 3, animationSpeed, false) : m_gc->playAnimation(2, 4, animationSpeed, false);
+	gc.get()->transform.position = transform.position;
+	runActivated ? gc->playAnimation(7, 3, animationSpeed, false) : gc->playAnimation(2, 4, animationSpeed, false);
 	func(pointer, transform.position.x, transform.position.y);
 }
 
@@ -229,8 +222,8 @@ void Player::moveUp()
 void Player::moveDown()
 {
 	transform.position.y += baseMovementSpeed;
-	m_gc.get()->transform.position = transform.position;
-	runActivated ? m_gc->playAnimation(6, 3, animationSpeed, false) : m_gc->playAnimation(1, 4, animationSpeed, false);
+	gc.get()->transform.position = transform.position;
+	runActivated ? gc->playAnimation(6, 3, animationSpeed, false) : gc->playAnimation(1, 4, animationSpeed, false);
 	func(pointer, transform.position.x, transform.position.y);
 }
 
@@ -241,8 +234,8 @@ void Player::moveDown()
 void Player::moveLeft()
 {
 	transform.position.x -= baseMovementSpeed;
-	m_gc.get()->transform.position = transform.position;
-	runActivated ? m_gc->playAnimation(8, 3, animationSpeed, false) : m_gc->playAnimation(3, 4, animationSpeed, false);
+	gc.get()->transform.position = transform.position;
+	runActivated ? gc->playAnimation(8, 3, animationSpeed, false) : gc->playAnimation(3, 4, animationSpeed, false);
 	func(pointer, transform.position.x, transform.position.y);
 }
 
@@ -253,8 +246,8 @@ void Player::moveLeft()
 void Player::moveRight()
 {
 	transform.position.x += baseMovementSpeed;
-	m_gc.get()->transform.position = transform.position;
-	runActivated ? m_gc->playAnimation(8, 3, animationSpeed, true) : m_gc->playAnimation(3, 4, animationSpeed, true);
+	gc.get()->transform.position = transform.position;
+	runActivated ? gc->playAnimation(8, 3, animationSpeed, true) : gc->playAnimation(3, 4, animationSpeed, true);
 	func(pointer, transform.position.x, transform.position.y);
 }
 
@@ -262,10 +255,14 @@ void Player::moveRight()
 /// This method is a setter to add an equipment to the vector list called Equipment
 /// </summary>
 /// <param name="item">The equipment that will bed added</param>
-void Player::addEquipment(std::shared_ptr<IEquipment> item)
+void Player::addEquipment(std::unique_ptr<IEquipment> item)
 {
-	equipment.emplace_back(item);
+	equipment.emplace_back(std::move(item));
 }
+
+void Player::damagePlayer(int damage) {}
+
+void::Player::updateCaughtPokemon(int pokemonId) {}
 
 /// <summary>
 /// Callbackmethod to call the equipmentCallbackFunction.

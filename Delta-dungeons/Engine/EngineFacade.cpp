@@ -1,11 +1,8 @@
 #include "EngineFacade.h"
+
 /// <summary>
 /// Facade between EngineController & GameManager
 /// </summary>
-
-//EngineFacade::EngineFacade() {
-//	engineController = std::make_unique<EngineController>();
-//}
 
 /// <summary>
 ///  Init creates a unique EngineController object.
@@ -19,7 +16,7 @@ void EngineFacade::init()
 /// Init creates a unique EngineController object.
 /// </summary>
 
-void EngineFacade::addTexture(std::string name, std::string path) 
+void EngineFacade::addTexture(const std::string& name,const std::string& path) 
 {
 	engineController->addTexture(name, path);
 }
@@ -37,7 +34,7 @@ void EngineFacade::registerBehaviourObjects(std::vector<std::shared_ptr<Behaviou
 /// </summary>
 void EngineFacade::registerTextures(std::map<std::string, std::string> textures) 
 {
-	engineController.get()->registerTextures(textures);
+	engineController->registerTextures(textures);
 }
 
 /// <summary>
@@ -45,7 +42,7 @@ void EngineFacade::registerTextures(std::map<std::string, std::string> textures)
 /// </summary>
 void EngineFacade::registerFonts(std::map<std::string, std::string> fonts) 
 {
-	engineController.get()->registerFonts(fonts);
+	engineController->registerFonts(fonts);
 }
 
 /// <summary>
@@ -53,37 +50,37 @@ void EngineFacade::registerFonts(std::map<std::string, std::string> fonts)
 /// </summary>
 void EngineFacade::startGame() 
 {
-	engineController.get()->startGame();
+	engineController->startGame();
 }
 
 void EngineFacade::createCamera(int x, int y) 
 {
-	engineController.get()->createCamera(x,y);
+	engineController->createCamera(x,y);
 }
 
 void EngineFacade::passPlayerPosition(int x, int y)
 {
-	engineController.get()->passPlayerPosition(x, y);
+	engineController->passPlayerPosition(x, y);
 }
 
-void EngineFacade::registerScene(std::string sceneName, std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects)
+void EngineFacade::registerScene(const std::string& sceneName, std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects)
 {
-	engineController.get()->registerScene(sceneName, behaviourObjects);
+	engineController->registerScene(sceneName, behaviourObjects);
 }
 
-void EngineFacade::loadScene(std::string sceneName, std::string fromScene, bool clearPrevious)
+void EngineFacade::loadScene(const std::string& sceneName, const std::string& fromScene, bool clearPrevious)
 {
-	engineController.get()->loadScene(sceneName, fromScene, clearPrevious);
+	engineController->loadScene(sceneName, fromScene, clearPrevious);
 }
 
 void EngineFacade::loadPreviousScene()
 {
-	engineController.get()->loadPreviousScene();
+	engineController->loadPreviousScene();
 }
 
 void EngineFacade::addOverlayScene(const std::string& sceneName)
 {
-	engineController.get()->addOverlayScene(sceneName);
+	engineController->addOverlayScene(sceneName);
 }
 
 void EngineFacade::quitGame() {
@@ -108,4 +105,9 @@ void EngineFacade::speedUpGame()
 void EngineFacade::resetSpeedGame()
 {
 	engineController->resetSpeedGame();
+}
+
+void EngineFacade::pauseGame()
+{
+	engineController->pauseScreen();
 }
