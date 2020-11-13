@@ -65,11 +65,11 @@ std::vector<std::shared_ptr<ParserData>> XMLParser::parseXML(const std::string& 
 /// </summary>
 /// <returns> A list with parserdata for NPCs only.</returns>
 
-std::vector<std::shared_ptr<ParserData>> XMLParser::getEquipmentDataList(const char* path)
+std::vector<std::shared_ptr<ParserData>> XMLParser::getEquipmentDataList(const std::string& path)
 {
 	std::vector<std::shared_ptr<ParserData>> equipmentDataList;
 
-	rapidxml::file<> xmlFile(path);
+	rapidxml::file<> xmlFile(path.c_str());
 	rapidxml::xml_document<> doc;
 
 	doc.parse<0>(xmlFile.data());
@@ -98,11 +98,11 @@ std::vector<std::shared_ptr<ParserData>> XMLParser::getEquipmentDataList(const c
 	return equipmentDataList;
 }
 
-std::vector<std::shared_ptr<ParserData>> XMLParser::getNPCDataList(const char* path)
+std::vector<std::shared_ptr<ParserData>> XMLParser::getNPCDataList(const std::string& path)
 {
 	std::vector<std::shared_ptr<ParserData>> npcDataList;
 
-	rapidxml::file<> xmlFile(path);
+	rapidxml::file<> xmlFile(path.c_str());
 	rapidxml::xml_document<> doc;
 
 	doc.parse<0>(xmlFile.data());

@@ -4,13 +4,9 @@
 /// Scene is where a TileMap can be created.
 /// </summary>
 
-Scene::Scene() {}
-
 Scene::Scene(const cbTileToPlayer f, void* p) : func(f), pointer(p) {}
 
 Scene::Scene(int x, int y) : x(x), y(y) {}
-
-Scene::~Scene() {}
 
 void Scene::addGraphics()
 {

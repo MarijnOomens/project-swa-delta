@@ -5,7 +5,7 @@
 /// This class defines everything that has to do with the player character. Textures, input handling, health and caught Pok�mon
 /// are all defined in the Player class. Interaction with the player's equipment is handled here too.
 /// </summary>
-
+/// 
 /// <summary>
 /// Creates the running and boomerang equipments. And added to the equipment vector list.
 /// Defines the movementspeed and the runactivated bool
@@ -13,8 +13,8 @@
 /// </summary>
 Player::Player(const cbCamera f, const cbTile cbTile, const cbInteractWithEquipmentManager eqMF, void* p) : func(f), tileFunc(cbTile), eqManagerFunc(eqMF), pointer(p)
 {
-	std::shared_ptr<RunningShoes> running = std::make_shared<RunningShoes>(staticEquipmentCallbackFunction, this);
-	std::shared_ptr<Boomerang> boomerang = std::make_shared<Boomerang>();
+	std::unique_ptr<RunningShoes> running = std::make_unique<RunningShoes>(staticEquipmentCallbackFunction, this);
+	std::unique_ptr<Boomerang> boomerang = std::make_unique<Boomerang>();
 
 	addEquipment(std::move(running));
 	addEquipment(std::move(boomerang));
@@ -185,16 +185,16 @@ void Player::handleKeyReleased(const KeyCodes& keyCodes)
 		gc->playAnimation(5, 3, animationSpeed, true);
 		break;
 	case KeyCodes::KEY_W:
-		m_gc->playAnimation(4, 3, animationSpeed, false);
+		gc->playAnimation(4, 3, animationSpeed, false);
 		break;
 	case KeyCodes::KEY_S:
-		m_gc->playAnimation(0, 3, animationSpeed, false);
+		gc->playAnimation(0, 3, animationSpeed, false);
 		break;
 	case KeyCodes::KEY_A:
-		m_gc->playAnimation(5, 3, animationSpeed, false);
+		gc->playAnimation(5, 3, animationSpeed, false);
 		break;
 	case KeyCodes::KEY_D:
-		m_gc->playAnimation(5, 3, animationSpeed, true);
+		gc->playAnimation(5, 3, animationSpeed, true);
 		break;
 	default:
 		break;
@@ -305,9 +305,3 @@ void Player::setToTrue()
 {
 	tileCollision = true;
 }
-
-void Player::damagePlayer(int damage) {}
-
-void Player::updateCaughtPokemon(int pokemonId) {}
-
-void Player::update() {}

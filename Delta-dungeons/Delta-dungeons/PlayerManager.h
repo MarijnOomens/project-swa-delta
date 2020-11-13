@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 
-typedef void(*cbCamera) (const void*, int, int);
+typedef void(*cbCamera) (void*, int, int);
 typedef void(*cbCheckCollision) (void*, int, int);
 typedef void(*cbInteractWithEquipmentManager) (void*, int, int);
 
@@ -18,7 +18,7 @@ public:
 	PlayerManager() {}
 	~PlayerManager() {}
 	
-	void createPlayer(cbCamera cb, cbCheckCollision tileCB, cbInteractWithEquipmentManager cbEquipment, const void* p);
+	void createPlayer(cbCamera cb, cbCheckCollision tileCB, cbInteractWithEquipmentManager cbEquipment, void* p);
 	void setCollisionToTrue();
 
 

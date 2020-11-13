@@ -94,7 +94,7 @@ void GameManager::registerTextures(std::map<std::string, std::string> textures)
 	engineFacade->registerTextures(textures);
 }
 
-void GameManager:: staticCameraCallbackFunction(const void* p, int x, int y) 
+void GameManager::staticCameraCallbackFunction(void* p, int x, int y) 
 {
 	((GameManager*)p)->passPlayerPosition(x, y);
 }

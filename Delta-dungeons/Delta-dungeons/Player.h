@@ -4,15 +4,12 @@
 #include "Boomerang.h"
 #include "GameObject.h"
 #include "GraphicsComponent.h"
-typedef void(*cbCamera) (void*,int,int);
 typedef void(*cbTile) (void*, int, int);
 typedef void(*cbInteractWithEquipmentManager) (void*, int, int);
 typedef void(*cbInteractWithNPCManager) (void*, int, int);
+typedef void(*cbCamera) (void*, int, int);
 
-
-typedef void(*cbCamera) (const void*, int, int);
-
-class Player : public GameObject 
+class Player : public GameObject
 {
 public:
 	std::map<std::string, std::string> textures;
@@ -24,11 +21,10 @@ public:
 	KeyCodes currentDirection;
 	void* pointer;
 	bool tileCollision;
-	Player();
-	Player(const cbCamera f, const cbTile cbTile, const cbInteractWithEquipmentManager eqMF, void* p);
+	Player(cbCamera f, cbTile cbTile, cbInteractWithEquipmentManager eqMF, void* p);
 	~Player() {}
 
-	void handleInput(const KeyCodes &keyCodes, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
+	void handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
 	void handleKeyPressed(const KeyCodes& keyCodes);
 	void handleKeyReleased(const KeyCodes& keyCodes);
 
@@ -49,6 +45,7 @@ public:
 	void setToTrue();
 	void handleInteraction();
 private:
+	const int animationSpeed = 120;
 	int health;
 	int amountCaught;
 	int baseMovementSpeed;

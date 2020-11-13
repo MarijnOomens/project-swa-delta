@@ -20,6 +20,7 @@ public:
 	static void staticPlayerToTileCallbackFunction(void* p, int x, int y);
 	static void staticTileToPlayerCallbackFunction(void* p);
 	static void staticEquipmentManagerCallbackFunction(void* p, int x, int y);
+	static void staticCameraCallbackFunction(void* p, int x, int y);
 	//static void staticNPCManagerCallbackFunction(void* p, int x, int y);
 
 
@@ -31,7 +32,6 @@ public:
 	//void equipmentManagerCallbackFunction(int x, int y);
 
 
-	static void staticCameraCallbackFunction(const void* p, int x, int y);
 	void passPlayerPosition(int x, int y);
 	void registerFonts(std::map<std::string, std::string> fonts);
 
