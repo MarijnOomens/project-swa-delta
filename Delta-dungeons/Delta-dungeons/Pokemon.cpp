@@ -19,4 +19,7 @@ Pokemon::Pokemon(int x, int y, std::string &texture)
 	this->components.emplace_back(cc);
 }
 
-void Pokemon::interact() {}
+void Pokemon::interact() 
+{
+	std::cout << "found " << gc.get()->textureName << gc.get()->transform.position.x << " " << gc.get()->transform.position.y << std::endl;
+}
