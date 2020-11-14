@@ -80,25 +80,29 @@ void Scene::checkCollision(int xPos, int yPos)
 {
 	for (int x = 0; x < tileMap.size(); x++)
 	{
-		int tileX = tileMap.at(x).get()->originX;
-		int tileY = tileMap.at(x).get()->originY;
 		int isCollider = tileMap.at(x).get()->components.size();
 
-		if (xPos == tileX && yPos == tileY)
+		if (isCollider > 1)
 		{
-			// Logs for collision debug purposes
-			//std::cout << "Tile and player collision prediction." << std::endl;
-			//std::cout << "Tries moving to x: " << xPos << std::endl;
-			//std::cout << "Tries moving to y: " << yPos << std::endl;
-			//std::cout << "Target tile x: " << tileX << std::endl;
-			//std::cout << "Target tile y: " << tileY << std::endl;
-			//std::cout << "Tile isCollider " << isCollider << std::endl;
-			//std::cout << "-------------------------------------" << std::endl;
+			int tileX = tileMap.at(x).get()->components.at(1).get()->transform.position.x;
+			int tileY = tileMap.at(x).get()->components.at(1).get()->transform.position.y;
 
-			if (isCollider > 1) {
-				//std::cout << "This is a Tile with Collision" << std::endl;
-				func(pointer);
-				break;
+			if (xPos == tileX && yPos == tileY)
+			{
+				// Logs for collision debug purposes
+				//std::cout << "Tile and player collision prediction." << std::endl;
+				//std::cout << "Tries moving to x: " << xPos << std::endl;
+				//std::cout << "Tries moving to y: " << yPos << std::endl;
+				//std::cout << "Target tile x: " << tileX << std::endl;
+				//std::cout << "Target tile y: " << tileY << std::endl;
+				//std::cout << "Tile isCollider " << isCollider << std::endl;
+				//std::cout << "-------------------------------------" << std::endl;
+
+				if (isCollider > 1) {
+					//std::cout << "This is a Tile with Collision" << std::endl;
+					func(pointer);
+					break;
+				}
 			}
 		}
 	}
