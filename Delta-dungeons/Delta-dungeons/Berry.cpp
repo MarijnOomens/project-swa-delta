@@ -11,9 +11,17 @@ Berry::Berry(int x, int y, std::string texture) {
     gc->imageDimensions = { 32, 32 };
     gc.get()->transform = transform;
     gc->isScreen = false;
+    
+    cc = std::make_shared<ColliderComponent>();
+    cc->x = x * 128;
+    cc->y = y * 128;
+    
     this->components.emplace_back(gc);
+    this->components.emplace_back(cc);
 }
 
 Berry::~Berry() {}
 
 void Berry::use() {}
+
+void Berry::interact() {}

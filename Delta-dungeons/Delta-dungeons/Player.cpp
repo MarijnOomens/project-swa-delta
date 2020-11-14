@@ -38,7 +38,13 @@ Player::Player(const cbCamera f, const cbTile cbTile, const cbEquipmentManager e
 	gc->transform.scale.multiply({ 4, 4 });
 	gc->playAnimation(0, 3, animationSpeed, false);
 
+	cc = std::make_shared<ColliderComponent>();
+	cc->x = x * 128;
+	cc->y = y * 128;
+
 	this->components.emplace_back(gc);
+	this->components.emplace_back(cc);
+
 	currentDirection = KeyCodes::KEY_DOWN;
 }
 
@@ -85,6 +91,8 @@ void Player::handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboard
 	// resets collision for next move with collsion check.
 	tileCollision = false;
 }
+
+void Player::interact() {}
 
 /// <summary>
 /// This method handles the logic when a keybutton has been pressed.

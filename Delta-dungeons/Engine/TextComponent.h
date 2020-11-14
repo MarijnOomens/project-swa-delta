@@ -14,6 +14,7 @@ public:
 
 	void update() override;
 	void handleInput(const KeyCodes &keyCode, const KeyboardEvent &keyboardEvent, Vector2D &mousePos) override;
+	void interact() override;
 
 private:
 	std::shared_ptr<TextureManager> textureManager;

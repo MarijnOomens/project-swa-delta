@@ -4,6 +4,7 @@
 #include "Boomerang.h"
 #include "GameObject.h"
 #include "GraphicsComponent.h"
+#include "ColliderComponent.h"
 typedef void(*cbTile) (void*, int, int);
 typedef void(*cbEquipmentManager) (void*, int, int);
 typedef void(*cbNPCManager) (void*, int, int);
@@ -25,6 +26,7 @@ public:
 	~Player() {}
 
 	void handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
+	void interact() override;
 	void handleKeyPressed(const KeyCodes& keyCodes);
 	void handleKeyReleased(const KeyCodes& keyCodes);
 
@@ -58,5 +60,6 @@ private:
 	std::vector<int> pokemonCaught;
 	std::vector<std::unique_ptr<IEquipment>> equipment;
 	std::shared_ptr<GraphicsComponent> gc;
+	std::shared_ptr<ColliderComponent> cc;
 	AnimCategory animCategory;
 };

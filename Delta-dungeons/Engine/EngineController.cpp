@@ -24,6 +24,14 @@ void EngineController::update()
 	}
 }
 
+//void EngineController::interact()
+//{
+//	for (const auto& bo : behaviourObjects)
+//	{
+//		bo->interact();
+//	}
+//}
+
 /// <summary>
 /// This method calls an initialization function in RenderFacade with the given data, like resolution of the game window.
 /// </summary>

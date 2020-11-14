@@ -16,6 +16,14 @@ Tile::Tile(int x, int y, int xImage, bool collider)
 	transform.position.x = x * 128;
 	transform.position.y = y * 128;
 	imageCoordinates = Vector2D(xImage * 32, 0);
+	
+	if (collider)
+	{
+		cc = std::make_shared<ColliderComponent>();
+		cc->x = x * 128;
+		cc->y = y * 128;
+		this->components.emplace_back(cc);
+	}
 }
 
 /// <summary>
@@ -35,6 +43,14 @@ Tile::Tile(int x, int y, int yImage, int xImage, bool collider)
 	transform.position.x = x * 128;
 	transform.position.y = y * 128;
 	imageCoordinates = Vector2D(xImage * 32, yImage * 32);
+	
+	if (collider)
+	{
+		cc = std::make_shared<ColliderComponent>();
+		cc->x = x * 128;
+		cc->y = y * 128;
+		this->components.emplace_back(cc);
+	}
 }
 
 /// <summary>
@@ -42,7 +58,7 @@ Tile::Tile(int x, int y, int yImage, int xImage, bool collider)
 /// </summary>
 /// <param name="graphicsComnponent">An clean graphicscomponent without tile information</param>
 /// <param name="name">Texture name of the png</param>
-void Tile::addGraphicsComponent(std::string &name)
+void Tile::addGraphicsComponent(std::string& name)
 {
 	gc = std::make_shared<GraphicsComponent>();
 	gc->transform = transform;
@@ -52,6 +68,8 @@ void Tile::addGraphicsComponent(std::string &name)
 	this->components.emplace_back(gc);
 }
 
-void Tile::handleInput(const KeyCodes &keyCode, const KeyboardEvent &keyboardEvent, Vector2D &mousePos) {}
+void Tile::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) {}
 
 void Tile::update() {}
+
+void Tile::interact() {}

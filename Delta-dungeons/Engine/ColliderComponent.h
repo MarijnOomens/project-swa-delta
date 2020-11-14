@@ -1,13 +1,17 @@
 #pragma once
-
+#include "BehaviourObject.h"
 #include <string>
 
-class ColliderComponent {
+class ColliderComponent : public BehaviourObject {
 public:
-	std::string tag;
+	int x;
+	int y;
 
-	ColliderComponent() {};
-	~ColliderComponent() {};
+	ENGINE_API ColliderComponent() {};
+	ENGINE_API ~ColliderComponent() {};
 
-	void CallbackFunction();
+	ENGINE_API void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
+	ENGINE_API void interact() override;
+	ENGINE_API void update() override;
+	//ENGINE_API bool hasCollision();
 };

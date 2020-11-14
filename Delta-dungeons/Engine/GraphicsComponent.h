@@ -22,6 +22,7 @@ public:
 	ENGINE_API void update() override;
 	ENGINE_API void addTextureManager(std::shared_ptr<TextureManager> tm);
 	ENGINE_API void handleInput(const KeyCodes &keyCode, const KeyboardEvent &keyboardEvent, Vector2D &mousePos);
+	ENGINE_API void interact();
 	ENGINE_API std::shared_ptr<TextureManager>getTextureManager() const;
 private:
 	bool animated = false;
@@ -31,7 +32,6 @@ private:
 	bool flipped = false;
 
 	std::map<std::string, AnimTypes> animTypes;
-
 	std::shared_ptr<TextureManager> textureManager;
 	std::string textureName;
 };

@@ -34,3 +34,5 @@ void Button::handleInput(const KeyCodes &keyCode, const KeyboardEvent &keyboardE
 		}
 	}
 }
+
+void Button::interact() {}
