@@ -5,8 +5,7 @@
 #include <string>
 typedef void(*cbCamera) (void*, int, int);
 typedef void(*cbCheckCollision) (void*, int, int);
-typedef void(*cbEquipmentManager) (void*, int, int);
-typedef void(*cbNPCManager) (void*, int, int);
+typedef void(*cbInteract) (void*, int, int);
 
 class PlayerManager
 {
@@ -17,7 +16,7 @@ public:
 	PlayerManager() {}
 	~PlayerManager() {}
 
-	void createPlayer(cbCamera cb, cbCheckCollision tileCB, cbEquipmentManager cbEquipment, cbNPCManager npcMF, void* p);
+	void createPlayer(cbCamera cb, cbCheckCollision tileCB, cbInteract interactCB, void* p);
 	void setCollisionToTrue();
 
 

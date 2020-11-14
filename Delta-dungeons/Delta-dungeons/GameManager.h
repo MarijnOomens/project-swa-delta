@@ -19,14 +19,12 @@ public:
 
 	static void staticPlayerToTileCallbackFunction(void* p, int x, int y);
 	static void staticTileToPlayerCallbackFunction(void* p);
-	static void staticEquipmentManagerCallbackFunction(void* p, int x, int y);
 	static void staticCameraCallbackFunction(void* p, int x, int y);
-	static void staticNPCManagerCallbackFunction(void* p, int x, int y);
+	static void staticInteractCallbackFunction(void* p, int x, int y);
 
 
 	void playerToTileCallbackFunction(int x, int y);
 	void tileToPlayerCallbackFunction();
-	void equipmentManagerCallbackFunction(int x, int y);
 	void npcManagerCallbackFunction(int x, int y);
 
 

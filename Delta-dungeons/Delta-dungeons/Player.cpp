@@ -11,7 +11,7 @@
 /// Defines the movementspeed and the runactivated bool
 /// Creates the graphicscomponent for the player sprite and saves the texturename and png location, width, height
 /// </summary>
-Player::Player(const cbCamera f, const cbTile cbTile, const cbEquipmentManager eqMF, cbNPCManager npcMF, void* p) : func(f), tileFunc(cbTile), eqManagerFunc(eqMF), npcManagerFunc(npcMF), pointer(p)
+Player::Player(const cbCamera f, const cbTile cbTile, cbInteract npcMF, void* p) : func(f), tileFunc(cbTile), npcManagerFunc(npcMF), pointer(p)
 {
 	std::unique_ptr<RunningShoes> running = std::make_unique<RunningShoes>(staticEquipmentCallbackFunction, this);
 	std::unique_ptr<Boomerang> boomerang = std::make_unique<Boomerang>();
@@ -158,19 +158,15 @@ void Player::handleKeyPressed(const KeyCodes& keyCodes)
 
 void Player::handleInteraction() {
 	if (KeyCodes::KEY_UP == currentDirection) {
-		eqManagerFunc(pointer, transform.position.x, transform.position.y - 128);
 		npcManagerFunc(pointer, transform.position.x, transform.position.y - 128);
 	}
 	else if (KeyCodes::KEY_LEFT == currentDirection) {
-		eqManagerFunc(pointer, transform.position.x - 128, transform.position.y);
 		npcManagerFunc(pointer, transform.position.x - 128, transform.position.y);
 	}
 	else if (KeyCodes::KEY_RIGHT == currentDirection) {
-		eqManagerFunc(pointer, transform.position.x + 128, transform.position.y);
 		npcManagerFunc(pointer, transform.position.x + 128, transform.position.y);
 	}
 	else if (KeyCodes::KEY_DOWN == currentDirection) {
-		eqManagerFunc(pointer, transform.position.x, transform.position.y + 128);
 		npcManagerFunc(pointer, transform.position.x, transform.position.y + 128);
 	}
 }

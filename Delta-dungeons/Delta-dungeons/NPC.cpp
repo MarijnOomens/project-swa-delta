@@ -13,4 +13,7 @@ NPC::NPC(int x, int y, std::string &texture)
 	this->components.emplace_back(gc);
 }
 
-void NPC::interact(){}
+void NPC::interact()
+{
+	std::cout << "found " << gc.get()->textureName << gc.get()->transform.position.x << " " << gc.get()->transform.position.y << std::endl;
+}

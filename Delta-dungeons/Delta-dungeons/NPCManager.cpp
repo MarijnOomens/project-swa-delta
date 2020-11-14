@@ -39,15 +39,6 @@ std::map<std::string, std::string> NPCManager::passTextures() const
 	return totalTextures;
 }
 
-void NPCManager::interact(int x, int y)
-{
-	for (auto& npc : npcs) {
-		if (npc.second.get()->transform.position.x == x && npc.second.get()->transform.position.y == y) {
-			std::cout << "found " << npc.first << std::endl;
-		}
-	}
-}
-
 void NPCManager::addTrainers()
 {
 	trainerList.get()->push_back("bugtrainer");

@@ -20,7 +20,6 @@ public:
 
 	void createNPC();
 	std::map<std::string, std::string> passTextures() const;
-	void interact(int x, int y);
 
 	void addTrainers();
 	void addPokemon();

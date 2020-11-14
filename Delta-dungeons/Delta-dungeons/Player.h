@@ -6,8 +6,7 @@
 #include "GraphicsComponent.h"
 #include "ColliderComponent.h"
 typedef void(*cbTile) (void*, int, int);
-typedef void(*cbEquipmentManager) (void*, int, int);
-typedef void(*cbNPCManager) (void*, int, int);
+typedef void(*cbInteract) (void*, int, int);
 typedef void(*cbCamera) (void*, int, int);
 
 class Player : public GameObject
@@ -17,12 +16,11 @@ public:
 	std::string texture;
 	cbCamera func;
 	cbTile tileFunc;
-	cbEquipmentManager eqManagerFunc;
-	cbNPCManager npcManagerFunc;
+	cbInteract npcManagerFunc;
 	KeyCodes currentDirection;
 	void* pointer;
 	bool tileCollision;
-	Player(cbCamera f, cbTile cbTile, cbEquipmentManager eqMF, cbNPCManager npcMF, void* p);
+	Player(cbCamera f, cbTile cbTile, cbInteract npcMF, void* p);
 	~Player() {}
 
 	void handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
