@@ -14,7 +14,7 @@ GameManager::GameManager()
 	registerTextures(uiManager.passTextures());
 	registerFonts(uiManager.passFonts());
 
-	playerManager.createPlayer(staticCameraCallbackFunction, staticPlayerToTileCallbackFunction, staticEquipmentManagerCallbackFunction, this);
+	playerManager.createPlayer(staticCameraCallbackFunction, staticPlayerToTileCallbackFunction, staticEquipmentManagerCallbackFunction, staticNPCManagerCallbackFunction, this);
 	registerTextures(playerManager.passTextures());
 
 	npcManager.createNPC();
@@ -94,7 +94,7 @@ void GameManager::registerTextures(std::map<std::string, std::string> textures)
 	engineFacade->registerTextures(textures);
 }
 
-void GameManager::staticCameraCallbackFunction(void* p, int x, int y) 
+void GameManager::staticCameraCallbackFunction(void* p, int x, int y)
 {
 	((GameManager*)p)->passPlayerPosition(x, y);
 }
@@ -140,4 +140,11 @@ void GameManager::equipmentManagerCallbackFunction(int x, int y) {
 	eqManager.interact(x, y);
 }
 
+void GameManager::staticNPCManagerCallbackFunction(void* p, int x, int y)
+{
+	((GameManager*)p)->npcManagerCallbackFunction(x, y);
+}
 
+void GameManager::npcManagerCallbackFunction(int x, int y) {
+	npcManager.interact(x, y);
+}

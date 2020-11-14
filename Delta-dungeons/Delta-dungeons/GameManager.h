@@ -21,15 +21,13 @@ public:
 	static void staticTileToPlayerCallbackFunction(void* p);
 	static void staticEquipmentManagerCallbackFunction(void* p, int x, int y);
 	static void staticCameraCallbackFunction(void* p, int x, int y);
-	//static void staticNPCManagerCallbackFunction(void* p, int x, int y);
+	static void staticNPCManagerCallbackFunction(void* p, int x, int y);
 
 
 	void playerToTileCallbackFunction(int x, int y);
-
 	void tileToPlayerCallbackFunction();
-
 	void equipmentManagerCallbackFunction(int x, int y);
-	//void equipmentManagerCallbackFunction(int x, int y);
+	void npcManagerCallbackFunction(int x, int y);
 
 
 	void passPlayerPosition(int x, int y);
@@ -37,9 +35,9 @@ public:
 
 private:
 	std::shared_ptr<EngineFacade> engineFacade;
+	std::shared_ptr<Scene> scene;
 	UIManager uiManager;
 	PlayerManager playerManager;
 	EquipmentManager eqManager;
-	std::shared_ptr<Scene> scene;
 	NPCManager npcManager;
 };

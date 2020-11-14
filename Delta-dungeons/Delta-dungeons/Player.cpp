@@ -11,7 +11,7 @@
 /// Defines the movementspeed and the runactivated bool
 /// Creates the graphicscomponent for the player sprite and saves the texturename and png location, width, height
 /// </summary>
-Player::Player(const cbCamera f, const cbTile cbTile, const cbInteractWithEquipmentManager eqMF, void* p) : func(f), tileFunc(cbTile), eqManagerFunc(eqMF), pointer(p)
+Player::Player(const cbCamera f, const cbTile cbTile, const cbEquipmentManager eqMF, cbNPCManager npcMF, void* p) : func(f), tileFunc(cbTile), eqManagerFunc(eqMF), npcManagerFunc(npcMF), pointer(p)
 {
 	std::unique_ptr<RunningShoes> running = std::make_unique<RunningShoes>(staticEquipmentCallbackFunction, this);
 	std::unique_ptr<Boomerang> boomerang = std::make_unique<Boomerang>();
@@ -47,7 +47,7 @@ Player::Player(const cbCamera f, const cbTile cbTile, const cbInteractWithEquipm
 /// </summary> 
 /// <param name="Keycodes are enums and will be used to decide what action the user will make."></param>
 /// <param name="keyboardEvent">KeyboardEvent will decide if handleKeyPressed or handleKeyReleased will be used</param>
-void Player::handleInput(const KeyCodes &keyCodes, const KeyboardEvent &keyboardEvent, Vector2D &mousePos)
+void Player::handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboardEvent, Vector2D& mousePos)
 {
 	// predicts player next position & tileFunc checks for collision with that coordinate and returns a bool accordingly.
 	if (!cheatCollision) {
@@ -125,7 +125,6 @@ void Player::handleKeyPressed(const KeyCodes& keyCodes)
 		}
 		break;
 	case KeyCodes::KEY_E:
-		std::cout << "Interaction button pressed..." << std::endl;
 		handleInteraction();
 		break;
 	case KeyCodes::KEY_G:
@@ -152,15 +151,19 @@ void Player::handleKeyPressed(const KeyCodes& keyCodes)
 void Player::handleInteraction() {
 	if (KeyCodes::KEY_UP == currentDirection) {
 		eqManagerFunc(pointer, transform.position.x, transform.position.y - 128);
+		npcManagerFunc(pointer, transform.position.x, transform.position.y - 128);
 	}
 	else if (KeyCodes::KEY_LEFT == currentDirection) {
 		eqManagerFunc(pointer, transform.position.x - 128, transform.position.y);
+		npcManagerFunc(pointer, transform.position.x - 128, transform.position.y);
 	}
 	else if (KeyCodes::KEY_RIGHT == currentDirection) {
 		eqManagerFunc(pointer, transform.position.x + 128, transform.position.y);
+		npcManagerFunc(pointer, transform.position.x + 128, transform.position.y);
 	}
 	else if (KeyCodes::KEY_DOWN == currentDirection) {
 		eqManagerFunc(pointer, transform.position.x, transform.position.y + 128);
+		npcManagerFunc(pointer, transform.position.x, transform.position.y + 128);
 	}
 }
 

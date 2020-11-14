@@ -12,7 +12,7 @@ void EquipmentManager::createEquipment()
 {
 	std::unique_ptr<XMLSceneParser> xmlSceneParser = std::make_unique<XMLSceneParser>();
 	std::vector<std::shared_ptr<ParserData>> equipmentData = xmlSceneParser.get()->getEquipmentDataList("Assets/maps/level1.xml");
-	
+
 	for (auto parsedEquipment : equipmentData)
 	{
 		if (parsedEquipment.get()->tileId == "3") {
@@ -39,7 +39,6 @@ std::map<std::string, std::string> EquipmentManager::passTextures() const
 }
 
 void EquipmentManager::interact(int x, int y) {
-	std::cout << "interact from equipmentmanager " << x << " " << y << std::endl;
 	for (auto& equipment : equipments) {
 		if (equipment.second.get()->transform.position.x == x && equipment.second.get()->transform.position.y == y) {
 			std::cout << "found " << equipment.first << std::endl;

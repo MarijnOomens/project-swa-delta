@@ -4,10 +4,10 @@
 NPCManager::NPCManager()
 {
 	builder = std::make_shared<GameObjectBuilder>();
-	pokemonList = std::make_unique<std::vector<std::string>>();
 	trainerList = std::make_unique<std::vector<std::string>>();
-	addPokemon();
+	pokemonList = std::make_unique<std::vector<std::string>>();
 	addTrainers();
+	addPokemon();
 }
 
 void NPCManager::createNPC()
@@ -39,6 +39,25 @@ std::map<std::string, std::string> NPCManager::passTextures() const
 	return totalTextures;
 }
 
+void NPCManager::interact(int x, int y)
+{
+	for (auto& npc : npcs) {
+		if (npc.second.get()->transform.position.x == x && npc.second.get()->transform.position.y == y) {
+			std::cout << "found " << npc.first << std::endl;
+		}
+	}
+}
+
+void NPCManager::addTrainers()
+{
+	trainerList.get()->push_back("bugtrainer");
+	trainerList.get()->push_back("youngster");
+	trainerList.get()->push_back("bugtrainer");
+	trainerList.get()->push_back("youngster");
+	trainerList.get()->push_back("bugtrainer");
+	trainerList.get()->push_back("youngster");
+}
+
 void NPCManager::addPokemon()
 {
 	pokemonList.get()->push_back("eevee");
@@ -52,24 +71,14 @@ void NPCManager::addPokemon()
 	pokemonList.get()->push_back("sylveon");
 }
 
-std::string NPCManager::getRandomPokemon()
-{
-	int randomPokemon = rand() % pokemonList.get()->size();
-	return pokemonList.get()->at(randomPokemon);
-}
-
-void NPCManager::addTrainers()
-{
-	trainerList.get()->push_back("bugtrainer");
-	trainerList.get()->push_back("youngster");
-	trainerList.get()->push_back("bugtrainer");
-	trainerList.get()->push_back("youngster");
-	trainerList.get()->push_back("bugtrainer");
-	trainerList.get()->push_back("youngster");
-}
-
 std::string NPCManager::getRandomNPC()
 {
 	int randomTrainer = rand() % trainerList.get()->size();
 	return trainerList.get()->at(randomTrainer);
+}
+
+std::string NPCManager::getRandomPokemon()
+{
+	int randomPokemon = rand() % pokemonList.get()->size();
+	return pokemonList.get()->at(randomPokemon);
 }
