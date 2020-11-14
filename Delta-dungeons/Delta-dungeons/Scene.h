@@ -25,7 +25,6 @@ public:
 	void* pointer;
 
 	void addGraphics();
-	std::vector<std::shared_ptr<Tile>> makeTiles(std::vector<std::shared_ptr<ParserData>> data);
 	std::map<std::string, std::string> passTextures() const;
 
 	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
