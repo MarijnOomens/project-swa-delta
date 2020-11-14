@@ -24,6 +24,8 @@ public:
 	ENGINE_API void handleInput(const KeyCodes &keyCode, const KeyboardEvent &keyboardEvent, Vector2D &mousePos);
 	ENGINE_API void interact();
 	ENGINE_API std::shared_ptr<TextureManager>getTextureManager() const;
+	std::string textureName;
+
 private:
 	bool animated = false;
 	int animFrames;
@@ -33,5 +35,4 @@ private:
 
 	std::map<std::string, AnimTypes> animTypes;
 	std::shared_ptr<TextureManager> textureManager;
-	std::string textureName;
 };

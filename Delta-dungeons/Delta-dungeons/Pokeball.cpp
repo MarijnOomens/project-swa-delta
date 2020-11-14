@@ -20,6 +20,11 @@ Pokeball::Pokeball(int x, int y, std::string texture) {
 
 Pokeball::~Pokeball() {}
 
-void Pokeball::interact() {}
+void Pokeball::interact() 
+{
+    std::cout << "found " << gc.get()->textureName << gc.get()->transform.position.x << " " << gc.get()->transform.position.y << std::endl;
+}
 
-void Pokeball::use() {}
+void Pokeball::use() {
+
+}

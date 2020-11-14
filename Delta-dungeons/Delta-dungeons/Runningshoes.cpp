@@ -35,4 +35,7 @@ void RunningShoes::use()
     func(pointer, isActivated);
 }
 
-void RunningShoes::interact() {}
+void RunningShoes::interact() 
+{
+    std::cout << "found " << gc.get()->textureName << gc.get()->transform.position.x << " " <<  gc.get()->transform.position.y << std::endl;
+}

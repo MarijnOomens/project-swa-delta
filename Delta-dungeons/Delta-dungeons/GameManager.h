@@ -32,6 +32,7 @@ public:
 
 	void passPlayerPosition(int x, int y);
 	void registerFonts(std::map<std::string, std::string> fonts);
+	void passInteraction(int x, int y);
 
 private:
 	std::shared_ptr<EngineFacade> engineFacade;

@@ -111,3 +111,8 @@ void EngineFacade::pauseGame()
 {
 	engineController->pauseScreen();
 }
+
+void EngineFacade::passInteract(int x, int y)
+{
+	engineController->passInteract(x, y);
+}

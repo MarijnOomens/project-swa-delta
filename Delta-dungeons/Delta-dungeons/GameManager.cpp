@@ -146,5 +146,9 @@ void GameManager::staticNPCManagerCallbackFunction(void* p, int x, int y)
 }
 
 void GameManager::npcManagerCallbackFunction(int x, int y) {
+	engineFacade.get()->passInteract(x, y);
+}
+
+void GameManager::passInteraction(int x, int y) {
 	npcManager.interact(x, y);
 }

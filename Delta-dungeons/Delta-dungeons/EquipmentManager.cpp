@@ -39,9 +39,9 @@ std::map<std::string, std::string> EquipmentManager::passTextures() const
 }
 
 void EquipmentManager::interact(int x, int y) {
-	for (auto& equipment : equipments) {
-		if (equipment.second.get()->transform.position.x == x && equipment.second.get()->transform.position.y == y) {
-			std::cout << "found " << equipment.first << std::endl;
-		}
-	}
+	//for (auto& equipment : equipments) {
+	//	if (equipment.second.get()->transform.position.x == x && equipment.second.get()->transform.position.y == y) {
+	//		std::cout << "found " << equipment.first << std::endl;
+	//	}
+	//}
 }

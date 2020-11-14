@@ -28,6 +28,8 @@ public:
 	ENGINE_API void speedUpGame();
 	ENGINE_API void resetSpeedGame();
 	ENGINE_API void pauseGame();
+	ENGINE_API void passInteract(int x, int y);
+
 
 private:
 	std::unique_ptr<EngineController> engineController;

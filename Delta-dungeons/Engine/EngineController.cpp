@@ -230,3 +230,13 @@ void EngineController::resetSpeedGame() const
 {
 	renderFacade->resetSpeedGame();
 }
+
+void EngineController::passInteract(int x, int y) {
+	for (int i = behaviourObjects.size() - 1; i-- > 0; )
+	{
+		if (behaviourObjects.at(i).get()->transform.position.x == x && behaviourObjects.at(i).get()->transform.position.y == y)
+		{
+			behaviourObjects.at(i).get()->interact();
+		}
+	}
+}
