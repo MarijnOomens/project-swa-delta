@@ -6,7 +6,9 @@ class ColliderComponent : public BehaviourObject {
 public:
 	int x;
 	int y;
+	std::string tag; //tile, equipment, npc
 
+	//func(pointer, tag)
 	ENGINE_API ColliderComponent() {};
 	ENGINE_API ~ColliderComponent() {};
 

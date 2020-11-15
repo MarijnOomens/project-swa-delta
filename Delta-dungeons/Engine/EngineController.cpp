@@ -107,6 +107,8 @@ void EngineController::startGame()
 		if (!renderFacade->renderer->isPaused) 
 		{
 			renderFacade->beforeFrame();
+			//lijst wordt pas geupdate na collisie
+			//collision.checkCollision()
 			update();
 		}
 		renderFacade->afterFrame();
@@ -124,6 +126,11 @@ void EngineController::registerScene(const std::string& sceneName, const std::ve
 			auto ngc = dynamic_cast<GraphicsComponent*>(o.get());
 			ngc->addTextureManager(textureManager);		
 			tempObjects.emplace_back(ngc);
+		}
+		else if (dynamic_cast<ColliderComponent*>(o.get()) != nullptr)
+		{
+			auto cc = dynamic_cast<ColliderComponent*>(o.get());
+			//collision->registerCollider(cc);
 		}
 		else if (dynamic_cast<TextComponent*>(o.get()) != nullptr)
 		{

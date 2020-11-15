@@ -1,12 +1,16 @@
 #include "ColliderComponent.h"
 
+//constructor give player.cpp callback
 void ColliderComponent::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) {}
 
 void ColliderComponent::interact() {}
 
-void ColliderComponent::update() {}
+void ColliderComponent::update() {
+	//
+}
 
-//bool ColliderComponent::hasCollision()
+
+//bool ColliderComponent::actCollision(collider met wie je collide)
 //{
-//	//logica 
+//	callback(pointer)
 //}

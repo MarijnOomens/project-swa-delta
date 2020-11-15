@@ -9,6 +9,7 @@
 #include "TextureManager.h"
 #include "TextComponent.h"
 #include "GraphicsComponent.h"
+#include "ColliderComponent.h"
 #include <vector>
 
 // Engincontroller class
