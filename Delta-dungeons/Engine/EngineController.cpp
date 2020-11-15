@@ -222,3 +222,10 @@ void EngineController::resetSpeedGame() const
 {
 	renderFacade->resetSpeedGame();
 }
+
+void EngineController::deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject)
+{
+
+
+	behaviourObjects.erase(deletedObject);
+}

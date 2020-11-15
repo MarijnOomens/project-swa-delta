@@ -40,6 +40,7 @@ public:
 	void slowDownGame() const;
 	void speedUpGame() const;
 	void resetSpeedGame() const;
+	void deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject);
 
 private:
 	std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects;
