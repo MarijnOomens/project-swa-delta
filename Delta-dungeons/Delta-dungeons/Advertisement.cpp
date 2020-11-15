@@ -23,14 +23,4 @@ Advertisement::Advertisement(int x, int y, const std::vector<std::string>& textu
 
 void Advertisement::update() {}
 
-void Advertisement::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) {
-	//if (keyboardEvent == KeyboardEvent::MOUSE_CLICKED)
-	//{
-	//	// Checks if the mouse is clicked while mouse pointer is positioned inside the texture bounds
-	//	if (mousePos.x > m_gc->transform.position.x && mousePos.x < m_gc->transform.position.x + m_gc->imageDimensions.x * m_gc->transform.scale.x
-	//		&& mousePos.y > m_gc->transform.position.y && mousePos.y < m_gc->transform.position.y + m_gc->imageDimensions.y * m_gc->transform.scale.y)
-	//	{
-	//		onCLickFunc(pointer);
-	//	}
-	//}
-}
+void Advertisement::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) {}
