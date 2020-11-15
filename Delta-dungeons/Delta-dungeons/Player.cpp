@@ -58,22 +58,22 @@ void Player::handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboard
 	// predicts player next position & tileFunc checks for collision with that coordinate and returns a bool accordingly.
 	if (!cheatCollision) {
 		if (keyboardEvent == KeyboardEvent::KEY_PRESSED) {
-			if (KeyCodes::KEY_UP == keyCodes) {
+			if (KeyCodes::KEY_UP == keyCodes || keyCodes == KeyCodes::KEY_W) {
 				tileFunc(pointer, transform.position.x, transform.position.y - 128);
 			}
-			else if (KeyCodes::KEY_LEFT == keyCodes) {
+			else if (KeyCodes::KEY_LEFT == keyCodes || keyCodes == KeyCodes::KEY_A) {
 				tileFunc(pointer, transform.position.x - 128, transform.position.y);
 			}
-			else if (KeyCodes::KEY_RIGHT == keyCodes) {
+			else if (KeyCodes::KEY_RIGHT == keyCodes || keyCodes == KeyCodes::KEY_D) {
 				tileFunc(pointer, transform.position.x + 128, transform.position.y);
 			}
-			else if (KeyCodes::KEY_DOWN == keyCodes) {
+			else if (KeyCodes::KEY_DOWN == keyCodes || keyCodes == KeyCodes::KEY_S) {
 				tileFunc(pointer, transform.position.x, transform.position.y + 128);
 			}
 		}
 	}
 
-	if (keyboardEvent == KeyboardEvent::KEY_PRESSED && keyCodes == KeyCodes::KEY_UP || keyCodes == KeyCodes::KEY_LEFT || keyCodes == KeyCodes::KEY_RIGHT || keyCodes == KeyCodes::KEY_DOWN)
+	if (keyboardEvent == KeyboardEvent::KEY_PRESSED && keyCodes == KeyCodes::KEY_UP || keyCodes == KeyCodes::KEY_LEFT || keyCodes == KeyCodes::KEY_RIGHT || keyCodes == KeyCodes::KEY_DOWN || keyCodes == KeyCodes::KEY_W || keyCodes == KeyCodes::KEY_S || keyCodes == KeyCodes::KEY_A || keyCodes == KeyCodes::KEY_D)
 	{
 		currentDirection = keyCodes;
 	}
@@ -157,16 +157,16 @@ void Player::handleKeyPressed(const KeyCodes& keyCodes)
 }
 
 void Player::handleInteraction() {
-	if (KeyCodes::KEY_UP == currentDirection) {
+	if (KeyCodes::KEY_UP == currentDirection || KeyCodes::KEY_W == currentDirection) {
 		npcManagerFunc(pointer, transform.position.x, transform.position.y - 128);
 	}
-	else if (KeyCodes::KEY_LEFT == currentDirection) {
+	else if (KeyCodes::KEY_LEFT == currentDirection || KeyCodes::KEY_A == currentDirection) {
 		npcManagerFunc(pointer, transform.position.x - 128, transform.position.y);
 	}
-	else if (KeyCodes::KEY_RIGHT == currentDirection) {
+	else if (KeyCodes::KEY_RIGHT == currentDirection || KeyCodes::KEY_D == currentDirection) {
 		npcManagerFunc(pointer, transform.position.x + 128, transform.position.y);
 	}
-	else if (KeyCodes::KEY_DOWN == currentDirection) {
+	else if (KeyCodes::KEY_DOWN == currentDirection || KeyCodes::KEY_S == currentDirection) {
 		npcManagerFunc(pointer, transform.position.x, transform.position.y + 128);
 	}
 }

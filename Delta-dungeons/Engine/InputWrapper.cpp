@@ -50,16 +50,16 @@ void InputWrapper::handleKeyPressed(const bool isPaused)
 			func(pointer, KeyCodes::KEY_RIGHT, KeyboardEvent::KEY_PRESSED, mousePosition);
 			break;
 		case SDLK_w:
-			func(pointer, KeyCodes::KEY_UP, KeyboardEvent::KEY_PRESSED, mousePosition);
+			func(pointer, KeyCodes::KEY_W, KeyboardEvent::KEY_PRESSED, mousePosition);
 			break;
 		case SDLK_a:
-			func(pointer, KeyCodes::KEY_LEFT, KeyboardEvent::KEY_PRESSED, mousePosition);
+			func(pointer, KeyCodes::KEY_A, KeyboardEvent::KEY_PRESSED, mousePosition);
 			break;
 		case SDLK_s:
-			func(pointer, KeyCodes::KEY_DOWN, KeyboardEvent::KEY_PRESSED, mousePosition);
+			func(pointer, KeyCodes::KEY_S, KeyboardEvent::KEY_PRESSED, mousePosition);
 			break;
 		case SDLK_d:
-			func(pointer, KeyCodes::KEY_RIGHT, KeyboardEvent::KEY_PRESSED, mousePosition);
+			func(pointer, KeyCodes::KEY_D, KeyboardEvent::KEY_PRESSED, mousePosition);
 			break;
 		case SDLK_q:
 			func(pointer, KeyCodes::KEY_Q, KeyboardEvent::KEY_PRESSED, mousePosition);
