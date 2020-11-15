@@ -126,7 +126,7 @@
     <ClInclude Include="EngineFacade.h">
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="CollisionController.h">
+    <ClInclude Include="Collision.h">
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
   </ItemGroup>
@@ -203,7 +203,7 @@
     <ClCompile Include="EngineFacade.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="CollisionController.cpp">
+    <ClCompile Include="Collision.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
   </ItemGroup>

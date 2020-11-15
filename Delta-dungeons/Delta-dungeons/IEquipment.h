@@ -1,6 +1,7 @@
 #pragma once
 #include "GameObject.h"
 #include <map>
+#include "SceneModifier.h"
 
 class IEquipment : public GameObject
 {

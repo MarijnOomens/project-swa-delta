@@ -11,7 +11,7 @@ public:
 	~Advertisement() {}
 	void update() override;
 	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
-
+	void interact() override;
 private:
 	std::string text;
 	std::vector<std::string> possibleTextures;

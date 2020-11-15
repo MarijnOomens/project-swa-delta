@@ -21,4 +21,8 @@ Boomerang::Boomerang(int x, int y, std::string texture)
 
 void Boomerang::use() {}
 
-void Boomerang::interact() {}
+void Boomerang::interact() 
+{
+    SceneModifier::getInstance().deleteObjectFromScene(gc);
+    SceneModifier::getInstance().deleteObjectFromScene(cc);
+}

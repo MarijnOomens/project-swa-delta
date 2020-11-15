@@ -8,12 +8,11 @@ Collision::Collision()
 
 void Collision::registerColliders(const std::vector<std::shared_ptr<ColliderComponent>> colliders)
 {
-
 	colliderObjects = colliders;
 }
 
 //player roept het aan
-//void CollisionController::checkCollision()
+//void Collision::checkCollision()
 //{
 //	for (auto collider : colliderObjects) {
 //		//if true

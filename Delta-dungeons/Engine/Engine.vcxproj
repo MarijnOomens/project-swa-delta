@@ -163,7 +163,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="CollisionController.h" />
+    <ClInclude Include="Collision.h" />
     <ClInclude Include="EngineFacade.h" />
     <ClInclude Include="AudioWrapper.h" />
     <ClInclude Include="AssetManager.h" />
@@ -194,7 +194,7 @@
     <ClInclude Include="Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CollisionController.cpp" />
+    <ClCompile Include="Collision.cpp" />
     <ClCompile Include="EngineFacade.cpp" />
     <ClCompile Include="AudioWrapper.cpp" />
     <ClCompile Include="Colour.cpp" />

@@ -27,4 +27,6 @@ void Berry::use() {}
 void Berry::interact() 
 {
     std::cout << "found " << gc.get()->textureName << gc.get()->transform.position.x << " " << gc.get()->transform.position.y << std::endl;
+    SceneModifier::getInstance().deleteObjectFromScene(gc);
+    SceneModifier::getInstance().deleteObjectFromScene(cc);
 }
