@@ -12,6 +12,7 @@
 #include "XMLSceneParser.h"
 #include "GraphicsComponent.h"
 typedef void(*cbTileToPlayer) (void*);
+typedef void(*cbCollision) (void*);
 
 class Scene : public GameObject
 {
@@ -24,7 +25,7 @@ public:
 	cbTileToPlayer func;
 	void* pointer;
 
-	void addGraphics();
+	void addGraphics(const cbCollision f, void* p);
 	std::map<std::string, std::string> passTextures() const;
 
 	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;

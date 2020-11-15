@@ -18,6 +18,7 @@ RunningShoes::RunningShoes(int x, int y, std::string texture)
     cc = std::make_shared<ColliderComponent>();
     cc->x = x * 128;
     cc->y = y * 128;
+    cc.get()->tag = "runningshoes";
 
     this->components.emplace_back(gc);
     this->components.emplace_back(cc);

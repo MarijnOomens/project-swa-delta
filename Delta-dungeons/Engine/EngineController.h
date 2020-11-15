@@ -11,6 +11,7 @@
 #include "GraphicsComponent.h"
 #include "ColliderComponent.h"
 #include <vector>
+#include "Collision.h"
 
 // Engincontroller class
 //
@@ -52,7 +53,7 @@ private:
 	std::shared_ptr<AssetManager> assetManager;
 	std::shared_ptr<Input> input;
 	SceneManager sceneManager;
-
+	std::shared_ptr<Collision> collision;
 	bool isSceneSwitched = false;
 
 };

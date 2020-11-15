@@ -13,6 +13,7 @@ Pokeball::Pokeball(int x, int y, std::string texture) {
     cc = std::make_shared<ColliderComponent>();
     cc.get()->x = x * 128;
     cc.get()->y = y * 128;
+    cc.get()->tag = "pokeball";
 
     this->components.emplace_back(gc);
     this->components.emplace_back(cc);

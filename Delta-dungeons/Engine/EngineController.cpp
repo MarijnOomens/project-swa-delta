@@ -5,6 +5,7 @@
 /// </summary>
 EngineController::EngineController() 
 {
+	collision = std::make_shared<Collision>();
 	assetManager = std::make_shared<AssetManager>();
 	renderFacade = std::make_shared<RenderFacade>();
 	textureManager = std::make_shared<TextureManager>(renderFacade,assetManager);
@@ -108,7 +109,7 @@ void EngineController::startGame()
 		{
 			renderFacade->beforeFrame();
 			//lijst wordt pas geupdate na collisie
-			//collision.checkCollision()
+			collision.get()->checkCollision();
 			update();
 		}
 		renderFacade->afterFrame();
@@ -119,6 +120,8 @@ void EngineController::startGame()
 void EngineController::registerScene(const std::string& sceneName, const std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects)
 {
 	std::vector<std::shared_ptr<BehaviourObject>> tempObjects;
+	std::vector<std::shared_ptr<ColliderComponent>> colliderObjects;
+
 	for (const auto& o : behaviourObjects)
 	{
 		if (dynamic_cast<GraphicsComponent*>(o.get()) != nullptr)
@@ -130,7 +133,7 @@ void EngineController::registerScene(const std::string& sceneName, const std::ve
 		else if (dynamic_cast<ColliderComponent*>(o.get()) != nullptr)
 		{
 			auto cc = dynamic_cast<ColliderComponent*>(o.get());
-			//collision->registerCollider(cc);
+			colliderObjects.emplace_back(cc);
 		}
 		else if (dynamic_cast<TextComponent*>(o.get()) != nullptr)
 		{
@@ -143,7 +146,7 @@ void EngineController::registerScene(const std::string& sceneName, const std::ve
 			tempObjects.emplace_back(o);
 		}
 	}
-
+	collision.get()->registerColliders(colliderObjects);
 	sceneManager.registerScene(sceneName, tempObjects);
 }
 

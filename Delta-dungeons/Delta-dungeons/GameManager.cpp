@@ -22,7 +22,7 @@ GameManager::GameManager()
 	registerTextures(npcManager.passTextures());
 
 	scene = std::make_shared<Scene>(staticTileToPlayerCallbackFunction, this);
-	scene->addGraphics();
+	scene->addGraphics(staticCollisionCallbackFunction, this);
 	registerTextures(scene->passTextures());
 
 	eqManager.createEquipment();
@@ -121,13 +121,26 @@ void GameManager::tileToPlayerCallbackFunction() {
 	playerManager.setCollisionToTrue();
 }
 
+void GameManager::staticCollisionCallbackFunction(void* p) {
+	((GameManager*)p)->collisionCallbackFunction();
+}
+
+void GameManager::collisionCallbackFunction() {
+
+	std::cout << count << " im alive " << std::endl;
+	count++;
+
+	//playerManager.setCollisionToTrue();
+}
+
+
 void GameManager::staticPlayerToTileCallbackFunction(void* p, int x, int y)
 {
 	((GameManager*)p)->playerToTileCallbackFunction(x, y);
 }
 
 void GameManager::playerToTileCallbackFunction(int x, int y) {
-	scene.get()->checkCollision(x, y);
+	//scene.get()->checkCollision(x, y);
 }
 
 void GameManager::staticInteractCallbackFunction(void* p, int x, int y)

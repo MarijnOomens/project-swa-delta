@@ -11,7 +11,7 @@ public:
 	Boomerang() {}
 	Boomerang(int x, int y, std::string texture);
 	~Boomerang() {}
-
+	
 	void use() override;
 	void interact() override;
 

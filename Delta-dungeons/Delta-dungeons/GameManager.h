@@ -17,16 +17,17 @@ public:
 	~GameManager() {}
 	void registerBehaviourObjects();
 	void registerTextures(std::map<std::string, std::string> textures);
-
+	int count = 0;
 	static void staticPlayerToTileCallbackFunction(void* p, int x, int y);
 	static void staticTileToPlayerCallbackFunction(void* p);
 	static void staticCameraCallbackFunction(void* p, int x, int y);
 	static void staticInteractCallbackFunction(void* p, int x, int y);
-
+	static void staticCollisionCallbackFunction(void* p);
 
 	void playerToTileCallbackFunction(int x, int y);
 	void tileToPlayerCallbackFunction();
 	void npcManagerCallbackFunction(int x, int y);
+	void collisionCallbackFunction();
 
 
 	void passPlayerPosition(int x, int y);

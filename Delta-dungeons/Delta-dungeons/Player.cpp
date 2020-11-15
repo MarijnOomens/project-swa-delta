@@ -39,9 +39,9 @@ Player::Player(const cbCamera f, const cbTile cbTile, cbInteract npcMF, void* p)
 	gc->playAnimation(0, 3, animationSpeed, false);
 
 	cc = std::make_shared<ColliderComponent>();
-	cc->x = x * 128;
-	cc->y = y * 128;
-
+	cc->x = this->transform.position.x;
+	cc->y = this->transform.position.y;
+	cc->tag = "player";
 	this->components.emplace_back(gc);
 	this->components.emplace_back(cc);
 
@@ -216,6 +216,7 @@ void Player::update() {}
 /// </summary>
 void Player::moveUp()
 {
+	cc.get()->transform.position.y -= baseMovementSpeed;
 	transform.position.y -= baseMovementSpeed;
 	gc.get()->transform.position = transform.position;
 	runActivated ? gc->playAnimation(7, 3, animationSpeed, false) : gc->playAnimation(2, 4, animationSpeed, false);
@@ -228,6 +229,7 @@ void Player::moveUp()
 /// </summary>
 void Player::moveDown()
 {
+	cc.get()->transform.position.y += baseMovementSpeed;
 	transform.position.y += baseMovementSpeed;
 	gc.get()->transform.position = transform.position;
 	runActivated ? gc->playAnimation(6, 3, animationSpeed, false) : gc->playAnimation(1, 4, animationSpeed, false);
@@ -240,6 +242,7 @@ void Player::moveDown()
 /// </summary>
 void Player::moveLeft()
 {
+	cc.get()->transform.position.x -= baseMovementSpeed;
 	transform.position.x -= baseMovementSpeed;
 	gc.get()->transform.position = transform.position;
 	runActivated ? gc->playAnimation(8, 3, animationSpeed, false) : gc->playAnimation(3, 4, animationSpeed, false);
@@ -252,6 +255,7 @@ void Player::moveLeft()
 /// </summary>
 void Player::moveRight()
 {
+	cc.get()->transform.position.x += baseMovementSpeed;
 	transform.position.x += baseMovementSpeed;
 	gc.get()->transform.position = transform.position;
 	runActivated ? gc->playAnimation(8, 3, animationSpeed, true) : gc->playAnimation(3, 4, animationSpeed, true);
