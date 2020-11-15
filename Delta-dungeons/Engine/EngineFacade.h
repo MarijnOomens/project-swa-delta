@@ -29,7 +29,7 @@ public:
 	ENGINE_API void resetSpeedGame();
 	ENGINE_API void pauseGame();
 	ENGINE_API void passInteract(int x, int y);
-
+	ENGINE_API void deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject);
 
 private:
 	std::unique_ptr<EngineController> engineController;

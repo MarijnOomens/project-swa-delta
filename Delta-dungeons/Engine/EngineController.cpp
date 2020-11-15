@@ -240,3 +240,16 @@ void EngineController::passInteract(int x, int y) {
 		}
 	}
 }
+
+void EngineController::deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject)
+{
+	for (std::vector<std::shared_ptr<BehaviourObject>>::iterator it = behaviourObjects.begin(); it != behaviourObjects.end(); ++it)
+	{
+		if ((*it) == deletedObject) 
+		{
+			behaviourObjects.erase(it);
+			isSceneSwitched = true;
+			break;
+		}
+	}
+}

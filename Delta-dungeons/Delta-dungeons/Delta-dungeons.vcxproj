@@ -155,6 +155,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Advertisement.cpp" />
     <ClCompile Include="Berry.cpp" />
     <ClCompile Include="Boomerang.cpp" />
     <ClCompile Include="Button.cpp" />
@@ -185,6 +186,7 @@
     <ClCompile Include="ParserData.cpp" />
     <ClCompile Include="RunningShoes.cpp" />
     <ClCompile Include="SceneLoader.cpp" />
+    <ClCompile Include="SceneModifier.cpp" />
     <ClCompile Include="XMLFacade.cpp" />
     <ClCompile Include="XMLParser.cpp" />
     <ClCompile Include="XMLSceneParser.cpp" />
@@ -194,6 +196,7 @@
     <ClCompile Include="UIManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Advertisement.h" />
     <ClInclude Include="Berry.h" />
     <ClInclude Include="Boomerang.h" />
     <ClInclude Include="Button.h" />
@@ -208,6 +211,7 @@
     <ClInclude Include="HelpScreen.h" />
     <ClInclude Include="HUD.h" />
     <ClInclude Include="NPCManager.h" />
+    <ClInclude Include="SceneModifier.h" />
     <ClInclude Include="ParserData.h" />
     <ClInclude Include="PlayerManager.h" />
     <ClInclude Include="RunningShoes.h" />

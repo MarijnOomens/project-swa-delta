@@ -116,3 +116,8 @@ void EngineFacade::passInteract(int x, int y)
 {
 	engineController->passInteract(x, y);
 }
+
+void EngineFacade::deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject)
+{
+	engineController->deleteObjectFromScene(deletedObject);
+}

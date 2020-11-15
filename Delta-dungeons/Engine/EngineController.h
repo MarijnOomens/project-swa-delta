@@ -41,6 +41,7 @@ public:
 	void speedUpGame() const;
 	void resetSpeedGame() const;
 	void passInteract(int x, int y);
+	void deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject);
 
 private:
 	std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects;
