@@ -3,7 +3,7 @@
 #include "GraphicsComponent.h"
 #include "ColliderComponent.h"
 #include <string>
-typedef void(*cbCollision) (void*);
+typedef void(*cbCollision) (void*, std::string);
 
 class Tile : public GameObject {
 public:

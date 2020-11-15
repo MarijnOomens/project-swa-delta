@@ -11,9 +11,8 @@ Pokeball::Pokeball(int x, int y, std::string texture) {
     gc->isScreen = false;
 
     cc = std::make_shared<ColliderComponent>();
-    cc.get()->x = x * 128;
-    cc.get()->y = y * 128;
-    cc.get()->tag = "pokeball";
+    cc->tag = "pokeball";
+    cc->transform.position = this->transform.position;
 
     this->components.emplace_back(gc);
     this->components.emplace_back(cc);
@@ -28,6 +27,4 @@ void Pokeball::interact()
     SceneModifier::getInstance().deleteObjectFromScene(cc);
 }
 
-void Pokeball::use() {
-
-}
+void Pokeball::use() {}

@@ -6,22 +6,21 @@ RunningShoes::RunningShoes(const cbEquipment f, void* p) : func(f), pointer(p) {
 
 RunningShoes::RunningShoes(int x, int y, std::string texture)
 {
-    this->transform.position = { x * 128, y * 128 };
-    this->transform.scale.multiply({ 4, 4 });
+	this->transform.position = { x * 128, y * 128 };
+	this->transform.scale.multiply({ 4, 4 });
 
-    gc = std::make_shared<GraphicsComponent>();
-    gc->setTexture(texture);
-    gc->imageDimensions = { 32, 32 };
-    gc.get()->transform = transform;
-    gc->isScreen = false;
+	gc = std::make_shared<GraphicsComponent>();
+	gc->setTexture(texture);
+	gc->imageDimensions = { 32, 32 };
+	gc.get()->transform = transform;
+	gc->isScreen = false;
 
-    cc = std::make_shared<ColliderComponent>();
-    cc->x = x * 128;
-    cc->y = y * 128;
-    cc.get()->tag = "runningshoes";
+	cc = std::make_shared<ColliderComponent>();
+	cc->tag = "runningshoes";
+	cc->transform.position = this->transform.position;
 
-    this->components.emplace_back(gc);
-    this->components.emplace_back(cc);
+	this->components.emplace_back(gc);
+	this->components.emplace_back(cc);
 }
 RunningShoes::~RunningShoes() {}
 
@@ -31,14 +30,14 @@ RunningShoes::~RunningShoes() {}
 /// </summary>
 void RunningShoes::use()
 {
-    isActivated = !isActivated;
-    std::cout << isActivated << std::endl;
-    func(pointer, isActivated);
+	isActivated = !isActivated;
+	std::cout << isActivated << std::endl;
+	func(pointer, isActivated);
 }
 
-void RunningShoes::interact() 
+void RunningShoes::interact()
 {
-    std::cout << "found " << gc.get()->textureName << gc.get()->transform.position.x << " " <<  gc.get()->transform.position.y << std::endl;
-    SceneModifier::getInstance().deleteObjectFromScene(gc);
-    SceneModifier::getInstance().deleteObjectFromScene(cc);
+	std::cout << "found " << gc.get()->textureName << gc.get()->transform.position.x << " " << gc.get()->transform.position.y << std::endl;
+	SceneModifier::getInstance().deleteObjectFromScene(gc);
+	SceneModifier::getInstance().deleteObjectFromScene(cc);
 }

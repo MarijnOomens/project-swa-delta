@@ -113,24 +113,27 @@ void GameManager::registerFonts(std::map<std::string, std::string> fonts)
 	engineFacade.get()->registerFonts(fonts);
 }
 
-void GameManager::staticTileToPlayerCallbackFunction(void* p) {
+void GameManager::staticTileToPlayerCallbackFunction(void* p) 
+{
 	((GameManager*)p)->tileToPlayerCallbackFunction();
 }
 
-void GameManager::tileToPlayerCallbackFunction() {
+void GameManager::tileToPlayerCallbackFunction() 
+{
 	playerManager.setCollisionToTrue();
 }
 
-void GameManager::staticCollisionCallbackFunction(void* p) {
-	((GameManager*)p)->collisionCallbackFunction();
+void GameManager::staticCollisionCallbackFunction(void* p, std::string tag) 
+{
+	((GameManager*)p)->collisionCallbackFunction(tag);
 }
 
-void GameManager::collisionCallbackFunction() {
+void GameManager::collisionCallbackFunction(std::string tag)
+{
+	//std::cout << count << " im alive " << std::endl;
+	//count++;
 
-	std::cout << count << " im alive " << std::endl;
-	count++;
-
-	//playerManager.setCollisionToTrue();
+	playerManager.setCollisionToTrue();
 }
 
 

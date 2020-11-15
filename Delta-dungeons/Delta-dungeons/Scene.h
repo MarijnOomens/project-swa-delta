@@ -12,7 +12,7 @@
 #include "XMLSceneParser.h"
 #include "GraphicsComponent.h"
 typedef void(*cbTileToPlayer) (void*);
-typedef void(*cbCollision) (void*);
+typedef void(*cbCollision) (void*, std::string);
 
 class Scene : public GameObject
 {

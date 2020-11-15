@@ -10,7 +10,13 @@ NPC::NPC(int x, int y, std::string &texture)
 	gc->transform = this->transform;
 	gc->playAnimation(0, 3, animationSpeed, false);
 	gc->isScreen = false;
+
+	cc = std::make_shared<ColliderComponent>();
+	cc->tag = "npc";
+	cc->transform.position = this->transform.position;
+
 	this->components.emplace_back(gc);
+	this->components.emplace_back(cc);
 }
 
 void NPC::interact()

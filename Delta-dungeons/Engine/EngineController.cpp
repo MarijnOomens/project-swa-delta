@@ -109,7 +109,7 @@ void EngineController::startGame()
 		{
 			renderFacade->beforeFrame();
 			//lijst wordt pas geupdate na collisie
-			collision.get()->checkCollision();
+			collision->checkCollision();
 			update();
 		}
 		renderFacade->afterFrame();
@@ -146,7 +146,7 @@ void EngineController::registerScene(const std::string& sceneName, const std::ve
 			tempObjects.emplace_back(o);
 		}
 	}
-	collision.get()->registerColliders(colliderObjects);
+	collision->registerColliders(colliderObjects);
 	sceneManager.registerScene(sceneName, tempObjects);
 }
 

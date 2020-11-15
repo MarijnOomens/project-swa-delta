@@ -20,8 +20,10 @@ Tile::Tile(int x, int y, int xImage, bool collider, const cbCollision f, void* p
 	if (collider)
 	{
 		cc = std::make_shared<ColliderComponent>(f, p);
-		cc->x = x * 128;
-		cc->y = y * 128;
+		cc->tag = "tile";
+		cc->transform.position = this->transform.position;
+		cc->isTrigger = true;
+
 		this->components.emplace_back(cc);
 	}
 }
@@ -47,9 +49,10 @@ Tile::Tile(int x, int y, int yImage, int xImage, bool collider, const cbCollisio
 	if (collider)
 	{
 		cc = std::make_shared<ColliderComponent>(f, p);
-		cc->x = x * 128;
-		cc->y = y * 128;
-		cc.get()->tag = "tile";
+		cc->tag = "tile";
+		cc->transform.position = this->transform.position;
+		cc->isTrigger = true;
+
 		this->components.emplace_back(cc);
 	}
 }

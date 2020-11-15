@@ -1,6 +1,6 @@
 #include "Pokemon.h"
 
-Pokemon::Pokemon(int x, int y, std::string &texture)
+Pokemon::Pokemon(int x, int y, std::string& texture)
 {
 	this->transform.position = { x * 128, y * 128 };
 	this->transform.scale.multiply({ 4, 4 });
@@ -10,16 +10,17 @@ Pokemon::Pokemon(int x, int y, std::string &texture)
 	gc->transform = this->transform;
 	gc->playAnimation(0, 3, animationSpeed, false);
 	gc->isScreen = false;
-	
+
 	cc = std::make_shared<ColliderComponent>();
-	cc->x = x * 128;
-	cc->y = y * 128;
+	cc->tag = "pokemon";
+	cc->transform.position = this->transform.position;
+	cc->isTrigger = true;
 
 	this->components.emplace_back(gc);
 	this->components.emplace_back(cc);
 }
 
-void Pokemon::interact() 
+void Pokemon::interact()
 {
 	std::cout << "found " << gc.get()->textureName << gc.get()->transform.position.x << " " << gc.get()->transform.position.y << std::endl;
 }

@@ -6,7 +6,7 @@
 #include "Tile.h"
 #include <string>
 
-typedef void(*cbCollision) (void*);
+typedef void(*cbCollision) (void*, std::string);
 
 class XMLSceneParser : public SceneParser
 {
