@@ -159,6 +159,12 @@
     <ClCompile Include="DebugUtilities.cpp">
       <Filter>Source Files\Game</Filter>
     </ClCompile>
+    <ClCompile Include="Advertisement.cpp">
+      <Filter>Source Files\Game\GameObjects\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneModifier.cpp">
+      <Filter>Source Files\Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h">
@@ -274,6 +280,12 @@
     </ClInclude>
     <ClInclude Include="ParserData.h">
       <Filter>Header Files\XMLParser</Filter>
+    </ClInclude>
+    <ClInclude Include="Advertisement.h">
+      <Filter>Header Files\Game\GameObjects\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneModifier.h">
+      <Filter>Header Files\Game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
