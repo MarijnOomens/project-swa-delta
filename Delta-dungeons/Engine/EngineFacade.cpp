@@ -111,3 +111,8 @@ void EngineFacade::pauseGame()
 {
 	engineController->pauseScreen();
 }
+
+void EngineFacade::deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject)
+{
+	engineController->deleteObjectFromScene(deletedObject);
+}

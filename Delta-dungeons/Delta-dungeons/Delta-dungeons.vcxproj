@@ -185,6 +185,7 @@
     <ClCompile Include="Runningshoes.cpp" />
     <ClCompile Include="ParserData.cpp" />
     <ClCompile Include="SceneLoader.cpp" />
+    <ClCompile Include="SceneModifier.cpp" />
     <ClCompile Include="XMLFacade.cpp" />
     <ClCompile Include="XMLParser.cpp" />
     <ClCompile Include="XMLSceneParser.cpp" />
@@ -209,6 +210,7 @@
     <ClInclude Include="HelpScreen.h" />
     <ClInclude Include="HUD.h" />
     <ClInclude Include="NPCManager.h" />
+    <ClInclude Include="SceneModifier.h" />
     <ClInclude Include="ParserData.h" />
     <ClInclude Include="PlayerManager.h" />
     <ClInclude Include="SceneLoader.h" />
