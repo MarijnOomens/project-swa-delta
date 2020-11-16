@@ -15,22 +15,21 @@ class GameManager {
 public:
 	GameManager();
 	~GameManager() {}
+
 	void registerBehaviourObjects();
 	void registerTextures(std::map<std::string, std::string> textures);
+
 	static void staticPlayerToTileCallbackFunction(void* p, int x, int y);
 	static void staticCameraCallbackFunction(void* p, int x, int y);
 	static void staticInteractCallbackFunction(void* p, int x, int y);
 	static void staticCollisionCallbackFunction(void* p, int x, int y, std::string tag);
 
 	void playerToTileCallbackFunction(int x, int y);
-	void tileToPlayerCallbackFunction();
 	void npcManagerCallbackFunction(int x, int y);
 	void collisionCallbackFunction(int x, int y, std::string tag);
 
-
 	void passPlayerPosition(int x, int y);
 	void registerFonts(std::map<std::string, std::string> fonts);
-	void passInteraction(int x, int y);
 
 private:
 	std::shared_ptr<EngineFacade> engineFacade;

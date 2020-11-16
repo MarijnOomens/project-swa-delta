@@ -1,8 +1,6 @@
 #include "Collision.h"
 
-Collision::Collision()
-{
-}
+Collision::Collision() {}
 
 void Collision::registerColliders(const std::vector<std::shared_ptr<ColliderComponent>> colliders)
 {

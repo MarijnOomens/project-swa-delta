@@ -23,8 +23,8 @@ Player::Player(const cbCamera f, cbInteract npcMF, void* p) : func(f), npcManage
 	runActivated = false;
 	tileCollision = false;
 
-	this->transform.position.x = 1024;
-	this->transform.position.y = 768;
+	this->transform.position.x = 1792;
+	this->transform.position.y = 1408;
 
 	this->textures.try_emplace("player_m", "Assets/player2_m_anims.png");
 	this->textures.try_emplace("player_f", "Assets/player_f_anims.png");

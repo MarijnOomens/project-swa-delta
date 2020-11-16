@@ -28,8 +28,6 @@ public:
 	void update() override;
 	void interact() override;
 
-	void checkCollision(int x, int y);
-
 private:
 	int x = 0, y = 0;
 	std::vector<std::shared_ptr<Tile>> tileMap;
