@@ -21,10 +21,13 @@ public:
 	Vector2D temporaryColliderPosition;
 	void* pointer;
 	bool tileCollision;
-	int colliderX;
-	int colliderY;
-	std::string colliderTag;
 
+	int upY;
+	int leftX;
+	int rightX;
+	int downY;
+
+	std::string colliderTag;
 	Player(cbCamera f, cbTile cbTile, cbInteract npcMF, void* p);
 	~Player() {}
 
@@ -42,8 +45,8 @@ public:
 	void damagePlayer(int damage);
 	void updateCaughtPokemon(int pokemonId);
 
-	static void staticCollisionCallbackFunction(void* p, int x, int y, std::string tag);
-	void collisionCallbackFunction(int x, int y, std::string tag);
+	static void staticCollisionCallbackFunction(void* p, std::string tag, int upY, int leftX, int rightX, int downY);
+	void collisionCallbackFunction(std::string tag, int upY, int leftX, int rightX, int downY);
 
 	static void staticEquipmentCallbackFunction(void* p, const bool runningActivated);
 	void equipmentCallbackFunction(const bool runningActivated);
