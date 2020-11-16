@@ -33,27 +33,41 @@ void Collision::checkCollision()
 				//{
 					/*facing right*/
 				if ((collider1->transform.position.x + 128 == collider2->transform.position.x
-					&& collider1->transform.position.y == collider2->transform.position.y)
-					||
+					&& collider1->transform.position.y == collider2->transform.position.y))
+				{
+					rightX = collider2->transform.position.x;
+				}
+				
 					/*facing up*/
+				if
 					(collider1->transform.position.y == collider2->transform.position.y + 128
 						&& collider1->transform.position.x == collider2->transform.position.x)
-					||
+				{
+					upY = collider2->transform.position.y;
+				}
+				if
 					/*facing down*/
 					(collider1->transform.position.y + 128 == collider2->transform.position.y
 						&& collider1->transform.position.x == collider2->transform.position.x)
-					||
+				{
+					downY = collider2->transform.position.y;
+				}
+				if
 					/*facing left*/
 					(collider1->transform.position.x == collider2->transform.position.x + 128
-						&& collider1->transform.position.y == collider2->transform.position.y))
+						&& collider1->transform.position.y == collider2->transform.position.y)
 				{
-					collider1->actCollision(collider2->tag);
+					leftX = collider2->transform.position.x;
+				}
+					collider1->actCollision(collider2->tag, upY, leftX, rightX, downY);
 					//std::cout << "x: " << collider1->transform.position.x << " vs " << collider2->transform.position.x << " y: " << collider1->transform.position.y << " vs " << collider2->transform.position.y << std::endl;
 					//std::cout << "it matched!" << std::endl;
-					break;
-				}
 				//}
 			}
 		}
 	}
+	upY = -1;
+	leftX = -1;
+	rightX = -1;
+	downY = -1;
 }

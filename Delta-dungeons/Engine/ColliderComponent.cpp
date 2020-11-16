@@ -15,10 +15,10 @@ void ColliderComponent::interact() {}
 
 void ColliderComponent::update() {}
 
-void ColliderComponent::actCollision(std::string tag)
+void ColliderComponent::actCollision(std::string tag, int upY, int leftX, int rightX, int downY)
 {
 	//std::cout << "it matches" << std::endl;
 	if (collisionFunc != nullptr) {
-		collisionFunc(pointer, tag);
+		collisionFunc(pointer, tag, upY, leftX, rightX, downY);
 	}
 }
