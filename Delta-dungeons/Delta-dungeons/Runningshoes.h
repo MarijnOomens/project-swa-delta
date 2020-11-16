@@ -7,7 +7,7 @@ typedef void(*cbFunction) (void*, bool);
 class Runningshoes : public IEquipment 
 {
 public: 
-	Runningshoes(const cbFunction f, void* p);
+	Runningshoes(const cbFunction f, void* p, std::string& t);
 	~Runningshoes() {}
 
 	void use() override;

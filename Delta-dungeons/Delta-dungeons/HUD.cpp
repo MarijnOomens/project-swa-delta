@@ -74,9 +74,11 @@ void HUD::addItem(const std::string& texturepath)
 
 void HUD::updateItems(int i)
 {
+	int itemIndex = 0;
 	for (auto& item : items)
 	{
-		item->transform.position = { (i * 34) + ((amountItems-1) * 34) + 10, 20 };
+		item->transform.position = { (i * 34) + (itemIndex * 34) + 10, 20 };
 		SceneModifier::getInstance().updateObjectToScene(item);
+		itemIndex++;
 	}
 }

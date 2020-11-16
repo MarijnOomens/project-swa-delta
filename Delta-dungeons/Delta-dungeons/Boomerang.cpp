@@ -1,8 +1,8 @@
 #include "Boomerang.h"
 
-Boomerang::Boomerang(const std::string& texture)
+Boomerang::Boomerang(const std::string& t)
 {
-	texturePath = texture;
+	texture = t;
 }
 
 void Boomerang::use() {}

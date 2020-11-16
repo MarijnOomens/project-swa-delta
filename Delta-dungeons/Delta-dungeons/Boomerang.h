@@ -6,7 +6,7 @@
 class Boomerang : public IEquipment
 {
 public:
-	Boomerang(const std::string& texture);
+	Boomerang(const std::string& t);
 	void use() override;
 
 private:

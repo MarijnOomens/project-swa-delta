@@ -3,7 +3,10 @@
 /// <summary>
 /// This class is an equipment that can be used to increase the movement speed.
 /// </summary>
-Runningshoes::Runningshoes(const cbFunction f, void* p) : func(f), pointer(p) {}
+Runningshoes::Runningshoes(const cbFunction f, void* p, std::string& t) : func(f), pointer(p) 
+{
+	texture = t;
+}
 
 /// <summary>
 /// This method gets called to change the isActivated boolean property. 

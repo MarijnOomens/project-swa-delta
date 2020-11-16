@@ -4,6 +4,6 @@
 class IEquipment
 {
 public:
-	std::string texturePath;
+	std::string texture;
 	virtual void use() = 0;
 };

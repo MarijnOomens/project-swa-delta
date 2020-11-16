@@ -235,6 +235,7 @@ void EngineController::addObjectToScene(std::shared_ptr<BehaviourObject> addObje
 	{
 		behaviourObjects.emplace_back(addObject);
 	}
+	isSceneSwitched = true;
 }
 
 void EngineController::updateObjectToScene(std::shared_ptr<BehaviourObject> updateObject)
@@ -244,6 +245,7 @@ void EngineController::updateObjectToScene(std::shared_ptr<BehaviourObject> upda
 	{
 		int i = std::distance(behaviourObjects.begin(), index);
 		behaviourObjects[i] = updateObject;
+		isSceneSwitched = true;
 	}
 }
 
