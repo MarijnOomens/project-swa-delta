@@ -1,5 +1,11 @@
 #include "ColliderComponent.h"
 
+ColliderComponent::ColliderComponent() {
+	collisionFunc = nullptr;
+	pointer = nullptr;
+}
+
+
 ColliderComponent::ColliderComponent(const cbCollision f, void* p) : collisionFunc(f), pointer(p) {}
 
 //constructor give player.cpp callback
@@ -12,6 +18,7 @@ void ColliderComponent::update() {}
 void ColliderComponent::actCollision(std::string tag)
 {
 	//std::cout << "it matches" << std::endl;
-
-	collisionFunc(pointer, tag);
+	if (collisionFunc != nullptr) {
+		collisionFunc(pointer, tag);
+	}
 }

@@ -3,7 +3,6 @@
 #include "GraphicsComponent.h"
 #include "ColliderComponent.h"
 #include <string>
-typedef void(*cbCollision) (void*, std::string);
 
 class Tile : public GameObject {
 public:
@@ -11,8 +10,8 @@ public:
 	int originX;
 	int originY;
 
-	Tile(int x, int y, int xImage, bool collider, const cbCollision f, void* p);
-	Tile(int x, int y, int xImage, int yImage, bool collider, const cbCollision f, void* p);
+	Tile(int x, int y, int xImage, bool collider);
+	Tile(int x, int y, int xImage, int yImage, bool collider);
 	~Tile() {}
 
 	void addGraphicsComponent(std::string& imageName);

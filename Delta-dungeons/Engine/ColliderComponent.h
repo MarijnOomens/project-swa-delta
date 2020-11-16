@@ -12,7 +12,7 @@ public:
 	bool isTrigger = false;
 
 	//func(pointer, tag)
-	ENGINE_API ColliderComponent() {}
+	ENGINE_API ColliderComponent();
 	ENGINE_API ColliderComponent(cbCollision f, void* p);
 	ENGINE_API ~ColliderComponent() {}
 

@@ -6,7 +6,7 @@
 /// <param name="x">The horizontal placement of tile</param>
 /// <param name="y">The vertical placement of tile</param>
 /// <param name="xImage">Specific horizontal image location of tile png</param>
-Tile::Tile(int x, int y, int xImage, bool collider, const cbCollision f, void* p)
+Tile::Tile(int x, int y, int xImage, bool collider)
 {
 	originX = x * 128;
 	originY = y * 128;
@@ -19,7 +19,7 @@ Tile::Tile(int x, int y, int xImage, bool collider, const cbCollision f, void* p
 	
 	if (collider)
 	{
-		cc = std::make_shared<ColliderComponent>(f, p);
+		cc = std::make_shared<ColliderComponent>();
 		cc->tag = "tile";
 		cc->transform.position = this->transform.position;
 		cc->isTrigger = true;
@@ -36,7 +36,7 @@ Tile::Tile(int x, int y, int xImage, bool collider, const cbCollision f, void* p
 /// <param name="xImage">Horizontal image location of tile png</param>
 /// <param name="yImage">Vertical image location of tile png</param>
 
-Tile::Tile(int x, int y, int yImage, int xImage, bool collider, const cbCollision f, void* p)
+Tile::Tile(int x, int y, int yImage, int xImage, bool collider)
 {
 	originX = x * 128;
 	originY = y * 128;
@@ -48,7 +48,7 @@ Tile::Tile(int x, int y, int yImage, int xImage, bool collider, const cbCollisio
 
 	if (collider)
 	{
-		cc = std::make_shared<ColliderComponent>(f, p);
+		cc = std::make_shared<ColliderComponent>();
 		cc->tag = "tile";
 		cc->transform.position = this->transform.position;
 		cc->isTrigger = true;

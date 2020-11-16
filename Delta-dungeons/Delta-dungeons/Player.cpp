@@ -38,7 +38,7 @@ Player::Player(const cbCamera f, const cbTile cbTile, cbInteract npcMF, void* p)
 	gc->transform.scale.multiply({ 4, 4 });
 	gc->playAnimation(0, 3, animationSpeed, false);
 
-	cc = std::make_shared<ColliderComponent>();
+	cc = std::make_shared<ColliderComponent>(staticCollisionCallbackFunction, this);
 	cc->tag = "player";
 	cc->transform.position = this->transform.position;
 
@@ -310,6 +310,18 @@ void Player::staticTileCallbackFunction(void* p)
 {
 	((Player*)p)->setToTrue();
 
+}
+
+void Player::staticCollisionCallbackFunction(void* p, std::string tag)
+{
+	((Player*)p)->collisionCallbackFunction(tag);
+}
+
+void Player::collisionCallbackFunction(std::string tag)
+{
+	//setToTrue();
+	std::cout << " im standing on a  " << tag << std::endl;
+	//count++;
 }
 
 void Player::setToTrue()

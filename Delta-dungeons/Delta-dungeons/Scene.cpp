@@ -8,11 +8,11 @@ Scene::Scene(const cbTileToPlayer f, void* p) : func(f), pointer(p) {}
 
 Scene::Scene(int x, int y) : x(x), y(y) {}
 
-void Scene::addGraphics(const cbCollision f, void* p)
+void Scene::addGraphics()
 {
 	XMLSceneParser xmlSceneParser;
 
-	tileMap = xmlSceneParser.loadScene("Assets/maps/level1.xml", f, p);
+	tileMap = xmlSceneParser.loadScene("Assets/maps/level1.xml");
 
 	for (std::shared_ptr<Tile> t : tileMap)
 	{

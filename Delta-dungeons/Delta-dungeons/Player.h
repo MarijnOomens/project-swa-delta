@@ -37,6 +37,9 @@ public:
 	void damagePlayer(int damage);
 	void updateCaughtPokemon(int pokemonId);
 
+	static void staticCollisionCallbackFunction(void* p, std::string tag);
+	void collisionCallbackFunction(std::string tag);
+
 	static void staticEquipmentCallbackFunction(void* p, const bool runningActivated);
 	void equipmentCallbackFunction(const bool runningActivated);
 	static void staticTileCallbackFunction(void* p);
