@@ -57,27 +57,33 @@ void Player::handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboard
 {
 	if (!cheatCollision)
 	{
-		//	if (keyboardEvent == KeyboardEvent::KEY_PRESSED)
-		//	{
-		//temporaryColliderPosition = cc->transform.position;
-		//		if (KeyCodes::KEY_UP == keyCodes || keyCodes == KeyCodes::KEY_W)
-		//		{
-		//			cc->transform.position.y -= baseMovementSpeed;
-		//		}
-		//		else if (KeyCodes::KEY_LEFT == keyCodes || keyCodes == KeyCodes::KEY_A)
-		//		{
-		//			cc->transform.position.x -= baseMovementSpeed;
-		//		}
-		//		else if (KeyCodes::KEY_RIGHT == keyCodes || keyCodes == KeyCodes::KEY_D)
-		//		{
-		//			cc->transform.position.x += baseMovementSpeed;
-
-		//		}
-		//		else if (KeyCodes::KEY_DOWN == keyCodes || keyCodes == KeyCodes::KEY_S)
-		//		{
-		//			cc->transform.position.y += baseMovementSpeed;
-		//		}
-		//	}
+		if (keyboardEvent == KeyboardEvent::KEY_PRESSED)
+		{
+			if (KeyCodes::KEY_UP == keyCodes || keyCodes == KeyCodes::KEY_W)
+			{
+				if (colliderY == transform.position.y - 128) {
+					tileCollision = true;
+				}
+			}
+			else if (KeyCodes::KEY_LEFT == keyCodes || keyCodes == KeyCodes::KEY_A)
+			{
+				if (colliderX == transform.position.x - 128) {
+					tileCollision = true;
+				}
+			}
+			else if (KeyCodes::KEY_RIGHT == keyCodes || keyCodes == KeyCodes::KEY_D)
+			{
+				if (colliderX == transform.position.x + 128) {
+					tileCollision = true;
+				}
+			}
+			else if (KeyCodes::KEY_DOWN == keyCodes || keyCodes == KeyCodes::KEY_S)
+			{
+				if (colliderY == transform.position.y + 128) {
+					tileCollision = true;
+				}
+			}
+		}
 	}
 
 	if (keyboardEvent == KeyboardEvent::KEY_PRESSED && keyCodes == KeyCodes::KEY_UP || keyCodes == KeyCodes::KEY_LEFT || keyCodes == KeyCodes::KEY_RIGHT || keyCodes == KeyCodes::KEY_DOWN || keyCodes == KeyCodes::KEY_W || keyCodes == KeyCodes::KEY_S || keyCodes == KeyCodes::KEY_A || keyCodes == KeyCodes::KEY_D)
@@ -97,6 +103,8 @@ void Player::handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboard
 
 	// resets collision for next move with collsion check.
 	tileCollision = false;
+	colliderX = 0;
+	colliderY = 0;
 }
 
 void Player::interact() {}
@@ -320,15 +328,16 @@ void Player::staticTileCallbackFunction(void* p)
 
 }
 
-void Player::staticCollisionCallbackFunction(void* p, std::string tag)
+void Player::staticCollisionCallbackFunction(void* p, int x, int y, std::string tag)
 {
-	((Player*)p)->collisionCallbackFunction(tag);
+	((Player*)p)->collisionCallbackFunction(x, y, tag);
 }
 
-void Player::collisionCallbackFunction(std::string tag)
+void Player::collisionCallbackFunction(int x, int y, std::string tag)
 {
-	std::cout << "Colliding with a: " << tag << std::endl;
-	
+	colliderX = x;
+	colliderY = y;
+	colliderTag = tag;
 	//gc->transform.position = temporaryColliderPosition;
 	//cc->transform.position = temporaryColliderPosition;
 	//this->transform.position = temporaryColliderPosition;

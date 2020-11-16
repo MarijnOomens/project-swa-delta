@@ -22,7 +22,7 @@ Tile::Tile(int x, int y, int xImage, bool collider)
 		cc = std::make_shared<ColliderComponent>();
 		cc->tag = "tile";
 		cc->transform.position = this->transform.position;
-		cc->isTrigger = true;
+		cc->isTrigger = false;
 
 		this->components.emplace_back(cc);
 	}
@@ -51,7 +51,7 @@ Tile::Tile(int x, int y, int yImage, int xImage, bool collider)
 		cc = std::make_shared<ColliderComponent>();
 		cc->tag = "tile";
 		cc->transform.position = this->transform.position;
-		cc->isTrigger = true;
+		cc->isTrigger = false;
 
 		this->components.emplace_back(cc);
 	}
