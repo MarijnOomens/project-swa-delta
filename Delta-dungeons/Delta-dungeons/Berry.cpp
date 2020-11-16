@@ -15,7 +15,7 @@ Berry::Berry(int x, int y, std::string texture) {
     cc = std::make_shared<ColliderComponent>();
     cc->tag = "berry";
     cc->transform.position = this->transform.position;
-    cc->isTrigger = true;
+    cc->isTrigger = false;
 
     this->components.emplace_back(gc);
     this->components.emplace_back(cc);

@@ -103,6 +103,8 @@ void Player::handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboard
 	rightX = -1;
 	downY = -1;
 	tileCollision = false;
+	colliderX = 0;
+	colliderY = 0;
 }
 
 void Player::interact() {}
