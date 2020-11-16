@@ -15,13 +15,13 @@ GameManager::GameManager()
 	registerTextures(uiManager.passTextures());
 	registerFonts(uiManager.passFonts());
 
-	playerManager.createPlayer(staticCameraCallbackFunction, staticPlayerToTileCallbackFunction, staticInteractCallbackFunction, this);
+	playerManager.createPlayer(staticCameraCallbackFunction, staticInteractCallbackFunction, this);
 	registerTextures(playerManager.passTextures());
 
 	npcManager.createNPC();
 	registerTextures(npcManager.passTextures());
 
-	scene = std::make_shared<Scene>(staticTileToPlayerCallbackFunction, this);
+	scene = std::make_shared<Scene>();
 	scene->addGraphics();
 	registerTextures(scene->passTextures());
 
@@ -111,16 +111,6 @@ void GameManager::passPlayerPosition(int x, int y)
 void GameManager::registerFonts(std::map<std::string, std::string> fonts)
 {
 	engineFacade.get()->registerFonts(fonts);
-}
-
-void GameManager::staticTileToPlayerCallbackFunction(void* p) 
-{
-	((GameManager*)p)->tileToPlayerCallbackFunction();
-}
-
-void GameManager::tileToPlayerCallbackFunction() 
-{
-	playerManager.setCollisionToTrue();
 }
 
 void GameManager::staticPlayerToTileCallbackFunction(void* p, int x, int y)

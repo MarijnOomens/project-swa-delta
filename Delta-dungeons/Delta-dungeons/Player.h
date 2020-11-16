@@ -5,7 +5,6 @@
 #include "GameObject.h"
 #include "GraphicsComponent.h"
 #include "ColliderComponent.h"
-typedef void(*cbTile) (void*, int, int);
 typedef void(*cbInteract) (void*, int, int);
 typedef void(*cbCamera) (void*, int, int);
 
@@ -15,20 +14,17 @@ public:
 	std::map<std::string, std::string> textures;
 	std::string texture;
 	cbCamera func;
-	cbTile tileFunc;
 	cbInteract npcManagerFunc;
 	KeyCodes currentDirection;
 	Vector2D temporaryColliderPosition;
 	void* pointer;
 	bool tileCollision;
 
-	int upY;
-	int leftX;
-	int rightX;
-	int downY;
-
+	int colliderX;
+	int colliderY;
 	std::string colliderTag;
-	Player(cbCamera f, cbTile cbTile, cbInteract npcMF, void* p);
+
+	Player(cbCamera f, cbInteract npcMF, void* p);
 	~Player() {}
 
 	void handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
@@ -44,16 +40,14 @@ public:
 	void addEquipment(std::unique_ptr<IEquipment> equipment);
 	void damagePlayer(int damage);
 	void updateCaughtPokemon(int pokemonId);
-
-	static void staticCollisionCallbackFunction(void* p, std::string tag, int upY, int leftX, int rightX, int downY);
-	void collisionCallbackFunction(std::string tag, int upY, int leftX, int rightX, int downY);
+	
+	static void staticCollisionCallbackFunction(void* p, int x, int y, std::string tag);
+	void collisionCallbackFunction(int x, int y, std::string tag);
 
 	static void staticEquipmentCallbackFunction(void* p, const bool runningActivated);
 	void equipmentCallbackFunction(const bool runningActivated);
-	static void staticTileCallbackFunction(void* p);
 
 	void update() override;
-	void setToTrue();
 	void handleInteraction();
 private:
 	const int animationSpeed = 120;

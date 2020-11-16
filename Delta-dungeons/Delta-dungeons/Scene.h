@@ -11,17 +11,14 @@
 #include "DebugUtilities.h"
 #include "XMLSceneParser.h"
 #include "GraphicsComponent.h"
-typedef void(*cbTileToPlayer) (void*);
 
 class Scene : public GameObject
 {
 public:
 	Scene() {}
-	Scene(const cbTileToPlayer f, void* p);
 	Scene(int x, int y);
 	~Scene() {}
 
-	cbTileToPlayer func;
 	void* pointer;
 
 	void addGraphics();

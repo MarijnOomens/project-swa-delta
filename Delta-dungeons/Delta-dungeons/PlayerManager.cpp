@@ -3,9 +3,9 @@
 /// <summary>
 /// This is a manager class for the player in which the Player is created and the texture is stored.
 /// </summary>
-void PlayerManager::createPlayer(cbCamera cb, cbCheckCollision tileCB, cbInteract interactCB, void* p)
+void PlayerManager::createPlayer(cbCamera cb, cbInteract interactCB, void* p)
 {
-	player = std::make_shared<Player>(cb, tileCB, interactCB, p);
+	player = std::make_shared<Player>(cb, interactCB, p);
 	sprites.try_emplace("Player", player);
 }
 
@@ -17,10 +17,6 @@ std::map<std::string, std::string> PlayerManager::passTextures() const
 {
 	std::map<std::string, std::string> texture = sprites.begin()->second.get()->textures;
 	return texture;
-}
-
-void PlayerManager::setCollisionToTrue() {
-	player.get()->setToTrue();
 }
 
 /// <summary>
