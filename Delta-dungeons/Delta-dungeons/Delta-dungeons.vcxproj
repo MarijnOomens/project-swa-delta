@@ -181,6 +181,8 @@
     <ClCompile Include="PlayerManager.cpp" />
     <ClCompile Include="Pokeball.cpp" />
     <ClCompile Include="Pokemon.cpp" />
+    <ClCompile Include="PokemonManager.cpp" />
+    <ClCompile Include="PokemonParserData.cpp" />
     <ClCompile Include="PuzzleObject.cpp" />
     <ClCompile Include="Runningshoes.cpp" />
     <ClCompile Include="ParserData.cpp" />
@@ -210,6 +212,8 @@
     <ClInclude Include="HelpScreen.h" />
     <ClInclude Include="HUD.h" />
     <ClInclude Include="NPCManager.h" />
+    <ClInclude Include="PokemonManager.h" />
+    <ClInclude Include="PokemonParserData.h" />
     <ClInclude Include="SceneModifier.h" />
     <ClInclude Include="ParserData.h" />
     <ClInclude Include="PlayerManager.h" />

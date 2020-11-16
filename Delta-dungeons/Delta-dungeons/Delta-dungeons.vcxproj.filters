@@ -165,6 +165,12 @@
     <ClCompile Include="SceneModifier.cpp">
       <Filter>Source Files\Game</Filter>
     </ClCompile>
+    <ClCompile Include="PokemonManager.cpp">
+      <Filter>Source Files\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="PokemonParserData.cpp">
+      <Filter>Source Files\XMLParser</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h">
@@ -286,6 +292,12 @@
     </ClInclude>
     <ClInclude Include="SceneModifier.h">
       <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="PokemonManager.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="PokemonParserData.h">
+      <Filter>Header Files\XMLParser</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

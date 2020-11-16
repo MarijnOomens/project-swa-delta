@@ -1,0 +1,11 @@
+<Pokemons>
+<Pokemon name="caterpie" encounterRate="80"/>
+<Pokemon name="metapod" encounterRate="70"/>
+<Pokemon name="butterfree" encounterRate="40"/>
+<Pokemon name="dunsparce" encounterRate="50"/>
+<Pokemon name="eevee" encounterRate="80"/>
+<Pokemon name="Turtwig" encounterRate="60"/>
+<Pokemon name="ralts" encounterRate="50"/>
+<Pokemon name="shinx" encounterRate="55"/>
+<Pokemon name="leafeon" encounterRate="25"/>
+</Pokemons>

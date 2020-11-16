@@ -10,8 +10,8 @@
 //	return pokemon;
 //}
 
-std::unique_ptr<Pokemon> GameObjectBuilder::getPokemon(int x, int y, std::string name) {
-	std::unique_ptr<Pokemon> pokemon = std::make_unique<Pokemon>(x, y, name);
+std::shared_ptr<Pokemon> GameObjectBuilder::getPokemon(int x, int y, std::string name) {
+	std::shared_ptr<Pokemon> pokemon = std::make_shared<Pokemon>(x, y, name);
 	pokemon->textures.try_emplace(name, "Assets/Pokemon/" + name + "_anims.png");
 	return pokemon;
 }

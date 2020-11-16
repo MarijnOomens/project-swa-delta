@@ -7,6 +7,7 @@
 #include "XMLSceneParser.h"
 #include "SceneLoader.h"
 #include "NPCManager.h"
+#include "PokemonManager.h"
 #include "Scene.h"
 #include "DebugUtilities.h"
 #include "SceneModifier.h"
@@ -28,4 +29,5 @@ private:
 	EquipmentManager eqManager;
 	std::shared_ptr<Scene> scene;
 	NPCManager npcManager;
+	PokemonManager pokemonManger;
 };
