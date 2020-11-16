@@ -59,7 +59,7 @@ void Player::handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboard
 	{
 		//	if (keyboardEvent == KeyboardEvent::KEY_PRESSED)
 		//	{
-		temporaryColliderPosition = cc->transform.position;
+		//temporaryColliderPosition = cc->transform.position;
 		//		if (KeyCodes::KEY_UP == keyCodes || keyCodes == KeyCodes::KEY_W)
 		//		{
 		//			cc->transform.position.y -= baseMovementSpeed;
@@ -328,10 +328,11 @@ void Player::staticCollisionCallbackFunction(void* p, std::string tag)
 void Player::collisionCallbackFunction(std::string tag)
 {
 	std::cout << "Colliding with a: " << tag << std::endl;
-	gc->transform.position = temporaryColliderPosition;
-	cc->transform.position = temporaryColliderPosition;
-	this->transform.position = temporaryColliderPosition;
-	func(pointer, transform.position.x, transform.position.y);
+	
+	//gc->transform.position = temporaryColliderPosition;
+	//cc->transform.position = temporaryColliderPosition;
+	//this->transform.position = temporaryColliderPosition;
+	//func(pointer, transform.position.x, transform.position.y);
 }
 
 void Player::setToTrue()
