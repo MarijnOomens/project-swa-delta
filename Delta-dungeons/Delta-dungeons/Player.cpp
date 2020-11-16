@@ -56,22 +56,25 @@ Player::Player(const cbCamera f, const cbTile cbTile, cbInteract npcMF, void* p)
 void Player::handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboardEvent, Vector2D& mousePos)
 {
 	// predicts player next position & tileFunc checks for collision with that coordinate and returns a bool accordingly.
+
 	if (!cheatCollision) {
 		if (keyboardEvent == KeyboardEvent::KEY_PRESSED) {
+			temporaryColliderPosition = cc->transform.position;
 			if (KeyCodes::KEY_UP == keyCodes || keyCodes == KeyCodes::KEY_W) {
-				tileFunc(pointer, transform.position.x, transform.position.y - 128);
+				cc->transform.position.y -= baseMovementSpeed;
 			}
 			else if (KeyCodes::KEY_LEFT == keyCodes || keyCodes == KeyCodes::KEY_A) {
-				tileFunc(pointer, transform.position.x - 128, transform.position.y);
+				cc->transform.position.x -= baseMovementSpeed;
 			}
 			else if (KeyCodes::KEY_RIGHT == keyCodes || keyCodes == KeyCodes::KEY_D) {
-				tileFunc(pointer, transform.position.x + 128, transform.position.y);
+				cc->transform.position.x += baseMovementSpeed;
 			}
 			else if (KeyCodes::KEY_DOWN == keyCodes || keyCodes == KeyCodes::KEY_S) {
-				tileFunc(pointer, transform.position.x, transform.position.y + 128);
+				cc->transform.position.y += baseMovementSpeed;
 			}
 		}
 	}
+
 
 	if (keyboardEvent == KeyboardEvent::KEY_PRESSED && keyCodes == KeyCodes::KEY_UP || keyCodes == KeyCodes::KEY_LEFT || keyCodes == KeyCodes::KEY_RIGHT || keyCodes == KeyCodes::KEY_DOWN || keyCodes == KeyCodes::KEY_W || keyCodes == KeyCodes::KEY_S || keyCodes == KeyCodes::KEY_A || keyCodes == KeyCodes::KEY_D)
 	{
@@ -216,11 +219,12 @@ void Player::update() {}
 /// </summary>
 void Player::moveUp()
 {
+	//de huidige positie bijhouden.
 	cc->transform.position.y -= baseMovementSpeed;
 	transform.position.y -= baseMovementSpeed;
 	gc.get()->transform.position = transform.position;
 	runActivated ? gc->playAnimation(7, 3, animationSpeed, false) : gc->playAnimation(2, 4, animationSpeed, false);
-	func(pointer, transform.position.x, transform.position.y);
+
 }
 
 /// <summary>
@@ -321,7 +325,9 @@ void Player::collisionCallbackFunction(std::string tag)
 {
 	//setToTrue();
 	std::cout << " im standing on a  " << tag << std::endl;
+	tileCollision = true;
 	//count++;
+	//func to collision.cpp
 }
 
 void Player::setToTrue()

@@ -18,6 +18,7 @@ public:
 	cbTile tileFunc;
 	cbInteract npcManagerFunc;
 	KeyCodes currentDirection;
+	Vector2D temporaryColliderPosition;
 	void* pointer;
 	bool tileCollision;
 	Player(cbCamera f, cbTile cbTile, cbInteract npcMF, void* p);

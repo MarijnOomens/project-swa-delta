@@ -20,16 +20,26 @@ void Collision::checkCollision()
 		{
 			if (collider1 != collider2)
 			{
-				//if (collider1->isTrigger)
-				//{
+				if (collider1->isTrigger)
+				{
 					if (collider1->transform.position.x == collider2->transform.position.x && collider1->transform.position.y == collider2->transform.position.y)
 					{
-						collider1->actCollision(collider2->tag);
 						std::cout << "x: " << collider1->transform.position.x << " vs " << collider2->transform.position.x << " y: " << collider1->transform.position.y << " vs " << collider2->transform.position.y << std::endl;
 						std::cout << "it matched!" << std::endl;
 						break;
 					}
-				//}
+				}
+				else //is collider tile
+				{
+					if (collider1->transform.position.x == collider2->transform.position.x && collider1->transform.position.y == collider2->transform.position.y)
+					{
+						collider1->actCollision(collider2->tag);
+
+						std::cout << "x: " << collider1->transform.position.x << " vs " << collider2->transform.position.x << " y: " << collider1->transform.position.y << " vs " << collider2->transform.position.y << std::endl;
+						std::cout << "it matched!" << std::endl;
+						break;
+					}
+				}
 			}
 		}
 	}
