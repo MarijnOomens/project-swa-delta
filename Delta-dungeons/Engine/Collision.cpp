@@ -24,19 +24,19 @@ void Collision::checkCollision()
 				{
 					if (collider1->transform.position.x == collider2->transform.position.x && collider1->transform.position.y == collider2->transform.position.y)
 					{
-						std::cout << "x: " << collider1->transform.position.x << " vs " << collider2->transform.position.x << " y: " << collider1->transform.position.y << " vs " << collider2->transform.position.y << std::endl;
-						std::cout << "it matched!" << std::endl;
+						//std::cout << "x: " << collider1->transform.position.x << " vs " << collider2->transform.position.x << " y: " << collider1->transform.position.y << " vs " << collider2->transform.position.y << std::endl;
+						//std::cout << "it matched!" << std::endl;
 						break;
 					}
 				}
-				else //is collider tile
+				else 
 				{
-					if (collider1->transform.position.x == collider2->transform.position.x && collider1->transform.position.y == collider2->transform.position.y)
+					// dimensions vergelijken
+					if (collider1->transform.x)
 					{
 						collider1->actCollision(collider2->tag);
-
-						std::cout << "x: " << collider1->transform.position.x << " vs " << collider2->transform.position.x << " y: " << collider1->transform.position.y << " vs " << collider2->transform.position.y << std::endl;
-						std::cout << "it matched!" << std::endl;
+						//std::cout << "x: " << collider1->transform.position.x << " vs " << collider2->transform.position.x << " y: " << collider1->transform.position.y << " vs " << collider2->transform.position.y << std::endl;
+						//std::cout << "it matched!" << std::endl;
 						break;
 					}
 				}

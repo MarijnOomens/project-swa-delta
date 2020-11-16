@@ -25,14 +25,6 @@ void EngineController::update()
 	}
 }
 
-//void EngineController::interact()
-//{
-//	for (const auto& bo : behaviourObjects)
-//	{
-//		bo->interact();
-//	}
-//}
-
 /// <summary>
 /// This method calls an initialization function in RenderFacade with the given data, like resolution of the game window.
 /// </summary>
@@ -108,7 +100,6 @@ void EngineController::startGame()
 		if (!renderFacade->renderer->isPaused) 
 		{
 			renderFacade->beforeFrame();
-			//lijst wordt pas geupdate na collisie
 			collision->checkCollision();
 			update();
 		}
@@ -262,4 +253,9 @@ void EngineController::deleteObjectFromScene(std::shared_ptr<BehaviourObject> de
 			break;
 		}
 	}
+}
+
+void deleteColliderFromScene(std::shared_ptr<ColliderComponent> deletedCollider)
+{
+
 }

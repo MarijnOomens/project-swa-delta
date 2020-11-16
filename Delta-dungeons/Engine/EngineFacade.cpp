@@ -121,3 +121,8 @@ void EngineFacade::deleteObjectFromScene(std::shared_ptr<BehaviourObject> delete
 {
 	engineController->deleteObjectFromScene(deletedObject);
 }
+
+void EngineFacade::deleteColliderFromScene(std::shared_ptr<ColliderComponent> deletedCollider)
+{
+	//engineController->deleteColliderFromScene(deletedCollider);
+}

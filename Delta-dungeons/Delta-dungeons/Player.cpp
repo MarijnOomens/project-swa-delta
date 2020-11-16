@@ -55,26 +55,30 @@ Player::Player(const cbCamera f, const cbTile cbTile, cbInteract npcMF, void* p)
 /// <param name="keyboardEvent">KeyboardEvent will decide if handleKeyPressed or handleKeyReleased will be used</param>
 void Player::handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboardEvent, Vector2D& mousePos)
 {
-	// predicts player next position & tileFunc checks for collision with that coordinate and returns a bool accordingly.
+	if (!cheatCollision)
+	{
+		//	if (keyboardEvent == KeyboardEvent::KEY_PRESSED)
+		//	{
+		temporaryColliderPosition = cc->transform.position;
+		//		if (KeyCodes::KEY_UP == keyCodes || keyCodes == KeyCodes::KEY_W)
+		//		{
+		//			cc->transform.position.y -= baseMovementSpeed;
+		//		}
+		//		else if (KeyCodes::KEY_LEFT == keyCodes || keyCodes == KeyCodes::KEY_A)
+		//		{
+		//			cc->transform.position.x -= baseMovementSpeed;
+		//		}
+		//		else if (KeyCodes::KEY_RIGHT == keyCodes || keyCodes == KeyCodes::KEY_D)
+		//		{
+		//			cc->transform.position.x += baseMovementSpeed;
 
-	if (!cheatCollision) {
-		if (keyboardEvent == KeyboardEvent::KEY_PRESSED) {
-			temporaryColliderPosition = cc->transform.position;
-			if (KeyCodes::KEY_UP == keyCodes || keyCodes == KeyCodes::KEY_W) {
-				cc->transform.position.y -= baseMovementSpeed;
-			}
-			else if (KeyCodes::KEY_LEFT == keyCodes || keyCodes == KeyCodes::KEY_A) {
-				cc->transform.position.x -= baseMovementSpeed;
-			}
-			else if (KeyCodes::KEY_RIGHT == keyCodes || keyCodes == KeyCodes::KEY_D) {
-				cc->transform.position.x += baseMovementSpeed;
-			}
-			else if (KeyCodes::KEY_DOWN == keyCodes || keyCodes == KeyCodes::KEY_S) {
-				cc->transform.position.y += baseMovementSpeed;
-			}
-		}
+		//		}
+		//		else if (KeyCodes::KEY_DOWN == keyCodes || keyCodes == KeyCodes::KEY_S)
+		//		{
+		//			cc->transform.position.y += baseMovementSpeed;
+		//		}
+		//	}
 	}
-
 
 	if (keyboardEvent == KeyboardEvent::KEY_PRESSED && keyCodes == KeyCodes::KEY_UP || keyCodes == KeyCodes::KEY_LEFT || keyCodes == KeyCodes::KEY_RIGHT || keyCodes == KeyCodes::KEY_DOWN || keyCodes == KeyCodes::KEY_W || keyCodes == KeyCodes::KEY_S || keyCodes == KeyCodes::KEY_A || keyCodes == KeyCodes::KEY_D)
 	{
@@ -220,11 +224,11 @@ void Player::update() {}
 void Player::moveUp()
 {
 	//de huidige positie bijhouden.
-	cc->transform.position.y -= baseMovementSpeed;
 	transform.position.y -= baseMovementSpeed;
+	cc->transform.position.y = this->transform.position.y;
 	gc.get()->transform.position = transform.position;
 	runActivated ? gc->playAnimation(7, 3, animationSpeed, false) : gc->playAnimation(2, 4, animationSpeed, false);
-
+	func(pointer, transform.position.x, transform.position.y);
 }
 
 /// <summary>
@@ -233,8 +237,8 @@ void Player::moveUp()
 /// </summary>
 void Player::moveDown()
 {
-	cc->transform.position.y += baseMovementSpeed;
 	transform.position.y += baseMovementSpeed;
+	cc->transform.position.y = this->transform.position.y;
 	gc.get()->transform.position = transform.position;
 	runActivated ? gc->playAnimation(6, 3, animationSpeed, false) : gc->playAnimation(1, 4, animationSpeed, false);
 	func(pointer, transform.position.x, transform.position.y);
@@ -246,8 +250,8 @@ void Player::moveDown()
 /// </summary>
 void Player::moveLeft()
 {
-	cc->transform.position.x -= baseMovementSpeed;
 	transform.position.x -= baseMovementSpeed;
+	cc->transform.position.x = this->transform.position.x;
 	gc.get()->transform.position = transform.position;
 	runActivated ? gc->playAnimation(8, 3, animationSpeed, false) : gc->playAnimation(3, 4, animationSpeed, false);
 	func(pointer, transform.position.x, transform.position.y);
@@ -259,8 +263,8 @@ void Player::moveLeft()
 /// </summary>
 void Player::moveRight()
 {
-	cc->transform.position.x += baseMovementSpeed;
 	transform.position.x += baseMovementSpeed;
+	cc->transform.position.x = this->transform.position.x;
 	gc.get()->transform.position = transform.position;
 	runActivated ? gc->playAnimation(8, 3, animationSpeed, true) : gc->playAnimation(3, 4, animationSpeed, true);
 	func(pointer, transform.position.x, transform.position.y);
@@ -323,11 +327,11 @@ void Player::staticCollisionCallbackFunction(void* p, std::string tag)
 
 void Player::collisionCallbackFunction(std::string tag)
 {
-	//setToTrue();
-	std::cout << " im standing on a  " << tag << std::endl;
-	tileCollision = true;
-	//count++;
-	//func to collision.cpp
+	std::cout << "Colliding with a: " << tag << std::endl;
+	gc->transform.position = temporaryColliderPosition;
+	cc->transform.position = temporaryColliderPosition;
+	this->transform.position = temporaryColliderPosition;
+	func(pointer, transform.position.x, transform.position.y);
 }
 
 void Player::setToTrue()
