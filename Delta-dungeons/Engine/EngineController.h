@@ -44,6 +44,7 @@ public:
 	void resetSpeedGame() const;
 	void passInteract(int x, int y);
 	void deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject);
+	void deleteColliderFromScene(std::shared_ptr<ColliderComponent> deletedCollider);
 
 private:
 	std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects;

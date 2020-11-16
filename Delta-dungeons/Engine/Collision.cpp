@@ -2,7 +2,6 @@
 
 Collision::Collision()
 {
-	colliderObjects = std::vector<std::shared_ptr<ColliderComponent>>();
 }
 
 void Collision::registerColliders(const std::vector<std::shared_ptr<ColliderComponent>> colliders)
@@ -10,7 +9,14 @@ void Collision::registerColliders(const std::vector<std::shared_ptr<ColliderComp
 	colliderObjects = colliders;
 }
 
-//delete collisioncomponent collider2-> player if (collider2->tag = "tile"){tileCollision = true }
+void Collision::deleteColliderFromScene(std::shared_ptr<ColliderComponent> deletedCollider)
+{
+	auto index = std::find(colliderObjects.begin(), colliderObjects.end(), deletedCollider);
+	if (index != colliderObjects.end())
+	{
+		colliderObjects.erase(index);
+	}
+}
 
 void Collision::checkCollision()
 {

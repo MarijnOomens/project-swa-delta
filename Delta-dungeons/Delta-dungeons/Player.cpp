@@ -335,6 +335,7 @@ void Player::staticCollisionCallbackFunction(void* p, int x, int y, std::string 
 
 void Player::collisionCallbackFunction(int x, int y, std::string tag)
 {
+	//std::cout << tag << std::endl;
 	colliderX = x;
 	colliderY = y;
 	colliderTag = tag;
