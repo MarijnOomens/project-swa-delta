@@ -21,6 +21,13 @@ GameManager::GameManager()
 	npcManager = NPCManager();
 	npcManager.createNPC();
 	registerTextures(npcManager.passTextures());
+
+	hudManager.createHud();
+	for (std::string& texture: playerManager.getItems())
+	{
+		hudManager.addItem(texture);
+	}
+	registerTextures(hudManager.passTextures());
 	
 	scene = std::make_shared<Scene>();
 	scene->addGraphics();
@@ -63,14 +70,17 @@ void GameManager::registerBehaviourObjects()
 		level1.emplace_back(o.second.get());
 	}
 	
-	for (auto& o : playerManager.sprites)
+	for (auto& c : playerManager.player->getComponentsRecursive())
 	{
-		for (auto& c : o.second.get()->getComponentsRecursive())
-		{
-			level1.emplace_back(c);
-		}
-		level1.emplace_back(o.second);
+		level1.emplace_back(c);
 	}
+		level1.emplace_back(playerManager.player);
+
+	for (auto& c : hudManager.hud->getComponentsRecursive())
+	{
+		level1.emplace_back(c);
+	}
+	level1.emplace_back(hudManager.hud);
 	engineFacade->registerScene("Level1", level1);
 
 	engineFacade->loadScene("MainMenu", "", true);

@@ -9,7 +9,6 @@ typedef void(*cbCamera) (const void*, int, int);
 class PlayerManager
 {
 public:
-	std::map<std::string, std::shared_ptr<Player>> sprites;
 	std::shared_ptr<Player> player;
 
 	PlayerManager() {}
@@ -19,5 +18,5 @@ public:
 
 	std::map<std::string, std::string> passTextures() const;
 	std::shared_ptr<Player> getPlayerObject();
-
+	std::vector<std::string> getItems();
 };

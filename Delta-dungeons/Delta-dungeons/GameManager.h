@@ -10,6 +10,7 @@
 #include "Scene.h"
 #include "DebugUtilities.h"
 #include "SceneModifier.h"
+#include "HUDManager.h"
 
 class GameManager {
 public: 
@@ -28,4 +29,5 @@ private:
 	EquipmentManager eqManager;
 	std::shared_ptr<Scene> scene;
 	NPCManager npcManager;
+	HUDManager hudManager;
 };

@@ -7,7 +7,6 @@
 void PlayerManager::createPlayer(cbCamera cb, const void* p)
 {
 	player = std::make_shared<Player>(cb, p);
-	sprites.try_emplace("Player", player);
 }
 
 /// <summary>
@@ -16,7 +15,7 @@ void PlayerManager::createPlayer(cbCamera cb, const void* p)
 /// <returns>Returns a map of the textures.</returns>
 std::map<std::string, std::string> PlayerManager::passTextures() const
 {
-    std::map<std::string, std::string> texture = sprites.begin()->second.get()->textures;
+    std::map<std::string, std::string> texture = player->textures;
     return texture;
 }
 
@@ -27,4 +26,9 @@ std::map<std::string, std::string> PlayerManager::passTextures() const
 std::shared_ptr<Player> PlayerManager::getPlayerObject()
 {
     return player;
+}
+
+std::vector<std::string> PlayerManager::getItems()
+{
+    return player->getItems();
 }

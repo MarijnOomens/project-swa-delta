@@ -14,10 +14,11 @@
 /// </summary>
 Player::Player(cbCamera f, const void* p): func(f), pointer(p)
 {
+	std::string textureBoomerang ="boomerang" ;
 	std::unique_ptr<Runningshoes> running = std::make_unique<Runningshoes>(staticEquipmentCallbackFunction, this);
-	std::unique_ptr<Boomerang> boomerang = std::make_unique<Boomerang>();
+	std::unique_ptr<Boomerang> boomerang = std::make_unique<Boomerang>(textureBoomerang);
 
-	addEquipment(std::move(running));
+	//addEquipment(std::move(running));
 	addEquipment(std::move(boomerang));
 
 	baseMovementSpeed = 64;
@@ -28,6 +29,7 @@ Player::Player(cbCamera f, const void* p): func(f), pointer(p)
 
 	this->textures.try_emplace("player_m", "Assets/player2_m_anims.png");
 	this->textures.try_emplace("player_f", "Assets/player_f_anims.png");
+	this->textures.try_emplace(textureBoomerang, "Assets/HUD/Boomerang.png");
 	this->texture = "player_m";
 
 	gc = std::make_shared<GraphicsComponent>();
@@ -193,6 +195,16 @@ void Player::addEquipment(std::unique_ptr<IEquipment> item)
 void Player::damagePlayer(int damage) {}
 
 void::Player::updateCaughtPokemon(int pokemonId) {}
+
+std::vector<std::string> Player::getItems()
+{
+	std::vector<std::string> items;
+	for (auto& item : equipment)
+	{
+		items.push_back(item->texturePath);
+	}
+	return items;
+}
 
 /// <summary>
 /// Callbackmethod to call the equipmentCallbackFunction.

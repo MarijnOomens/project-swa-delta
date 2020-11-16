@@ -223,15 +223,36 @@ void EngineController::resetSpeedGame() const
 	renderFacade->resetSpeedGame();
 }
 
+void EngineController::addObjectToScene(std::shared_ptr<BehaviourObject> addObject)
+{
+	if (dynamic_cast<GraphicsComponent*>(addObject.get()) != nullptr)
+	{
+		auto ngc = dynamic_cast<GraphicsComponent*>(addObject.get());
+		ngc->addTextureManager(textureManager);
+		behaviourObjects.emplace_back(addObject);
+	}
+	else
+	{
+		behaviourObjects.emplace_back(addObject);
+	}
+}
+
+void EngineController::updateObjectToScene(std::shared_ptr<BehaviourObject> updateObject)
+{
+	auto index = std::find(behaviourObjects.begin(), behaviourObjects.end(), updateObject);
+	if (index != behaviourObjects.end())
+	{
+		int i = std::distance(behaviourObjects.begin(), index);
+		behaviourObjects[i] = updateObject;
+	}
+}
+
 void EngineController::deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject)
 {
-	for (std::vector<std::shared_ptr<BehaviourObject>>::iterator it = behaviourObjects.begin(); it != behaviourObjects.end(); ++it)
+	auto index = std::find(behaviourObjects.begin(), behaviourObjects.end(), deletedObject);
+	if (index != behaviourObjects.end())
 	{
-		if ((*it) == deletedObject) 
-		{
-			behaviourObjects.erase(it);
-			isSceneSwitched = true;
-			break;
-		}
+		behaviourObjects.erase(index);
+		isSceneSwitched = true;
 	}
 }

@@ -29,6 +29,7 @@ public:
 	void addEquipment(std::unique_ptr<IEquipment> equipment);
 	void damagePlayer(int damage);
 	void updateCaughtPokemon(int pokemonId);
+	std::vector<std::string> getItems();
 
 	static void staticEquipmentCallbackFunction(void* p, const bool runningActivated);
 	void equipmentCallbackFunction(const bool runningActivated);
