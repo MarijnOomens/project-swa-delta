@@ -9,9 +9,9 @@ public:
 	int leftX = -1;
 	int rightX = -1;
 	int downY = -1;
-	void registerColliders(const std::vector<std::shared_ptr<ColliderComponent>> colliders);
-	void deleteColliderFromScene(std::shared_ptr<ColliderComponent> deletedCollider);
+	void registerColliders(std::vector<std::shared_ptr<BehaviourObject>> colliders);
+	void deleteColliderFromScene(std::shared_ptr<BehaviourObject> deletedCollider);
 	void checkCollision();
 private:
-	std::vector<std::shared_ptr<ColliderComponent>> colliderObjects;
+	std::vector<std::shared_ptr<BehaviourObject>> colliderObjects;
 };

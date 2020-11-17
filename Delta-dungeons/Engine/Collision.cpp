@@ -2,12 +2,12 @@
 
 Collision::Collision() {}
 
-void Collision::registerColliders(const std::vector<std::shared_ptr<ColliderComponent>> colliders)
+void Collision::registerColliders(std::vector<std::shared_ptr<BehaviourObject>> colliders)
 {
 	colliderObjects = colliders;
 }
 
-void Collision::deleteColliderFromScene(std::shared_ptr<ColliderComponent> deletedCollider)
+void Collision::deleteColliderFromScene(std::shared_ptr<BehaviourObject> deletedCollider)
 {
 	auto index = std::find(colliderObjects.begin(), colliderObjects.end(), deletedCollider);
 	if (index != colliderObjects.end())
@@ -24,11 +24,13 @@ void Collision::checkCollision()
 		{
 			if (collider1 != collider2)
 			{
-				if (collider1->isTrigger)
+				auto col1 = dynamic_cast<ColliderComponent*>(collider1.get());
+				auto col2 = dynamic_cast<ColliderComponent*>(collider1.get());
+				if (col1->isTrigger)
 				{
-					if (collider1->transform.position.x == collider2->transform.position.x && collider1->transform.position.y == collider2->transform.position.y)
+					if (col1->transform.position.x == col2->transform.position.x && col1->transform.position.y == col2->transform.position.y)
 					{
-						std::cout << "x: " << collider1->transform.position.x << " vs " << collider2->transform.position.x << " y: " << collider1->transform.position.y << " vs " << collider2->transform.position.y << std::endl;
+						std::cout << "x: " << col1->transform.position.x << " vs " << col2->transform.position.x << " y: " << col1->transform.position.y << " vs " << col2->transform.position.y << std::endl;
 						std::cout << "it matched!" << std::endl;
 						break;
 					}
@@ -36,22 +38,22 @@ void Collision::checkCollision()
 				else
 				{
 					/*facing right*/
-					if ((collider1->transform.position.x + 128 == collider2->transform.position.x
-						&& collider1->transform.position.y == collider2->transform.position.y)
+					if ((col1->transform.position.x + 128 == col2->transform.position.x
+						&& col1->transform.position.y == col2->transform.position.y)
 						||
 						/*facing up*/
-						(collider1->transform.position.y == collider2->transform.position.y + 128
-							&& collider1->transform.position.x == collider2->transform.position.x)
+						(col1->transform.position.y == col2->transform.position.y + 128
+							&& col1->transform.position.x == col2->transform.position.x)
 						||
 						/*facing down*/
-						(collider1->transform.position.y + 128 == collider2->transform.position.y
-							&& collider1->transform.position.x == collider2->transform.position.x)
+						(col1->transform.position.y + 128 == col2->transform.position.y
+							&& col1->transform.position.x == col2->transform.position.x)
 						||
 						/*facing left*/
-						(collider1->transform.position.x == collider2->transform.position.x + 128
-							&& collider1->transform.position.y == collider2->transform.position.y))
+						(col1->transform.position.x == col2->transform.position.x + 128
+							&& col1->transform.position.y == col2->transform.position.y))
 					{
-						collider1->actCollision(collider2->transform.position.x, collider2->transform.position.y, collider2->tag);
+						col1->actCollision(col2->transform.position.x, col2->transform.position.y, col2->tag);
 						//std::cout << "x: " << collider1->transform.position.x << " vs " << collider2->transform.position.x << " y: " << collider1->transform.position.y << " vs " << collider2->transform.position.y << std::endl;
 						//std::cout << "it matched!" << std::endl;
 					}

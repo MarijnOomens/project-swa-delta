@@ -111,7 +111,7 @@ void EngineController::startGame()
 void EngineController::registerScene(const std::string& sceneName, const std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects)
 {
 	std::vector<std::shared_ptr<BehaviourObject>> tempObjects;
-	std::vector<std::shared_ptr<ColliderComponent>> colliderObjects;
+	std::vector<std::shared_ptr<BehaviourObject>> colliderObjects;
 
 	for (const auto& o : behaviourObjects)
 	{
@@ -123,8 +123,7 @@ void EngineController::registerScene(const std::string& sceneName, const std::ve
 		}
 		else if (dynamic_cast<ColliderComponent*>(o.get()) != nullptr)
 		{
-			auto cc = dynamic_cast<ColliderComponent*>(o.get());
-			colliderObjects.emplace_back(cc);
+			colliderObjects.emplace_back(o);
 		}
 		else if (dynamic_cast<TextComponent*>(o.get()) != nullptr)
 		{
