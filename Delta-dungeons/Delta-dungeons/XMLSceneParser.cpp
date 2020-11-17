@@ -17,14 +17,14 @@ std::vector<std::shared_ptr<Tile>> XMLSceneParser::loadScene(const std::string& 
 
 	for (std::shared_ptr<ParserData> tile : data)
 	{
-		int first = tile.get()->tileId[0] - 48;
-		if (tile.get()->tileId[1]) {
-			int second = tile.get()->tileId[1] - 48;
-			tileMap.emplace_back(std::make_shared<Tile>(std::stoi(tile.get()->x), std::stoi(tile.get()->y), first, second, tile.get()->isCollider));
+		int first = tile->tileId[0] - 48;
+		if (tile->tileId[1]) {
+			int second = tile->tileId[1] - 48;
+			tileMap.emplace_back(std::make_shared<Tile>(std::stoi(tile->x), std::stoi(tile->y), first, second, tile->isCollider));
 		}
 		else
 		{
-			tileMap.emplace_back(std::make_shared<Tile>(std::stoi(tile.get()->x), std::stoi(tile.get()->y), first, tile.get()->isCollider));
+			tileMap.emplace_back(std::make_shared<Tile>(std::stoi(tile->x), std::stoi(tile->y), first, tile->isCollider));
 		}
 	}
 	return tileMap;

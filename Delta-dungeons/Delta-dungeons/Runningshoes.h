@@ -7,10 +7,11 @@ typedef void(*cbEquipment) (void*, bool);
 class RunningShoes : public IEquipment
 {
 public:
-	RunningShoes();
+	RunningShoes() {}
 	RunningShoes(const cbEquipment f, void* p);
 	RunningShoes(int x, int y, std::string texture);
-	~RunningShoes();
+	~RunningShoes() {}
+
 	void use() override;
 	void interact() override;
 private:
@@ -19,5 +20,4 @@ private:
 	cbEquipment func;
 	void* pointer;
 	bool isActivated = false;
-	bool isCollider;
 };

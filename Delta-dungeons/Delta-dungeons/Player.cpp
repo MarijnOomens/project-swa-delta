@@ -138,7 +138,7 @@ void Player::handleKeyPressed(const KeyCodes& keyCodes)
 	case KeyCodes::KEY_Q:
 		for (auto& comp : equipment)
 		{
-			comp.get()->use();
+			comp->use();
 		}
 		break;
 	case KeyCodes::KEY_E:
@@ -228,7 +228,7 @@ void Player::moveUp()
 	//de huidige positie bijhouden.
 	transform.position.y -= baseMovementSpeed;
 	cc->transform.position.y = this->transform.position.y;
-	gc.get()->transform.position = transform.position;
+	gc->transform.position = transform.position;
 	runActivated ? gc->playAnimation(7, 3, animationSpeed, false) : gc->playAnimation(2, 4, animationSpeed, false);
 	func(pointer, transform.position.x, transform.position.y);
 }
@@ -241,7 +241,7 @@ void Player::moveDown()
 {
 	transform.position.y += baseMovementSpeed;
 	cc->transform.position.y = this->transform.position.y;
-	gc.get()->transform.position = transform.position;
+	gc->transform.position = transform.position;
 	runActivated ? gc->playAnimation(6, 3, animationSpeed, false) : gc->playAnimation(1, 4, animationSpeed, false);
 	func(pointer, transform.position.x, transform.position.y);
 }
@@ -254,7 +254,7 @@ void Player::moveLeft()
 {
 	transform.position.x -= baseMovementSpeed;
 	cc->transform.position.x = this->transform.position.x;
-	gc.get()->transform.position = transform.position;
+	gc->transform.position = transform.position;
 	runActivated ? gc->playAnimation(8, 3, animationSpeed, false) : gc->playAnimation(3, 4, animationSpeed, false);
 	func(pointer, transform.position.x, transform.position.y);
 }
@@ -267,7 +267,7 @@ void Player::moveRight()
 {
 	transform.position.x += baseMovementSpeed;
 	cc->transform.position.x = this->transform.position.x;
-	gc.get()->transform.position = transform.position;
+	gc->transform.position = transform.position;
 	runActivated ? gc->playAnimation(8, 3, animationSpeed, true) : gc->playAnimation(3, 4, animationSpeed, true);
 	func(pointer, transform.position.x, transform.position.y);
 }

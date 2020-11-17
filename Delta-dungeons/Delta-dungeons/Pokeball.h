@@ -4,14 +4,12 @@
 #include "GraphicsComponent.h"
 #include "ColliderComponent.h"
 
-
 class Pokeball : public IEquipment
 {
 public:
-	bool isCollider;
-
+	Pokeball() {}
 	Pokeball(int x, int y, std::string texture);
-	~Pokeball();
+	~Pokeball() {}
 
 	void interact() override;
 	void use() override;

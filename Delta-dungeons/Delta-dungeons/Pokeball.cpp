@@ -7,7 +7,7 @@ Pokeball::Pokeball(int x, int y, std::string texture) {
 	gc = std::make_shared<GraphicsComponent>();
 	gc->setTexture(texture);
 	gc->imageDimensions = { 32, 32 };
-	gc.get()->transform = transform;
+	gc->transform = transform;
 	gc->isScreen = false;
 
 	cc = std::make_shared<ColliderComponent>();
@@ -18,16 +18,12 @@ Pokeball::Pokeball(int x, int y, std::string texture) {
 	this->components.emplace_back(cc);
 }
 
-Pokeball::~Pokeball() {}
-
 void Pokeball::interact()
 {
 	if (gc != nullptr) {
-		std::cout << "found " << gc.get()->textureName << gc.get()->transform.position.x << " " << gc.get()->transform.position.y << std::endl;
-		
+		std::cout << "found " << gc->textureName << gc->transform.position.x << " " << gc->transform.position.y << std::endl;
 		SceneModifier::getInstance().deleteObjectFromScene(gc);
 		SceneModifier::getInstance().deleteColliderFromScene(cc);
-
 		gc = nullptr;
 	}
 }

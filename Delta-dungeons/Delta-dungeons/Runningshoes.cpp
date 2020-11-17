@@ -1,7 +1,5 @@
 #include "RunningShoes.h"
 
-RunningShoes::RunningShoes() {}
-
 RunningShoes::RunningShoes(const cbEquipment f, void* p) : func(f), pointer(p) {}
 
 RunningShoes::RunningShoes(int x, int y, std::string texture)
@@ -12,7 +10,7 @@ RunningShoes::RunningShoes(int x, int y, std::string texture)
 	gc = std::make_shared<GraphicsComponent>();
 	gc->setTexture(texture);
 	gc->imageDimensions = { 32, 32 };
-	gc.get()->transform = transform;
+	gc->transform = transform;
 	gc->isScreen = false;
 
 	cc = std::make_shared<ColliderComponent>();
@@ -22,7 +20,6 @@ RunningShoes::RunningShoes(int x, int y, std::string texture)
 	this->components.emplace_back(gc);
 	this->components.emplace_back(cc);
 }
-RunningShoes::~RunningShoes() {}
 
 /// <summary>
 /// This method gets called to change the isActivated boolean property. 
@@ -38,7 +35,7 @@ void RunningShoes::use()
 void RunningShoes::interact()
 {
 	if (gc != nullptr) {
-		std::cout << "found " << gc.get()->textureName << gc.get()->transform.position.x << " " << gc.get()->transform.position.y << std::endl;
+		std::cout << "found " << gc->textureName << gc->transform.position.x << " " << gc->transform.position.y << std::endl;
 		SceneModifier::getInstance().deleteObjectFromScene(gc);
 		SceneModifier::getInstance().deleteColliderFromScene(cc);
 		gc = nullptr;

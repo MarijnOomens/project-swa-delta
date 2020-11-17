@@ -14,7 +14,6 @@ Pokemon::Pokemon(int x, int y, std::string& texture)
 	cc = std::make_shared<ColliderComponent>();
 	cc->tag = "pokemon";
 	cc->transform.position = this->transform.position;
-	cc->isTrigger = false;
 
 	this->components.emplace_back(gc);
 	this->components.emplace_back(cc);
@@ -22,5 +21,5 @@ Pokemon::Pokemon(int x, int y, std::string& texture)
 
 void Pokemon::interact()
 {
-	std::cout << "found " << gc.get()->textureName << gc.get()->transform.position.x << " " << gc.get()->transform.position.y << std::endl;
+	std::cout << "found " << gc->textureName << gc->transform.position.x << " " << gc->transform.position.y << std::endl;
 }

@@ -187,7 +187,7 @@ void EngineController::registerTextures(const std::map<std::string, std::string>
 /// <param name="fonts">Map of multiple fonts.</param>
 void EngineController::registerFonts(std::map<std::string, std::string> fonts) {
 	for (auto& t : fonts) {
-		assetManager.get()->addFont(t.first, t.second);
+		assetManager->addFont(t.first, t.second);
 	}
 }
 
@@ -234,9 +234,9 @@ void EngineController::resetSpeedGame() const
 void EngineController::passInteract(int x, int y) {
 	for (int i = behaviourObjects.size() - 1; i-- > 0; )
 	{
-		if (behaviourObjects.at(i).get()->transform.position.x == x && behaviourObjects.at(i).get()->transform.position.y == y)
+		if (behaviourObjects.at(i)->transform.position.x == x && behaviourObjects.at(i)->transform.position.y == y)
 		{
-			behaviourObjects.at(i).get()->interact();
+			behaviourObjects.at(i)->interact();
 		}
 	}
 }

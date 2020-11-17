@@ -46,9 +46,9 @@ std::vector<std::shared_ptr<ParserData>> XMLParser::parseXML(const std::string& 
 				{
 					for (int x = 0; x < parserDataList.size(); x++)
 					{
-						if (xVal == parserDataList.at(x).get()->x && yVal == parserDataList.at(x).get()->y)
+						if (xVal == parserDataList.at(x)->x && yVal == parserDataList.at(x)->y)
 						{
-							parserDataList.at(x).get()->isCollider = true;
+							parserDataList.at(x)->isCollider = true;
 							break;
 						}
 					}

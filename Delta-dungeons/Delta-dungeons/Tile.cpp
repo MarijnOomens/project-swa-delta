@@ -16,14 +16,12 @@ Tile::Tile(int x, int y, int xImage, bool collider)
 	transform.position.x = x * 128;
 	transform.position.y = y * 128;
 	imageCoordinates = Vector2D(xImage * 32, 0);
-	
+
 	if (collider)
 	{
 		cc = std::make_shared<ColliderComponent>();
 		cc->tag = "tile";
 		cc->transform.position = this->transform.position;
-		cc->isTrigger = false;
-
 		this->components.emplace_back(cc);
 	}
 }
@@ -51,8 +49,6 @@ Tile::Tile(int x, int y, int yImage, int xImage, bool collider)
 		cc = std::make_shared<ColliderComponent>();
 		cc->tag = "tile";
 		cc->transform.position = this->transform.position;
-		cc->isTrigger = false;
-
 		this->components.emplace_back(cc);
 	}
 }

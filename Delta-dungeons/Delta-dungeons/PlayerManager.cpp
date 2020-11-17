@@ -15,7 +15,7 @@ void PlayerManager::createPlayer(cbCamera cb, cbInteract interactCB, void* p)
 /// <returns>Returns a map of the textures.</returns>
 std::map<std::string, std::string> PlayerManager::passTextures() const
 {
-	std::map<std::string, std::string> texture = sprites.begin()->second.get()->textures;
+	std::map<std::string, std::string> texture = sprites.begin()->second->textures;
 	return texture;
 }
 

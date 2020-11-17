@@ -7,11 +7,9 @@
 class Berry : public IEquipment
 {
 public:
-	bool isCollider;
-
-	Berry();
+	Berry() {}
 	Berry(int x, int y, std::string texture);
-	~Berry();
+	~Berry() {}
 
 	void interact() override;
 	void use() override;

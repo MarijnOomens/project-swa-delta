@@ -42,7 +42,7 @@ void GameManager::registerBehaviourObjects()
 	{
 		std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects;
 		behaviourObjects.emplace_back(o.second);
-		for (auto& c : o.second.get()->getComponentsRecursive())
+		for (auto& c : o.second->getComponentsRecursive())
 		{
 			behaviourObjects.emplace_back(c);
 		}
@@ -58,7 +58,7 @@ void GameManager::registerBehaviourObjects()
 
 	for (auto& o : npcManager.npcs)
 	{
-		for (auto& n : o.second.get()->getComponentsRecursive())
+		for (auto& n : o.second->getComponentsRecursive())
 		{
 			level1.emplace_back(n);
 		}
@@ -67,7 +67,7 @@ void GameManager::registerBehaviourObjects()
 
 	for (auto& o : eqManager.equipments)
 	{
-		for (auto& n : o.second.get()->getComponentsRecursive())
+		for (auto& n : o.second->getComponentsRecursive())
 		{
 			level1.emplace_back(n);
 		}
@@ -76,7 +76,7 @@ void GameManager::registerBehaviourObjects()
 
 	for (auto& o : playerManager.sprites)
 	{
-		for (auto& c : o.second.get()->getComponentsRecursive())
+		for (auto& c : o.second->getComponentsRecursive())
 		{
 			level1.emplace_back(c);
 		}
@@ -110,7 +110,7 @@ void GameManager::passPlayerPosition(int x, int y)
 /// </summary>
 void GameManager::registerFonts(std::map<std::string, std::string> fonts)
 {
-	engineFacade.get()->registerFonts(fonts);
+	engineFacade->registerFonts(fonts);
 }
 
 void GameManager::staticPlayerToTileCallbackFunction(void* p, int x, int y)
@@ -119,7 +119,7 @@ void GameManager::staticPlayerToTileCallbackFunction(void* p, int x, int y)
 }
 
 void GameManager::playerToTileCallbackFunction(int x, int y) {
-	//scene.get()->checkCollision(x, y);
+	//scene->checkCollision(x, y);
 }
 
 void GameManager::staticInteractCallbackFunction(void* p, int x, int y)
@@ -128,5 +128,5 @@ void GameManager::staticInteractCallbackFunction(void* p, int x, int y)
 }
 
 void GameManager::npcManagerCallbackFunction(int x, int y) {
-	engineFacade.get()->passInteract(x, y);
+	engineFacade->passInteract(x, y);
 }

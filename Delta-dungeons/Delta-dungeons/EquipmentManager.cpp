@@ -1,28 +1,32 @@
 #include "EquipmentManager.h"
-#include "XMLSceneParser.h"
 
 EquipmentManager::EquipmentManager()
 {
 	builder = std::make_shared<GameObjectBuilder>();
 }
 
-EquipmentManager::~EquipmentManager() {}
-
 void EquipmentManager::createEquipment()
 {
 	std::unique_ptr<XMLSceneParser> xmlSceneParser = std::make_unique<XMLSceneParser>();
-	std::vector<std::shared_ptr<ParserData>> equipmentData = xmlSceneParser.get()->getEquipmentDataList("Assets/maps/level1.xml");
+	std::vector<std::shared_ptr<ParserData>> equipmentData = xmlSceneParser->getEquipmentDataList("Assets/maps/level1.xml");
 
 	for (auto parsedEquipment : equipmentData)
 	{
-		if (parsedEquipment.get()->tileId == "3") {
-			equipments.try_emplace("pokeball" + parsedEquipment.get()->x + parsedEquipment.get()->y, builder.get()->getPokeball(std::stoi(parsedEquipment.get()->x), std::stoi(parsedEquipment.get()->y), "pokeball"));
+		if (parsedEquipment->tileId == "3") 
+		{
+			equipments.try_emplace("pokeball" + parsedEquipment->x + parsedEquipment->y, builder->getPokeball(std::stoi(parsedEquipment->x), std::stoi(parsedEquipment->y), "pokeball"));
 		}
-		else if (parsedEquipment.get()->tileId == "4") {
-			equipments.try_emplace("running_shoes" + parsedEquipment.get()->x + parsedEquipment.get()->y, builder.get()->getRunningShoes(std::stoi(parsedEquipment.get()->x), std::stoi(parsedEquipment.get()->y), "running_shoes"));
+		else if (parsedEquipment->tileId == "4") 
+		{
+			equipments.try_emplace("running_shoes" + parsedEquipment->x + parsedEquipment->y, builder->getRunningShoes(std::stoi(parsedEquipment->x), std::stoi(parsedEquipment->y), "running_shoes"));
 		}
-		else if (parsedEquipment.get()->tileId == "5") {
-			equipments.try_emplace("berry" + parsedEquipment.get()->x + parsedEquipment.get()->y, builder.get()->getBerry(std::stoi(parsedEquipment.get()->x), std::stoi(parsedEquipment.get()->y), "berry"));
+		else if (parsedEquipment->tileId == "5") 
+		{
+			equipments.try_emplace("berry" + parsedEquipment->x + parsedEquipment->y, builder->getBerry(std::stoi(parsedEquipment->x), std::stoi(parsedEquipment->y), "berry"));
+		}
+		else if (parsedEquipment->tileId == "6") 
+		{
+			equipments.try_emplace("boomerang" + parsedEquipment->x + parsedEquipment->y, builder->getBoomerang(std::stoi(parsedEquipment->x), std::stoi(parsedEquipment->y), "boomerang"));
 		}
 	}
 }
@@ -30,8 +34,10 @@ void EquipmentManager::createEquipment()
 std::map<std::string, std::string> EquipmentManager::passTextures() const
 {
 	std::map<std::string, std::string> totalTextures;
-	for (auto& equipment : equipments) {
-		for (auto& t : equipment.second->textures) {
+	for (auto& equipment : equipments) 
+	{
+		for (auto& t : equipment.second->textures) 
+		{
 			totalTextures.try_emplace(t.first, t.second);
 		}
 	}
