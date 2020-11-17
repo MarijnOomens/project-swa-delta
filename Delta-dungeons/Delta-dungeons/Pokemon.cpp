@@ -21,5 +21,4 @@ Pokemon::Pokemon(int x, int y, std::string& texture)
 
 void Pokemon::interact()
 {
-	std::cout << "Found: " << gc->textureName << " x: " << gc->transform.position.x << " y: " << gc->transform.position.y << std::endl;
 }

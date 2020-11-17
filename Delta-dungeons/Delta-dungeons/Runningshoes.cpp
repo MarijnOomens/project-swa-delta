@@ -24,7 +24,6 @@ RunningShoes::RunningShoes(int x, int y, std::string texture)
 void RunningShoes::interact()
 {
 	if (gc != nullptr) {
-		std::cout << "Collected: " << gc->textureName << " x: " << gc->transform.position.x << " y: " << gc->transform.position.y << std::endl;
 		SceneModifier::getInstance().deleteObjectFromScene(gc);
 		SceneModifier::getInstance().deleteColliderFromScene(cc);
 		gc = nullptr;
@@ -38,7 +37,5 @@ void RunningShoes::interact()
 void RunningShoes::use()
 {
 	isActivated = !isActivated;
-	if (isActivated) { std::cout << "RunningShoes: Activated!" << std::endl; }
-	else { std::cout << "RunningShoes: Disabled!" << std::endl; }
 	func(pointer, isActivated);
 }

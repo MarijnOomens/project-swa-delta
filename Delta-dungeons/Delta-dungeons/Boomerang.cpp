@@ -24,7 +24,6 @@ Boomerang::Boomerang(int x, int y, std::string texture)
 void Boomerang::interact()
 {
 	if (gc != nullptr) {
-		std::cout << "Collected: " << gc->textureName << " x: " << gc->transform.position.x << " y: " << gc->transform.position.y << std::endl;
 		SceneModifier::getInstance().deleteObjectFromScene(gc);
 		SceneModifier::getInstance().deleteColliderFromScene(cc);
 		gc = nullptr;
@@ -38,7 +37,5 @@ void Boomerang::interact()
 void Boomerang::use()
 {
 	isActivated = !isActivated;
-	if (isActivated) { std::cout << "Boomerang: Activated!" << std::endl; }
-	else { std::cout << "Boomerang: Disabled!" << std::endl; }
 	func(pointer, isActivated);
 }

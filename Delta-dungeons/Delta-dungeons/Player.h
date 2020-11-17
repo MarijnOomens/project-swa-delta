@@ -18,15 +18,12 @@ public:
 	std::string texture;
 
 	cbCamera func;
-	cbInteract npcManagerFunc;
+	cbInteract interactFunc;
 
 	KeyCodes currentDirection;
-	Vector2D temporaryColliderPosition;
 	void* pointer;
 
-
-
-	Player(cbCamera f, cbInteract npcMF, void* p);
+	Player(cbCamera f, cbInteract interactCB, void* p);
 	~Player() {}
 
 	void handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
@@ -60,8 +57,6 @@ private:
 	int amountCaught;
 	int baseMovementSpeed;
 	int x, y;
-	int predictedX; //cant initialise to 0 here, because it will still give random value
-	int	predictedY;
 	int count;
 	bool runActivated = false;
 	bool boomerangActivated = false;

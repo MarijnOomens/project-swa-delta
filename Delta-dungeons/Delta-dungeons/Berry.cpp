@@ -21,7 +21,6 @@ Berry::Berry(int x, int y, std::string texture) {
 void Berry::interact() 
 {
     if (gc != nullptr) {
-        std::cout << "Collected: " << gc->textureName << " x: " << gc->transform.position.x << " y: " << gc->transform.position.y << std::endl;
         SceneModifier::getInstance().deleteObjectFromScene(gc);
         SceneModifier::getInstance().deleteColliderFromScene(cc);
         gc = nullptr;

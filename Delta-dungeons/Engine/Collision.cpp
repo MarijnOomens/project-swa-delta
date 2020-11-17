@@ -30,8 +30,6 @@ void Collision::checkCollision()
 				{
 					if (col1->transform.position.x == col2->transform.position.x && col1->transform.position.y == col2->transform.position.y)
 					{
-						std::cout << "x: " << col1->transform.position.x << " vs " << col2->transform.position.x << " y: " << col1->transform.position.y << " vs " << col2->transform.position.y << std::endl;
-						std::cout << "it matched!" << std::endl;
 						break;
 					}
 				}

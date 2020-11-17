@@ -21,5 +21,4 @@ NPC::NPC(int x, int y, std::string &texture)
 
 void NPC::interact()
 {
-	std::cout << "Found: " << gc->textureName << " x: " << gc->transform.position.x << " y: " << gc->transform.position.y << std::endl;
 }

@@ -10,7 +10,7 @@
 /// Defines the movementspeed and the runactivated bool
 /// Creates the graphicscomponent for the player sprite and saves the texturename and png location, width, height
 /// </summary>
-Player::Player(const cbCamera f, cbInteract npcMF, void* p) : func(f), npcManagerFunc(npcMF), pointer(p)
+Player::Player(const cbCamera f, cbInteract interactCB, void* p) : func(f), interactFunc(interactCB), pointer(p)
 {
 	std::unique_ptr<RunningShoes> running = std::make_unique<RunningShoes>(staticRunningShoesCallbackFunction, this);
 	std::unique_ptr<Boomerang> boomerang = std::make_unique<Boomerang>(staticBoomerangCallbackFunction, this);
@@ -60,22 +60,18 @@ void Player::handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboard
 		{
 			if (KeyCodes::KEY_UP == keyCodes || keyCodes == KeyCodes::KEY_W)
 			{
-				if (upTag != "") { std::cout << "walking against a " << upTag << std::endl; }
 				if (upY == transform.position.y - 128) { tileCollision = true; }
 			}
 			else if (KeyCodes::KEY_LEFT == keyCodes || keyCodes == KeyCodes::KEY_A)
 			{
-				if (leftTag != "") { std::cout << "walking against a " << leftTag << std::endl; }
 				if (leftX == transform.position.x - 128) { tileCollision = true; }
 			}
 			else if (KeyCodes::KEY_RIGHT == keyCodes || keyCodes == KeyCodes::KEY_D)
 			{
-				if (rightTag != "") { std::cout << "walking against a " << rightTag << std::endl; }
 				if (rightX == transform.position.x + 128) { tileCollision = true; }
 			}
 			else if (KeyCodes::KEY_DOWN == keyCodes || keyCodes == KeyCodes::KEY_S)
 			{
-				if (downTag != "") { std::cout << "walking against a " << downTag << std::endl; }
 				if (downY == transform.position.y + 128) { tileCollision = true; }
 			}
 		}
@@ -156,27 +152,25 @@ void Player::handleKeyPressed(const KeyCodes& keyCodes)
 		break;
 	case KeyCodes::KEY_C:
 		DebugUtilities::getInstance().toggleCheatCollision();
-		if (DebugUtilities::getInstance().isCheatCollisionOn()) { std::cout << "Cheat collision turned on." << std::endl; }
-		else { std::cout << "Cheat collision turned off." << std::endl; }
 		break;
 	default:
 		break;
 	}
 }
 
-void Player::handleInteraction() 
+void Player::handleInteraction()
 {
 	if (KeyCodes::KEY_UP == currentDirection || KeyCodes::KEY_W == currentDirection) {
-		npcManagerFunc(pointer, transform.position.x, transform.position.y - 128);
+		interactFunc(pointer, transform.position.x, transform.position.y - 128);
 	}
 	else if (KeyCodes::KEY_LEFT == currentDirection || KeyCodes::KEY_A == currentDirection) {
-		npcManagerFunc(pointer, transform.position.x - 128, transform.position.y);
+		interactFunc(pointer, transform.position.x - 128, transform.position.y);
 	}
 	else if (KeyCodes::KEY_RIGHT == currentDirection || KeyCodes::KEY_D == currentDirection) {
-		npcManagerFunc(pointer, transform.position.x + 128, transform.position.y);
+		interactFunc(pointer, transform.position.x + 128, transform.position.y);
 	}
 	else if (KeyCodes::KEY_DOWN == currentDirection || KeyCodes::KEY_S == currentDirection) {
-		npcManagerFunc(pointer, transform.position.x, transform.position.y + 128);
+		interactFunc(pointer, transform.position.x, transform.position.y + 128);
 	}
 }
 
