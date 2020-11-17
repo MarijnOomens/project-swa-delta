@@ -63,3 +63,21 @@ int SceneManager::getActiveScenesSize()
 {
 	return activeScenes.size();
 }
+
+void SceneManager::updateActiveScene(std::vector<std::shared_ptr<BehaviourObject>> object)
+{
+	if (scenes.size() > 0) 
+	{
+		scenes.erase(currentScene);
+		scenes.find(currentScene)->second = object;
+		/*auto test = std::find(scenes.find(currentScene)->second.begin(), scenes.find(currentScene)->second.end(), object);
+		if (test != scenes.find(currentScene)->second.end())
+		{
+			scenes.find(currentScene)->second.erase = 
+		}
+		else 
+		{
+			scenes.find(currentScene)->second.emplace_back(object);
+		}*/
+	}
+}

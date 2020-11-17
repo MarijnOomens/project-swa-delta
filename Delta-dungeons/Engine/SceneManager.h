@@ -16,6 +16,7 @@ public:
 	std::vector<std::shared_ptr<BehaviourObject>> loadPreviousScene();
 	std::vector<std::shared_ptr<BehaviourObject>> addOverlayScene(const std::string& sceneName);
 	int getActiveScenesSize();
+	void updateActiveScene(std::vector<std::shared_ptr<BehaviourObject>> object);
 
 private:
 	std::map<std::string, std::vector<std::shared_ptr<BehaviourObject>>> scenes;
