@@ -21,14 +21,112 @@ std::vector<std::shared_ptr<ParserData>> XMLParser::parseXML(const std::string& 
 	doc.parse<0>(xmlFile.data());
 	xml_node<>* node = doc.first_node("tilemap");
 
-	for (xml_node<>* child = node->first_node(); child; child = child->next_sibling())
+	for (xml_node<>* layer = node->first_node(); layer; layer = layer->next_sibling())
 	{
-		for (xml_node<>* tile = child->first_node(); tile; tile = tile->next_sibling())
+		std::string layerName = layer->first_attribute("name")->value();
+
+		if (layerName == "surface")
 		{
-			std::shared_ptr<ParserData> p = std::make_shared<ParserData>(tile->first_attribute("x")->value(), tile->first_attribute("y")->value(), tile->first_attribute("tile")->value());
-			parserDataList.emplace_back(p);
+			for (xml_node<>* tile = layer->first_node(); tile; tile = tile->next_sibling())
+			{
+				std::shared_ptr<ParserData> p = std::make_shared<ParserData>(tile->first_attribute("x")->value(), tile->first_attribute("y")->value(), tile->first_attribute("tile")->value());
+				parserDataList.push_back(p);
+			}
+		}
+
+		if (layerName == "collider")
+		{
+			for (xml_node<>* tile = layer->first_node(); tile; tile = tile->next_sibling())
+			{
+				std::string xVal = tile->first_attribute("x")->value();
+				std::string yVal = tile->first_attribute("y")->value();
+				std::string tileId = tile->first_attribute("tile")->value();
+
+				if (tileId != "-1" && tileId == "8")
+				{
+					for (int x = 0; x < parserDataList.size(); x++)
+					{
+						if (xVal == parserDataList.at(x)->x && yVal == parserDataList.at(x)->y)
+						{
+							parserDataList.at(x)->isCollider = true;
+							break;
+						}
+					}
+				}
+			}
 		}
 	}
 
 	return parserDataList;
+}
+
+/// <summary>
+///  Gets the ParserData only for equipment.
+/// </summary>
+/// <returns> A list with parserdata for NPCs only.</returns>
+
+std::vector<std::shared_ptr<ParserData>> XMLParser::getEquipmentDataList(const std::string& path)
+{
+	std::vector<std::shared_ptr<ParserData>> equipmentDataList;
+
+	rapidxml::file<> xmlFile(path.c_str());
+	rapidxml::xml_document<> doc;
+
+	doc.parse<0>(xmlFile.data());
+	xml_node<>* node = doc.first_node("tilemap");
+
+	for (xml_node<>* layer = node->first_node(); layer; layer = layer->next_sibling())
+	{
+		std::string layerName = layer->first_attribute("name")->value();
+		if (layerName == "collider")
+		{
+			for (xml_node<>* tile = layer->first_node(); tile; tile = tile->next_sibling())
+			{
+				std::string xVal = tile->first_attribute("x")->value();
+				std::string yVal = tile->first_attribute("y")->value();
+				std::string tileId = tile->first_attribute("tile")->value();
+
+				//filters data for all equipment in the game.
+				if (tileId == "3" || tileId == "4" || tileId == "5" || tileId == "6")
+				{
+					std::shared_ptr<ParserData> p = std::make_shared<ParserData>(tile->first_attribute("x")->value(), tile->first_attribute("y")->value(), tile->first_attribute("tile")->value());
+					equipmentDataList.push_back(p);
+				}
+			}
+		}
+	}
+	return equipmentDataList;
+}
+
+std::vector<std::shared_ptr<ParserData>> XMLParser::getNPCDataList(const std::string& path)
+{
+	std::vector<std::shared_ptr<ParserData>> npcDataList;
+
+	rapidxml::file<> xmlFile(path.c_str());
+	rapidxml::xml_document<> doc;
+
+	doc.parse<0>(xmlFile.data());
+	xml_node<>* node = doc.first_node("tilemap");
+
+	for (xml_node<>* layer = node->first_node(); layer; layer = layer->next_sibling())
+	{
+		std::string layerName = layer->first_attribute("name")->value();
+		if (layerName == "collider")
+		{
+			for (xml_node<>* tile = layer->first_node(); tile; tile = tile->next_sibling())
+			{
+				std::string xVal = tile->first_attribute("x")->value();
+				std::string yVal = tile->first_attribute("y")->value();
+				std::string tileId = tile->first_attribute("tile")->value();
+
+				//filters data for all NPCs in the game.
+				if (tileId == "1" || tileId == "7")
+				{
+					std::shared_ptr<ParserData> p = std::make_shared<ParserData>(tile->first_attribute("x")->value(), tile->first_attribute("y")->value(), tile->first_attribute("tile")->value());
+					npcDataList.push_back(p);
+				}
+			}
+		}
+	}
+	return npcDataList;
 }

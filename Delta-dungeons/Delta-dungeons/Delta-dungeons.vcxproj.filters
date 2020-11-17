@@ -75,9 +75,6 @@
     <ClCompile Include="Pokeball.cpp">
       <Filter>Source Files\Game\GameObjects\Items</Filter>
     </ClCompile>
-    <ClCompile Include="Runningshoes.cpp">
-      <Filter>Source Files\Game\GameObjects\Items</Filter>
-    </ClCompile>
     <ClCompile Include="InteractiveObject.cpp">
       <Filter>Source Files\Game\GameObjects\InteractiveObjects</Filter>
     </ClCompile>
@@ -156,9 +153,15 @@
     <ClCompile Include="GameObjectBuilder.cpp">
       <Filter>Source Files\Game\GameObjects</Filter>
     </ClCompile>
+    <ClCompile Include="Equipment.cpp">
+      <Filter>Source Files\Game\GameObjects\Items</Filter>
+    </ClCompile>
     <ClCompile Include="DebugUtilities.cpp">
       <Filter>Source Files\Game</Filter>
     </ClCompile>
+    <ClCompile Include="RunningShoes.cpp">
+      <Filter>Source Files\Game\GameObjects\Items</Filter>
+      </ClCompile>
     <ClCompile Include="Advertisement.cpp">
       <Filter>Source Files\Game\GameObjects\Screens</Filter>
     </ClCompile>
@@ -236,9 +239,6 @@
     <ClInclude Include="Pokeball.h">
       <Filter>Header Files\Game\GameObjects\Items</Filter>
     </ClInclude>
-    <ClInclude Include="Runningshoes.h">
-      <Filter>Header Files\Game\GameObjects\Items</Filter>
-    </ClInclude>
     <ClInclude Include="InteractiveObject.h">
       <Filter>Header Files\Game\GameObjects\InteractiveObjects</Filter>
     </ClInclude>
@@ -274,6 +274,9 @@
     </ClInclude>
     <ClInclude Include="DebugUtilities.h">
       <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="RunningShoes.h">
+      <Filter>Header Files\Game\GameObjects\Items</Filter>
     </ClInclude>
     <ClInclude Include="Scene.h">
       <Filter>Header Files\XMLParser</Filter>

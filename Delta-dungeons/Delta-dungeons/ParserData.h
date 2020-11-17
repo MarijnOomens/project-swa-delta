@@ -6,6 +6,7 @@ class ParserData {
 
 public:
 	std::string x, y, tileId;
+	bool isCollider = false;
 
 	ParserData() {}
 	~ParserData() {}

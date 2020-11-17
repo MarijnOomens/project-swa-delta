@@ -162,6 +162,7 @@
     <ClCompile Include="CreditScreen.cpp" />
     <ClCompile Include="DebugUtilities.cpp" />
     <ClCompile Include="DialoguePopup.cpp" />
+    <ClCompile Include="Equipment.cpp" />
     <ClCompile Include="EquipmentManager.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameObjectBuilder.cpp" />
@@ -182,8 +183,8 @@
     <ClCompile Include="Pokeball.cpp" />
     <ClCompile Include="Pokemon.cpp" />
     <ClCompile Include="PuzzleObject.cpp" />
-    <ClCompile Include="Runningshoes.cpp" />
     <ClCompile Include="ParserData.cpp" />
+    <ClCompile Include="RunningShoes.cpp" />
     <ClCompile Include="SceneLoader.cpp" />
     <ClCompile Include="SceneModifier.cpp" />
     <ClCompile Include="XMLFacade.cpp" />
@@ -213,6 +214,7 @@
     <ClInclude Include="SceneModifier.h" />
     <ClInclude Include="ParserData.h" />
     <ClInclude Include="PlayerManager.h" />
+    <ClInclude Include="RunningShoes.h" />
     <ClInclude Include="SceneLoader.h" />
     <ClInclude Include="XMLFacade.h" />
     <ClInclude Include="XMLParser.h" />
@@ -230,7 +232,6 @@
     <ClInclude Include="rapidxml_iterators.hpp" />
     <ClInclude Include="rapidxml_print.hpp" />
     <ClInclude Include="rapidxml_utils.hpp" />
-    <ClInclude Include="Runningshoes.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Screen.h" />
     <ClInclude Include="Tile.h" />

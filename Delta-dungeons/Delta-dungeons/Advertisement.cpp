@@ -24,3 +24,5 @@ Advertisement::Advertisement(int x, int y, const std::vector<std::string>& textu
 void Advertisement::update() {}
 
 void Advertisement::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) {}
+
+void Advertisement::interact() {}

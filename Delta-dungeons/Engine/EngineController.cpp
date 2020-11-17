@@ -3,11 +3,12 @@
 /// <summary>
 /// This class has the responsibility of managing different classes in the engine. It communicaties with classes like TextureManager and RenderFacade.
 /// </summary>
-EngineController::EngineController() 
+EngineController::EngineController()
 {
+	collision = std::make_shared<Collision>();
 	assetManager = std::make_shared<AssetManager>();
 	renderFacade = std::make_shared<RenderFacade>();
-	textureManager = std::make_shared<TextureManager>(renderFacade,assetManager);
+	textureManager = std::make_shared<TextureManager>(renderFacade, assetManager);
 	input = std::make_shared<Input>(staticInputCallbackFunction, this);
 	initRenderer("Delta Dungeons", 1280, 960, false);
 }
@@ -55,7 +56,7 @@ void EngineController::staticInputCallbackFunction(void* p, const KeyCodes keyCo
 void EngineController::inputCallbackFunction(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos)
 {
 	isSceneSwitched = false;
-	if (keyCode == KeyCodes::KEY_ESC) 
+	if (keyCode == KeyCodes::KEY_ESC)
 	{
 		quitGame();
 	}
@@ -80,9 +81,9 @@ void EngineController::addTexture(const std::string& name, const std::string& pa
 	assetManager->addTexture(name, path);
 }
 
-void EngineController::createCamera(const int x,const int y)const
+void EngineController::createCamera(const int x, const int y)const
 {
-	renderFacade->createCamera(x,y);
+	renderFacade->createCamera(x, y);
 }
 
 /// <summary>
@@ -96,9 +97,10 @@ void EngineController::startGame()
 		renderFacade->setFrameStart();
 
 		input->handleInput(renderFacade->renderer->isPaused);
-		if (!renderFacade->renderer->isPaused) 
+		if (!renderFacade->renderer->isPaused)
 		{
 			renderFacade->beforeFrame();
+			collision->checkCollision();
 			update();
 		}
 		renderFacade->afterFrame();
@@ -109,13 +111,19 @@ void EngineController::startGame()
 void EngineController::registerScene(const std::string& sceneName, const std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects)
 {
 	std::vector<std::shared_ptr<BehaviourObject>> tempObjects;
+	std::vector<std::shared_ptr<BehaviourObject>> colliderObjects;
+
 	for (const auto& o : behaviourObjects)
 	{
 		if (dynamic_cast<GraphicsComponent*>(o.get()) != nullptr)
 		{
 			auto ngc = dynamic_cast<GraphicsComponent*>(o.get());
-			ngc->addTextureManager(textureManager);		
+			ngc->addTextureManager(textureManager);
 			tempObjects.emplace_back(ngc);
+		}
+		else if (dynamic_cast<ColliderComponent*>(o.get()) != nullptr)
+		{
+			colliderObjects.emplace_back(o);
 		}
 		else if (dynamic_cast<TextComponent*>(o.get()) != nullptr)
 		{
@@ -128,7 +136,7 @@ void EngineController::registerScene(const std::string& sceneName, const std::ve
 			tempObjects.emplace_back(o);
 		}
 	}
-
+	collision->registerColliders(colliderObjects);
 	sceneManager.registerScene(sceneName, tempObjects);
 }
 
@@ -179,7 +187,7 @@ void EngineController::registerTextures(const std::map<std::string, std::string>
 /// <param name="fonts">Map of multiple fonts.</param>
 void EngineController::registerFonts(std::map<std::string, std::string> fonts) {
 	for (auto& t : fonts) {
-		assetManager.get()->addFont(t.first, t.second);
+		assetManager->addFont(t.first, t.second);
 	}
 }
 
@@ -187,7 +195,7 @@ void EngineController::pauseScreen()
 {
 	if (sceneManager.getActiveScenesSize() < 3) {
 		renderFacade->pauseGame();
-		if (renderFacade->renderer->isPaused) 
+		if (renderFacade->renderer->isPaused)
 		{
 			addOverlayScene("PauseScreen");
 		}
@@ -223,15 +231,27 @@ void EngineController::resetSpeedGame() const
 	renderFacade->resetSpeedGame();
 }
 
-void EngineController::deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject)
-{
-	for (std::vector<std::shared_ptr<BehaviourObject>>::iterator it = behaviourObjects.begin(); it != behaviourObjects.end(); ++it)
+void EngineController::passInteract(int x, int y) {
+	for (int i = behaviourObjects.size() - 1; i-- > 0; )
 	{
-		if ((*it) == deletedObject) 
+		if (behaviourObjects.at(i)->transform.position.x == x && behaviourObjects.at(i)->transform.position.y == y)
 		{
-			behaviourObjects.erase(it);
-			isSceneSwitched = true;
-			break;
+			behaviourObjects.at(i)->interact();
 		}
 	}
+}
+
+void EngineController::deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject)
+{
+	auto index = std::find(behaviourObjects.begin(), behaviourObjects.end(), deletedObject);
+	if (index != behaviourObjects.end())
+	{
+		behaviourObjects.erase(index);
+		isSceneSwitched = true;
+	}
+}
+
+void EngineController::deleteColliderFromScene(std::shared_ptr<ColliderComponent> deletedCollider)
+{
+	collision->deleteColliderFromScene(deletedCollider);
 }
