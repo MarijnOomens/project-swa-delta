@@ -20,11 +20,11 @@ void Collision::checkCollision()
 {
 	for (auto collider1 : colliderObjects)
 	{
+		auto col1 = dynamic_cast<ColliderComponent*>(collider1.get());
 		for (auto collider2 : colliderObjects)
 		{
 			if (collider1 != collider2)
 			{
-				auto col1 = dynamic_cast<ColliderComponent*>(collider1.get());
 				auto col2 = dynamic_cast<ColliderComponent*>(collider2.get());
 				if (col1->isTrigger)
 				{
