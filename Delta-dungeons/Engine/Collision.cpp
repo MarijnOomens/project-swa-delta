@@ -25,7 +25,7 @@ void Collision::checkCollision()
 			if (collider1 != collider2)
 			{
 				auto col1 = dynamic_cast<ColliderComponent*>(collider1.get());
-				auto col2 = dynamic_cast<ColliderComponent*>(collider1.get());
+				auto col2 = dynamic_cast<ColliderComponent*>(collider2.get());
 				if (col1->isTrigger)
 				{
 					if (col1->transform.position.x == col2->transform.position.x && col1->transform.position.y == col2->transform.position.y)
