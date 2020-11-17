@@ -24,8 +24,11 @@ public:
 	int leftX;
 	int upY;
 	int downY;
-	//std::string colliderTag;
 
+	std::string rightTag;
+	std::string leftTag; 
+	std::string upTag; 
+	std::string downTag;
 	Player(cbCamera f, cbInteract npcMF, void* p);
 	~Player() {}
 
@@ -43,8 +46,8 @@ public:
 	void damagePlayer(int damage);
 	void updateCaughtPokemon(int pokemonId);
 	
-	static void staticCollisionCallbackFunction(void* p, int right, int left, int up, int down);
-	void collisionCallbackFunction(int right, int left, int up, int down);
+	static void staticCollisionCallbackFunction(void* p, int right, int left, int up, int down, std::string rightTag, std::string leftTag, std::string upTag, std::string downTag);
+	void collisionCallbackFunction(int right, int left, int up, int down, std::string rightTag, std::string leftTag, std::string upTag, std::string downTag);
 
 	static void staticEquipmentCallbackFunction(void* p, const bool runningActivated);
 	void equipmentCallbackFunction(const bool runningActivated);

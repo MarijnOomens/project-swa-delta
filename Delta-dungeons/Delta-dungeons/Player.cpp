@@ -61,27 +61,23 @@ void Player::handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboard
 		{
 			if (KeyCodes::KEY_UP == keyCodes || keyCodes == KeyCodes::KEY_W)
 			{
-				if (upY == transform.position.y - 128) {
-					tileCollision = true;
-				}
+				if (upTag != "") { std::cout << "walking against a " << upTag << std::endl; }
+				if (upY == transform.position.y - 128) { tileCollision = true; }
 			}
 			else if (KeyCodes::KEY_LEFT == keyCodes || keyCodes == KeyCodes::KEY_A)
 			{
-				if (leftX == transform.position.x - 128) {
-					tileCollision = true;
-				}
+				if (leftTag != "") { std::cout << "walking against a " << leftTag << std::endl; }
+				if (leftX == transform.position.x - 128) { tileCollision = true; }
 			}
 			else if (KeyCodes::KEY_RIGHT == keyCodes || keyCodes == KeyCodes::KEY_D)
 			{
-				if (rightX == transform.position.x + 128) {
-					tileCollision = true;
-				}
+				if (rightTag != "") { std::cout << "walking against a " << rightTag << std::endl; }
+				if (rightX == transform.position.x + 128) { tileCollision = true; }
 			}
 			else if (KeyCodes::KEY_DOWN == keyCodes || keyCodes == KeyCodes::KEY_S)
 			{
-				if (downY == transform.position.y + 128) {
-					tileCollision = true;
-				}
+				if (downTag != "") { std::cout << "walking against a " << downTag << std::endl; }
+				if (downY == transform.position.y + 128) { tileCollision = true; }
 			}
 		}
 	}
@@ -320,12 +316,12 @@ void Player::equipmentCallbackFunction(const bool runningActivated)
 	}
 }
 
-void Player::staticCollisionCallbackFunction(void* p, int right, int left, int up, int down)
+void Player::staticCollisionCallbackFunction(void* p, int right, int left, int up, int down, std::string rightTag, std::string leftTag, std::string upTag, std::string downTag)
 {
-	((Player*)p)->collisionCallbackFunction(right, left, up, down);
+	((Player*)p)->collisionCallbackFunction(right, left, up, down, rightTag, leftTag, upTag, downTag);
 }
 
-void Player::collisionCallbackFunction(int right, int left, int up, int down)
+void Player::collisionCallbackFunction(int right, int left, int up, int down, std::string rTag, std::string lTag, std::string uTag, std::string dTag)
 {
 	if (!cheatCollision)
 	{
@@ -335,4 +331,8 @@ void Player::collisionCallbackFunction(int right, int left, int up, int down)
 	leftX = left;
 	upY = up;
 	downY = down;
+	rightTag = rTag;
+	leftTag = lTag;
+	upTag = uTag;
+	downTag = dTag;
 }

@@ -9,6 +9,10 @@ public:
 	int leftX = -1;
 	int rightX = -1;
 	int downY = -1;
+	std::string rightTag = "";
+	std::string leftTag = "";
+	std::string upTag = "";
+	std::string downTag = "";
 
 	bool checkedUp = false;
 	bool checkedLeft = false;
