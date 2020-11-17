@@ -29,7 +29,6 @@ public:
 	ENGINE_API void resetSpeedGame();
 	ENGINE_API void pauseGame();
 	ENGINE_API void addObjectToScene(std::shared_ptr<BehaviourObject> addObject);
-	ENGINE_API void updateObjectToScene(std::shared_ptr<BehaviourObject> updateObject);
 	ENGINE_API void deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject);
 
 private:

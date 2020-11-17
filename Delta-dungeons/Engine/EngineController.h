@@ -20,7 +20,6 @@ public:
 	EngineController();
 	~EngineController() {}
 
-	void update();
 	void initRenderer(const std::string& title, int width, int height, bool fullscreen);
 	static void staticInputCallbackFunction(void* p, const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos);
 	void inputCallbackFunction(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos);
@@ -41,18 +40,14 @@ public:
 	void speedUpGame() const;
 	void resetSpeedGame() const;
 	void addObjectToScene(std::shared_ptr<BehaviourObject> addObject);
-	void updateObjectToScene(std::shared_ptr<BehaviourObject> updateObject);
 	void deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject);
 
 private:
-	std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects;
 	std::vector<int> hudLayers;
 	std::shared_ptr<RenderFacade> renderFacade;
 	std::shared_ptr<TextureManager> textureManager;
 	std::shared_ptr<AssetManager> assetManager;
 	std::shared_ptr<Input> input;
 	SceneManager sceneManager;
-
-	bool isSceneSwitched = false;
 
 };

@@ -78,7 +78,7 @@ void HUD::updateItems(int i)
 	for (auto& item : items)
 	{
 		item->transform.position = { (i * 34) + (itemIndex * 34) + 10, 20 };
-		SceneModifier::getInstance().updateObjectToScene(item);
+		//SceneModifier::getInstance().updateObjectToScene(item);
 		itemIndex++;
 	}
 }

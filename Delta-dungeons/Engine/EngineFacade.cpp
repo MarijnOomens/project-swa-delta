@@ -117,11 +117,6 @@ void EngineFacade::addObjectToScene(std::shared_ptr<BehaviourObject> addObject)
 	engineController->addObjectToScene(addObject);
 }
 
-void EngineFacade::updateObjectToScene(std::shared_ptr<BehaviourObject> updateObject)
-{
-	engineController->updateObjectToScene(updateObject);
-}
-
 void EngineFacade::deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject)
 {
 	engineController->deleteObjectFromScene(deletedObject);
