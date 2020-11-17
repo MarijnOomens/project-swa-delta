@@ -14,7 +14,6 @@ public:
 	void interact() override;
 	void use() override;
 private:
-	int catchChanceIncrease;
 	std::shared_ptr<GraphicsComponent> gc;
 	std::shared_ptr<ColliderComponent> cc;
 };

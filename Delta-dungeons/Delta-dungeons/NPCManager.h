@@ -2,13 +2,14 @@
 #include "NPC.h"
 #include "Pokemon.h"
 #include "GameObjectBuilder.h"
+#include "XMLSceneParser.h"
 #include <string>
 #include <map>
 #include <memory>
 #include <cstdlib>
 #include <ctime>
 
-class NPCManager 
+class NPCManager
 {
 public:
 	std::unique_ptr<std::vector<std::string>> trainerList;

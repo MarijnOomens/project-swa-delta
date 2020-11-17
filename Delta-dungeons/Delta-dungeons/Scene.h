@@ -2,15 +2,15 @@
 
 #include "ParserData.h"
 #include "Tile.h"
+#include "TextComponent.h"
+#include "DebugUtilities.h"
+#include "XMLSceneParser.h"
+#include "GraphicsComponent.h"
 #include <array>
 #include <iostream>
 #include <list>
 #include <vector>
-#include "TextComponent.h"
 #include <sstream>
-#include "DebugUtilities.h"
-#include "XMLSceneParser.h"
-#include "GraphicsComponent.h"
 
 class Scene : public GameObject
 {
@@ -18,8 +18,6 @@ public:
 	Scene() {}
 	Scene(int x, int y);
 	~Scene() {}
-
-	void* pointer;
 
 	void addGraphics();
 	std::map<std::string, std::string> passTextures() const;

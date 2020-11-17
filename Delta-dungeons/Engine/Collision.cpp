@@ -38,18 +38,18 @@ void Collision::checkCollision()
 				else
 				{
 					/*facing right*/
-					if ((!checkedRight 
+					if ((!checkedRight
 						&& col1->transform.position.x + 128 == col2->transform.position.x
-						&& col1->transform.position.y == col2->transform.position.y)) 
+						&& col1->transform.position.y == col2->transform.position.y))
 					{
 						checkedRight = true;
 						rightX = col2->transform.position.x;
 						rightTag = col2->tag;
-					} 						
-						/*facing up*/
+					}
+					/*facing up*/
 					else if
 						(!checkedUp
-							&&col1->transform.position.y == col2->transform.position.y + 128
+							&& col1->transform.position.y == col2->transform.position.y + 128
 							&& col1->transform.position.x == col2->transform.position.x)
 					{
 						checkedUp = true;
@@ -80,6 +80,7 @@ void Collision::checkCollision()
 			}
 		}
 		col1->actCollision(rightX, leftX, upY, downY, rightTag, leftTag, upTag, downTag);
+		//reset after actCollision
 		checkedRight = false;
 		checkedLeft = false;
 		checkedUp = false;
@@ -92,7 +93,5 @@ void Collision::checkCollision()
 		leftTag = "";
 		upTag = "";
 		downTag = "";
-		//std::cout << "x: " << collider1->transform.position.x << " vs " << collider2->transform.position.x << " y: " << collider1->transform.position.y << " vs " << collider2->transform.position.y << std::endl;
-		//std::cout << "it matched!" << std::endl;
 	}
 }

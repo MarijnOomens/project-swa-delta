@@ -1,5 +1,4 @@
 #include "NPCManager.h"
-#include "XMLSceneParser.h"
 
 NPCManager::NPCManager()
 {

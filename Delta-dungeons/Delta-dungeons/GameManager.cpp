@@ -113,20 +113,11 @@ void GameManager::registerFonts(std::map<std::string, std::string> fonts)
 	engineFacade->registerFonts(fonts);
 }
 
-void GameManager::staticPlayerToTileCallbackFunction(void* p, int x, int y)
-{
-	((GameManager*)p)->playerToTileCallbackFunction(x, y);
-}
-
-void GameManager::playerToTileCallbackFunction(int x, int y) {
-	//scene->checkCollision(x, y);
-}
-
 void GameManager::staticInteractCallbackFunction(void* p, int x, int y)
 {
-	((GameManager*)p)->npcManagerCallbackFunction(x, y);
+	((GameManager*)p)->interactCallbackFunction(x, y);
 }
 
-void GameManager::npcManagerCallbackFunction(int x, int y) {
+void GameManager::interactCallbackFunction(int x, int y) {
 	engineFacade->passInteract(x, y);
 }

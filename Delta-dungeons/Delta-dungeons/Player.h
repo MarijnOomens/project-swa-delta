@@ -5,6 +5,9 @@
 #include "GameObject.h"
 #include "GraphicsComponent.h"
 #include "ColliderComponent.h"
+#include "RunningShoes.h"
+#include "DebugUtilities.h"
+
 typedef void(*cbInteract) (void*, int, int);
 typedef void(*cbCamera) (void*, int, int);
 
@@ -13,22 +16,16 @@ class Player : public GameObject
 public:
 	std::map<std::string, std::string> textures;
 	std::string texture;
+
 	cbCamera func;
 	cbInteract npcManagerFunc;
+
 	KeyCodes currentDirection;
 	Vector2D temporaryColliderPosition;
 	void* pointer;
-	bool tileCollision;
 
-	int rightX;
-	int leftX;
-	int upY;
-	int downY;
 
-	std::string rightTag;
-	std::string leftTag; 
-	std::string upTag; 
-	std::string downTag;
+
 	Player(cbCamera f, cbInteract npcMF, void* p);
 	~Player() {}
 
@@ -45,12 +42,15 @@ public:
 	void addEquipment(std::unique_ptr<IEquipment> equipment);
 	void damagePlayer(int damage);
 	void updateCaughtPokemon(int pokemonId);
-	
+
 	static void staticCollisionCallbackFunction(void* p, int right, int left, int up, int down, std::string rightTag, std::string leftTag, std::string upTag, std::string downTag);
 	void collisionCallbackFunction(int right, int left, int up, int down, std::string rightTag, std::string leftTag, std::string upTag, std::string downTag);
 
-	static void staticEquipmentCallbackFunction(void* p, const bool runningActivated);
-	void equipmentCallbackFunction(const bool runningActivated);
+	static void staticBoomerangCallbackFunction(void* p, const bool boomerangActivated);
+	void boomerangCallbackFunction(const bool boomerangActivated);
+
+	static void staticRunningShoesCallbackFunction(void* p, const bool runningActivated);
+	void runningShoesCallbackFunction(const bool runningActivated);
 
 	void update() override;
 	void handleInteraction();
@@ -63,11 +63,21 @@ private:
 	int predictedX; //cant initialise to 0 here, because it will still give random value
 	int	predictedY;
 	int count;
-	bool runActivated;
+	bool runActivated = false;
+	bool boomerangActivated = false;
 	bool cheatCollision = false;
 	std::vector<int> pokemonCaught;
 	std::vector<std::unique_ptr<IEquipment>> equipment;
 	std::shared_ptr<GraphicsComponent> gc;
 	std::shared_ptr<ColliderComponent> cc;
 	AnimCategory animCategory;
+	int rightX;
+	int leftX;
+	int upY;
+	int downY;
+	std::string rightTag;
+	std::string leftTag;
+	std::string upTag;
+	std::string downTag;
+	bool tileCollision;
 };

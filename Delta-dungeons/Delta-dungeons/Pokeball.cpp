@@ -21,7 +21,7 @@ Pokeball::Pokeball(int x, int y, std::string texture) {
 void Pokeball::interact()
 {
 	if (gc != nullptr) {
-		std::cout << "found " << gc->textureName << gc->transform.position.x << " " << gc->transform.position.y << std::endl;
+		std::cout << "Collected: " << gc->textureName << " x: " << gc->transform.position.x << " y: " << gc->transform.position.y << std::endl;
 		SceneModifier::getInstance().deleteObjectFromScene(gc);
 		SceneModifier::getInstance().deleteColliderFromScene(cc);
 		gc = nullptr;

@@ -21,6 +21,16 @@ RunningShoes::RunningShoes(int x, int y, std::string texture)
 	this->components.emplace_back(cc);
 }
 
+void RunningShoes::interact()
+{
+	if (gc != nullptr) {
+		std::cout << "Collected: " << gc->textureName << " x: " << gc->transform.position.x << " y: " << gc->transform.position.y << std::endl;
+		SceneModifier::getInstance().deleteObjectFromScene(gc);
+		SceneModifier::getInstance().deleteColliderFromScene(cc);
+		gc = nullptr;
+	}
+}
+
 /// <summary>
 /// This method gets called to change the isActivated boolean property. 
 /// Afterwards it will pass the isActivated boolean to the Player.cpp class.
@@ -28,16 +38,7 @@ RunningShoes::RunningShoes(int x, int y, std::string texture)
 void RunningShoes::use()
 {
 	isActivated = !isActivated;
-	std::cout << isActivated << std::endl;
+	if (isActivated) { std::cout << "RunningShoes: Activated!" << std::endl; }
+	else { std::cout << "RunningShoes: Disabled!" << std::endl; }
 	func(pointer, isActivated);
-}
-
-void RunningShoes::interact()
-{
-	if (gc != nullptr) {
-		std::cout << "found " << gc->textureName << gc->transform.position.x << " " << gc->transform.position.y << std::endl;
-		SceneModifier::getInstance().deleteObjectFromScene(gc);
-		SceneModifier::getInstance().deleteColliderFromScene(cc);
-		gc = nullptr;
-	}
 }

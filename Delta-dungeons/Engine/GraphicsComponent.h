@@ -22,7 +22,7 @@ public:
 	ENGINE_API void update() override;
 	ENGINE_API void addTextureManager(std::shared_ptr<TextureManager> tm);
 	ENGINE_API void handleInput(const KeyCodes &keyCode, const KeyboardEvent &keyboardEvent, Vector2D &mousePos);
-	ENGINE_API void interact();
+	ENGINE_API void interact() override;
 	ENGINE_API std::shared_ptr<TextureManager>getTextureManager() const;
 	std::string textureName;
 

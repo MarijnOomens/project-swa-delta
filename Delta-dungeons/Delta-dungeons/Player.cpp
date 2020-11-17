@@ -1,5 +1,4 @@
 #include "Player.h"
-#include "RunningShoes.h"
 
 /// <summary>
 /// This class defines everything that has to do with the player character. Textures, input handling, health and caught Pok�mon
@@ -13,8 +12,8 @@
 /// </summary>
 Player::Player(const cbCamera f, cbInteract npcMF, void* p) : func(f), npcManagerFunc(npcMF), pointer(p)
 {
-	std::unique_ptr<RunningShoes> running = std::make_unique<RunningShoes>(staticEquipmentCallbackFunction, this);
-	std::unique_ptr<Boomerang> boomerang = std::make_unique<Boomerang>();
+	std::unique_ptr<RunningShoes> running = std::make_unique<RunningShoes>(staticRunningShoesCallbackFunction, this);
+	std::unique_ptr<Boomerang> boomerang = std::make_unique<Boomerang>(staticBoomerangCallbackFunction, this);
 
 	addEquipment(std::move(running));
 	addEquipment(std::move(boomerang));
@@ -55,7 +54,7 @@ Player::Player(const cbCamera f, cbInteract npcMF, void* p) : func(f), npcManage
 /// <param name="keyboardEvent">KeyboardEvent will decide if handleKeyPressed or handleKeyReleased will be used</param>
 void Player::handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboardEvent, Vector2D& mousePos)
 {
-	if (!cheatCollision)
+	if (!DebugUtilities::getInstance().isCheatCollisionOn())
 	{
 		if (keyboardEvent == KeyboardEvent::KEY_PRESSED)
 		{
@@ -91,7 +90,6 @@ void Player::handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboard
 	{
 		handleKeyPressed(keyCodes);
 	}
-
 	else if (keyboardEvent == KeyboardEvent::KEY_RELEASED)
 	{
 		handleKeyReleased(keyCodes);
@@ -157,15 +155,17 @@ void Player::handleKeyPressed(const KeyCodes& keyCodes)
 		}
 		break;
 	case KeyCodes::KEY_C:
-		if (!cheatCollision) { cheatCollision = true; std::cout << "Cheat collision turned on." << std::endl; }
-		else { cheatCollision = false; std::cout << "Cheat collision turned off." << std::endl; }
+		DebugUtilities::getInstance().toggleCheatCollision();
+		if (DebugUtilities::getInstance().isCheatCollisionOn()) { std::cout << "Cheat collision turned on." << std::endl; }
+		else { std::cout << "Cheat collision turned off." << std::endl; }
 		break;
 	default:
 		break;
 	}
 }
 
-void Player::handleInteraction() {
+void Player::handleInteraction() 
+{
 	if (KeyCodes::KEY_UP == currentDirection || KeyCodes::KEY_W == currentDirection) {
 		npcManagerFunc(pointer, transform.position.x, transform.position.y - 128);
 	}
@@ -285,14 +285,27 @@ void Player::damagePlayer(int damage) {}
 
 void::Player::updateCaughtPokemon(int pokemonId) {}
 
+
+void Player::staticBoomerangCallbackFunction(void* p, const bool brActivated)
+{
+	((Player*)p)->boomerangCallbackFunction(brActivated);
+
+}
+
+void Player::boomerangCallbackFunction(const bool brActivated)
+{
+	if (brActivated) { boomerangActivated = true; }
+	else { boomerangActivated = false; }
+}
+
 /// <summary>
-/// Callbackmethod to call the equipmentCallbackFunction.
+/// Callbackmethod to call the runningShoesCallbackFunction.
 /// </summary>
 /// <param name="p">Is needed for the includes</param>
 /// <param name="runningActivated">Boolean value for runActived Property</param>
-void Player::staticEquipmentCallbackFunction(void* p, const bool runningActivated)
+void Player::staticRunningShoesCallbackFunction(void* p, const bool runningActivated)
 {
-	((Player*)p)->equipmentCallbackFunction(runningActivated);
+	((Player*)p)->runningShoesCallbackFunction(runningActivated);
 
 }
 
@@ -300,19 +313,17 @@ void Player::staticEquipmentCallbackFunction(void* p, const bool runningActivate
 /// This method changes the runActivated boolean and the baseMovementspeed based upon runningActivated
 /// </summary>
 /// <param name="runningActivated">This value will be used to set the runActivated property</param>
-void Player::equipmentCallbackFunction(const bool runningActivated)
+void Player::runningShoesCallbackFunction(const bool runningActivated)
 {
 	if (runningActivated)
 	{
 		runActivated = true;
 		baseMovementSpeed = 256;
-		std::cout << " runningshoes enabled" << std::endl;
 	}
 	else
 	{
 		runActivated = false;
 		baseMovementSpeed = 128;
-		std::cout << " runningshoes disabled" << std::endl;
 	}
 }
 
@@ -323,10 +334,6 @@ void Player::staticCollisionCallbackFunction(void* p, int right, int left, int u
 
 void Player::collisionCallbackFunction(int right, int left, int up, int down, std::string rTag, std::string lTag, std::string uTag, std::string dTag)
 {
-	if (!cheatCollision)
-	{
-		//std::cout << "Colliding with: " << tag << " x: " << x << " y: " << y << std::endl;
-	}
 	rightX = right;
 	leftX = left;
 	upY = up;
