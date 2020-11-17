@@ -38,27 +38,53 @@ void Collision::checkCollision()
 				else
 				{
 					/*facing right*/
-					if ((col1->transform.position.x + 128 == col2->transform.position.x
-						&& col1->transform.position.y == col2->transform.position.y)
-						||
-						/*facing up*/
-						(col1->transform.position.y == col2->transform.position.y + 128
-							&& col1->transform.position.x == col2->transform.position.x)
-						||
-						/*facing down*/
-						(col1->transform.position.y + 128 == col2->transform.position.y
-							&& col1->transform.position.x == col2->transform.position.x)
-						||
-						/*facing left*/
-						(col1->transform.position.x == col2->transform.position.x + 128
-							&& col1->transform.position.y == col2->transform.position.y))
+					if ((!checkedRight 
+						&& col1->transform.position.x + 128 == col2->transform.position.x
+						&& col1->transform.position.y == col2->transform.position.y)) 
 					{
-						col1->actCollision(col2->transform.position.x, col2->transform.position.y, col2->tag);
-						//std::cout << "x: " << collider1->transform.position.x << " vs " << collider2->transform.position.x << " y: " << collider1->transform.position.y << " vs " << collider2->transform.position.y << std::endl;
-						//std::cout << "it matched!" << std::endl;
+						checkedRight = true;
+						rightX = col2->transform.position.x;
+					} 						
+						/*facing up*/
+					else if
+						(!checkedUp
+							&&col1->transform.position.y == col2->transform.position.y + 128
+							&& col1->transform.position.x == col2->transform.position.x)
+					{
+						checkedUp = true;
+						upY = col2->transform.position.y;
+					}
+					else if
+						/*facing down*/
+						(!checkedDown
+							&& col1->transform.position.y + 128 == col2->transform.position.y
+							&& col1->transform.position.x == col2->transform.position.x)
+					{
+						checkedDown = true;
+						downY = col2->transform.position.y;
+					}
+					else if
+						/*facing left*/
+						(!checkedLeft
+							&& col1->transform.position.x == col2->transform.position.x + 128
+							&& col1->transform.position.y == col2->transform.position.y)
+					{
+						checkedLeft = true;
+						leftX = col2->transform.position.x;
 					}
 				}
 			}
 		}
+		col1->actCollision(rightX, leftX, upY, downY);
+		checkedRight = false;
+		checkedLeft = false;
+		checkedUp = false;
+		checkedDown = false;
+		rightX = -1;
+		leftX = -1;
+		upY = -1;
+		downY = -1;
+		//std::cout << "x: " << collider1->transform.position.x << " vs " << collider2->transform.position.x << " y: " << collider1->transform.position.y << " vs " << collider2->transform.position.y << std::endl;
+		//std::cout << "it matched!" << std::endl;
 	}
 }

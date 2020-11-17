@@ -20,9 +20,11 @@ public:
 	void* pointer;
 	bool tileCollision;
 
-	int colliderX;
-	int colliderY;
-	std::string colliderTag;
+	int rightX;
+	int leftX;
+	int upY;
+	int downY;
+	//std::string colliderTag;
 
 	Player(cbCamera f, cbInteract npcMF, void* p);
 	~Player() {}
@@ -41,8 +43,8 @@ public:
 	void damagePlayer(int damage);
 	void updateCaughtPokemon(int pokemonId);
 	
-	static void staticCollisionCallbackFunction(void* p, int x, int y, std::string tag);
-	void collisionCallbackFunction(int x, int y, std::string tag);
+	static void staticCollisionCallbackFunction(void* p, int right, int left, int up, int down);
+	void collisionCallbackFunction(int right, int left, int up, int down);
 
 	static void staticEquipmentCallbackFunction(void* p, const bool runningActivated);
 	void equipmentCallbackFunction(const bool runningActivated);

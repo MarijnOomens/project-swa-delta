@@ -9,6 +9,11 @@ public:
 	int leftX = -1;
 	int rightX = -1;
 	int downY = -1;
+
+	bool checkedUp = false;
+	bool checkedLeft = false;
+	bool checkedRight = false;
+	bool checkedDown = false;
 	void registerColliders(std::vector<std::shared_ptr<BehaviourObject>> colliders);
 	void deleteColliderFromScene(std::shared_ptr<BehaviourObject> deletedCollider);
 	void checkCollision();

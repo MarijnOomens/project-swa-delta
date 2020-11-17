@@ -61,25 +61,25 @@ void Player::handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboard
 		{
 			if (KeyCodes::KEY_UP == keyCodes || keyCodes == KeyCodes::KEY_W)
 			{
-				if (colliderY == transform.position.y - 128) {
+				if (upY == transform.position.y - 128) {
 					tileCollision = true;
 				}
 			}
 			else if (KeyCodes::KEY_LEFT == keyCodes || keyCodes == KeyCodes::KEY_A)
 			{
-				if (colliderX == transform.position.x - 128) {
+				if (leftX == transform.position.x - 128) {
 					tileCollision = true;
 				}
 			}
 			else if (KeyCodes::KEY_RIGHT == keyCodes || keyCodes == KeyCodes::KEY_D)
 			{
-				if (colliderX == transform.position.x + 128) {
+				if (rightX == transform.position.x + 128) {
 					tileCollision = true;
 				}
 			}
 			else if (KeyCodes::KEY_DOWN == keyCodes || keyCodes == KeyCodes::KEY_S)
 			{
-				if (colliderY == transform.position.y + 128) {
+				if (downY == transform.position.y + 128) {
 					tileCollision = true;
 				}
 			}
@@ -103,8 +103,6 @@ void Player::handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboard
 
 	// resets collision for next move with collsion check.
 	tileCollision = false;
-	colliderX = -1;
-	colliderY = -1;
 }
 
 void Player::interact() {}
@@ -322,18 +320,19 @@ void Player::equipmentCallbackFunction(const bool runningActivated)
 	}
 }
 
-void Player::staticCollisionCallbackFunction(void* p, int x, int y, std::string tag)
+void Player::staticCollisionCallbackFunction(void* p, int right, int left, int up, int down)
 {
-	((Player*)p)->collisionCallbackFunction(x, y, tag);
+	((Player*)p)->collisionCallbackFunction(right, left, up, down);
 }
 
-void Player::collisionCallbackFunction(int x, int y, std::string tag)
+void Player::collisionCallbackFunction(int right, int left, int up, int down)
 {
 	if (!cheatCollision)
 	{
-		std::cout << "Colliding with: " << tag << " x: " << x << " y: " << y << std::endl;
+		//std::cout << "Colliding with: " << tag << " x: " << x << " y: " << y << std::endl;
 	}
-	colliderX = x;
-	colliderY = y;
-	colliderTag = tag;
+	rightX = right;
+	leftX = left;
+	upY = up;
+	downY = down;
 }
