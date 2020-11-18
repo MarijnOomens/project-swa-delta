@@ -21,12 +21,13 @@ public:
 	void handleSceneInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos);
 	void addObjectToScene(std::shared_ptr<BehaviourObject> addObject);
 	void deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject);
+	void passInteract(int x, int y);
+	std::vector<std::shared_ptr<BehaviourObject>> currentObjects;
 
 private:
 	std::map<std::string, std::vector<std::shared_ptr<BehaviourObject>>> scenes;
 	std::vector<std::string> activeScenes;
 	std::vector<std::string> previousScenes;
 	std::string currentScene;
-	std::vector<std::shared_ptr<BehaviourObject>> currentObjects;
 	bool isSceneSwitched = false;
 };

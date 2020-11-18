@@ -210,27 +210,23 @@ void EngineController::resetSpeedGame() const
 
 void EngineController::addObjectToScene(std::shared_ptr<BehaviourObject> addObject)
 {
-	if (dynamic_cast<GraphicsComponent*>(addObject.get()) != nullptr)
-	{
-		auto ngc = dynamic_cast<GraphicsComponent*>(addObject.get());
-		ngc->addTextureManager(textureManager);
-		sceneManager.addObjectToScene(std::shared_ptr<BehaviourObject>(ngc));
-	}
-	else
-	{
-		sceneManager.addObjectToScene(addObject);
+	if (sceneManager.currentObjects.size() > 0) {
+		if (dynamic_cast<GraphicsComponent*>(addObject.get()) != nullptr)
+		{
+			auto ngc = dynamic_cast<GraphicsComponent*>(addObject.get());
+			ngc->addTextureManager(textureManager);
+			sceneManager.addObjectToScene(std::shared_ptr<BehaviourObject>(ngc));
+		}
+		else
+		{
+			sceneManager.addObjectToScene(addObject);
+		}
 	}
 }
 
 void EngineController::passInteract(int x, int y) 
 {
-	for (int i = behaviourObjects.size() - 1; i-- > 0; )
-	{
-		if (behaviourObjects.at(i)->transform.position.x == x && behaviourObjects.at(i)->transform.position.y == y)
-		{
-			behaviourObjects.at(i)->interact();
-		}
-	}
+	sceneManager.passInteract(x, y);
 }
 
 void EngineController::deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject)

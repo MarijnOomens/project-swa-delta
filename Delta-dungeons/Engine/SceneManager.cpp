@@ -38,14 +38,6 @@ void SceneManager::loadPreviousScene()
 	if (activeScenes.size() > 1)
 	{
 		activeScenes.pop_back();
-		//std::vector<std::shared_ptr<BehaviourObject>> tempObjects;
-
-		//for (const auto& a : activeScenes)
-		//{
-		//	tempObjects.insert(tempObjects.end(), scenes[a].begin(), scenes[a].end());
-		//}
-
-		//return tempObjects;
 	}
 	else if (!previousScenes.empty())
 	{
@@ -87,19 +79,20 @@ void SceneManager::setSceneSwitched(bool isSwitched)
 
 void SceneManager::handleSceneInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos)
 {
-	for (const auto& activeScene : activeScenes) {
-		for (const auto& gameObject : currentObjects)
-		{
-			if (!isSceneSwitched) {
-				gameObject->handleInput(keyCode, keyboardEvent, mousePos);
-			}
+	for (const auto& gameObject : currentObjects)
+	{
+		if (!isSceneSwitched) {
+			gameObject->handleInput(keyCode, keyboardEvent, mousePos);
 		}
-	}
+	}	
 }
 
 void SceneManager::addObjectToScene(std::shared_ptr<BehaviourObject> addObject)
 {
-	scenes[currentScene].emplace_back(addObject);
+	if (currentScene != "") 
+	{
+		currentObjects.emplace_back(addObject);
+	}
 	isSceneSwitched = true;
 }
 
@@ -108,19 +101,20 @@ void SceneManager::deleteObjectFromScene(std::shared_ptr<BehaviourObject> delete
 	auto i = std::find(currentObjects.begin(), currentObjects.end(), deletedObject);
 	if (i != currentObjects.end())
 	{
-		currentObjects.erase(i);
+		currentObjects.erase(deletedObject);
 	}
 	isSceneSwitched = true;
 }
 
 void SceneManager::passInteract(int x, int y)
 {
-	for (const auto& as : activeScenes) {
-		for (const auto& bo : currentObjects) {
+	for (const auto& bo : currentObjects) {
+		if (bo != nullptr) {
 			if (bo->transform.position.x == x && bo->transform.position.y == y)
 			{
 				bo->interact();
 			}
 		}
 	}
+	
 }
