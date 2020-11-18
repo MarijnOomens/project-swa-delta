@@ -15,10 +15,9 @@ GameManager::GameManager()
 	registerTextures(uiManager.passTextures());
 	registerFonts(uiManager.passFonts());
 
-	playerManager.createPlayer(staticCameraCallbackFunction, this);
+	playerManager.createPlayer(staticCameraCallbackFunction, staticInteractCallbackFunction, this);
 	registerTextures(playerManager.passTextures());
 
-	npcManager = NPCManager();
 	npcManager.createNPC();
 	registerTextures(npcManager.passTextures());
 
@@ -32,6 +31,9 @@ GameManager::GameManager()
 	scene = std::make_shared<Scene>();
 	scene->addGraphics();
 	registerTextures(scene->passTextures());
+
+	eqManager.createEquipment();
+	registerTextures(eqManager.passTextures());
 
 	registerBehaviourObjects();
 	engineFacade->createCamera(playerManager.player->transform.position.x, playerManager.player->transform.position.y);
@@ -47,7 +49,7 @@ void GameManager::registerBehaviourObjects()
 	{
 		std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects;
 		behaviourObjects.emplace_back(o.second);
-		for (auto& c : o.second.get()->getComponentsRecursive())
+		for (auto& c : o.second->getComponentsRecursive())
 		{
 			behaviourObjects.emplace_back(c);
 		}
@@ -63,7 +65,16 @@ void GameManager::registerBehaviourObjects()
 
 	for (auto& o : npcManager.npcs)
 	{
-		for (auto& n : o.second.get()->getComponentsRecursive())
+		for (auto& n : o.second->getComponentsRecursive())
+		{
+			level1.emplace_back(n);
+		}
+		level1.emplace_back(o.second.get());
+	}
+
+	for (auto& o : eqManager.equipments)
+	{
+		for (auto& n : o.second->getComponentsRecursive())
 		{
 			level1.emplace_back(n);
 		}
@@ -82,11 +93,8 @@ void GameManager::registerBehaviourObjects()
 	}
 	level1.emplace_back(hudManager.hud);
 	engineFacade->registerScene("Level1", level1);
-
 	engineFacade->loadScene("MainMenu", "", true);
 }
-
-
 
 /// <summary>
 /// This methods gives the engineFacade all textures to give to the engine.
@@ -96,7 +104,7 @@ void GameManager::registerTextures(std::map<std::string, std::string> textures)
 	engineFacade->registerTextures(textures);
 }
 
-void GameManager:: staticCameraCallbackFunction(const void* p, int x, int y) 
+void GameManager::staticCameraCallbackFunction(void* p, int x, int y)
 {
 	((GameManager*)p)->passPlayerPosition(x, y);
 }
@@ -105,10 +113,20 @@ void GameManager::passPlayerPosition(int x, int y)
 {
 	engineFacade->passPlayerPosition(x, y);
 }
+
 /// <summary>
 /// This methods gives the engineFacade all fonts to give to the engine.
 /// </summary>
 void GameManager::registerFonts(std::map<std::string, std::string> fonts)
 {
 	engineFacade->registerFonts(fonts);
+}
+
+void GameManager::staticInteractCallbackFunction(void* p, int x, int y)
+{
+	((GameManager*)p)->interactCallbackFunction(x, y);
+}
+
+void GameManager::interactCallbackFunction(int x, int y) {
+	engineFacade->passInteract(x, y);
 }

@@ -1,32 +1,31 @@
 #include "Player.h"
-#include "Runningshoes.h"
 
 /// <summary>
 /// This class defines everything that has to do with the player character. Textures, input handling, health and caught Pok�mon
 /// are all defined in the Player class. Interaction with the player's equipment is handled here too.
-/// 
 /// </summary>
-
+/// 
 /// <summary>
 /// Creates the running and boomerang equipments. And added to the equipment vector list.
 /// Defines the movementspeed and the runactivated bool
 /// Creates the graphicscomponent for the player sprite and saves the texturename and png location, width, height
 /// </summary>
-Player::Player(cbCamera f, const void* p): func(f), pointer(p)
+Player::Player(const cbCamera f, cbInteract interactCB, void* p) : func(f), interactFunc(interactCB), pointer(p)
 {
 	std::string textureBoomerang ="boomerang" ;
 	std::string textureRunning = "runningshoes";
-	std::unique_ptr<Runningshoes> running = std::make_unique<Runningshoes>(staticEquipmentCallbackFunction, this, textureRunning);
-	std::unique_ptr<Boomerang> boomerang = std::make_unique<Boomerang>(textureBoomerang);
+	std::unique_ptr<Boomerang> boomerang = std::make_unique<Boomerang>(textureBoomerang,staticBoomerangCallbackFunction, this);
+	std::unique_ptr<RunningShoes> running = std::make_unique<RunningShoes>(staticRunningShoesCallbackFunction, this, textureRunning);
 
 	addEquipment(std::move(running));
 	addEquipment(std::move(boomerang));
 
-	baseMovementSpeed = 64;
+	baseMovementSpeed = 128;
 	runActivated = false;
+	tileCollision = false;
 
-	this->transform.position.x = 1024;
-	this->transform.position.y = 768;
+	this->transform.position.x = 1792;
+	this->transform.position.y = 1408;
 
 	this->textures.try_emplace("player_m", "Assets/player2_m_anims.png");
 	this->textures.try_emplace("player_f", "Assets/player_f_anims.png");
@@ -42,7 +41,14 @@ Player::Player(cbCamera f, const void* p): func(f), pointer(p)
 	gc->transform.scale.multiply({ 4, 4 });
 	gc->playAnimation(0, 3, animationSpeed, false);
 
+	cc = std::make_shared<ColliderComponent>(staticCollisionCallbackFunction, this);
+	cc->tag = "player";
+	cc->transform.position = this->transform.position;
+
 	this->components.emplace_back(gc);
+	this->components.emplace_back(cc);
+
+	currentDirection = KeyCodes::KEY_DOWN;
 }
 
 /// <summary>
@@ -50,9 +56,37 @@ Player::Player(cbCamera f, const void* p): func(f), pointer(p)
 /// </summary> 
 /// <param name="Keycodes are enums and will be used to decide what action the user will make."></param>
 /// <param name="keyboardEvent">KeyboardEvent will decide if handleKeyPressed or handleKeyReleased will be used</param>
-void Player::handleInput(const KeyCodes &keyCodes, const KeyboardEvent &keyboardEvent, Vector2D &mousePos)
+void Player::handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboardEvent, Vector2D& mousePos)
 {
-	if (keyboardEvent == KeyboardEvent::KEY_PRESSED)
+	if (!DebugUtilities::getInstance().isCheatCollisionOn())
+	{
+		if (keyboardEvent == KeyboardEvent::KEY_PRESSED)
+		{
+			if (KeyCodes::KEY_UP == keyCodes || keyCodes == KeyCodes::KEY_W)
+			{
+				if (upY == transform.position.y - 128) { tileCollision = true; }
+			}
+			else if (KeyCodes::KEY_LEFT == keyCodes || keyCodes == KeyCodes::KEY_A)
+			{
+				if (leftX == transform.position.x - 128) { tileCollision = true; }
+			}
+			else if (KeyCodes::KEY_RIGHT == keyCodes || keyCodes == KeyCodes::KEY_D)
+			{
+				if (rightX == transform.position.x + 128) { tileCollision = true; }
+			}
+			else if (KeyCodes::KEY_DOWN == keyCodes || keyCodes == KeyCodes::KEY_S)
+			{
+				if (downY == transform.position.y + 128) { tileCollision = true; }
+			}
+		}
+	}
+
+	if (keyboardEvent == KeyboardEvent::KEY_PRESSED && keyCodes == KeyCodes::KEY_UP || keyCodes == KeyCodes::KEY_LEFT || keyCodes == KeyCodes::KEY_RIGHT || keyCodes == KeyCodes::KEY_DOWN || keyCodes == KeyCodes::KEY_W || keyCodes == KeyCodes::KEY_S || keyCodes == KeyCodes::KEY_A || keyCodes == KeyCodes::KEY_D)
+	{
+		currentDirection = keyCodes;
+	}
+
+	if (keyboardEvent == KeyboardEvent::KEY_PRESSED && !tileCollision)
 	{
 		handleKeyPressed(keyCodes);
 	}
@@ -60,7 +94,12 @@ void Player::handleInput(const KeyCodes &keyCodes, const KeyboardEvent &keyboard
 	{
 		handleKeyReleased(keyCodes);
 	}
+
+	// resets collision for next move with collsion check.
+	tileCollision = false;
 }
+
+void Player::interact() {}
 
 /// <summary>
 /// This method handles the logic when a keybutton has been pressed.
@@ -82,27 +121,60 @@ void Player::handleKeyPressed(const KeyCodes& keyCodes)
 	case KeyCodes::KEY_RIGHT:
 		moveRight();
 		break;
+	case KeyCodes::KEY_W:
+		moveUp();
+		break;
+	case KeyCodes::KEY_S:
+		moveDown();
+		break;
+	case KeyCodes::KEY_A:
+		moveLeft();
+		break;
+	case KeyCodes::KEY_D:
+		moveRight();
+		break;
 	case KeyCodes::KEY_Q:
 		for (auto& comp : equipment)
 		{
-			comp.get()->use();
+			comp->use();
 		}
 		break;
 	case KeyCodes::KEY_E:
-		std::cout << "Interaction button pressed..." << std::endl;
+		handleInteraction();
 		break;
 	case KeyCodes::KEY_G:
-		if (this->texture == "player_m") {
+		if (this->texture == "player_m")
+		{
 			gc->setTexture("player_f");
-			this->texture = "npc";
+			this->texture = "player_f";
 		}
-		else {
+		else
+		{
 			gc->setTexture("player_m");
 			this->texture = "player_m";
 		}
 		break;
+	case KeyCodes::KEY_C:
+		DebugUtilities::getInstance().toggleCheatCollision();
+		break;
 	default:
 		break;
+	}
+}
+
+void Player::handleInteraction()
+{
+	if (KeyCodes::KEY_UP == currentDirection || KeyCodes::KEY_W == currentDirection) {
+		interactFunc(pointer, transform.position.x, transform.position.y - 128);
+	}
+	else if (KeyCodes::KEY_LEFT == currentDirection || KeyCodes::KEY_A == currentDirection) {
+		interactFunc(pointer, transform.position.x - 128, transform.position.y);
+	}
+	else if (KeyCodes::KEY_RIGHT == currentDirection || KeyCodes::KEY_D == currentDirection) {
+		interactFunc(pointer, transform.position.x + 128, transform.position.y);
+	}
+	else if (KeyCodes::KEY_DOWN == currentDirection || KeyCodes::KEY_S == currentDirection) {
+		interactFunc(pointer, transform.position.x, transform.position.y + 128);
 	}
 }
 
@@ -126,6 +198,18 @@ void Player::handleKeyReleased(const KeyCodes& keyCodes)
 	case KeyCodes::KEY_RIGHT:
 		gc->playAnimation(5, 3, animationSpeed, true);
 		break;
+	case KeyCodes::KEY_W:
+		gc->playAnimation(4, 3, animationSpeed, false);
+		break;
+	case KeyCodes::KEY_S:
+		gc->playAnimation(0, 3, animationSpeed, false);
+		break;
+	case KeyCodes::KEY_A:
+		gc->playAnimation(5, 3, animationSpeed, false);
+		break;
+	case KeyCodes::KEY_D:
+		gc->playAnimation(5, 3, animationSpeed, true);
+		break;
 	default:
 		break;
 	}
@@ -139,10 +223,11 @@ void Player::update() {}
 /// </summary>
 void Player::moveUp()
 {
+	//de huidige positie bijhouden.
 	transform.position.y -= baseMovementSpeed;
-	gc.get()->transform.position = transform.position;
-	runActivated ? gc->playAnimation(7, 3, animationSpeed, false) :
-		gc->playAnimation(2, 4, animationSpeed, false);
+	cc->transform.position.y = this->transform.position.y;
+	gc->transform.position = transform.position;
+	runActivated ? gc->playAnimation(7, 3, animationSpeed, false) : gc->playAnimation(2, 4, animationSpeed, false);
 	func(pointer, transform.position.x, transform.position.y);
 }
 
@@ -153,9 +238,9 @@ void Player::moveUp()
 void Player::moveDown()
 {
 	transform.position.y += baseMovementSpeed;
-	gc.get()->transform.position = transform.position;
-	runActivated ? gc->playAnimation(6, 3, animationSpeed, false) :
-		gc->playAnimation(1, 4, animationSpeed, false);
+	cc->transform.position.y = this->transform.position.y;
+	gc->transform.position = transform.position;
+	runActivated ? gc->playAnimation(6, 3, animationSpeed, false) : gc->playAnimation(1, 4, animationSpeed, false);
 	func(pointer, transform.position.x, transform.position.y);
 }
 
@@ -166,9 +251,9 @@ void Player::moveDown()
 void Player::moveLeft()
 {
 	transform.position.x -= baseMovementSpeed;
-	gc.get()->transform.position = transform.position;
-	runActivated ? gc->playAnimation(8, 3, animationSpeed, false) :
-		gc->playAnimation(3, 4, animationSpeed, false);
+	cc->transform.position.x = this->transform.position.x;
+	gc->transform.position = transform.position;
+	runActivated ? gc->playAnimation(8, 3, animationSpeed, false) : gc->playAnimation(3, 4, animationSpeed, false);
 	func(pointer, transform.position.x, transform.position.y);
 }
 
@@ -179,9 +264,9 @@ void Player::moveLeft()
 void Player::moveRight()
 {
 	transform.position.x += baseMovementSpeed;
-	gc.get()->transform.position = transform.position;
-	runActivated ? gc->playAnimation(8, 3, animationSpeed, true) :
-		gc->playAnimation(3, 4, animationSpeed, true);
+	cc->transform.position.x = this->transform.position.x;
+	gc->transform.position = transform.position;
+	runActivated ? gc->playAnimation(8, 3, animationSpeed, true) : gc->playAnimation(3, 4, animationSpeed, true);
 	func(pointer, transform.position.x, transform.position.y);
 }
 
@@ -208,14 +293,26 @@ std::vector<std::string> Player::getItems()
 	return items;
 }
 
+void Player::staticBoomerangCallbackFunction(void* p, const bool brActivated)
+{
+	((Player*)p)->boomerangCallbackFunction(brActivated);
+
+}
+
+void Player::boomerangCallbackFunction(const bool brActivated)
+{
+	if (brActivated) { boomerangActivated = true; }
+	else { boomerangActivated = false; }
+}
+
 /// <summary>
-/// Callbackmethod to call the equipmentCallbackFunction.
+/// Callbackmethod to call the runningShoesCallbackFunction.
 /// </summary>
 /// <param name="p">Is needed for the includes</param>
 /// <param name="runningActivated">Boolean value for runActived Property</param>
-void Player::staticEquipmentCallbackFunction(void* p, const bool runningActivated)
+void Player::staticRunningShoesCallbackFunction(void* p, const bool runningActivated)
 {
-	((Player*)p)->equipmentCallbackFunction(runningActivated);
+	((Player*)p)->runningShoesCallbackFunction(runningActivated);
 
 }
 
@@ -223,16 +320,33 @@ void Player::staticEquipmentCallbackFunction(void* p, const bool runningActivate
 /// This method changes the runActivated boolean and the baseMovementspeed based upon runningActivated
 /// </summary>
 /// <param name="runningActivated">This value will be used to set the runActivated property</param>
-void Player::equipmentCallbackFunction(const bool runningActivated)
+void Player::runningShoesCallbackFunction(const bool runningActivated)
 {
-	if (runningActivated) 
+	if (runningActivated)
 	{
 		runActivated = true;
-		baseMovementSpeed = 128;
+		baseMovementSpeed = 256;
 	}
-	else 
+	else
 	{
 		runActivated = false;
-		baseMovementSpeed = 64;
+		baseMovementSpeed = 128;
 	}
+}
+
+void Player::staticCollisionCallbackFunction(void* p, int right, int left, int up, int down, std::string rightTag, std::string leftTag, std::string upTag, std::string downTag)
+{
+	((Player*)p)->collisionCallbackFunction(right, left, up, down, rightTag, leftTag, upTag, downTag);
+}
+
+void Player::collisionCallbackFunction(int right, int left, int up, int down, std::string rTag, std::string lTag, std::string uTag, std::string dTag)
+{
+	rightX = right;
+	leftX = left;
+	upY = up;
+	downY = down;
+	rightTag = rTag;
+	leftTag = lTag;
+	upTag = uTag;
+	downTag = dTag;
 }

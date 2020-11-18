@@ -2,15 +2,15 @@
 
 #include "ParserData.h"
 #include "Tile.h"
+#include "TextComponent.h"
+#include "DebugUtilities.h"
+#include "XMLSceneParser.h"
+#include "GraphicsComponent.h"
 #include <array>
 #include <iostream>
 #include <list>
 #include <vector>
-#include "TextComponent.h"
 #include <sstream>
-#include "DebugUtilities.h"
-#include "XMLSceneParser.h"
-#include "GraphicsComponent.h"
 
 class Scene : public GameObject
 {
@@ -20,11 +20,11 @@ public:
 	~Scene() {}
 
 	void addGraphics();
-	std::vector<std::shared_ptr<Tile>> makeTiles(std::vector<std::shared_ptr<ParserData>> data);
 	std::map<std::string, std::string> passTextures() const;
 
 	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
 	void update() override;
+	void interact() override;
 
 private:
 	int x = 0, y = 0;

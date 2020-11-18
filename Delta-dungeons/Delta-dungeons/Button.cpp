@@ -6,7 +6,7 @@
 /// <param name="x">The horizontal position</param>
 /// <param name="y">The vertical position</param>
 /// <param name="textureList">Information of texture names.</param>
-Button::Button(int x, int y, const std::vector<std::string>& textureList, buttonCb onClick, const void* p) : onCLickFunc(onClick), pointer(p) 
+Button::Button(int x, int y, const std::vector<std::string>& textureList, buttonCb onClick, const void* p) : onCLickFunc(onClick), pointer(p)
 {
 	m_gc = std::make_shared<GraphicsComponent>();
 	transform.position = { x, y };
@@ -23,7 +23,8 @@ Button::Button(int x, int y, const std::vector<std::string>& textureList, button
 
 void Button::update() {}
 
-void Button::handleInput(const KeyCodes &keyCode, const KeyboardEvent &keyboardEvent, Vector2D &mousePos) {
+void Button::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos)
+{
 	if (keyboardEvent == KeyboardEvent::MOUSE_CLICKED)
 	{
 		// Checks if the mouse is clicked while mouse pointer is positioned inside the texture bounds
@@ -34,3 +35,5 @@ void Button::handleInput(const KeyCodes &keyCode, const KeyboardEvent &keyboardE
 		}
 	}
 }
+
+void Button::interact() {}

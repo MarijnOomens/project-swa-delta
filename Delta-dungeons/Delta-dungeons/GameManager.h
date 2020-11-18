@@ -13,21 +13,27 @@
 #include "HUDManager.h"
 
 class GameManager {
-public: 
+public:
 	GameManager();
 	~GameManager() {}
+
 	void registerBehaviourObjects();
 	void registerTextures(std::map<std::string, std::string> textures);
-	static void staticCameraCallbackFunction(const void* p, int x, int y);
+
+	static void staticCameraCallbackFunction(void* p, int x, int y);
 	void passPlayerPosition(int x, int y);
+
 	void registerFonts(std::map<std::string, std::string> fonts);
+
+	static void staticInteractCallbackFunction(void* p, int x, int y);
+	void interactCallbackFunction(int x, int y);
 
 private:
 	std::shared_ptr<EngineFacade> engineFacade;
+	std::shared_ptr<Scene> scene;
 	UIManager uiManager;
 	PlayerManager playerManager;
 	EquipmentManager eqManager;
-	std::shared_ptr<Scene> scene;
 	NPCManager npcManager;
 	HUDManager hudManager;
 };

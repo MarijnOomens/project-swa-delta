@@ -13,6 +13,9 @@ public:
 	~XMLSceneParser() {}
 
 	std::vector<std::shared_ptr<Tile>> loadScene(const std::string& path);
+	std::vector<std::shared_ptr<ParserData>> getEquipmentDataList(const std::string& path);
+	std::vector<std::shared_ptr<ParserData>> getNPCDataList(const std::string& path);
+
 private:
 	XMLFacade facade;
 };

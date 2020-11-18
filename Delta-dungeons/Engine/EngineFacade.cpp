@@ -117,7 +117,17 @@ void EngineFacade::addObjectToScene(std::shared_ptr<BehaviourObject> addObject)
 	engineController->addObjectToScene(addObject);
 }
 
+void EngineFacade::passInteract(int x, int y)
+{
+	engineController->passInteract(x, y);
+}
+
 void EngineFacade::deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject)
 {
 	engineController->deleteObjectFromScene(deletedObject);
+}
+
+void EngineFacade::deleteColliderFromScene(std::shared_ptr<ColliderComponent> deletedCollider)
+{
+	engineController->deleteColliderFromScene(deletedCollider);
 }

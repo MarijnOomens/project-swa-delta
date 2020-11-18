@@ -5,6 +5,7 @@
 /// </summary>
 EngineController::EngineController()
 {
+	collision = std::make_shared<Collision>();
 	assetManager = std::make_shared<AssetManager>();
 	renderFacade = std::make_shared<RenderFacade>();
 	textureManager = std::make_shared<TextureManager>(renderFacade, assetManager);
@@ -82,6 +83,7 @@ void EngineController::startGame()
 		if (!renderFacade->renderer->isPaused)
 		{
 			renderFacade->beforeFrame();
+			collision->checkCollision();
 			sceneManager.update();
 		}
 		renderFacade->afterFrame();
@@ -92,6 +94,8 @@ void EngineController::startGame()
 void EngineController::registerScene(const std::string& sceneName, const std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects)
 {
 	std::vector<std::shared_ptr<BehaviourObject>> tempObjects;
+	std::vector<std::shared_ptr<BehaviourObject>> colliderObjects;
+
 	for (const auto& o : behaviourObjects)
 	{
 		if (dynamic_cast<GraphicsComponent*>(o.get()) != nullptr)
@@ -99,6 +103,10 @@ void EngineController::registerScene(const std::string& sceneName, const std::ve
 			auto ngc = dynamic_cast<GraphicsComponent*>(o.get());
 			ngc->addTextureManager(textureManager);
 			tempObjects.emplace_back(ngc);
+		}
+		else if (dynamic_cast<ColliderComponent*>(o.get()) != nullptr)
+		{
+			colliderObjects.emplace_back(o);
 		}
 		else if (dynamic_cast<TextComponent*>(o.get()) != nullptr)
 		{
@@ -111,7 +119,7 @@ void EngineController::registerScene(const std::string& sceneName, const std::ve
 			tempObjects.emplace_back(o);
 		}
 	}
-
+	collision->registerColliders(colliderObjects);
 	sceneManager.registerScene(sceneName, tempObjects);
 }
 
@@ -156,7 +164,7 @@ void EngineController::registerTextures(const std::map<std::string, std::string>
 /// <param name="fonts">Map of multiple fonts.</param>
 void EngineController::registerFonts(std::map<std::string, std::string> fonts) {
 	for (auto& t : fonts) {
-		assetManager.get()->addFont(t.first, t.second);
+		assetManager->addFont(t.first, t.second);
 	}
 }
 
@@ -214,7 +222,23 @@ void EngineController::addObjectToScene(std::shared_ptr<BehaviourObject> addObje
 	}
 }
 
+void EngineController::passInteract(int x, int y) 
+{
+	for (int i = behaviourObjects.size() - 1; i-- > 0; )
+	{
+		if (behaviourObjects.at(i)->transform.position.x == x && behaviourObjects.at(i)->transform.position.y == y)
+		{
+			behaviourObjects.at(i)->interact();
+		}
+	}
+}
+
 void EngineController::deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject)
 {
 	sceneManager.deleteObjectFromScene(deletedObject);
+}
+
+void EngineController::deleteColliderFromScene(std::shared_ptr<ColliderComponent> deletedCollider)
+{
+	collision->deleteColliderFromScene(deletedCollider);
 }

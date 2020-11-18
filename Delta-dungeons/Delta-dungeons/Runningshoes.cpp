@@ -1,18 +1,40 @@
-#include "Runningshoes.h"
+#include "RunningShoes.h"
 
-/// <summary>
-/// This class is an equipment that can be used to increase the movement speed.
-/// </summary>
-Runningshoes::Runningshoes(const cbFunction f, void* p, std::string& t) : func(f), pointer(p) 
+RunningShoes::RunningShoes(const cbEquipment f, void* p, std::string t) : func(f), pointer(p), texture(t) {}
+
+RunningShoes::RunningShoes(int x, int y, std::string texture)
 {
-	texture = t;
+	this->transform.position = { x * 128, y * 128 };
+	this->transform.scale.multiply({ 4, 4 });
+
+	gc = std::make_shared<GraphicsComponent>();
+	gc->setTexture(texture);
+	gc->imageDimensions = { 32, 32 };
+	gc->transform = transform;
+	gc->isScreen = false;
+
+	cc = std::make_shared<ColliderComponent>();
+	cc->tag = "runningshoes";
+	cc->transform.position = this->transform.position;
+
+	this->components.emplace_back(gc);
+	this->components.emplace_back(cc);
+}
+
+void RunningShoes::interact()
+{
+	if (gc != nullptr) {
+		SceneModifier::getInstance().deleteObjectFromScene(gc);
+		SceneModifier::getInstance().deleteColliderFromScene(cc);
+		gc = nullptr;
+	}
 }
 
 /// <summary>
 /// This method gets called to change the isActivated boolean property. 
 /// Afterwards it will pass the isActivated boolean to the Player.cpp class.
 /// </summary>
-void Runningshoes::use()
+void RunningShoes::use()
 {
 	isActivated = !isActivated;
 	func(pointer, isActivated);
