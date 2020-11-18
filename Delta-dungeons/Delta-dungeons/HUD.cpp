@@ -27,7 +27,9 @@ void HUD::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEven
 	}
 }
 
-void HUD::update() {};
+void HUD::update() {}
+
+void HUD::interact() {}
 
 void HUD::addHealth(int indexHeart)
 {

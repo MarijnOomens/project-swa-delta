@@ -7,7 +7,7 @@ typedef void(*cbEquipment) (void*, bool);
 class RunningShoes : public IEquipment
 {
 public:
-	RunningShoes(const cbEquipment f, void* p, std::string& t);
+	RunningShoes(const cbEquipment f, void* p, const std::string& t);
 	RunningShoes(int x, int y, std::string texture);
 	~RunningShoes() {}
 

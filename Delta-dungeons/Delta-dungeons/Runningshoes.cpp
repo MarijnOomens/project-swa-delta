@@ -1,6 +1,9 @@
 #include "RunningShoes.h"
 
-RunningShoes::RunningShoes(const cbEquipment f, void* p, std::string t) : func(f), pointer(p), texture(t) {}
+RunningShoes::RunningShoes(const cbEquipment f, void* p, const std::string& t) : func(f), pointer(p) 
+{
+	texture = t;
+}
 
 RunningShoes::RunningShoes(int x, int y, std::string texture)
 {

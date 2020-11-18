@@ -1,10 +1,12 @@
 #include "Boomerang.h"
 
-Boomerang::Boomerang(const cbEquipmentBoomerang f, void* p) : func(f), pointer(p) {}
+Boomerang::Boomerang(const std::string& t,const cbEquipmentBoomerang f, void* p) : func(f), pointer(p) 
+{
+	texture = t;
+}
 
 Boomerang::Boomerang(int x, int y, std::string texture)
 {
-	texture = t;
 	this->transform.position = { x * 128, y * 128 };
 	this->transform.scale.multiply({ 4, 4 });
 

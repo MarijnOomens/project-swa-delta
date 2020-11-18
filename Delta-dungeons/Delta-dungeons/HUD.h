@@ -19,6 +19,7 @@ public:
 	void updateHighScore(int param);
 	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
 	void update() override;
+	void interact()override;
 	void addHealth(int indexHeart);
 	void deleteHealth();
 	void addItem(const std::string& texturepath);
