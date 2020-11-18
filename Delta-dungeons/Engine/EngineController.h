@@ -9,7 +9,9 @@
 #include "TextureManager.h"
 #include "TextComponent.h"
 #include "GraphicsComponent.h"
+#include "ColliderComponent.h"
 #include <vector>
+#include "Collision.h"
 
 // Engincontroller class
 //
@@ -40,6 +42,9 @@ public:
 	void slowDownGame() const;
 	void speedUpGame() const;
 	void resetSpeedGame() const;
+	void passInteract(int x, int y);
+	void deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject);
+	void deleteColliderFromScene(std::shared_ptr<ColliderComponent> deletedCollider);
 
 private:
 	std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects;
@@ -49,7 +54,7 @@ private:
 	std::shared_ptr<AssetManager> assetManager;
 	std::shared_ptr<Input> input;
 	SceneManager sceneManager;
-
+	std::shared_ptr<Collision> collision;
 	bool isSceneSwitched = false;
 
 };

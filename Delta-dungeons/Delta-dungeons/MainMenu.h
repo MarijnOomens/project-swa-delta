@@ -6,6 +6,7 @@
 #include "Button.h"
 #include "Color.h"
 #include "GraphicsComponent.h"
+#include "Advertisement.h"
 #include "SceneLoader.h"
 #include <sstream>
 

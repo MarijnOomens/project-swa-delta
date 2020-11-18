@@ -76,6 +76,9 @@ void InputWrapper::handleKeyPressed(const bool isPaused)
 		case SDLK_h:
 			func(pointer, KeyCodes::KEY_H, KeyboardEvent::KEY_PRESSED, mousePosition);
 			break;
+		case SDLK_c:
+			func(pointer, KeyCodes::KEY_C, KeyboardEvent::KEY_PRESSED, mousePosition);
+			break;
 		case SDLK_COMMA:
 			func(pointer, KeyCodes::KEY_COMMA, KeyboardEvent::KEY_PRESSED, mousePosition);
 			break;
@@ -96,8 +99,8 @@ void InputWrapper::handleKeyPressed(const bool isPaused)
 			break;
 		default:
 			break;
+			}
 		}
-	}
 	else if (event.key.keysym.sym == SDLK_p) 
 	{
 		func(pointer, KeyCodes::KEY_P, KeyboardEvent::KEY_PRESSED, mousePosition);
@@ -105,6 +108,10 @@ void InputWrapper::handleKeyPressed(const bool isPaused)
 	else if (event.key.keysym.sym == SDLK_ESCAPE)
 	{
 		func(pointer, KeyCodes::KEY_ESC, KeyboardEvent::KEY_PRESSED, mousePosition);
+	}
+	else if (event.key.keysym.sym == SDLK_BACKSPACE)
+	{
+		func(pointer, KeyCodes::KEY_BACKSPACE, KeyboardEvent::KEY_PRESSED, mousePosition);
 	}
 }
 
@@ -146,6 +153,9 @@ void InputWrapper::handleKeyReleased()
 		break;
 	case SDLK_e:
 		func(pointer, KeyCodes::KEY_E, KeyboardEvent::KEY_RELEASED, mousePosition);
+		break;
+	case SDLK_c:
+		func(pointer, KeyCodes::KEY_C, KeyboardEvent::KEY_RELEASED, mousePosition);
 		break;
 	case SDLK_BACKSPACE:
 		func(pointer, KeyCodes::KEY_BACKSPACE, KeyboardEvent::KEY_RELEASED, mousePosition);

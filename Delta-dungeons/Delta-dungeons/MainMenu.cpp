@@ -6,6 +6,7 @@ MainMenu::MainMenu()
 	this->textures.try_emplace("button_play", "Assets/screen-components/button-designs/pastels/button-play-1.png");
 	this->textures.try_emplace("button_credits", "Assets/screen-components/button-designs/pastels/button-credits-1.png");
 	this->textures.try_emplace("button_exit", "Assets/screen-components/button-designs/pastels/button-exit-1.png");
+	this->textures.try_emplace("ad", "Assets/ADS/Advertisement.png");
 
 	gc = std::make_unique<GraphicsComponent>();
 	gc->setTexture("mainmenu");
@@ -32,6 +33,11 @@ MainMenu::MainMenu()
 	std::vector<std::string> possibleButtonTexExit = { "button_exit" };
 	std::unique_ptr<Button> exitButton = std::make_unique<Button>(500, 690, possibleButtonTexExit, staticExitCallbackFunction, this);
 	this->components.emplace_back(std::move(exitButton));
+
+	// Advertisement
+	std::vector<std::string> adTexture = { "ad" };
+	std::unique_ptr<Advertisement> adButton = std::make_unique<Advertisement>(200, 10, adTexture);
+	this->components.emplace_back(std::move(adButton));
 }
 
 void MainMenu::handleInput(const KeyCodes &keyCode, const KeyboardEvent &keyboardEvent, Vector2D &mousePos)

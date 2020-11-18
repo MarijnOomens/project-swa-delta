@@ -58,3 +58,8 @@ void SceneManager::registerScene(const std::string& sceneName, const std::vector
 {
 	this->scenes.try_emplace(sceneName, behaviourObjects);
 }
+
+int SceneManager::getActiveScenesSize() 
+{
+	return activeScenes.size();
+}

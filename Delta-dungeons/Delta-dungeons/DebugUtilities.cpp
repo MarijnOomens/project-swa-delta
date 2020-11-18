@@ -41,3 +41,18 @@ void DebugUtilities::resetSpeedGame()const
 {
 	engineFacade->resetSpeedGame();
 }
+
+void DebugUtilities::pauseGame()const
+{
+	engineFacade->pauseGame();
+}
+
+void DebugUtilities::toggleCheatCollision()
+{
+	cheatCollision = !cheatCollision;
+}
+
+bool DebugUtilities::isCheatCollisionOn()
+{
+	return cheatCollision;
+}
