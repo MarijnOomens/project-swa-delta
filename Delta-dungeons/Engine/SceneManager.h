@@ -27,5 +27,6 @@ private:
 	std::vector<std::string> activeScenes;
 	std::vector<std::string> previousScenes;
 	std::string currentScene;
+	std::vector<std::shared_ptr<BehaviourObject>> currentObjects;
 	bool isSceneSwitched = false;
 };
