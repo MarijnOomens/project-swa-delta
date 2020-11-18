@@ -101,7 +101,7 @@ void SceneManager::deleteObjectFromScene(std::shared_ptr<BehaviourObject> delete
 	auto i = std::find(currentObjects.begin(), currentObjects.end(), deletedObject);
 	if (i != currentObjects.end())
 	{
-		currentObjects.erase(deletedObject);
+		currentObjects.erase(i);
 	}
 	isSceneSwitched = true;
 }
