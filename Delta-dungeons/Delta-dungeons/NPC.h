@@ -1,6 +1,6 @@
 #pragma once
 #include "InteractiveObject.h"
-#include "ColliderComponent.h"
+#include "RegularColliderComponent.h"
 #include <string>
 #include <map>
 #include <GraphicsComponent.h>
@@ -18,6 +18,6 @@ protected:
 
 private:
 	std::shared_ptr<GraphicsComponent> gc;
-	std::shared_ptr<ColliderComponent> cc;
+	std::shared_ptr<RegularColliderComponent> cc;
 	const int animationSpeed = 120;
 };

@@ -37,7 +37,7 @@ Player::Player(const cbCamera f, cbInteract interactCB, void* p) : func(f), inte
 	gc->transform.scale.multiply({ 4, 4 });
 	gc->playAnimation(0, 3, animationSpeed, false);
 
-	cc = std::make_shared<ColliderComponent>(staticCollisionCallbackFunction, this);
+	cc = std::make_shared<RegularColliderComponent>(staticCollisionCallbackFunction, this);
 	cc->tag = "player";
 	cc->transform.position = this->transform.position;
 
@@ -321,12 +321,12 @@ void Player::runningShoesCallbackFunction(const bool runningActivated)
 	}
 }
 
-void Player::staticCollisionCallbackFunction(void* p, int right, int left, int up, int down, std::string rightTag, std::string leftTag, std::string upTag, std::string downTag)
+void Player::staticCollisionCallbackFunction(void* p, int right, int left, int up, int down, std::string rightTag, std::string leftTag, std::string upTag, std::string downTag, bool hit)
 {
-	((Player*)p)->collisionCallbackFunction(right, left, up, down, rightTag, leftTag, upTag, downTag);
+	((Player*)p)->collisionCallbackFunction(right, left, up, down, rightTag, leftTag, upTag, downTag, hit);
 }
 
-void Player::collisionCallbackFunction(int right, int left, int up, int down, std::string rTag, std::string lTag, std::string uTag, std::string dTag)
+void Player::collisionCallbackFunction(int right, int left, int up, int down, std::string rTag, std::string lTag, std::string uTag, std::string dTag, bool hit)
 {
 	rightX = right;
 	leftX = left;

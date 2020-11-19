@@ -4,7 +4,7 @@
 #include "Boomerang.h"
 #include "GameObject.h"
 #include "GraphicsComponent.h"
-#include "ColliderComponent.h"
+#include "RegularColliderComponent.h"
 #include "RunningShoes.h"
 #include "DebugUtilities.h"
 
@@ -40,8 +40,8 @@ public:
 	void damagePlayer(int damage);
 	void updateCaughtPokemon(int pokemonId);
 
-	static void staticCollisionCallbackFunction(void* p, int right, int left, int up, int down, std::string rightTag, std::string leftTag, std::string upTag, std::string downTag);
-	void collisionCallbackFunction(int right, int left, int up, int down, std::string rightTag, std::string leftTag, std::string upTag, std::string downTag);
+	static void staticCollisionCallbackFunction(void* p, int right, int left, int up, int down, std::string rightTag, std::string leftTag, std::string upTag, std::string downTag, bool hit);
+	void collisionCallbackFunction(int right, int left, int up, int down, std::string rightTag, std::string leftTag, std::string upTag, std::string downTag, bool hit);
 
 	static void staticBoomerangCallbackFunction(void* p, const bool boomerangActivated);
 	void boomerangCallbackFunction(const bool boomerangActivated);
@@ -64,7 +64,7 @@ private:
 	std::vector<int> pokemonCaught;
 	std::vector<std::unique_ptr<IEquipment>> equipment;
 	std::shared_ptr<GraphicsComponent> gc;
-	std::shared_ptr<ColliderComponent> cc;
+	std::shared_ptr<RegularColliderComponent> cc;
 	AnimCategory animCategory;
 	int rightX;
 	int leftX;
