@@ -51,6 +51,7 @@ public:
 
 	void update() override;
 	void handleInteraction();
+	void RegisterHit();
 private:
 	const int animationSpeed = 120;
 	int health;

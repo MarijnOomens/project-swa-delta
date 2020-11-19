@@ -12,6 +12,7 @@
 /// </summary>
 Player::Player(const cbCamera f, cbInteract interactCB, void* p) : func(f), interactFunc(interactCB), pointer(p)
 {
+	health = 6;
 	std::unique_ptr<RunningShoes> running = std::make_unique<RunningShoes>(staticRunningShoesCallbackFunction, this);
 	std::unique_ptr<Boomerang> boomerang = std::make_unique<Boomerang>(staticBoomerangCallbackFunction, this);
 
@@ -60,21 +61,34 @@ void Player::handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboard
 		{
 			if (KeyCodes::KEY_UP == keyCodes || keyCodes == KeyCodes::KEY_W)
 			{
-				if (upY == transform.position.y - 128) { tileCollision = true; }
+				if (upY == transform.position.y - 128) { 
+					tileCollision = true; 
+					if (upTag == "pokemon") { RegisterHit(); }
+				}
 			}
 			else if (KeyCodes::KEY_LEFT == keyCodes || keyCodes == KeyCodes::KEY_A)
 			{
-				if (leftX == transform.position.x - 128) { tileCollision = true; }
+				if (leftX == transform.position.x - 128) {
+					tileCollision = true;
+					if (leftTag == "pokemon") { RegisterHit(); }
+				}
 			}
 			else if (KeyCodes::KEY_RIGHT == keyCodes || keyCodes == KeyCodes::KEY_D)
 			{
-				if (rightX == transform.position.x + 128) { tileCollision = true; }
+				if (rightX == transform.position.x + 128) {
+					tileCollision = true;
+					if (rightTag == "pokemon") { RegisterHit(); }
+				}
 			}
 			else if (KeyCodes::KEY_DOWN == keyCodes || keyCodes == KeyCodes::KEY_S)
 			{
-				if (downY == transform.position.y + 128) { tileCollision = true; }
+				if (downY == transform.position.y + 128) {
+					tileCollision = true;
+					if (downTag == "pokemon") { RegisterHit(); }
+				}
 			}
 		}
+		std::cout << health << std::endl;
 	}
 
 	if (keyboardEvent == KeyboardEvent::KEY_PRESSED && keyCodes == KeyCodes::KEY_UP || keyCodes == KeyCodes::KEY_LEFT || keyCodes == KeyCodes::KEY_RIGHT || keyCodes == KeyCodes::KEY_DOWN || keyCodes == KeyCodes::KEY_W || keyCodes == KeyCodes::KEY_S || keyCodes == KeyCodes::KEY_A || keyCodes == KeyCodes::KEY_D)
@@ -336,4 +350,15 @@ void Player::collisionCallbackFunction(int right, int left, int up, int down, st
 	leftTag = lTag;
 	upTag = uTag;
 	downTag = dTag;
+}
+
+void Player::RegisterHit() {
+	if (health > 0) {
+		health--;
+		 
+	}
+	else {
+				
+	}
+	
 }
