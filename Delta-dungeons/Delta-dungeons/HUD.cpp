@@ -33,7 +33,7 @@ void HUD::interact() {}
 
 void HUD::addHealth(int indexHeart)
 {
-	if (indexHeart <= maxHealth) 
+	if (indexHeart < maxHealth) 
 	{
 		std::shared_ptr<GraphicsComponent> heartGc = std::make_shared<GraphicsComponent>();
 		heartGc->setTexture("heart");
@@ -54,8 +54,8 @@ void HUD::deleteHealth()
 	{
 		std::shared_ptr<GraphicsComponent> heart = hearts.back();
 		components.erase(std::find(components.begin(), components.end(), heart));
-		SceneModifier::getInstance().deleteObjectFromScene(heart);
 		hearts.erase(std::find(hearts.begin(), hearts.end(), heart));
+		SceneModifier::getInstance().deleteObjectFromScene(heart);
 		health--;
 		updateItems(health);
 	}

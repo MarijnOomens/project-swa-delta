@@ -7,12 +7,12 @@ SceneModifier& SceneModifier::getInstance()
 	return sceneModifier;
 }
 
-void SceneModifier::addObjectToScene(std::shared_ptr<BehaviourObject> addObject)
+void SceneModifier::addObjectToScene(const std::shared_ptr<BehaviourObject>& addObject)
 {
 	engineFacade->addObjectToScene(addObject);
 }
 
-void SceneModifier::deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject)
+void SceneModifier::deleteObjectFromScene(const std::shared_ptr<BehaviourObject>& deletedObject)
 {
 	engineFacade->deleteObjectFromScene(deletedObject);
 }

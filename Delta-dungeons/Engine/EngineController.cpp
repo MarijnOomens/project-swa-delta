@@ -208,7 +208,7 @@ void EngineController::resetSpeedGame() const
 	renderFacade->resetSpeedGame();
 }
 
-void EngineController::addObjectToScene(std::shared_ptr<BehaviourObject> addObject)
+void EngineController::addObjectToScene(const std::shared_ptr<BehaviourObject>& addObject)
 {
 	if (sceneManager.currentObjects.size() > 0) {
 		if (dynamic_cast<GraphicsComponent*>(addObject.get()) != nullptr)
@@ -229,7 +229,7 @@ void EngineController::passInteract(int x, int y)
 	sceneManager.passInteract(x, y);
 }
 
-void EngineController::deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject)
+void EngineController::deleteObjectFromScene(const std::shared_ptr<BehaviourObject>& deletedObject)
 {
 	sceneManager.deleteObjectFromScene(deletedObject);
 }

@@ -62,7 +62,7 @@ void SceneManager::addOverlayScene(const std::string& sceneName)
 	update();
 }
 
-void SceneManager::registerScene(const std::string& sceneName, const std::vector<std::shared_ptr<BehaviourObject>>& behaviourObjects)
+void SceneManager::registerScene(const std::string& sceneName, const std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects)
 {
 	this->scenes.try_emplace(sceneName, behaviourObjects);
 }
@@ -87,7 +87,7 @@ void SceneManager::handleSceneInput(const KeyCodes keyCode, const KeyboardEvent 
 	}	
 }
 
-void SceneManager::addObjectToScene(std::shared_ptr<BehaviourObject> addObject)
+void SceneManager::addObjectToScene(const std::shared_ptr<BehaviourObject>& addObject)
 {
 	if (currentScene != "") 
 	{
@@ -96,7 +96,7 @@ void SceneManager::addObjectToScene(std::shared_ptr<BehaviourObject> addObject)
 	isSceneSwitched = true;
 }
 
-void SceneManager::deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject)
+void SceneManager::deleteObjectFromScene(const std::shared_ptr<BehaviourObject>& deletedObject)
 {
 	auto i = std::find(currentObjects.begin(), currentObjects.end(), deletedObject);
 	if (i != currentObjects.end())
