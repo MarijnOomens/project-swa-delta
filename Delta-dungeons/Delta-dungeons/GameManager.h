@@ -27,6 +27,9 @@ public:
 	static void staticInteractCallbackFunction(void* p, int x, int y);
 	void interactCallbackFunction(int x, int y);
 
+	static void staticGameOverbackFunction(void* p);
+	void gameOverCallbackFunction();
+
 private:
 	std::shared_ptr<EngineFacade> engineFacade;
 	std::shared_ptr<Scene> scene;

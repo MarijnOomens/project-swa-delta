@@ -93,16 +93,18 @@ void EngineController::startGame()
 {
 	while (renderFacade->renderer->isRunning)
 	{
-
 		renderFacade->setFrameStart();
-
-		input->handleInput(renderFacade->renderer->isPaused);
+		if (!isGameOver) 
+		{
+			input->handleInput(renderFacade->renderer->isPaused);
+		}
 		if (!renderFacade->renderer->isPaused)
 		{
 			renderFacade->beforeFrame();
 			collision->checkCollision();
 			update();
 		}
+		checkGameOver();
 		renderFacade->afterFrame();
 		renderFacade->setFrameDelay();
 	}
@@ -254,4 +256,25 @@ void EngineController::deleteObjectFromScene(std::shared_ptr<BehaviourObject> de
 void EngineController::deleteColliderFromScene(std::shared_ptr<ColliderComponent> deletedCollider)
 {
 	collision->deleteColliderFromScene(deletedCollider);
+}
+
+void EngineController::gameOver()
+{
+	isGameOver = true;
+}
+
+void EngineController::checkGameOver()
+{
+	if (isGameOver)
+	{
+		if (timer == 0) {
+			isGameOver = false;
+			timer = 30;
+			loadScene("MainMenu", "", true);
+		}
+		else
+		{
+			timer--;
+		}
+	}
 }

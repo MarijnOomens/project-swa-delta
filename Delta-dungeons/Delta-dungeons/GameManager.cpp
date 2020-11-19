@@ -15,7 +15,7 @@ GameManager::GameManager()
 	registerTextures(uiManager.passTextures());
 	registerFonts(uiManager.passFonts());
 
-	playerManager.createPlayer(staticCameraCallbackFunction, staticInteractCallbackFunction, this);
+	playerManager.createPlayer(staticCameraCallbackFunction, staticInteractCallbackFunction,staticGameOverbackFunction, this);
 	registerTextures(playerManager.passTextures());
 
 	npcManager.createNPC();
@@ -118,6 +118,17 @@ void GameManager::staticInteractCallbackFunction(void* p, int x, int y)
 	((GameManager*)p)->interactCallbackFunction(x, y);
 }
 
-void GameManager::interactCallbackFunction(int x, int y) {
+void GameManager::interactCallbackFunction(int x, int y) 
+{
 	engineFacade->passInteract(x, y);
+}
+
+void GameManager::staticGameOverbackFunction(void* p)
+{
+	((GameManager*)p)->gameOverCallbackFunction();
+}
+
+void GameManager::gameOverCallbackFunction()
+{
+	engineFacade->gameOver();
 }

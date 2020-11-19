@@ -10,7 +10,7 @@
 /// Defines the movementspeed and the runactivated bool
 /// Creates the graphicscomponent for the player sprite and saves the texturename and png location, width, height
 /// </summary>
-Player::Player(const cbCamera f, cbInteract interactCB, void* p) : func(f), interactFunc(interactCB), pointer(p)
+Player::Player(const cbCamera f, cbInteract interactCB, cbGameOver gameOverF, void* p) : func(f), interactFunc(interactCB), gameOverFunc(gameOverF), pointer(p)
 {
 	health = 6;
 	std::unique_ptr<RunningShoes> running = std::make_unique<RunningShoes>(staticRunningShoesCallbackFunction, this);
@@ -353,12 +353,15 @@ void Player::collisionCallbackFunction(int right, int left, int up, int down, st
 }
 
 void Player::RegisterHit() {
-	if (health > 0) {
-		health--;
-		 
+	if (health > 0) 
+	{
+		health--; 
 	}
-	else {
-				
+	else 
+	{
+		gc->playAnimation(9, 4, animationSpeed, false);
+		gameOverFunc(pointer);
+		health = 6;
 	}
 	
 }
