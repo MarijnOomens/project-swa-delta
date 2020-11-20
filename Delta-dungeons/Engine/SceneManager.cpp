@@ -29,23 +29,31 @@ void SceneManager::loadScene(const std::string& sceneName, const std::string& fr
 
 void SceneManager::loadPreviousScene()
 {
-	for (auto& c : scenes[activeScenes.back()])
-	{
-		auto i = std::find(currentObjects.begin(), currentObjects.end(), c);
-		currentObjects.erase(i);
-	}
+	//for (auto& c : scenes[activeScenes.back()])
+	//{
+	//	auto i = std::find(currentObjects.begin(), currentObjects.end(), c);
+	//	currentObjects.erase(i);
+	//}
 	if (activeScenes.size() > 1)
 	{
 		activeScenes.pop_back();
 	}
 	else if (!previousScenes.empty())
 	{
-		activeScenes.pop_back();
+		activeScenes.clear();
+		activeScenes.emplace_back(previousScenes.back());
 		currentScene = previousScenes.back();
 		previousScenes.pop_back();
 	}
 
-	currentObjects = scenes[currentScene];
+	//currentObjects = scenes[currentScene];
+
+	for (auto& s : activeScenes) {
+		for (auto& o : scenes[s]) {
+			currentObjects.emplace_back(o);
+		}
+	}
+
 	isSceneSwitched = true;
 	update();
 }
