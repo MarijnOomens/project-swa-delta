@@ -10,11 +10,12 @@ void SceneManager::update()
 
 void SceneManager::loadScene(const std::string& sceneName, const std::string& fromScene, const bool clearPrevious)
 {
-	activeScenes.clear();
+	//activeScenes.clear();
 
 	if (clearPrevious)
 	{
 		previousScenes.clear();
+		activeScenes.clear();
 	}
 
 	if (!fromScene.empty())
@@ -46,6 +47,7 @@ void SceneManager::loadPreviousScene()
 		previousScenes.pop_back();
 	}
 
+	currentObjects = scenes[currentScene];
 	isSceneSwitched = true;
 	update();
 }

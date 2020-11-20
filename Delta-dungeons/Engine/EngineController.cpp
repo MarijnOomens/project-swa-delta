@@ -77,7 +77,7 @@ void EngineController::startGame()
 	while (renderFacade->renderer->isRunning)
 	{
 		renderFacade->setFrameStart();
-		if (!isGameOver) 
+		if (!isGameOver)
 		{
 			input->handleInput(renderFacade->renderer->isPaused);
 		}
@@ -155,7 +155,7 @@ void EngineController::passPlayerPosition(int x, int y)
 /// </summary>
 /// <param name="textures">Map of multiple textures.</param>
 void EngineController::registerTextures(const std::map<std::string, std::string> textures) {
-	for (const auto& t : textures) 
+	for (const auto& t : textures)
 	{
 		assetManager->addTexture(t.first, t.second);
 	}
@@ -166,7 +166,7 @@ void EngineController::registerTextures(const std::map<std::string, std::string>
 /// </summary>
 /// <param name="fonts">Map of multiple fonts.</param>
 void EngineController::registerFonts(std::map<std::string, std::string> fonts) {
-	for (auto& t : fonts) 
+	for (auto& t : fonts)
 	{
 		assetManager->addFont(t.first, t.second);
 	}
@@ -174,17 +174,15 @@ void EngineController::registerFonts(std::map<std::string, std::string> fonts) {
 
 void EngineController::pauseScreen()
 {
-	if (sceneManager.getActiveScenesSize() < 3) 
+	if (renderFacade->renderer->isPaused)
 	{
 		renderFacade->pauseGame();
-		if (renderFacade->renderer->isPaused)
-		{
-			addOverlayScene("PauseScreen");
-		}
-		else
-		{
-			loadPreviousScene();
-		}
+		loadPreviousScene();
+	}
+	else
+	{
+		renderFacade->pauseGame();
+		addOverlayScene("PauseScreen");
 	}
 }
 
@@ -229,7 +227,7 @@ void EngineController::addObjectToScene(const std::shared_ptr<BehaviourObject>& 
 	}
 }
 
-void EngineController::passInteract(int x, int y) 
+void EngineController::passInteract(int x, int y)
 {
 	sceneManager.passInteract(x, y);
 }
