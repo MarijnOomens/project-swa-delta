@@ -28,7 +28,10 @@ public:
 	ENGINE_API void speedUpGame();
 	ENGINE_API void resetSpeedGame();
 	ENGINE_API void pauseGame();
+	ENGINE_API void passInteract(int x, int y);
 	ENGINE_API void deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject);
+	ENGINE_API void deleteColliderFromScene(std::shared_ptr<ColliderComponent> deletedCollider);
+	ENGINE_API void gameOver();
 
 private:
 	std::unique_ptr<EngineController> engineController;

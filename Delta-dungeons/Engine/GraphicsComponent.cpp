@@ -48,6 +48,8 @@ void GraphicsComponent::addTextureManager(std::shared_ptr<TextureManager> tm)
 
 void GraphicsComponent::handleInput(const KeyCodes &keyCode, const KeyboardEvent &keyboardEvent, Vector2D &mousePos) {}
 
+void GraphicsComponent::interact() {}
+
 /// <summary>
 /// Gets the textureManager pointer.
 /// </summary>

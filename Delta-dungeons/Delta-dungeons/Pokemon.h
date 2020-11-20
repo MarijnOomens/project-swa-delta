@@ -1,9 +1,10 @@
 #pragma once
 
 #include "InteractiveObject.h"
+#include "GraphicsComponent.h"
+#include "DamageColliderComponent.h"
 #include <string>
 #include <map>
-#include "GraphicsComponent.h"
 
 class Pokemon : public InteractiveObject
 {
@@ -17,6 +18,7 @@ protected:
 
 private:
 	std::shared_ptr<GraphicsComponent> gc;
+	std::shared_ptr<DamageColliderComponent> cc;
 	std::string type;
 	int id;
 	int catchRate;

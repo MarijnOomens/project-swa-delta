@@ -112,7 +112,22 @@ void EngineFacade::pauseGame()
 	engineController->pauseScreen();
 }
 
+void EngineFacade::passInteract(int x, int y)
+{
+	engineController->passInteract(x, y);
+}
+
 void EngineFacade::deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject)
 {
 	engineController->deleteObjectFromScene(deletedObject);
+}
+
+void EngineFacade::deleteColliderFromScene(std::shared_ptr<ColliderComponent> deletedCollider)
+{
+	engineController->deleteColliderFromScene(deletedCollider);
+}
+
+void EngineFacade::gameOver()
+{
+	engineController->gameOver();
 }
