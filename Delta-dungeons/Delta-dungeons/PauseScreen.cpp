@@ -5,7 +5,7 @@ PauseScreen::PauseScreen()
 	this->textures.try_emplace("pause", "Assets/Pause_filter.png");
 	this->textures.try_emplace("button_help", "Assets/button_help.png");
 	this->textures.try_emplace("button_save", "Assets/button_save.png");
-	this->fonts.try_emplace("comic", "Assets/comic.ttf");
+	this->fonts.try_emplace("joystix", "Assets/joystix.ttf");
 
 	gc = std::make_unique<GraphicsComponent>();
 	gc->setTexture("pause");
@@ -26,7 +26,7 @@ PauseScreen::PauseScreen()
 	this->components.emplace_back(std::move(exitButton));
 
 	Colour color = { 255, 255, 255, 255 };
-	std::unique_ptr<TextComponent> creditsText = std::make_unique<TextComponent>("Pause", "comic", color, 64);
+	std::unique_ptr<TextComponent> creditsText = std::make_unique<TextComponent>("Pause", "joystix", color, 64);
 	creditsText->transform.position = { 530, 200 };
 	this->components.emplace_back(std::move(creditsText));
 }

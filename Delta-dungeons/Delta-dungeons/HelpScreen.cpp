@@ -3,7 +3,7 @@
 HelpScreen::HelpScreen()
 {
 	this->textures.try_emplace("help", "Assets/help.png");
-	this->fonts.try_emplace("comic", "Assets/comic.ttf");
+	this->fonts.try_emplace("joystix", "Assets/joystix.ttf");
 
 	gc = std::make_unique<GraphicsComponent>();
 	gc->setTexture("help");
@@ -13,10 +13,11 @@ HelpScreen::HelpScreen()
 
 	Colour color = { 0, 0, 0, 255 };
 
-	std::unique_ptr<TextComponent> helpText = std::make_unique<TextComponent>("Help screen", "comic", color, 64);
+	std::unique_ptr<TextComponent> helpText = std::make_unique<TextComponent>("Help screen", "joystix", color, 64);
 	helpText->transform.position = { 450, 20 };
 	this->components.emplace_back(std::move(helpText));
 
+<<<<<<< Updated upstream
 	std::unique_ptr<TextComponent> helpMove = std::make_unique<TextComponent>("Use arrow keys or W, A, S and D to move your character.", "comic", color, 32);
 	helpMove->transform.position = { 100, 220 };
 	this->components.emplace_back(std::move(helpMove));
@@ -27,6 +28,18 @@ HelpScreen::HelpScreen()
 
 	std::unique_ptr<TextComponent> helpBack = std::make_unique<TextComponent>("Press BACKSPACE to go back to the previous screen.", "comic", color, 32);
 	helpBack->transform.position = { 100, 420 };
+=======
+	std::unique_ptr<TextComponent> helpMove = std::make_unique<TextComponent>("Use arrow keys or 'W', 'A', 'S' and 'D' to move your character.", "joystix", color, 32);
+	helpMove->transform.position = { 100, 170 };
+	this->components.emplace_back(std::move(helpMove));
+
+	std::unique_ptr<TextComponent> helpInteract = std::make_unique<TextComponent>("Use 'E' to interact.", "joystix", color, 32);
+	helpInteract->transform.position = { 100, 320 };
+	this->components.emplace_back(std::move(helpInteract));
+
+	std::unique_ptr<TextComponent> helpBack = std::make_unique<TextComponent>("Press BACKSPACE to go back to the main menu.", "joystix", color, 32);
+	helpBack->transform.position = { 100, 470 };
+>>>>>>> Stashed changes
 	this->components.emplace_back(std::move(helpBack));
 
 	std::unique_ptr<TextComponent> helpFps = std::make_unique<TextComponent>("Press TAB to toggle the FPS counter in the upper right corner in-game.", "comic", color, 32);

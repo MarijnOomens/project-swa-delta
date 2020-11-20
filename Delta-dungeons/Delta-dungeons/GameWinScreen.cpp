@@ -4,7 +4,7 @@ GameWinScreen::GameWinScreen()
 {
 	this->textures.try_emplace("gamewin", "Assets/gamewin.png");
 	this->textures.try_emplace("button_mainmenu", "Assets/screen-components/button-designs/pastels/button-exit-1.png");
-	this->fonts.try_emplace("comic", "Assets/comic.ttf");
+	this->fonts.try_emplace("joystix", "Assets/joystix.ttf");
 
 
 	gc = std::make_unique<GraphicsComponent>();
@@ -19,7 +19,7 @@ GameWinScreen::GameWinScreen()
 	this->components.emplace_back(mainMenuButton);
 
 	Colour color = { 0, 0, 0, 255 };
-	std::shared_ptr<TextComponent> gameWinText = std::make_shared<TextComponent>("GAME COMPLETED", "comic", color, 64);
+	std::shared_ptr<TextComponent> gameWinText = std::make_shared<TextComponent>("GAME COMPLETED", "joystix", color, 64);
 	gameWinText->transform.position = { 400, 300 };
 	this->components.emplace_back(gameWinText);
 }

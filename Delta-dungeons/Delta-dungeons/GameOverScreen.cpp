@@ -4,7 +4,7 @@ GameOverScreen::GameOverScreen()
 {
 	this->textures.try_emplace("gameover", "Assets/gameover.png");
 	this->textures.try_emplace("button_mainmenu", "Assets/screen-components/button-designs/pastels/button-exit-1.png");
-	this->fonts.try_emplace("comic", "Assets/comic.ttf");
+	this->fonts.try_emplace("joystix", "Assets/comic.ttf");
 
 
 	gc = std::make_unique<GraphicsComponent>();
@@ -19,7 +19,7 @@ GameOverScreen::GameOverScreen()
 	this->components.emplace_back(mainMenuButton);
 
 	Colour color = { 255, 255, 255, 255 };
-	std::shared_ptr<TextComponent> gameOverText = std::make_shared<TextComponent>("GAME OVER", "comic", color, 64);
+	std::shared_ptr<TextComponent> gameOverText = std::make_shared<TextComponent>("GAME OVER", "joystix", color, 64);
 	gameOverText->transform.position = { 450, 500 };
 	this->components.emplace_back(gameOverText);
 }

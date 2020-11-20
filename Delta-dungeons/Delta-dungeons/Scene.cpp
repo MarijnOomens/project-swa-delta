@@ -20,7 +20,7 @@ void Scene::addGraphics()
 	}
 
 	Colour color = { 0, 0, 0, 255 };
-	fpsText = std::make_shared<TextComponent>("", "comic", color, 32);
+	fpsText = std::make_shared<TextComponent>("", "joystix", color, 32);
 	fpsText->transform.position = { 1200, 10 };
 	components.emplace_back(fpsText);
 }
