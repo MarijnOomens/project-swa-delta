@@ -12,7 +12,6 @@ public:
 
 	Tile(int x, int y, int xImage, bool collider);
 	Tile(int x, int y, int xImage, int yImage, bool collider);
-	~Tile() {}
 
 	void addGraphicsComponent(std::string& imageName);
 	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;

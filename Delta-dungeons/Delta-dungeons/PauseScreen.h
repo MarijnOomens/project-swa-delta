@@ -9,7 +9,6 @@ class PauseScreen : public Screen
 {
 public:
 	PauseScreen();
-	~PauseScreen() {}
 
 	static void staticOpenHelpCallbackFunction(const void* p);
 	void openHelpCallbackFunction() const;

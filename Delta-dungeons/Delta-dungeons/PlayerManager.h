@@ -6,18 +6,19 @@
 typedef void(*cbCamera) (void*, int, int);
 typedef void(*cbInteract) (void*, int, int);
 typedef void(*cbGameOver) (void*);
+typedef void(*cbHUD) (void*, bool);
 
 class PlayerManager
 {
 public:
-	std::map<std::string, std::shared_ptr<Player>> sprites;
 	std::shared_ptr<Player> player;
 
 	PlayerManager() {}
 	~PlayerManager() {}
 
-	void createPlayer(cbCamera cb, cbInteract interactCB, cbGameOver gameOverCB, void* p);
+	void createPlayer(cbCamera cb, cbInteract interactCB, cbGameOver gameOverCB, cbHUD hudCB, void* p);
 
 	std::map<std::string, std::string> passTextures() const;
 	std::shared_ptr<Player> getPlayerObject();
+	std::vector<std::string> getItems();
 };

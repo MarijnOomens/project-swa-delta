@@ -14,18 +14,6 @@ EngineController::EngineController()
 }
 
 /// <summary>
-/// This method keeps executing while the gaming is running. It keeps updating all behaviour objects.
-/// </summary>
-/// <param name="bhObjects">Vector of all available behaviour objects.</param>
-void EngineController::update()
-{
-	for (const auto& bo : behaviourObjects)
-	{
-		bo->update();
-	}
-}
-
-/// <summary>
 /// This method calls an initialization function in RenderFacade with the given data, like resolution of the game window.
 /// </summary>
 /// <param name="title">Title of game window.</param>
@@ -55,19 +43,13 @@ void EngineController::staticInputCallbackFunction(void* p, const KeyCodes keyCo
 /// <param name="keyboardEvent">The key that is read, like 'W'.</param>
 void EngineController::inputCallbackFunction(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos)
 {
-	isSceneSwitched = false;
+	sceneManager.setSceneSwitched(false);
 	if (keyCode == KeyCodes::KEY_ESC)
 	{
 		quitGame();
 	}
 	else {
-		for (const auto& gameObject : behaviourObjects)
-		{
-			if (!isSceneSwitched) 
-			{
-				gameObject->handleInput(keyCode, keyboardEvent, mousePos);
-			}
-		}
+		sceneManager.handleSceneInput(keyCode, keyboardEvent, mousePos);
 	}
 }
 #pragma endregion Input handling
@@ -103,7 +85,7 @@ void EngineController::startGame()
 		{
 			renderFacade->beforeFrame();
 			collision->checkCollision();
-			update();
+			sceneManager.update();
 		}
 		checkGameOver();
 		renderFacade->afterFrame();
@@ -149,24 +131,18 @@ void EngineController::loadScene(const std::string& sceneName, const std::string
 	{
 		renderFacade->pauseGame();
 	}
-	isSceneSwitched = true;
-	behaviourObjects = sceneManager.loadScene(sceneName, fromScene, clearPrevious);
+	sceneManager.loadScene(sceneName, fromScene, clearPrevious);
 
 }
 
 void EngineController::loadPreviousScene()
 {
-	isSceneSwitched = true;
-	behaviourObjects = sceneManager.loadPreviousScene();
-	update();
+	sceneManager.loadPreviousScene();
 }
 
 void EngineController::addOverlayScene(const std::string& sceneName)
 {
-	isSceneSwitched = true;
-	const auto tempObjects = sceneManager.addOverlayScene(sceneName);
-	behaviourObjects.insert(behaviourObjects.end(), tempObjects.begin(), tempObjects.end());
-	update();
+	sceneManager.addOverlayScene(sceneName);
 }
 
 void EngineController::passPlayerPosition(int x, int y)
@@ -237,24 +213,30 @@ void EngineController::resetSpeedGame() const
 	renderFacade->resetSpeedGame();
 }
 
-void EngineController::passInteract(int x, int y) {
-	for (int i = behaviourObjects.size() - 1; i-- > 0; )
-	{
-		if (behaviourObjects.at(i)->transform.position.x == x && behaviourObjects.at(i)->transform.position.y == y)
+void EngineController::addObjectToScene(const std::shared_ptr<BehaviourObject>& addObject)
+{
+	if (sceneManager.currentObjects.size() > 0) {
+		if (dynamic_cast<GraphicsComponent*>(addObject.get()) != nullptr)
 		{
-			behaviourObjects.at(i)->interact();
+			auto ngc = dynamic_cast<GraphicsComponent*>(addObject.get());
+			ngc->addTextureManager(textureManager);
+			sceneManager.addObjectToScene(std::shared_ptr<BehaviourObject>(ngc));
+		}
+		else
+		{
+			sceneManager.addObjectToScene(addObject);
 		}
 	}
 }
 
-void EngineController::deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject)
+void EngineController::passInteract(int x, int y) 
 {
-	auto index = std::find(behaviourObjects.begin(), behaviourObjects.end(), deletedObject);
-	if (index != behaviourObjects.end())
-	{
-		behaviourObjects.erase(index);
-		isSceneSwitched = true;
-	}
+	sceneManager.passInteract(x, y);
+}
+
+void EngineController::deleteObjectFromScene(const std::shared_ptr<BehaviourObject>& deletedObject)
+{
+	sceneManager.deleteObjectFromScene(deletedObject);
 }
 
 void EngineController::deleteColliderFromScene(std::shared_ptr<ColliderComponent> deletedCollider)

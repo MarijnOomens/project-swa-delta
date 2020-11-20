@@ -15,7 +15,7 @@ GameManager::GameManager()
 	registerTextures(uiManager.passTextures());
 	registerFonts(uiManager.passFonts());
 
-	playerManager.createPlayer(staticCameraCallbackFunction, staticInteractCallbackFunction,staticGameOverbackFunction, this);
+	playerManager.createPlayer(staticCameraCallbackFunction, staticInteractCallbackFunction,staticGameOverbackFunction,staticUpdateHUDHealthCallbackFunction, this);
 	registerTextures(playerManager.passTextures());
 
 	npcManager.createNPC();
@@ -23,6 +23,13 @@ GameManager::GameManager()
 
 	pokemonManger.createPokemon();
 	registerTextures(pokemonManger.passTextures());
+	
+	hudManager.createHud();
+	for (std::string& texture: playerManager.getItems())
+	{
+		hudManager.addItem(texture);
+	}
+	registerTextures(hudManager.passTextures());
 	
 	scene = std::make_shared<Scene>();
 	scene->addGraphics();
@@ -86,15 +93,17 @@ void GameManager::registerBehaviourObjects()
 		level1.emplace_back(o.second.get());
 	}
 	
-	for (auto& o : playerManager.sprites)
+	for (auto& c : playerManager.player->getComponentsRecursive())
 	{
-		for (auto& c : o.second->getComponentsRecursive())
-		{
-			level1.emplace_back(c);
-		}
-		level1.emplace_back(o.second);
+		level1.emplace_back(c);
 	}
+	level1.emplace_back(playerManager.player);
 
+	for (auto& c : hudManager.hud->getComponentsRecursive())
+	{
+		level1.emplace_back(c);
+	}
+	level1.emplace_back(hudManager.hud);
 	engineFacade->registerScene("Level1", level1);
 	engineFacade->loadScene("MainMenu", "", true);
 }
@@ -133,6 +142,16 @@ void GameManager::staticInteractCallbackFunction(void* p, int x, int y)
 void GameManager::interactCallbackFunction(int x, int y) 
 {
 	engineFacade->passInteract(x, y);
+}
+
+void GameManager::staticUpdateHUDHealthCallbackFunction(void* p, bool hit)
+{
+	((GameManager*)p)->updateHUDHealthCallbackFunction(hit);
+}
+
+void GameManager::updateHUDHealthCallbackFunction(bool hit)
+{
+	hudManager.updateHUDHealth(hit);
 }
 
 void GameManager::staticGameOverbackFunction(void* p)

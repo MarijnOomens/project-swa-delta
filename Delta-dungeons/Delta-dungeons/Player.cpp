@@ -10,11 +10,13 @@
 /// Defines the movementspeed and the runactivated bool
 /// Creates the graphicscomponent for the player sprite and saves the texturename and png location, width, height
 /// </summary>
-Player::Player(const cbCamera f, cbInteract interactCB, cbGameOver gameOverF, void* p) : func(f), interactFunc(interactCB), gameOverFunc(gameOverF), pointer(p)
+Player::Player(const cbCamera f, cbInteract interactCB, cbGameOver gameOverF, cbHUD hudCB, void* p) : func(f), interactFunc(interactCB), gameOverFunc(gameOverF), hudFunc(hudCB), pointer(p)
 {
-	health = 6;
-	std::unique_ptr<RunningShoes> running = std::make_unique<RunningShoes>(staticRunningShoesCallbackFunction, this);
-	std::unique_ptr<Boomerang> boomerang = std::make_unique<Boomerang>(staticBoomerangCallbackFunction, this);
+	std::string textureBoomerang ="boomerang" ;
+	std::string textureRunning = "runningshoes";
+	std::unique_ptr<Boomerang> boomerang = std::make_unique<Boomerang>(textureBoomerang,staticBoomerangCallbackFunction, this);
+	std::unique_ptr<RunningShoes> running = std::make_unique<RunningShoes>(staticRunningShoesCallbackFunction, this, textureRunning);
+	health = 4;
 
 	addEquipment(std::move(running));
 	addEquipment(std::move(boomerang));
@@ -28,6 +30,8 @@ Player::Player(const cbCamera f, cbInteract interactCB, cbGameOver gameOverF, vo
 
 	this->textures.try_emplace("player_m", "Assets/player2_m_anims.png");
 	this->textures.try_emplace("player_f", "Assets/player_f_anims.png");
+	this->textures.try_emplace(textureBoomerang, "Assets/HUD/Boomerang.png");
+	this->textures.try_emplace(textureRunning, "Assets/HUD/Runningshoes.png");
 	this->texture = "player_m";
 
 	gc = std::make_shared<GraphicsComponent>();
@@ -296,6 +300,15 @@ void Player::damagePlayer(int damage) {}
 
 void::Player::updateCaughtPokemon(int pokemonId) {}
 
+std::vector<std::string> Player::getItems()
+{
+	std::vector<std::string> items;
+	for (auto& item : equipment)
+	{
+		items.push_back(item->texture);
+	}
+	return items;
+}
 
 void Player::staticBoomerangCallbackFunction(void* p, const bool brActivated)
 {
@@ -356,6 +369,7 @@ void Player::collisionCallbackFunction(int right, int left, int up, int down, st
 }
 
 void Player::registerHit() {
+	hudFunc(pointer,true);
 	if (health > 0) 
 	{
 		health--; 
@@ -364,7 +378,7 @@ void Player::registerHit() {
 	{
 		gc->playAnimation(9, 4, animationSpeed, false);
 		gameOverFunc(pointer);
-		health = 6;
+		health = 4;
 	}
 	
 }

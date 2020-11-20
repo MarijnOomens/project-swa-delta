@@ -22,7 +22,6 @@ public:
 	EngineController();
 	~EngineController() {}
 
-	void update();
 	void initRenderer(const std::string& title, int width, int height, bool fullscreen);
 	static void staticInputCallbackFunction(void* p, const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos);
 	void inputCallbackFunction(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos);
@@ -42,14 +41,14 @@ public:
 	void slowDownGame() const;
 	void speedUpGame() const;
 	void resetSpeedGame() const;
+	void addObjectToScene(const std::shared_ptr<BehaviourObject>& addObject);
 	void passInteract(int x, int y);
-	void deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject);
+	void deleteObjectFromScene(const std::shared_ptr<BehaviourObject>& deletedObject);
 	void deleteColliderFromScene(std::shared_ptr<ColliderComponent> deletedCollider);
 	void gameOver();
 	void checkGameOver();
 
 private:
-	std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects;
 	std::vector<int> hudLayers;
 	std::shared_ptr<RenderFacade> renderFacade;
 	std::shared_ptr<TextureManager> textureManager;
@@ -57,7 +56,6 @@ private:
 	std::shared_ptr<Input> input;
 	SceneManager sceneManager;
 	std::shared_ptr<Collision> collision;
-	bool isSceneSwitched = false;
 	bool isGameOver = false;
 	int timer = 30;
 };

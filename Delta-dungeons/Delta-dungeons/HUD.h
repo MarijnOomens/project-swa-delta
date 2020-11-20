@@ -1,14 +1,33 @@
 #pragma once
+#include "GameObject.h"
+#include <memory>
+#include "GraphicsComponent.h"
+#include <map>
+#include "SceneModifier.h"
 
-class HUD
+class HUD: public GameObject
 {
-private:
-	void updateHealth(int param);
+public:
+	std::map<std::string, std::string> textures;
+	std::vector<std::shared_ptr<GraphicsComponent>> hearts;
+	std::vector<std::shared_ptr<GraphicsComponent>> items;
+	HUD(int h);
+
+	void updateHealth(bool hit);
 	void updateCollectedCrystals(int param);
 	void updateHighScore(int param);
+	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
+	void update() override;
+	void interact()override;
+	void addHealth();
+	void deleteHealth();
+	void addItem(const std::string& texturepath);
+	void updateItems(int i);
 
 private:
-	int health;
+	int health = 0;
+	int maxHealth = 5;
+	int amountItems = 0;
 	int collectedCrystals;
 	int highScore;
 };
