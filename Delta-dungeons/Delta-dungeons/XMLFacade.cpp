@@ -15,6 +15,10 @@ std::vector<std::shared_ptr<ParserData>> XMLFacade::loadScene(const std::string&
 	return parser.parseXML(path);
 }
 
+std::vector<std::shared_ptr<PokemonParserData>> XMLFacade::loadPokemon(const std::string& path)
+{
+	return parser.loadPokemon(path);
+}
 /// <summary>
 ///  Gets the ParserData only for equipment.
 /// </summary>

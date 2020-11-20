@@ -60,6 +60,24 @@ std::vector<std::shared_ptr<ParserData>> XMLParser::parseXML(const std::string& 
 	return parserDataList;
 }
 
+std::vector<std::shared_ptr<PokemonParserData>> XMLParser::loadPokemon(const std::string& path)
+{
+	std::vector<std::shared_ptr<PokemonParserData>> parserDataList;
+	
+	rapidxml::file<> xmlFile(path.c_str());
+	rapidxml::xml_document<> doc;
+
+	doc.parse<0>(xmlFile.data());
+	xml_node<>* node = doc.first_node("Pokemons");
+
+	for (xml_node<>* pokemon = node->first_node(); pokemon; pokemon = pokemon->next_sibling())
+	{
+		std::shared_ptr<PokemonParserData> p = std::make_shared<PokemonParserData>(pokemon->first_attribute("name")->value(), pokemon->first_attribute("encounterRate")->value());
+		parserDataList.emplace_back(p);
+	}
+
+	return parserDataList;
+}
 /// <summary>
 ///  Gets the ParserData only for equipment.
 /// </summary>

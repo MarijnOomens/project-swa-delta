@@ -171,6 +171,12 @@
     <ClCompile Include="GameWinScreen.cpp">
       <Filter>Source Files\Game\GameObjects\Screens</Filter>
     </ClCompile>
+    <ClCompile Include="PokemonManager.cpp">
+      <Filter>Source Files\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="PokemonParserData.cpp">
+      <Filter>Source Files\XMLParser</Filter>
+    </ClCompile>
     <ClCompile Include="HUDManager.cpp">
       <Filter>Source Files\Game</Filter>
     </ClCompile>
@@ -298,6 +304,12 @@
     </ClInclude>
     <ClInclude Include="GameWinScreen.h">
       <Filter>Header Files\Game\GameObjects\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="PokemonManager.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="PokemonParserData.h">
+      <Filter>Header Files\XMLParser</Filter>
     </ClInclude>
     <ClInclude Include="HUDManager.h">
       <Filter>Header Files\Game</Filter>

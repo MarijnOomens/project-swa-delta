@@ -30,6 +30,10 @@ std::vector<std::shared_ptr<Tile>> XMLSceneParser::loadScene(const std::string& 
 	return tileMap;
 }
 
+std::vector<std::shared_ptr<PokemonParserData>> XMLSceneParser::loadPokemon(const std::string& path)
+{
+	return facade.loadPokemon(path);
+}
 /// <summary>
 ///  Gets the ParserData only for equipment.
 /// </summary>

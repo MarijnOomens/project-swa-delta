@@ -21,6 +21,9 @@ GameManager::GameManager()
 	npcManager.createNPC();
 	registerTextures(npcManager.passTextures());
 
+	pokemonManger.createPokemon();
+	registerTextures(pokemonManger.passTextures());
+	
 	hudManager.createHud();
 	for (std::string& texture: playerManager.getItems())
 	{
@@ -75,6 +78,15 @@ void GameManager::registerBehaviourObjects()
 	for (auto& o : eqManager.equipments)
 	{
 		for (auto& n : o.second->getComponentsRecursive())
+		{
+			level1.emplace_back(n);
+		}
+		level1.emplace_back(o.second.get());
+	}
+
+	for (auto& o : pokemonManger.pokemon)
+	{
+		for (auto& n : o.second.get()->getComponentsRecursive())
 		{
 			level1.emplace_back(n);
 		}
