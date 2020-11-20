@@ -1,10 +1,13 @@
 #pragma once
+
 #include <map>
 #include <string>
 #include <memory>
+#include <ctime>
 #include "InteractiveObject.h"
 #include "GameObjectBuilder.h"
 #include "XMLSceneParser.h"
+
 class PokemonManager
 {
 public:
