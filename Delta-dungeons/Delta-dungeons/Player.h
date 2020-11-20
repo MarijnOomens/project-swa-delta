@@ -4,12 +4,13 @@
 #include "Boomerang.h"
 #include "GameObject.h"
 #include "GraphicsComponent.h"
-#include "ColliderComponent.h"
+#include "RegularColliderComponent.h"
 #include "RunningShoes.h"
 #include "DebugUtilities.h"
 
 typedef void(*cbInteract) (void*, int, int);
 typedef void(*cbCamera) (void*, int, int);
+typedef void(*cbGameOver) (void*);
 
 class Player : public GameObject
 {
@@ -19,11 +20,12 @@ public:
 
 	cbCamera func;
 	cbInteract interactFunc;
+	cbGameOver gameOverFunc;
 
 	KeyCodes currentDirection;
 	void* pointer;
 
-	Player(cbCamera f, cbInteract interactCB, void* p);
+	Player(cbCamera f, cbInteract interactCB, cbGameOver gameOverFunc, void* p);
 	~Player() {}
 
 	void handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
@@ -40,8 +42,8 @@ public:
 	void damagePlayer(int damage);
 	void updateCaughtPokemon(int pokemonId);
 
-	static void staticCollisionCallbackFunction(void* p, int right, int left, int up, int down, std::string rightTag, std::string leftTag, std::string upTag, std::string downTag);
-	void collisionCallbackFunction(int right, int left, int up, int down, std::string rightTag, std::string leftTag, std::string upTag, std::string downTag);
+	static void staticCollisionCallbackFunction(void* p, int right, int left, int up, int down, std::string rightTag, std::string leftTag, std::string upTag, std::string downTag, bool hit);
+	void collisionCallbackFunction(int right, int left, int up, int down, std::string rightTag, std::string leftTag, std::string upTag, std::string downTag, bool hit);
 
 	static void staticBoomerangCallbackFunction(void* p, const bool boomerangActivated);
 	void boomerangCallbackFunction(const bool boomerangActivated);
@@ -51,6 +53,7 @@ public:
 
 	void update() override;
 	void handleInteraction();
+	void registerHit();
 private:
 	const int animationSpeed = 120;
 	int health;
@@ -64,7 +67,7 @@ private:
 	std::vector<int> pokemonCaught;
 	std::vector<std::unique_ptr<IEquipment>> equipment;
 	std::shared_ptr<GraphicsComponent> gc;
-	std::shared_ptr<ColliderComponent> cc;
+	std::shared_ptr<RegularColliderComponent> cc;
 	AnimCategory animCategory;
 	int rightX;
 	int leftX;

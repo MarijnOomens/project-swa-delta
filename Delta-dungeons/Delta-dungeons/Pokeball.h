@@ -2,7 +2,7 @@
 
 #include "IEquipment.h"
 #include "GraphicsComponent.h"
-#include "ColliderComponent.h"
+#include "RegularColliderComponent.h"
 
 class Pokeball : public IEquipment
 {
@@ -15,5 +15,5 @@ public:
 	void use() override;
 private:
 	std::shared_ptr<GraphicsComponent> gc;
-	std::shared_ptr<ColliderComponent> cc;
+	std::shared_ptr<RegularColliderComponent> cc;
 };

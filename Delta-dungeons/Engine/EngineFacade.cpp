@@ -126,3 +126,8 @@ void EngineFacade::deleteColliderFromScene(std::shared_ptr<ColliderComponent> de
 {
 	engineController->deleteColliderFromScene(deletedCollider);
 }
+
+void EngineFacade::gameOver()
+{
+	engineController->gameOver();
+}

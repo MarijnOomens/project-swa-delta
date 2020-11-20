@@ -11,7 +11,7 @@ Pokemon::Pokemon(int x, int y, std::string& texture)
 	gc->playAnimation(0, 3, animationSpeed, false);
 	gc->isScreen = false;
 
-	cc = std::make_shared<ColliderComponent>();
+	cc = std::make_shared<DamageColliderComponent>();
 	cc->tag = "pokemon";
 	cc->transform.position = this->transform.position;
 

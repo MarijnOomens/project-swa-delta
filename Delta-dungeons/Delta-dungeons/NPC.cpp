@@ -11,7 +11,7 @@ NPC::NPC(int x, int y, std::string &texture)
 	gc->playAnimation(0, 3, animationSpeed, false);
 	gc->isScreen = false;
 
-	cc = std::make_shared<ColliderComponent>();
+	cc = std::make_shared<RegularColliderComponent>();
 	cc->tag = "npc";
 	cc->transform.position = this->transform.position;
 
@@ -19,6 +19,4 @@ NPC::NPC(int x, int y, std::string &texture)
 	this->components.emplace_back(cc);
 }
 
-void NPC::interact()
-{
-}
+void NPC::interact(){}
