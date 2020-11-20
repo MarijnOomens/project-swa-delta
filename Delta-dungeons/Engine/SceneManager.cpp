@@ -29,11 +29,6 @@ void SceneManager::loadScene(const std::string& sceneName, const std::string& fr
 
 void SceneManager::loadPreviousScene()
 {
-	//for (auto& c : scenes[activeScenes.back()])
-	//{
-	//	auto i = std::find(currentObjects.begin(), currentObjects.end(), c);
-	//	currentObjects.erase(i);
-	//}
 	if (activeScenes.size() > 1)
 	{
 		activeScenes.pop_back();
@@ -46,7 +41,7 @@ void SceneManager::loadPreviousScene()
 		previousScenes.pop_back();
 	}
 
-	//currentObjects = scenes[currentScene];
+	currentObjects.clear();
 
 	for (auto& s : activeScenes) {
 		for (auto& o : scenes[s]) {
