@@ -3,10 +3,8 @@
 NPCManager::NPCManager()
 {
 	builder = std::make_shared<GameObjectBuilder>();
-	trainerList = std::make_unique<std::vector<std::string>>();
-	pokemonList = std::make_unique<std::vector<std::string>>();
+	trainerList = std::vector<std::string>();
 	addTrainers();
-	addPokemon();
 }
 
 void NPCManager::createNPC()
@@ -19,10 +17,6 @@ void NPCManager::createNPC()
 		if (parsedNPC->tileId == "1") {
 			std::string trainer = getRandomNPC();
 			npcs.try_emplace(trainer + parsedNPC->x + parsedNPC->y, builder->getNPC(std::stoi(parsedNPC->x), std::stoi(parsedNPC->y), trainer));
-		}
-		else if (parsedNPC->tileId == "7") {
-			std::string pokemon = getRandomPokemon();
-			npcs.try_emplace(pokemon + parsedNPC->x + parsedNPC->y, builder->getPokemon(std::stoi(parsedNPC->x), std::stoi(parsedNPC->y), pokemon));
 		}
 	}
 }
@@ -40,35 +34,16 @@ std::map<std::string, std::string> NPCManager::passTextures() const
 
 void NPCManager::addTrainers()
 {
-	trainerList->push_back("bugtrainer");
-	trainerList->push_back("youngster");
-	trainerList->push_back("bugtrainer");
-	trainerList->push_back("youngster");
-	trainerList->push_back("bugtrainer");
-	trainerList->push_back("youngster");
-}
-
-void NPCManager::addPokemon()
-{
-	pokemonList->push_back("eevee");
-	pokemonList->push_back("flareon");
-	pokemonList->push_back("vaporeon");
-	pokemonList->push_back("jolteon");
-	pokemonList->push_back("espeon");
-	pokemonList->push_back("umbreon");
-	pokemonList->push_back("leafeon");
-	pokemonList->push_back("glaceon");
-	pokemonList->push_back("sylveon");
+	trainerList.push_back("bugtrainer");
+	trainerList.push_back("youngster");
+	trainerList.push_back("bugtrainer");
+	trainerList.push_back("youngster");
+	trainerList.push_back("bugtrainer");
+	trainerList.push_back("youngster");
 }
 
 std::string NPCManager::getRandomNPC()
 {
-	int randomTrainer = rand() % trainerList->size();
-	return trainerList->at(randomTrainer);
-}
-
-std::string NPCManager::getRandomPokemon()
-{
-	int randomPokemon = rand() % pokemonList->size();
-	return pokemonList->at(randomPokemon);
+	int randomTrainer = rand() % trainerList.size();
+	return trainerList.at(randomTrainer);
 }

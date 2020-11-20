@@ -7,6 +7,7 @@
 #include "XMLSceneParser.h"
 #include "SceneLoader.h"
 #include "NPCManager.h"
+#include "PokemonManager.h"
 #include "Scene.h"
 #include "DebugUtilities.h"
 #include "SceneModifier.h"
@@ -41,5 +42,6 @@ private:
 	PlayerManager playerManager;
 	EquipmentManager eqManager;
 	NPCManager npcManager;
+	PokemonManager pokemonManger;
 	HUDManager hudManager;
 };
