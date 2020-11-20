@@ -63,7 +63,8 @@ void EngineController::inputCallbackFunction(const KeyCodes keyCode, const Keybo
 	else {
 		for (const auto& gameObject : behaviourObjects)
 		{
-			if (!isSceneSwitched) {
+			if (!isSceneSwitched) 
+			{
 				gameObject->handleInput(keyCode, keyboardEvent, mousePos);
 			}
 		}
@@ -178,7 +179,8 @@ void EngineController::passPlayerPosition(int x, int y)
 /// </summary>
 /// <param name="textures">Map of multiple textures.</param>
 void EngineController::registerTextures(const std::map<std::string, std::string> textures) {
-	for (const auto& t : textures) {
+	for (const auto& t : textures) 
+	{
 		assetManager->addTexture(t.first, t.second);
 	}
 }
@@ -188,14 +190,16 @@ void EngineController::registerTextures(const std::map<std::string, std::string>
 /// </summary>
 /// <param name="fonts">Map of multiple fonts.</param>
 void EngineController::registerFonts(std::map<std::string, std::string> fonts) {
-	for (auto& t : fonts) {
+	for (auto& t : fonts) 
+	{
 		assetManager->addFont(t.first, t.second);
 	}
 }
 
 void EngineController::pauseScreen()
 {
-	if (sceneManager.getActiveScenesSize() < 3) {
+	if (sceneManager.getActiveScenesSize() < 3) 
+	{
 		renderFacade->pauseGame();
 		if (renderFacade->renderer->isPaused)
 		{

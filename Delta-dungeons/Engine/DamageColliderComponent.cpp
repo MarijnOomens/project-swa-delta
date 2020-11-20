@@ -1,6 +1,7 @@
 #include "DamageColliderComponent.h"
 
-DamageColliderComponent::DamageColliderComponent() {
+DamageColliderComponent::DamageColliderComponent() 
+{
 	collisionFunc = nullptr;
 	pointer = nullptr;
 }

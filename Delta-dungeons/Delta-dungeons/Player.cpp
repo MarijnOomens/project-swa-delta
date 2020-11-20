@@ -61,28 +61,32 @@ void Player::handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboard
 		{
 			if (KeyCodes::KEY_UP == keyCodes || keyCodes == KeyCodes::KEY_W)
 			{
-				if (upY == transform.position.y - 128) { 
+				if (upY == transform.position.y - 128) 
+				{ 
 					tileCollision = true; 
 					if (upTag == "pokemon") { registerHit(); }
 				}
 			}
 			else if (KeyCodes::KEY_LEFT == keyCodes || keyCodes == KeyCodes::KEY_A)
 			{
-				if (leftX == transform.position.x - 128) {
+				if (leftX == transform.position.x - 128) 
+				{
 					tileCollision = true;
 					if (leftTag == "pokemon") { registerHit(); }
 				}
 			}
 			else if (KeyCodes::KEY_RIGHT == keyCodes || keyCodes == KeyCodes::KEY_D)
 			{
-				if (rightX == transform.position.x + 128) {
+				if (rightX == transform.position.x + 128) 
+				{
 					tileCollision = true;
 					if (rightTag == "pokemon") { registerHit(); }
 				}
 			}
 			else if (KeyCodes::KEY_DOWN == keyCodes || keyCodes == KeyCodes::KEY_S)
 			{
-				if (downY == transform.position.y + 128) {
+				if (downY == transform.position.y + 128) 
+				{
 					tileCollision = true;
 					if (downTag == "pokemon") { registerHit(); }
 				}

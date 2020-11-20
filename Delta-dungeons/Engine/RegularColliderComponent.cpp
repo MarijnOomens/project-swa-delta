@@ -1,6 +1,7 @@
 #include "RegularColliderComponent.h"
 
-RegularColliderComponent::RegularColliderComponent() {
+RegularColliderComponent::RegularColliderComponent() 
+{
 	collisionFunc = nullptr;
 	pointer = nullptr;
 }
