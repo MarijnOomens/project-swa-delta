@@ -12,7 +12,7 @@ NPCManager::NPCManager()
 void NPCManager::createNPC()
 {
 	std::unique_ptr<XMLSceneParser> xmlSceneParser = std::make_unique<XMLSceneParser>();
-	std::vector<std::shared_ptr<ParserData>> npcData = xmlSceneParser->getNPCDataList("Assets/maps/level1.xml");
+	std::vector<std::shared_ptr<ParserData>> npcData = xmlSceneParser->getNPCDataList("Assets/Maps/Level1/level1.xml");
 	srand(time(0));
 	for (auto parsedNPC : npcData)
 	{
