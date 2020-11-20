@@ -3,12 +3,13 @@
 GameOverScreen::GameOverScreen()
 {
 	this->textures.try_emplace("gameover", "Assets/gameover.png");
-	this->textures.try_emplace("button_mainmenu", "Assets/button_exit.png");
+	this->textures.try_emplace("button_mainmenu", "Assets/screen-components/button-designs/pastels/button-exit-1.png");
 	this->fonts.try_emplace("comic", "Assets/comic.ttf");
 
 
 	gc = std::make_unique<GraphicsComponent>();
 	gc->setTexture("gameover");
+	gc->isScreen = true;
 	gc->imageDimensions = { 1280, 960 };
 	this->components.emplace_back(std::move(gc));
 
@@ -32,5 +33,5 @@ void GameOverScreen::staticExitCallbackFunction(const void* p)
 
 void GameOverScreen::exitCallbackFunction() const
 {
-	SceneLoader::getInstance().quitGame();
+	SceneLoader::getInstance().loadPreviousScene();
 }

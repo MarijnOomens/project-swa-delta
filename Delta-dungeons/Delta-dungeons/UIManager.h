@@ -8,6 +8,7 @@
 #include "Creditscreen.h"
 #include "Helpscreen.h"
 #include "GameOverScreen.h"
+#include "GameWinScreen.h"
 #include "PauseScreen.h"
 
 class UIManager 

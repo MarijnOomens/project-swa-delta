@@ -13,6 +13,11 @@ void UIManager::createBaseScreens()
 	screens.try_emplace("CreditsScreen", std::move(credits));
 	std::unique_ptr<HelpScreen> help = std::make_unique<HelpScreen>();
 	screens.try_emplace("HelpScreen", std::move(help));
+	std::unique_ptr<GameOverScreen> gameOver = std::make_unique<GameOverScreen>();
+	screens.try_emplace("GameOver", std::move(gameOver));
+	std::unique_ptr<GameWinScreen> gameWin = std::make_unique<GameWinScreen>();
+	screens.try_emplace("GameWin", std::move(gameWin));
+
 }
 
 void UIManager::playDialogue(std::vector<std::string>) {}
