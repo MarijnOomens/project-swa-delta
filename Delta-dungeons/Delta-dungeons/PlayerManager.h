@@ -16,7 +16,7 @@ public:
 	PlayerManager() {}
 	~PlayerManager() {}
 
-	void createPlayer(cbCamera cb, cbInteract interactCB, cbGameOver gameOverCB, cbHUD hufdCB, void* p);
+	void createPlayer(cbCamera cb, cbInteract interactCB, cbGameOver gameOverCB, cbHUD hudCB, void* p);
 
 	std::map<std::string, std::string> passTextures() const;
 	std::shared_ptr<Player> getPlayerObject();
