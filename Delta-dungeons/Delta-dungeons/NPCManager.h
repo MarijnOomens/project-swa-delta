@@ -12,8 +12,7 @@
 class NPCManager
 {
 public:
-	std::unique_ptr<std::vector<std::string>> trainerList;
-	std::unique_ptr<std::vector<std::string>> pokemonList;
+	std::vector<std::string> trainerList;
 	std::map<std::string, std::shared_ptr<InteractiveObject>> npcs;
 
 	NPCManager();
@@ -23,9 +22,7 @@ public:
 	std::map<std::string, std::string> passTextures() const;
 
 	void addTrainers();
-	void addPokemon();
 	std::string getRandomNPC();
-	std::string getRandomPokemon();
 private:
 	std::shared_ptr<GameObjectBuilder> builder;
 };

@@ -9,6 +9,7 @@ class PokemonManager
 {
 public:
 	std::map<std::string, std::shared_ptr<InteractiveObject>> pokemon;
+	std::vector<std::shared_ptr<PokemonParserData>> parsedPokemon;
 
 	PokemonManager();
 	~PokemonManager() {}
@@ -18,4 +19,5 @@ public:
 
 private:
 	std::shared_ptr<GameObjectBuilder> builder;
+	int getRandomPokemon();
 };

@@ -8,23 +8,18 @@ PokemonManager::PokemonManager()
 void PokemonManager::createPokemon()
 {
 	std::unique_ptr<XMLSceneParser> parser = std::make_unique<XMLSceneParser>();
-	std::vector<std::shared_ptr<PokemonParserData>> parsedPokemon = parser->loadPokemon("Assets/maps/level1pokemon.xml");
-	int x = 768;
-	int y = 640;
-	
-	srand(time(0));
-	while (pokemon.size() < 8)
-	{
-		int randomPokemon = rand() % (parsedPokemon.size() -1);
-		std::shared_ptr<PokemonParserData> p = parsedPokemon.at(randomPokemon);
-		int random = rand() % 100;
-		if (random < std::stoi(p->encounterRate))
-		{
-			pokemon.emplace(p->name + std::to_string(pokemon.size()), builder->getPokemon(x, y, p->name));
-			x += 128;
-		}
+	std::vector<std::shared_ptr<ParserData>> pokemonTile = parser->getNPCDataList("Assets/Maps/Level1/level.xml");
+	parsedPokemon = parser->loadPokemon("Assets/Maps/Level1/pokemon.xml");
 
+	for (auto parsedTile : pokemonTile)
+	{
+		if (parsedTile->tileId == "7") {
+			
+			std::shared_ptr<PokemonParserData> p = parsedPokemon[getRandomPokemon()];
+			pokemon.emplace(p->name + std::to_string(pokemon.size()), builder->getPokemon(std::stoi(parsedTile->x), std::stoi(parsedTile->y), p->name));
+		}
 	}
+
 }
 
 std::map<std::string, std::string> PokemonManager::passTextures() const
@@ -36,4 +31,19 @@ std::map<std::string, std::string> PokemonManager::passTextures() const
 		}
 	}
 	return totalTextures;
+}
+
+int PokemonManager::getRandomPokemon()
+{
+	bool hasFound = false;
+	srand(time(0));
+	while (!hasFound) 
+	{
+		int randomPokemon = rand() % (parsedPokemon.size() - 1);
+		int random = rand() % 100;
+		if (random < std::stoi(parsedPokemon[randomPokemon]->encounterRate))
+		{
+			return randomPokemon;
+		}
+	}
 }

@@ -63,6 +63,11 @@ std::vector<std::shared_ptr<ParserData>> XMLParser::parseXML(const std::string& 
 std::vector<std::shared_ptr<PokemonParserData>> XMLParser::loadPokemon(const std::string& path)
 {
 	std::vector<std::shared_ptr<PokemonParserData>> parserDataList;
+	
+	rapidxml::file<> xmlFile(path.c_str());
+	rapidxml::xml_document<> doc;
+
+	doc.parse<0>(xmlFile.data());
 	xml_node<>* node = doc.first_node("Pokemons");
 
 	for (xml_node<>* pokemon = node->first_node(); pokemon; pokemon = pokemon->next_sibling())
