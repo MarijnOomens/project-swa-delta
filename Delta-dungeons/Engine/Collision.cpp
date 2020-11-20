@@ -79,17 +79,8 @@ void Collision::checkCollision()
 		}
 		col1->actCollision(rightX, leftX, upY, downY, rightTag, leftTag, upTag, downTag);
 		//reset after actCollision
-		checkedRight = false;
-		checkedLeft = false;
-		checkedUp = false;
-		checkedDown = false;
-		rightX = -1;
-		leftX = -1;
-		upY = -1;
-		downY = -1;
-		rightTag = "";
-		leftTag = "";
-		upTag = "";
-		downTag = "";
+		checkedRight = checkedLeft = checkedUp = checkedDown = false;
+		rightX = leftX = upY = downY = -1;
+		rightTag = leftTag = upTag = downTag = "";
 	}
 }
