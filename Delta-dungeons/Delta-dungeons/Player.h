@@ -53,7 +53,7 @@ public:
 
 	void update() override;
 	void handleInteraction();
-	void RegisterHit();
+	void registerHit();
 private:
 	const int animationSpeed = 120;
 	int health;
