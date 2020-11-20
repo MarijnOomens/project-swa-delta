@@ -63,32 +63,31 @@ void Player::handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboard
 			{
 				if (upY == transform.position.y - 128) { 
 					tileCollision = true; 
-					if (upTag == "pokemon") { RegisterHit(); }
+					if (upTag == "pokemon") { registerHit(); }
 				}
 			}
 			else if (KeyCodes::KEY_LEFT == keyCodes || keyCodes == KeyCodes::KEY_A)
 			{
 				if (leftX == transform.position.x - 128) {
 					tileCollision = true;
-					if (leftTag == "pokemon") { RegisterHit(); }
+					if (leftTag == "pokemon") { registerHit(); }
 				}
 			}
 			else if (KeyCodes::KEY_RIGHT == keyCodes || keyCodes == KeyCodes::KEY_D)
 			{
 				if (rightX == transform.position.x + 128) {
 					tileCollision = true;
-					if (rightTag == "pokemon") { RegisterHit(); }
+					if (rightTag == "pokemon") { registerHit(); }
 				}
 			}
 			else if (KeyCodes::KEY_DOWN == keyCodes || keyCodes == KeyCodes::KEY_S)
 			{
 				if (downY == transform.position.y + 128) {
 					tileCollision = true;
-					if (downTag == "pokemon") { RegisterHit(); }
+					if (downTag == "pokemon") { registerHit(); }
 				}
 			}
 		}
-		std::cout << health << std::endl;
 	}
 
 	if (keyboardEvent == KeyboardEvent::KEY_PRESSED && keyCodes == KeyCodes::KEY_UP || keyCodes == KeyCodes::KEY_LEFT || keyCodes == KeyCodes::KEY_RIGHT || keyCodes == KeyCodes::KEY_DOWN || keyCodes == KeyCodes::KEY_W || keyCodes == KeyCodes::KEY_S || keyCodes == KeyCodes::KEY_A || keyCodes == KeyCodes::KEY_D)
@@ -352,7 +351,7 @@ void Player::collisionCallbackFunction(int right, int left, int up, int down, st
 	downTag = dTag;
 }
 
-void Player::RegisterHit() {
+void Player::registerHit() {
 	if (health > 0) 
 	{
 		health--; 
