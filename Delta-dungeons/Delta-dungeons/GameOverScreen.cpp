@@ -7,14 +7,14 @@ GameOverScreen::GameOverScreen()
 	this->fonts.try_emplace("comic", "Assets/comic.ttf");
 
 
-	gc = std::make_shared<GraphicsComponent>();
+	gc = std::make_unique<GraphicsComponent>();
 	gc->setTexture("gameover");
 	gc->imageDimensions = { 1280, 960 };
-	this->components.emplace_back(gc);
+	this->components.emplace_back(std::move(gc));
 
 	// Main menu button
 	std::vector<std::string> possibleButtonTexMainMenu = { "button_mainmenu" };
-	std::shared_ptr<Button> mainMenuButton = std::make_shared<Button>(500, 750, possibleButtonTexMainMenu);
+	std::shared_ptr<Button> mainMenuButton = std::make_shared<Button>(500, 750, possibleButtonTexMainMenu, staticExitCallbackFunction, this);
 	this->components.emplace_back(mainMenuButton);
 
 	Colour color = { 255, 255, 255, 255 };
@@ -23,17 +23,14 @@ GameOverScreen::GameOverScreen()
 	this->components.emplace_back(gameOverText);
 }
 
-GameOverScreen::~GameOverScreen()
-{
+void GameOverScreen::restartGame() {}
 
+void GameOverScreen::staticExitCallbackFunction(const void* p)
+{
+	((GameOverScreen*)p)->exitCallbackFunction();
 }
 
-void GameOverScreen::closeScreen()
+void GameOverScreen::exitCallbackFunction() const
 {
-
-}
-
-void GameOverScreen::restartGame()
-{
-
+	SceneLoader::getInstance().quitGame();
 }
