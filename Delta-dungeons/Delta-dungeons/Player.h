@@ -11,6 +11,7 @@
 typedef void(*cbInteract) (void*, int, int);
 typedef void(*cbCamera) (void*, int, int);
 typedef void(*cbGameOver) (void*);
+typedef void(*cbHUD) (void*, bool);
 
 class Player : public GameObject
 {
@@ -21,12 +22,12 @@ public:
 	cbCamera func;
 	cbInteract interactFunc;
 	cbGameOver gameOverFunc;
+	cbHUD hudFunc;
 
 	KeyCodes currentDirection;
 	void* pointer;
 
-	Player(cbCamera f, cbInteract interactCB, cbGameOver gameOverFunc, void* p);
-	~Player() {}
+	Player(cbCamera f, cbInteract interactCB, cbGameOver gameOverFunc, cbHUD hudCB, void* p);
 
 	void handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
 	void interact() override;
@@ -41,6 +42,7 @@ public:
 	void addEquipment(std::unique_ptr<IEquipment> equipment);
 	void damagePlayer(int damage);
 	void updateCaughtPokemon(int pokemonId);
+	std::vector<std::string> getItems();
 
 	static void staticCollisionCallbackFunction(void* p, int right, int left, int up, int down, std::string rightTag, std::string leftTag, std::string upTag, std::string downTag, bool hit);
 	void collisionCallbackFunction(int right, int left, int up, int down, std::string rightTag, std::string leftTag, std::string upTag, std::string downTag, bool hit);

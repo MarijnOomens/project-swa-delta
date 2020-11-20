@@ -11,16 +11,23 @@ public:
 	SceneManager() {};
 	~SceneManager() {};
 
-	std::vector<std::shared_ptr<BehaviourObject>> loadScene(const std::string& sceneName,const std::string& fromScene,const bool clearPrevious);
-	void registerScene(const std::string& sceneName, const std::vector<std::shared_ptr<BehaviourObject>>& behaviourObjects);
-	std::vector<std::shared_ptr<BehaviourObject>> loadPreviousScene();
-	std::vector<std::shared_ptr<BehaviourObject>> addOverlayScene(const std::string& sceneName);
+	void update();
+	void loadScene(const std::string& sceneName,const std::string& fromScene,const bool clearPrevious);
+	void registerScene(const std::string& sceneName, const std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects);
+	void loadPreviousScene();
+	void addOverlayScene(const std::string& sceneName);
 	int getActiveScenesSize();
+	void setSceneSwitched(bool isSwitched);
+	void handleSceneInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos);
+	void addObjectToScene(const std::shared_ptr<BehaviourObject>& addObject);
+	void deleteObjectFromScene(const std::shared_ptr<BehaviourObject>& deletedObject);
+	void passInteract(int x, int y);
+	std::vector<std::shared_ptr<BehaviourObject>> currentObjects;
 
 private:
 	std::map<std::string, std::vector<std::shared_ptr<BehaviourObject>>> scenes;
 	std::vector<std::string> activeScenes;
 	std::vector<std::string> previousScenes;
 	std::string currentScene;
-
+	bool isSceneSwitched = false;
 };

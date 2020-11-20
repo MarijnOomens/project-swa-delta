@@ -10,7 +10,6 @@ class Button : public GameObject
 {
 public:
 	Button(int x, int y, const std::vector<std::string>& textureList, const buttonCb onClick, const void* p);
-	~Button() {}
 	void update() override;
 	void handleInput(const KeyCodes &keyCode, const KeyboardEvent &keyboardEvent, Vector2D &mousePos) override;
 	void interact() override;

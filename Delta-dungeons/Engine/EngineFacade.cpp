@@ -112,12 +112,17 @@ void EngineFacade::pauseGame()
 	engineController->pauseScreen();
 }
 
+void EngineFacade::addObjectToScene(const std::shared_ptr<BehaviourObject>& addObject)
+{
+	engineController->addObjectToScene(addObject);
+}
+
 void EngineFacade::passInteract(int x, int y)
 {
 	engineController->passInteract(x, y);
 }
 
-void EngineFacade::deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject)
+void EngineFacade::deleteObjectFromScene(const std::shared_ptr<BehaviourObject>& deletedObject)
 {
 	engineController->deleteObjectFromScene(deletedObject);
 }

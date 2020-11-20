@@ -10,6 +10,7 @@
 #include "Scene.h"
 #include "DebugUtilities.h"
 #include "SceneModifier.h"
+#include "HUDManager.h"
 
 class GameManager {
 public:
@@ -27,6 +28,9 @@ public:
 	static void staticInteractCallbackFunction(void* p, int x, int y);
 	void interactCallbackFunction(int x, int y);
 
+	static void staticUpdateHUDHealthCallbackFunction(void* p, bool hit);
+	void updateHUDHealthCallbackFunction(bool hit);
+	
 	static void staticGameOverbackFunction(void* p);
 	void gameOverCallbackFunction();
 
@@ -37,4 +41,5 @@ private:
 	PlayerManager playerManager;
 	EquipmentManager eqManager;
 	NPCManager npcManager;
+	HUDManager hudManager;
 };
