@@ -5,14 +5,13 @@
 #include "Button.h"
 #include "SceneLoader.h"
 
-class GameOverScreen : public Screen
+class GameWinScreen : public Screen
 {
 public:
-	GameOverScreen();
-	~GameOverScreen() {}
-
-	void restartGame();
+	GameWinScreen();
+	~GameWinScreen() {}
 
 	static void staticExitCallbackFunction(const void* p);
 	void exitCallbackFunction() const;
 };
+

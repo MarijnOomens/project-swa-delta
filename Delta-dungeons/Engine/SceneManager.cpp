@@ -10,11 +10,10 @@ void SceneManager::update()
 
 void SceneManager::loadScene(const std::string& sceneName, const std::string& fromScene, const bool clearPrevious)
 {
-	activeScenes.clear();
-
 	if (clearPrevious)
 	{
 		previousScenes.clear();
+		activeScenes.clear();
 	}
 
 	if (!fromScene.empty())
@@ -30,20 +29,25 @@ void SceneManager::loadScene(const std::string& sceneName, const std::string& fr
 
 void SceneManager::loadPreviousScene()
 {
-	for (auto& c : scenes[activeScenes.back()])
-	{
-		auto i = std::find(currentObjects.begin(), currentObjects.end(), c);
-		currentObjects.erase(i);
-	}
 	if (activeScenes.size() > 1)
 	{
 		activeScenes.pop_back();
+		currentScene = activeScenes.back();
 	}
 	else if (!previousScenes.empty())
 	{
-		activeScenes.pop_back();
+		activeScenes.clear();
+		activeScenes.emplace_back(previousScenes.back());
 		currentScene = previousScenes.back();
 		previousScenes.pop_back();
+	}
+
+	currentObjects.clear();
+
+	for (auto& s : activeScenes) {
+		for (auto& o : scenes[s]) {
+			currentObjects.emplace_back(o);
+		}
 	}
 
 	isSceneSwitched = true;
@@ -55,6 +59,7 @@ void SceneManager::addOverlayScene(const std::string& sceneName)
 	isSceneSwitched = true;
 
 	activeScenes.push_back(sceneName);
+	currentScene = sceneName;
 	for (auto& c : scenes[sceneName])
 	{
 		currentObjects.emplace_back(c);
@@ -79,7 +84,7 @@ void SceneManager::setSceneSwitched(bool isSwitched)
 
 void SceneManager::handleSceneInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos)
 {
-	for (const auto& gameObject : currentObjects)
+	for (const auto& gameObject : scenes[currentScene])
 	{
 		if (!isSceneSwitched) {
 			gameObject->handleInput(keyCode, keyboardEvent, mousePos);

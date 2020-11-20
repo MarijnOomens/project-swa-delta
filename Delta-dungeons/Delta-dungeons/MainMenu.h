@@ -10,8 +10,6 @@
 #include "SceneLoader.h"
 #include <sstream>
 
-typedef void(*buttonCb) (const void*);
-
 class MainMenu : public Screen
 {
 public:

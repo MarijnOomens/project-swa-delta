@@ -5,14 +5,19 @@
 /// </summary>
 void UIManager::createBaseScreens() 
 {
-	std::shared_ptr<MainMenu> mainMenu = std::make_shared<MainMenu>();
+	std::unique_ptr<MainMenu> mainMenu = std::make_unique<MainMenu>();
 	screens.try_emplace("MainMenu", std::move(mainMenu));
-	std::shared_ptr<PauseScreen> pause = std::make_shared<PauseScreen>();
+	std::unique_ptr<PauseScreen> pause = std::make_unique<PauseScreen>();
 	screens.try_emplace("PauseScreen", std::move(pause));
-	std::shared_ptr<CreditScreen> credits = std::make_shared<CreditScreen>();
+	std::unique_ptr<CreditScreen> credits = std::make_unique<CreditScreen>();
 	screens.try_emplace("CreditsScreen", std::move(credits));
-	std::shared_ptr<HelpScreen> help = std::make_shared<HelpScreen>();
+	std::unique_ptr<HelpScreen> help = std::make_unique<HelpScreen>();
 	screens.try_emplace("HelpScreen", std::move(help));
+	std::unique_ptr<GameOverScreen> gameOver = std::make_unique<GameOverScreen>();
+	screens.try_emplace("GameOver", std::move(gameOver));
+	std::unique_ptr<GameWinScreen> gameWin = std::make_unique<GameWinScreen>();
+	screens.try_emplace("GameWin", std::move(gameWin));
+
 }
 
 void UIManager::playDialogue(std::vector<std::string>) {}
