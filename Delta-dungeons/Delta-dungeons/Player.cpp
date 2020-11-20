@@ -296,10 +296,7 @@ void Player::addEquipment(std::unique_ptr<IEquipment> item)
 	equipment.emplace_back(std::move(item));
 }
 
-void Player::damagePlayer(int damage) 
-{
-	//SceneLoader::getInstance().loadScene("GameOver", "Level1", true);
-}
+void Player::damagePlayer(int damage) {}
 
 void::Player::updateCaughtPokemon(int pokemonId) {}
 
