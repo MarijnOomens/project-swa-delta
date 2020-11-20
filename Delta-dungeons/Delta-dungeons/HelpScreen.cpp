@@ -17,20 +17,28 @@ HelpScreen::HelpScreen()
 	helpText->transform.position = { 450, 20 };
 	this->components.emplace_back(std::move(helpText));
 
-	std::unique_ptr<TextComponent> helpMove = std::make_unique<TextComponent>("Use arrow keys or 'W', 'A', 'S' and 'D' to move your character.", "comic", color, 32);
-	helpMove->transform.position = { 100, 170 };
+	std::unique_ptr<TextComponent> helpMove = std::make_unique<TextComponent>("Use arrow keys or W, A, S and D to move your character.", "comic", color, 32);
+	helpMove->transform.position = { 100, 220 };
 	this->components.emplace_back(std::move(helpMove));
 
-	std::unique_ptr<TextComponent> helpInteract = std::make_unique<TextComponent>("Use 'E' to interact.", "comic", color, 32);
+	std::unique_ptr<TextComponent> helpInteract = std::make_unique<TextComponent>("Use E to interact.", "comic", color, 32);
 	helpInteract->transform.position = { 100, 320 };
 	this->components.emplace_back(std::move(helpInteract));
 
-	std::unique_ptr<TextComponent> helpBack = std::make_unique<TextComponent>("Press BACKSPACE to go back to the main menu.", "comic", color, 32);
-	helpBack->transform.position = { 100, 470 };
+	std::unique_ptr<TextComponent> helpBack = std::make_unique<TextComponent>("Press BACKSPACE to go back to the previous screen.", "comic", color, 32);
+	helpBack->transform.position = { 100, 420 };
 	this->components.emplace_back(std::move(helpBack));
 
+	std::unique_ptr<TextComponent> helpFps = std::make_unique<TextComponent>("Press TAB to toggle the FPS counter in the upper right corner in-game.", "comic", color, 32);
+	helpFps->transform.position = { 100, 520 };
+	this->components.emplace_back(std::move(helpFps));
+
+	std::unique_ptr<TextComponent> helpGameSpeed = std::make_unique<TextComponent>("Press , to decrease FPS. Press . to increase FPS. Press / to reset FPS to 60.", "comic", color, 32);
+	helpGameSpeed->transform.position = { 100, 620 };
+	this->components.emplace_back(std::move(helpGameSpeed));
+
 	std::vector<std::string> possibleButtonTexExit = { "button_exit" };
-	std::unique_ptr<Button> exitButton = std::make_unique<Button>(500, 560, possibleButtonTexExit, staticBackCallbackFunction, this);
+	std::unique_ptr<Button> exitButton = std::make_unique<Button>(500, 720, possibleButtonTexExit, staticBackCallbackFunction, this);
 	this->components.emplace_back(std::move(exitButton));
 }
 
