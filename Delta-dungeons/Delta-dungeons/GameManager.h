@@ -30,6 +30,9 @@ public:
 
 	static void staticUpdateHUDHealthCallbackFunction(void* p, bool hit);
 	void updateHUDHealthCallbackFunction(bool hit);
+	
+	static void staticGameOverbackFunction(void* p);
+	void gameOverCallbackFunction();
 
 private:
 	std::shared_ptr<EngineFacade> engineFacade;

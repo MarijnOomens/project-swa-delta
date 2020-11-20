@@ -45,6 +45,8 @@ public:
 	void passInteract(int x, int y);
 	void deleteObjectFromScene(const std::shared_ptr<BehaviourObject>& deletedObject);
 	void deleteColliderFromScene(std::shared_ptr<ColliderComponent> deletedCollider);
+	void gameOver();
+	void checkGameOver();
 
 private:
 	std::vector<int> hudLayers;
@@ -54,5 +56,6 @@ private:
 	std::shared_ptr<Input> input;
 	SceneManager sceneManager;
 	std::shared_ptr<Collision> collision;
-
+	bool isGameOver = false;
+	int timer = 30;
 };

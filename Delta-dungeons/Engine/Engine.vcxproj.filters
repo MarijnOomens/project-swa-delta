@@ -37,6 +37,12 @@
     <Filter Include="Source Files\Engine\Input">
       <UniqueIdentifier>{540a8c5b-d7a8-49df-97e9-c24a5cc4e3ca}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Engine\Collider">
+      <UniqueIdentifier>{e43bf398-16a2-413a-875c-96cca5a1e1a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Collider">
+      <UniqueIdentifier>{dac1a7f3-4903-42dc-8605-04c9ee481534}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Vector2D.h">
@@ -46,9 +52,6 @@
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="SceneManager.h">
-      <Filter>Header Files\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="ColliderComponent.h">
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="GameObject.h">
@@ -129,6 +132,15 @@
     <ClInclude Include="Collision.h">
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
+    <ClInclude Include="ColliderComponent.h">
+      <Filter>Header Files\Engine\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="DamageColliderComponent.h">
+      <Filter>Header Files\Engine\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="RegularColliderComponent.h">
+      <Filter>Header Files\Engine\Collider</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Vector2D.cpp">
@@ -182,9 +194,6 @@
     <ClCompile Include="EngineController.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="ColliderComponent.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
     <ClCompile Include="BehaviourObject.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
@@ -205,6 +214,15 @@
     </ClCompile>
     <ClCompile Include="Collision.cpp">
       <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="ColliderComponent.cpp">
+      <Filter>Source Files\Engine\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="RegularColliderComponent.cpp">
+      <Filter>Source Files\Engine\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="DamageColliderComponent.cpp">
+      <Filter>Source Files\Engine\Collider</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

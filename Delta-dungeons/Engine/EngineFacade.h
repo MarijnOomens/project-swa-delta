@@ -32,6 +32,7 @@ public:
 	ENGINE_API void passInteract(int x, int y);
 	ENGINE_API void deleteObjectFromScene(const std::shared_ptr<BehaviourObject>& deletedObject);
 	ENGINE_API void deleteColliderFromScene(std::shared_ptr<ColliderComponent> deletedCollider);
+	ENGINE_API void gameOver();
 
 private:
 	std::unique_ptr<EngineController> engineController;
