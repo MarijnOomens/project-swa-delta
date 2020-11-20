@@ -42,7 +42,7 @@ HelpScreen::HelpScreen()
 	this->components.emplace_back(std::move(helpGameOver));
 
 	std::vector<std::string> possibleButtonTexExit = { "button_exit" };
-	std::unique_ptr<Button> exitButton = std::make_unique<Button>(500, 620, possibleButtonTexExit, staticBackCallbackFunction, this);
+	std::unique_ptr<Button> exitButton = std::make_unique<Button>(500, 720, possibleButtonTexExit, staticBackCallbackFunction, this);
 	this->components.emplace_back(std::move(exitButton));
 }
 

@@ -31,6 +31,17 @@ PauseScreen::PauseScreen()
 	this->components.emplace_back(std::move(creditsText));
 }
 
+void PauseScreen::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos)
+{
+	if (keyboardEvent == KeyboardEvent::KEY_PRESSED)
+	{
+		if (keyCode == KeyCodes::KEY_P)
+		{
+			DebugUtilities::getInstance().pauseGame();
+		}
+	}
+}
+
 
 void PauseScreen::staticOpenHelpCallbackFunction(const void* p) 
 {
