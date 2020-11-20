@@ -1,41 +1,51 @@
 #include "HUD.h"
 
-HUD::HUD(int health)
+HUD::HUD(int h)
 {
+	health = maxHealth;
 	this->textures.emplace("heart", "Assets/HUD/heart.png");
+	this->textures.emplace("deadheart", "Assets/HUD/deadheart.png");
 	transform.position = { 0 ,0 };
-	for (int i = 0; i < health; i++)
+	for (int i = 0; i < maxHealth; i++)
 	{
-		addHealth(i);
+		std::shared_ptr<GraphicsComponent> heartGc = std::make_shared<GraphicsComponent>();
+		heartGc->setTexture("heart");
+		heartGc->isScreen = true;
+		heartGc->transform.position = { (i * 34) + 10, 20 };
+		heartGc->imageDimensions = { 32, 32 };
+		this->components.emplace_back(heartGc);
+		this->hearts.emplace_back(heartGc);
 	}
 }
 
-void HUD::updateHealth(int param) {}
+void HUD::updateHealth(bool hit) 
+{
+	if (hit)
+	{
+		deleteHealth();
+	}
+	else
+	{
+		addHealth();
+	}
+}
 
 void HUD::updateCollectedCrystals(int param) {}
 
 void HUD::updateHighScore(int param) {}
 
-void HUD::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) 
-{
-	if (keyboardEvent == KeyboardEvent::KEY_PRESSED && keyCode == KeyCodes::KEY_E) {
-		addHealth(health);
-	}
-
-	if (keyboardEvent == KeyboardEvent::KEY_PRESSED && keyCode == KeyCodes::KEY_D) {
-		deleteHealth();
-	}
-}
+void HUD::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos){}
 
 void HUD::update() {}
 
 void HUD::interact() {}
 
-void HUD::addHealth(int indexHeart)
+void HUD::addHealth()
 {
-	if (indexHeart < maxHealth) 
+	if (health < maxHealth) 
 	{
-		std::shared_ptr<GraphicsComponent> heartGc = std::make_shared<GraphicsComponent>();
+		hearts[health]->setTexture("heart");
+		/*std::shared_ptr<GraphicsComponent> heartGc = std::make_shared<GraphicsComponent>();
 		heartGc->setTexture("heart");
 		heartGc->isScreen = true;
 		heartGc->transform.position = { (indexHeart * 34) + 10, 20 };
@@ -43,16 +53,18 @@ void HUD::addHealth(int indexHeart)
 		this->components.emplace_back(heartGc);
 		this->hearts.emplace_back(heartGc);
 		SceneModifier::getInstance().addObjectToScene(heartGc);
+		updateItems(health);*/
 		health++;
-		updateItems(health);
 	}
 }
 
 void HUD::deleteHealth()
 {
-	if (health > 1)
+	if (health > 0)
 	{
-		std::shared_ptr<GraphicsComponent> heart = hearts.back();
+		health--;
+		hearts[health]->setTexture("deadheart");
+		/*std::shared_ptr<GraphicsComponent> heart = hearts.back();
 		auto i = std::find(components.begin(), components.end(), heart);
 		if (i != components.end()) 
 		{
@@ -64,8 +76,7 @@ void HUD::deleteHealth()
 			hearts.erase(h);
 		}
 		SceneModifier::getInstance().deleteObjectFromScene(heart);
-		health--;
-		updateItems(health);
+		updateItems(health);*/
 	}
 }
 
@@ -74,7 +85,7 @@ void HUD::addItem(const std::string& texturepath)
 	std::shared_ptr<GraphicsComponent> itemGc = std::make_shared<GraphicsComponent>();
 	itemGc->setTexture(texturepath);
 	itemGc->isScreen = true;
-	itemGc->transform.position = { (health * 34) + (amountItems * 34) + 10, 20 };
+	itemGc->transform.position = { (maxHealth * 34) + (amountItems * 34) + 10, 20 };
 	itemGc->imageDimensions = { 32, 32 };
 	this->components.emplace_back(itemGc);
 	this->items.emplace_back(itemGc);
@@ -88,7 +99,6 @@ void HUD::updateItems(int i)
 	for (auto& item : items)
 	{
 		item->transform.position = { (i * 34) + (itemIndex * 34) + 10, 20 };
-		//SceneModifier::getInstance().updateObjectToScene(item);
 		itemIndex++;
 	}
 }

@@ -57,7 +57,7 @@ void GameManager::registerBehaviourObjects()
 	}
 
 	std::vector<std::shared_ptr<BehaviourObject>> level1;
-	/*for (auto& t : scene->getComponentsRecursive())
+	for (auto& t : scene->getComponentsRecursive())
 	{
 		level1.emplace_back(t);
 	}
@@ -85,7 +85,7 @@ void GameManager::registerBehaviourObjects()
 	{
 		level1.emplace_back(c);
 	}
-		level1.emplace_back(playerManager.player);*/
+		level1.emplace_back(playerManager.player);
 
 	for (auto& c : hudManager.hud->getComponentsRecursive())
 	{
@@ -129,4 +129,14 @@ void GameManager::staticInteractCallbackFunction(void* p, int x, int y)
 
 void GameManager::interactCallbackFunction(int x, int y) {
 	engineFacade->passInteract(x, y);
+}
+
+void GameManager::staticUpdateHUDHealthCallbackFunction(void* p, bool hit)
+{
+	((GameManager*)p)->updateHUDHealthCallbackFunction(hit);
+}
+
+void GameManager::updateHUDHealthCallbackFunction(bool hit)
+{
+	hudManager.updateHUDHealth(hit);
 }

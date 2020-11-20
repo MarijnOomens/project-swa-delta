@@ -11,15 +11,15 @@ public:
 	std::map<std::string, std::string> textures;
 	std::vector<std::shared_ptr<GraphicsComponent>> hearts;
 	std::vector<std::shared_ptr<GraphicsComponent>> items;
-	HUD(int health);
+	HUD(int h);
 
-	void updateHealth(int param);
+	void updateHealth(bool hit);
 	void updateCollectedCrystals(int param);
 	void updateHighScore(int param);
 	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
 	void update() override;
 	void interact()override;
-	void addHealth(int indexHeart);
+	void addHealth();
 	void deleteHealth();
 	void addItem(const std::string& texturepath);
 	void updateItems(int i);
