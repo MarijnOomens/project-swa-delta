@@ -10,13 +10,13 @@
 /// Defines the movementspeed and the runactivated bool
 /// Creates the graphicscomponent for the player sprite and saves the texturename and png location, width, height
 /// </summary>
-Player::Player(const cbCamera f, cbInteract interactCB, cbGameOver gameOverF, void* p) : func(f), interactFunc(interactCB), gameOverFunc(gameOverF), pointer(p)
+Player::Player(const cbCamera f, cbInteract interactCB, cbGameOver gameOverF, cbHUD hudCB, void* p) : func(f), interactFunc(interactCB), gameOverFunc(gameOverF), hudFunc(hudCB), pointer(p)
 {
 	std::string textureBoomerang ="boomerang" ;
 	std::string textureRunning = "runningshoes";
 	std::unique_ptr<Boomerang> boomerang = std::make_unique<Boomerang>(textureBoomerang,staticBoomerangCallbackFunction, this);
 	std::unique_ptr<RunningShoes> running = std::make_unique<RunningShoes>(staticRunningShoesCallbackFunction, this, textureRunning);
-	health = 6;
+	health = 4;
 
 	addEquipment(std::move(running));
 	addEquipment(std::move(boomerang));
@@ -369,6 +369,7 @@ void Player::collisionCallbackFunction(int right, int left, int up, int down, st
 }
 
 void Player::registerHit() {
+	hudFunc(pointer,true);
 	if (health > 0) 
 	{
 		health--; 
@@ -377,7 +378,7 @@ void Player::registerHit() {
 	{
 		gc->playAnimation(9, 4, animationSpeed, false);
 		gameOverFunc(pointer);
-		health = 6;
+		health = 4;
 	}
 	
 }

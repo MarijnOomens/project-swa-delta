@@ -11,6 +11,7 @@
 typedef void(*cbInteract) (void*, int, int);
 typedef void(*cbCamera) (void*, int, int);
 typedef void(*cbGameOver) (void*);
+typedef void(*cbHUD) (void*, bool);
 
 class Player : public GameObject
 {
@@ -21,11 +22,12 @@ public:
 	cbCamera func;
 	cbInteract interactFunc;
 	cbGameOver gameOverFunc;
+	cbHUD hudFunc;
 
 	KeyCodes currentDirection;
 	void* pointer;
 
-	Player(cbCamera f, cbInteract interactCB, cbGameOver gameOverFunc, void* p);
+	Player(cbCamera f, cbInteract interactCB, cbGameOver gameOverFunc, cbHUD hudCB, void* p);
 
 	void handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
 	void interact() override;

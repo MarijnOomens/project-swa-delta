@@ -6,6 +6,7 @@
 typedef void(*cbCamera) (void*, int, int);
 typedef void(*cbInteract) (void*, int, int);
 typedef void(*cbGameOver) (void*);
+typedef void(*cbHUD) (void*, bool);
 
 class PlayerManager
 {
@@ -15,7 +16,7 @@ public:
 	PlayerManager() {}
 	~PlayerManager() {}
 
-	void createPlayer(cbCamera cb, cbInteract interactCB, cbGameOver gameOverCB, void* p);
+	void createPlayer(cbCamera cb, cbInteract interactCB, cbGameOver gameOverCB, cbHUD hufdCB, void* p);
 
 	std::map<std::string, std::string> passTextures() const;
 	std::shared_ptr<Player> getPlayerObject();
