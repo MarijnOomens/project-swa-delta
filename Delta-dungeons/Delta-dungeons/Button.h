@@ -1,22 +1,23 @@
 #pragma once
-
 #include "GameObject.h"
 #include "GraphicsComponent.h"
 #include <string>
 #include <memory>
 
+typedef void(*buttonCb) (const void*);
+
 class Button : public GameObject
 {
 public:
-	Button();
-	Button(int x, int y, std::vector<std::string> textureList);
-	~Button();
+	Button(int x, int y, const std::vector<std::string>& textureList, const buttonCb onClick, const void* p);
+	~Button() {}
 	void update() override;
-	void connectCallback() override;
-	void callbackFunction() override;
-	void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) override;
-	void updatePositions(int x, int y)override;
+	void handleInput(const KeyCodes &keyCode, const KeyboardEvent &keyboardEvent, Vector2D &mousePos) override;
+	void interact() override;
+
 private:
+	buttonCb onCLickFunc;
+	const void* pointer;
 	std::string text;
 	std::vector<std::string> possibleTextures;
 	std::shared_ptr<GraphicsComponent> m_gc;

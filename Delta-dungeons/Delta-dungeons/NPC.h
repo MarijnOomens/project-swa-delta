@@ -1,13 +1,23 @@
 #pragma once
 #include "InteractiveObject.h"
+#include "ColliderComponent.h"
 #include <string>
 #include <map>
+#include <GraphicsComponent.h>
 
-class NPC : InteractiveObject
+class NPC : public InteractiveObject
 {
+public:
+	NPC(int x, int y, std::string& texture);
+	~NPC() {}
+
+	void interact() override;
+
 protected:
 	std::string sfxPath;
+
 private:
-	std::string name;
-	std::map<std::string, std::string> dialogue;
+	std::shared_ptr<GraphicsComponent> gc;
+	std::shared_ptr<ColliderComponent> cc;
+	const int animationSpeed = 120;
 };

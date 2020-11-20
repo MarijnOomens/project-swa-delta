@@ -5,14 +5,13 @@
 /// </summary>
 
 AssetManager::AssetManager() {}
-AssetManager::~AssetManager() {}
 
 /// <summary>
 /// This method adds a texture with a given id and path to a map of textures.
 /// </summary>
 /// <param name="id">ID/Name of texture.</param>
 /// <param name="path">Path of texture.</param>
-void AssetManager::addTexture(std::string id, std::string path)
+void AssetManager::addTexture(const std::string& id, const std::string& path)
 {
 	textures.try_emplace(id, path);
 }
@@ -22,7 +21,7 @@ void AssetManager::addTexture(std::string id, std::string path)
 /// </summary>
 /// <param name="id">ID of texture.</param>
 /// <returns></returns>
-std::string AssetManager::getTexture(std::string id)
+std::string AssetManager::getTexture(const std::string& id)
 {
 	return textures[id];
 }
@@ -32,7 +31,8 @@ std::string AssetManager::getTexture(std::string id)
 /// </summary>
 /// <param name="id">ID/Name of font.</param>
 /// <param name="path">Path of font.</param>
-void AssetManager::addFont(std::string id, std::string path) {
+void AssetManager::addFont(const std::string& id, const std::string& path) 
+{
 	fonts.try_emplace(id, path);
 }
 
@@ -41,6 +41,7 @@ void AssetManager::addFont(std::string id, std::string path) {
 /// </summary>
 /// <param name="id">ID of font.</param>
 /// <returns></returns>
-std::string AssetManager::getFont(std::string id){
+std::string AssetManager::getFont(const std::string& id)
+{
 	return fonts[id];
 }

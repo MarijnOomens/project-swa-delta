@@ -1,113 +1,28 @@
 #include "EngineController.h"
-#include "GraphicsComponent.h"
-#include <vector>
-//Debug
-#include "Button.h"
-#include "Player.h"
-#include "Tile.h"
-#include "MainMenu.h"
-#include "XMLSceneParser.h"
 
 /// <summary>
 /// This class has the responsibility of managing different classes in the engine. It communicaties with classes like TextureManager and RenderFacade.
 /// </summary>
-EngineController::EngineController() 
+EngineController::EngineController()
 {
+	collision = std::make_shared<Collision>();
 	assetManager = std::make_shared<AssetManager>();
 	renderFacade = std::make_shared<RenderFacade>();
-	textureManager = std::make_shared<TextureManager>(renderFacade,assetManager);
+	textureManager = std::make_shared<TextureManager>(renderFacade, assetManager);
 	input = std::make_shared<Input>(staticInputCallbackFunction, this);
 	initRenderer("Delta Dungeons", 1280, 960, false);
 }
 
 /// <summary>
-/// This overloaded constructor sets a list of behaviour objects and other instances. It also calls a function for render initialisation.
-/// </summary>
-/// <param name="behaviourObjects">Vector of behaviour objects.</param>
-/// <param name="renderFacade">Instance of RenderFacade.</param>
-/// <param name="assetManager">Instance of AssestManager.</param>
-/// <param name="textureManager">Instance of TextureManager.</param>
-EngineController::EngineController(std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects, std::shared_ptr<RenderFacade>renderFacade, std::shared_ptr<AssetManager>assetManager, std::shared_ptr<TextureManager>textureManager)
-{
-	this->behaviourObjects = behaviourObjects;
-	this->renderFacade = renderFacade;
-	this->assetManager = assetManager;
-	this->textureManager = textureManager;
-	input = std::make_shared<Input>(staticInputCallbackFunction, this);
-
-	//DEBUG//
-	// TILEMAP
-	/*std::unique_ptr<XMLSceneParser> scene = std::make_unique<XMLSceneParser>();
-	std::vector<std::shared_ptr<Tile>> tiles = scene.get()->loadScene("Assets\\collisionmap.xml");
-	assetManager->addTexture("Level1", "Assets\\Level1_terrain.png");
-	for (std::shared_ptr<Tile> t : tiles)
-	{
-		std::shared_ptr<GraphicsComponent> gc = std::make_shared<GraphicsComponent>();
-		gc.get()->addTextureManager(textureManager);
-		t->addGraphicsComponent(gc, "Level1");
-		behaviourObjects.emplace_back(gc);
-		behaviourObjects.emplace_back(t);
-	}*/
-
-	//// PLAYER
-	//assetManager->addTexture("player_anims", "Assets\\player_anims.png");
-	//std::shared_ptr<GraphicsComponent> gcPlayer = std::make_shared<GraphicsComponent>();
-	//gcPlayer.get()->addTextureManager(textureManager);
-	//behaviourObjects.emplace_back(gcPlayer);
-	//std::shared_ptr<Player> player = std::make_shared<Player>("player_anims", gcPlayer);
-	//behaviourObjects.emplace_back(player);
-	//END DEBUG//
-
-	initRenderer("delta dungeons", 1920, 1080, false);
-}
-
-EngineController::~EngineController() {}
-
-/// <summary>
 /// This method keeps executing while the gaming is running. It keeps updating all behaviour objects.
 /// </summary>
 /// <param name="bhObjects">Vector of all available behaviour objects.</param>
-void EngineController::update(std::vector<std::shared_ptr<BehaviourObject>>& bhObjects)
+void EngineController::update()
 {
-	for (auto& bo : bhObjects)
+	for (const auto& bo : behaviourObjects)
 	{
-		bo.get()->update();
+		bo->update();
 	}
-}
-
-
-/// <summary>
-/// Receives input data from the class Input and passes it to a new function.
-/// </summary>
-/// <param name="p">Void pointer.</param>
-/// <param name="keyCode">The key that is read, like 'W'.</param>
-/// <param name="keyboardEvent">The key that is read, like 'W'.</param>
-void EngineController::staticInputCallbackFunction(void* p, const KeyCodes keyCode, const KeyboardEvent keyboardEvent)
-{
-	((EngineController*)p)->inputCallbackFunction(keyCode, keyboardEvent);
-}
-
-/// <summary>
-/// Calls the handleInput function for each game object.
-/// </summary>
-/// <param name="keyCode">The key that is read, like 'W'.</param>
-/// <param name="keyboardEvent">The key that is read, like 'W'.</param>
-void EngineController::inputCallbackFunction(const KeyCodes keyCode, const KeyboardEvent keyboardEvent)
-{
-	for (auto& gameObject : behaviourObjects)
-	{
-		gameObject.get()->handleInput(keyCode, keyboardEvent);
-	}
-}
-#pragma endregion Input handling
-
-/// <summary>
-/// This method adds a texture to the AssetManager so that the texture is a known asset.
-/// </summary>
-/// <param name="name">Texture name.</param>
-/// <param name="path">Texture path.</param>
-void EngineController::addTexture(std::string name, std::string path) {
-	assetManager->addTexture(name, path);
 }
 
 /// <summary>
@@ -117,16 +32,58 @@ void EngineController::addTexture(std::string name, std::string path) {
 /// <param name="width">Width of game window.</param>
 /// <param name="height">Height of game window.</param>
 /// <param name="fullscreen">Boolean whether game is fullscreen or not.</param>
-void EngineController::initRenderer(const char* title, int width, int height, bool fullscreen)
+void EngineController::initRenderer(const std::string& title, int width, int height, bool fullscreen)
 {
-	EngineController::renderFacade->init(title, width, height, fullscreen);
+	renderFacade->init(title, width, height, fullscreen);
 }
 
-
-
-void EngineController::createCamera(int x, int y)
+/// <summary>
+/// Receives input data from the class Input and passes it to a new function.
+/// </summary>
+/// <param name="p">Void pointer.</param>
+/// <param name="keyCode">The key that is read, like 'W'.</param>
+/// <param name="keyboardEvent">The key that is read, like 'W'.</param>
+void EngineController::staticInputCallbackFunction(void* p, const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos)
 {
-	renderFacade->createCamera(x,y);
+	((EngineController*)p)->inputCallbackFunction(keyCode, keyboardEvent, mousePos);
+}
+
+/// <summary>
+/// Calls the handleInput function for each game object.
+/// </summary>
+/// <param name="keyCode">The key that is read, like 'W'.</param>
+/// <param name="keyboardEvent">The key that is read, like 'W'.</param>
+void EngineController::inputCallbackFunction(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos)
+{
+	isSceneSwitched = false;
+	if (keyCode == KeyCodes::KEY_ESC)
+	{
+		quitGame();
+	}
+	else {
+		for (const auto& gameObject : behaviourObjects)
+		{
+			if (!isSceneSwitched) {
+				gameObject->handleInput(keyCode, keyboardEvent, mousePos);
+			}
+		}
+	}
+}
+#pragma endregion Input handling
+
+/// <summary>
+/// This method adds a texture to the AssetManager so that the texture is a known asset.
+/// </summary>
+/// <param name="name">Texture name.</param>
+/// <param name="path">Texture path.</param>
+void EngineController::addTexture(const std::string& name, const std::string& path)
+{
+	assetManager->addTexture(name, path);
+}
+
+void EngineController::createCamera(const int x, const int y)const
+{
+	renderFacade->createCamera(x, y);
 }
 
 /// <summary>
@@ -134,71 +91,93 @@ void EngineController::createCamera(int x, int y)
 /// </summary>
 void EngineController::startGame()
 {
-	while (renderFacade->renderer->isRunning) {
+	while (renderFacade->renderer->isRunning)
+	{
 
 		renderFacade->setFrameStart();
-		renderFacade->beforeFrame();
 
-		input.get()->handleInput();
-
-		EngineController::update(behaviourObjects);
-
+		input->handleInput(renderFacade->renderer->isPaused);
+		if (!renderFacade->renderer->isPaused)
+		{
+			renderFacade->beforeFrame();
+			collision->checkCollision();
+			update();
+		}
 		renderFacade->afterFrame();
-
 		renderFacade->setFrameDelay();
 	}
-
-	renderFacade->clean();
-	std::cout << "Game cleaned" << std::endl;
 }
 
-void EngineController::passPlayerPosition(int x, int y)
+void EngineController::registerScene(const std::string& sceneName, const std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects)
 {
-	std::tuple<int, int> positions = renderFacade->passPlayerPosition(x, y);
-	updatePositions(std::get<0>(positions), std::get<1>(positions));
-}
+	std::vector<std::shared_ptr<BehaviourObject>> tempObjects;
+	std::vector<std::shared_ptr<BehaviourObject>> colliderObjects;
 
-void EngineController::updatePositions(int cameraX, int cameraY)
-{
-	for (auto& bo : behaviourObjects)
-	{
-		bo.get()->updatePositions(cameraX, cameraY);
-	}
-}
-
-/// <summary>
-/// This method registers all behaviour objects in a vector.
-/// </summary>
-/// <param name="objects">Vector of behaviour objects.</param>
-void EngineController::registerBehaviourObjects(std::vector<std::shared_ptr<BehaviourObject>> objects) {
-	for (auto& o : objects) 
+	for (const auto& o : behaviourObjects)
 	{
 		if (dynamic_cast<GraphicsComponent*>(o.get()) != nullptr)
 		{
 			auto ngc = dynamic_cast<GraphicsComponent*>(o.get());
 			ngc->addTextureManager(textureManager);
-			this->behaviourObjects.emplace_back(ngc);
+			tempObjects.emplace_back(ngc);
+		}
+		else if (dynamic_cast<ColliderComponent*>(o.get()) != nullptr)
+		{
+			colliderObjects.emplace_back(o);
 		}
 		else if (dynamic_cast<TextComponent*>(o.get()) != nullptr)
 		{
 			auto ntc = dynamic_cast<TextComponent*>(o.get());
 			ntc->addTextureManager(textureManager);
-			this->behaviourObjects.emplace_back(ntc);
+			tempObjects.emplace_back(ntc);
 		}
-		else 
+		else
 		{
-			this->behaviourObjects.emplace_back(o);
+			tempObjects.emplace_back(o);
 		}
 	}
+	collision->registerColliders(colliderObjects);
+	sceneManager.registerScene(sceneName, tempObjects);
+}
+
+void EngineController::loadScene(const std::string& sceneName, const std::string& fromScene, bool clearPrevious)
+{
+	if (renderFacade->renderer->isPaused)
+	{
+		renderFacade->pauseGame();
+	}
+	isSceneSwitched = true;
+	behaviourObjects = sceneManager.loadScene(sceneName, fromScene, clearPrevious);
+
+}
+
+void EngineController::loadPreviousScene()
+{
+	isSceneSwitched = true;
+	behaviourObjects = sceneManager.loadPreviousScene();
+	update();
+}
+
+void EngineController::addOverlayScene(const std::string& sceneName)
+{
+	isSceneSwitched = true;
+	const auto tempObjects = sceneManager.addOverlayScene(sceneName);
+	behaviourObjects.insert(behaviourObjects.end(), tempObjects.begin(), tempObjects.end());
+	update();
+}
+
+void EngineController::passPlayerPosition(int x, int y)
+{
+	std::tuple<int, int> positions = renderFacade->passPlayerPosition(x, y);
 }
 
 /// <summary>
 /// This method registers all given textures, in the AssetManager.
 /// </summary>
 /// <param name="textures">Map of multiple textures.</param>
-void EngineController::registerTextures(std::map<std::string, std::string> textures) {
-	for (auto& t : textures) {
-		assetManager.get()->addTexture(t.first, t.second);
+void EngineController::registerTextures(const std::map<std::string, std::string> textures) {
+	for (const auto& t : textures) {
+		assetManager->addTexture(t.first, t.second);
 	}
 }
 
@@ -208,6 +187,71 @@ void EngineController::registerTextures(std::map<std::string, std::string> textu
 /// <param name="fonts">Map of multiple fonts.</param>
 void EngineController::registerFonts(std::map<std::string, std::string> fonts) {
 	for (auto& t : fonts) {
-		assetManager.get()->addFont(t.first, t.second);
+		assetManager->addFont(t.first, t.second);
 	}
+}
+
+void EngineController::pauseScreen()
+{
+	if (sceneManager.getActiveScenesSize() < 3) {
+		renderFacade->pauseGame();
+		if (renderFacade->renderer->isPaused)
+		{
+			addOverlayScene("PauseScreen");
+		}
+		else
+		{
+			loadPreviousScene();
+		}
+	}
+}
+
+void EngineController::quitGame() const
+{
+	renderFacade->quitGame();
+}
+
+int EngineController::getFPS() const
+{
+	return renderFacade->getFPS();
+}
+
+void EngineController::slowDownGame() const
+{
+	renderFacade->slowDownGame();
+}
+
+void EngineController::speedUpGame() const
+{
+	renderFacade->speedUpGame();
+}
+
+void EngineController::resetSpeedGame() const
+{
+	renderFacade->resetSpeedGame();
+}
+
+void EngineController::passInteract(int x, int y) {
+	for (int i = behaviourObjects.size() - 1; i-- > 0; )
+	{
+		if (behaviourObjects.at(i)->transform.position.x == x && behaviourObjects.at(i)->transform.position.y == y)
+		{
+			behaviourObjects.at(i)->interact();
+		}
+	}
+}
+
+void EngineController::deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject)
+{
+	auto index = std::find(behaviourObjects.begin(), behaviourObjects.end(), deletedObject);
+	if (index != behaviourObjects.end())
+	{
+		behaviourObjects.erase(index);
+		isSceneSwitched = true;
+	}
+}
+
+void EngineController::deleteColliderFromScene(std::shared_ptr<ColliderComponent> deletedCollider)
+{
+	collision->deleteColliderFromScene(deletedCollider);
 }

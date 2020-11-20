@@ -1,4 +1,19 @@
 #pragma once
-#include "Screen.h"
 
-class HelpScreen : Screen {};
+#include "Screen.h"
+#include "TextComponent.h"
+#include "SceneLoader.h"
+#include "Button.h"
+
+class HelpScreen : public Screen
+{
+
+public:
+	HelpScreen();
+	~HelpScreen() {}
+
+	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
+
+	static void staticBackCallbackFunction(const void* p);
+	void backCallbackFunction() const;
+};

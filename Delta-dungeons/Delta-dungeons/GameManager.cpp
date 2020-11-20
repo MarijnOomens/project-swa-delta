@@ -5,30 +5,33 @@
 /// </summary>
 GameManager::GameManager()
 {
-	engineFacade = EngineFacade();
-	engineFacade.init();
-	uiManager = UIManager();
+	engineFacade = std::make_shared<EngineFacade>();
+	engineFacade->init();
+	SceneLoader::getInstance().setEngineFacade(engineFacade);
+	DebugUtilities::getInstance().setEngineFacade(engineFacade);
+	SceneModifier::getInstance().setEngineFacade(engineFacade);
 
 	uiManager.createBaseScreens();
 	registerTextures(uiManager.passTextures());
 	registerFonts(uiManager.passFonts());
 
-	playerManager = std::make_shared<PlayerManager>();
-	playerManager.get()->createPlayer(staticCameraCallbackFunction, this);
-	registerTextures(playerManager.get()->passTextures());
-	
+	playerManager.createPlayer(staticCameraCallbackFunction, staticInteractCallbackFunction, this);
+	registerTextures(playerManager.passTextures());
 
-	scene = Scene();	
-	scene.addGraphics();
-	registerTextures(scene.passTextures());
-	
+	npcManager.createNPC();
+	registerTextures(npcManager.passTextures());
+
+	scene = std::make_shared<Scene>();
+	scene->addGraphics();
+	registerTextures(scene->passTextures());
+
+	eqManager.createEquipment();
+	registerTextures(eqManager.passTextures());
 
 	registerBehaviourObjects();
-	engineFacade.createCamera(playerManager.get()->player.get()->transform.position.x, playerManager.get()->player.get()->transform.position.y);
-	engineFacade.startGame();
+	engineFacade->createCamera(playerManager.player->transform.position.x, playerManager.player->transform.position.y);
+	engineFacade->startGame();
 }
-
-GameManager::~GameManager() {}
 
 /// <summary>
 /// This methods registers all BehaviourObjects from all managers into one big list within the GameManager.
@@ -37,30 +40,51 @@ void GameManager::registerBehaviourObjects()
 {
 	for (auto& o : uiManager.screens)
 	{
-		for (auto& c : o.second.get()->getComponentsRecursive())
+		std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects;
+		behaviourObjects.emplace_back(o.second);
+		for (auto& c : o.second->getComponentsRecursive())
 		{
-			this->objects.emplace_back(c);
+			behaviourObjects.emplace_back(c);
 		}
+		engineFacade->registerScene(o.first, behaviourObjects);
 	}
 
-	for (auto& t : scene.getComponentsRecursive())
+	std::vector<std::shared_ptr<BehaviourObject>> level1;
+	for (auto& t : scene->getComponentsRecursive())
 	{
-		this->objects.emplace_back(t);
+		level1.emplace_back(t);
 	}
-	
-	for (auto& o : playerManager.get()->sprites)
+	level1.emplace_back(scene);
+
+	for (auto& o : npcManager.npcs)
 	{
-		for (auto& c : o.second.get()->getComponentsRecursive())
+		for (auto& n : o.second->getComponentsRecursive())
 		{
-			this->objects.emplace_back(c);
+			level1.emplace_back(n);
 		}
+		level1.emplace_back(o.second.get());
 	}
 
-	this->objects.emplace_back(playerManager.get()->getPlayerObject());
+	for (auto& o : eqManager.equipments)
+	{
+		for (auto& n : o.second->getComponentsRecursive())
+		{
+			level1.emplace_back(n);
+		}
+		level1.emplace_back(o.second.get());
+	}
 
+	for (auto& o : playerManager.sprites)
+	{
+		for (auto& c : o.second->getComponentsRecursive())
+		{
+			level1.emplace_back(c);
+		}
+		level1.emplace_back(o.second);
+	}
 
-
-	engineFacade.registerBehaviourObjects(objects);
+	engineFacade->registerScene("Level1", level1);
+	engineFacade->loadScene("MainMenu", "", true);
 }
 
 /// <summary>
@@ -68,22 +92,32 @@ void GameManager::registerBehaviourObjects()
 /// </summary>
 void GameManager::registerTextures(std::map<std::string, std::string> textures)
 {
-	engineFacade.registerTextures(textures);
+	engineFacade->registerTextures(textures);
 }
 
-void GameManager:: staticCameraCallbackFunction(void* p, int x, int y) 
+void GameManager::staticCameraCallbackFunction(void* p, int x, int y)
 {
 	((GameManager*)p)->passPlayerPosition(x, y);
 }
 
 void GameManager::passPlayerPosition(int x, int y)
 {
-	engineFacade.passPlayerPosition(x, y);
+	engineFacade->passPlayerPosition(x, y);
 }
+
 /// <summary>
 /// This methods gives the engineFacade all fonts to give to the engine.
 /// </summary>
 void GameManager::registerFonts(std::map<std::string, std::string> fonts)
 {
-	engineFacade.registerFonts(fonts);
+	engineFacade->registerFonts(fonts);
+}
+
+void GameManager::staticInteractCallbackFunction(void* p, int x, int y)
+{
+	((GameManager*)p)->interactCallbackFunction(x, y);
+}
+
+void GameManager::interactCallbackFunction(int x, int y) {
+	engineFacade->passInteract(x, y);
 }

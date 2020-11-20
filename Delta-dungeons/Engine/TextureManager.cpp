@@ -13,8 +13,6 @@ TextureManager::TextureManager(std::shared_ptr<RenderFacade> rf, std::shared_ptr
 	renderFacade = rf;
 }
 
-TextureManager::~TextureManager() {}
-
 void TextureManager::loadTexture() {}
 
 /// <summary>
@@ -29,10 +27,10 @@ void TextureManager::loadTexture() {}
 /// <param name="speed">The speed of the animation in case its animated</param>
 /// <param name="animated">A boolean to represent if it is animated or not.</param>
 /// <param name="flipped">A boolean to represent if it is flipped or not.</param>
-void TextureManager::drawTexture(const std::string name, const Transform& transform, const Vector2D& coordinates, const Vector2D& sourceDimensions, int row, int frames, int speed, bool animated, bool flipped)
+void TextureManager::drawTexture(const std::string name, const Transform& transform, const Vector2D& coordinates, const Vector2D& sourceDimensions, int row, int frames, int speed, bool animated, bool flipped, bool isScreen)
 {
 	std::string texturePath = assetManager->getTexture(name);
-	renderFacade->drawTexture(texturePath, transform, coordinates, sourceDimensions, row, frames, speed, animated, flipped);
+	renderFacade->drawTexture(texturePath, transform, coordinates, sourceDimensions, row, frames, speed, animated, flipped,isScreen);
 
 }
 
@@ -44,8 +42,8 @@ void TextureManager::drawTexture(const std::string name, const Transform& transf
 /// <param name="colour">The colour of the text.</param>
 /// <param name="transform">The x and y of the text.</param>
 /// <param name="fontSize">The size of the text.</param>
-void TextureManager::drawText(std::string text, std::string fontName, Colour colour, const Transform& transform, int fontSize) 
+void TextureManager::drawText(const std::string &text,const std::string &fontName,const Colour &colour, const Transform& transform,const int fontSize) 
 {
 	std::string fontPath = assetManager->getFont(fontName);
-	renderFacade->drawText(fontPath, text, colour, transform, fontSize);
+	renderFacade->drawTexture(fontPath, text, colour, transform, fontSize);
 };

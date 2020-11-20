@@ -5,14 +5,16 @@
 /// </summary>
 FrameManager::FrameManager()
 {
-	FPS = 60;
-	frameDelay = 1000 / FPS;
+	fpsLimit = 60.0;
+	frameDelay = 1000.0 / fpsLimit;
 
+	framesAmount = 0;
+	startTime = SDL_GetTicks();
 	frameStart = 0;
 	frameTime = 0;
-}
 
-FrameManager::~FrameManager() {}
+	fps = 0;
+}
 
 /// <summary>
 /// setFrameStart is used to get the start of the second, to determine later if a delay needs to be called to stay 60FPS
@@ -27,8 +29,53 @@ void FrameManager::setFrameStart()
 /// </summary>
 void FrameManager::setFrameDelay()
 {
+	framesAmount++;
+	if (startTime < SDL_GetTicks() - 1000)
+	{
+		startTime = SDL_GetTicks();
+		fps = framesAmount - 1;
+		framesAmount = 0;
+	}
+
 	frameTime = SDL_GetTicks() - frameStart;
 	if (frameDelay > frameTime) {
-		SDL_Delay(frameDelay - frameTime);
+		SDL_Delay(static_cast<Uint32>(frameDelay - frameTime));
 	}
+}
+
+void FrameManager::slowDownGame()
+{
+	if (fpsLimit > 3.0)
+	{
+		fpsLimit = fpsLimit * 0.9;
+	}
+	else 
+	{
+		fpsLimit = 3.0;
+	}
+	frameDelay = 1000.0 / fpsLimit;
+}
+
+void FrameManager::speedUpGame()
+{
+	if (fpsLimit < 144.0)
+	{
+		fpsLimit = fpsLimit * 1.1;
+	}
+	else 
+	{
+		fpsLimit = 144.0;
+	}
+	frameDelay = 1000.0 / fpsLimit;
+}
+
+void FrameManager::resetSpeedGame()
+{
+	fpsLimit = 60.0;
+	frameDelay = 1000.0 / fpsLimit;
+}
+
+int FrameManager::getFPS() const
+{
+	return fps;
 }

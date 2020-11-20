@@ -1,13 +1,26 @@
 #pragma once
 
 #include "InteractiveObject.h"
+#include "GraphicsComponent.h"
+#include "ColliderComponent.h"
 #include <string>
+#include <map>
 
-class Pokemon : InteractiveObject
+class Pokemon : public InteractiveObject
 {
+public:
+	Pokemon(int x, int y, std::string &texture);
+	~Pokemon() {}
+	void interact() override;
+
+protected:
+	std::string sfxPath;
+
 private:
-	std::string name;
+	std::shared_ptr<GraphicsComponent> gc;
+	std::shared_ptr<ColliderComponent> cc;
 	std::string type;
 	int id;
 	int catchRate;
+	const int animationSpeed = 120;
 };
