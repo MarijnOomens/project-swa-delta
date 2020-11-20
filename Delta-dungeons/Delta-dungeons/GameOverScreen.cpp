@@ -33,5 +33,5 @@ void GameOverScreen::staticExitCallbackFunction(const void* p)
 
 void GameOverScreen::exitCallbackFunction() const
 {
-	SceneLoader::getInstance().loadPreviousScene();
+	SceneLoader::getInstance().loadScene("MainMenu", "", true);
 }

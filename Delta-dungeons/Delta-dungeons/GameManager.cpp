@@ -15,7 +15,7 @@ GameManager::GameManager()
 	registerTextures(uiManager.passTextures());
 	registerFonts(uiManager.passFonts());
 
-	playerManager.createPlayer(staticCameraCallbackFunction, staticInteractCallbackFunction,staticGameOverbackFunction, this);
+	playerManager.createPlayer(staticCameraCallbackFunction, staticInteractCallbackFunction, staticGameOverbackFunction, this);
 	registerTextures(playerManager.passTextures());
 
 	npcManager.createNPC();

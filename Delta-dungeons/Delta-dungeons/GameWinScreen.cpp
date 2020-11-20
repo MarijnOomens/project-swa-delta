@@ -31,5 +31,5 @@ void GameWinScreen::staticExitCallbackFunction(const void* p)
 
 void GameWinScreen::exitCallbackFunction() const
 {
-	SceneLoader::getInstance().loadPreviousScene();
+	SceneLoader::getInstance().loadScene("MainMenu", "", true);
 }
