@@ -12,7 +12,6 @@ public:
 	std::vector<std::shared_ptr<GraphicsComponent>> hearts;
 	std::vector<std::shared_ptr<GraphicsComponent>> items;
 	HUD(int health);
-	~HUD() {}
 
 	void updateHealth(int param);
 	void updateCollectedCrystals(int param);

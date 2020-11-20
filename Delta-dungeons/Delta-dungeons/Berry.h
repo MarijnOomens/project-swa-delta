@@ -9,7 +9,6 @@ class Berry : public IEquipment
 public:
 	Berry() {}
 	Berry(int x, int y, std::string texture);
-	~Berry() {}
 
 	void interact() override;
 	void use() override;

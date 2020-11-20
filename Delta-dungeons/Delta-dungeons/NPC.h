@@ -9,7 +9,6 @@ class NPC : public InteractiveObject
 {
 public:
 	NPC(int x, int y, std::string& texture);
-	~NPC() {}
 
 	void interact() override;
 

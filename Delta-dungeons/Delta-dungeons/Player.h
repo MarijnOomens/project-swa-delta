@@ -24,7 +24,6 @@ public:
 	void* pointer;
 
 	Player(cbCamera f, cbInteract interactCB, void* p);
-	~Player() {}
 
 	void handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
 	void interact() override;

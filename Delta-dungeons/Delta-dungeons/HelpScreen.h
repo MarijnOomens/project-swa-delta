@@ -10,7 +10,6 @@ class HelpScreen : public Screen
 
 public:
 	HelpScreen();
-	~HelpScreen() {}
 
 	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
 

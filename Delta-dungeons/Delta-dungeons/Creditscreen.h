@@ -9,7 +9,6 @@ class CreditScreen : public Screen
 {
 public:
 	CreditScreen();
-	~CreditScreen() {}
 
 	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
 

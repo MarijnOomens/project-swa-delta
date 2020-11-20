@@ -9,7 +9,6 @@ class Pokeball : public IEquipment
 public:
 	Pokeball() {}
 	Pokeball(int x, int y, std::string texture);
-	~Pokeball() {}
 
 	void interact() override;
 	void use() override;

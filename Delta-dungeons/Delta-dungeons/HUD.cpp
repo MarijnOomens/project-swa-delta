@@ -53,8 +53,16 @@ void HUD::deleteHealth()
 	if (health > 1)
 	{
 		std::shared_ptr<GraphicsComponent> heart = hearts.back();
-		components.erase(std::find(components.begin(), components.end(), heart));
-		hearts.erase(std::find(hearts.begin(), hearts.end(), heart));
+		auto i = std::find(components.begin(), components.end(), heart);
+		if (i != components.end()) 
+		{
+			components.erase(i);
+		}
+		auto h = std::find(hearts.begin(), hearts.end(), heart);
+		if (h != hearts.end())
+		{
+			hearts.erase(h);
+		}
 		SceneModifier::getInstance().deleteObjectFromScene(heart);
 		health--;
 		updateItems(health);
