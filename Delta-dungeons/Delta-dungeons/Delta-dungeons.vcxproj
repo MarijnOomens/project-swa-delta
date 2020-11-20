@@ -171,6 +171,7 @@
     <ClCompile Include="HealingItem.cpp" />
     <ClCompile Include="HelpScreen.cpp" />
     <ClCompile Include="HUD.cpp" />
+    <ClCompile Include="HUDManager.cpp" />
     <ClCompile Include="IEquipment.h" />
     <ClCompile Include="InteractiveManager.cpp" />
     <ClCompile Include="InteractiveObject.cpp" />
@@ -212,6 +213,7 @@
     <ClInclude Include="HealingItem.h" />
     <ClInclude Include="HelpScreen.h" />
     <ClInclude Include="HUD.h" />
+    <ClInclude Include="HUDManager.h" />
     <ClInclude Include="NPCManager.h" />
     <ClInclude Include="SceneModifier.h" />
     <ClInclude Include="ParserData.h" />

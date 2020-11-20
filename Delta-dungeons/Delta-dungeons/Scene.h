@@ -17,7 +17,6 @@ class Scene : public GameObject
 public:
 	Scene() {}
 	Scene(int x, int y);
-	~Scene() {}
 
 	void addGraphics();
 	std::map<std::string, std::string> passTextures() const;

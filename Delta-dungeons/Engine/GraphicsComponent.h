@@ -14,7 +14,6 @@ public:
 	bool isScreen;
 
 	ENGINE_API GraphicsComponent() {};
-	ENGINE_API ~GraphicsComponent() {};
 
 	ENGINE_API void playAnimation(int row, int frames, int speed, bool flip);
 

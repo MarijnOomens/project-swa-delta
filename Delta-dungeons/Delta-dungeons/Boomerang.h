@@ -9,9 +9,8 @@ typedef void(*cbEquipmentBoomerang) (void*, bool);
 class Boomerang : public IEquipment
 {
 public:
-	Boomerang(const cbEquipmentBoomerang f, void* p);
+	Boomerang(const std::string& t,const cbEquipmentBoomerang f, void* p);
 	Boomerang(int x, int y, std::string texture);
-	~Boomerang() {}
 	
 	void use() override;
 	void interact() override;
