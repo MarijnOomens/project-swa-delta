@@ -53,7 +53,7 @@ SDL_Texture* DrawController::loadFont(const std::string& text, const std::string
 	else 
 	{
 		SDL_Color textColour = { static_cast<Uint8>(colour.r), static_cast<Uint8>(colour.g), static_cast<Uint8>(colour.b), static_cast<Uint8>(colour.a) };
-		SDL_Surface* tempSurface = TTF_RenderText_Blended(TTF_OpenFont(font.c_str(), fontSize), text.c_str(), textColour);
+		SDL_Surface* tempSurface = TTF_RenderText_Blended_Wrapped(TTF_OpenFont(font.c_str(), fontSize), text.c_str(), textColour, 1200);
 		try
 		{
 			if (!tempSurface)
