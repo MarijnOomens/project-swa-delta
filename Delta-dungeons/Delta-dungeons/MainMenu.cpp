@@ -80,7 +80,7 @@ void MainMenu::staticOpenCreditsCallbackFunction(const void* p)
 
 void MainMenu::openCreditsCallbackFunction() const
 {
-	SceneLoader::getInstance().loadScene("CreditsScreen", "MainMenu", false);
+	SceneLoader::getInstance().loadScene("CreditsScreen", "MainMenu", true);
 }
 
 void MainMenu::staticOpenHelpCallbackFunction(const void* p)
@@ -90,7 +90,7 @@ void MainMenu::staticOpenHelpCallbackFunction(const void* p)
 
 void MainMenu::openHelpCallbackFunction() const
 {
-	SceneLoader::getInstance().loadScene("HelpScreen", "MainMenu", false);
+	SceneLoader::getInstance().loadScene("HelpScreen", "MainMenu", true);
 }
 
 void MainMenu::staticExitCallbackFunction(const void* p) 

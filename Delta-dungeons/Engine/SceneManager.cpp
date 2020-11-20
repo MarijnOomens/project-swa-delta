@@ -10,8 +10,6 @@ void SceneManager::update()
 
 void SceneManager::loadScene(const std::string& sceneName, const std::string& fromScene, const bool clearPrevious)
 {
-	//activeScenes.clear();
-
 	if (clearPrevious)
 	{
 		previousScenes.clear();
