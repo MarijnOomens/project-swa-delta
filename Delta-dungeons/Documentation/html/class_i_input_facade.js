@@ -1,6 +1,6 @@
 var class_i_input_facade =
 [
-    [ "handleInput", "class_i_input_facade.html#a67fc3482014a7d177f847fca712c1c73", null ],
-    [ "mapKeyBindings", "class_i_input_facade.html#adbb983e91284fc8186812eeffb0136c8", null ],
-    [ "wrapper", "class_i_input_facade.html#a7e4cb64bc4f9f09bb98bf7ba8e09de2f", null ]
+    [ "handleInput", "class_i_input_facade.html#af2708f6cdd70482ac1366ec07655e40d", null ],
+    [ "mapKeyBindings", "class_i_input_facade.html#a1d4aa30725745a656a45e6ad47cec553", null ],
+    [ "inputWrapper", "class_i_input_facade.html#a03f4835033af5a6f53a0cc15f7fc0722", null ]
 ];

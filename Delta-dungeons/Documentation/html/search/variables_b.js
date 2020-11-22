@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['r_613',['r',['../class_colour.html#a3b9e07fabb4cead3fdd109345895a1ef',1,'Colour']]],
-  ['renderer_614',['renderer',['../class_draw_controller.html#a44a2080f0125cd2747b3f077b0773366',1,'DrawController::renderer()'],['../class_render_facade.html#ac9d3a422f74846879134b9ff71da93aa',1,'RenderFacade::renderer()']]],
-  ['rotation_615',['rotation',['../class_transform.html#a83a0c7a1b9107308d49ceb12b495b7e9',1,'Transform']]]
+  ['scale_720',['scale',['../class_transform.html#a0b63a10f58909e0c8c8e7a936afdfa3f',1,'Transform']]],
+  ['sdlrenderer_721',['sdlRenderer',['../class_renderer.html#a785de8b89acc27606fb022ce19bb1080',1,'Renderer']]]
 ];

@@ -96,6 +96,7 @@ $(document).ready(function(){initNavTree('class_scene_manager.html',''); initRes
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="class_scene_manager-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">SceneManager Class Reference</div>  </div>
@@ -110,8 +111,33 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a52085e6737c23b491c228e86781af808"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2bb376a85d29e85f47753e26c7539229"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_manager.html#a2bb376a85d29e85f47753e26c7539229">~SceneManager</a> ()</td></tr>
 <tr class="separator:a2bb376a85d29e85f47753e26c7539229"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76bb05aaa97dc43fe728abfe4513c481"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_manager.html#a76bb05aaa97dc43fe728abfe4513c481">LoadScene</a> (int scene)</td></tr>
-<tr class="separator:a76bb05aaa97dc43fe728abfe4513c481"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1aca67532fca8ae38c1ef8b2a6eb637"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_manager.html#aa1aca67532fca8ae38c1ef8b2a6eb637">update</a> ()</td></tr>
+<tr class="separator:aa1aca67532fca8ae38c1ef8b2a6eb637"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e088af4b364f6fb5b637a3dc2ae7f0b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_manager.html#a2e088af4b364f6fb5b637a3dc2ae7f0b">loadScene</a> (const std::string &amp;sceneName, const std::string &amp;fromScene, const bool clearPrevious)</td></tr>
+<tr class="separator:a2e088af4b364f6fb5b637a3dc2ae7f0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa49b30d407df68835d1b37005cff6fde"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_manager.html#aa49b30d407df68835d1b37005cff6fde">registerScene</a> (const std::string &amp;sceneName, const std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_behaviour_object.html">BehaviourObject</a> &gt;&gt; behaviourObjects)</td></tr>
+<tr class="separator:aa49b30d407df68835d1b37005cff6fde"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00509c9a9aa823f4bf802133b72b69ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_manager.html#a00509c9a9aa823f4bf802133b72b69ba">loadPreviousScene</a> ()</td></tr>
+<tr class="separator:a00509c9a9aa823f4bf802133b72b69ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cb677ee687742b2a9de80d5d201ba7f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_manager.html#a4cb677ee687742b2a9de80d5d201ba7f">addOverlayScene</a> (const std::string &amp;sceneName)</td></tr>
+<tr class="separator:a4cb677ee687742b2a9de80d5d201ba7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af813898efbdecd37ac8f201580361afc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_manager.html#af813898efbdecd37ac8f201580361afc">getActiveScenesSize</a> ()</td></tr>
+<tr class="separator:af813898efbdecd37ac8f201580361afc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c2f94ef046d895a3d4efbf8736232b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_manager.html#a9c2f94ef046d895a3d4efbf8736232b2">setSceneSwitched</a> (bool isSwitched)</td></tr>
+<tr class="separator:a9c2f94ef046d895a3d4efbf8736232b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a659240a096b42b3af00bc35bd367bf61"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_manager.html#a659240a096b42b3af00bc35bd367bf61">handleSceneInput</a> (const <a class="el" href="_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fc">KeyCodes</a> keyCode, const <a class="el" href="_keyboardevent_8h.html#abfaf4f911065374ca6c765029ec086ae">KeyboardEvent</a> keyboardEvent, <a class="el" href="class_vector2_d.html">Vector2D</a> mousePos)</td></tr>
+<tr class="separator:a659240a096b42b3af00bc35bd367bf61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a874fbc898b78bd10304318e01ecb67bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_manager.html#a874fbc898b78bd10304318e01ecb67bf">addObjectToScene</a> (const std::shared_ptr&lt; <a class="el" href="class_behaviour_object.html">BehaviourObject</a> &gt; &amp;addObject)</td></tr>
+<tr class="separator:a874fbc898b78bd10304318e01ecb67bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4a3e216ddd38d54592230fd7f02f454"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_manager.html#ab4a3e216ddd38d54592230fd7f02f454">deleteObjectFromScene</a> (const std::shared_ptr&lt; <a class="el" href="class_behaviour_object.html">BehaviourObject</a> &gt; &amp;deletedObject)</td></tr>
+<tr class="separator:ab4a3e216ddd38d54592230fd7f02f454"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad76041797a6c6c30d3b8318b66db0952"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_manager.html#ad76041797a6c6c30d3b8318b66db0952">passInteract</a> (int x, int y)</td></tr>
+<tr class="separator:ad76041797a6c6c30d3b8318b66db0952"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a6f8339d725d97183a1e988dad51d91c0"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_behaviour_object.html">BehaviourObject</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene_manager.html#a6f8339d725d97183a1e988dad51d91c0">currentObjects</a></td></tr>
+<tr class="separator:a6f8339d725d97183a1e988dad51d91c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a52085e6737c23b491c228e86781af808"></a>
@@ -119,6 +145,9 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">SceneManager::SceneManager </td>
@@ -127,6 +156,11 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -136,9 +170,89 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">SceneManager::~SceneManager </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a874fbc898b78bd10304318e01ecb67bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a874fbc898b78bd10304318e01ecb67bf">&#9670;&nbsp;</a></span>addObjectToScene()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SceneManager::addObjectToScene </td>
+          <td>(</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_behaviour_object.html">BehaviourObject</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>addObject</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4cb677ee687742b2a9de80d5d201ba7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4cb677ee687742b2a9de80d5d201ba7f">&#9670;&nbsp;</a></span>addOverlayScene()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SceneManager::addOverlayScene </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>sceneName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab4a3e216ddd38d54592230fd7f02f454"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4a3e216ddd38d54592230fd7f02f454">&#9670;&nbsp;</a></span>deleteObjectFromScene()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SceneManager::deleteObjectFromScene </td>
+          <td>(</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_behaviour_object.html">BehaviourObject</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>deletedObject</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af813898efbdecd37ac8f201580361afc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af813898efbdecd37ac8f201580361afc">&#9670;&nbsp;</a></span>getActiveScenesSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SceneManager::getActiveScenesSize </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -148,19 +262,191 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a76bb05aaa97dc43fe728abfe4513c481"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a76bb05aaa97dc43fe728abfe4513c481">&#9670;&nbsp;</a></span>LoadScene()</h2>
+<a id="a659240a096b42b3af00bc35bd367bf61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a659240a096b42b3af00bc35bd367bf61">&#9670;&nbsp;</a></span>handleSceneInput()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int SceneManager::LoadScene </td>
+          <td class="memname">void SceneManager::handleSceneInput </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fc">KeyCodes</a>&#160;</td>
+          <td class="paramname"><em>keyCode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="_keyboardevent_8h.html#abfaf4f911065374ca6c765029ec086ae">KeyboardEvent</a>&#160;</td>
+          <td class="paramname"><em>keyboardEvent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_vector2_d.html">Vector2D</a>&#160;</td>
+          <td class="paramname"><em>mousePos</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a00509c9a9aa823f4bf802133b72b69ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00509c9a9aa823f4bf802133b72b69ba">&#9670;&nbsp;</a></span>loadPreviousScene()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SceneManager::loadPreviousScene </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2e088af4b364f6fb5b637a3dc2ae7f0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e088af4b364f6fb5b637a3dc2ae7f0b">&#9670;&nbsp;</a></span>loadScene()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SceneManager::loadScene </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>sceneName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>fromScene</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const bool&#160;</td>
+          <td class="paramname"><em>clearPrevious</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad76041797a6c6c30d3b8318b66db0952"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad76041797a6c6c30d3b8318b66db0952">&#9670;&nbsp;</a></span>passInteract()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SceneManager::passInteract </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>scene</em></td><td>)</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa49b30d407df68835d1b37005cff6fde"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa49b30d407df68835d1b37005cff6fde">&#9670;&nbsp;</a></span>registerScene()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SceneManager::registerScene </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>sceneName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_behaviour_object.html">BehaviourObject</a> &gt;&gt;&#160;</td>
+          <td class="paramname"><em>behaviourObjects</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9c2f94ef046d895a3d4efbf8736232b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c2f94ef046d895a3d4efbf8736232b2">&#9670;&nbsp;</a></span>setSceneSwitched()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SceneManager::setSceneSwitched </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>isSwitched</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa1aca67532fca8ae38c1ef8b2a6eb637"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1aca67532fca8ae38c1ef8b2a6eb637">&#9670;&nbsp;</a></span>update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SceneManager::update </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a6f8339d725d97183a1e988dad51d91c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f8339d725d97183a1e988dad51d91c0">&#9670;&nbsp;</a></span>currentObjects</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::shared_ptr&lt;<a class="el" href="class_behaviour_object.html">BehaviourObject</a>&gt; &gt; SceneManager::currentObjects</td>
         </tr>
       </table>
 </div><div class="memdoc">
