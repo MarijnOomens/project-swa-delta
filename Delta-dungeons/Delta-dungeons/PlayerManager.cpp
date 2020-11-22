@@ -3,21 +3,9 @@
 /// <summary>
 /// This is a manager class for the player in which the Player is created and the texture is stored.
 /// </summary>
-
-PlayerManager::PlayerManager()
+void PlayerManager::createPlayer(cbCamera cb, cbInteract interactCB, cbGameOver gameOverCB, cbHUD hudCB, void* p)
 {
-	
-}
-
-PlayerManager::~PlayerManager()
-{
-
-}
-
-void PlayerManager::createPlayer(cbCamera cb, void* p)
-{
-	player = std::make_shared<Player>(cb, p);
-	sprites.try_emplace("Player", player);
+	player = std::make_shared<Player>(cb, interactCB, gameOverCB,hudCB, p);
 }
 
 /// <summary>
@@ -26,7 +14,7 @@ void PlayerManager::createPlayer(cbCamera cb, void* p)
 /// <returns>Returns a map of the textures.</returns>
 std::map<std::string, std::string> PlayerManager::passTextures() const
 {
-    std::map<std::string, std::string> texture = sprites.begin()->second.get()->textures;
+    std::map<std::string, std::string> texture = player->textures;
     return texture;
 }
 
@@ -37,4 +25,9 @@ std::map<std::string, std::string> PlayerManager::passTextures() const
 std::shared_ptr<Player> PlayerManager::getPlayerObject()
 {
     return player;
+}
+
+std::vector<std::string> PlayerManager::getItems()
+{
+    return player->getItems();
 }

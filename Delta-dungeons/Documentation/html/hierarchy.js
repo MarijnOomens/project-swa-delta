@@ -4,16 +4,21 @@ var hierarchy =
     [ "rapidxml::attribute_iterator< Ch >", "classrapidxml_1_1attribute__iterator.html", null ],
     [ "AudioWrapper", "class_audio_wrapper.html", null ],
     [ "BehaviourObject", "class_behaviour_object.html", [
+      [ "ColliderComponent", "class_collider_component.html", [
+        [ "DamageColliderComponent", "class_damage_collider_component.html", null ],
+        [ "RegularColliderComponent", "class_regular_collider_component.html", null ]
+      ] ],
       [ "GameObject", "class_game_object.html", null ],
       [ "GraphicsComponent", "class_graphics_component.html", null ],
       [ "HUDComponent", "class_h_u_d_component.html", null ],
       [ "TextComponent", "class_text_component.html", null ],
       [ "UIComponent", "class_u_i_component.html", null ]
     ] ],
-    [ "ColliderComponent", "class_collider_component.html", null ],
+    [ "Collision", "class_collision.html", null ],
     [ "Colour", "class_colour.html", null ],
     [ "DrawController", "class_draw_controller.html", null ],
     [ "EngineController", "class_engine_controller.html", null ],
+    [ "EngineFacade", "class_engine_facade.html", null ],
     [ "exception", null, [
       [ "rapidxml::parse_error", "classrapidxml_1_1parse__error.html", null ]
     ] ],

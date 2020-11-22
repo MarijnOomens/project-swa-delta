@@ -22,9 +22,6 @@
     <Filter Include="Header Files\Engine\Input">
       <UniqueIdentifier>{31479452-c0e8-46be-b33a-46975b643728}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Engine\input">
-      <UniqueIdentifier>{540a8c5b-d7a8-49df-97e9-c24a5cc4e3ca}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\SDL">
       <UniqueIdentifier>{06c380c4-5411-4021-96f5-e3cf304d9850}</UniqueIdentifier>
     </Filter>
@@ -37,6 +34,15 @@
     <Filter Include="Source Files\SDL\Input">
       <UniqueIdentifier>{d788796d-e34c-45e5-aed6-24c38e4a0123}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Engine\Input">
+      <UniqueIdentifier>{540a8c5b-d7a8-49df-97e9-c24a5cc4e3ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Collider">
+      <UniqueIdentifier>{e43bf398-16a2-413a-875c-96cca5a1e1a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Collider">
+      <UniqueIdentifier>{dac1a7f3-4903-42dc-8605-04c9ee481534}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Vector2D.h">
@@ -46,9 +52,6 @@
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="SceneManager.h">
-      <Filter>Header Files\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="ColliderComponent.h">
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="GameObject.h">
@@ -121,14 +124,26 @@
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="TextComponent.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineFacade.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Collision.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="ColliderComponent.h">
+      <Filter>Header Files\Engine\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="DamageColliderComponent.h">
+      <Filter>Header Files\Engine\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="RegularColliderComponent.h">
+      <Filter>Header Files\Engine\Collider</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Vector2D.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="Transform.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
     <ClCompile Include="TextureManager.cpp">
@@ -179,9 +194,6 @@
     <ClCompile Include="EngineController.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="ColliderComponent.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
     <ClCompile Include="BehaviourObject.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
@@ -189,13 +201,28 @@
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
     <ClCompile Include="Input.cpp">
-      <Filter>Source Files\Engine\input</Filter>
+      <Filter>Source Files\Engine\Input</Filter>
     </ClCompile>
     <ClCompile Include="Colour.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
     <ClCompile Include="TextComponent.cpp">
       <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="EngineFacade.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Collision.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="ColliderComponent.cpp">
+      <Filter>Source Files\Engine\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="RegularColliderComponent.cpp">
+      <Filter>Source Files\Engine\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="DamageColliderComponent.cpp">
+      <Filter>Source Files\Engine\Collider</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -1,24 +1,17 @@
 #include "DrawController.h"
 
-DrawController::DrawController() {}
-
 /// <summary>
 /// The drawcontroller renders all the items in the game using a single renderer.
 /// </summary>
 /// <param name="r">The game renderer (SDL)</param>
-DrawController::DrawController(std::shared_ptr<Renderer> r)
-{
-	renderer = r;
-}
-
-DrawController::~DrawController() {}
+DrawController::DrawController(std::shared_ptr<Renderer> renderer) : renderer(renderer) {}
 
 /// <summary>
 /// The loadtexture method loads in a textures based on a given path. If the texture is already made, it will return it without creating a new one.
 /// </summary>
 /// <param name="path">The path of where the .png can be found.</param>
 /// <returns>Returns a SDL_Texture to be drawn on the screen in another method.</returns>
-SDL_Texture* DrawController::loadTexture(std::string path)
+SDL_Texture* DrawController::loadTexture(const std::string& path)
 {
 	if (textures.count(path))
 	{
@@ -27,7 +20,8 @@ SDL_Texture* DrawController::loadTexture(std::string path)
 	else
 	{
 		SDL_Surface* tempSurface = IMG_Load(path.c_str());
-		try {
+		try 
+		{
 			if (!tempSurface) {
 				throw("Image not loaded in!");
 			}
@@ -35,8 +29,8 @@ SDL_Texture* DrawController::loadTexture(std::string path)
 		catch (std::string error) {
 			std::cout << "Error: " << error << std::endl;
 		}
-		SDL_Texture* tex = SDL_CreateTextureFromSurface(renderer.get()->sdlRenderer, tempSurface);
-		textures.insert({ path, tex });
+		SDL_Texture* tex = SDL_CreateTextureFromSurface(renderer->sdlRenderer, tempSurface);
+		textures.try_emplace(path, tex);
 		SDL_FreeSurface(tempSurface);
 		return tex;
 	}
@@ -50,15 +44,16 @@ SDL_Texture* DrawController::loadTexture(std::string path)
 /// <param name="colour">This is the color the text will appear in.</param>
 /// <param name="fontSize">This is the size of the text.</param>
 /// <returns>Returns a SDL_Texture to be drawn on the screen in another method.</returns>
-SDL_Texture* DrawController::loadFont(std::string text, std::string font, Colour colour, int fontSize)
+SDL_Texture* DrawController::loadFont(const std::string& text, const std::string& font, const Colour& colour, int fontSize)
 {
 	if (textures.count(text))
 	{
 		return textures.find(text)->second;
 	}
-	else {
-		SDL_Color textColour = { colour.r, colour.g, colour.b, colour.a };
-		SDL_Surface* tempSurface = TTF_RenderText_Blended(TTF_OpenFont(font.c_str(), fontSize), text.c_str(), textColour);
+	else 
+	{
+		SDL_Color textColour = { static_cast<Uint8>(colour.r), static_cast<Uint8>(colour.g), static_cast<Uint8>(colour.b), static_cast<Uint8>(colour.a) };
+		SDL_Surface* tempSurface = TTF_RenderText_Blended_Wrapped(TTF_OpenFont(font.c_str(), fontSize), text.c_str(), textColour, 1200);
 		try
 		{
 			if (!tempSurface)
@@ -70,8 +65,8 @@ SDL_Texture* DrawController::loadFont(std::string text, std::string font, Colour
 		{
 			std::cout << "Error: " << error << std::endl;
 		}
-		SDL_Texture* tex = SDL_CreateTextureFromSurface(renderer.get()->sdlRenderer, tempSurface);
-		textures.insert({ text, tex }); // TODO: Meer unieke manier vinden om op te zoeken
+		SDL_Texture* tex = SDL_CreateTextureFromSurface(renderer->sdlRenderer, tempSurface);
+		textures.try_emplace(text, tex); // TODO: Meer unieke manier vinden om op te zoeken
 		SDL_FreeSurface(tempSurface);
 		return tex;
 	}
@@ -85,19 +80,22 @@ SDL_Texture* DrawController::loadFont(std::string text, std::string font, Colour
 /// <param name="source">The source is the width and height of the texture.</param>
 /// <param name="destination">The destination is the X and Y position of the texture.</param>
 /// <param name="flip">The flip is to determine if the texture needs to drawn upside down, flipped or normal. (Used for animations)</param>
-void DrawController::drawTexture(SDL_Texture* texture, SDL_Rect source, SDL_Rect destination, SDL_RendererFlip flip)
+void DrawController::drawTexture(SDL_Texture* texture, SDL_Rect source, SDL_Rect destination, SDL_RendererFlip flip) const
 {
-	try {
-		if (renderer.get()->sdlRenderer == NULL) {
+	try 
+	{
+		if (renderer->sdlRenderer == NULL) 
+		{
 			throw("Renderer is NULL!");
 		}
-		else if (texture == NULL) {
+		else if (texture == NULL) 
+		{
 			throw("SDL_Texture is NULL!");
 		}
-		SDL_RenderCopyEx(renderer.get()->sdlRenderer, texture, &source, &destination, NULL, NULL, flip);
-		
+		SDL_RenderCopyEx(renderer->sdlRenderer, texture, &source, &destination, NULL, NULL, flip);	
 	}
-	catch (std::string error) {
+	catch (const std::string& error) 
+	{
 		std::cout << "Error: " << error << std::endl;
 	}
 }

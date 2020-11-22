@@ -1,14 +1,5 @@
 #include "GameObjectBuilder.h"
 
-GameObjectBuilder::GameObjectBuilder(){}
-GameObjectBuilder::~GameObjectBuilder(){}
-
-std::shared_ptr<Pokemon> GameObjectBuilder::getPokemon(int x, int y, std::string name) {
-	std::shared_ptr<Pokemon> pokemon = std::make_shared<Pokemon>(x, y, name);
-	pokemon->textures.try_emplace(name, "Assets/Pokemon/" + name + "_anims.png");
-	return pokemon;
-}
-
 //std::shared_ptr<Player> GameObjectBuilder::getPlayer(int x, int y) {
 //	/*std::shared_ptr<Player> player = std::make_shared<Player>(x, y);
 //	player->textures.try_emplace("player", "Assets/player_anims.png");
@@ -19,8 +10,50 @@ std::shared_ptr<Pokemon> GameObjectBuilder::getPokemon(int x, int y, std::string
 //	return pokemon;
 //}
 
-std::shared_ptr<NPC> GameObjectBuilder::getNPC(int x, int y, std::string name) {
+std::shared_ptr<NPC> GameObjectBuilder::getNPC(int x, int y, std::string name)
+{
 	std::shared_ptr<NPC> npc = std::make_shared<NPC>(x, y, name);
 	npc->textures.try_emplace(name, "Assets/NPC/" + name + "_anims.png");
 	return npc;
+}
+
+std::shared_ptr<Pokemon> GameObjectBuilder::getPokemon(int x, int y, std::string name)
+{
+	std::shared_ptr<Pokemon> pokemon = std::make_shared<Pokemon>(x, y, name);
+	pokemon->textures.try_emplace(name, "Assets/Pokemon/" + name + "_anims.png");
+	return pokemon;
+}
+/// <summary>
+/// Creates desired Equipment Object.
+/// </summary>
+/// <param name="x">Correct x of equipment</param>
+/// <param name="y">Correct y of equipment</param>
+/// <param name="name">Name of Equipment.</param>
+/// <returns>Correct Equipment object.</returns>
+std::shared_ptr<IEquipment> GameObjectBuilder::getEquipment(int x, int y, std::string name)
+{
+	if (name == "pokeball")
+	{
+		std::shared_ptr<Pokeball> pokeball = std::make_shared<Pokeball>(x, y, name);
+		pokeball->textures.try_emplace(name, "Assets/Equipment/" + name + ".png");
+		return pokeball;
+	}
+	else if (name == "berry")
+	{
+		std::shared_ptr<Berry> berry = std::make_shared<Berry>(x, y, name);
+		berry->textures.try_emplace(name, "Assets/Equipment/" + name + ".png");
+		return berry;
+	}
+	else if (name == "running_shoes")
+	{
+		std::shared_ptr<RunningShoes> runningShoes = std::make_shared<RunningShoes>(x, y, name);
+		runningShoes->textures.try_emplace(name, "Assets/Equipment/" + name + ".png");
+		return runningShoes;
+	}
+	else if (name == "boomerang")
+	{
+		std::shared_ptr<Boomerang> boomerang = std::make_shared<Boomerang>(x, y, name);
+		boomerang->textures.try_emplace(name, "Assets/Equipment/" + name + ".png");
+		return boomerang;
+	}
 }

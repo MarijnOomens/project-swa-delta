@@ -99,7 +99,7 @@ $(document).ready(function(){initNavTree('class_i_input_facade.html',''); initRe
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="class_i_input_facade-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">IInputFacade Class Reference</div>  </div>
+<div class="title">IInputFacade Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -116,20 +116,19 @@ Inheritance diagram for IInputFacade:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a67fc3482014a7d177f847fca712c1c73"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_input_facade.html#a67fc3482014a7d177f847fca712c1c73">handleInput</a> ()</td></tr>
-<tr class="memdesc:a67fc3482014a7d177f847fca712c1c73"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function takes the input and gives it to the code behind the facade.  <a href="class_i_input_facade.html#a67fc3482014a7d177f847fca712c1c73">More...</a><br /></td></tr>
-<tr class="separator:a67fc3482014a7d177f847fca712c1c73"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adbb983e91284fc8186812eeffb0136c8"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_input_facade.html#adbb983e91284fc8186812eeffb0136c8">mapKeyBindings</a> (<a class="el" href="_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fc">KeyCodes</a> code)</td></tr>
-<tr class="separator:adbb983e91284fc8186812eeffb0136c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2708f6cdd70482ac1366ec07655e40d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_input_facade.html#af2708f6cdd70482ac1366ec07655e40d">handleInput</a> (const bool isPaused) const =0</td></tr>
+<tr class="separator:af2708f6cdd70482ac1366ec07655e40d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d4aa30725745a656a45e6ad47cec553"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_input_facade.html#a1d4aa30725745a656a45e6ad47cec553">mapKeyBindings</a> (const <a class="el" href="_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fc">KeyCodes</a> &amp;code)=0</td></tr>
+<tr class="separator:a1d4aa30725745a656a45e6ad47cec553"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a7e4cb64bc4f9f09bb98bf7ba8e09de2f"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="class_input_wrapper.html">InputWrapper</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_input_facade.html#a7e4cb64bc4f9f09bb98bf7ba8e09de2f">wrapper</a></td></tr>
-<tr class="separator:a7e4cb64bc4f9f09bb98bf7ba8e09de2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03f4835033af5a6f53a0cc15f7fc0722"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="class_input_wrapper.html">InputWrapper</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_input_facade.html#a03f4835033af5a6f53a0cc15f7fc0722">inputWrapper</a></td></tr>
+<tr class="separator:a03f4835033af5a6f53a0cc15f7fc0722"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a67fc3482014a7d177f847fca712c1c73"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a67fc3482014a7d177f847fca712c1c73">&#9670;&nbsp;</a></span>handleInput()</h2>
+<a id="af2708f6cdd70482ac1366ec07655e40d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2708f6cdd70482ac1366ec07655e40d">&#9670;&nbsp;</a></span>handleInput()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -138,25 +137,26 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void IInputFacade::handleInput </td>
+          <td class="memname">virtual void IInputFacade::handleInput </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="paramtype">const bool&#160;</td>
+          <td class="paramname"><em>isPaused</em></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>This function takes the input and gives it to the code behind the facade. </p>
+<p>Implemented in <a class="el" href="class_input_facade.html#a892eee0c6f3a6b9fc236a917a07e040f">InputFacade</a>.</p>
 
 </div>
 </div>
-<a id="adbb983e91284fc8186812eeffb0136c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adbb983e91284fc8186812eeffb0136c8">&#9670;&nbsp;</a></span>mapKeyBindings()</h2>
+<a id="a1d4aa30725745a656a45e6ad47cec553"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d4aa30725745a656a45e6ad47cec553">&#9670;&nbsp;</a></span>mapKeyBindings()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -165,31 +165,33 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void IInputFacade::mapKeyBindings </td>
+          <td class="memname">virtual void IInputFacade::mapKeyBindings </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fc">KeyCodes</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fc">KeyCodes</a> &amp;&#160;</td>
           <td class="paramname"><em>code</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
+<p>Implemented in <a class="el" href="class_input_facade.html#a5261261fa0b382d8afea423c8236bc35">InputFacade</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a7e4cb64bc4f9f09bb98bf7ba8e09de2f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e4cb64bc4f9f09bb98bf7ba8e09de2f">&#9670;&nbsp;</a></span>wrapper</h2>
+<a id="a03f4835033af5a6f53a0cc15f7fc0722"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03f4835033af5a6f53a0cc15f7fc0722">&#9670;&nbsp;</a></span>inputWrapper</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::unique_ptr&lt;<a class="el" href="class_input_wrapper.html">InputWrapper</a>&gt; IInputFacade::wrapper</td>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="class_input_wrapper.html">InputWrapper</a>&gt; IInputFacade::inputWrapper</td>
         </tr>
       </table>
 </div><div class="memdoc">

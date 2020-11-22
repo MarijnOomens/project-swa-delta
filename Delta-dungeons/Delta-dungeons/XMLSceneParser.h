@@ -2,19 +2,22 @@
 
 #include "SceneParser.h"
 #include "XMLFacade.h"
-#include "Scene.h"
 #include "ParserData.h"
 #include "Tile.h"
 #include <string>
+#include "PokemonParserData.h"
 
-class XMLSceneParser : public SceneParser {
+class XMLSceneParser : public SceneParser
+{
 public:
-	XMLSceneParser();
-	~XMLSceneParser();
+	XMLSceneParser() {}
+	~XMLSceneParser() {}
 
-	std::unique_ptr<XMLFacade> facade;
-	std::shared_ptr<Scene> scene;
+	std::vector<std::shared_ptr<Tile>> loadScene(const std::string& path);
+	std::vector<std::shared_ptr<PokemonParserData>> loadPokemon(const std::string& path);
+	std::vector<std::shared_ptr<ParserData>> getEquipmentDataList(const std::string& path);
+	std::vector<std::shared_ptr<ParserData>> getNPCDataList(const std::string& path);
 
-	std::vector<std::shared_ptr<Tile>> loadScene(const char* path);
 private:
+	XMLFacade facade;
 };

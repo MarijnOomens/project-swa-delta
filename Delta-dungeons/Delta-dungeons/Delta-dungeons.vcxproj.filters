@@ -63,9 +63,6 @@
     <ClCompile Include="InteractiveManager.cpp">
       <Filter>Source Files\Game</Filter>
     </ClCompile>
-    <ClCompile Include="TileMap.cpp">
-      <Filter>Source Files\Game</Filter>
-    </ClCompile>
     <ClCompile Include="Berry.cpp">
       <Filter>Source Files\Game\GameObjects\Items</Filter>
     </ClCompile>
@@ -76,9 +73,6 @@
       <Filter>Source Files\Game\GameObjects\Items</Filter>
     </ClCompile>
     <ClCompile Include="Pokeball.cpp">
-      <Filter>Source Files\Game\GameObjects\Items</Filter>
-    </ClCompile>
-    <ClCompile Include="Runningshoes.cpp">
       <Filter>Source Files\Game\GameObjects\Items</Filter>
     </ClCompile>
     <ClCompile Include="InteractiveObject.cpp">
@@ -147,10 +141,10 @@
     <ClCompile Include="IEquipment.h">
       <Filter>Header Files\Game\GameObjects\Items</Filter>
     </ClCompile>
-    <ClCompile Include="EngineFacade.cpp">
+    <ClCompile Include="PlayerManager.cpp">
       <Filter>Source Files\Game</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerManager.cpp">
+    <ClCompile Include="SceneLoader.cpp">
       <Filter>Source Files\Game</Filter>
     </ClCompile>
     <ClCompile Include="NPCManager.cpp">
@@ -158,6 +152,33 @@
     </ClCompile>
     <ClCompile Include="GameObjectBuilder.cpp">
       <Filter>Source Files\Game\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Equipment.cpp">
+      <Filter>Source Files\Game\GameObjects\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugUtilities.cpp">
+      <Filter>Source Files\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="RunningShoes.cpp">
+      <Filter>Source Files\Game\GameObjects\Items</Filter>
+      </ClCompile>
+    <ClCompile Include="Advertisement.cpp">
+      <Filter>Source Files\Game\GameObjects\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneModifier.cpp">
+      <Filter>Source Files\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="GameWinScreen.cpp">
+      <Filter>Source Files\Game\GameObjects\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="PokemonManager.cpp">
+      <Filter>Source Files\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="PokemonParserData.cpp">
+      <Filter>Source Files\XMLParser</Filter>
+    </ClCompile>
+    <ClCompile Include="HUDManager.cpp">
+      <Filter>Source Files\Game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -192,9 +213,6 @@
       <Filter>Header Files\Game</Filter>
     </ClInclude>
     <ClInclude Include="InteractiveManager.h">
-      <Filter>Header Files\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="TileMap.h">
       <Filter>Header Files\Game</Filter>
     </ClInclude>
     <ClInclude Include="Tile.h">
@@ -233,9 +251,6 @@
     <ClInclude Include="Pokeball.h">
       <Filter>Header Files\Game\GameObjects\Items</Filter>
     </ClInclude>
-    <ClInclude Include="Runningshoes.h">
-      <Filter>Header Files\Game\GameObjects\Items</Filter>
-    </ClInclude>
     <ClInclude Include="InteractiveObject.h">
       <Filter>Header Files\Game\GameObjects\InteractiveObjects</Filter>
     </ClInclude>
@@ -257,16 +272,10 @@
     <ClInclude Include="DialoguePopup.h">
       <Filter>Header Files\Game\GameObjects</Filter>
     </ClInclude>
-    <ClInclude Include="Scene.h">
-      <Filter>Header Files\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="ParserData.h">
-      <Filter>Header Files\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="EngineFacade.h">
-      <Filter>Header Files\Game</Filter>
-    </ClInclude>
     <ClInclude Include="PlayerManager.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneLoader.h">
       <Filter>Header Files\Game</Filter>
     </ClInclude>
     <ClInclude Include="NPCManager.h">
@@ -274,6 +283,36 @@
     </ClInclude>
     <ClInclude Include="GameObjectBuilder.h">
       <Filter>Header Files\Game\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugUtilities.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="RunningShoes.h">
+      <Filter>Header Files\Game\GameObjects\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Header Files\XMLParser</Filter>
+    </ClInclude>
+    <ClInclude Include="ParserData.h">
+      <Filter>Header Files\XMLParser</Filter>
+    </ClInclude>
+    <ClInclude Include="Advertisement.h">
+      <Filter>Header Files\Game\GameObjects\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneModifier.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="GameWinScreen.h">
+      <Filter>Header Files\Game\GameObjects\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="PokemonManager.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="PokemonParserData.h">
+      <Filter>Header Files\XMLParser</Filter>
+    </ClInclude>
+    <ClInclude Include="HUDManager.h">
+      <Filter>Header Files\Game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

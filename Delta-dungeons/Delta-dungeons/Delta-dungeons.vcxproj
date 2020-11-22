@@ -155,19 +155,23 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Advertisement.cpp" />
     <ClCompile Include="Berry.cpp" />
     <ClCompile Include="Boomerang.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="CreditScreen.cpp" />
+    <ClCompile Include="DebugUtilities.cpp" />
     <ClCompile Include="DialoguePopup.cpp" />
-    <ClCompile Include="EngineFacade.cpp" />
+    <ClCompile Include="Equipment.cpp" />
     <ClCompile Include="EquipmentManager.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameObjectBuilder.cpp" />
     <ClCompile Include="GameOverScreen.cpp" />
+    <ClCompile Include="GameWinScreen.cpp" />
     <ClCompile Include="HealingItem.cpp" />
     <ClCompile Include="HelpScreen.cpp" />
     <ClCompile Include="HUD.cpp" />
+    <ClCompile Include="HUDManager.cpp" />
     <ClCompile Include="IEquipment.h" />
     <ClCompile Include="InteractiveManager.cpp" />
     <ClCompile Include="InteractiveObject.cpp" />
@@ -180,35 +184,46 @@
     <ClCompile Include="PlayerManager.cpp" />
     <ClCompile Include="Pokeball.cpp" />
     <ClCompile Include="Pokemon.cpp" />
+    <ClCompile Include="PokemonManager.cpp" />
+    <ClCompile Include="PokemonParserData.cpp" />
     <ClCompile Include="PuzzleObject.cpp" />
-    <ClCompile Include="Runningshoes.cpp" />
     <ClCompile Include="ParserData.cpp" />
+    <ClCompile Include="RunningShoes.cpp" />
+    <ClCompile Include="SceneLoader.cpp" />
+    <ClCompile Include="SceneModifier.cpp" />
     <ClCompile Include="XMLFacade.cpp" />
     <ClCompile Include="XMLParser.cpp" />
     <ClCompile Include="XMLSceneParser.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Screen.cpp" />
     <ClCompile Include="Tile.cpp" />
-    <ClCompile Include="TileMap.cpp" />
     <ClCompile Include="UIManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Advertisement.h" />
     <ClInclude Include="Berry.h" />
     <ClInclude Include="Boomerang.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="Creditscreen.h" />
+    <ClInclude Include="DebugUtilities.h" />
     <ClInclude Include="DialoguePopup.h" />
-    <ClInclude Include="EngineFacade.h" />
     <ClInclude Include="EquipmentManager.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameObjectBuilder.h" />
     <ClInclude Include="GameOverScreen.h" />
+    <ClInclude Include="GameWinScreen.h" />
     <ClInclude Include="HealingItem.h" />
     <ClInclude Include="HelpScreen.h" />
     <ClInclude Include="HUD.h" />
+    <ClInclude Include="HUDManager.h" />
     <ClInclude Include="NPCManager.h" />
+    <ClInclude Include="PokemonManager.h" />
+    <ClInclude Include="PokemonParserData.h" />
+    <ClInclude Include="SceneModifier.h" />
     <ClInclude Include="ParserData.h" />
     <ClInclude Include="PlayerManager.h" />
+    <ClInclude Include="RunningShoes.h" />
+    <ClInclude Include="SceneLoader.h" />
     <ClInclude Include="XMLFacade.h" />
     <ClInclude Include="XMLParser.h" />
     <ClInclude Include="XMLSceneParser.h" />
@@ -225,11 +240,9 @@
     <ClInclude Include="rapidxml_iterators.hpp" />
     <ClInclude Include="rapidxml_print.hpp" />
     <ClInclude Include="rapidxml_utils.hpp" />
-    <ClInclude Include="Runningshoes.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Screen.h" />
     <ClInclude Include="Tile.h" />
-    <ClInclude Include="TileMap.h" />
     <ClInclude Include="UIManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

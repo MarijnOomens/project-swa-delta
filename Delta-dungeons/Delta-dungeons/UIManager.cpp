@@ -1,23 +1,32 @@
 #include "UIManager.h"
 
-void UIManager::playDialogue(std::vector<std::string>) {}
-
 /// <summary>
 /// This methods creates all screens needed for the game to run. Examples are the "MainMenu" and "Credits" screens. These are added into a list.
 /// </summary>
-void UIManager::createBaseScreens() {
-	//std::shared_ptr<MainMenu> mainMenu = std::make_shared<MainMenu>();
-	//screens.try_emplace("MainMenu", mainMenu);
+void UIManager::createBaseScreens() 
+{
+	std::unique_ptr<MainMenu> mainMenu = std::make_unique<MainMenu>();
+	screens.try_emplace("MainMenu", std::move(mainMenu));
+	std::unique_ptr<PauseScreen> pause = std::make_unique<PauseScreen>();
+	screens.try_emplace("PauseScreen", std::move(pause));
+	std::unique_ptr<CreditScreen> credits = std::make_unique<CreditScreen>();
+	screens.try_emplace("CreditsScreen", std::move(credits));
+	std::unique_ptr<HelpScreen> help = std::make_unique<HelpScreen>();
+	screens.try_emplace("HelpScreen", std::move(help));
+	std::unique_ptr<GameOverScreen> gameOver = std::make_unique<GameOverScreen>();
+	screens.try_emplace("GameOver", std::move(gameOver));
+	std::unique_ptr<GameWinScreen> gameWin = std::make_unique<GameWinScreen>();
+	screens.try_emplace("GameWin", std::move(gameWin));
 
-	//std::shared_ptr<CreditScreen> credits = std::make_shared<CreditScreen>();
-	//screens.try_emplace("Credits", credits);
 }
 
-void UIManager::updateHudHealth(int) {}
+void UIManager::playDialogue(std::vector<std::string>) {}
 
-void UIManager::updateHudCollectedCrystals(int) {}
+void UIManager::updateHudHealth(int param) {}
 
-void UIManager::updateHighScore(int) {}
+void UIManager::updateHudCollectedCrystals(int param) {}
+
+void UIManager::updateHighScore(int param) {}
 
 /// <summary>
 /// passTextures gets all the textures saved in the screens and gives them back in one big list for the GameManager.
@@ -27,7 +36,7 @@ std::map<std::string, std::string> UIManager::passTextures()
 {
 	std::map<std::string, std::string> totalTextures;
 	for (auto& screen : screens) {
-		for (auto& t : screen.second.get()->textures) {
+		for (auto& t : screen.second->textures) {
 			totalTextures.try_emplace(t.first, t.second);
 		}
 	}
@@ -42,7 +51,7 @@ std::map<std::string, std::string> UIManager::passFonts()
 {
 	std::map<std::string, std::string> totalFonts;
 	for (auto& screen : screens) {
-		for (auto& t : screen.second.get()->fonts) {
+		for (auto& t : screen.second->fonts) {
 			totalFonts.try_emplace(t.first, t.second);
 		}
 	}

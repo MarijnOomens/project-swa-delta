@@ -1,50 +1,83 @@
 #pragma once
 
 #include "IEquipment.h"
+#include "Boomerang.h"
 #include "GameObject.h"
 #include "GraphicsComponent.h"
-typedef void(*cbCamera) (void*,int,int);
+#include "RegularColliderComponent.h"
+#include "RunningShoes.h"
+#include "DebugUtilities.h"
 
-class Player : public GameObject {
+typedef void(*cbInteract) (void*, int, int);
+typedef void(*cbCamera) (void*, int, int);
+typedef void(*cbGameOver) (void*);
+typedef void(*cbHUD) (void*, bool);
+
+class Player : public GameObject
+{
 public:
 	std::map<std::string, std::string> textures;
 	std::string texture;
+
 	cbCamera func;
+	cbInteract interactFunc;
+	cbGameOver gameOverFunc;
+	cbHUD hudFunc;
+
+	KeyCodes currentDirection;
 	void* pointer;
 
-	Player(const cbCamera f, void* p);
-	~Player();
+	Player(cbCamera f, cbInteract interactCB, cbGameOver gameOverFunc, cbHUD hudCB, void* p);
 
-	void handleInput(const KeyCodes keyCodes, const KeyboardEvent keyboardEvent) override;
-	void handleKeyPressed(const KeyCodes keyCodes);
-	void handleKeyReleased(const KeyCodes keyCodes);
+	void handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
+	void interact() override;
+	void handleKeyPressed(const KeyCodes& keyCodes);
+	void handleKeyReleased(const KeyCodes& keyCodes);
 
 	void moveUp();
 	void moveDown();
 	void moveLeft();
 	void moveRight();
 
-
-	void addEquipment(std::shared_ptr<IEquipment> equipment);
-	static void staticEquipmentCallbackFunction(void* p, const bool runningActivated);
-	void equipmentCallbackFunction(const bool runningActivated);
-
+	void addEquipment(std::unique_ptr<IEquipment> equipment);
 	void damagePlayer(int damage);
 	void updateCaughtPokemon(int pokemonId);
-	void callbackFunction() override;
-	void connectCallback() override;
-	void update() override;
-	void updatePositions(int x, int y) override;
+	std::vector<std::string> getItems();
 
+	static void staticCollisionCallbackFunction(void* p, int right, int left, int up, int down, std::string rightTag, std::string leftTag, std::string upTag, std::string downTag, bool hit);
+	void collisionCallbackFunction(int right, int left, int up, int down, std::string rightTag, std::string leftTag, std::string upTag, std::string downTag, bool hit);
+
+	static void staticBoomerangCallbackFunction(void* p, const bool boomerangActivated);
+	void boomerangCallbackFunction(const bool boomerangActivated);
+
+	static void staticRunningShoesCallbackFunction(void* p, const bool runningActivated);
+	void runningShoesCallbackFunction(const bool runningActivated);
+
+	void update() override;
+	void handleInteraction();
+	void registerHit();
 private:
+	const int animationSpeed = 120;
 	int health;
 	int amountCaught;
 	int baseMovementSpeed;
 	int x, y;
-
-	bool runActivated;
+	int count;
+	bool runActivated = false;
+	bool boomerangActivated = false;
+	bool cheatCollision = false;
 	std::vector<int> pokemonCaught;
-	std::vector<std::shared_ptr<IEquipment>> equipment;
-	std::shared_ptr<GraphicsComponent> m_gc;
+	std::vector<std::unique_ptr<IEquipment>> equipment;
+	std::shared_ptr<GraphicsComponent> gc;
+	std::shared_ptr<RegularColliderComponent> cc;
 	AnimCategory animCategory;
+	int rightX;
+	int leftX;
+	int upY;
+	int downY;
+	std::string rightTag;
+	std::string leftTag;
+	std::string upTag;
+	std::string downTag;
+	bool tileCollision;
 };

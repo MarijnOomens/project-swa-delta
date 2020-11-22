@@ -1,18 +1,21 @@
 #pragma once
-
 #include "IEquipment.h"
-typedef void(*cbFunction) (void*, bool);
+#include "Graphicscomponent.h"
+#include "RegularColliderComponent.h"
+typedef void(*cbEquipment) (void*, bool);
 
-class Runningshoes: public IEquipment 
+class RunningShoes : public IEquipment
 {
-public: 
-	cbFunction func;
+public:
+	RunningShoes(const cbEquipment f, void* p, const std::string& t);
+	RunningShoes(int x, int y, std::string texture);
+
+	void interact() override;
+	void use() override;
+private:
+	std::shared_ptr<GraphicsComponent> gc;
+	std::shared_ptr<RegularColliderComponent> cc;
+	cbEquipment func;
 	void* pointer;
 	bool isActivated = false;
-
-	Runningshoes();
-	Runningshoes(const cbFunction f, void* p);
-	~Runningshoes();
-
-	void use() override;
 };

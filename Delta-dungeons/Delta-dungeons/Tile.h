@@ -1,22 +1,25 @@
 #pragma once
-
 #include "GameObject.h"
 #include "GraphicsComponent.h"
+#include "RegularColliderComponent.h"
 #include <string>
 
 class Tile : public GameObject {
 public:
+	bool isCollider = false;
+	int originX;
+	int originY;
+
+	Tile(int x, int y, int xImage, bool collider);
+	Tile(int x, int y, int xImage, int yImage, bool collider);
+
+	void addGraphicsComponent(std::string& imageName);
+	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
+	void update() override;
+	void interact() override;
+
+private:
 	Vector2D imageCoordinates;
 	std::shared_ptr<GraphicsComponent> gc;
-
-	Tile();
-	Tile(int x, int y, int xImage);
-	Tile(int x, int y, int xImage, int yImage);
-
-	void addGraphicsComponent(std::string imageName);
-	void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) override;
-	void callbackFunction() override;
-	void connectCallback() override;
-	void update() override;
-	void updatePositions(int x, int y) override;
+	std::shared_ptr<RegularColliderComponent> cc;
 };

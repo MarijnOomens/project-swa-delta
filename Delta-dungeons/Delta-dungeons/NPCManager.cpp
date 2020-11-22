@@ -1,25 +1,24 @@
 #include "NPCManager.h"
 
-NPCManager::NPCManager() 
+NPCManager::NPCManager()
 {
 	builder = std::make_shared<GameObjectBuilder>();
+	trainerList = std::vector<std::string>();
+	addTrainers();
 }
 
-NPCManager::~NPCManager() {}
-
-
-void NPCManager::createNPC() 
+void NPCManager::createNPC()
 {
-	npcs.try_emplace("bugtrainer", builder.get()->getNPC(192, 192, "bugtrainer"));
-	npcs.try_emplace("umbreon", builder.get()->getPokemon(256, 192, "umbreon"));
-	//npcs.try_emplace("leaf2", builder.get()->getNPC(480, 480, "npc"));
-	npcs.try_emplace("dunsparce", builder.get()->getPokemon(544, 480, "dunsparce"));
-	npcs.try_emplace("shinx", builder.get()->getPokemon(128, 480, "shinx"));
-	npcs.try_emplace("eevee", builder.get()->getPokemon(256, 320, "eevee"));
-	npcs.try_emplace("turtwig", builder.get()->getPokemon(128, 192, "turtwig"));
-	npcs.try_emplace("magmortar", builder.get()->getPokemon(320, 480, "magmortar"));
-	npcs.try_emplace("ralts", builder.get()->getPokemon(320, 544, "ralts"));
-	npcs.try_emplace("deoxys_standard", builder.get()->getPokemon(608, 608, "deoxys_standard"));
+	std::unique_ptr<XMLSceneParser> xmlSceneParser = std::make_unique<XMLSceneParser>();
+	std::vector<std::shared_ptr<ParserData>> npcData = xmlSceneParser->getNPCDataList("Assets/Maps/Level1/level.xml");
+	srand(time(0));
+	for (auto parsedNPC : npcData)
+	{
+		if (parsedNPC->tileId == "1") {
+			std::string trainer = getRandomNPC();
+			npcs.try_emplace(trainer + parsedNPC->x + parsedNPC->y, builder->getNPC(std::stoi(parsedNPC->x), std::stoi(parsedNPC->y), trainer));
+		}
+	}
 }
 
 std::map<std::string, std::string> NPCManager::passTextures() const
@@ -27,8 +26,24 @@ std::map<std::string, std::string> NPCManager::passTextures() const
 	std::map<std::string, std::string> totalTextures;
 	for (auto& npc : npcs) {
 		for (auto& t : npc.second->textures) {
-			totalTextures.try_emplace(t.first, t.second);
+			totalTextures.emplace(t.first, t.second);
 		}
 	}
 	return totalTextures;
+}
+
+void NPCManager::addTrainers()
+{
+	trainerList.push_back("bugtrainer");
+	trainerList.push_back("youngster");
+	trainerList.push_back("bugtrainer");
+	trainerList.push_back("youngster");
+	trainerList.push_back("bugtrainer");
+	trainerList.push_back("youngster");
+}
+
+std::string NPCManager::getRandomNPC()
+{
+	int randomTrainer = rand() % trainerList.size();
+	return trainerList.at(randomTrainer);
 }

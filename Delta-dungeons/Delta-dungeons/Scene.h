@@ -2,32 +2,32 @@
 
 #include "ParserData.h"
 #include "Tile.h"
+#include "TextComponent.h"
+#include "DebugUtilities.h"
+#include "XMLSceneParser.h"
+#include "GraphicsComponent.h"
 #include <array>
 #include <iostream>
 #include <list>
 #include <vector>
+#include <sstream>
 
 class Scene : public GameObject
 {
 public:
-	std::vector<std::shared_ptr<Tile>> tileMap;
-
-	Scene();
+	Scene() {}
 	Scene(int x, int y);
-	~Scene();
 
 	void addGraphics();
-	std::vector<std::shared_ptr<Tile>> makeTiles(std::vector<std::shared_ptr<ParserData>> data);
 	std::map<std::string, std::string> passTextures() const;
 
-	void handleInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent) override;
-	void connectCallback() override; //Add callbackfunction
-	void callbackFunction() override;
+	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
 	void update() override;
-	void updatePositions(int x, int y)override;
+	void interact() override;
 
 private:
-	int x;
-	int y;
-	
+	int x = 0, y = 0;
+	std::vector<std::shared_ptr<Tile>> tileMap;
+	std::shared_ptr<TextComponent> fpsText;
+	std::stringstream fpsString;
 };

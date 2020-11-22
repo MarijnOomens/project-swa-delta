@@ -163,6 +163,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Collision.h" />
+    <ClInclude Include="DamageColliderComponent.h" />
+    <ClInclude Include="EngineFacade.h" />
     <ClInclude Include="AudioWrapper.h" />
     <ClInclude Include="AssetManager.h" />
     <ClInclude Include="BehaviourObject.h" />
@@ -181,6 +184,7 @@
     <ClInclude Include="Keyboardevent.h" />
     <ClInclude Include="Keycodes.h" />
     <ClInclude Include="main.h" />
+    <ClInclude Include="RegularColliderComponent.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="Rectangle.h" />
     <ClInclude Include="RenderFacade.h" />
@@ -192,6 +196,9 @@
     <ClInclude Include="Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Collision.cpp" />
+    <ClCompile Include="DamageColliderComponent.cpp" />
+    <ClCompile Include="EngineFacade.cpp" />
     <ClCompile Include="AudioWrapper.cpp" />
     <ClCompile Include="Colour.cpp" />
     <ClCompile Include="EngineController.cpp" />
@@ -203,6 +210,7 @@
     <ClCompile Include="ColliderComponent.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GraphicsComponent.cpp" />
+    <ClCompile Include="RegularColliderComponent.cpp" />
     <ClCompile Include="RenderFacade.cpp" />
     <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="Renderer.cpp" />
@@ -212,7 +220,6 @@
     <ClCompile Include="Sound.cpp" />
     <ClCompile Include="TextComponent.cpp" />
     <ClCompile Include="TextureManager.cpp" />
-    <ClCompile Include="Transform.cpp" />
     <ClCompile Include="Vector2D.cpp" />
     <ClCompile Include="Input.cpp" />
   </ItemGroup>

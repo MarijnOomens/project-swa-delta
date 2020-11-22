@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['event_576',['event',['../class_input_wrapper.html#a1e7b55b87835a93b2e9b6eac24575f95',1,'InputWrapper']]]
+  ['facade_678',['facade',['../class_input.html#a72658c21274f8ab3c28fddaabea9fe66',1,'Input']]],
+  ['func_679',['func',['../class_input.html#a70b48a1b5b89b125cee962a2f9d2736e',1,'Input']]]
 ];
