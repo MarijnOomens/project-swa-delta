@@ -33,13 +33,8 @@ void Renderer::init(const std::string& title, int width, int height, bool fullsc
 	{
 		if (SDL_Init(SDL_INIT_EVERYTHING) == 0) 
 		{
-			std::cout << "Subsystems initialised!!!" << std::endl;
 			sdlWindow = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, flags);
-			if (sdlWindow) 
-			{
-				std::cout << "Window created!" << std::endl;
-			}
-			else 
+			if (!sdlWindow) 
 			{
 				isRunning = false;
 				throw("Failed to create window!");
@@ -48,7 +43,6 @@ void Renderer::init(const std::string& title, int width, int height, bool fullsc
 			if (sdlRenderer)
 			{
 				SDL_SetRenderDrawColor(sdlRenderer, 128, 128, 128, 255);
-				std::cout << "Renderer created!" << std::endl;
 			}
 			else 
 			{
@@ -63,7 +57,6 @@ void Renderer::init(const std::string& title, int width, int height, bool fullsc
 			throw("Subsystems are not initialised!");
 			isRunning = false;
 		}
-		std::cout << "Image is loaded and created!" << std::endl;
 		if (TTF_Init() == -1)
 		{
 			std::cout << "Failed to initialise SDL_ttf!" << std::endl;
