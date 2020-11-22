@@ -25,6 +25,7 @@ void SceneManager::loadScene(const std::string& sceneName, const std::string& fr
 	currentScene = sceneName;
 	currentObjects = scenes[currentScene];
 	isSceneSwitched = true;
+	update();
 }
 
 void SceneManager::loadPreviousScene()

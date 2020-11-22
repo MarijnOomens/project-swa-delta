@@ -132,17 +132,23 @@ void EngineController::loadScene(const std::string& sceneName, const std::string
 		renderFacade->pauseGame();
 	}
 	sceneManager.loadScene(sceneName, fromScene, clearPrevious);
-
+	transitionScene();
 }
 
 void EngineController::loadPreviousScene()
 {
 	sceneManager.loadPreviousScene();
+	transitionScene();
 }
 
 void EngineController::addOverlayScene(const std::string& sceneName)
 {
 	sceneManager.addOverlayScene(sceneName);
+}
+
+void EngineController::transitionScene()
+{
+	renderFacade->transition();
 }
 
 void EngineController::passPlayerPosition(int x, int y)

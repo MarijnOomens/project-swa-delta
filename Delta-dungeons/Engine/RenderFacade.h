@@ -30,6 +30,7 @@ public:
 	void clean() const;
 	void beforeFrame() const;
 	void afterFrame() const;
+	void transition() const;
 	void createCamera(const int x, const int y) const;
 	void quitGame() const;
 	void pauseGame() const;

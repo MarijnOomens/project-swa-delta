@@ -7,6 +7,8 @@ Renderer::Renderer()
 	camera = { 0,0,0,0 };
 	sdlRenderer = nullptr;
 	sdlWindow = nullptr;
+
+	alphaCounter = 0;
 }
 
 Renderer::~Renderer()
@@ -42,7 +44,7 @@ void Renderer::init(const std::string& title, int width, int height, bool fullsc
 			sdlRenderer = SDL_CreateRenderer(sdlWindow, -1, 0);
 			if (sdlRenderer)
 			{
-				SDL_SetRenderDrawColor(sdlRenderer, 128, 128, 128, 255);
+				SDL_SetRenderDrawColor(sdlRenderer, 0, 0, 0, 255);
 			}
 			else 
 			{
@@ -142,58 +144,4 @@ void Renderer::beforeFrame() const
 void Renderer::afterFrame() const
 {
 	SDL_RenderPresent(sdlRenderer);
-}
-
-void Renderer::drawTexture(SDL_Texture* texture, const Transform& transform, const Vector2D& coordinates, const Vector2D& sourceDimensions, const int row, const int frames,const int speed,const bool animated,const bool flipped,const bool isScreen) const
-{
-	if (checkCameraPosition(transform) || isScreen) 
-	{
-		SDL_Rect source;
-		SDL_RendererFlip flip = SDL_FLIP_NONE;
-		if (flipped)
-			flip = SDL_FLIP_HORIZONTAL;
-
-		source.w = sourceDimensions.x;
-		source.h = sourceDimensions.y;
-		source.x = coordinates.x;
-		source.y = coordinates.y;
-
-		if (animated)
-		{
-			source.x = source.w * static_cast<int>((SDL_GetTicks() / speed) % frames);
-			source.y = row * source.h;
-		}
-
-		SDL_Rect destination;
-		if (!isScreen)
-		{
-			destination.x = transform.position.x - camera.x;
-			destination.y = transform.position.y - camera.y;
-		}
-		else
-		{
-			destination.x = transform.position.x;
-			destination.y = transform.position.y;
-		}
-		destination.w = sourceDimensions.x * transform.scale.x;
-		destination.h = sourceDimensions.y * transform.scale.y;
-
-		try 
-		{
-			if (sdlRenderer == NULL) 
-			{
-				throw("Renderer is NULL!");
-			}
-			else if (texture == NULL) 
-			{
-				throw("SDL_Texture is NULL!");
-			}
-			SDL_RenderCopyEx(sdlRenderer, texture, &source, &destination, NULL, NULL, flip);
-
-		}
-		catch (std::string error) 
-		{
-			std::cout << "Error: " << error << std::endl;
-		}
-	}
 }

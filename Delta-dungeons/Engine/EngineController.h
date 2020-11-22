@@ -33,6 +33,7 @@ public:
 	void loadScene(const std::string& sceneName, const std::string& fromScene, bool clearPrevious);
 	void loadPreviousScene();
 	void addOverlayScene(const std::string& sceneName);
+	void transitionScene();
 	void createCamera(int x, int y) const;
 	void passPlayerPosition(int x, int y);
 	void pauseScreen();

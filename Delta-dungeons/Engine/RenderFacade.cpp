@@ -83,7 +83,7 @@ void RenderFacade::drawTexture(const std::string& path, const Transform& transfo
 {
 	Vector2D size;
 	SDL_Texture* texture = drawController->loadTexture(path);
-	renderer->drawTexture(texture, transform, coordinates, sourceDimensions, row, frames, speed, animated, flipped, isScreen);
+	drawController->drawTexture(texture, transform, coordinates, sourceDimensions, row, frames, speed, animated, flipped, isScreen);
 }
 
 /// <summary>
@@ -120,6 +120,11 @@ void RenderFacade::beforeFrame() const
 void RenderFacade::afterFrame() const
 {
 	renderer->afterFrame();
+}
+
+void RenderFacade::transition() const
+{
+	drawController->transition();
 }
 
 void RenderFacade::createCamera(const int x, const int y) const
