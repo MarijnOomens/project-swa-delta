@@ -96,7 +96,6 @@ $(document).ready(function(){initNavTree('class_draw_controller.html',''); initR
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="class_draw_controller-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">DrawController Class Reference</div>  </div>
@@ -109,29 +108,20 @@ $(document).ready(function(){initNavTree('class_draw_controller.html',''); initR
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a5c4bbc875f121f6ce3159734117d23f0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_draw_controller.html#a5c4bbc875f121f6ce3159734117d23f0">DrawController</a> ()</td></tr>
 <tr class="separator:a5c4bbc875f121f6ce3159734117d23f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3660e4cb218917890c1a66c4034451ec"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_draw_controller.html#a3660e4cb218917890c1a66c4034451ec">DrawController</a> (std::shared_ptr&lt; <a class="el" href="class_renderer.html">Renderer</a> &gt; r)</td></tr>
-<tr class="memdesc:a3660e4cb218917890c1a66c4034451ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">The drawcontroller renders all the items in the game using a single renderer.  <a href="class_draw_controller.html#a3660e4cb218917890c1a66c4034451ec">More...</a><br /></td></tr>
-<tr class="separator:a3660e4cb218917890c1a66c4034451ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4166b370af8210867a04aa87ed901cca"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_draw_controller.html#a4166b370af8210867a04aa87ed901cca">DrawController</a> (std::shared_ptr&lt; <a class="el" href="class_renderer.html">Renderer</a> &gt; renderer)</td></tr>
+<tr class="memdesc:a4166b370af8210867a04aa87ed901cca"><td class="mdescLeft">&#160;</td><td class="mdescRight">The drawcontroller renders all the items in the game using a single renderer.  <a href="class_draw_controller.html#a4166b370af8210867a04aa87ed901cca">More...</a><br /></td></tr>
+<tr class="separator:a4166b370af8210867a04aa87ed901cca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f4f2a87023291ccfd240a5e24961c4b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_draw_controller.html#a7f4f2a87023291ccfd240a5e24961c4b">~DrawController</a> ()</td></tr>
 <tr class="separator:a7f4f2a87023291ccfd240a5e24961c4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba69a7dd1edff78c1f396845aa07b16f"><td class="memItemLeft" align="right" valign="top">SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_draw_controller.html#aba69a7dd1edff78c1f396845aa07b16f">loadTexture</a> (std::string texture)</td></tr>
-<tr class="memdesc:aba69a7dd1edff78c1f396845aa07b16f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The loadtexture method loads in a textures based on a given path.  <a href="class_draw_controller.html#aba69a7dd1edff78c1f396845aa07b16f">More...</a><br /></td></tr>
-<tr class="separator:aba69a7dd1edff78c1f396845aa07b16f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a766fec7b7e0fcd95ab817ad63e25bc77"><td class="memItemLeft" align="right" valign="top">SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_draw_controller.html#a766fec7b7e0fcd95ab817ad63e25bc77">loadFont</a> (std::string text, std::string font, <a class="el" href="class_colour.html">Colour</a> colour, int fontSize)</td></tr>
-<tr class="memdesc:a766fec7b7e0fcd95ab817ad63e25bc77"><td class="mdescLeft">&#160;</td><td class="mdescRight">The loadFont method loads in a textures based on a font and string of text.  <a href="class_draw_controller.html#a766fec7b7e0fcd95ab817ad63e25bc77">More...</a><br /></td></tr>
-<tr class="separator:a766fec7b7e0fcd95ab817ad63e25bc77"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a811c2e1ac13f81635363ea9909af7e8a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_draw_controller.html#a811c2e1ac13f81635363ea9909af7e8a">drawTexture</a> (SDL_Texture *texture, SDL_Rect source, SDL_Rect destination)</td></tr>
-<tr class="separator:a811c2e1ac13f81635363ea9909af7e8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3c0f440a08c3552fd31972479b78677"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_draw_controller.html#ad3c0f440a08c3552fd31972479b78677">drawTexture</a> (SDL_Texture *texture, SDL_Rect source, SDL_Rect destination, SDL_RendererFlip flip)</td></tr>
-<tr class="memdesc:ad3c0f440a08c3552fd31972479b78677"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function will draw the texture within the renderer with the given parameters.  <a href="class_draw_controller.html#ad3c0f440a08c3552fd31972479b78677">More...</a><br /></td></tr>
-<tr class="separator:ad3c0f440a08c3552fd31972479b78677"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:a44a2080f0125cd2747b3f077b0773366"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_renderer.html">Renderer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_draw_controller.html#a44a2080f0125cd2747b3f077b0773366">renderer</a></td></tr>
-<tr class="separator:a44a2080f0125cd2747b3f077b0773366"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9686178466bd1229cb010eff3258f4c3"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, SDL_Texture * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_draw_controller.html#a9686178466bd1229cb010eff3258f4c3">textures</a></td></tr>
-<tr class="separator:a9686178466bd1229cb010eff3258f4c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca43160680264c971933a08f0283b6ca"><td class="memItemLeft" align="right" valign="top">SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_draw_controller.html#aca43160680264c971933a08f0283b6ca">loadTexture</a> (const std::string &amp;texture)</td></tr>
+<tr class="memdesc:aca43160680264c971933a08f0283b6ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">The loadtexture method loads in a textures based on a given path.  <a href="class_draw_controller.html#aca43160680264c971933a08f0283b6ca">More...</a><br /></td></tr>
+<tr class="separator:aca43160680264c971933a08f0283b6ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a797ad9c3adcab4741763744722b08de3"><td class="memItemLeft" align="right" valign="top">SDL_Texture *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_draw_controller.html#a797ad9c3adcab4741763744722b08de3">loadFont</a> (const std::string &amp;text, const std::string &amp;font, const <a class="el" href="class_colour.html">Colour</a> &amp;colour, int fontSize)</td></tr>
+<tr class="memdesc:a797ad9c3adcab4741763744722b08de3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The loadFont method loads in a textures based on a font and string of text.  <a href="class_draw_controller.html#a797ad9c3adcab4741763744722b08de3">More...</a><br /></td></tr>
+<tr class="separator:a797ad9c3adcab4741763744722b08de3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a842de31473b7a4de21562e3c8e5469a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_draw_controller.html#a842de31473b7a4de21562e3c8e5469a7">drawTexture</a> (SDL_Texture *texture, SDL_Rect source, SDL_Rect destination, SDL_RendererFlip flip) const</td></tr>
+<tr class="memdesc:a842de31473b7a4de21562e3c8e5469a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function will draw the texture within the renderer with the given parameters.  <a href="class_draw_controller.html#a842de31473b7a4de21562e3c8e5469a7">More...</a><br /></td></tr>
+<tr class="separator:a842de31473b7a4de21562e3c8e5469a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a5c4bbc875f121f6ce3159734117d23f0"></a>
@@ -139,6 +129,9 @@ Public Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">DrawController::DrawController </td>
@@ -147,12 +140,17 @@ Public Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a3660e4cb218917890c1a66c4034451ec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3660e4cb218917890c1a66c4034451ec">&#9670;&nbsp;</a></span>DrawController() <span class="overload">[2/2]</span></h2>
+<a id="a4166b370af8210867a04aa87ed901cca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4166b370af8210867a04aa87ed901cca">&#9670;&nbsp;</a></span>DrawController() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -161,7 +159,7 @@ Public Attributes</h2></td></tr>
           <td class="memname">DrawController::DrawController </td>
           <td>(</td>
           <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_renderer.html">Renderer</a> &gt;&#160;</td>
-          <td class="paramname"><em>r</em></td><td>)</td>
+          <td class="paramname"><em>renderer</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -182,6 +180,9 @@ Public Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">DrawController::~DrawController </td>
@@ -190,47 +191,18 @@ Public Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a811c2e1ac13f81635363ea9909af7e8a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a811c2e1ac13f81635363ea9909af7e8a">&#9670;&nbsp;</a></span>drawTexture() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void DrawController::drawTexture </td>
-          <td>(</td>
-          <td class="paramtype">SDL_Texture *&#160;</td>
-          <td class="paramname"><em>texture</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">SDL_Rect&#160;</td>
-          <td class="paramname"><em>source</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">SDL_Rect&#160;</td>
-          <td class="paramname"><em>destination</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ad3c0f440a08c3552fd31972479b78677"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad3c0f440a08c3552fd31972479b78677">&#9670;&nbsp;</a></span>drawTexture() <span class="overload">[2/2]</span></h2>
+<a id="a842de31473b7a4de21562e3c8e5469a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a842de31473b7a4de21562e3c8e5469a7">&#9670;&nbsp;</a></span>drawTexture()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -262,7 +234,7 @@ Public Attributes</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td></td>
+          <td></td><td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -280,8 +252,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a766fec7b7e0fcd95ab817ad63e25bc77"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a766fec7b7e0fcd95ab817ad63e25bc77">&#9670;&nbsp;</a></span>loadFont()</h2>
+<a id="a797ad9c3adcab4741763744722b08de3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a797ad9c3adcab4741763744722b08de3">&#9670;&nbsp;</a></span>loadFont()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -289,19 +261,19 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="memname">SDL_Texture * DrawController::loadFont </td>
           <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>text</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::string&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>font</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_colour.html">Colour</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_colour.html">Colour</a> &amp;&#160;</td>
           <td class="paramname"><em>colour</em>, </td>
         </tr>
         <tr>
@@ -333,8 +305,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="aba69a7dd1edff78c1f396845aa07b16f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aba69a7dd1edff78c1f396845aa07b16f">&#9670;&nbsp;</a></span>loadTexture()</h2>
+<a id="aca43160680264c971933a08f0283b6ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca43160680264c971933a08f0283b6ca">&#9670;&nbsp;</a></span>loadTexture()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -342,7 +314,7 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="memname">SDL_Texture * DrawController::loadTexture </td>
           <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>path</em></td><td>)</td>
           <td></td>
         </tr>
@@ -358,35 +330,6 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns a SDL_Texture to be drawn on the screen in another method.</dd></dl>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a44a2080f0125cd2747b3f077b0773366"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a44a2080f0125cd2747b3f077b0773366">&#9670;&nbsp;</a></span>renderer</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="class_renderer.html">Renderer</a>&gt; DrawController::renderer</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a9686178466bd1229cb010eff3258f4c3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9686178466bd1229cb010eff3258f4c3">&#9670;&nbsp;</a></span>textures</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::map&lt;std::string, SDL_Texture*&gt; DrawController::textures</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
 
 </div>
 </div>

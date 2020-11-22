@@ -1,11 +1,10 @@
 var class_text_component =
 [
-    [ "TextComponent", "class_text_component.html#a36e505cba4aafa91f4a17bd12b5a187d", null ],
-    [ "~TextComponent", "class_text_component.html#aa9e9e0b269eb8c59e286a64cb1dd0578", null ],
+    [ "TextComponent", "class_text_component.html#a61cc41bbb698630e4cff2f97d8d85ff7", null ],
+    [ "~TextComponent", "class_text_component.html#ae4c5cdf5a2125e8ca4cd6392e06cef24", null ],
     [ "addTextureManager", "class_text_component.html#a48d0738c2cf80bfa71ee5345ba654936", null ],
-    [ "callbackFunction", "class_text_component.html#ae98a9db85f09e9387fd9c7cbd4ea82e2", null ],
-    [ "connectCallback", "class_text_component.html#ab873889e7a8c2bcb06950d9c6e4cc33a", null ],
-    [ "handleInput", "class_text_component.html#a0a81028e6e1ae8dbbb2e41d656969baf", null ],
-    [ "update", "class_text_component.html#a0d8205a293688e5bb690cd7abf438436", null ],
-    [ "updatePositions", "class_text_component.html#ab8005928ec802b2db9a9b3ed1bae6e1d", null ]
+    [ "changeText", "class_text_component.html#ab42572788b394230c764a1cec96d2792", null ],
+    [ "handleInput", "class_text_component.html#a093811fc81691f96a821deb3d3f3298f", null ],
+    [ "interact", "class_text_component.html#aeaad533150ef3760e7009c01bc1a5944", null ],
+    [ "update", "class_text_component.html#a0d8205a293688e5bb690cd7abf438436", null ]
 ];

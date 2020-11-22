@@ -29,12 +29,12 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="papier.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Delta Dungeons
-   &#160;<span id="projectnumber">Alpha 0.2</span>
+   &#160;<span id="projectnumber">1.0</span>
    </div>
-   <div id="projectbrief">Game engine and game</div>
+   <div id="projectbrief">Game engine</div>
   </td>
    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -101,13 +101,31 @@ $(document).ready(function(){initNavTree('class_engine_facade.html',''); initRes
 
 <p>This is the complete list of members for <a class="el" href="class_engine_facade.html">EngineFacade</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="class_engine_facade.html#ad8037cdfc1278e458f8a2fa8dbc5ec46">addTexture</a>(std::string name, std::string path)</td><td class="entry"><a class="el" href="class_engine_facade.html">EngineFacade</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_engine_facade.html#ae0557a2d10827c757010ab651006a0b2">engineController</a></td><td class="entry"><a class="el" href="class_engine_facade.html">EngineFacade</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_engine_facade.html#a3aef85c848643dbabda7d8f0ef87cd6a">init</a>()</td><td class="entry"><a class="el" href="class_engine_facade.html">EngineFacade</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_engine_facade.html#ad21f86136a21e0dc5e6b54e6df9f0158">registerBehaviourObjects</a>(std::vector&lt; std::shared_ptr&lt; BehaviourObject &gt;&gt; objects)</td><td class="entry"><a class="el" href="class_engine_facade.html">EngineFacade</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_engine_facade.html#a896a0b820af7e2b5804ec14c02d51646">registerFonts</a>(std::map&lt; std::string, std::string &gt; fonts)</td><td class="entry"><a class="el" href="class_engine_facade.html">EngineFacade</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_engine_facade.html#ae3fa546e61cc2ceac4ed1c0b21e29b85">addObjectToScene</a>(const std::shared_ptr&lt; BehaviourObject &gt; &amp;addObject)</td><td class="entry"><a class="el" href="class_engine_facade.html">EngineFacade</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_engine_facade.html#a65b6ab3f511fa621c4592e9bfbfe23b0">addOverlayScene</a>(const std::string &amp;sceneName)</td><td class="entry"><a class="el" href="class_engine_facade.html">EngineFacade</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_engine_facade.html#a360a4bb7ab0863b9cc631b8a090fdacf">addTexture</a>(const std::string &amp;name, const std::string &amp;path)</td><td class="entry"><a class="el" href="class_engine_facade.html">EngineFacade</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_engine_facade.html#ac4d89b83eb6e7dc7e6755b2efc2593bf">createCamera</a>(int x, int y)</td><td class="entry"><a class="el" href="class_engine_facade.html">EngineFacade</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_engine_facade.html#af4a920396fca5a2dd0ed10aceb900a7f">deleteColliderFromScene</a>(std::shared_ptr&lt; ColliderComponent &gt; deletedCollider)</td><td class="entry"><a class="el" href="class_engine_facade.html">EngineFacade</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_engine_facade.html#a4cee93e62f6a6aa92de5d1ff9244bffa">deleteObjectFromScene</a>(const std::shared_ptr&lt; BehaviourObject &gt; &amp;deletedObject)</td><td class="entry"><a class="el" href="class_engine_facade.html">EngineFacade</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_engine_facade.html#ac3d678cde1b167616774a530ffdc418e">EngineFacade</a>()</td><td class="entry"><a class="el" href="class_engine_facade.html">EngineFacade</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_engine_facade.html#aa473f6979168c85de542099ea46539f3">gameOver</a>()</td><td class="entry"><a class="el" href="class_engine_facade.html">EngineFacade</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_engine_facade.html#ad49afa89d7b9ec47613c27bf2f8197e1">getFPS</a>()</td><td class="entry"><a class="el" href="class_engine_facade.html">EngineFacade</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_engine_facade.html#a3aef85c848643dbabda7d8f0ef87cd6a">init</a>()</td><td class="entry"><a class="el" href="class_engine_facade.html">EngineFacade</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_engine_facade.html#a1e691e4313d9063ffa30723485ec0dd5">loadPreviousScene</a>()</td><td class="entry"><a class="el" href="class_engine_facade.html">EngineFacade</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_engine_facade.html#ab49fc15d7baae98526d315ef288189e5">loadScene</a>(const std::string &amp;sceneName, const std::string &amp;fromScene, bool clearPrevious)</td><td class="entry"><a class="el" href="class_engine_facade.html">EngineFacade</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_engine_facade.html#a562b9dce4549fcc875332dd3a4819835">passInteract</a>(int x, int y)</td><td class="entry"><a class="el" href="class_engine_facade.html">EngineFacade</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_engine_facade.html#aa32c1144ba7f44d0719389d83fe56c38">passPlayerPosition</a>(int x, int y)</td><td class="entry"><a class="el" href="class_engine_facade.html">EngineFacade</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_engine_facade.html#a1e2b71f52e231acb7f54d6c2b161a1b9">pauseGame</a>()</td><td class="entry"><a class="el" href="class_engine_facade.html">EngineFacade</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_engine_facade.html#a8bfe37c6befb3a2842149f5bc777e472">quitGame</a>()</td><td class="entry"><a class="el" href="class_engine_facade.html">EngineFacade</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_engine_facade.html#ad21f86136a21e0dc5e6b54e6df9f0158">registerBehaviourObjects</a>(std::vector&lt; std::shared_ptr&lt; BehaviourObject &gt;&gt; objects)</td><td class="entry"><a class="el" href="class_engine_facade.html">EngineFacade</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_engine_facade.html#a896a0b820af7e2b5804ec14c02d51646">registerFonts</a>(std::map&lt; std::string, std::string &gt; fonts)</td><td class="entry"><a class="el" href="class_engine_facade.html">EngineFacade</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_engine_facade.html#a8046ece60905e8690d1672733ff73cb5">registerScene</a>(const std::string &amp;sceneName, std::vector&lt; std::shared_ptr&lt; BehaviourObject &gt;&gt; behaviourObjects)</td><td class="entry"><a class="el" href="class_engine_facade.html">EngineFacade</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_engine_facade.html#a099881aa058be127dc88b44988b7579f">registerTextures</a>(std::map&lt; std::string, std::string &gt; textures)</td><td class="entry"><a class="el" href="class_engine_facade.html">EngineFacade</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_engine_facade.html#aefb428080fd2dc2bf2bd8cde62fa60a4">startGame</a>()</td><td class="entry"><a class="el" href="class_engine_facade.html">EngineFacade</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_engine_facade.html#abe356052af727391a4e526a20e0bd0e1">resetSpeedGame</a>()</td><td class="entry"><a class="el" href="class_engine_facade.html">EngineFacade</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_engine_facade.html#a2b5515e9c7a77e235ad439923fc7c141">slowDownGame</a>()</td><td class="entry"><a class="el" href="class_engine_facade.html">EngineFacade</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_engine_facade.html#a3615d1883d256acd7c7d3d9498832e40">speedUpGame</a>()</td><td class="entry"><a class="el" href="class_engine_facade.html">EngineFacade</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_engine_facade.html#aefb428080fd2dc2bf2bd8cde62fa60a4">startGame</a>()</td><td class="entry"><a class="el" href="class_engine_facade.html">EngineFacade</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_engine_facade.html#a67adcc2bfb8fc3c285b9badc89a9d25f">~EngineFacade</a>()</td><td class="entry"><a class="el" href="class_engine_facade.html">EngineFacade</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

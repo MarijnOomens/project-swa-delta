@@ -1,9 +1,14 @@
 var searchData=
 [
-  ['uicomponent_276',['UIComponent',['../class_u_i_component.html',1,'UIComponent'],['../class_u_i_component.html#a5e11468b6a11e28d338e9f83cd1dbbcc',1,'UIComponent::UIComponent()']]],
-  ['uicomponent_2ecpp_277',['UIComponent.cpp',['../_u_i_component_8cpp.html',1,'']]],
-  ['uicomponent_2eh_278',['UIComponent.h',['../_u_i_component_8h.html',1,'']]],
-  ['update_279',['update',['../class_behaviour_object.html#a37997beec7885f5a3886e702c56cf043',1,'BehaviourObject::update()'],['../class_engine_controller.html#a9e3859817f33a70cb2f0f13717bca73f',1,'EngineController::update()'],['../class_game_object.html#adad7d284b670db722a2fda8e6a7997e3',1,'GameObject::update()'],['../class_graphics_component.html#adf7c2ed97dc61177ff4fe2bd50c42420',1,'GraphicsComponent::update()'],['../class_render_facade.html#a0291c2526fcd7b4f1b91d2bd83ae7ff1',1,'RenderFacade::update()'],['../class_text_component.html#a0d8205a293688e5bb690cd7abf438436',1,'TextComponent::update()']]],
-  ['updatecamera_280',['updateCamera',['../class_renderer.html#a9edf92afced0701e8f83890c85a344d9',1,'Renderer']]],
-  ['updatepositions_281',['updatePositions',['../class_behaviour_object.html#a17ee9b4794c5f0a44531e9a3dc6b515f',1,'BehaviourObject::updatePositions()'],['../class_engine_controller.html#a4c17977d131401336c079f7d7ae4ce4d',1,'EngineController::updatePositions()'],['../class_graphics_component.html#ac9cdeab32614587a2090fa2ebc81a3a5',1,'GraphicsComponent::updatePositions()'],['../class_text_component.html#ab8005928ec802b2db9a9b3ed1bae6e1d',1,'TextComponent::updatePositions()']]]
+  ['tag_318',['tag',['../class_collider_component.html#add5618abd6aaa05b06888b28b1221f6f',1,'ColliderComponent']]],
+  ['textcomponent_319',['TextComponent',['../class_text_component.html',1,'TextComponent'],['../class_text_component.html#a61cc41bbb698630e4cff2f97d8d85ff7',1,'TextComponent::TextComponent()']]],
+  ['textcomponent_2ecpp_320',['TextComponent.cpp',['../_text_component_8cpp.html',1,'']]],
+  ['textcomponent_2eh_321',['TextComponent.h',['../_text_component_8h.html',1,'']]],
+  ['texturemanager_322',['TextureManager',['../class_texture_manager.html',1,'TextureManager'],['../class_u_i_component.html#a662909b66c221e2f6143257215187997',1,'UIComponent::textureManager()'],['../class_texture_manager.html#ad76abb178b37cedf4514eb0154349935',1,'TextureManager::TextureManager()'],['../class_texture_manager.html#a6140a5714d1305edadf12e9ae0692b09',1,'TextureManager::TextureManager(std::shared_ptr&lt; RenderFacade &gt; rf, std::shared_ptr&lt; AssetManager &gt; am)']]],
+  ['texturemanager_2ecpp_323',['TextureManager.cpp',['../_texture_manager_8cpp.html',1,'']]],
+  ['texturemanager_2eh_324',['TextureManager.h',['../_texture_manager_8h.html',1,'']]],
+  ['texturename_325',['textureName',['../class_graphics_component.html#a6af269db7d0039b6e0647fa928ea0988',1,'GraphicsComponent']]],
+  ['transform_326',['Transform',['../class_transform.html',1,'Transform'],['../class_transform.html#a294155f98e602d20020dec2108640a3f',1,'Transform::Transform()'],['../class_behaviour_object.html#a425b1e7b7178a010ba59da77bcc8090b',1,'BehaviourObject::transform()']]],
+  ['transform_2eh_327',['Transform.h',['../_transform_8h.html',1,'']]],
+  ['type_328',['type',['../classrapidxml_1_1xml__node.html#a5f91729128856b0aaab598d4364ace60',1,'rapidxml::xml_node::type() const'],['../classrapidxml_1_1xml__node.html#a499bbc9300c1b06821d5c08b24164c68',1,'rapidxml::xml_node::type(node_type type)']]]
 ];

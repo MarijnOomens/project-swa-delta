@@ -96,7 +96,6 @@ $(document).ready(function(){initNavTree('class_frame_manager.html',''); initRes
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="class_frame_manager-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">FrameManager Class Reference</div>  </div>
@@ -118,17 +117,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a90b105fac669cc2398be89be559f3529"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_frame_manager.html#a90b105fac669cc2398be89be559f3529">setFrameDelay</a> ()</td></tr>
 <tr class="memdesc:a90b105fac669cc2398be89be559f3529"><td class="mdescLeft">&#160;</td><td class="mdescRight">setFrameDelay is used if the FPS is higher than 60.  <a href="class_frame_manager.html#a90b105fac669cc2398be89be559f3529">More...</a><br /></td></tr>
 <tr class="separator:a90b105fac669cc2398be89be559f3529"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:a47b5644900d841a027f8f8d826fc3a4c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_frame_manager.html#a47b5644900d841a027f8f8d826fc3a4c">FPS</a></td></tr>
-<tr class="separator:a47b5644900d841a027f8f8d826fc3a4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a167452f5f77c291f32d858ef9ede31dc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_frame_manager.html#a167452f5f77c291f32d858ef9ede31dc">frameDelay</a></td></tr>
-<tr class="separator:a167452f5f77c291f32d858ef9ede31dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e9f38874df3a542bf21f87fd45cd819"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_frame_manager.html#a9e9f38874df3a542bf21f87fd45cd819">frameTime</a></td></tr>
-<tr class="separator:a9e9f38874df3a542bf21f87fd45cd819"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7df2a8c3f6febce5e8e445c3f94503d7"><td class="memItemLeft" align="right" valign="top">Uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_frame_manager.html#a7df2a8c3f6febce5e8e445c3f94503d7">frameStart</a></td></tr>
-<tr class="separator:a7df2a8c3f6febce5e8e445c3f94503d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab50f1adb630f57b07ea4c47213b782ed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_frame_manager.html#ab50f1adb630f57b07ea4c47213b782ed">slowDownGame</a> ()</td></tr>
+<tr class="separator:ab50f1adb630f57b07ea4c47213b782ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad21f2345d1c8ff550b2ac8b9585846c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_frame_manager.html#ad21f2345d1c8ff550b2ac8b9585846c4">speedUpGame</a> ()</td></tr>
+<tr class="separator:ad21f2345d1c8ff550b2ac8b9585846c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7105bcb5aae4ab8a2044d2c589be1d72"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_frame_manager.html#a7105bcb5aae4ab8a2044d2c589be1d72">resetSpeedGame</a> ()</td></tr>
+<tr class="separator:a7105bcb5aae4ab8a2044d2c589be1d72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a727299715ad872209630045fd46ac21d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_frame_manager.html#a727299715ad872209630045fd46ac21d">getFPS</a> () const</td></tr>
+<tr class="separator:a727299715ad872209630045fd46ac21d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a65ee65debd3f67e359c5f880099e5fcb"></a>
@@ -155,9 +151,52 @@ Public Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">FrameManager::~FrameManager </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a727299715ad872209630045fd46ac21d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a727299715ad872209630045fd46ac21d">&#9670;&nbsp;</a></span>getFPS()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int FrameManager::getFPS </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7105bcb5aae4ab8a2044d2c589be1d72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7105bcb5aae4ab8a2044d2c589be1d72">&#9670;&nbsp;</a></span>resetSpeedGame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FrameManager::resetSpeedGame </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -167,7 +206,6 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
 <a id="a90b105fac669cc2398be89be559f3529"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a90b105fac669cc2398be89be559f3529">&#9670;&nbsp;</a></span>setFrameDelay()</h2>
 
@@ -207,57 +245,34 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a47b5644900d841a027f8f8d826fc3a4c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a47b5644900d841a027f8f8d826fc3a4c">&#9670;&nbsp;</a></span>FPS</h2>
+<a id="ab50f1adb630f57b07ea4c47213b782ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab50f1adb630f57b07ea4c47213b782ed">&#9670;&nbsp;</a></span>slowDownGame()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int FrameManager::FPS</td>
+          <td class="memname">void FrameManager::slowDownGame </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a167452f5f77c291f32d858ef9ede31dc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a167452f5f77c291f32d858ef9ede31dc">&#9670;&nbsp;</a></span>frameDelay</h2>
+<a id="ad21f2345d1c8ff550b2ac8b9585846c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad21f2345d1c8ff550b2ac8b9585846c4">&#9670;&nbsp;</a></span>speedUpGame()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int FrameManager::frameDelay</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7df2a8c3f6febce5e8e445c3f94503d7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7df2a8c3f6febce5e8e445c3f94503d7">&#9670;&nbsp;</a></span>frameStart</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Uint32 FrameManager::frameStart</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a9e9f38874df3a542bf21f87fd45cd819"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9e9f38874df3a542bf21f87fd45cd819">&#9670;&nbsp;</a></span>frameTime</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int FrameManager::frameTime</td>
+          <td class="memname">void FrameManager::speedUpGame </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
