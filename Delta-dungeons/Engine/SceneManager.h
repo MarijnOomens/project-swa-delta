@@ -19,8 +19,8 @@ public:
 	int getActiveScenesSize();
 	void setSceneSwitched(bool isSwitched);
 	void handleSceneInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos);
-	void addObjectToScene(const std::shared_ptr<BehaviourObject>& addObject);
-	void deleteObjectFromScene(const std::shared_ptr<BehaviourObject>& deletedObject);
+	void addObjectToScene(std::shared_ptr<BehaviourObject> addObject);
+	void deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject);
 	void passInteract(int x, int y);
 	std::vector<std::shared_ptr<BehaviourObject>> currentObjects;
 

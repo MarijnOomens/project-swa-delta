@@ -36,10 +36,8 @@ void NPCManager::addTrainers()
 {
 	trainerList.push_back("bugtrainer");
 	trainerList.push_back("youngster");
-	trainerList.push_back("bugtrainer");
-	trainerList.push_back("youngster");
-	trainerList.push_back("bugtrainer");
-	trainerList.push_back("youngster");
+	trainerList.push_back("acetrainer_m");
+	trainerList.push_back("acetrainer_f");
 }
 
 std::string NPCManager::getRandomNPC()
