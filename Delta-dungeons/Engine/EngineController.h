@@ -41,9 +41,9 @@ public:
 	void slowDownGame() const;
 	void speedUpGame() const;
 	void resetSpeedGame() const;
-	void addObjectToScene(const std::shared_ptr<BehaviourObject>& addObject);
+	void addObjectToScene(std::shared_ptr<BehaviourObject> addObject);
 	void passInteract(int x, int y);
-	void deleteObjectFromScene(const std::shared_ptr<BehaviourObject>& deletedObject);
+	void deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject);
 	void deleteColliderFromScene(std::shared_ptr<ColliderComponent> deletedCollider);
 	void gameOver();
 	void checkGameOver();

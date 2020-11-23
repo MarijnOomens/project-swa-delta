@@ -84,7 +84,7 @@ void SceneManager::setSceneSwitched(bool isSwitched)
 
 void SceneManager::handleSceneInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos)
 {
-	for (const auto& gameObject : scenes[currentScene])
+	for (const auto& gameObject : currentObjects)
 	{
 		if (!isSceneSwitched) {
 			gameObject->handleInput(keyCode, keyboardEvent, mousePos);
@@ -92,7 +92,7 @@ void SceneManager::handleSceneInput(const KeyCodes keyCode, const KeyboardEvent 
 	}	
 }
 
-void SceneManager::addObjectToScene(const std::shared_ptr<BehaviourObject>& addObject)
+void SceneManager::addObjectToScene(std::shared_ptr<BehaviourObject> addObject)
 {
 	if (currentScene != "") 
 	{
@@ -101,7 +101,7 @@ void SceneManager::addObjectToScene(const std::shared_ptr<BehaviourObject>& addO
 	isSceneSwitched = true;
 }
 
-void SceneManager::deleteObjectFromScene(const std::shared_ptr<BehaviourObject>& deletedObject)
+void SceneManager::deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject)
 {
 	auto i = std::find(currentObjects.begin(), currentObjects.end(), deletedObject);
 	if (i != currentObjects.end())

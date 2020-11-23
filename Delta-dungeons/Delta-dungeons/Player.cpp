@@ -16,7 +16,7 @@ Player::Player(const cbCamera f, cbInteract interactCB, cbGameOver gameOverF, cb
 	std::string textureRunning = "runningshoes";
 	std::unique_ptr<Boomerang> boomerang = std::make_unique<Boomerang>(textureBoomerang,staticBoomerangCallbackFunction, this);
 	std::unique_ptr<RunningShoes> running = std::make_unique<RunningShoes>(staticRunningShoesCallbackFunction, this, textureRunning);
-	health = 4;
+	health = 3;
 
 	addEquipment(std::move(running));
 	addEquipment(std::move(boomerang));
@@ -378,7 +378,7 @@ void Player::registerHit() {
 	{
 		gc->playAnimation(9, 4, animationSpeed, false);
 		gameOverFunc(pointer);
-		health = 4;
+		health = 3;
 	}
 	
 }

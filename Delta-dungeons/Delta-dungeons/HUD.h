@@ -22,7 +22,6 @@ public:
 	void addHealth();
 	void deleteHealth();
 	void addItem(const std::string& texturepath);
-	void updateItems(int i);
 
 private:
 	int health = 0;
