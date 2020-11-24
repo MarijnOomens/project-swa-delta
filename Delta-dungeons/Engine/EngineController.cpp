@@ -174,12 +174,12 @@ void EngineController::registerFonts(std::map<std::string, std::string> fonts) {
 
 void EngineController::pauseScreen()
 {
-	if (renderFacade->renderer->isPaused)
+	if (renderFacade->renderer->isPaused && sceneManager.getCurrentScene() == "PauseScreen")
 	{
 		renderFacade->pauseGame();
 		loadPreviousScene();
 	}
-	else
+	else if(!renderFacade->renderer->isPaused)
 	{
 		renderFacade->pauseGame();
 		addOverlayScene("PauseScreen");
