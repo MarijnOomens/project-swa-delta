@@ -77,7 +77,7 @@ void EngineController::startGame()
 	while (renderFacade->renderer->isRunning)
 	{
 		renderFacade->setFrameStart();
-		if (!isGameOver)
+		if (!isGameOver && !renderFacade->renderer->transitioning)
 		{
 			input->handleInput(renderFacade->renderer->isPaused);
 		}

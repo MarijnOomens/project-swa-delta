@@ -12,6 +12,7 @@ class Renderer {
 public:
 	bool isRunning;
 	bool isPaused;
+	bool transitioning = false;
 	SDL_Renderer* sdlRenderer;
 	SDL_Rect camera;
 
@@ -28,10 +29,12 @@ public:
 	void quitGame();
 	void beforeFrame() const;
 	void afterFrame() const;
+	void drawTexture(SDL_Texture* texture, const Transform& transform, const Vector2D& coordinates, const Vector2D& sourceDimension, int row, int frames, int speed, bool animated, bool flipped, bool isScreen);
+	void drawText(SDL_Texture* texture, SDL_Rect source, SDL_Rect destination, SDL_RendererFlip flip);
+	void transition();
 
 private:
 	SDL_Window* sdlWindow;
 
 	int alphaCounter;
-	bool transitioning = false;
 };
