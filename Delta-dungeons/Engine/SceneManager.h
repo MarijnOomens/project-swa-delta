@@ -23,6 +23,7 @@ public:
 	void deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject);
 	void passInteract(int x, int y);
 	std::vector<std::shared_ptr<BehaviourObject>> currentObjects;
+	std::string getCurrentScene();
 
 private:
 	std::map<std::string, std::vector<std::shared_ptr<BehaviourObject>>> scenes;
