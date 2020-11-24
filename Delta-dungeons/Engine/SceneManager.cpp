@@ -124,3 +124,8 @@ void SceneManager::passInteract(int x, int y)
 	}
 	
 }
+
+std::string SceneManager::getCurrentScene()
+{
+	return currentScene;
+}
