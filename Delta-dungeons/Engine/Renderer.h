@@ -3,7 +3,7 @@
 #include "SDL.h"
 #include "GameObject.h"
 #include "SDL_ttf.h"
-#include "SDL_Mixer.h" 
+#include "SDL_mixer.h"
 #include <iostream>
 #include <list>
 #include <memory>
