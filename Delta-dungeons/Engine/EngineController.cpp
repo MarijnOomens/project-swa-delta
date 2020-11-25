@@ -10,7 +10,11 @@ EngineController::EngineController()
 	renderFacade = std::make_shared<RenderFacade>();
 	textureManager = std::make_shared<TextureManager>(renderFacade, assetManager);
 	input = std::make_shared<Input>(staticInputCallbackFunction, this);
+	audio = std::make_unique<Audio>(assetManager);
+	
 	initRenderer("Delta Dungeons", 1280, 960, false);
+	assetManager->addAudio("touch", "Assets/Audio/touch.wav");
+	audio->playAudio("touch", true);
 }
 
 /// <summary>
@@ -179,7 +183,7 @@ void EngineController::pauseScreen()
 		renderFacade->pauseGame();
 		loadPreviousScene();
 	}
-	else if(!renderFacade->renderer->isPaused)
+	else if (!renderFacade->renderer->isPaused)
 	{
 		renderFacade->pauseGame();
 		addOverlayScene("PauseScreen");
@@ -213,16 +217,16 @@ void EngineController::resetSpeedGame() const
 
 void EngineController::addObjectToScene(std::shared_ptr<BehaviourObject> addObject)
 {
-		if (dynamic_cast<GraphicsComponent*>(addObject.get()) != nullptr)
-		{
-			auto ngc = dynamic_cast<GraphicsComponent*>(addObject.get());
-			ngc->addTextureManager(textureManager);
-			sceneManager.addObjectToScene(addObject);
-		}
-		else
-		{
-			sceneManager.addObjectToScene(addObject);
-		}
+	if (dynamic_cast<GraphicsComponent*>(addObject.get()) != nullptr)
+	{
+		auto ngc = dynamic_cast<GraphicsComponent*>(addObject.get());
+		ngc->addTextureManager(textureManager);
+		sceneManager.addObjectToScene(addObject);
+	}
+	else
+	{
+		sceneManager.addObjectToScene(addObject);
+	}
 }
 
 void EngineController::passInteract(int x, int y)

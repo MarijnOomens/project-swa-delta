@@ -163,6 +163,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AudioFacade.h" />
     <ClInclude Include="Collision.h" />
     <ClInclude Include="DamageColliderComponent.h" />
     <ClInclude Include="EngineFacade.h" />
@@ -177,6 +178,7 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GraphicsComponent.h" />
     <ClInclude Include="HUDComponent.h" />
+    <ClInclude Include="IAudioFacade.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="IInputFacade.h" />
     <ClInclude Include="InputFacade.h" />
@@ -189,13 +191,14 @@
     <ClInclude Include="Rectangle.h" />
     <ClInclude Include="RenderFacade.h" />
     <ClInclude Include="SceneManager.h" />
-    <ClInclude Include="Sound.h" />
+    <ClInclude Include="Audio.h" />
     <ClInclude Include="TextComponent.h" />
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AudioFacade.cpp" />
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="DamageColliderComponent.cpp" />
     <ClCompile Include="EngineFacade.cpp" />
@@ -217,7 +220,7 @@
     <ClCompile Include="FrameManager.cpp" />
     <ClCompile Include="HUDComponent.cpp" />
     <ClCompile Include="SceneManager.cpp" />
-    <ClCompile Include="Sound.cpp" />
+    <ClCompile Include="Audio.cpp" />
     <ClCompile Include="TextComponent.cpp" />
     <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="Vector2D.cpp" />

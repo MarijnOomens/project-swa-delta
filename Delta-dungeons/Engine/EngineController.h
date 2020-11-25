@@ -12,6 +12,7 @@
 #include "ColliderComponent.h"
 #include <vector>
 #include "Collision.h"
+#include "Audio.h"
 
 // Engincontroller class
 //
@@ -54,6 +55,7 @@ private:
 	std::shared_ptr<TextureManager> textureManager;
 	std::shared_ptr<AssetManager> assetManager;
 	std::shared_ptr<Input> input;
+	std::unique_ptr<Audio> audio;
 	SceneManager sceneManager;
 	std::shared_ptr<Collision> collision;
 	bool isGameOver = false;

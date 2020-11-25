@@ -31,7 +31,7 @@ std::string AssetManager::getTexture(const std::string& id)
 /// </summary>
 /// <param name="id">ID/Name of font.</param>
 /// <param name="path">Path of font.</param>
-void AssetManager::addFont(const std::string& id, const std::string& path) 
+void AssetManager::addFont(const std::string& id, const std::string& path)
 {
 	fonts.try_emplace(id, path);
 }
@@ -44,4 +44,24 @@ void AssetManager::addFont(const std::string& id, const std::string& path)
 std::string AssetManager::getFont(const std::string& id)
 {
 	return fonts[id];
+}
+
+/// <summary>
+/// This method adds a Audio file with a given id and path to a map of fonts.
+/// </summary>
+/// <param name="id">ID/Name of audio.</param>
+/// <param name="path">Path of audio.</param>
+void AssetManager::addAudio(const std::string& id, const std::string& path)
+{
+	audio.try_emplace(id, path);
+}
+
+/// <summary>
+/// This method returns one audio file from the map, depending upon the given parameter.
+/// </summary>
+/// <param name="id">ID of audio.</param>
+/// <returns></returns>
+std::string AssetManager::getAudio(const std::string& id)
+{
+	return audio[id];
 }
