@@ -37,6 +37,7 @@ public:
 	void slowDownGame() const;
 	void speedUpGame() const;
 	void resetSpeedGame() const;
+	void checkTransition() const;
 
 	std::tuple<int, int> passPlayerPosition(const int x,const int y) const;
 	int getFPS() const;

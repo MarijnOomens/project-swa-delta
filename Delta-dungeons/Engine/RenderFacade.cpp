@@ -166,3 +166,8 @@ std::tuple<int, int> RenderFacade::passPlayerPosition(const int x,const int y) c
 {
 	return renderer->updateCamera(x, y);
 }
+
+void RenderFacade::checkTransition()const
+{
+	renderer->checkTransition();
+}

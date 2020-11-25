@@ -32,6 +32,7 @@ public:
 	void drawTexture(SDL_Texture* texture, const Transform& transform, const Vector2D& coordinates, const Vector2D& sourceDimension, int row, int frames, int speed, bool animated, bool flipped, bool isScreen);
 	void drawText(SDL_Texture* texture, SDL_Rect source, SDL_Rect destination, SDL_RendererFlip flip);
 	void transition();
+	void checkTransition();
 
 private:
 	SDL_Window* sdlWindow;

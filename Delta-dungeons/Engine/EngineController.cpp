@@ -83,10 +83,11 @@ void EngineController::startGame()
 		}
 		if (!renderFacade->renderer->isPaused)
 		{
-			renderFacade->beforeFrame();
 			collision->checkCollision();
-			sceneManager.update();
 		}
+		checkTransition();
+		renderFacade->beforeFrame();
+		sceneManager.update();
 		checkGameOver();
 		renderFacade->afterFrame();
 		renderFacade->setFrameDelay();
@@ -138,7 +139,6 @@ void EngineController::loadScene(const std::string& sceneName, const std::string
 void EngineController::loadPreviousScene()
 {
 	sceneManager.loadPreviousScene();
-	transitionScene();
 }
 
 void EngineController::addOverlayScene(const std::string& sceneName)
@@ -265,4 +265,9 @@ void EngineController::checkGameOver()
 			timer--;
 		}
 	}
+}
+
+void EngineController::checkTransition()const
+{
+	renderFacade->checkTransition();
 }

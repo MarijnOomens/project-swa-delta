@@ -48,6 +48,7 @@ public:
 	void deleteColliderFromScene(std::shared_ptr<ColliderComponent> deletedCollider);
 	void gameOver();
 	void checkGameOver();
+	void checkTransition()const;
 
 private:
 	std::vector<int> hudLayers;
