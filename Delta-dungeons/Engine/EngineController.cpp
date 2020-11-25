@@ -13,7 +13,7 @@ EngineController::EngineController()
 	audio = std::make_unique<Audio>(assetManager);
 	
 	initRenderer("Delta Dungeons", 1280, 960, false);
-	assetManager->addAudio("touch", "Assets/Audio/touch.wav");
+	assetManager->addAudio("touch", "Assets/Audio/touch.ogg");
 	audio->playAudio("touch", true);
 }
 
