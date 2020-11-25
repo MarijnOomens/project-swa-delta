@@ -18,10 +18,10 @@ void RegularColliderComponent::interact() {}
 
 void RegularColliderComponent::update() {}
 
-void RegularColliderComponent::actCollision(int right, int left, int up, int down, std::string rightTag, std::string leftTag, std::string upTag, std::string downTag)
+void RegularColliderComponent::actCollision(std::shared_ptr<BehaviourObject> right, std::shared_ptr<BehaviourObject> left, std::shared_ptr<BehaviourObject> up, std::shared_ptr<BehaviourObject> down)
 {
 	if (collisionFunc != nullptr)
 	{
-		collisionFunc(pointer, right, left, up, down, rightTag, leftTag, upTag, downTag, false);
+		collisionFunc(pointer, right, left, up, down);
 	}
 }

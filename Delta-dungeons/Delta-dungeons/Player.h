@@ -44,8 +44,8 @@ public:
 	void updateCaughtPokemon(int pokemonId);
 	std::vector<std::string> getItems();
 
-	static void staticCollisionCallbackFunction(void* p, int right, int left, int up, int down, std::string rightTag, std::string leftTag, std::string upTag, std::string downTag, bool hit);
-	void collisionCallbackFunction(int right, int left, int up, int down, std::string rightTag, std::string leftTag, std::string upTag, std::string downTag, bool hit);
+	static void staticCollisionCallbackFunction(void* p, std::shared_ptr<BehaviourObject> right, std::shared_ptr<BehaviourObject> left, std::shared_ptr<BehaviourObject> up, std::shared_ptr<BehaviourObject> down);
+	void collisionCallbackFunction(std::shared_ptr<BehaviourObject> right, std::shared_ptr<BehaviourObject> left, std::shared_ptr<BehaviourObject> up, std::shared_ptr<BehaviourObject> down);
 
 	static void staticBoomerangCallbackFunction(void* p, const bool boomerangActivated);
 	void boomerangCallbackFunction(const bool boomerangActivated);

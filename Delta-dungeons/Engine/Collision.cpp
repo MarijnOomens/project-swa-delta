@@ -28,21 +28,12 @@ void Collision::checkCollision()
 
 	for (auto collider1 : colliderObjects)
 	{
-		//if (recA.x + recA.w >= recB.x &&
-		//	recB.x + recB.w >= recA.x &&
-		//	recA.y + recA.h >= recB.y &&
-		//	recB.y + recB.h >= recA.y)
 		if (
 
 			collider1->transform.position.x + 128 >= cameraX && 
 			1280 + cameraX >= collider1->transform.position.x && 
 			collider1->transform.position.y + 128 >= cameraY &&
 			cameraY + 1024 >= collider1->transform.position.y
-
-			//collider1->transform.position.y + 128 < cameraY
-			//&& !collider1->transform.position.x > cameraW && !collider1->transform.position.y + 128 < cameraY
-			//&& !collider1->transform.position.x + 128 < cameraX && !collider1->transform.position.y > cameraH
-			//&& !collider1->transform.position.x > cameraW && !collider1->transform.position.y > cameraH
 			) 
 		{
 			auto col1 = dynamic_cast<ColliderComponent*>(collider1.get());
@@ -72,7 +63,7 @@ void Collision::checkCollision()
 							&& col1->transform.position.y == col2->transform.position.y))
 						{
 							checkedRight = true;
-							rightX = col2->transform.position.x;
+							rightX = collider2;
 							rightTag = col2->tag;
 						}
 						/*facing up*/
@@ -82,7 +73,7 @@ void Collision::checkCollision()
 								&& col1->transform.position.x == col2->transform.position.x)
 						{
 							checkedUp = true;
-							upY = col2->transform.position.y;
+							upY = collider2;
 							upTag = col2->tag;
 						}
 						else if
@@ -92,7 +83,7 @@ void Collision::checkCollision()
 								&& col1->transform.position.x == col2->transform.position.x)
 						{
 							checkedDown = true;
-							downY = col2->transform.position.y;
+							downY = collider2;
 							downTag = col2->tag;
 						}
 						else if
@@ -102,16 +93,16 @@ void Collision::checkCollision()
 								&& col1->transform.position.y == col2->transform.position.y)
 						{
 							checkedLeft = true;
-							leftX = col2->transform.position.x;
+							leftX = collider2;
 							leftTag = col2->tag;
 						}
 					}
 				}
 			}
-			col1->actCollision(rightX, leftX, upY, downY, rightTag, leftTag, upTag, downTag);
+			col1->actCollision(rightX, leftX, upY, downY);
 			//reset after actCollision
 			checkedRight = checkedLeft = checkedUp = checkedDown = false;
-			rightX = leftX = upY = downY = -1;
+			rightX = leftX = upY = downY = nullptr;
 			rightTag = leftTag = upTag = downTag = "";
 		}
 	}

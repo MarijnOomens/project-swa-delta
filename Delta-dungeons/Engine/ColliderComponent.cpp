@@ -7,5 +7,4 @@ void ColliderComponent::handleInput(const KeyCodes& keyCode, const KeyboardEvent
 void ColliderComponent::interact() {}
 
 void ColliderComponent::update() {}
-
-void ColliderComponent::actCollision(int right, int left, int up, int down, std::string rightTag, std::string leftTag, std::string upTag, std::string downTag){}
+void ColliderComponent::actCollision(std::shared_ptr<BehaviourObject> right, std::shared_ptr<BehaviourObject> left, std::shared_ptr<BehaviourObject> up, std::shared_ptr<BehaviourObject> down){}

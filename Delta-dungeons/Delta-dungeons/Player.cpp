@@ -96,6 +96,10 @@ void Player::handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboard
 				}
 			}
 		}
+		rightX = 0;
+		leftX = 0;
+		upY = 0;
+		downY = 0;
 	}
 
 	if (keyboardEvent == KeyboardEvent::KEY_PRESSED && keyCodes == KeyCodes::KEY_UP || keyCodes == KeyCodes::KEY_LEFT || keyCodes == KeyCodes::KEY_RIGHT || keyCodes == KeyCodes::KEY_DOWN || keyCodes == KeyCodes::KEY_W || keyCodes == KeyCodes::KEY_S || keyCodes == KeyCodes::KEY_A || keyCodes == KeyCodes::KEY_D)
@@ -351,21 +355,37 @@ void Player::runningShoesCallbackFunction(const bool runningActivated)
 	}
 }
 
-void Player::staticCollisionCallbackFunction(void* p, int right, int left, int up, int down, std::string rightTag, std::string leftTag, std::string upTag, std::string downTag, bool hit)
+void Player::staticCollisionCallbackFunction(void* p, std::shared_ptr<BehaviourObject> right, std::shared_ptr<BehaviourObject> left, std::shared_ptr<BehaviourObject> up, std::shared_ptr<BehaviourObject> down)
 {
-	((Player*)p)->collisionCallbackFunction(right, left, up, down, rightTag, leftTag, upTag, downTag, hit);
+	((Player*)p)->collisionCallbackFunction(right, left, up, down);
 }
 
-void Player::collisionCallbackFunction(int right, int left, int up, int down, std::string rTag, std::string lTag, std::string uTag, std::string dTag, bool hit)
+void Player::collisionCallbackFunction(std::shared_ptr<BehaviourObject> right, std::shared_ptr<BehaviourObject> left, std::shared_ptr<BehaviourObject> up, std::shared_ptr<BehaviourObject> down)
 {
-	rightX = right;
-	leftX = left;
-	upY = up;
-	downY = down;
-	rightTag = rTag;
-	leftTag = lTag;
-	upTag = uTag;
-	downTag = dTag;
+	//leftX = 1;
+	//rightX = right;
+	if (left != nullptr) {
+		leftX = left->transform.position.x;
+		//std::cout << left->transform.position.y << std::endl;
+	}
+	if (right != nullptr) {
+		rightX = right->transform.position.x;
+		//std::cout << left->transform.position.y << std::endl;
+	}
+	if (up != nullptr) {
+		upY = up->transform.position.y;
+		//std::cout << left->transform.position.y << std::endl;
+	}
+	if (down != nullptr) {
+		downY = down->transform.position.y;
+		//std::cout << left->transform.position.y << std::endl;
+	}
+	//upY = up;
+	//downY = down;
+	//rightTag = rTag;
+	//leftTag = lTag;
+	//upTag = uTag;
+	//downTag = dTag;
 }
 
 void Player::registerHit() {

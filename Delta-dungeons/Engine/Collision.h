@@ -5,10 +5,10 @@ class Collision {
 public:
 	Collision();
 	~Collision() {}
-	int upY = -1;
-	int leftX = -1;
-	int rightX = -1;
-	int downY = -1;
+	std::shared_ptr<BehaviourObject> upY = nullptr;
+	std::shared_ptr<BehaviourObject> leftX = nullptr;
+	std::shared_ptr<BehaviourObject> rightX = nullptr;
+	std::shared_ptr<BehaviourObject> downY = nullptr;
 	std::string rightTag = "";
 	std::string leftTag = "";
 	std::string upTag = "";
