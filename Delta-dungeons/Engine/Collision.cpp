@@ -35,9 +35,9 @@ void Collision::checkCollision()
 		if (
 
 			collider1->transform.position.x + 128 >= cameraX && 
-			cameraW + cameraX >= collider1->transform.position.x && 
+			1280 + cameraX >= collider1->transform.position.x && 
 			collider1->transform.position.y + 128 >= cameraY &&
-			cameraY + cameraH >= collider1->transform.position.y
+			cameraY + 1024 >= collider1->transform.position.y
 
 			//collider1->transform.position.y + 128 < cameraY
 			//&& !collider1->transform.position.x > cameraW && !collider1->transform.position.y + 128 < cameraY
@@ -51,9 +51,9 @@ void Collision::checkCollision()
 				if (
 					collider1 != collider2 &&
 					collider2->transform.position.x + 128 >= cameraX &&
-					cameraW + cameraX >= collider2->transform.position.x &&
+					1280 + cameraX >= collider2->transform.position.x &&
 					collider2->transform.position.y + 128 >= cameraY &&
-					cameraY + cameraH >= collider2->transform.position.y
+					cameraY + 1024 >= collider2->transform.position.y
 					)
 				{
 					auto col2 = dynamic_cast<ColliderComponent*>(collider2.get());
