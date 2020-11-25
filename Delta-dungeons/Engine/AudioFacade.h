@@ -6,6 +6,8 @@
 class AudioFacade : public IAudioFacade
 {
 public:
+	AudioFacade();
+	~AudioFacade() {};
 	void playAudio(const std::string& path, bool loop) const override;
 
 private:

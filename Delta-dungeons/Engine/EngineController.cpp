@@ -1,5 +1,5 @@
 #include "EngineController.h"
-
+int wo = 0;
 /// <summary>
 /// This class has the responsibility of managing different classes in the engine. It communicaties with classes like TextureManager and RenderFacade.
 /// </summary>
@@ -14,6 +14,7 @@ EngineController::EngineController()
 	
 	initRenderer("Delta Dungeons", 1280, 960, false);
 	assetManager->addAudio("touch", "Assets/Audio/touch.ogg");
+	assetManager->addAudio("zagadka", "Assets/Audio/zagadka.wav");
 	audio->playAudio("touch", true);
 }
 
@@ -136,7 +137,13 @@ void EngineController::loadScene(const std::string& sceneName, const std::string
 		renderFacade->pauseGame();
 	}
 	sceneManager.loadScene(sceneName, fromScene, clearPrevious);
-
+	if (wo >= 1)
+	{
+		audio->playAudio("zagadka", true);
+	}
+	else {
+		wo++;
+	}
 }
 
 void EngineController::loadPreviousScene()
