@@ -14,10 +14,16 @@ public:
 	std::string upTag = "";
 	std::string downTag = "";
 
+	int cameraX = 0;
+	int cameraY = 0;
+	int cameraW = 0;
+	int cameraH = 0;
+
 	bool checkedUp = false;
 	bool checkedLeft = false;
 	bool checkedRight = false;
 	bool checkedDown = false;
+	void setCameraDimensions(Transform &transform);
 	void registerColliders(std::vector<std::shared_ptr<BehaviourObject>> colliders);
 	void deleteColliderFromScene(std::shared_ptr<BehaviourObject> deletedCollider);
 	void checkCollision();

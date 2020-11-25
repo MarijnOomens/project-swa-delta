@@ -8,8 +8,8 @@ PokemonManager::PokemonManager()
 void PokemonManager::createPokemon()
 {
 	std::unique_ptr<XMLSceneParser> parser = std::make_unique<XMLSceneParser>();
-	std::vector<std::shared_ptr<ParserData>> pokemonTile = parser->getNPCDataList("Assets/Maps/Level1/level.xml");
-	parsedPokemon = parser->loadPokemon("Assets/Maps/Level1/pokemon.xml");
+	std::vector<std::shared_ptr<ParserData>> pokemonTile = parser->getNPCDataList("Assets/Maps/Level2/level.xml");
+	parsedPokemon = parser->loadPokemon("Assets/Maps/Level2/pokemon.xml");
 	srand(time(0));
 	for (auto parsedTile : pokemonTile)
 	{

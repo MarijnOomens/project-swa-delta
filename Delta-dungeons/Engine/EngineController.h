@@ -23,6 +23,11 @@ public:
 	~EngineController() {}
 
 	void initRenderer(const std::string& title, int width, int height, bool fullscreen);
+
+	static void staticPassCameraDimensionFunction(void* p, Transform dimensions);
+	void passCameraDimensionFunction(Transform& dimensions);
+	
+
 	static void staticInputCallbackFunction(void* p, const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos);
 	void inputCallbackFunction(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos);
 	void addTexture(const std::string& name, const std::string& path);

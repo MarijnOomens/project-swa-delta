@@ -7,7 +7,7 @@ EngineController::EngineController()
 {
 	collision = std::make_shared<Collision>();
 	assetManager = std::make_shared<AssetManager>();
-	renderFacade = std::make_shared<RenderFacade>();
+	renderFacade = std::make_shared<RenderFacade>(staticPassCameraDimensionFunction, this);
 	textureManager = std::make_shared<TextureManager>(renderFacade, assetManager);
 	input = std::make_shared<Input>(staticInputCallbackFunction, this);
 	initRenderer("Delta Dungeons", 1280, 960, false);
@@ -24,6 +24,17 @@ void EngineController::initRenderer(const std::string& title, int width, int hei
 {
 	renderFacade->init(title, width, height, fullscreen);
 }
+
+void EngineController::staticPassCameraDimensionFunction(void* p, Transform transform)
+{
+	((EngineController*)p)->passCameraDimensionFunction(transform);
+}
+
+void EngineController::passCameraDimensionFunction(Transform &transform)
+{
+	collision->setCameraDimensions(transform);
+}
+
 
 /// <summary>
 /// Receives input data from the class Input and passes it to a new function.

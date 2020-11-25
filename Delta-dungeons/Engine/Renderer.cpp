@@ -1,6 +1,6 @@
 #include "Renderer.h"
 
-Renderer::Renderer()
+Renderer::Renderer(cbPassCameraDimension cbPCD, void* p) : passCameraFunc(cbPCD), pointer(p)
 {
 	isRunning = false;
 	isPaused = false;
@@ -81,6 +81,19 @@ void Renderer::createCamera(const int x, const int y)
 		cameraY = 0;
 	}
 	camera = { cameraX , cameraY, 4608, 4096 };
+	passCameraFunc(pointer, getCameraDimensions());
+}
+
+
+
+
+Transform Renderer::getCameraDimensions() {
+	Transform transform;
+	transform.position.x = camera.x;
+	transform.position.y = camera.y;
+	transform.scale.x = camera.w;
+	transform.scale.y = camera.h;
+	return transform;
 }
 
 bool Renderer::checkCameraPosition(const Transform& transform) const
@@ -98,6 +111,8 @@ std::tuple<int, int> Renderer::updateCamera(const int playerX,const int playerY)
 	int differenceY = (playerY - (camera.y + 512));
 	camera.x = camera.x + differenceX;
 	camera.y = camera.y + differenceY;
+
+	passCameraFunc(pointer, getCameraDimensions());
 
 	return std::make_tuple(differenceX, differenceY);
 }
