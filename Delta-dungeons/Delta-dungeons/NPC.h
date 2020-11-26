@@ -12,6 +12,7 @@ public:
 	NPC(int x, int y, std::string& texture);
 
 	void interact() override;
+	void registerCollision(int x, int y, bool damage) override;
 
 protected:
 	std::string sfxPath;
@@ -19,6 +20,5 @@ protected:
 private:
 	std::shared_ptr<CollisionStrategy> stp;
 	std::shared_ptr<GraphicsComponent> gc;
-	std::shared_ptr<CollidingComponent> cc;
 	const int animationSpeed = 120;
 };

@@ -6,5 +6,6 @@ DamageStrategy::~DamageStrategy() {}
 
 void DamageStrategy::actCollision(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction)
 {
-	std::cout << "OUCH!" << std::endl;
+	auto col = dynamic_cast<InteractiveObject*>(collider.get());
+	col->registerCollision(x, y, true);
 }

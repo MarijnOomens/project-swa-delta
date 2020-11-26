@@ -25,9 +25,11 @@ void Collision::setCameraDimensions(Transform &transform) {
 
 void Collision::checkCollision(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction)
 {
-	auto col1 = dynamic_cast<CollidingComponent*>(collider.get());
+	//auto col1 = dynamic_cast<InteractiveObject*>(collider.get());
+	
 	for (auto collider2 : colliderObjects)
 	{
+		
 		if (
 			collider != collider2 &&
 			collider2->transform.position.x + 128 >= cameraX &&
@@ -36,13 +38,14 @@ void Collision::checkCollision(std::shared_ptr<BehaviourObject> collider, int x,
 			cameraY + 1024 >= collider2->transform.position.y
 			)
 		{
-			auto col2 = dynamic_cast<CollidingComponent*>(collider2.get());		
+			auto col2 = dynamic_cast<CollidingComponent*>(collider2.get());	
 					
 			/*facing right*/
 			if (KeyCodes::KEY_RIGHT == direction
 				&& x == col2->transform.position.x
 				&& y == col2->transform.position.y)
 			{
+				x = x - 128;
 				col2->actCollision(collider, x, y, direction);
 				break;
 			}
@@ -52,6 +55,7 @@ void Collision::checkCollision(std::shared_ptr<BehaviourObject> collider, int x,
 					&& y == col2->transform.position.y
 					&& x == col2->transform.position.x)
 			{
+				y = y + 128;
 				col2->actCollision(collider, x, y, direction);
 				break;
 			}
@@ -61,6 +65,7 @@ void Collision::checkCollision(std::shared_ptr<BehaviourObject> collider, int x,
 					&& y == col2->transform.position.y
 					&& x == col2->transform.position.x)
 			{
+				y = y - 128;
 				col2->actCollision(collider, x, y, direction);
 				break;
 			}
@@ -70,6 +75,7 @@ void Collision::checkCollision(std::shared_ptr<BehaviourObject> collider, int x,
 					&& x == col2->transform.position.x
 					&& y == col2->transform.position.y)
 			{
+				x = x + 128;
 				col2->actCollision(collider, x, y, direction);
 				break;
 			}

@@ -206,14 +206,16 @@ void Player::update() {}
 void Player::moveUp()
 {
 	//de huidige positie bijhouden.
-	transform.position.y -= baseMovementSpeed;
-	cc->transform.position.y = this->transform.position.y;
-	gc->transform.position = transform.position;
-	
-	collisionFunc(pointer, cc, this->transform.position.x, this->transform.position.y, KeyCodes::KEY_UP);
+	collisionFunc(pointer, shared_from_this(), this->transform.position.x, this->transform.position.y - 128, KeyCodes::KEY_UP);
+	if (!hasMoved) {
+		transform.position.y -= baseMovementSpeed;
+		cc->transform.position.y = this->transform.position.y;
+		gc->transform.position = transform.position;
 
-	runActivated ? gc->playAnimation(7, 3, animationSpeed, false) : gc->playAnimation(2, 4, animationSpeed, false);
-	func(pointer, transform.position.x, transform.position.y);
+		runActivated ? gc->playAnimation(7, 3, animationSpeed, false) : gc->playAnimation(2, 4, animationSpeed, false);
+		func(pointer, transform.position.x, transform.position.y);
+	}
+	hasMoved = false;
 }
 
 /// <summary>
@@ -222,14 +224,16 @@ void Player::moveUp()
 /// </summary>
 void Player::moveDown()
 {
-	transform.position.y += baseMovementSpeed;
-	cc->transform.position.y = this->transform.position.y;
-	gc->transform.position = transform.position;
+	collisionFunc(pointer, shared_from_this(), this->transform.position.x, this->transform.position.y + 128, KeyCodes::KEY_DOWN);
+	if (!hasMoved) {
+		transform.position.y += baseMovementSpeed;
+		cc->transform.position.y = this->transform.position.y;
+		gc->transform.position = transform.position;
 
-	collisionFunc(pointer, cc, this->transform.position.x, this->transform.position.y, KeyCodes::KEY_DOWN);
-
-	runActivated ? gc->playAnimation(6, 3, animationSpeed, false) : gc->playAnimation(1, 4, animationSpeed, false);
-	func(pointer, transform.position.x, transform.position.y);
+		runActivated ? gc->playAnimation(6, 3, animationSpeed, false) : gc->playAnimation(1, 4, animationSpeed, false);
+		func(pointer, transform.position.x, transform.position.y);
+	}
+	hasMoved = false;
 }
 
 /// <summary>
@@ -238,14 +242,16 @@ void Player::moveDown()
 /// </summary>
 void Player::moveLeft()
 {
-	transform.position.x -= baseMovementSpeed;
-	cc->transform.position.x = this->transform.position.x;
-	gc->transform.position = transform.position;
+	collisionFunc(pointer, shared_from_this(), this->transform.position.x - 128, this->transform.position.y, KeyCodes::KEY_LEFT);
+	if (!hasMoved) {
+		transform.position.x -= baseMovementSpeed;
+		cc->transform.position.x = this->transform.position.x;
+		gc->transform.position = transform.position;
 
-	collisionFunc(pointer, cc, this->transform.position.x, this->transform.position.y, KeyCodes::KEY_LEFT);
-
-	runActivated ? gc->playAnimation(8, 3, animationSpeed, false) : gc->playAnimation(3, 4, animationSpeed, false);
-	func(pointer, transform.position.x, transform.position.y);
+		runActivated ? gc->playAnimation(8, 3, animationSpeed, false) : gc->playAnimation(3, 4, animationSpeed, false);
+		func(pointer, transform.position.x, transform.position.y);
+	}
+	hasMoved = false;
 }
 
 /// <summary>
@@ -254,14 +260,16 @@ void Player::moveLeft()
 /// </summary>
 void Player::moveRight()
 {
-	transform.position.x += baseMovementSpeed;
-	cc->transform.position.x = this->transform.position.x;
-	gc->transform.position = transform.position;
+	collisionFunc(pointer, shared_from_this(), this->transform.position.x + 128, this->transform.position.y, KeyCodes::KEY_RIGHT);
+	if(!hasMoved) {
+		transform.position.x += baseMovementSpeed;
+		cc->transform.position.x = this->transform.position.x;
+		gc->transform.position = transform.position;
 
-	collisionFunc(pointer, cc, this->transform.position.x, this->transform.position.y, KeyCodes::KEY_RIGHT);
-
-	runActivated ? gc->playAnimation(8, 3, animationSpeed, true) : gc->playAnimation(3, 4, animationSpeed, true);
-	func(pointer, transform.position.x, transform.position.y);
+		runActivated ? gc->playAnimation(8, 3, animationSpeed, true) : gc->playAnimation(3, 4, animationSpeed, true);
+		func(pointer, transform.position.x, transform.position.y);
+	}
+	hasMoved = false;
 }
 
 /// <summary>
@@ -332,8 +340,6 @@ void Player::runningShoesCallbackFunction(const bool runningActivated)
 	}
 }
 
-
-
 void Player::registerHit() {
 	hudFunc(pointer,true);
 	if (health > 0) 
@@ -347,4 +353,16 @@ void Player::registerHit() {
 		health = 3;
 	}
 	
+}
+
+void Player::registerCollision(int x, int y, bool damage) {
+	if (damage) { registerHit(); }
+	hasMoved = true;
+
+	transform.position.x = x;
+	transform.position.y = y;
+	cc->transform.position.x = transform.position.x;
+	cc->transform.position.y = transform.position.y;
+	gc->transform.position = transform.position;
+	func(pointer, transform.position.x, transform.position.y);
 }

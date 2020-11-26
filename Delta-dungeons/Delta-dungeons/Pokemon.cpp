@@ -1,6 +1,5 @@
 #include "Pokemon.h"
 
-
 Pokemon::Pokemon(int x, int y, std::string& texture)
 {
 	this->transform.position = { x * 128, y * 128 };
@@ -23,4 +22,8 @@ Pokemon::Pokemon(int x, int y, std::string& texture)
 
 void Pokemon::interact()
 {
+}
+
+void Pokemon::registerCollision(int x, int y, bool damage) {
+
 }
