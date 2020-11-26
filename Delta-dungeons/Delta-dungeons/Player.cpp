@@ -358,11 +358,4 @@ void Player::registerHit() {
 void Player::registerCollision(int x, int y, bool damage) {
 	if (damage) { registerHit(); }
 	hasMoved = true;
-
-	transform.position.x = x;
-	transform.position.y = y;
-	cc->transform.position.x = transform.position.x;
-	cc->transform.position.y = transform.position.y;
-	gc->transform.position = transform.position;
-	func(pointer, transform.position.x, transform.position.y);
 }
