@@ -48,10 +48,12 @@ public:
 	void resetSpeedGame() const;
 	void addObjectToScene(std::shared_ptr<BehaviourObject> addObject);
 	void passInteract(int x, int y);
+	void passCollisionCheck(std::shared_ptr<ColliderComponent> collider, int x, int y, KeyCodes direction);
 	void deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject);
 	void deleteColliderFromScene(std::shared_ptr<ColliderComponent> deletedCollider);
 	void gameOver();
 	void checkGameOver();
+
 
 private:
 	std::vector<int> hudLayers;

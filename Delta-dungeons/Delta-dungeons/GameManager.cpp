@@ -15,7 +15,7 @@ GameManager::GameManager()
 	registerTextures(uiManager.passTextures());
 	registerFonts(uiManager.passFonts());
 
-	playerManager.createPlayer(staticCameraCallbackFunction, staticInteractCallbackFunction, staticGameOverbackFunction, staticUpdateHUDHealthCallbackFunction, this);
+	playerManager.createPlayer(staticCheckCollisionCallbackFunction, staticCameraCallbackFunction, staticInteractCallbackFunction, staticGameOverbackFunction, staticUpdateHUDHealthCallbackFunction, this);
 	registerTextures(playerManager.passTextures());
 
 	npcManager.createNPC();
@@ -115,6 +115,18 @@ void GameManager::registerTextures(std::map<std::string, std::string> textures)
 {
 	engineFacade->registerTextures(textures);
 }
+
+
+void GameManager::staticCheckCollisionCallbackFunction(void* p, std::shared_ptr<ColliderComponent> collider, int x, int y, KeyCodes direction)
+{
+	((GameManager*)p)->passCollisionCheck(collider, x, y, direction);
+}
+
+void GameManager::passCollisionCheck(std::shared_ptr<ColliderComponent> collider, int x, int y, KeyCodes direction)
+{
+	engineFacade->passCollisionCheck(collider, x, y, direction);
+}
+
 
 void GameManager::staticCameraCallbackFunction(void* p, int x, int y)
 {

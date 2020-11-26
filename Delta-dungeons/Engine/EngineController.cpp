@@ -95,7 +95,7 @@ void EngineController::startGame()
 		if (!renderFacade->renderer->isPaused)
 		{
 			renderFacade->beforeFrame();
-			collision->checkCollision();
+			//collision->checkCollision();
 			sceneManager.update();
 		}
 		checkGameOver();
@@ -239,6 +239,11 @@ void EngineController::addObjectToScene(std::shared_ptr<BehaviourObject> addObje
 void EngineController::passInteract(int x, int y)
 {
 	sceneManager.passInteract(x, y);
+}
+
+void EngineController::passCollisionCheck(std::shared_ptr<ColliderComponent> collider, int x, int y, KeyCodes direction) 
+{
+	collision->checkCollision(collider, x, y, direction);
 }
 
 void EngineController::deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject)

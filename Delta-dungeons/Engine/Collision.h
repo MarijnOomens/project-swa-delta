@@ -5,28 +5,16 @@ class Collision {
 public:
 	Collision();
 	~Collision() {}
-	std::shared_ptr<BehaviourObject> upY = nullptr;
-	std::shared_ptr<BehaviourObject> leftX = nullptr;
-	std::shared_ptr<BehaviourObject> rightX = nullptr;
-	std::shared_ptr<BehaviourObject> downY = nullptr;
-	std::string rightTag = "";
-	std::string leftTag = "";
-	std::string upTag = "";
-	std::string downTag = "";
 
 	int cameraX = 0;
 	int cameraY = 0;
 	int cameraW = 0;
 	int cameraH = 0;
 
-	bool checkedUp = false;
-	bool checkedLeft = false;
-	bool checkedRight = false;
-	bool checkedDown = false;
 	void setCameraDimensions(Transform &transform);
 	void registerColliders(std::vector<std::shared_ptr<BehaviourObject>> colliders);
 	void deleteColliderFromScene(std::shared_ptr<BehaviourObject> deletedCollider);
-	void checkCollision();
+	void checkCollision(std::shared_ptr<ColliderComponent> collider, int x, int y, KeyCodes direction);
 private:
 	std::vector<std::shared_ptr<BehaviourObject>> colliderObjects;
 };

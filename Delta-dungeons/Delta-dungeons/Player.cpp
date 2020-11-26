@@ -10,7 +10,7 @@
 /// Defines the movementspeed and the runactivated bool
 /// Creates the graphicscomponent for the player sprite and saves the texturename and png location, width, height
 /// </summary>
-Player::Player(const cbCamera f, cbInteract interactCB, cbGameOver gameOverF, cbHUD hudCB, void* p) : func(f), interactFunc(interactCB), gameOverFunc(gameOverF), hudFunc(hudCB), pointer(p)
+Player::Player(cbCollision collisionCB, const cbCamera f, cbInteract interactCB, cbGameOver gameOverF, cbHUD hudCB, void* p) : collisionFunc(collisionCB), func(f), interactFunc(interactCB), gameOverFunc(gameOverF), hudFunc(hudCB), pointer(p)
 {
 	std::string textureBoomerang ="boomerang" ;
 	std::string textureRunning = "runningshoes";
@@ -42,7 +42,7 @@ Player::Player(const cbCamera f, cbInteract interactCB, cbGameOver gameOverF, cb
 	gc->transform.scale.multiply({ 4, 4 });
 	gc->playAnimation(0, 3, animationSpeed, false);
 
-	cc = std::make_shared<RegularColliderComponent>(staticCollisionCallbackFunction, this);
+	cc = std::make_shared<ColliderComponent>(staticCollisionCallbackFunction, this);
 	cc->tag = "player";
 	cc->transform.position = this->transform.position;
 
@@ -61,45 +61,6 @@ void Player::handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboard
 {
 	if (!DebugUtilities::getInstance().isCheatCollisionOn())
 	{
-		if (keyboardEvent == KeyboardEvent::KEY_PRESSED)
-		{
-			if (KeyCodes::KEY_UP == keyCodes || keyCodes == KeyCodes::KEY_W)
-			{
-				if (upY == transform.position.y - 128) 
-				{ 
-					tileCollision = true; 
-					if (upTag == "pokemon") { registerHit(); }
-				}
-			}
-			else if (KeyCodes::KEY_LEFT == keyCodes || keyCodes == KeyCodes::KEY_A)
-			{
-				if (leftX == transform.position.x - 128) 
-				{
-					tileCollision = true;
-					if (leftTag == "pokemon") { registerHit(); }
-				}
-			}
-			else if (KeyCodes::KEY_RIGHT == keyCodes || keyCodes == KeyCodes::KEY_D)
-			{
-				if (rightX == transform.position.x + 128) 
-				{
-					tileCollision = true;
-					if (rightTag == "pokemon") { registerHit(); }
-				}
-			}
-			else if (KeyCodes::KEY_DOWN == keyCodes || keyCodes == KeyCodes::KEY_S)
-			{
-				if (downY == transform.position.y + 128) 
-				{
-					tileCollision = true;
-					if (downTag == "pokemon") { registerHit(); }
-				}
-			}
-		}
-		rightX = 0;
-		leftX = 0;
-		upY = 0;
-		downY = 0;
 	}
 
 	if (keyboardEvent == KeyboardEvent::KEY_PRESSED && keyCodes == KeyCodes::KEY_UP || keyCodes == KeyCodes::KEY_LEFT || keyCodes == KeyCodes::KEY_RIGHT || keyCodes == KeyCodes::KEY_DOWN || keyCodes == KeyCodes::KEY_W || keyCodes == KeyCodes::KEY_S || keyCodes == KeyCodes::KEY_A || keyCodes == KeyCodes::KEY_D)
@@ -117,7 +78,6 @@ void Player::handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboard
 	}
 
 	// resets collision for next move with collsion check.
-	tileCollision = false;
 }
 
 void Player::interact() {}
@@ -248,6 +208,8 @@ void Player::moveUp()
 	transform.position.y -= baseMovementSpeed;
 	cc->transform.position.y = this->transform.position.y;
 	gc->transform.position = transform.position;
+	collisionFunc(pointer, cc, this->transform.position.x, this->transform.position.y, KeyCodes::KEY_UP);
+
 	runActivated ? gc->playAnimation(7, 3, animationSpeed, false) : gc->playAnimation(2, 4, animationSpeed, false);
 	func(pointer, transform.position.x, transform.position.y);
 }
@@ -261,6 +223,7 @@ void Player::moveDown()
 	transform.position.y += baseMovementSpeed;
 	cc->transform.position.y = this->transform.position.y;
 	gc->transform.position = transform.position;
+
 	runActivated ? gc->playAnimation(6, 3, animationSpeed, false) : gc->playAnimation(1, 4, animationSpeed, false);
 	func(pointer, transform.position.x, transform.position.y);
 }
@@ -355,38 +318,7 @@ void Player::runningShoesCallbackFunction(const bool runningActivated)
 	}
 }
 
-void Player::staticCollisionCallbackFunction(void* p, std::shared_ptr<BehaviourObject> right, std::shared_ptr<BehaviourObject> left, std::shared_ptr<BehaviourObject> up, std::shared_ptr<BehaviourObject> down)
-{
-	((Player*)p)->collisionCallbackFunction(right, left, up, down);
-}
 
-void Player::collisionCallbackFunction(std::shared_ptr<BehaviourObject> right, std::shared_ptr<BehaviourObject> left, std::shared_ptr<BehaviourObject> up, std::shared_ptr<BehaviourObject> down)
-{
-	//leftX = 1;
-	//rightX = right;
-	if (left != nullptr) {
-		leftX = left->transform.position.x;
-		//std::cout << left->transform.position.y << std::endl;
-	}
-	if (right != nullptr) {
-		rightX = right->transform.position.x;
-		//std::cout << left->transform.position.y << std::endl;
-	}
-	if (up != nullptr) {
-		upY = up->transform.position.y;
-		//std::cout << left->transform.position.y << std::endl;
-	}
-	if (down != nullptr) {
-		downY = down->transform.position.y;
-		//std::cout << left->transform.position.y << std::endl;
-	}
-	//upY = up;
-	//downY = down;
-	//rightTag = rTag;
-	//leftTag = lTag;
-	//upTag = uTag;
-	//downTag = dTag;
-}
 
 void Player::registerHit() {
 	hudFunc(pointer,true);

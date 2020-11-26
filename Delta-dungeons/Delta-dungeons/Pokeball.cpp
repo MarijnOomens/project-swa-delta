@@ -10,7 +10,7 @@ Pokeball::Pokeball(int x, int y, std::string texture) {
 	gc->transform = transform;
 	gc->isScreen = false;
 
-	cc = std::make_shared<RegularColliderComponent>();
+	cc = std::make_shared<ColliderComponent>();
 	cc->tag = "pokeball";
 	cc->transform.position = this->transform.position;
 

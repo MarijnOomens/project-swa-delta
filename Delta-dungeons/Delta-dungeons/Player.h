@@ -4,7 +4,7 @@
 #include "Boomerang.h"
 #include "GameObject.h"
 #include "GraphicsComponent.h"
-#include "RegularColliderComponent.h"
+#include "ColliderComponent.h"
 #include "RunningShoes.h"
 #include "DebugUtilities.h"
 
@@ -12,6 +12,7 @@ typedef void(*cbInteract) (void*, int, int);
 typedef void(*cbCamera) (void*, int, int);
 typedef void(*cbGameOver) (void*);
 typedef void(*cbHUD) (void*, bool);
+typedef void(*cbCollision) (void*, std::shared_ptr<ColliderComponent>, int, int, KeyCodes);
 
 class Player : public GameObject
 {
@@ -23,11 +24,11 @@ public:
 	cbInteract interactFunc;
 	cbGameOver gameOverFunc;
 	cbHUD hudFunc;
-
+	cbCollision collisionFunc;
 	KeyCodes currentDirection;
 	void* pointer;
 
-	Player(cbCamera f, cbInteract interactCB, cbGameOver gameOverFunc, cbHUD hudCB, void* p);
+	Player(cbCollision collisionCB, cbCamera f, cbInteract interactCB, cbGameOver gameOverFunc, cbHUD hudCB, void* p);
 
 	void handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
 	void interact() override;
@@ -43,9 +44,6 @@ public:
 	void damagePlayer(int damage);
 	void updateCaughtPokemon(int pokemonId);
 	std::vector<std::string> getItems();
-
-	static void staticCollisionCallbackFunction(void* p, std::shared_ptr<BehaviourObject> right, std::shared_ptr<BehaviourObject> left, std::shared_ptr<BehaviourObject> up, std::shared_ptr<BehaviourObject> down);
-	void collisionCallbackFunction(std::shared_ptr<BehaviourObject> right, std::shared_ptr<BehaviourObject> left, std::shared_ptr<BehaviourObject> up, std::shared_ptr<BehaviourObject> down);
 
 	static void staticBoomerangCallbackFunction(void* p, const bool boomerangActivated);
 	void boomerangCallbackFunction(const bool boomerangActivated);
@@ -69,7 +67,7 @@ private:
 	std::vector<int> pokemonCaught;
 	std::vector<std::unique_ptr<IEquipment>> equipment;
 	std::shared_ptr<GraphicsComponent> gc;
-	std::shared_ptr<RegularColliderComponent> cc;
+	std::shared_ptr<ColliderComponent> cc;
 	AnimCategory animCategory;
 	int rightX;
 	int leftX;
