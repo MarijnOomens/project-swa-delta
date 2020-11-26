@@ -23,9 +23,8 @@ void Collision::setCameraDimensions(Transform &transform) {
 	cameraH = transform.scale.y;
 }
 
-void Collision::checkCollision(std::shared_ptr<CollidingComponent> collider, int x, int y, KeyCodes direction)
+void Collision::checkCollision(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction)
 {
-	
 	for (auto collider2 : colliderObjects)
 	{
 		if (

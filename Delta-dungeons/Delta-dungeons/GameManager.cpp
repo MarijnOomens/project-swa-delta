@@ -117,12 +117,12 @@ void GameManager::registerTextures(std::map<std::string, std::string> textures)
 }
 
 
-void GameManager::staticCheckCollisionCallbackFunction(void* p, std::shared_ptr<CollidingComponent> collider, int x, int y, KeyCodes direction)
+void GameManager::staticCheckCollisionCallbackFunction(void* p, std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction)
 {
 	((GameManager*)p)->passCollisionCheck(collider, x, y, direction);
 }
 
-void GameManager::passCollisionCheck(std::shared_ptr<CollidingComponent> collider, int x, int y, KeyCodes direction)
+void GameManager::passCollisionCheck(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction)
 {
 	engineFacade->passCollisionCheck(collider, x, y, direction);
 }

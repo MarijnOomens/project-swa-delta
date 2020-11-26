@@ -209,7 +209,8 @@ void Player::moveUp()
 	transform.position.y -= baseMovementSpeed;
 	cc->transform.position.y = this->transform.position.y;
 	gc->transform.position = transform.position;
-	collisionFunc(pointer, cc, this->transform.position.x, this->transform.position.y, KeyCodes::KEY_UP);
+	
+	//collisionFunc(pointer, this, this->transform.position.x, this->transform.position.y, KeyCodes::KEY_UP);
 
 	runActivated ? gc->playAnimation(7, 3, animationSpeed, false) : gc->playAnimation(2, 4, animationSpeed, false);
 	func(pointer, transform.position.x, transform.position.y);
@@ -278,6 +279,10 @@ std::vector<std::string> Player::getItems()
 	return items;
 }
 
+std::shared_ptr<CollidingComponent> Player::getCollider() {
+	return cc;
+}
+
 void Player::staticBoomerangCallbackFunction(void* p, const bool brActivated)
 {
 	((Player*)p)->boomerangCallbackFunction(brActivated);
@@ -288,13 +293,6 @@ void Player::boomerangCallbackFunction(const bool brActivated)
 {
 	if (brActivated) { boomerangActivated = true; }
 	else { boomerangActivated = false; }
-}
-
-void Player::staticCheckCollisionCallbackFunction(void* p, std::shared_ptr<CollidingComponent> collider, int x, int y, KeyCodes direction) {
-	((Player*)p)->checkCollisionCallbackFunction(collider, x, y, direction);
-}
-void Player::checkCollisionCallbackFunction(std::shared_ptr<CollidingComponent> collider, int x, int y, KeyCodes direction) {
-	std::cout << "I check my collision!" << std::endl;
 }
 
 /// <summary>

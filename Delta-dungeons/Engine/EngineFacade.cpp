@@ -122,7 +122,7 @@ void EngineFacade::passInteract(int x, int y)
 	engineController->passInteract(x, y);
 }
 
-void EngineFacade::passCollisionCheck(std::shared_ptr<CollidingComponent> collider, int x, int y, KeyCodes direction) {
+void EngineFacade::passCollisionCheck(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction) {
 	engineController->passCollisionCheck(collider, x, y, direction);
 }
 

@@ -48,7 +48,7 @@ public:
 	void resetSpeedGame() const;
 	void addObjectToScene(std::shared_ptr<BehaviourObject> addObject);
 	void passInteract(int x, int y);
-	void passCollisionCheck(std::shared_ptr<CollidingComponent> collider, int x, int y, KeyCodes direction);
+	void passCollisionCheck(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction);
 	void deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject);
 	void deleteColliderFromScene(std::shared_ptr<CollidingComponent> deletedCollider);
 	void gameOver();
