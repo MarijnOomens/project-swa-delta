@@ -14,32 +14,11 @@ GameManager::GameManager()
 	uiManager.createBaseScreens();
 	registerTextures(uiManager.passTextures());
 	registerFonts(uiManager.passFonts());
-
-	playerManager.createPlayer(staticCameraCallbackFunction, staticInteractCallbackFunction, staticGameOverbackFunction, staticUpdateHUDHealthCallbackFunction, this);
-	registerTextures(playerManager.passTextures());
-
-	npcManager.createNPC();
-	registerTextures(npcManager.passTextures());
-
-	pokemonManger.createPokemon();
-	registerTextures(pokemonManger.passTextures());
-	
-	hudManager.createHud();
-	for (std::string& texture: playerManager.getItems())
-	{
-		hudManager.addItem(texture);
-	}
-	registerTextures(hudManager.passTextures());
-	
 	scene = std::make_shared<Scene>();
-	scene->addGraphics();
-	registerTextures(scene->passTextures());
 
-	eqManager.createEquipment();
-	registerTextures(eqManager.passTextures());
+	createLevel(levels[currentlevel]);
 
-	registerBehaviourObjects();
-	engineFacade->createCamera(playerManager.player->transform.position.x, playerManager.player->transform.position.y);
+	engineFacade->loadScene("MainMenu", "", true);
 	engineFacade->startGame();
 }
 
@@ -105,7 +84,6 @@ void GameManager::registerBehaviourObjects()
 	}
 	level1.emplace_back(hudManager.hud);
 	engineFacade->registerScene("Level1", level1);
-	engineFacade->loadScene("MainMenu", "", true);
 }
 
 /// <summary>
@@ -132,6 +110,34 @@ void GameManager::passPlayerPosition(int x, int y)
 void GameManager::registerFonts(std::map<std::string, std::string> fonts)
 {
 	engineFacade->registerFonts(fonts);
+}
+
+void GameManager::createLevel(std::string levelName)
+{
+	playerManager.createPlayer(staticCameraCallbackFunction, staticInteractCallbackFunction, staticGameOverbackFunction, staticUpdateHUDHealthCallbackFunction, this);
+	registerTextures(playerManager.passTextures());
+
+	npcManager.createNPC(levelName);
+	registerTextures(npcManager.passTextures());
+
+	pokemonManger.createPokemon(levelName);
+	registerTextures(pokemonManger.passTextures());
+
+	hudManager.createHud();
+	for (std::string& texture : playerManager.getItems())
+	{
+		hudManager.addItem(texture);
+	}
+	registerTextures(hudManager.passTextures());
+
+	scene->addGraphics(levelName);
+	registerTextures(scene->passTextures(levelName));
+
+	eqManager.createEquipment();
+	registerTextures(eqManager.passTextures());
+
+	registerBehaviourObjects();
+	engineFacade->createCamera(playerManager.player->transform.position.x, playerManager.player->transform.position.y);
 }
 
 void GameManager::staticInteractCallbackFunction(void* p, int x, int y)

@@ -6,7 +6,7 @@
 /// <param name="x">The horizontal placement of tile</param>
 /// <param name="y">The vertical placement of tile</param>
 /// <param name="xImage">Specific horizontal image location of tile png</param>
-Tile::Tile(int x, int y, int xImage, bool collider)
+Tile::Tile(int x, int y, int xImage, bool collider, bool isTrigger)
 {
 	originX = x * 128;
 	originY = y * 128;
@@ -21,6 +21,7 @@ Tile::Tile(int x, int y, int xImage, bool collider)
 	{
 		cc = std::make_shared<RegularColliderComponent>();
 		cc->tag = "tile";
+		cc->isTrigger = isTrigger;
 		cc->transform.position = this->transform.position;
 		this->components.emplace_back(cc);
 	}
@@ -34,7 +35,7 @@ Tile::Tile(int x, int y, int xImage, bool collider)
 /// <param name="xImage">Horizontal image location of tile png</param>
 /// <param name="yImage">Vertical image location of tile png</param>
 
-Tile::Tile(int x, int y, int yImage, int xImage, bool collider)
+Tile::Tile(int x, int y, int yImage, int xImage, bool collider, bool isTrigger)
 {
 	originX = x * 128;
 	originY = y * 128;
@@ -48,6 +49,7 @@ Tile::Tile(int x, int y, int yImage, int xImage, bool collider)
 	{
 		cc = std::make_shared<RegularColliderComponent>();
 		cc->tag = "tile";
+		cc->isTrigger = isTrigger;
 		cc->transform.position = this->transform.position;
 		this->components.emplace_back(cc);
 	}

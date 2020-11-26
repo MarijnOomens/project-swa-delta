@@ -42,13 +42,17 @@ std::vector<std::shared_ptr<ParserData>> XMLParser::parseXML(const std::string& 
 				std::string yVal = tile->first_attribute("y")->value();
 				std::string tileId = tile->first_attribute("tile")->value();
 
-				if (tileId != "-1" && tileId == "8")
+				if (tileId != "-1" && (tileId == "8" || tileId =="9"))
 				{
 					for (int x = 0; x < parserDataList.size(); x++)
 					{
 						if (xVal == parserDataList.at(x)->x && yVal == parserDataList.at(x)->y)
 						{
 							parserDataList.at(x)->isCollider = true;
+							if (tileId == "9")
+							{
+								parserDataList.at(x)->isTrigger = true;
+							}
 							break;
 						}
 					}

@@ -169,7 +169,7 @@ void Renderer::drawTexture(SDL_Texture* texture, const Transform& transform, con
 		if (transitioning)
 		{
 			SDL_SetTextureAlphaMod(texture, alphaCounter);
-			if (alphaCounter == 50)
+			if (alphaCounter == 30)
 			{
 				alphaCounter = 0;
 				transitioning = false;
@@ -228,7 +228,7 @@ void Renderer::drawText(SDL_Texture* texture, SDL_Rect source, SDL_Rect destinat
 	{
 		SDL_SetTextureAlphaMod(texture, alphaCounter);
 
-		if (alphaCounter == 50)
+		if (alphaCounter == 30)
 		{
 			alphaCounter = 0;
 			transitioning = false;

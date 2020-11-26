@@ -7,10 +7,11 @@ NPCManager::NPCManager()
 	addTrainers();
 }
 
-void NPCManager::createNPC()
+void NPCManager::createNPC(std::string levelName)
 {
+	npcs.clear();
 	std::unique_ptr<XMLSceneParser> xmlSceneParser = std::make_unique<XMLSceneParser>();
-	std::vector<std::shared_ptr<ParserData>> npcData = xmlSceneParser->getNPCDataList("Assets/Maps/Level1/level.xml");
+	std::vector<std::shared_ptr<ParserData>> npcData = xmlSceneParser->getNPCDataList("Assets/Maps/"+ levelName + "/level.xml");
 	srand(time(0));
 	for (auto parsedNPC : npcData)
 	{

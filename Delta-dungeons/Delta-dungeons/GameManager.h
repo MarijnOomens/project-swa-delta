@@ -26,6 +26,8 @@ public:
 
 	void registerFonts(std::map<std::string, std::string> fonts);
 
+	void createLevel(std::string levelName);
+
 	static void staticInteractCallbackFunction(void* p, int x, int y);
 	void interactCallbackFunction(int x, int y);
 
@@ -44,4 +46,6 @@ private:
 	NPCManager npcManager;
 	PokemonManager pokemonManger;
 	HUDManager hudManager;
+	std::vector<std::string> levels{ "Level1", "Dungeon1","Level2", "Dungeon2","Level3", "Dungeon3" };
+	int currentlevel = 0;
 };
