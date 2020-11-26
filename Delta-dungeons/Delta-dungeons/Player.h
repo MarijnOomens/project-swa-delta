@@ -4,7 +4,7 @@
 #include "Boomerang.h"
 #include "GameObject.h"
 #include "GraphicsComponent.h"
-#include "ColliderComponent.h"
+#include "CollidingComponent.h"
 #include "RunningShoes.h"
 #include "DebugUtilities.h"
 
@@ -12,7 +12,7 @@ typedef void(*cbInteract) (void*, int, int);
 typedef void(*cbCamera) (void*, int, int);
 typedef void(*cbGameOver) (void*);
 typedef void(*cbHUD) (void*, bool);
-typedef void(*cbCollision) (void*, std::shared_ptr<ColliderComponent>, int, int, KeyCodes);
+typedef void(*cbCollision) (void*, std::shared_ptr<CollidingComponent>, int, int, KeyCodes);
 
 class Player : public GameObject
 {
@@ -44,6 +44,9 @@ public:
 	void damagePlayer(int damage);
 	void updateCaughtPokemon(int pokemonId);
 	std::vector<std::string> getItems();
+	
+	static void staticCheckCollisionCallbackFunction(void* p, std::shared_ptr<CollidingComponent> collider, int x, int y, KeyCodes direction);
+	void checkCollisionCallbackFunction(std::shared_ptr<CollidingComponent> collider, int x, int y, KeyCodes direction);
 
 	static void staticBoomerangCallbackFunction(void* p, const bool boomerangActivated);
 	void boomerangCallbackFunction(const bool boomerangActivated);
@@ -67,7 +70,7 @@ private:
 	std::vector<int> pokemonCaught;
 	std::vector<std::unique_ptr<IEquipment>> equipment;
 	std::shared_ptr<GraphicsComponent> gc;
-	std::shared_ptr<ColliderComponent> cc;
+	std::shared_ptr<CollidingComponent> cc;
 	AnimCategory animCategory;
 	int rightX;
 	int leftX;

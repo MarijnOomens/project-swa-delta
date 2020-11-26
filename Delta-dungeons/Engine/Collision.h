@@ -1,6 +1,6 @@
 #pragma once
 #include <vector>
-#include "ColliderComponent.h"
+#include "CollidingComponent.h"
 class Collision {
 public:
 	Collision();
@@ -14,7 +14,7 @@ public:
 	void setCameraDimensions(Transform &transform);
 	void registerColliders(std::vector<std::shared_ptr<BehaviourObject>> colliders);
 	void deleteColliderFromScene(std::shared_ptr<BehaviourObject> deletedCollider);
-	void checkCollision(std::shared_ptr<ColliderComponent> collider, int x, int y, KeyCodes direction);
+	void checkCollision(std::shared_ptr<CollidingComponent> collider, int x, int y, KeyCodes direction);
 private:
 	std::vector<std::shared_ptr<BehaviourObject>> colliderObjects;
 };

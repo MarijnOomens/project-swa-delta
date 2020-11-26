@@ -23,7 +23,7 @@ void Collision::setCameraDimensions(Transform &transform) {
 	cameraH = transform.scale.y;
 }
 
-void Collision::checkCollision(std::shared_ptr<ColliderComponent> collider, int x, int y, KeyCodes direction)
+void Collision::checkCollision(std::shared_ptr<CollidingComponent> collider, int x, int y, KeyCodes direction)
 {
 	
 	for (auto collider2 : colliderObjects)
@@ -36,7 +36,7 @@ void Collision::checkCollision(std::shared_ptr<ColliderComponent> collider, int 
 			cameraY + 1024 >= collider2->transform.position.y
 			)
 		{
-			auto col2 = dynamic_cast<ColliderComponent*>(collider2.get());		
+			auto col2 = dynamic_cast<CollidingComponent*>(collider2.get());		
 					
 			/*facing right*/
 			if (KeyCodes::KEY_RIGHT == direction

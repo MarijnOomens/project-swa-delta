@@ -1,7 +1,7 @@
 #pragma once
 #include "IEquipment.h"
 #include "Graphicscomponent.h"
-#include "ColliderComponent.h"
+#include "CollidingComponent.h"
 typedef void(*cbEquipment) (void*, bool);
 
 class RunningShoes : public IEquipment
@@ -14,7 +14,7 @@ public:
 	void use() override;
 private:
 	std::shared_ptr<GraphicsComponent> gc;
-	std::shared_ptr<ColliderComponent> cc;
+	std::shared_ptr<CollidingComponent> cc;
 	cbEquipment func;
 	void* pointer;
 	bool isActivated = false;

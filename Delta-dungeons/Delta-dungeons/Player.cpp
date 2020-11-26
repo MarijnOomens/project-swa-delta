@@ -42,7 +42,7 @@ Player::Player(cbCollision collisionCB, const cbCamera f, cbInteract interactCB,
 	gc->transform.scale.multiply({ 4, 4 });
 	gc->playAnimation(0, 3, animationSpeed, false);
 
-	cc = std::make_shared<ColliderComponent>(staticCollisionCallbackFunction, this);
+	cc = std::make_shared<CollidingComponent>();
 	cc->tag = "player";
 	cc->transform.position = this->transform.position;
 
@@ -287,6 +287,13 @@ void Player::boomerangCallbackFunction(const bool brActivated)
 {
 	if (brActivated) { boomerangActivated = true; }
 	else { boomerangActivated = false; }
+}
+
+void Player::staticCheckCollisionCallbackFunction(void* p, std::shared_ptr<CollidingComponent> collider, int x, int y, KeyCodes direction) {
+	((Player*)p)->checkCollisionCallbackFunction(collider, x, y, direction);
+}
+void Player::checkCollisionCallbackFunction(std::shared_ptr<CollidingComponent> collider, int x, int y, KeyCodes direction) {
+	std::cout << "I check my collision!" << std::endl;
 }
 
 /// <summary>

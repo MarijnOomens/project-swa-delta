@@ -9,7 +9,7 @@
 #include "TextureManager.h"
 #include "TextComponent.h"
 #include "GraphicsComponent.h"
-#include "ColliderComponent.h"
+#include "CollidingComponent.h"
 #include <vector>
 #include "Collision.h"
 
@@ -48,9 +48,9 @@ public:
 	void resetSpeedGame() const;
 	void addObjectToScene(std::shared_ptr<BehaviourObject> addObject);
 	void passInteract(int x, int y);
-	void passCollisionCheck(std::shared_ptr<ColliderComponent> collider, int x, int y, KeyCodes direction);
+	void passCollisionCheck(std::shared_ptr<CollidingComponent> collider, int x, int y, KeyCodes direction);
 	void deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject);
-	void deleteColliderFromScene(std::shared_ptr<ColliderComponent> deletedCollider);
+	void deleteColliderFromScene(std::shared_ptr<CollidingComponent> deletedCollider);
 	void gameOver();
 	void checkGameOver();
 

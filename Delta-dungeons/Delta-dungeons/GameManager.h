@@ -21,8 +21,8 @@ public:
 	void registerBehaviourObjects();
 	void registerTextures(std::map<std::string, std::string> textures);
 
-	static void staticCheckCollisionCallbackFunction(void* p, std::shared_ptr<ColliderComponent> collider, int x, int y, KeyCodes direction);
-	void passCollisionCheck(std::shared_ptr<ColliderComponent> collider, int x, int y, KeyCodes direction);
+	static void staticCheckCollisionCallbackFunction(void* p, std::shared_ptr<CollidingComponent> collider, int x, int y, KeyCodes direction);
+	void passCollisionCheck(std::shared_ptr<CollidingComponent> collider, int x, int y, KeyCodes direction);
 
 	static void staticCameraCallbackFunction(void* p, int x, int y);
 	void passPlayerPosition(int x, int y);

@@ -2,7 +2,7 @@
 
 #include "InteractiveObject.h"
 #include "GraphicsComponent.h"
-#include "ColliderComponent.h"
+#include "CollidingComponent.h"
 #include <string>
 #include <map>
 
@@ -17,7 +17,7 @@ protected:
 
 private:
 	std::shared_ptr<GraphicsComponent> gc;
-	std::shared_ptr<ColliderComponent> cc;
+	std::shared_ptr<CollidingComponent> cc;
 	std::string type;
 	int id;
 	int catchRate;

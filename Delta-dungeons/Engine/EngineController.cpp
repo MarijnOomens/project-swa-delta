@@ -117,7 +117,7 @@ void EngineController::registerScene(const std::string& sceneName, const std::ve
 			ngc->addTextureManager(textureManager);
 			tempObjects.emplace_back(ngc);
 		}
-		else if (dynamic_cast<ColliderComponent*>(o.get()) != nullptr)
+		else if (dynamic_cast<CollidingComponent*>(o.get()) != nullptr)
 		{
 			colliderObjects.emplace_back(o);
 		}
@@ -241,7 +241,7 @@ void EngineController::passInteract(int x, int y)
 	sceneManager.passInteract(x, y);
 }
 
-void EngineController::passCollisionCheck(std::shared_ptr<ColliderComponent> collider, int x, int y, KeyCodes direction) 
+void EngineController::passCollisionCheck(std::shared_ptr<CollidingComponent> collider, int x, int y, KeyCodes direction) 
 {
 	collision->checkCollision(collider, x, y, direction);
 }
@@ -251,7 +251,7 @@ void EngineController::deleteObjectFromScene(std::shared_ptr<BehaviourObject> de
 	sceneManager.deleteObjectFromScene(deletedObject);
 }
 
-void EngineController::deleteColliderFromScene(std::shared_ptr<ColliderComponent> deletedCollider)
+void EngineController::deleteColliderFromScene(std::shared_ptr<CollidingComponent> deletedCollider)
 {
 	collision->deleteColliderFromScene(deletedCollider);
 }

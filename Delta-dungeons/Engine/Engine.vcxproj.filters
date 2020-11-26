@@ -132,13 +132,13 @@
     <ClInclude Include="Collision.h">
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="ColliderComponent.h">
-      <Filter>Header Files\Engine\Collider</Filter>
-    </ClInclude>
-    <ClInclude Include="Strategy.h">
-      <Filter>Header Files\Engine\Collider</Filter>
-    </ClInclude>
     <ClInclude Include="StopStrategy.h">
+      <Filter>Header Files\Engine\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="CollidingComponent.h">
+      <Filter>Header Files\Engine\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionStrategy.h">
       <Filter>Header Files\Engine\Collider</Filter>
     </ClInclude>
   </ItemGroup>
@@ -215,13 +215,13 @@
     <ClCompile Include="Collision.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="ColliderComponent.cpp">
-      <Filter>Source Files\Engine\Collider</Filter>
-    </ClCompile>
     <ClCompile Include="Strategy.cpp">
       <Filter>Source Files\Engine\Collider</Filter>
     </ClCompile>
     <ClCompile Include="StopStrategy.cpp">
+      <Filter>Source Files\Engine\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="CollidingComponent.cpp">
       <Filter>Source Files\Engine\Collider</Filter>
     </ClCompile>
   </ItemGroup>

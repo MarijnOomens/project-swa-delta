@@ -16,7 +16,7 @@ Boomerang::Boomerang(int x, int y, std::string texture)
 	gc->transform = transform;
 	gc->isScreen = false;
 
-	cc = std::make_shared<ColliderComponent>();
+	cc = std::make_shared<CollidingComponent>();
 	cc->tag = "boomerang";
 	cc->transform.position = this->transform.position;
 

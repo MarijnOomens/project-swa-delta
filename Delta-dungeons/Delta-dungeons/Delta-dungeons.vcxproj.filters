@@ -161,7 +161,7 @@
     </ClCompile>
     <ClCompile Include="RunningShoes.cpp">
       <Filter>Source Files\Game\GameObjects\Items</Filter>
-      </ClCompile>
+    </ClCompile>
     <ClCompile Include="Advertisement.cpp">
       <Filter>Source Files\Game\GameObjects\Screens</Filter>
     </ClCompile>

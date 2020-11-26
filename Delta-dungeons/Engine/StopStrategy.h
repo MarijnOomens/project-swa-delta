@@ -1,14 +1,18 @@
+#pragma once
 #include <memory>
-#include "ColliderComponent.h"
-#include "Strategy.h"
+#include "CollidingComponent.h"
+#include "CollisionStrategy.h"
 
-class StopStrategy : public Strategy
+class CollidingComponent;
+class CollisionStrategy;
+
+class StopStrategy : public CollisionStrategy
 {
 public:
-    StopStrategy() {}
-    ~StopStrategy() {}
+    StopStrategy();
+    ~StopStrategy();
 
-    void actCollision(std::shared_ptr<ColliderComponent> collider, int x, int y, KeyCodes direction) override;
+    void actCollision(std::shared_ptr<CollidingComponent> collider, int x, int y, KeyCodes direction) override;
 
 private:
 };

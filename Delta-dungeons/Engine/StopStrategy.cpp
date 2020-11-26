@@ -4,7 +4,7 @@ StopStrategy::StopStrategy() {}
 
 StopStrategy::~StopStrategy() {}
 
-void StopStrategy::actCollision(std::shared_ptr<ColliderComponent> collider, int x, int y, KeyCodes direction)
+void StopStrategy::actCollision(std::shared_ptr<CollidingComponent> collider, int x, int y, KeyCodes direction)
 {
 	std::cout << "stop... hammer time " << std::endl;
 }

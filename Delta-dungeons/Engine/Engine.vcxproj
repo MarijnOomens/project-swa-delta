@@ -163,12 +163,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CollidingComponent.h" />
     <ClInclude Include="Collision.h" />
     <ClInclude Include="EngineFacade.h" />
     <ClInclude Include="AudioWrapper.h" />
     <ClInclude Include="AssetManager.h" />
     <ClInclude Include="BehaviourObject.h" />
-    <ClInclude Include="ColliderComponent.h" />
     <ClInclude Include="Colour.h" />
     <ClInclude Include="DrawController.h" />
     <ClInclude Include="EngineController.h" />
@@ -189,13 +189,14 @@
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Sound.h" />
     <ClInclude Include="StopStrategy.h" />
-    <ClInclude Include="Strategy.h" />
+    <ClInclude Include="CollisionStrategy.h" />
     <ClInclude Include="TextComponent.h" />
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CollidingComponent.cpp" />
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="EngineFacade.cpp" />
     <ClCompile Include="AudioWrapper.cpp" />
@@ -206,7 +207,6 @@
     <ClCompile Include="InputWrapper.cpp" />
     <ClCompile Include="AssetManager.cpp" />
     <ClCompile Include="BehaviourObject.cpp" />
-    <ClCompile Include="ColliderComponent.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GraphicsComponent.cpp" />
     <ClCompile Include="RenderFacade.cpp" />
