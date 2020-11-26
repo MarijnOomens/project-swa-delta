@@ -42,7 +42,8 @@ Player::Player(cbCollision collisionCB, const cbCamera f, cbInteract interactCB,
 	gc->transform.scale.multiply({ 4, 4 });
 	gc->playAnimation(0, 3, animationSpeed, false);
 
-	cc = std::make_shared<CollidingComponent>();
+	std::shared_ptr<StopStrategy> stp = std::make_shared<StopStrategy>();
+	cc = std::make_shared<CollidingComponent>(stp);
 	cc->tag = "player";
 	cc->transform.position = this->transform.position;
 

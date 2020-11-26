@@ -3,6 +3,7 @@
 #include "IEquipment.h"
 #include "GraphicsComponent.h"
 #include "CollidingComponent.h"
+#include "StopStrategy.h"
 
 class Pokeball : public IEquipment
 {

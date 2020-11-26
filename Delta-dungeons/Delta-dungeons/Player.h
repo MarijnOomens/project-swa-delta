@@ -7,6 +7,7 @@
 #include "CollidingComponent.h"
 #include "RunningShoes.h"
 #include "DebugUtilities.h"
+#include "StopStrategy.h"
 
 typedef void(*cbInteract) (void*, int, int);
 typedef void(*cbCamera) (void*, int, int);

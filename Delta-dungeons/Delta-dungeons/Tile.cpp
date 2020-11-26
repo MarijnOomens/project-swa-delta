@@ -19,7 +19,8 @@ Tile::Tile(int x, int y, int xImage, bool collider)
 
 	if (collider)
 	{
-		cc = std::make_shared<CollidingComponent>();
+		std::shared_ptr<StopStrategy> stp = std::make_shared<StopStrategy>();
+		cc = std::make_shared<CollidingComponent>(stp);
 		cc->tag = "tile";
 		cc->transform.position = this->transform.position;
 		this->components.emplace_back(cc);

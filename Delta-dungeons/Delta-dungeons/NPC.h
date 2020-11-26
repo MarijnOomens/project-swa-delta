@@ -4,6 +4,7 @@
 #include <string>
 #include <map>
 #include <GraphicsComponent.h>
+#include "StopStrategy.h"
 
 class NPC : public InteractiveObject
 {

@@ -12,6 +12,7 @@ public:
 	std::shared_ptr<CollisionStrategy> strategy;
 
 	ENGINE_API CollidingComponent();
+	ENGINE_API CollidingComponent(std::shared_ptr<CollisionStrategy> strategy);
 	ENGINE_API ~CollidingComponent();
 
 	ENGINE_API void actCollision(/*std::shared_ptr<CollidingComponent> collider,*/ int x, int y, KeyCodes direction);

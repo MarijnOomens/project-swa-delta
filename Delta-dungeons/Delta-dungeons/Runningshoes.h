@@ -2,6 +2,8 @@
 #include "IEquipment.h"
 #include "Graphicscomponent.h"
 #include "CollidingComponent.h"
+#include "StopStrategy.h"
+
 typedef void(*cbEquipment) (void*, bool);
 
 class RunningShoes : public IEquipment

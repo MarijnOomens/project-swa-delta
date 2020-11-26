@@ -4,6 +4,8 @@
 #include <iostream>
 #include "GraphicsComponent.h"
 #include "CollidingComponent.h"
+#include "StopStrategy.h"
+
 typedef void(*cbEquipmentBoomerang) (void*, bool);
 
 class Boomerang : public IEquipment

@@ -1,9 +1,11 @@
 #include "CollidingComponent.h"
 
-CollidingComponent::CollidingComponent()
+CollidingComponent::CollidingComponent(std::shared_ptr<CollisionStrategy> strategy)
 {
-	//setStrategy(std::make_shared<StopStrategy>());
+	setStrategy(strategy);
 }
+
+CollidingComponent::CollidingComponent() {}
 
 CollidingComponent::~CollidingComponent() {}
 
@@ -13,9 +15,9 @@ void CollidingComponent::interact() {}
 
 void CollidingComponent::update() {}
 
-void CollidingComponent::actCollision(/*std::shared_ptr<CollidingComponent> collider,*/ int x, int y, KeyCodes direction)
+void CollidingComponent::actCollision(int x, int y, KeyCodes direction)
 {
-	strategy->actCollision(/*collider,*/ x, y, direction);
+	strategy->actCollision(x, y, direction);
 }
 
 void CollidingComponent::setStrategy(std::shared_ptr<CollisionStrategy> chosenStrategy) {

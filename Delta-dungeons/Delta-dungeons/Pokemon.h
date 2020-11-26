@@ -5,6 +5,7 @@
 #include "CollidingComponent.h"
 #include <string>
 #include <map>
+#include "StopStrategy.h"
 
 class Pokemon : public InteractiveObject
 {
