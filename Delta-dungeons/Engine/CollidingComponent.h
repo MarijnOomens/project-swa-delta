@@ -6,11 +6,6 @@
 #include "CollisionStrategy.h"
 #include "StopStrategy.h"
 
-class CollidingComponent; //Definition for cbCollision function
-//class CollisionStrategy;
-
-typedef void(*cbCollision) (void*, std::shared_ptr<CollidingComponent>, int, int, KeyCodes);
-
 class CollidingComponent : public BehaviourObject {
 public:
 	std::string tag;
