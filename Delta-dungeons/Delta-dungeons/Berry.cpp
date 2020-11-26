@@ -10,7 +10,7 @@ Berry::Berry(int x, int y, std::string texture) {
     gc->transform = transform;
     gc->isScreen = false;
 
-    std::shared_ptr<StopStrategy> stp = std::make_shared<StopStrategy>();
+    stp = std::make_shared<StopStrategy>();
     cc = std::make_shared<CollidingComponent>(stp);
     cc->tag = "berry";
     cc->transform.position = this->transform.position;

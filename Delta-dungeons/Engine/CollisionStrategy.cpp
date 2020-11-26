@@ -2,4 +2,4 @@
 
 CollisionStrategy::CollisionStrategy() {}
 
-void CollisionStrategy::actCollision(/*std::shared_ptr<CollidingComponent> collider*/ int x, int y, KeyCodes direction) {}
+void CollisionStrategy::actCollision(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction) {}

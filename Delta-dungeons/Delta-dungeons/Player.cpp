@@ -42,7 +42,7 @@ Player::Player(cbCollision collisionCB, const cbCamera f, cbInteract interactCB,
 	gc->transform.scale.multiply({ 4, 4 });
 	gc->playAnimation(0, 3, animationSpeed, false);
 
-	std::shared_ptr<StopStrategy> stp = std::make_shared<StopStrategy>();
+	stp = std::make_shared<StopStrategy>();
 	cc = std::make_shared<CollidingComponent>(stp);
 	cc->tag = "player";
 	cc->transform.position = this->transform.position;
@@ -210,7 +210,7 @@ void Player::moveUp()
 	cc->transform.position.y = this->transform.position.y;
 	gc->transform.position = transform.position;
 	
-	//collisionFunc(pointer, this, this->transform.position.x, this->transform.position.y, KeyCodes::KEY_UP);
+	collisionFunc(pointer, cc, this->transform.position.x, this->transform.position.y, KeyCodes::KEY_UP);
 
 	runActivated ? gc->playAnimation(7, 3, animationSpeed, false) : gc->playAnimation(2, 4, animationSpeed, false);
 	func(pointer, transform.position.x, transform.position.y);
@@ -226,6 +226,8 @@ void Player::moveDown()
 	cc->transform.position.y = this->transform.position.y;
 	gc->transform.position = transform.position;
 
+	collisionFunc(pointer, cc, this->transform.position.x, this->transform.position.y, KeyCodes::KEY_DOWN);
+
 	runActivated ? gc->playAnimation(6, 3, animationSpeed, false) : gc->playAnimation(1, 4, animationSpeed, false);
 	func(pointer, transform.position.x, transform.position.y);
 }
@@ -239,6 +241,9 @@ void Player::moveLeft()
 	transform.position.x -= baseMovementSpeed;
 	cc->transform.position.x = this->transform.position.x;
 	gc->transform.position = transform.position;
+
+	collisionFunc(pointer, cc, this->transform.position.x, this->transform.position.y, KeyCodes::KEY_LEFT);
+
 	runActivated ? gc->playAnimation(8, 3, animationSpeed, false) : gc->playAnimation(3, 4, animationSpeed, false);
 	func(pointer, transform.position.x, transform.position.y);
 }
@@ -252,6 +257,9 @@ void Player::moveRight()
 	transform.position.x += baseMovementSpeed;
 	cc->transform.position.x = this->transform.position.x;
 	gc->transform.position = transform.position;
+
+	collisionFunc(pointer, cc, this->transform.position.x, this->transform.position.y, KeyCodes::KEY_RIGHT);
+
 	runActivated ? gc->playAnimation(8, 3, animationSpeed, true) : gc->playAnimation(3, 4, animationSpeed, true);
 	func(pointer, transform.position.x, transform.position.y);
 }

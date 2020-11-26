@@ -17,6 +17,7 @@ protected:
 	std::string sfxPath;
 
 private:
+	std::shared_ptr<StopStrategy> stp;
 	std::shared_ptr<GraphicsComponent> gc;
 	std::shared_ptr<CollidingComponent> cc;
 	std::string type;

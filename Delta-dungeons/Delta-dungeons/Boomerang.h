@@ -18,6 +18,7 @@ public:
 	void interact() override;
 
 private:
+	std::shared_ptr<StopStrategy> stp;
 	std::shared_ptr<GraphicsComponent> gc;
 	std::shared_ptr<CollidingComponent> cc;
 	cbEquipmentBoomerang func;

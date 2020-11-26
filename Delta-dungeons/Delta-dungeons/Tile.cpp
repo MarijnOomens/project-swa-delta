@@ -19,7 +19,7 @@ Tile::Tile(int x, int y, int xImage, bool collider)
 
 	if (collider)
 	{
-		std::shared_ptr<StopStrategy> stp = std::make_shared<StopStrategy>();
+		stp = std::make_shared<StopStrategy>();
 		cc = std::make_shared<CollidingComponent>(stp);
 		cc->tag = "tile";
 		cc->transform.position = this->transform.position;
@@ -47,7 +47,8 @@ Tile::Tile(int x, int y, int yImage, int xImage, bool collider)
 
 	if (collider)
 	{
-		cc = std::make_shared<CollidingComponent>();
+		stp = std::make_shared<StopStrategy>();
+		cc = std::make_shared<CollidingComponent>(stp);
 		cc->tag = "tile";
 		cc->transform.position = this->transform.position;
 		this->components.emplace_back(cc);

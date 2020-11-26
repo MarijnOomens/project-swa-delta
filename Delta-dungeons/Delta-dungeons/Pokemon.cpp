@@ -12,7 +12,7 @@ Pokemon::Pokemon(int x, int y, std::string& texture)
 	gc->playAnimation(0, 3, animationSpeed, false);
 	gc->isScreen = false;
 
-	std::shared_ptr<StopStrategy> stp = std::make_shared<StopStrategy>();
+	stp = std::make_shared<StopStrategy>();
 	cc = std::make_shared<CollidingComponent>(stp);
 	cc->tag = "pokemon";
 	cc->transform.position = this->transform.position;
