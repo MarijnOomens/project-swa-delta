@@ -1,6 +1,8 @@
 #pragma once
 #include <vector>
 #include "CollidingComponent.h"
+#include "Player.h"
+
 class Collision {
 public:
 	Collision();

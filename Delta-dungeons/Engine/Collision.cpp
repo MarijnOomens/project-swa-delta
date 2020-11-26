@@ -25,6 +25,7 @@ void Collision::setCameraDimensions(Transform &transform) {
 
 void Collision::checkCollision(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction)
 {
+	auto play = dynamic_cast<Player*>(collider.get());
 	for (auto collider2 : colliderObjects)
 	{
 		if (
