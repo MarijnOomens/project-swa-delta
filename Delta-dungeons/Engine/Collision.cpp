@@ -43,7 +43,7 @@ void Collision::checkCollision(std::shared_ptr<CollidingComponent> collider, int
 				&& x == col2->transform.position.x
 				&& y == col2->transform.position.y)
 			{
-				col2->actCollision(collider, x, y, direction);
+				col2->actCollision(/*collider,*/ x, y, direction);
 				break;
 			}
 			/*facing up*/
@@ -52,7 +52,7 @@ void Collision::checkCollision(std::shared_ptr<CollidingComponent> collider, int
 					&& y == col2->transform.position.y
 					&& x == col2->transform.position.x)
 			{
-				col2->actCollision(collider, x, y, direction);
+				col2->actCollision(/*collider,*/x, y, direction);
 				break;
 			}
 			else if
@@ -61,7 +61,7 @@ void Collision::checkCollision(std::shared_ptr<CollidingComponent> collider, int
 					&& y == col2->transform.position.y
 					&& x == col2->transform.position.x)
 			{
-				col2->actCollision(collider, x, y, direction);
+				col2->actCollision(/*collider,*/ x, y, direction);
 				break;
 			}
 			else if
@@ -70,7 +70,7 @@ void Collision::checkCollision(std::shared_ptr<CollidingComponent> collider, int
 					&& x == col2->transform.position.x
 					&& y == col2->transform.position.y)
 			{
-				col2->actCollision(collider, x, y, direction);
+				col2->actCollision(/*collider,*/ x, y, direction);
 				break;
 			}
 					
