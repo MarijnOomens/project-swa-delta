@@ -15,6 +15,7 @@ class UIManager
 {
 public:
 	std::map<std::string, std::shared_ptr<Screen>> screens;
+	std::map<std::string, std::string> beats;
 
 	void createBaseScreens();
 	void playDialogue(std::vector<std::string> param);
@@ -23,5 +24,5 @@ public:
 	void updateHighScore(int param);
 	std::map<std::string, std::string> passTextures();
 	std::map<std::string, std::string> passFonts();
-
+	std::map<std::string, std::string> passBeats();
 };

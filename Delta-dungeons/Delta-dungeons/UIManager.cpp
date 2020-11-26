@@ -18,6 +18,7 @@ void UIManager::createBaseScreens()
 	std::unique_ptr<GameWinScreen> gameWin = std::make_unique<GameWinScreen>();
 	screens.try_emplace("GameWin", std::move(gameWin));
 
+	beats.try_emplace("touch", "Assets/Audio/touch.ogg");
 }
 
 void UIManager::playDialogue(std::vector<std::string>) {}
@@ -41,6 +42,11 @@ std::map<std::string, std::string> UIManager::passTextures()
 		}
 	}
 	return totalTextures;
+}
+
+std::map<std::string, std::string> UIManager::passBeats()
+{
+	return beats;
 }
 
 /// <summary>

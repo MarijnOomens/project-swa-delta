@@ -29,6 +29,7 @@ public:
 	void addTexture(const std::string& name, const std::string& path);
 	void registerTextures(std::map<std::string, std::string> textures);
 	void registerFonts(std::map<std::string, std::string> fonts);
+	void registerAudio(std::map<std::string, std::string> tracks);
 	void startGame();
 	void registerScene(const std::string& sceneName, const std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects);
 	void loadScene(const std::string& sceneName, const std::string& fromScene, bool clearPrevious);
@@ -48,6 +49,7 @@ public:
 	void deleteColliderFromScene(std::shared_ptr<ColliderComponent> deletedCollider);
 	void gameOver();
 	void checkGameOver();
+	void playAudio(const std::string& trackName, bool looped);
 
 private:
 	std::vector<int> hudLayers;

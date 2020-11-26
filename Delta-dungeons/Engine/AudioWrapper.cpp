@@ -1,6 +1,6 @@
 #include "AudioWrapper.h"
 
-void AudioWrapper::playAudio(std::string path, bool loop)
+void AudioWrapper::playAudio(const std::string& path, bool loop)
 {
 	gMusic = Mix_LoadMUS(path.c_str());
 	if (gMusic == NULL)

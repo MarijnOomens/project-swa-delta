@@ -10,10 +10,12 @@ GameManager::GameManager()
 	SceneLoader::getInstance().setEngineFacade(engineFacade);
 	DebugUtilities::getInstance().setEngineFacade(engineFacade);
 	SceneModifier::getInstance().setEngineFacade(engineFacade);
+	AudioUtilities::getInstance().setEngineFacade(engineFacade);
 
 	uiManager.createBaseScreens();
 	registerTextures(uiManager.passTextures());
 	registerFonts(uiManager.passFonts());
+	registerAudio(uiManager.passBeats());
 
 	playerManager.createPlayer(staticCameraCallbackFunction, staticInteractCallbackFunction, staticGameOverbackFunction, staticUpdateHUDHealthCallbackFunction, this);
 	registerTextures(playerManager.passTextures());
@@ -23,17 +25,18 @@ GameManager::GameManager()
 
 	pokemonManger.createPokemon();
 	registerTextures(pokemonManger.passTextures());
-	
+
 	hudManager.createHud();
-	for (std::string& texture: playerManager.getItems())
+	for (std::string& texture : playerManager.getItems())
 	{
 		hudManager.addItem(texture);
 	}
 	registerTextures(hudManager.passTextures());
-	
+
 	scene = std::make_shared<Scene>();
 	scene->addGraphics();
 	registerTextures(scene->passTextures());
+	registerAudio(scene->passBeats());
 
 	eqManager.createEquipment();
 	registerTextures(eqManager.passTextures());
@@ -92,7 +95,7 @@ void GameManager::registerBehaviourObjects()
 		}
 		level1.emplace_back(o.second.get());
 	}
-	
+
 	for (auto& c : playerManager.player->getComponentsRecursive())
 	{
 		level1.emplace_back(c);
@@ -116,6 +119,19 @@ void GameManager::registerTextures(std::map<std::string, std::string> textures)
 	engineFacade->registerTextures(textures);
 }
 
+/// <summary>
+/// This methods gives the engineFacade all fonts to give to the engine.
+/// </summary>
+void GameManager::registerFonts(std::map<std::string, std::string> fonts)
+{
+	engineFacade->registerFonts(fonts);
+}
+
+void GameManager::registerAudio(std::map<std::string, std::string> beats)
+{
+	engineFacade->registerAudio(beats);
+}
+
 void GameManager::staticCameraCallbackFunction(void* p, int x, int y)
 {
 	((GameManager*)p)->passPlayerPosition(x, y);
@@ -126,20 +142,12 @@ void GameManager::passPlayerPosition(int x, int y)
 	engineFacade->passPlayerPosition(x, y);
 }
 
-/// <summary>
-/// This methods gives the engineFacade all fonts to give to the engine.
-/// </summary>
-void GameManager::registerFonts(std::map<std::string, std::string> fonts)
-{
-	engineFacade->registerFonts(fonts);
-}
-
 void GameManager::staticInteractCallbackFunction(void* p, int x, int y)
 {
 	((GameManager*)p)->interactCallbackFunction(x, y);
 }
 
-void GameManager::interactCallbackFunction(int x, int y) 
+void GameManager::interactCallbackFunction(int x, int y)
 {
 	engineFacade->passInteract(x, y);
 }

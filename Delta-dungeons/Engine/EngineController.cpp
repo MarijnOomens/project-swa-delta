@@ -1,5 +1,5 @@
 #include "EngineController.h"
-int wo = 0;
+
 /// <summary>
 /// This class has the responsibility of managing different classes in the engine. It communicaties with classes like TextureManager and RenderFacade.
 /// </summary>
@@ -13,9 +13,6 @@ EngineController::EngineController()
 	audio = std::make_unique<Audio>(assetManager);
 	
 	initRenderer("Delta Dungeons", 1280, 960, false);
-	assetManager->addAudio("touch", "Assets/Audio/touch.ogg");
-	assetManager->addAudio("zagadka", "Assets/Audio/zagadka.wav");
-	audio->playAudio("touch", true);
 }
 
 /// <summary>
@@ -137,13 +134,6 @@ void EngineController::loadScene(const std::string& sceneName, const std::string
 		renderFacade->pauseGame();
 	}
 	sceneManager.loadScene(sceneName, fromScene, clearPrevious);
-	if (wo >= 1)
-	{
-		audio->playAudio("zagadka", true);
-	}
-	else {
-		wo++;
-	}
 }
 
 void EngineController::loadPreviousScene()
@@ -180,6 +170,13 @@ void EngineController::registerFonts(std::map<std::string, std::string> fonts) {
 	for (auto& t : fonts)
 	{
 		assetManager->addFont(t.first, t.second);
+	}
+}
+
+void EngineController::registerAudio(std::map<std::string, std::string> tracks) {
+	for (auto& t : tracks)
+	{
+		assetManager->addAudio(t.first, t.second);
 	}
 }
 
@@ -270,4 +267,9 @@ void EngineController::checkGameOver()
 			timer--;
 		}
 	}
+}
+
+void EngineController::playAudio(const std::string& trackName, bool looped)
+{
+	audio->playAudio(trackName, looped);
 }

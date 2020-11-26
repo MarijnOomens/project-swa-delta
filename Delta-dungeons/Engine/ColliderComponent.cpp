@@ -9,3 +9,5 @@ void ColliderComponent::interact() {}
 void ColliderComponent::update() {}
 
 void ColliderComponent::actCollision(int right, int left, int up, int down, std::string rightTag, std::string leftTag, std::string upTag, std::string downTag){}
+
+void ColliderComponent::start() {}

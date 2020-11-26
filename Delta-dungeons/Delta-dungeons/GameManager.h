@@ -12,6 +12,7 @@
 #include "DebugUtilities.h"
 #include "SceneModifier.h"
 #include "HUDManager.h"
+#include "AudioUtilities.h"
 
 class GameManager {
 public:
@@ -20,11 +21,12 @@ public:
 
 	void registerBehaviourObjects();
 	void registerTextures(std::map<std::string, std::string> textures);
+	void registerFonts(std::map<std::string, std::string> fonts);
+	void registerAudio(std::map<std::string, std::string> beats);
 
 	static void staticCameraCallbackFunction(void* p, int x, int y);
 	void passPlayerPosition(int x, int y);
 
-	void registerFonts(std::map<std::string, std::string> fonts);
 
 	static void staticInteractCallbackFunction(void* p, int x, int y);
 	void interactCallbackFunction(int x, int y);

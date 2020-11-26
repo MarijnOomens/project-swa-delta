@@ -45,6 +45,11 @@ void EngineFacade::registerFonts(std::map<std::string, std::string> fonts)
 	engineController->registerFonts(fonts);
 }
 
+void EngineFacade::registerAudio(std::map<std::string, std::string> tracks)
+{
+	engineController->registerAudio(tracks);
+}
+
 /// <summary>
 ///  Calls startGame from the GameManager in the EngineController.
 /// </summary>
@@ -135,4 +140,9 @@ void EngineFacade::deleteColliderFromScene(std::shared_ptr<ColliderComponent> de
 void EngineFacade::gameOver()
 {
 	engineController->gameOver();
+}
+
+void EngineFacade::playAudio(const std::string& trackName, bool looped)
+{
+	engineController->playAudio(trackName, looped);
 }

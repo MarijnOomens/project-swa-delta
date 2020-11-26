@@ -23,6 +23,8 @@ void Scene::addGraphics()
 	fpsText = std::make_shared<TextComponent>("", "joystix", color, 32);
 	fpsText->transform.position = { 1200, 10 };
 	components.emplace_back(fpsText);
+
+	beats.try_emplace("zagadka", "Assets/Audio/Zagadka.wav");
 }
 
 std::map<std::string, std::string> Scene::passTextures() const
@@ -30,6 +32,11 @@ std::map<std::string, std::string> Scene::passTextures() const
 	std::map<std::string, std::string> texture;
 	texture.try_emplace("Level1", "Assets/Maps/Level1/tileset.png");
 	return texture;
+}
+
+std::map<std::string, std::string> Scene::passBeats() const
+{
+	return beats;
 }
 
 void Scene::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos)
@@ -70,6 +77,11 @@ void Scene::update()
 	{
 		fpsText->changeText("");
 	}
+}
+
+void Scene::start()
+{
+	AudioUtilities::getInstance().playAudio("zagadka", true);
 }
 
 void Scene::interact() {}

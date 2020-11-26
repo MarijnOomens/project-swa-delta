@@ -161,7 +161,7 @@
     </ClCompile>
     <ClCompile Include="RunningShoes.cpp">
       <Filter>Source Files\Game\GameObjects\Items</Filter>
-      </ClCompile>
+    </ClCompile>
     <ClCompile Include="Advertisement.cpp">
       <Filter>Source Files\Game\GameObjects\Screens</Filter>
     </ClCompile>
@@ -179,6 +179,9 @@
     </ClCompile>
     <ClCompile Include="HUDManager.cpp">
       <Filter>Source Files\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="AudioUtilities.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -313,6 +316,9 @@
     </ClInclude>
     <ClInclude Include="HUDManager.h">
       <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioUtilities.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

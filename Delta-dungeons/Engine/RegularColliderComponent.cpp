@@ -18,6 +18,8 @@ void RegularColliderComponent::interact() {}
 
 void RegularColliderComponent::update() {}
 
+void RegularColliderComponent::start() {}
+
 void RegularColliderComponent::actCollision(int right, int left, int up, int down, std::string rightTag, std::string leftTag, std::string upTag, std::string downTag)
 {
 	if (collisionFunc != nullptr)

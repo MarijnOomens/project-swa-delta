@@ -18,6 +18,8 @@ void DamageColliderComponent::interact() {}
 
 void DamageColliderComponent::update() {}
 
+void DamageColliderComponent::start() {}
+
 void DamageColliderComponent::actCollision(int right, int left, int up, int down, std::string rightTag, std::string leftTag, std::string upTag, std::string downTag)
 {
 	if (collisionFunc != nullptr)

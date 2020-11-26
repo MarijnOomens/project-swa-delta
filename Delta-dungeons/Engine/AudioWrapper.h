@@ -9,7 +9,7 @@ public:
 	AudioWrapper() {}
 	~AudioWrapper() {}
 
-	void playAudio(std::string name, bool loop);
+	void playAudio(const std::string& name, bool loop);
 private:
 	Mix_Music* gMusic = NULL;
 };
