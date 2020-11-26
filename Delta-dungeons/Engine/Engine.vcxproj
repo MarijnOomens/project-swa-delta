@@ -165,6 +165,7 @@
   <ItemGroup>
     <ClInclude Include="CollidingComponent.h" />
     <ClInclude Include="Collision.h" />
+    <ClInclude Include="DamageStrategy.h" />
     <ClInclude Include="EngineFacade.h" />
     <ClInclude Include="AudioWrapper.h" />
     <ClInclude Include="AssetManager.h" />
@@ -198,6 +199,7 @@
   <ItemGroup>
     <ClCompile Include="CollidingComponent.cpp" />
     <ClCompile Include="Collision.cpp" />
+    <ClCompile Include="DamageStrategy.cpp" />
     <ClCompile Include="EngineFacade.cpp" />
     <ClCompile Include="AudioWrapper.cpp" />
     <ClCompile Include="Colour.cpp" />

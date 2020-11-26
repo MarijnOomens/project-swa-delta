@@ -5,7 +5,7 @@
 #include "CollidingComponent.h"
 #include <string>
 #include <map>
-#include "StopStrategy.h"
+#include "DamageStrategy.h"
 
 class Pokemon : public InteractiveObject
 {
@@ -17,7 +17,7 @@ protected:
 	std::string sfxPath;
 
 private:
-	std::shared_ptr<StopStrategy> stp;
+	std::shared_ptr<CollisionStrategy> stp;
 	std::shared_ptr<GraphicsComponent> gc;
 	std::shared_ptr<CollidingComponent> cc;
 	std::string type;
