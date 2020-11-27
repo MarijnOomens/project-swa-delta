@@ -40,6 +40,11 @@ MainMenu::MainMenu()
 	this->components.emplace_back(std::move(adButton));
 }
 
+void MainMenu::start()
+{
+	AudioUtilities::getInstance().playAudio("touch", true);
+}
+
 void MainMenu::handleInput(const KeyCodes &keyCode, const KeyboardEvent &keyboardEvent, Vector2D &mousePos)
 {
 	if (keyboardEvent == KeyboardEvent::KEY_PRESSED)

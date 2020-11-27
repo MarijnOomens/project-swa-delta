@@ -10,6 +10,8 @@ EngineController::EngineController()
 	renderFacade = std::make_shared<RenderFacade>(staticPassCameraDimensionFunction, this);
 	textureManager = std::make_shared<TextureManager>(renderFacade, assetManager);
 	input = std::make_shared<Input>(staticInputCallbackFunction, this);
+	audio = std::make_unique<Audio>(assetManager);
+	
 	initRenderer("Delta Dungeons", 1280, 960, false);
 }
 
@@ -142,7 +144,6 @@ void EngineController::loadScene(const std::string& sceneName, const std::string
 		renderFacade->pauseGame();
 	}
 	sceneManager.loadScene(sceneName, fromScene, clearPrevious);
-
 }
 
 void EngineController::loadPreviousScene()
@@ -182,6 +183,13 @@ void EngineController::registerFonts(std::map<std::string, std::string> fonts) {
 	}
 }
 
+void EngineController::registerAudio(std::map<std::string, std::string> tracks) {
+	for (auto& t : tracks)
+	{
+		assetManager->addAudio(t.first, t.second);
+	}
+}
+
 void EngineController::pauseScreen()
 {
 	if (renderFacade->renderer->isPaused && sceneManager.getCurrentScene() == "PauseScreen")
@@ -189,7 +197,7 @@ void EngineController::pauseScreen()
 		renderFacade->pauseGame();
 		loadPreviousScene();
 	}
-	else if(!renderFacade->renderer->isPaused)
+	else if (!renderFacade->renderer->isPaused)
 	{
 		renderFacade->pauseGame();
 		addOverlayScene("PauseScreen");
@@ -223,16 +231,16 @@ void EngineController::resetSpeedGame() const
 
 void EngineController::addObjectToScene(std::shared_ptr<BehaviourObject> addObject)
 {
-		if (dynamic_cast<GraphicsComponent*>(addObject.get()) != nullptr)
-		{
-			auto ngc = dynamic_cast<GraphicsComponent*>(addObject.get());
-			ngc->addTextureManager(textureManager);
-			sceneManager.addObjectToScene(addObject);
-		}
-		else
-		{
-			sceneManager.addObjectToScene(addObject);
-		}
+	if (dynamic_cast<GraphicsComponent*>(addObject.get()) != nullptr)
+	{
+		auto ngc = dynamic_cast<GraphicsComponent*>(addObject.get());
+		ngc->addTextureManager(textureManager);
+		sceneManager.addObjectToScene(addObject);
+	}
+	else
+	{
+		sceneManager.addObjectToScene(addObject);
+	}
 }
 
 void EngineController::passInteract(int x, int y)
@@ -274,4 +282,9 @@ void EngineController::checkGameOver()
 			timer--;
 		}
 	}
+}
+
+void EngineController::playAudio(const std::string& trackName, bool looped)
+{
+	audio->playAudio(trackName, looped);
 }

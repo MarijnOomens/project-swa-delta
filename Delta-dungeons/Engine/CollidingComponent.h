@@ -19,5 +19,6 @@ public:
 	ENGINE_API void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
 	ENGINE_API void interact() override;
 	ENGINE_API void update() override;
+	ENGINE_API void start() override;
 	ENGINE_API void setStrategy(std::shared_ptr<CollisionStrategy> strategy);
 };

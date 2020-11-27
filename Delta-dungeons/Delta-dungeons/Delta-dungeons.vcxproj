@@ -78,13 +78,13 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <LibraryPath>$(SolutionDir)Dependencies\SDL2\lib\x64;$(SolutionDir)Dependencies\SDL2_ttf\lib\x64;$(SolutionDir)Dependencies\SDL2_image\lib\x64;$(LibraryPath)</LibraryPath>
-    <IncludePath>$(SolutionDir)Dependencies\SDL2\include;$(SolutionDir)Dependencies\SDL2_ttf\include;$(SolutionDir)Dependencies\SDL2_image\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Dependencies\SDL2\lib\x64;$(SolutionDir)Dependencies\SDL2_ttf\lib\x64;$(SolutionDir)Dependencies\SDL2_image\lib\x64;$(SolutionDir)Dependencies\SDL2_mixer\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)Dependencies\SDL2\include;$(SolutionDir)Dependencies\SDL2_ttf\include;$(SolutionDir)Dependencies\SDL2_image\include;$(SolutionDir)Dependencies\SDL2_mixer\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <LibraryPath>$(SolutionDir)\Dependencies\SDL2_ttf\lib\x64;$(SolutionDir)Dependencies\SDL2\lib\x64;$(SolutionDir)Dependencies\SDL2_image\lib\x64;$(LibraryPath)</LibraryPath>
-    <IncludePath>$(SolutionDir)\Dependencies\SDL2_ttf\include;$(SolutionDir)Dependencies\SDL2\include;$(SolutionDir)Dependencies\SDL2_image\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\Dependencies\SDL2_ttf\lib\x64;$(SolutionDir)Dependencies\SDL2\lib\x64;$(SolutionDir)Dependencies\SDL2_image\lib\x64;$(SolutionDir)Dependencies\SDL2_mixer\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)\Dependencies\SDL2_ttf\include;$(SolutionDir)Dependencies\SDL2\include;$(SolutionDir)Dependencies\SDL2_image\include;$(SolutionDir)Dependencies\SDL2_mixer\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -156,6 +156,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Advertisement.cpp" />
+    <ClCompile Include="AudioUtilities.cpp" />
     <ClCompile Include="Berry.cpp" />
     <ClCompile Include="Boomerang.cpp" />
     <ClCompile Include="Button.cpp" />
@@ -202,6 +203,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Advertisement.h" />
+    <ClInclude Include="AudioUtilities.h" />
     <ClInclude Include="Berry.h" />
     <ClInclude Include="Boomerang.h" />
     <ClInclude Include="Button.h" />

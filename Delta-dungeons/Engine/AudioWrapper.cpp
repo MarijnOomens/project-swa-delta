@@ -1,6 +1,15 @@
 #include "AudioWrapper.h"
-//#include <SDL_mixer.h>
-#include <SDL.h>
-#include <SDL_image.h>
-#include <stdio.h>
-#include <string>
+
+void AudioWrapper::playAudio(const std::string& path, bool loop)
+{
+	gMusic = Mix_LoadMUS(path.c_str());
+	if (gMusic == NULL)
+	{
+		printf("Failed to load beat music! SDL_mixer Error: %s\n", Mix_GetError());
+	}
+	else
+	{
+		Mix_VolumeMusic(64);
+		Mix_PlayMusic(gMusic, loop ? -1 : 0);
+	}
+}

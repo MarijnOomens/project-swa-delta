@@ -61,6 +61,10 @@ void Renderer::init(const std::string& title, int width, int height, bool fullsc
 		{
 			std::cout << "Failed to initialise SDL_ttf!" << std::endl;
 		}
+		if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0)
+		{
+			printf("SDL_mixer could not initialize! SDL_mixer Error: %s\n", Mix_GetError());
+		}
 	}
 	catch (std::string error) 
 	{

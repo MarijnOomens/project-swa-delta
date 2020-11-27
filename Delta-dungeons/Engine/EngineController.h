@@ -12,6 +12,7 @@
 #include "CollidingComponent.h"
 #include <vector>
 #include "Collision.h"
+#include "Audio.h"
 
 // Engincontroller class
 //
@@ -33,6 +34,7 @@ public:
 	void addTexture(const std::string& name, const std::string& path);
 	void registerTextures(std::map<std::string, std::string> textures);
 	void registerFonts(std::map<std::string, std::string> fonts);
+	void registerAudio(std::map<std::string, std::string> tracks);
 	void startGame();
 	void registerScene(const std::string& sceneName, const std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects);
 	void loadScene(const std::string& sceneName, const std::string& fromScene, bool clearPrevious);
@@ -53,6 +55,7 @@ public:
 	void deleteColliderFromScene(std::shared_ptr<CollidingComponent> deletedCollider);
 	void gameOver();
 	void checkGameOver();
+	void playAudio(const std::string& trackName, bool looped);
 
 
 private:
@@ -61,6 +64,7 @@ private:
 	std::shared_ptr<TextureManager> textureManager;
 	std::shared_ptr<AssetManager> assetManager;
 	std::shared_ptr<Input> input;
+	std::unique_ptr<Audio> audio;
 	SceneManager sceneManager;
 	std::shared_ptr<Collision> collision;
 	bool isGameOver = false;

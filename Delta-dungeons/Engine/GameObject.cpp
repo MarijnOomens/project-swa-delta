@@ -8,6 +8,8 @@ void GameObject::handleInput(const KeyCodes &keyCode, const KeyboardEvent &keybo
 
 void GameObject::update() {}
 
+void GameObject::start() {}
+
 /// <summary>
 /// This method returns a list of all gameObjects within a gameObject. The method is recursive to get all underlying objects.
 /// </summary>

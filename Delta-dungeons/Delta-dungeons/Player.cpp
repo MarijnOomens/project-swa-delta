@@ -344,7 +344,7 @@ void Player::registerHit() {
 	hudFunc(pointer,true);
 	if (health > 0) 
 	{
-		health--; 
+		health--;
 	}
 	else 
 	{

@@ -20,6 +20,7 @@ void UIManager::createBaseScreens()
 	std::unique_ptr<LoadSaveScreen> loadSaveScreen = std::make_unique<LoadSaveScreen>();
 	screens.try_emplace("LoadSaveScreen", std::move(loadSaveScreen));
 
+	beats.try_emplace("touch", "Assets/Audio/touch.ogg");
 }
 
 void UIManager::playDialogue(std::vector<std::string>) {}
@@ -43,6 +44,11 @@ std::map<std::string, std::string> UIManager::passTextures()
 		}
 	}
 	return totalTextures;
+}
+
+std::map<std::string, std::string> UIManager::passBeats()
+{
+	return beats;
 }
 
 /// <summary>
