@@ -180,6 +180,9 @@
     <ClCompile Include="HUDManager.cpp">
       <Filter>Source Files\Game</Filter>
     </ClCompile>
+    <ClCompile Include="LoadSaveScreen.cpp">
+      <Filter>Source Files\Game\GameObjects\Screens</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h">
@@ -313,6 +316,9 @@
     </ClInclude>
     <ClInclude Include="HUDManager.h">
       <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadSaveScreen.h">
+      <Filter>Header Files\Game\GameObjects\Screens</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

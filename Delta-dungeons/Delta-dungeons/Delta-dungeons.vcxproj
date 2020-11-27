@@ -175,6 +175,7 @@
     <ClCompile Include="IEquipment.h" />
     <ClCompile Include="InteractiveManager.cpp" />
     <ClCompile Include="InteractiveObject.cpp" />
+    <ClCompile Include="LoadSaveScreen.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="NPC.cpp" />
     <ClCompile Include="main.cpp" />
@@ -216,6 +217,7 @@
     <ClInclude Include="HelpScreen.h" />
     <ClInclude Include="HUD.h" />
     <ClInclude Include="HUDManager.h" />
+    <ClInclude Include="LoadSaveScreen.h" />
     <ClInclude Include="NPCManager.h" />
     <ClInclude Include="PokemonManager.h" />
     <ClInclude Include="PokemonParserData.h" />

@@ -12,8 +12,8 @@
 /// </summary>
 Player::Player(cbCollision collisionCB, const cbCamera f, cbInteract interactCB, cbGameOver gameOverF, cbHUD hudCB, void* p) : collisionFunc(collisionCB), func(f), interactFunc(interactCB), gameOverFunc(gameOverF), hudFunc(hudCB), pointer(p)
 {
-	std::string textureBoomerang ="boomerang" ;
-	std::string textureRunning = "runningshoes";
+	std::string textureBoomerang ="boomerangHUD" ;
+	std::string textureRunning = "runningshoesHUD";
 	std::unique_ptr<Boomerang> boomerang = std::make_unique<Boomerang>(textureBoomerang,staticBoomerangCallbackFunction, this);
 	std::unique_ptr<RunningShoes> running = std::make_unique<RunningShoes>(staticRunningShoesCallbackFunction, this, textureRunning);
 	health = 3;
