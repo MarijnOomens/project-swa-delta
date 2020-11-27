@@ -21,6 +21,10 @@ LoadSaveScreen::LoadSaveScreen()
 	std::vector<std::string> possibleButtonTexLoad = { "button_play" };
 	std::unique_ptr<Button> load1Button = std::make_unique<Button>(500, 200, possibleButtonTexLoad, staticLoad1CallbackFunction, this);
 	this->components.emplace_back(std::move(load1Button));
+
+	std::vector<std::string> possibleButtonTexExit = { "button_exit" };
+	std::unique_ptr<Button> exitButton = std::make_unique<Button>(500, 780, possibleButtonTexExit, staticBackCallbackFunction, this);
+	this->components.emplace_back(std::move(exitButton));
 }
 
 void LoadSaveScreen::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos)
