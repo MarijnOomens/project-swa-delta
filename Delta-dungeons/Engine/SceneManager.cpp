@@ -24,6 +24,9 @@ void SceneManager::loadScene(const std::string& sceneName, const std::string& fr
 	activeScenes.push_back(sceneName);
 	currentScene = sceneName;
 	currentObjects = scenes[currentScene];
+	for (auto& bo : currentObjects) {
+		bo->start();
+	}
 	isSceneSwitched = true;
 	update();
 }

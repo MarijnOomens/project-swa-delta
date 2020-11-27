@@ -1,26 +1,22 @@
 #pragma once
 #include <vector>
-#include "ColliderComponent.h"
+#include "CollidingComponent.h"
+#include "InteractiveObject.h"
+
 class Collision {
 public:
 	Collision();
 	~Collision() {}
-	int upY = -1;
-	int leftX = -1;
-	int rightX = -1;
-	int downY = -1;
-	std::string rightTag = "";
-	std::string leftTag = "";
-	std::string upTag = "";
-	std::string downTag = "";
 
-	bool checkedUp = false;
-	bool checkedLeft = false;
-	bool checkedRight = false;
-	bool checkedDown = false;
+	int cameraX = 0;
+	int cameraY = 0;
+	int cameraW = 0;
+	int cameraH = 0;
+
+	void setCameraDimensions(Transform &transform);
 	void registerColliders(std::vector<std::shared_ptr<BehaviourObject>> colliders);
 	void deleteColliderFromScene(std::shared_ptr<BehaviourObject> deletedCollider);
-	void checkCollision();
+	void checkCollision(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction);
 private:
 	std::vector<std::shared_ptr<BehaviourObject>> colliderObjects;
 };

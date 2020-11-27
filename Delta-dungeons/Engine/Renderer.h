@@ -3,26 +3,37 @@
 #include "SDL.h"
 #include "GameObject.h"
 #include "SDL_ttf.h"
+#include "SDL_mixer.h"
 #include <iostream>
 #include <list>
 #include <memory>
 #include <tuple>
 
+typedef void(*cbPassCameraDimension) (void*, Transform);
+
 class Renderer {
 public:
+	cbPassCameraDimension passCameraFunc;
+	void* pointer;
+
 	bool isRunning;
 	bool isPaused;
 	bool transitioning = false;
 	SDL_Renderer* sdlRenderer;
 	SDL_Rect camera;
 
-	Renderer();
+	Renderer(cbPassCameraDimension cbPCD, void* p);
 	~Renderer();
 
 	void init(const std::string& title, const int width, const int height, const bool fullscreen);
 	void createCamera(const int x, const int y);
+
+	//static void staticGetCameraDimensionCallbackFunction(void* p);
+	//void interactCallbackFunction();
+
 	bool checkCameraPosition(const Transform& transform) const;
 	std::tuple<int, int> updateCamera(const int playerX,const int playerY);
+	Transform getCameraDimensions();
 
 	void clean() const;
 	void pauseGame();

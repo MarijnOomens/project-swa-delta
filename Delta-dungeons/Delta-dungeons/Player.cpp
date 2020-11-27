@@ -10,10 +10,10 @@
 /// Defines the movementspeed and the runactivated bool
 /// Creates the graphicscomponent for the player sprite and saves the texturename and png location, width, height
 /// </summary>
-Player::Player(const cbCamera f, cbInteract interactCB, cbGameOver gameOverF, cbHUD hudCB, void* p) : func(f), interactFunc(interactCB), gameOverFunc(gameOverF), hudFunc(hudCB), pointer(p)
+Player::Player(cbCollision collisionCB, const cbCamera f, cbInteract interactCB, cbGameOver gameOverF, cbHUD hudCB, void* p) : collisionFunc(collisionCB), func(f), interactFunc(interactCB), gameOverFunc(gameOverF), hudFunc(hudCB), pointer(p)
 {
-	std::string textureBoomerang ="boomerang" ;
-	std::string textureRunning = "runningshoes";
+	std::string textureBoomerang ="boomerangHUD" ;
+	std::string textureRunning = "runningshoesHUD";
 	std::unique_ptr<Boomerang> boomerang = std::make_unique<Boomerang>(textureBoomerang,staticBoomerangCallbackFunction, this);
 	std::unique_ptr<RunningShoes> running = std::make_unique<RunningShoes>(staticRunningShoesCallbackFunction, this, textureRunning);
 	health = 3;
@@ -42,7 +42,8 @@ Player::Player(const cbCamera f, cbInteract interactCB, cbGameOver gameOverF, cb
 	gc->transform.scale.multiply({ 4, 4 });
 	gc->playAnimation(0, 3, animationSpeed, false);
 
-	cc = std::make_shared<RegularColliderComponent>(staticCollisionCallbackFunction, this);
+	stp = std::make_shared<StopStrategy>();
+	cc = std::make_shared<CollidingComponent>(stp);
 	cc->tag = "player";
 	cc->transform.position = this->transform.position;
 
@@ -61,41 +62,6 @@ void Player::handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboard
 {
 	if (!DebugUtilities::getInstance().isCheatCollisionOn())
 	{
-		if (keyboardEvent == KeyboardEvent::KEY_PRESSED)
-		{
-			if (KeyCodes::KEY_UP == keyCodes || keyCodes == KeyCodes::KEY_W)
-			{
-				if (upY == transform.position.y - 128) 
-				{ 
-					tileCollision = true; 
-					if (upTag == "pokemon") { registerHit(); }
-				}
-			}
-			else if (KeyCodes::KEY_LEFT == keyCodes || keyCodes == KeyCodes::KEY_A)
-			{
-				if (leftX == transform.position.x - 128) 
-				{
-					tileCollision = true;
-					if (leftTag == "pokemon") { registerHit(); }
-				}
-			}
-			else if (KeyCodes::KEY_RIGHT == keyCodes || keyCodes == KeyCodes::KEY_D)
-			{
-				if (rightX == transform.position.x + 128) 
-				{
-					tileCollision = true;
-					if (rightTag == "pokemon") { registerHit(); }
-				}
-			}
-			else if (KeyCodes::KEY_DOWN == keyCodes || keyCodes == KeyCodes::KEY_S)
-			{
-				if (downY == transform.position.y + 128) 
-				{
-					tileCollision = true;
-					if (downTag == "pokemon") { registerHit(); }
-				}
-			}
-		}
 	}
 
 	if (keyboardEvent == KeyboardEvent::KEY_PRESSED && keyCodes == KeyCodes::KEY_UP || keyCodes == KeyCodes::KEY_LEFT || keyCodes == KeyCodes::KEY_RIGHT || keyCodes == KeyCodes::KEY_DOWN || keyCodes == KeyCodes::KEY_W || keyCodes == KeyCodes::KEY_S || keyCodes == KeyCodes::KEY_A || keyCodes == KeyCodes::KEY_D)
@@ -113,7 +79,6 @@ void Player::handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboard
 	}
 
 	// resets collision for next move with collsion check.
-	tileCollision = false;
 }
 
 void Player::interact() {}
@@ -241,11 +206,16 @@ void Player::update() {}
 void Player::moveUp()
 {
 	//de huidige positie bijhouden.
-	transform.position.y -= baseMovementSpeed;
-	cc->transform.position.y = this->transform.position.y;
-	gc->transform.position = transform.position;
-	runActivated ? gc->playAnimation(7, 3, animationSpeed, false) : gc->playAnimation(2, 4, animationSpeed, false);
-	func(pointer, transform.position.x, transform.position.y);
+	collisionFunc(pointer, shared_from_this(), this->transform.position.x, this->transform.position.y - 128, KeyCodes::KEY_UP);
+	if (!hasMoved) {
+		transform.position.y -= baseMovementSpeed;
+		cc->transform.position.y = this->transform.position.y;
+		gc->transform.position = transform.position;
+
+		runActivated ? gc->playAnimation(7, 3, animationSpeed, false) : gc->playAnimation(2, 4, animationSpeed, false);
+		func(pointer, transform.position.x, transform.position.y);
+	}
+	hasMoved = false;
 }
 
 /// <summary>
@@ -254,11 +224,16 @@ void Player::moveUp()
 /// </summary>
 void Player::moveDown()
 {
-	transform.position.y += baseMovementSpeed;
-	cc->transform.position.y = this->transform.position.y;
-	gc->transform.position = transform.position;
-	runActivated ? gc->playAnimation(6, 3, animationSpeed, false) : gc->playAnimation(1, 4, animationSpeed, false);
-	func(pointer, transform.position.x, transform.position.y);
+	collisionFunc(pointer, shared_from_this(), this->transform.position.x, this->transform.position.y + 128, KeyCodes::KEY_DOWN);
+	if (!hasMoved) {
+		transform.position.y += baseMovementSpeed;
+		cc->transform.position.y = this->transform.position.y;
+		gc->transform.position = transform.position;
+
+		runActivated ? gc->playAnimation(6, 3, animationSpeed, false) : gc->playAnimation(1, 4, animationSpeed, false);
+		func(pointer, transform.position.x, transform.position.y);
+	}
+	hasMoved = false;
 }
 
 /// <summary>
@@ -267,11 +242,16 @@ void Player::moveDown()
 /// </summary>
 void Player::moveLeft()
 {
-	transform.position.x -= baseMovementSpeed;
-	cc->transform.position.x = this->transform.position.x;
-	gc->transform.position = transform.position;
-	runActivated ? gc->playAnimation(8, 3, animationSpeed, false) : gc->playAnimation(3, 4, animationSpeed, false);
-	func(pointer, transform.position.x, transform.position.y);
+	collisionFunc(pointer, shared_from_this(), this->transform.position.x - 128, this->transform.position.y, KeyCodes::KEY_LEFT);
+	if (!hasMoved) {
+		transform.position.x -= baseMovementSpeed;
+		cc->transform.position.x = this->transform.position.x;
+		gc->transform.position = transform.position;
+
+		runActivated ? gc->playAnimation(8, 3, animationSpeed, false) : gc->playAnimation(3, 4, animationSpeed, false);
+		func(pointer, transform.position.x, transform.position.y);
+	}
+	hasMoved = false;
 }
 
 /// <summary>
@@ -280,11 +260,16 @@ void Player::moveLeft()
 /// </summary>
 void Player::moveRight()
 {
-	transform.position.x += baseMovementSpeed;
-	cc->transform.position.x = this->transform.position.x;
-	gc->transform.position = transform.position;
-	runActivated ? gc->playAnimation(8, 3, animationSpeed, true) : gc->playAnimation(3, 4, animationSpeed, true);
-	func(pointer, transform.position.x, transform.position.y);
+	collisionFunc(pointer, shared_from_this(), this->transform.position.x + 128, this->transform.position.y, KeyCodes::KEY_RIGHT);
+	if(!hasMoved) {
+		transform.position.x += baseMovementSpeed;
+		cc->transform.position.x = this->transform.position.x;
+		gc->transform.position = transform.position;
+
+		runActivated ? gc->playAnimation(8, 3, animationSpeed, true) : gc->playAnimation(3, 4, animationSpeed, true);
+		func(pointer, transform.position.x, transform.position.y);
+	}
+	hasMoved = false;
 }
 
 /// <summary>
@@ -308,6 +293,10 @@ std::vector<std::string> Player::getItems()
 		items.push_back(item->texture);
 	}
 	return items;
+}
+
+std::shared_ptr<CollidingComponent> Player::getCollider() {
+	return cc;
 }
 
 void Player::staticBoomerangCallbackFunction(void* p, const bool brActivated)
@@ -351,28 +340,11 @@ void Player::runningShoesCallbackFunction(const bool runningActivated)
 	}
 }
 
-void Player::staticCollisionCallbackFunction(void* p, int right, int left, int up, int down, std::string rightTag, std::string leftTag, std::string upTag, std::string downTag, bool hit)
-{
-	((Player*)p)->collisionCallbackFunction(right, left, up, down, rightTag, leftTag, upTag, downTag, hit);
-}
-
-void Player::collisionCallbackFunction(int right, int left, int up, int down, std::string rTag, std::string lTag, std::string uTag, std::string dTag, bool hit)
-{
-	rightX = right;
-	leftX = left;
-	upY = up;
-	downY = down;
-	rightTag = rTag;
-	leftTag = lTag;
-	upTag = uTag;
-	downTag = dTag;
-}
-
 void Player::registerHit() {
 	hudFunc(pointer,true);
 	if (health > 0) 
 	{
-		health--; 
+		health--;
 	}
 	else 
 	{
@@ -381,4 +353,9 @@ void Player::registerHit() {
 		health = 3;
 	}
 	
+}
+
+void Player::registerCollision(int x, int y, bool damage) {
+	if (damage) { registerHit(); }
+	hasMoved = true;
 }

@@ -7,9 +7,11 @@ EngineController::EngineController()
 {
 	collision = std::make_shared<Collision>();
 	assetManager = std::make_shared<AssetManager>();
-	renderFacade = std::make_shared<RenderFacade>();
+	renderFacade = std::make_shared<RenderFacade>(staticPassCameraDimensionFunction, this);
 	textureManager = std::make_shared<TextureManager>(renderFacade, assetManager);
 	input = std::make_shared<Input>(staticInputCallbackFunction, this);
+	audio = std::make_unique<Audio>(assetManager);
+	
 	initRenderer("Delta Dungeons", 1280, 960, false);
 }
 
@@ -24,6 +26,17 @@ void EngineController::initRenderer(const std::string& title, int width, int hei
 {
 	renderFacade->init(title, width, height, fullscreen);
 }
+
+void EngineController::staticPassCameraDimensionFunction(void* p, Transform transform)
+{
+	((EngineController*)p)->passCameraDimensionFunction(transform);
+}
+
+void EngineController::passCameraDimensionFunction(Transform &transform)
+{
+	collision->setCameraDimensions(transform);
+}
+
 
 /// <summary>
 /// Receives input data from the class Input and passes it to a new function.
@@ -83,11 +96,10 @@ void EngineController::startGame()
 		}
 		if (!renderFacade->renderer->isPaused)
 		{
-			collision->checkCollision();
+			renderFacade->beforeFrame();
+			sceneManager.update();
 		}
 		checkTransition();
-		renderFacade->beforeFrame();
-		sceneManager.update();
 		checkGameOver();
 		renderFacade->afterFrame();
 		renderFacade->setFrameDelay();
@@ -107,7 +119,7 @@ void EngineController::registerScene(const std::string& sceneName, const std::ve
 			ngc->addTextureManager(textureManager);
 			tempObjects.emplace_back(ngc);
 		}
-		else if (dynamic_cast<ColliderComponent*>(o.get()) != nullptr)
+		else if (dynamic_cast<CollidingComponent*>(o.get()) != nullptr)
 		{
 			colliderObjects.emplace_back(o);
 		}
@@ -178,6 +190,13 @@ void EngineController::registerFonts(std::map<std::string, std::string> fonts) {
 	}
 }
 
+void EngineController::registerAudio(std::map<std::string, std::string> tracks) {
+	for (auto& t : tracks)
+	{
+		assetManager->addAudio(t.first, t.second);
+	}
+}
+
 void EngineController::pauseScreen()
 {
 	if (renderFacade->renderer->isPaused && sceneManager.getCurrentScene() == "PauseScreen")
@@ -185,7 +204,7 @@ void EngineController::pauseScreen()
 		renderFacade->pauseGame();
 		loadPreviousScene();
 	}
-	else if(!renderFacade->renderer->isPaused)
+	else if (!renderFacade->renderer->isPaused)
 	{
 		renderFacade->pauseGame();
 		addOverlayScene("PauseScreen");
@@ -219,16 +238,16 @@ void EngineController::resetSpeedGame() const
 
 void EngineController::addObjectToScene(std::shared_ptr<BehaviourObject> addObject)
 {
-		if (dynamic_cast<GraphicsComponent*>(addObject.get()) != nullptr)
-		{
-			auto ngc = dynamic_cast<GraphicsComponent*>(addObject.get());
-			ngc->addTextureManager(textureManager);
-			sceneManager.addObjectToScene(addObject);
-		}
-		else
-		{
-			sceneManager.addObjectToScene(addObject);
-		}
+	if (dynamic_cast<GraphicsComponent*>(addObject.get()) != nullptr)
+	{
+		auto ngc = dynamic_cast<GraphicsComponent*>(addObject.get());
+		ngc->addTextureManager(textureManager);
+		sceneManager.addObjectToScene(addObject);
+	}
+	else
+	{
+		sceneManager.addObjectToScene(addObject);
+	}
 }
 
 void EngineController::passInteract(int x, int y)
@@ -236,12 +255,17 @@ void EngineController::passInteract(int x, int y)
 	sceneManager.passInteract(x, y);
 }
 
+void EngineController::passCollisionCheck(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction)
+{
+	collision->checkCollision(collider, x, y, direction);
+}
+
 void EngineController::deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject)
 {
 	sceneManager.deleteObjectFromScene(deletedObject);
 }
 
-void EngineController::deleteColliderFromScene(std::shared_ptr<ColliderComponent> deletedCollider)
+void EngineController::deleteColliderFromScene(std::shared_ptr<CollidingComponent> deletedCollider)
 {
 	collision->deleteColliderFromScene(deletedCollider);
 }
@@ -270,4 +294,9 @@ void EngineController::checkGameOver()
 void EngineController::checkTransition()const
 {
 	renderFacade->checkTransition();
+}
+
+void EngineController::playAudio(const std::string& trackName, bool looped)
+{
+	audio->playAudio(trackName, looped);
 }

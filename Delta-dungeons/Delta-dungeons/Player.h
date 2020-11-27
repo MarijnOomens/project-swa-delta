@@ -2,18 +2,20 @@
 
 #include "IEquipment.h"
 #include "Boomerang.h"
-#include "GameObject.h"
+#include "InteractiveObject.h"
 #include "GraphicsComponent.h"
-#include "RegularColliderComponent.h"
+#include "CollidingComponent.h"
 #include "RunningShoes.h"
 #include "DebugUtilities.h"
+#include "StopStrategy.h"
 
 typedef void(*cbInteract) (void*, int, int);
 typedef void(*cbCamera) (void*, int, int);
 typedef void(*cbGameOver) (void*);
 typedef void(*cbHUD) (void*, bool);
+typedef void(*cbCollision) (void*, std::shared_ptr<BehaviourObject>, int, int, KeyCodes);
 
-class Player : public GameObject
+class Player : public InteractiveObject, public std::enable_shared_from_this<BehaviourObject>
 {
 public:
 	std::map<std::string, std::string> textures;
@@ -23,14 +25,15 @@ public:
 	cbInteract interactFunc;
 	cbGameOver gameOverFunc;
 	cbHUD hudFunc;
-
+	cbCollision collisionFunc;
 	KeyCodes currentDirection;
 	void* pointer;
 
-	Player(cbCamera f, cbInteract interactCB, cbGameOver gameOverFunc, cbHUD hudCB, void* p);
+	Player(cbCollision collisionCB, cbCamera f, cbInteract interactCB, cbGameOver gameOverFunc, cbHUD hudCB, void* p);
 
 	void handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
 	void interact() override;
+	void registerCollision(int x, int y, bool damage) override;
 	void handleKeyPressed(const KeyCodes& keyCodes);
 	void handleKeyReleased(const KeyCodes& keyCodes);
 
@@ -43,9 +46,7 @@ public:
 	void damagePlayer(int damage);
 	void updateCaughtPokemon(int pokemonId);
 	std::vector<std::string> getItems();
-
-	static void staticCollisionCallbackFunction(void* p, int right, int left, int up, int down, std::string rightTag, std::string leftTag, std::string upTag, std::string downTag, bool hit);
-	void collisionCallbackFunction(int right, int left, int up, int down, std::string rightTag, std::string leftTag, std::string upTag, std::string downTag, bool hit);
+	std::shared_ptr<CollidingComponent> getCollider();
 
 	static void staticBoomerangCallbackFunction(void* p, const bool boomerangActivated);
 	void boomerangCallbackFunction(const bool boomerangActivated);
@@ -66,10 +67,11 @@ private:
 	bool runActivated = false;
 	bool boomerangActivated = false;
 	bool cheatCollision = false;
+	bool hasMoved = false;
 	std::vector<int> pokemonCaught;
 	std::vector<std::unique_ptr<IEquipment>> equipment;
+	std::shared_ptr<StopStrategy> stp;
 	std::shared_ptr<GraphicsComponent> gc;
-	std::shared_ptr<RegularColliderComponent> cc;
 	AnimCategory animCategory;
 	int rightX;
 	int leftX;

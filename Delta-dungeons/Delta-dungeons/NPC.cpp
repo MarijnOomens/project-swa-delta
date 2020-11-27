@@ -11,7 +11,8 @@ NPC::NPC(int x, int y, std::string &texture)
 	gc->playAnimation(0, 3, animationSpeed, false);
 	gc->isScreen = false;
 
-	cc = std::make_shared<RegularColliderComponent>();
+	stp = std::make_shared<StopStrategy>();
+	cc = std::make_shared<CollidingComponent>(stp);
 	cc->tag = "npc";
 	cc->transform.position = this->transform.position;
 
@@ -20,3 +21,7 @@ NPC::NPC(int x, int y, std::string &texture)
 }
 
 void NPC::interact(){}
+
+void NPC::registerCollision(int x, int y, bool damage) {
+
+}

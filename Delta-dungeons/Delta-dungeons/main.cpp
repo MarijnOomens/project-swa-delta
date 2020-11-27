@@ -17,6 +17,6 @@
 
 int main(int argc, char* argv[])
 {
-    std::unique_ptr<GameManager> gameManager = std::make_unique<GameManager>();
+	GameManager gameManager;
 	_CrtDumpMemoryLeaks();
 }

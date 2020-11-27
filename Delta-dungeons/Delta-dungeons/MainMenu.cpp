@@ -40,6 +40,11 @@ MainMenu::MainMenu()
 	this->components.emplace_back(std::move(adButton));
 }
 
+void MainMenu::start()
+{
+	AudioUtilities::getInstance().playAudio("touch", true);
+}
+
 void MainMenu::handleInput(const KeyCodes &keyCode, const KeyboardEvent &keyboardEvent, Vector2D &mousePos)
 {
 	if (keyboardEvent == KeyboardEvent::KEY_PRESSED)
@@ -70,7 +75,7 @@ void MainMenu::staticOpenGameCallbackFunction(const void* p)
 
 void MainMenu::openGameCallbackFunction() const
 {
-	SceneLoader::getInstance().loadScene("Level1", "", true);
+	SceneLoader::getInstance().loadScene("LoadSaveScreen", "MainMenu", false);
 }
 
 void MainMenu::staticOpenCreditsCallbackFunction(const void* p) 

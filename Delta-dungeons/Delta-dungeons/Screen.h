@@ -14,4 +14,5 @@ public:
 	void handleInput(const KeyCodes &keyCode, const KeyboardEvent &keyboardEvent, Vector2D &mousePos) override;
 	void update() override;
 	void interact() override;
+	void start() override;
 };

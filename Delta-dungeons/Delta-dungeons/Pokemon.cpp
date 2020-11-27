@@ -11,7 +11,8 @@ Pokemon::Pokemon(int x, int y, std::string& texture)
 	gc->playAnimation(0, 3, animationSpeed, false);
 	gc->isScreen = false;
 
-	cc = std::make_shared<DamageColliderComponent>();
+	stp = std::make_shared<DamageStrategy>();
+	cc = std::make_shared<CollidingComponent>(stp);
 	cc->tag = "pokemon";
 	cc->transform.position = this->transform.position;
 
@@ -21,4 +22,8 @@ Pokemon::Pokemon(int x, int y, std::string& texture)
 
 void Pokemon::interact()
 {
+}
+
+void Pokemon::registerCollision(int x, int y, bool damage) {
+
 }

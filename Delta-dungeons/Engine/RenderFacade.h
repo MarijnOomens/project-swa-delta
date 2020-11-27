@@ -11,12 +11,14 @@
 #include <map>
 #include "Colour.h"
 
+typedef void(*cbPassCameraDimension) (void*, Transform);
+
 class RenderFacade 
 {
 public:
 	std::shared_ptr<Renderer> renderer;
 
-	RenderFacade();
+	RenderFacade(cbPassCameraDimension cbPCD, void* p);
 	~RenderFacade() {}
 
 	std::string constructorError() const noexcept;

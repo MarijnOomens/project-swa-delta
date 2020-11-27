@@ -34,7 +34,7 @@ std::vector<std::shared_ptr<ParserData>> XMLParser::parseXML(const std::string& 
 			}
 		}
 
-		if (layerName == "collider")
+		if (layerName == "collision")
 		{
 			for (xml_node<>* tile = layer->first_node(); tile; tile = tile->next_sibling())
 			{
@@ -100,7 +100,7 @@ std::vector<std::shared_ptr<ParserData>> XMLParser::getEquipmentDataList(const s
 	for (xml_node<>* layer = node->first_node(); layer; layer = layer->next_sibling())
 	{
 		std::string layerName = layer->first_attribute("name")->value();
-		if (layerName == "collider")
+		if (layerName == "collision")
 		{
 			for (xml_node<>* tile = layer->first_node(); tile; tile = tile->next_sibling())
 			{
@@ -133,7 +133,7 @@ std::vector<std::shared_ptr<ParserData>> XMLParser::getNPCDataList(const std::st
 	for (xml_node<>* layer = node->first_node(); layer; layer = layer->next_sibling())
 	{
 		std::string layerName = layer->first_attribute("name")->value();
-		if (layerName == "collider")
+		if (layerName == "collision")
 		{
 			for (xml_node<>* tile = layer->first_node(); tile; tile = tile->next_sibling())
 			{

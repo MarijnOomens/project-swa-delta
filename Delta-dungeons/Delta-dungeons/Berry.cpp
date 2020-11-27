@@ -9,8 +9,9 @@ Berry::Berry(int x, int y, std::string texture) {
     gc->imageDimensions = { 32, 32 };
     gc->transform = transform;
     gc->isScreen = false;
-    
-    cc = std::make_shared<RegularColliderComponent>();
+
+    stp = std::make_shared<StopStrategy>();
+    cc = std::make_shared<CollidingComponent>(stp);
     cc->tag = "berry";
     cc->transform.position = this->transform.position;
 

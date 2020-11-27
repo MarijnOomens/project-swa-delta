@@ -50,6 +50,8 @@ void GraphicsComponent::handleInput(const KeyCodes &keyCode, const KeyboardEvent
 
 void GraphicsComponent::interact() {}
 
+void GraphicsComponent::start() {}
+
 /// <summary>
 /// Gets the textureManager pointer.
 /// </summary>

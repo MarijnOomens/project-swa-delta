@@ -19,7 +19,6 @@ void PokemonManager::createPokemon(std::string levelName)
 			pokemon.emplace(p->name + std::to_string(pokemon.size()), builder->getPokemon(std::stoi(parsedTile->x), std::stoi(parsedTile->y), p->name));
 		}
 	}
-
 }
 
 std::map<std::string, std::string> PokemonManager::passTextures() const

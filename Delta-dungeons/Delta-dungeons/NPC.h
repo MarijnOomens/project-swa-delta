@@ -1,9 +1,10 @@
 #pragma once
 #include "InteractiveObject.h"
-#include "RegularColliderComponent.h"
+#include "CollidingComponent.h"
 #include <string>
 #include <map>
 #include <GraphicsComponent.h>
+#include "StopStrategy.h"
 
 class NPC : public InteractiveObject
 {
@@ -11,12 +12,13 @@ public:
 	NPC(int x, int y, std::string& texture);
 
 	void interact() override;
+	void registerCollision(int x, int y, bool damage) override;
 
 protected:
 	std::string sfxPath;
 
 private:
+	std::shared_ptr<CollisionStrategy> stp;
 	std::shared_ptr<GraphicsComponent> gc;
-	std::shared_ptr<RegularColliderComponent> cc;
 	const int animationSpeed = 120;
 };

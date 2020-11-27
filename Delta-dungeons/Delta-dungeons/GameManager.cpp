@@ -10,6 +10,7 @@ GameManager::GameManager()
 	SceneLoader::getInstance().setEngineFacade(engineFacade);
 	DebugUtilities::getInstance().setEngineFacade(engineFacade);
 	SceneModifier::getInstance().setEngineFacade(engineFacade);
+	AudioUtilities::getInstance().setEngineFacade(engineFacade);
 
 	uiManager.createBaseScreens();
 	registerTextures(uiManager.passTextures());
@@ -71,7 +72,7 @@ void GameManager::registerBehaviourObjects()
 		}
 		level1.emplace_back(o.second.get());
 	}
-	
+
 	for (auto& c : playerManager.player->getComponentsRecursive())
 	{
 		level1.emplace_back(c);
@@ -92,6 +93,29 @@ void GameManager::registerBehaviourObjects()
 void GameManager::registerTextures(std::map<std::string, std::string> textures)
 {
 	engineFacade->registerTextures(textures);
+}
+
+/// <summary>
+/// This methods gives the engineFacade all fonts to give to the engine.
+/// </summary>
+void GameManager::registerFonts(std::map<std::string, std::string> fonts)
+{
+	engineFacade->registerFonts(fonts);
+}
+
+void GameManager::registerAudio(std::map<std::string, std::string> beats)
+{
+	engineFacade->registerAudio(beats);
+}
+
+void GameManager::staticCheckCollisionCallbackFunction(void* p, std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction)
+{
+	((GameManager*)p)->passCollisionCheck(collider, x, y, direction);
+}
+
+void GameManager::passCollisionCheck(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction)
+{
+	engineFacade->passCollisionCheck(collider, x, y, direction);
 }
 
 void GameManager::staticCameraCallbackFunction(void* p, int x, int y)
@@ -132,6 +156,7 @@ void GameManager::createLevel(std::string levelName)
 
 	scene->addGraphics(levelName);
 	registerTextures(scene->passTextures(levelName));
+	registerAudio(scene->passBeats());
 
 	eqManager.createEquipment();
 	registerTextures(eqManager.passTextures());
@@ -145,7 +170,7 @@ void GameManager::staticInteractCallbackFunction(void* p, int x, int y)
 	((GameManager*)p)->interactCallbackFunction(x, y);
 }
 
-void GameManager::interactCallbackFunction(int x, int y) 
+void GameManager::interactCallbackFunction(int x, int y)
 {
 	engineFacade->passInteract(x, y);
 }
