@@ -17,6 +17,8 @@ void UIManager::createBaseScreens()
 	screens.try_emplace("GameOver", std::move(gameOver));
 	std::unique_ptr<GameWinScreen> gameWin = std::make_unique<GameWinScreen>();
 	screens.try_emplace("GameWin", std::move(gameWin));
+	std::unique_ptr<LoadSaveScreen> loadSaveScreen = std::make_unique<LoadSaveScreen>();
+	screens.try_emplace("LoadSaveScreen", std::move(loadSaveScreen));
 
 }
 
