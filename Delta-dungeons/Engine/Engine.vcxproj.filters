@@ -132,13 +132,16 @@
     <ClInclude Include="Collision.h">
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="ColliderComponent.h">
+    <ClInclude Include="StopStrategy.h">
       <Filter>Header Files\Engine\Collider</Filter>
     </ClInclude>
-    <ClInclude Include="DamageColliderComponent.h">
+    <ClInclude Include="CollidingComponent.h">
       <Filter>Header Files\Engine\Collider</Filter>
     </ClInclude>
-    <ClInclude Include="RegularColliderComponent.h">
+    <ClInclude Include="CollisionStrategy.h">
+      <Filter>Header Files\Engine\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="DamageStrategy.h">
       <Filter>Header Files\Engine\Collider</Filter>
     </ClInclude>
     <ClInclude Include="Audio.h">
@@ -221,13 +224,16 @@
     <ClCompile Include="Collision.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="ColliderComponent.cpp">
+    <ClCompile Include="StopStrategy.cpp">
       <Filter>Source Files\Engine\Collider</Filter>
     </ClCompile>
-    <ClCompile Include="RegularColliderComponent.cpp">
+    <ClCompile Include="CollidingComponent.cpp">
       <Filter>Source Files\Engine\Collider</Filter>
     </ClCompile>
-    <ClCompile Include="DamageColliderComponent.cpp">
+    <ClCompile Include="CollisionStrategy.cpp">
+      <Filter>Source Files\Engine\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="DamageStrategy.cpp">
       <Filter>Source Files\Engine\Collider</Filter>
     </ClCompile>
     <ClCompile Include="Audio.cpp">

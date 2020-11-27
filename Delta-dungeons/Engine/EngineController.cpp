@@ -7,7 +7,7 @@ EngineController::EngineController()
 {
 	collision = std::make_shared<Collision>();
 	assetManager = std::make_shared<AssetManager>();
-	renderFacade = std::make_shared<RenderFacade>();
+	renderFacade = std::make_shared<RenderFacade>(staticPassCameraDimensionFunction, this);
 	textureManager = std::make_shared<TextureManager>(renderFacade, assetManager);
 	input = std::make_shared<Input>(staticInputCallbackFunction, this);
 	audio = std::make_unique<Audio>(assetManager);
@@ -26,6 +26,17 @@ void EngineController::initRenderer(const std::string& title, int width, int hei
 {
 	renderFacade->init(title, width, height, fullscreen);
 }
+
+void EngineController::staticPassCameraDimensionFunction(void* p, Transform transform)
+{
+	((EngineController*)p)->passCameraDimensionFunction(transform);
+}
+
+void EngineController::passCameraDimensionFunction(Transform &transform)
+{
+	collision->setCameraDimensions(transform);
+}
+
 
 /// <summary>
 /// Receives input data from the class Input and passes it to a new function.
@@ -86,7 +97,6 @@ void EngineController::startGame()
 		if (!renderFacade->renderer->isPaused)
 		{
 			renderFacade->beforeFrame();
-			collision->checkCollision();
 			sceneManager.update();
 		}
 		checkGameOver();
@@ -108,7 +118,7 @@ void EngineController::registerScene(const std::string& sceneName, const std::ve
 			ngc->addTextureManager(textureManager);
 			tempObjects.emplace_back(ngc);
 		}
-		else if (dynamic_cast<ColliderComponent*>(o.get()) != nullptr)
+		else if (dynamic_cast<CollidingComponent*>(o.get()) != nullptr)
 		{
 			colliderObjects.emplace_back(o);
 		}
@@ -238,12 +248,17 @@ void EngineController::passInteract(int x, int y)
 	sceneManager.passInteract(x, y);
 }
 
+void EngineController::passCollisionCheck(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction)
+{
+	collision->checkCollision(collider, x, y, direction);
+}
+
 void EngineController::deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject)
 {
 	sceneManager.deleteObjectFromScene(deletedObject);
 }
 
-void EngineController::deleteColliderFromScene(std::shared_ptr<ColliderComponent> deletedCollider)
+void EngineController::deleteColliderFromScene(std::shared_ptr<CollidingComponent> deletedCollider)
 {
 	collision->deleteColliderFromScene(deletedCollider);
 }

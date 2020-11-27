@@ -10,7 +10,8 @@ Pokeball::Pokeball(int x, int y, std::string texture) {
 	gc->transform = transform;
 	gc->isScreen = false;
 
-	cc = std::make_shared<RegularColliderComponent>();
+	stp = std::make_shared<StopStrategy>();
+	cc = std::make_shared<CollidingComponent>(stp);
 	cc->tag = "pokeball";
 	cc->transform.position = this->transform.position;
 

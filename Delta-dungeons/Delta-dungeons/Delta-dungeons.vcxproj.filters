@@ -182,6 +182,9 @@
     </ClCompile>
     <ClCompile Include="AudioUtilities.cpp">
       <Filter>Source Files</Filter>
+      </ClCompile>
+    <ClCompile Include="LoadSaveScreen.cpp">
+      <Filter>Source Files\Game\GameObjects\Screens</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -319,6 +322,9 @@
     </ClInclude>
     <ClInclude Include="AudioUtilities.h">
       <Filter>Header Files</Filter>
+      </ClInclude>
+    <ClInclude Include="LoadSaveScreen.h">
+      <Filter>Header Files\Game\GameObjects\Screens</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

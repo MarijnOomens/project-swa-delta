@@ -3,10 +3,10 @@
 /// <summary>
 /// Inits the renderFacade. This class gives all logic to the correct classes.
 /// </summary>
-RenderFacade::RenderFacade()
+RenderFacade::RenderFacade(cbPassCameraDimension f, void* p)
 {
 	frameManager = std::make_unique<FrameManager>();
-	renderer = std::make_unique<Renderer>();
+	renderer = std::make_unique<Renderer>(f, p);
 	drawController = std::make_unique<DrawController>(renderer);
 }
 

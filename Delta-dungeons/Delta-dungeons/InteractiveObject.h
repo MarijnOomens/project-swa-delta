@@ -1,6 +1,7 @@
 #pragma once
 
 #include "GameObject.h"
+#include "CollidingComponent.h"
 #include <map>
 
 class InteractiveObject : public GameObject
@@ -11,6 +12,8 @@ public:
 	void handleInput(const KeyCodes &keyCode, const KeyboardEvent &keyboardEvent, Vector2D &mousePos) override;
 	void update() override;
 	void interact() override;
+	virtual void registerCollision(int x, int y, bool damage) = 0;
+	std::shared_ptr<CollidingComponent> cc;
 private:
 	std::string name;
 	std::string dialogue;

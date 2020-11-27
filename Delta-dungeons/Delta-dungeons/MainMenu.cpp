@@ -75,7 +75,7 @@ void MainMenu::staticOpenGameCallbackFunction(const void* p)
 
 void MainMenu::openGameCallbackFunction() const
 {
-	SceneLoader::getInstance().loadScene("Level1", "", true);
+	SceneLoader::getInstance().loadScene("LoadSaveScreen", "MainMenu", false);
 }
 
 void MainMenu::staticOpenCreditsCallbackFunction(const void* p) 

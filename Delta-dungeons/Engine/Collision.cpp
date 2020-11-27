@@ -16,71 +16,50 @@ void Collision::deleteColliderFromScene(std::shared_ptr<BehaviourObject> deleted
 	}
 }
 
-void Collision::checkCollision()
+void Collision::setCameraDimensions(Transform &transform) {
+	cameraX = transform.position.x;
+	cameraY = transform.position.y;
+	cameraW = transform.scale.x;
+	cameraH = transform.scale.y;
+}
+
+void Collision::checkCollision(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction)
 {
-	for (auto collider1 : colliderObjects)
+	for (auto collider2 : colliderObjects)
 	{
-		auto col1 = dynamic_cast<ColliderComponent*>(collider1.get());
-		for (auto collider2 : colliderObjects)
+		if (
+			collider != collider2 &&
+			collider2->transform.position.x + 128 >= cameraX &&
+			1280 + cameraX >= collider2->transform.position.x &&
+			collider2->transform.position.y + 128 >= cameraY &&
+			cameraY + 1024 >= collider2->transform.position.y
+			)
 		{
-			if (collider1 != collider2)
+			auto col2 = dynamic_cast<CollidingComponent*>(collider2.get());			
+			/*facing right*/
+			if (KeyCodes::KEY_RIGHT == direction && x == col2->transform.position.x && y == col2->transform.position.y)
 			{
-				auto col2 = dynamic_cast<ColliderComponent*>(collider2.get());
-				if (col1->isTrigger)
-				{
-					if (col1->transform.position.x == col2->transform.position.x && col1->transform.position.y == col2->transform.position.y)
-					{
-						break;
-					}
-				}
-				else
-				{
-					/*facing right*/
-					if ((!checkedRight
-						&& col1->transform.position.x + 128 == col2->transform.position.x
-						&& col1->transform.position.y == col2->transform.position.y))
-					{
-						checkedRight = true;
-						rightX = col2->transform.position.x;
-						rightTag = col2->tag;
-					}
-					/*facing up*/
-					else if
-						(!checkedUp
-							&& col1->transform.position.y == col2->transform.position.y + 128
-							&& col1->transform.position.x == col2->transform.position.x)
-					{
-						checkedUp = true;
-						upY = col2->transform.position.y;
-						upTag = col2->tag;
-					}
-					else if
-						/*facing down*/
-						(!checkedDown
-							&& col1->transform.position.y + 128 == col2->transform.position.y
-							&& col1->transform.position.x == col2->transform.position.x)
-					{
-						checkedDown = true;
-						downY = col2->transform.position.y;
-						downTag = col2->tag;
-					}
-					else if
-						/*facing left*/
-						(!checkedLeft
-							&& col1->transform.position.x == col2->transform.position.x + 128
-							&& col1->transform.position.y == col2->transform.position.y)
-					{
-						checkedLeft = true;
-						leftX = col2->transform.position.x;
-						leftTag = col2->tag;
-					}
-				}
+				col2->actCollision(collider, x, y, direction);
+				break;
 			}
+			/*facing up*/
+			else if (KeyCodes::KEY_UP == direction && y == col2->transform.position.y && x == col2->transform.position.x)
+			{
+				col2->actCollision(collider, x, y, direction);
+				break;
+			}
+			/*facing down*/
+			else if (KeyCodes::KEY_DOWN == direction && y == col2->transform.position.y && x == col2->transform.position.x)
+			{
+				col2->actCollision(collider, x, y, direction);
+				break;
+			}
+			/*facing left*/
+			else if (KeyCodes::KEY_LEFT == direction && x == col2->transform.position.x && y == col2->transform.position.y)
+			{
+				col2->actCollision(collider, x, y, direction);
+				break;
+			}		
 		}
-		col1->actCollision(rightX, leftX, upY, downY, rightTag, leftTag, upTag, downTag);
-		//reset after actCollision
-		checkedRight = checkedLeft = checkedUp = checkedDown = false;
-		rightX = leftX = upY = downY = -1;
-		rightTag = leftTag = upTag = downTag = "";
 	}
 }

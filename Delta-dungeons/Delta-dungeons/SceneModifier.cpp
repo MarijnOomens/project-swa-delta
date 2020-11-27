@@ -17,7 +17,7 @@ void SceneModifier::deleteObjectFromScene(std::shared_ptr<BehaviourObject> delet
 	engineFacade->deleteObjectFromScene(deletedObject);
 }
 
-void SceneModifier::deleteColliderFromScene(std::shared_ptr<ColliderComponent> deletedCollider)
+void SceneModifier::deleteColliderFromScene(std::shared_ptr<CollidingComponent> deletedCollider)
 {
 	engineFacade->deleteColliderFromScene(deletedCollider);
 }

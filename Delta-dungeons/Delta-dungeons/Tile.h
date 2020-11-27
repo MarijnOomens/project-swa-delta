@@ -1,7 +1,8 @@
 #pragma once
 #include "GameObject.h"
 #include "GraphicsComponent.h"
-#include "RegularColliderComponent.h"
+#include "CollidingComponent.h"
+#include "StopStrategy.h"
 #include <string>
 
 class Tile : public GameObject {
@@ -20,6 +21,7 @@ public:
 
 private:
 	Vector2D imageCoordinates;
+	std::shared_ptr<CollisionStrategy> stp;
 	std::shared_ptr<GraphicsComponent> gc;
-	std::shared_ptr<RegularColliderComponent> cc;
+	std::shared_ptr<CollidingComponent> cc;
 };

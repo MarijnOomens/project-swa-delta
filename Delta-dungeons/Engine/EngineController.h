@@ -9,7 +9,7 @@
 #include "TextureManager.h"
 #include "TextComponent.h"
 #include "GraphicsComponent.h"
-#include "ColliderComponent.h"
+#include "CollidingComponent.h"
 #include <vector>
 #include "Collision.h"
 #include "Audio.h"
@@ -24,6 +24,11 @@ public:
 	~EngineController() {}
 
 	void initRenderer(const std::string& title, int width, int height, bool fullscreen);
+
+	static void staticPassCameraDimensionFunction(void* p, Transform dimensions);
+	void passCameraDimensionFunction(Transform& dimensions);
+	
+
 	static void staticInputCallbackFunction(void* p, const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos);
 	void inputCallbackFunction(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos);
 	void addTexture(const std::string& name, const std::string& path);
@@ -45,11 +50,13 @@ public:
 	void resetSpeedGame() const;
 	void addObjectToScene(std::shared_ptr<BehaviourObject> addObject);
 	void passInteract(int x, int y);
+	void passCollisionCheck(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction);
 	void deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject);
-	void deleteColliderFromScene(std::shared_ptr<ColliderComponent> deletedCollider);
+	void deleteColliderFromScene(std::shared_ptr<CollidingComponent> deletedCollider);
 	void gameOver();
 	void checkGameOver();
 	void playAudio(const std::string& trackName, bool looped);
+
 
 private:
 	std::vector<int> hudLayers;

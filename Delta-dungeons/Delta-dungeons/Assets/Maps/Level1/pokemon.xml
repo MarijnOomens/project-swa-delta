@@ -12,4 +12,6 @@
 <Pokemon name="grotle" encounterRate="25"/>
 <Pokemon name="staryu" encounterRate="65"/>
 <Pokemon name="starmie" encounterRate="45"/>
+<Pokemon name="rattata" encounterRate="85"/>
+<Pokemon name="raticate" encounterRate="45"/>
 </Pokemons>

@@ -3,7 +3,9 @@
 #include "IEquipment.h"
 #include <iostream>
 #include "GraphicsComponent.h"
-#include "RegularColliderComponent.h"
+#include "CollidingComponent.h"
+#include "StopStrategy.h"
+
 typedef void(*cbEquipmentBoomerang) (void*, bool);
 
 class Boomerang : public IEquipment
@@ -16,8 +18,9 @@ public:
 	void interact() override;
 
 private:
+	std::shared_ptr<CollisionStrategy> stp;
 	std::shared_ptr<GraphicsComponent> gc;
-	std::shared_ptr<RegularColliderComponent> cc;
+	std::shared_ptr<CollidingComponent> cc;
 	cbEquipmentBoomerang func;
 	void* pointer;
 	bool isActivated = false;
