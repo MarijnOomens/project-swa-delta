@@ -24,7 +24,7 @@ void Scene::addGraphics()
 	fpsText->transform.position = { 1200, 10 };
 	components.emplace_back(fpsText);
 
-	beats.try_emplace("zagadka", "Assets/Audio/Zagadka.wav");
+	beats.try_emplace("zagadka", "Assets/Audio/Zagadka.ogg");
 }
 
 std::map<std::string, std::string> Scene::passTextures() const

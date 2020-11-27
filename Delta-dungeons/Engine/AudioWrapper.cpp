@@ -9,6 +9,7 @@ void AudioWrapper::playAudio(const std::string& path, bool loop)
 	}
 	else
 	{
+		Mix_VolumeMusic(64);
 		Mix_PlayMusic(gMusic, loop ? -1 : 0);
 	}
 }
