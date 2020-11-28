@@ -15,6 +15,7 @@ GameManager::GameManager()
 	uiManager.createBaseScreens();
 	registerTextures(uiManager.passTextures());
 	registerFonts(uiManager.passFonts());
+	registerAudio(uiManager.passBeats());
 	scene = std::make_shared<Scene>();
 
 	createLevel(levels[currentlevel]);
@@ -108,37 +109,9 @@ void GameManager::registerAudio(std::map<std::string, std::string> beats)
 	engineFacade->registerAudio(beats);
 }
 
-void GameManager::staticCheckCollisionCallbackFunction(void* p, std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction)
-{
-	((GameManager*)p)->passCollisionCheck(collider, x, y, direction);
-}
-
-void GameManager::passCollisionCheck(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction)
-{
-	engineFacade->passCollisionCheck(collider, x, y, direction);
-}
-
-void GameManager::staticCameraCallbackFunction(void* p, int x, int y)
-{
-	((GameManager*)p)->passPlayerPosition(x, y);
-}
-
-void GameManager::passPlayerPosition(int x, int y)
-{
-	engineFacade->passPlayerPosition(x, y);
-}
-
-/// <summary>
-/// This methods gives the engineFacade all fonts to give to the engine.
-/// </summary>
-void GameManager::registerFonts(std::map<std::string, std::string> fonts)
-{
-	engineFacade->registerFonts(fonts);
-}
-
 void GameManager::createLevel(std::string levelName)
 {
-	playerManager.createPlayer(staticCameraCallbackFunction, staticInteractCallbackFunction, staticGameOverbackFunction, staticUpdateHUDHealthCallbackFunction, this);
+	playerManager.createPlayer(staticCheckCollisionCallbackFunction, staticCameraCallbackFunction, staticInteractCallbackFunction, staticGameOverbackFunction, staticUpdateHUDHealthCallbackFunction, this);
 	registerTextures(playerManager.passTextures());
 
 	npcManager.createNPC(levelName);
@@ -165,6 +138,26 @@ void GameManager::createLevel(std::string levelName)
 	engineFacade->createCamera(playerManager.player->transform.position.x, playerManager.player->transform.position.y);
 }
 
+void GameManager::staticCheckCollisionCallbackFunction(void* p, std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction)
+{
+	((GameManager*)p)->passCollisionCheck(collider, x, y, direction);
+}
+
+void GameManager::passCollisionCheck(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction)
+{
+	engineFacade->passCollisionCheck(collider, x, y, direction);
+}
+
+void GameManager::staticCameraCallbackFunction(void* p, int x, int y)
+{
+	((GameManager*)p)->passPlayerPosition(x, y);
+}
+
+void GameManager::passPlayerPosition(int x, int y)
+{
+	engineFacade->passPlayerPosition(x, y);
+}
+
 void GameManager::staticInteractCallbackFunction(void* p, int x, int y)
 {
 	((GameManager*)p)->interactCallbackFunction(x, y);
@@ -175,16 +168,6 @@ void GameManager::interactCallbackFunction(int x, int y)
 	engineFacade->passInteract(x, y);
 }
 
-void GameManager::staticUpdateHUDHealthCallbackFunction(void* p, bool hit)
-{
-	((GameManager*)p)->updateHUDHealthCallbackFunction(hit);
-}
-
-void GameManager::updateHUDHealthCallbackFunction(bool hit)
-{
-	hudManager.updateHUDHealth(hit);
-}
-
 void GameManager::staticGameOverbackFunction(void* p)
 {
 	((GameManager*)p)->gameOverCallbackFunction();
@@ -193,4 +176,14 @@ void GameManager::staticGameOverbackFunction(void* p)
 void GameManager::gameOverCallbackFunction()
 {
 	engineFacade->gameOver();
+}
+
+void GameManager::staticUpdateHUDHealthCallbackFunction(void* p, bool hit)
+{
+	((GameManager*)p)->updateHUDHealthCallbackFunction(hit);
+}
+
+void GameManager::updateHUDHealthCallbackFunction(bool hit)
+{
+	hudManager.updateHUDHealth(hit);
 }

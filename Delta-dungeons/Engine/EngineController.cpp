@@ -99,6 +99,10 @@ void EngineController::startGame()
 			renderFacade->beforeFrame();
 			sceneManager.update();
 		}
+		else
+		{
+			
+		}
 		checkTransition();
 		checkGameOver();
 		renderFacade->afterFrame();
@@ -203,11 +207,13 @@ void EngineController::pauseScreen()
 	{
 		renderFacade->pauseGame();
 		loadPreviousScene();
+		playAudio("zagadka", true);
 	}
 	else if (!renderFacade->renderer->isPaused)
 	{
 		renderFacade->pauseGame();
 		addOverlayScene("PauseScreen");
+		playAudio("touch", true);
 	}
 }
 

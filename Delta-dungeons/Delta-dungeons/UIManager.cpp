@@ -21,6 +21,7 @@ void UIManager::createBaseScreens()
 	screens.try_emplace("LoadSaveScreen", std::move(loadSaveScreen));
 
 	beats.try_emplace("touch", "Assets/Audio/touch.ogg");
+	
 }
 
 void UIManager::playDialogue(std::vector<std::string>) {}
