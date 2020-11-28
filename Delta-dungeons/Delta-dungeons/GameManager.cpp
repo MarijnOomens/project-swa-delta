@@ -112,7 +112,7 @@ void GameManager::registerAudio(std::map<std::string, std::string> beats)
 
 void GameManager::createLevel(std::string levelName)
 {
-	playerManager.createPlayer(staticCheckCollisionCallbackFunction, staticLoadNextLevelCallbackFunction, staticCameraCallbackFunction, staticInteractCallbackFunction, staticGameOverbackFunction, staticUpdateHUDHealthCallbackFunction, this);
+	playerManager.createPlayer(levelName, staticCheckCollisionCallbackFunction, staticLoadNextLevelCallbackFunction, staticCameraCallbackFunction, staticInteractCallbackFunction, staticGameOverbackFunction, staticUpdateHUDHealthCallbackFunction, this);
 	registerTextures(playerManager.passTextures());
 
 	npcManager.createNPC(levelName);
@@ -199,5 +199,5 @@ void GameManager::loadNextLevelCallbackFunction()
 	currentlevel++;
 	createLevel(levels[currentlevel]);
 	engineFacade->loadScene(levels[currentlevel], "", true);
-	//engineFacade->deleteScene(levels[currentlevel - 1]);
+	engineFacade->deleteScene(levels[currentlevel - 1]);
 }

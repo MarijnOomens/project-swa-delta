@@ -10,7 +10,7 @@
 /// Defines the movementspeed and the runactivated bool
 /// Creates the graphicscomponent for the player sprite and saves the texturename and png location, width, height
 /// </summary>
-Player::Player(cbCollision collisionCB, cbNextLevel nextLevelcb, const cbCamera f, cbInteract interactCB, cbGameOver gameOverF, cbHUD hudCB, void* p)
+Player::Player(int spawnX, int spawnY, cbCollision collisionCB, cbNextLevel nextLevelcb, const cbCamera f, cbInteract interactCB, cbGameOver gameOverF, cbHUD hudCB, void* p)
 : collisionFunc(collisionCB), nextLevelFunc(nextLevelcb), func(f), interactFunc(interactCB), gameOverFunc(gameOverF), hudFunc(hudCB), pointer(p)
 {
 	std::string textureBoomerang ="boomerangHUD" ;
@@ -26,8 +26,8 @@ Player::Player(cbCollision collisionCB, cbNextLevel nextLevelcb, const cbCamera 
 	runActivated = false;
 	tileCollision = false;
 
-	this->transform.position.x = 1792;
-	this->transform.position.y = 1408;
+	this->transform.position.x = spawnX*128;
+	this->transform.position.y = spawnY*128;
 
 	this->textures.try_emplace("player_m", "Assets/player2_m_anims.png");
 	this->textures.try_emplace("player_f", "Assets/player_f_anims.png");

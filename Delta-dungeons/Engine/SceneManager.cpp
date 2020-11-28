@@ -135,5 +135,6 @@ std::string SceneManager::getCurrentScene()
 
 void SceneManager::deleteScene(const std::string& sceneName)
 {
-	scenes.erase(sceneName);
+	currentObjects.clear();
+	scenes[sceneName].clear();
 }

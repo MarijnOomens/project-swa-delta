@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Player.h"
+#include "XMLSceneParser.h"
 #include <iostream>
 #include <string>
 typedef void(*cbCamera) (void*, int, int);
@@ -18,7 +19,7 @@ public:
 	PlayerManager() {}
 	~PlayerManager() {}
 
-	void createPlayer(cbCollision collisionCB, cbNextLevel nextLevelcb, cbCamera cb, cbInteract interactCB, cbGameOver gameOverCB, cbHUD hudCB, void* p);
+	void createPlayer(const std::string& levelName, cbCollision collisionCB, cbNextLevel nextLevelcb, cbCamera cb, cbInteract interactCB, cbGameOver gameOverCB, cbHUD hudCB, void* p);
 
 	std::map<std::string, std::string> passTextures() const;
 	std::shared_ptr<Player> getPlayerObject();
