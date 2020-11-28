@@ -62,7 +62,7 @@ public:
 	void eatBerry();
 private:
 	const int animationSpeed = 130;
-	int health;
+	int health = 5;
 	int maxHealth = 5;
 	int amountCaught;
 	int amountOfBerries = 5;
