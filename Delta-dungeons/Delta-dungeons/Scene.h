@@ -19,8 +19,8 @@ public:
 	Scene() {}
 	Scene(int x, int y);
 
-	void addGraphics();
-	std::map<std::string, std::string> passTextures() const;
+	void addGraphics(std::string levelName);
+	std::map<std::string, std::string> passTextures(std::string levelName) const;
 	std::map<std::string, std::string> passBeats() const;
 
 	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;

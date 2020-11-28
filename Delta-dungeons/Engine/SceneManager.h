@@ -8,10 +8,11 @@
 
 class SceneManager {
 public:
-	SceneManager() {};
-	~SceneManager() {};
+	SceneManager() {}
+	~SceneManager() {}
 
 	void update();
+	void transition();
 	void loadScene(const std::string& sceneName,const std::string& fromScene,const bool clearPrevious);
 	void registerScene(const std::string& sceneName, const std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects);
 	void loadPreviousScene();
@@ -22,8 +23,8 @@ public:
 	void addObjectToScene(std::shared_ptr<BehaviourObject> addObject);
 	void deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject);
 	void passInteract(int x, int y);
-	std::vector<std::shared_ptr<BehaviourObject>> currentObjects;
 	std::string getCurrentScene();
+	void deleteScene(const std::string& sceneName);
 
 private:
 	std::map<std::string, std::vector<std::shared_ptr<BehaviourObject>>> scenes;

@@ -3,9 +3,11 @@
 /// <summary>
 /// This is a manager class for the player in which the Player is created and the texture is stored.
 /// </summary>
-void PlayerManager::createPlayer(cbCollision collisionCb, cbCamera cb, cbInteract interactCB, cbGameOver gameOverCB, cbHUD hudCB, void* p)
+void PlayerManager::createPlayer(const std::string& levelName, cbCollision collisionCb, cbNextLevel nextLevelcb, cbCamera cb, cbInteract interactCB, cbGameOver gameOverCB, cbHUD hudCB, void* p)
 {
-	player = std::make_shared<Player>(collisionCb, cb, interactCB, gameOverCB,hudCB, p);
+    std::unique_ptr<XMLSceneParser> parser = std::make_unique<XMLSceneParser>();
+    std::shared_ptr<ParserData> positionData = parser->getPlayerPosition("Assets/Maps/" + levelName + "/level.xml");
+	player = std::make_shared<Player>(std::stoi(positionData->x), std::stoi(positionData->y), collisionCb, nextLevelcb, cb, interactCB, gameOverCB, hudCB, p);
 }
 
 /// <summary>

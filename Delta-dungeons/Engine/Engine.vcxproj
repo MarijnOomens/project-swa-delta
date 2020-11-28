@@ -196,6 +196,7 @@
     <ClInclude Include="TextComponent.h" />
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="Transform.h" />
+    <ClInclude Include="TransitionStrategy.h" />
     <ClInclude Include="Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
@@ -225,6 +226,7 @@
     <ClCompile Include="CollisionStrategy.cpp" />
     <ClCompile Include="TextComponent.cpp" />
     <ClCompile Include="TextureManager.cpp" />
+    <ClCompile Include="TransitionStrategy.cpp" />
     <ClCompile Include="Vector2D.cpp" />
     <ClCompile Include="Input.cpp" />
   </ItemGroup>

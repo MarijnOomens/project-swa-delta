@@ -33,3 +33,8 @@ std::vector<std::shared_ptr<ParserData>> XMLFacade::getNPCDataList(const std::st
 {
 	return parser.getNPCDataList(path);
 }
+
+std::shared_ptr<ParserData> XMLFacade::getPlayerPosition(const std::string& path)
+{
+	return parser.getPlayerPosition(path);
+}

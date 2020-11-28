@@ -15,6 +15,6 @@ public:
 	EquipmentManager();
 	~EquipmentManager() {}
 
-	void createEquipment();
+	void createEquipment(std::string levelName);
 	std::map<std::string, std::string> passTextures() const;
 };

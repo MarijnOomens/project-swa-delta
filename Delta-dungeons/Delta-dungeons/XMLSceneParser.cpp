@@ -20,11 +20,19 @@ std::vector<std::shared_ptr<Tile>> XMLSceneParser::loadScene(const std::string& 
 		int first = tile->tileId[0] - 48;
 		if (tile->tileId[1]) {
 			int second = tile->tileId[1] - 48;
-			tileMap.emplace_back(std::make_shared<Tile>(std::stoi(tile->x), std::stoi(tile->y), first, second, tile->isCollider));
+			if(tile->tileId[2])
+			{
+				int third = tile->tileId[2] - 48;
+				tileMap.emplace_back(std::make_shared<Tile>(std::stoi(tile->x), std::stoi(tile->y), (first * 10) + second, third, tile->isCollider, tile->isTrigger));
+			}
+			else 
+			{
+				tileMap.emplace_back(std::make_shared<Tile>(std::stoi(tile->x), std::stoi(tile->y), first, second, tile->isCollider, tile->isTrigger));
+			}
 		}
 		else
 		{
-			tileMap.emplace_back(std::make_shared<Tile>(std::stoi(tile->x), std::stoi(tile->y), first, tile->isCollider));
+			tileMap.emplace_back(std::make_shared<Tile>(std::stoi(tile->x), std::stoi(tile->y), first, tile->isCollider, tile->isTrigger));
 		}
 	}
 	return tileMap;
@@ -47,4 +55,9 @@ std::vector<std::shared_ptr<ParserData>> XMLSceneParser::getEquipmentDataList(co
 std::vector<std::shared_ptr<ParserData>> XMLSceneParser::getNPCDataList(const std::string& path)
 {
 	return facade.getNPCDataList(path);
+}
+
+std::shared_ptr<ParserData> XMLSceneParser::getPlayerPosition(const std::string& path)
+{
+	return facade.getPlayerPosition(path);
 }

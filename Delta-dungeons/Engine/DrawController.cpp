@@ -70,33 +70,4 @@ SDL_Texture* DrawController::loadFont(const std::string& text, const std::string
 		SDL_FreeSurface(tempSurface);
 		return tex;
 	}
-
 }
-
-/// <summary>
-/// This function will draw the texture within the renderer with the given parameters.
-/// </summary>
-/// <param name="texture">This is the texture that will be drawn.</param>
-/// <param name="source">The source is the width and height of the texture.</param>
-/// <param name="destination">The destination is the X and Y position of the texture.</param>
-/// <param name="flip">The flip is to determine if the texture needs to drawn upside down, flipped or normal. (Used for animations)</param>
-void DrawController::drawTexture(SDL_Texture* texture, SDL_Rect source, SDL_Rect destination, SDL_RendererFlip flip) const
-{
-	try 
-	{
-		if (renderer->sdlRenderer == NULL) 
-		{
-			throw("Renderer is NULL!");
-		}
-		else if (texture == NULL) 
-		{
-			throw("SDL_Texture is NULL!");
-		}
-		SDL_RenderCopyEx(renderer->sdlRenderer, texture, &source, &destination, NULL, NULL, flip);	
-	}
-	catch (const std::string& error) 
-	{
-		std::cout << "Error: " << error << std::endl;
-	}
-}
-

@@ -42,13 +42,17 @@ std::vector<std::shared_ptr<ParserData>> XMLParser::parseXML(const std::string& 
 				std::string yVal = tile->first_attribute("y")->value();
 				std::string tileId = tile->first_attribute("tile")->value();
 
-				if (tileId != "-1" && tileId == "8")
+				if (tileId != "-1" && (tileId == "8" || tileId =="9"))
 				{
 					for (int x = 0; x < parserDataList.size(); x++)
 					{
 						if (xVal == parserDataList.at(x)->x && yVal == parserDataList.at(x)->y)
 						{
 							parserDataList.at(x)->isCollider = true;
+							if (tileId == "9")
+							{
+								parserDataList.at(x)->isTrigger = true;
+							}
 							break;
 						}
 					}
@@ -147,4 +151,36 @@ std::vector<std::shared_ptr<ParserData>> XMLParser::getNPCDataList(const std::st
 		}
 	}
 	return npcDataList;
+}
+
+std::shared_ptr<ParserData> XMLParser::getPlayerPosition(const std::string& path)
+{
+	std::shared_ptr<ParserData> playerPosition;
+
+	rapidxml::file<> xmlFile(path.c_str());
+	rapidxml::xml_document<> doc;
+
+	doc.parse<0>(xmlFile.data());
+	xml_node<>* node = doc.first_node("tilemap");
+
+	for (xml_node<>* layer = node->first_node(); layer; layer = layer->next_sibling())
+	{
+		std::string layerName = layer->first_attribute("name")->value();
+		if (layerName == "collision")
+		{
+			for (xml_node<>* tile = layer->first_node(); tile; tile = tile->next_sibling())
+			{
+				std::string xVal = tile->first_attribute("x")->value();
+				std::string yVal = tile->first_attribute("y")->value();
+				std::string tileId = tile->first_attribute("tile")->value();
+
+				//filters data for all NPCs in the game.
+				if (tileId == "0")
+				{
+					playerPosition = std::make_shared<ParserData>(tile->first_attribute("x")->value(), tile->first_attribute("y")->value(), tile->first_attribute("tile")->value());
+				}
+			}
+		}
+	}
+	return playerPosition;
 }

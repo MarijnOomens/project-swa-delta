@@ -7,6 +7,8 @@ Renderer::Renderer(cbPassCameraDimension cbPCD, void* p) : passCameraFunc(cbPCD)
 	camera = { 0,0,0,0 };
 	sdlRenderer = nullptr;
 	sdlWindow = nullptr;
+
+	alphaCounter = 0;
 }
 
 Renderer::~Renderer()
@@ -42,7 +44,7 @@ void Renderer::init(const std::string& title, int width, int height, bool fullsc
 			sdlRenderer = SDL_CreateRenderer(sdlWindow, -1, 0);
 			if (sdlRenderer)
 			{
-				SDL_SetRenderDrawColor(sdlRenderer, 128, 128, 128, 255);
+				SDL_SetRenderDrawColor(sdlRenderer, 0, 0, 0, 255);
 			}
 			else 
 			{
@@ -163,9 +165,9 @@ void Renderer::afterFrame() const
 	SDL_RenderPresent(sdlRenderer);
 }
 
-void Renderer::drawTexture(SDL_Texture* texture, const Transform& transform, const Vector2D& coordinates, const Vector2D& sourceDimensions, const int row, const int frames,const int speed,const bool animated,const bool flipped,const bool isScreen) const
+void Renderer::drawTexture(SDL_Texture* texture, const Transform& transform, const Vector2D& coordinates, const Vector2D& sourceDimensions, int row, int frames, int speed, bool animated, bool flipped, bool isScreen)
 {
-	if (checkCameraPosition(transform) || isScreen) 
+	if (checkCameraPosition(transform) || isScreen)
 	{
 		SDL_Rect source;
 		SDL_RendererFlip flip = SDL_FLIP_NONE;
@@ -183,6 +185,21 @@ void Renderer::drawTexture(SDL_Texture* texture, const Transform& transform, con
 			source.y = row * source.h;
 		}
 
+		if (transitioning)
+		{
+			SDL_SetTextureAlphaMod(texture, alphaCounter);
+			if (alphaCounter >= 255)
+			{
+				alphaCounter = 0;
+				transitioning = false;
+			}
+		} 
+		else
+		{
+			SDL_SetTextureAlphaMod(texture, SDL_ALPHA_OPAQUE);
+		}
+
+
 		SDL_Rect destination;
 		if (!isScreen)
 		{
@@ -197,22 +214,77 @@ void Renderer::drawTexture(SDL_Texture* texture, const Transform& transform, con
 		destination.w = sourceDimensions.x * transform.scale.x;
 		destination.h = sourceDimensions.y * transform.scale.y;
 
-		try 
+		try
 		{
-			if (sdlRenderer == NULL) 
+			if (sdlRenderer == NULL)
 			{
 				throw("Renderer is NULL!");
 			}
-			else if (texture == NULL) 
+			else if (texture == NULL)
 			{
 				throw("SDL_Texture is NULL!");
 			}
 			SDL_RenderCopyEx(sdlRenderer, texture, &source, &destination, NULL, NULL, flip);
 
 		}
-		catch (std::string error) 
+		catch (std::string error)
 		{
 			std::cout << "Error: " << error << std::endl;
 		}
+	}
+}
+
+/// <summary>
+/// This function will draw the texture within the renderer with the given parameters.
+/// </summary>
+/// <param name="texture">This is the texture that will be drawn.</param>
+/// <param name="source">The source is the width and height of the texture.</param>
+/// <param name="destination">The destination is the X and Y position of the texture.</param>
+/// <param name="flip">The flip is to determine if the texture needs to drawn upside down, flipped or normal. (Used for animations)</param>
+void Renderer::drawText(SDL_Texture* texture, SDL_Rect source, SDL_Rect destination, SDL_RendererFlip flip)
+{
+	if (transitioning)
+	{
+		SDL_SetTextureAlphaMod(texture, alphaCounter);
+
+		if (alphaCounter >= 255)
+		{
+			alphaCounter = 0;
+			transitioning = false;
+		}
+	}
+	else
+	{
+		SDL_SetTextureAlphaMod(texture, SDL_ALPHA_OPAQUE);
+	}
+
+	try
+	{
+		if (sdlRenderer == NULL)
+		{
+			throw("Renderer is NULL!");
+		}
+		else if (texture == NULL)
+		{
+			throw("SDL_Texture is NULL!");
+		}
+		SDL_RenderCopyEx(sdlRenderer, texture, &source, &destination, NULL, NULL, flip);
+	}
+	catch (const std::string& error)
+	{
+		std::cout << "Error: " << error << std::endl;
+	}
+}
+
+void Renderer::transition()
+{
+	transitioning = true;
+}
+
+void Renderer::checkTransition()
+{
+	if (transitioning) 
+	{
+		alphaCounter+=15;
 	}
 }

@@ -40,6 +40,7 @@ public:
 	void loadScene(const std::string& sceneName, const std::string& fromScene, bool clearPrevious);
 	void loadPreviousScene();
 	void addOverlayScene(const std::string& sceneName);
+	void transitionScene();
 	void createCamera(int x, int y) const;
 	void passPlayerPosition(int x, int y);
 	void pauseScreen();
@@ -55,8 +56,9 @@ public:
 	void deleteColliderFromScene(std::shared_ptr<CollidingComponent> deletedCollider);
 	void gameOver();
 	void checkGameOver();
+	void checkTransition()const;
 	void playAudio(const std::string& trackName, bool looped);
-
+	void deleteScene(const std::string& sceneName);
 
 private:
 	std::vector<int> hudLayers;

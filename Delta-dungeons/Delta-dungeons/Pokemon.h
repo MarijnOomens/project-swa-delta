@@ -12,7 +12,7 @@ class Pokemon : public InteractiveObject
 public:
 	Pokemon(int x, int y, std::string &texture);
 	void interact() override;
-	void registerCollision(int x, int y, bool damage) override;
+	void registerCollision(int x, int y, bool isDamaged, bool isTransitioned) override;
 
 protected:
 	std::string sfxPath;
@@ -23,5 +23,5 @@ private:
 	std::string type;
 	int id;
 	int catchRate;
-	const int animationSpeed = 120;
+	const int animationSpeed = 130;
 };

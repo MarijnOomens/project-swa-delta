@@ -14,6 +14,7 @@ typedef void(*cbCamera) (void*, int, int);
 typedef void(*cbGameOver) (void*);
 typedef void(*cbHUD) (void*, bool);
 typedef void(*cbCollision) (void*, std::shared_ptr<BehaviourObject>, int, int, KeyCodes);
+typedef void(*cbNextLevel) (void*);
 
 class Player : public InteractiveObject, public std::enable_shared_from_this<BehaviourObject>
 {
@@ -26,14 +27,15 @@ public:
 	cbGameOver gameOverFunc;
 	cbHUD hudFunc;
 	cbCollision collisionFunc;
+	cbNextLevel nextLevelFunc;
 	KeyCodes currentDirection;
 	void* pointer;
 
-	Player(cbCollision collisionCB, cbCamera f, cbInteract interactCB, cbGameOver gameOverFunc, cbHUD hudCB, void* p);
+	Player(int spawnX, int spawnY, cbCollision collisionCB, cbNextLevel nextLevelcb, cbCamera f, cbInteract interactCB, cbGameOver gameOverFunc, cbHUD hudCB, void* p);
 
 	void handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
 	void interact() override;
-	void registerCollision(int x, int y, bool damage) override;
+	void registerCollision(int x, int y, bool isDamaged, bool isTransitioned) override;
 	void handleKeyPressed(const KeyCodes& keyCodes);
 	void handleKeyReleased(const KeyCodes& keyCodes);
 
@@ -58,7 +60,7 @@ public:
 	void handleInteraction();
 	void registerHit();
 private:
-	const int animationSpeed = 120;
+	const int animationSpeed = 130;
 	int health;
 	int amountCaught;
 	int baseMovementSpeed;

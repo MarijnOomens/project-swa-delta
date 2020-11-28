@@ -18,7 +18,7 @@ public:
 	NPCManager();
 	~NPCManager() {}
 
-	void createNPC();
+	void createNPC(std::string levelName);
 	std::map<std::string, std::string> passTextures() const;
 
 	void addTrainers();

@@ -90,7 +90,7 @@ void EngineController::startGame()
 	while (renderFacade->renderer->isRunning)
 	{
 		renderFacade->setFrameStart();
-		if (!isGameOver)
+		if (!isGameOver && !renderFacade->renderer->transitioning)
 		{
 			input->handleInput(renderFacade->renderer->isPaused);
 		}
@@ -99,6 +99,11 @@ void EngineController::startGame()
 			renderFacade->beforeFrame();
 			sceneManager.update();
 		}
+		else
+		{
+			
+		}
+		checkTransition();
 		checkGameOver();
 		renderFacade->afterFrame();
 		renderFacade->setFrameDelay();
@@ -116,7 +121,7 @@ void EngineController::registerScene(const std::string& sceneName, const std::ve
 		{
 			auto ngc = dynamic_cast<GraphicsComponent*>(o.get());
 			ngc->addTextureManager(textureManager);
-			tempObjects.emplace_back(ngc);
+			tempObjects.emplace_back(o);
 		}
 		else if (dynamic_cast<CollidingComponent*>(o.get()) != nullptr)
 		{
@@ -126,7 +131,7 @@ void EngineController::registerScene(const std::string& sceneName, const std::ve
 		{
 			auto ntc = dynamic_cast<TextComponent*>(o.get());
 			ntc->addTextureManager(textureManager);
-			tempObjects.emplace_back(ntc);
+			tempObjects.emplace_back(o);
 		}
 		else
 		{
@@ -134,7 +139,7 @@ void EngineController::registerScene(const std::string& sceneName, const std::ve
 		}
 	}
 	collision->registerColliders(colliderObjects);
-	sceneManager.registerScene(sceneName, tempObjects);
+	sceneManager.registerScene(sceneName, behaviourObjects);
 }
 
 void EngineController::loadScene(const std::string& sceneName, const std::string& fromScene, bool clearPrevious)
@@ -144,6 +149,7 @@ void EngineController::loadScene(const std::string& sceneName, const std::string
 		renderFacade->pauseGame();
 	}
 	sceneManager.loadScene(sceneName, fromScene, clearPrevious);
+	transitionScene();
 }
 
 void EngineController::loadPreviousScene()
@@ -154,6 +160,11 @@ void EngineController::loadPreviousScene()
 void EngineController::addOverlayScene(const std::string& sceneName)
 {
 	sceneManager.addOverlayScene(sceneName);
+}
+
+void EngineController::transitionScene()
+{
+	renderFacade->transition();
 }
 
 void EngineController::passPlayerPosition(int x, int y)
@@ -196,11 +207,13 @@ void EngineController::pauseScreen()
 	{
 		renderFacade->pauseGame();
 		loadPreviousScene();
+		playAudio("zagadka", true);
 	}
 	else if (!renderFacade->renderer->isPaused)
 	{
 		renderFacade->pauseGame();
 		addOverlayScene("PauseScreen");
+		playAudio("touch", true);
 	}
 }
 
@@ -284,7 +297,17 @@ void EngineController::checkGameOver()
 	}
 }
 
+void EngineController::checkTransition()const
+{
+	renderFacade->checkTransition();
+}
+
 void EngineController::playAudio(const std::string& trackName, bool looped)
 {
 	audio->playAudio(trackName, looped);
+}
+
+void EngineController::deleteScene(const std::string& sceneName)
+{
+	sceneManager.deleteScene(sceneName);
 }

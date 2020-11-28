@@ -17,7 +17,7 @@ public:
 	PokemonManager();
 	~PokemonManager() {}
 
-	void createPokemon();
+	void createPokemon(std::string levelName);
 	std::map<std::string, std::string> passTextures() const;
 
 private:

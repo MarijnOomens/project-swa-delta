@@ -4,13 +4,14 @@
 #include "Transform.h"
 #include "Keycodes.h"
 #include "KeyboardEvent.h"
+#include <iostream>
 
 class BehaviourObject {
 public:
 	Transform transform;
 
 	ENGINE_API BehaviourObject();
-	ENGINE_API virtual ~BehaviourObject() = default;
+	ENGINE_API virtual ~BehaviourObject()= default;
 	ENGINE_API BehaviourObject(BehaviourObject const& other) = delete;
 	ENGINE_API BehaviourObject(BehaviourObject &&other) = delete;
 	ENGINE_API BehaviourObject &operator=(BehaviourObject const& other) = delete;
