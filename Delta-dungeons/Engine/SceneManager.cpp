@@ -16,7 +16,6 @@ void SceneManager::loadScene(const std::string& sceneName, const std::string& fr
 	{
 		previousScenes.clear();
 		activeScenes.clear();
-//		scenes[fromScene].clear();
 	}
 
 	if (!fromScene.empty())

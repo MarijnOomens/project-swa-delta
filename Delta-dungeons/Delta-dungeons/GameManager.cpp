@@ -48,14 +48,14 @@ void GameManager::registerBehaviourObjects()
 	}
 	level.emplace_back(scene);
 
-	/*for (auto& o : npcManager.npcs)
+	for (auto& o : npcManager.npcs)
 	{
 		for (auto& n : o.second->getComponentsRecursive())
 		{
 			level.emplace_back(n);
 		}
-		level.emplace_back(o.second.get());
-	}*/
+		level.emplace_back(o.second);
+	}
 
 	for (auto& o : eqManager.equipments)
 	{
@@ -63,17 +63,17 @@ void GameManager::registerBehaviourObjects()
 		{
 			level.emplace_back(n);
 		}
-		level.emplace_back(o.second.get());
+		level.emplace_back(o.second);
 	}
 
-	/*for (auto& o : pokemonManger.pokemon)
+	for (auto& o : pokemonManger.pokemon)
 	{
 		for (auto& n : o.second.get()->getComponentsRecursive())
 		{
 			level.emplace_back(n);
 		}
-		level.emplace_back(o.second.get());
-	}*/
+		level.emplace_back(o.second);
+	}
 
 	for (auto& c : playerManager.player->getComponentsRecursive())
 	{
