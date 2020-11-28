@@ -53,6 +53,6 @@ private:
 	NPCManager npcManager;
 	PokemonManager pokemonManger;
 	HUDManager hudManager;
-	std::vector<std::string> levels{ "Level1", "Dungeon1","Level2", "Dungeon2","Level3", "Dungeon3" };
+	std::vector<std::string> levels{ "Level1", "Dungeon1","Level2", "Dungeon2","Level3", "Dungeon3", "Level4" };
 	int currentlevel = 0;
 };
