@@ -10,10 +10,14 @@ void SceneManager::update()
 
 void SceneManager::loadScene(const std::string& sceneName, const std::string& fromScene, const bool clearPrevious)
 {
+	currentScene = sceneName;
+	currentObjects = scenes[currentScene];
+
 	if (clearPrevious)
 	{
 		previousScenes.clear();
 		activeScenes.clear();
+		scenes.erase(fromScene);
 	}
 
 	if (!fromScene.empty())
@@ -22,8 +26,6 @@ void SceneManager::loadScene(const std::string& sceneName, const std::string& fr
 	}
 
 	activeScenes.push_back(sceneName);
-	currentScene = sceneName;
-	currentObjects = scenes[currentScene];
 	for (auto& bo : currentObjects) {
 		bo->start();
 	}
@@ -135,6 +137,5 @@ std::string SceneManager::getCurrentScene()
 
 void SceneManager::deleteScene(const std::string& sceneName)
 {
-	currentObjects.clear();
-	scenes[sceneName].clear();
+	//scenes[sceneName].clear();
 }

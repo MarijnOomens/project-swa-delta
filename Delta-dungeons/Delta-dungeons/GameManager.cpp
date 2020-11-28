@@ -198,6 +198,6 @@ void GameManager::loadNextLevelCallbackFunction()
 {
 	currentlevel++;
 	createLevel(levels[currentlevel]);
-	engineFacade->loadScene(levels[currentlevel], "", true);
-	engineFacade->deleteScene(levels[currentlevel - 1]);
+	engineFacade->loadScene(levels[currentlevel], levels[currentlevel - 1], true);
+	//engineFacade->deleteScene(levels[currentlevel - 1]);
 }
