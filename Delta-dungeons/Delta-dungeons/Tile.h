@@ -3,6 +3,7 @@
 #include "GraphicsComponent.h"
 #include "CollidingComponent.h"
 #include "StopStrategy.h"
+#include "TransitionStrategy.h"
 #include <string>
 
 class Tile : public GameObject {

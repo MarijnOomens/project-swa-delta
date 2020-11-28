@@ -24,6 +24,6 @@ void Pokemon::interact()
 {
 }
 
-void Pokemon::registerCollision(int x, int y, bool damage) {
+void Pokemon::registerCollision(int x, int y, bool isDamaged, bool isTransitioned) {
 
 }

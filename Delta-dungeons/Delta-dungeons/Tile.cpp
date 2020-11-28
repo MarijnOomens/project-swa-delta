@@ -19,7 +19,14 @@ Tile::Tile(int x, int y, int xImage, bool collider, bool isTrigger)
 
 	if (collider)
 	{
-		stp = std::make_shared<StopStrategy>();
+		if (isTrigger) 
+		{
+			stp = std::make_shared<TransitionStrategy>();
+		}
+		else 
+		{
+			stp = std::make_shared<StopStrategy>();
+		}
 		cc = std::make_shared<CollidingComponent>(stp);
 		cc->tag = "tile";
 		cc->isTrigger = isTrigger;
@@ -48,7 +55,14 @@ Tile::Tile(int x, int y, int yImage, int xImage, bool collider, bool isTrigger)
 
 	if (collider)
 	{
-		stp = std::make_shared<StopStrategy>();
+		if (isTrigger)
+		{
+			stp = std::make_shared<TransitionStrategy>();
+		}
+		else
+		{
+			stp = std::make_shared<StopStrategy>();
+		}
 		cc = std::make_shared<CollidingComponent>(stp);
 		cc->tag = "tile";
 		cc->isTrigger = isTrigger;

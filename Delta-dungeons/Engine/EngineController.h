@@ -58,7 +58,7 @@ public:
 	void checkGameOver();
 	void checkTransition()const;
 	void playAudio(const std::string& trackName, bool looped);
-
+	void deleteScene(const std::string& sceneName);
 
 private:
 	std::vector<int> hudLayers;

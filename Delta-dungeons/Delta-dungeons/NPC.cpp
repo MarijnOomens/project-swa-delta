@@ -22,6 +22,6 @@ NPC::NPC(int x, int y, std::string &texture)
 
 void NPC::interact(){}
 
-void NPC::registerCollision(int x, int y, bool damage) {
+void NPC::registerCollision(int x, int y, bool isDamaged, bool isTransitioned) {
 
 }

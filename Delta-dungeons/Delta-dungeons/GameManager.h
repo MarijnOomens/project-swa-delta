@@ -41,6 +41,9 @@ public:
 	static void staticUpdateHUDHealthCallbackFunction(void* p, bool hit);
 	void updateHUDHealthCallbackFunction(bool hit);
 
+	static void staticLoadNextLevelCallbackFunction(void* p);
+	void loadNextLevelCallbackFunction();
+
 private:
 	std::shared_ptr<EngineFacade> engineFacade;
 	std::shared_ptr<Scene> scene;

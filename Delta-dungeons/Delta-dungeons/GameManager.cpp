@@ -18,17 +18,6 @@ GameManager::GameManager()
 	registerAudio(uiManager.passBeats());
 	scene = std::make_shared<Scene>();
 
-	createLevel(levels[currentlevel]);
-
-	engineFacade->loadScene("MainMenu", "", true);
-	engineFacade->startGame();
-}
-
-/// <summary>
-/// This methods registers all BehaviourObjects from all managers into one big list within the GameManager.
-/// </summary>
-void GameManager::registerBehaviourObjects()
-{
 	for (auto& o : uiManager.screens)
 	{
 		std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects;
@@ -40,52 +29,64 @@ void GameManager::registerBehaviourObjects()
 		engineFacade->registerScene(o.first, behaviourObjects);
 	}
 
-	std::vector<std::shared_ptr<BehaviourObject>> level1;
+	createLevel(levels[currentlevel]);
+
+	engineFacade->loadScene("MainMenu", "", true);
+	engineFacade->startGame();
+}
+
+/// <summary>
+/// This methods registers all BehaviourObjects from all managers into one big list within the GameManager.
+/// </summary>
+void GameManager::registerBehaviourObjects()
+{
+
+	std::vector<std::shared_ptr<BehaviourObject>> level;
 	for (auto& t : scene->getComponentsRecursive())
 	{
-		level1.emplace_back(t);
+		level.emplace_back(t);
 	}
-	level1.emplace_back(scene);
+	level.emplace_back(scene);
 
 	for (auto& o : npcManager.npcs)
 	{
 		for (auto& n : o.second->getComponentsRecursive())
 		{
-			level1.emplace_back(n);
+			level.emplace_back(n);
 		}
-		level1.emplace_back(o.second.get());
+		level.emplace_back(o.second.get());
 	}
 
 	for (auto& o : eqManager.equipments)
 	{
 		for (auto& n : o.second->getComponentsRecursive())
 		{
-			level1.emplace_back(n);
+			level.emplace_back(n);
 		}
-		level1.emplace_back(o.second.get());
+		level.emplace_back(o.second.get());
 	}
 
 	for (auto& o : pokemonManger.pokemon)
 	{
 		for (auto& n : o.second.get()->getComponentsRecursive())
 		{
-			level1.emplace_back(n);
+			level.emplace_back(n);
 		}
-		level1.emplace_back(o.second.get());
+		level.emplace_back(o.second.get());
 	}
 
 	for (auto& c : playerManager.player->getComponentsRecursive())
 	{
-		level1.emplace_back(c);
+		level.emplace_back(c);
 	}
-	level1.emplace_back(playerManager.player);
+	level.emplace_back(playerManager.player);
 
 	for (auto& c : hudManager.hud->getComponentsRecursive())
 	{
-		level1.emplace_back(c);
+		level.emplace_back(c);
 	}
-	level1.emplace_back(hudManager.hud);
-	engineFacade->registerScene("Level1", level1);
+	level.emplace_back(hudManager.hud);
+	engineFacade->registerScene(levels[currentlevel], level);
 }
 
 /// <summary>
@@ -111,7 +112,7 @@ void GameManager::registerAudio(std::map<std::string, std::string> beats)
 
 void GameManager::createLevel(std::string levelName)
 {
-	playerManager.createPlayer(staticCheckCollisionCallbackFunction, staticCameraCallbackFunction, staticInteractCallbackFunction, staticGameOverbackFunction, staticUpdateHUDHealthCallbackFunction, this);
+	playerManager.createPlayer(staticCheckCollisionCallbackFunction, staticLoadNextLevelCallbackFunction, staticCameraCallbackFunction, staticInteractCallbackFunction, staticGameOverbackFunction, staticUpdateHUDHealthCallbackFunction, this);
 	registerTextures(playerManager.passTextures());
 
 	npcManager.createNPC(levelName);
@@ -131,7 +132,7 @@ void GameManager::createLevel(std::string levelName)
 	registerTextures(scene->passTextures(levelName));
 	registerAudio(scene->passBeats());
 
-	eqManager.createEquipment();
+	eqManager.createEquipment(levelName);
 	registerTextures(eqManager.passTextures());
 
 	registerBehaviourObjects();
@@ -186,4 +187,17 @@ void GameManager::staticUpdateHUDHealthCallbackFunction(void* p, bool hit)
 void GameManager::updateHUDHealthCallbackFunction(bool hit)
 {
 	hudManager.updateHUDHealth(hit);
+}
+
+void GameManager::staticLoadNextLevelCallbackFunction(void* p)
+{
+	((GameManager*)p)->loadNextLevelCallbackFunction();
+}
+
+void GameManager::loadNextLevelCallbackFunction()
+{
+	currentlevel++;
+	createLevel(levels[currentlevel]);
+	engineFacade->loadScene(levels[currentlevel], "", true);
+	//engineFacade->deleteScene(levels[currentlevel - 1]);
 }

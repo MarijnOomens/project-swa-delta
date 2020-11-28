@@ -150,3 +150,8 @@ void EngineFacade::playAudio(const std::string& trackName, bool looped)
 {
 	engineController->playAudio(trackName, looped);
 }
+
+void EngineFacade::deleteScene(const std::string& sceneName)
+{
+	engineController->deleteScene(sceneName);
+}

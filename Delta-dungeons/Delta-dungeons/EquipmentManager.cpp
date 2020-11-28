@@ -5,10 +5,11 @@ EquipmentManager::EquipmentManager()
 	builder = std::make_shared<GameObjectBuilder>();
 }
 
-void EquipmentManager::createEquipment()
+void EquipmentManager::createEquipment(std::string levelName)
 {
+	equipments.clear();
 	std::unique_ptr<XMLSceneParser> xmlSceneParser = std::make_unique<XMLSceneParser>();
-	std::vector<std::shared_ptr<ParserData>> equipmentData = xmlSceneParser->getEquipmentDataList("Assets/Maps/Level1/level.xml");
+	std::vector<std::shared_ptr<ParserData>> equipmentData = xmlSceneParser->getEquipmentDataList("Assets/Maps/"+ levelName + "/level.xml");
 
 	for (auto parsedEquipment : equipmentData)
 	{

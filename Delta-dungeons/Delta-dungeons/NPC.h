@@ -12,7 +12,7 @@ public:
 	NPC(int x, int y, std::string& texture);
 
 	void interact() override;
-	void registerCollision(int x, int y, bool damage) override;
+	void registerCollision(int x, int y, bool isDamaged, bool isTransitioned) override;
 
 protected:
 	std::string sfxPath;

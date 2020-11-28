@@ -306,3 +306,8 @@ void EngineController::playAudio(const std::string& trackName, bool looped)
 {
 	audio->playAudio(trackName, looped);
 }
+
+void EngineController::deleteScene(const std::string& sceneName)
+{
+	sceneManager.deleteScene(sceneName);
+}

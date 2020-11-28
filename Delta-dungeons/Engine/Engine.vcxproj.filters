@@ -156,6 +156,9 @@
     <ClInclude Include="IAudioFacade.h">
       <Filter>Header Files\SDL\Audio</Filter>
     </ClInclude>
+    <ClInclude Include="TransitionStrategy.h">
+      <Filter>Header Files\Engine\Collider</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Vector2D.cpp">
@@ -244,6 +247,9 @@
     </ClCompile>
     <ClCompile Include="AudioFacade.cpp">
       <Filter>Source Files\SDL\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="TransitionStrategy.cpp">
+      <Filter>Source Files\Engine\Collider</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
