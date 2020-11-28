@@ -2,7 +2,7 @@
 
 void HUDManager::createHud()
 {
-	hud = std::make_shared<HUD>(3);
+	hud = std::make_shared<HUD>(5);
 }
 
 void HUDManager::addItem(const std::string& texturePath)

@@ -125,6 +125,9 @@ void Player::handleKeyPressed(const KeyCodes& keyCodes)
 	case KeyCodes::KEY_E:
 		handleInteraction();
 		break;
+	case KeyCodes::KEY_B:
+		eatBerry();
+		break;
 	case KeyCodes::KEY_G:
 		if (this->texture == "player_m")
 		{
@@ -354,6 +357,20 @@ void Player::registerHit() {
 		health = 3;
 	}
 	
+}
+
+void Player::eatBerry() {
+	
+	if (health < maxHealth && amountOfBerries > 0) //maxHealth
+	{
+		hudFunc(pointer, false);
+		health++;
+		amountOfBerries--;
+		
+	}
+	std::cout << health << std::endl;
+	std::cout << amountOfBerries << std::endl;
+
 }
 
 void Player::registerCollision(int x, int y, bool isDamaged, bool isTransitioned) {

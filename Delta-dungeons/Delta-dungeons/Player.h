@@ -59,10 +59,13 @@ public:
 	void update() override;
 	void handleInteraction();
 	void registerHit();
+	void eatBerry();
 private:
 	const int animationSpeed = 130;
 	int health;
+	int maxHealth = 5;
 	int amountCaught;
+	int amountOfBerries = 5;
 	int baseMovementSpeed;
 	int x, y;
 	int count;
