@@ -11,6 +11,8 @@ public:
 	Berry() {}
 	Berry(int x, int y, std::string texture);
 
+	~Berry() override { std::cout << "YEETUS DELETUS" << std::endl; }
+
 	void interact() override;
 	void use() override;
 private:

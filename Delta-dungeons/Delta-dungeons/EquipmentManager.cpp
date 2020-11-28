@@ -7,7 +7,6 @@ EquipmentManager::EquipmentManager()
 
 void EquipmentManager::createEquipment(std::string levelName)
 {
-	equipments.clear();
 	std::unique_ptr<XMLSceneParser> xmlSceneParser = std::make_unique<XMLSceneParser>();
 	std::vector<std::shared_ptr<ParserData>> equipmentData = xmlSceneParser->getEquipmentDataList("Assets/Maps/"+ levelName + "/level.xml");
 

@@ -48,14 +48,14 @@ void GameManager::registerBehaviourObjects()
 	}
 	level.emplace_back(scene);
 
-	for (auto& o : npcManager.npcs)
+	/*for (auto& o : npcManager.npcs)
 	{
 		for (auto& n : o.second->getComponentsRecursive())
 		{
 			level.emplace_back(n);
 		}
 		level.emplace_back(o.second.get());
-	}
+	}*/
 
 	for (auto& o : eqManager.equipments)
 	{
@@ -66,14 +66,14 @@ void GameManager::registerBehaviourObjects()
 		level.emplace_back(o.second.get());
 	}
 
-	for (auto& o : pokemonManger.pokemon)
+	/*for (auto& o : pokemonManger.pokemon)
 	{
 		for (auto& n : o.second.get()->getComponentsRecursive())
 		{
 			level.emplace_back(n);
 		}
 		level.emplace_back(o.second.get());
-	}
+	}*/
 
 	for (auto& c : playerManager.player->getComponentsRecursive())
 	{
@@ -196,8 +196,8 @@ void GameManager::staticLoadNextLevelCallbackFunction(void* p)
 
 void GameManager::loadNextLevelCallbackFunction()
 {
+	engineFacade->deleteScene(levels[currentlevel]);
 	currentlevel++;
 	createLevel(levels[currentlevel]);
 	engineFacade->loadScene(levels[currentlevel], levels[currentlevel - 1], true);
-	//engineFacade->deleteScene(levels[currentlevel - 1]);
 }

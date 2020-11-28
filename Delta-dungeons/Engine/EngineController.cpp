@@ -121,7 +121,7 @@ void EngineController::registerScene(const std::string& sceneName, const std::ve
 		{
 			auto ngc = dynamic_cast<GraphicsComponent*>(o.get());
 			ngc->addTextureManager(textureManager);
-			tempObjects.emplace_back(ngc);
+			tempObjects.emplace_back(o);
 		}
 		else if (dynamic_cast<CollidingComponent*>(o.get()) != nullptr)
 		{
@@ -131,7 +131,7 @@ void EngineController::registerScene(const std::string& sceneName, const std::ve
 		{
 			auto ntc = dynamic_cast<TextComponent*>(o.get());
 			ntc->addTextureManager(textureManager);
-			tempObjects.emplace_back(ntc);
+			tempObjects.emplace_back(o);
 		}
 		else
 		{
@@ -139,7 +139,7 @@ void EngineController::registerScene(const std::string& sceneName, const std::ve
 		}
 	}
 	collision->registerColliders(colliderObjects);
-	sceneManager.registerScene(sceneName, tempObjects);
+	sceneManager.registerScene(sceneName, behaviourObjects);
 }
 
 void EngineController::loadScene(const std::string& sceneName, const std::string& fromScene, bool clearPrevious)
