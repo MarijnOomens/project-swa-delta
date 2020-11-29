@@ -345,12 +345,13 @@ void Player::runningShoesCallbackFunction(const bool runningActivated)
 
 void Player::registerHit() {
 	hudFunc(pointer,true);
-	if (health > 0) 
+	if (health > 1) 
 	{
 		health--;
 	}
-	else if(health <= 0)
+	else if(health <= 1)
 	{
+		health = 0;
 		gc->playAnimation(9, 4, animationSpeed, false);
 		gameOverFunc(pointer);
 	}
@@ -363,12 +364,10 @@ void Player::eatBerry() {
 	{
 		hudFunc(pointer, false);
 		health++;
-		amountOfBerries--;
-		
+		amountOfBerries--;	
 	}
 	std::cout << health << std::endl;
 	std::cout << amountOfBerries << std::endl;
-
 }
 
 void Player::registerCollision(int x, int y, bool isDamaged, bool isTransitioned) {
