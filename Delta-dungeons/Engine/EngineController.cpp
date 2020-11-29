@@ -155,6 +155,7 @@ void EngineController::loadScene(const std::string& sceneName, const std::string
 void EngineController::loadPreviousScene()
 {
 	sceneManager.loadPreviousScene();
+	transitionScene();
 }
 
 void EngineController::addOverlayScene(const std::string& sceneName)

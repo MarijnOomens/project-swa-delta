@@ -29,8 +29,8 @@ Player::Player(int spawnX, int spawnY, cbCollision collisionCB, cbNextLevel next
 	this->transform.position.x = spawnX*128;
 	this->transform.position.y = spawnY*128;
 
-	this->textures.try_emplace("player_m", "Assets/player2_m_anims.png");
-	this->textures.try_emplace("player_f", "Assets/player_f_anims.png");
+	this->textures.try_emplace("player_m", "Assets/Player/player2_m_anims.png");
+	this->textures.try_emplace("player_f", "Assets/Player/player_f_anims.png");
 	this->textures.try_emplace(textureBoomerang, "Assets/HUD/Boomerang.png");
 	this->textures.try_emplace(textureRunning, "Assets/HUD/Runningshoes.png");
 	this->texture = "player_m";

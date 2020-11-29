@@ -2,17 +2,22 @@
 
 MainMenu::MainMenu() 
 {
-	this->textures.try_emplace("mainmenu", "Assets/screen-components/mainmenu-designs/mainmenu-2.png");
-	this->textures.try_emplace("button_play", "Assets/screen-components/button-designs/pastels/button-play-1.png");
-	this->textures.try_emplace("button_credits", "Assets/screen-components/button-designs/pastels/button-credits-1.png");
-	this->textures.try_emplace("button_exit", "Assets/screen-components/button-designs/pastels/button-exit-1.png");
-	this->textures.try_emplace("ad", "Assets/ADS/Advertisement.png");
+	this->textures.try_emplace("main_menu", "Assets/Menu/Main-Menu/background.png");
+	this->textures.try_emplace("button_play", "Assets/Menu/Button/button-play-2.png");
+	this->textures.try_emplace("button_credits", "Assets/Menu/Button/button-credits.png");
+	this->textures.try_emplace("button_exit", "Assets/Menu/Button/button-exit.png");
+	this->textures.try_emplace("ad", "Assets/Advertisement/Advertisement.png");
 
 	gc = std::make_unique<GraphicsComponent>();
-	gc->setTexture("mainmenu");
+	gc->setTexture("main_menu");
 	gc->isScreen = true;
 	gc->imageDimensions = { 1280, 960 };
 	this->components.emplace_back(std::move(gc));
+
+	Colour color = { 0, 0, 0, 255 };
+	std::unique_ptr<TextComponent> gameTitleText = std::make_unique<TextComponent>("Delta Dungeons", "joystix", color, 72);
+	gameTitleText->transform.position = { 230, 40 };
+	this->components.emplace_back(std::move(gameTitleText));
 
 	// Play button
 	std::vector<std::string> possibleButtonTexPlay = { "button_play" };
@@ -36,7 +41,7 @@ MainMenu::MainMenu()
 
 	// Advertisement
 	std::vector<std::string> adTexture = { "ad" };
-	std::unique_ptr<Advertisement> adButton = std::make_unique<Advertisement>(200, 10, adTexture);
+	std::unique_ptr<Advertisement> adButton = std::make_unique<Advertisement>(420, 820, adTexture);
 	this->components.emplace_back(std::move(adButton));
 }
 

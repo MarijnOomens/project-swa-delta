@@ -2,8 +2,8 @@
 
 HelpScreen::HelpScreen()
 {
-	this->textures.try_emplace("help", "Assets/help.png");
-	this->fonts.try_emplace("joystix", "Assets/joystix.ttf");
+	this->textures.try_emplace("help", "Assets/Menu/Help/background.png");
+	this->fonts.try_emplace("joystix", "Assets/Font/joystix.ttf");
 
 	gc = std::make_unique<GraphicsComponent>();
 	gc->setTexture("help");

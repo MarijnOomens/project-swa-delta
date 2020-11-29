@@ -11,7 +11,7 @@ void Scene::addGraphics(std::string levelName)
 	components.clear();
 	XMLSceneParser xmlSceneParser;
 
-	tileMap = xmlSceneParser.loadScene("Assets/Maps/" + levelName + "/level.xml");
+	tileMap = xmlSceneParser.loadScene("Assets/Map/" + levelName + "/level.xml");
 
 	for (std::shared_ptr<Tile> t : tileMap)
 	{
@@ -30,7 +30,7 @@ void Scene::addGraphics(std::string levelName)
 std::map<std::string, std::string> Scene::passTextures(std::string levelName) const
 {
 	std::map<std::string, std::string> texture;
-	texture.try_emplace(levelName, "Assets/Maps/" + levelName + "/tileset.png");
+	texture.try_emplace(levelName, "Assets/Map/" + levelName + "/tileset.png");
 	return texture;
 }
 

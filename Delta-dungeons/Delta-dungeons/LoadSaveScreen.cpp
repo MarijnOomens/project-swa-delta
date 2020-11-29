@@ -2,11 +2,11 @@
 
 LoadSaveScreen::LoadSaveScreen()
 {
-	this->textures.try_emplace("loadsavescreen", "Assets/help.png");
-	this->fonts.try_emplace("joystix", "Assets/joystix.ttf");
+	this->textures.try_emplace("load_save", "Assets/Menu/Load-Save/background.png");
+	this->fonts.try_emplace("joystix", "Assets/Font/joystix.ttf");
 
 	gc = std::make_unique<GraphicsComponent>();
-	gc->setTexture("loadsavescreen");
+	gc->setTexture("load_save");
 	gc->isScreen = true;
 	gc->imageDimensions = { 1280, 960 };
 	this->components.emplace_back(std::move(gc));
