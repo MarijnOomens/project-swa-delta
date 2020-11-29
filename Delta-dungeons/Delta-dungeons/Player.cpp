@@ -344,14 +344,15 @@ void Player::runningShoesCallbackFunction(const bool runningActivated)
 }
 
 void Player::registerHit() {
-	hudFunc(pointer,true);
 	if (health > 1) 
 	{
 		health--;
+		hudFunc(pointer, health, amountOfBerries, amountOfPokeballs);
 	}
 	else if(health <= 1)
 	{
 		health = 0;
+		hudFunc(pointer, health, amountOfBerries, amountOfPokeballs);
 		gc->playAnimation(9, 4, animationSpeed, false);
 		gameOverFunc(pointer);
 	}
@@ -362,22 +363,21 @@ void Player::eatBerry() {
 	
 	if (health < maxHealth && amountOfBerries > 0) //maxHealth
 	{
-		hudFunc(pointer, false);
 		health++;
-		amountOfBerries--;	
+		amountOfBerries--;
+		hudFunc(pointer, health, amountOfBerries, amountOfPokeballs);
 	}
-	std::cout << health << std::endl;
-	std::cout << amountOfBerries << std::endl;
 }
 
 void Player::addBerry() {
 	
 	amountOfBerries += 1;
-	std::cout << amountOfBerries << std::endl;
+	hudFunc(pointer, health, amountOfBerries, amountOfPokeballs);
 }
 
 void Player::addPokeball() {
 	amountOfPokeballs += 1;
+	hudFunc(pointer, health, amountOfBerries, amountOfPokeballs);
 }
 
 void Player::registerCollision(int x, int y, bool isDamaged, bool isTransitioned) {

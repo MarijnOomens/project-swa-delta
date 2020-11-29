@@ -5,15 +5,16 @@
 #include <map>
 #include "SceneModifier.h"
 
-class HUD: public GameObject
+class HUD : public GameObject
 {
 public:
 	std::map<std::string, std::string> textures;
+	std::map<std::string, std::string> fonts;
 	std::vector<std::shared_ptr<GraphicsComponent>> hearts;
 	std::vector<std::shared_ptr<GraphicsComponent>> items;
-	HUD(int h);
+	HUD(int hM, int h, int b, int p);
 
-	void updateHealth(bool hit);
+	void updateHUD(int health, int berries, int pokeballs);
 	void updateCollectedCrystals(int param);
 	void updateHighScore(int param);
 	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
@@ -25,7 +26,11 @@ public:
 
 private:
 	int health = 0;
-	int maxHealth = 5;
+	int maxHealth = 0;
+	int amountOfBerries = 0;
+	std::shared_ptr<TextComponent> berryCount;
+	int amountOfPokeballs = 0;
+	std::shared_ptr<TextComponent> ballsCount;
 	int amountItems = 0;
 	int collectedCrystals;
 	int highScore;

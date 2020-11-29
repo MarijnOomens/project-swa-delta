@@ -12,7 +12,7 @@
 typedef void(*cbInteract) (void*, std::shared_ptr<BehaviourObject>, int, int);
 typedef void(*cbCamera) (void*, int, int);
 typedef void(*cbGameOver) (void*);
-typedef void(*cbHUD) (void*, bool);
+typedef void(*cbHUD) (void*, int, int, int);
 typedef void(*cbCollision) (void*, std::shared_ptr<BehaviourObject>, int, int, KeyCodes);
 typedef void(*cbNextLevel) (void*);
 
@@ -61,14 +61,15 @@ public:
 	void registerHit();
 	void eatBerry();
 	void addBerry();
-	void addPokeball();
-private:
-	const int animationSpeed = 130;
+	void addPokeball();	
+	
 	int health = 5;
 	int maxHealth = 5;
-	int amountCaught;
 	int amountOfBerries = 0;
-	int amountOfPokeballs = 0;
+	int amountOfPokeballs = 0;	
+private:
+	const int animationSpeed = 130;
+	int amountCaught = 0;
 	int baseMovementSpeed;
 	int x, y;
 	int count;

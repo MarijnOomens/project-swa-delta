@@ -112,7 +112,7 @@ void GameManager::registerAudio(std::map<std::string, std::string> beats)
 
 void GameManager::createLevel(std::string levelName)
 {
-	playerManager.createPlayer(levelName, staticCheckCollisionCallbackFunction, staticLoadNextLevelCallbackFunction, staticCameraCallbackFunction, staticInteractCallbackFunction, staticGameOverbackFunction, staticUpdateHUDHealthCallbackFunction, this);
+	playerManager.createPlayer(levelName, staticCheckCollisionCallbackFunction, staticLoadNextLevelCallbackFunction, staticCameraCallbackFunction, staticInteractCallbackFunction, staticGameOverbackFunction, staticUpdateHUDCallbackFunction, this);
 	registerTextures(playerManager.passTextures());
 
 	npcManager.createNPC(levelName);
@@ -121,12 +121,9 @@ void GameManager::createLevel(std::string levelName)
 	pokemonManger.createPokemon(levelName);
 	registerTextures(pokemonManger.passTextures());
 
-	hudManager.createHud();
-	for (std::string& texture : playerManager.getItems())
-	{
-		hudManager.addItem(texture);
-	}
+	hudManager.createHud(playerManager.player->maxHealth, playerManager.player->health, playerManager.player->amountOfBerries, playerManager.player->amountOfPokeballs);
 	registerTextures(hudManager.passTextures());
+	registerFonts(hudManager.passFonts());
 
 	scene->addGraphics(levelName);
 	registerTextures(scene->passTextures(levelName));
@@ -179,14 +176,14 @@ void GameManager::gameOverCallbackFunction()
 	engineFacade->gameOver();
 }
 
-void GameManager::staticUpdateHUDHealthCallbackFunction(void* p, bool hit)
+void GameManager::staticUpdateHUDCallbackFunction(void* p, int health, int berries, int pokeballs)
 {
-	((GameManager*)p)->updateHUDHealthCallbackFunction(hit);
+	((GameManager*)p)->updateHUDCallbackFunction( health, berries, pokeballs);
 }
 
-void GameManager::updateHUDHealthCallbackFunction(bool hit)
+void GameManager::updateHUDCallbackFunction( int health, int berries, int pokeballs)
 {
-	hudManager.updateHUDHealth(hit);
+	hudManager.updateHUD( health, berries, pokeballs);
 }
 
 void GameManager::staticLoadNextLevelCallbackFunction(void* p)

@@ -38,8 +38,8 @@ public:
 	static void staticGameOverbackFunction(void* p);
 	void gameOverCallbackFunction();
 
-	static void staticUpdateHUDHealthCallbackFunction(void* p, bool hit);
-	void updateHUDHealthCallbackFunction(bool hit);
+	static void staticUpdateHUDCallbackFunction(void* p, int health, int berries, int pokeballs);
+	void updateHUDCallbackFunction(int health, int berries, int pokeballs);
 
 	static void staticLoadNextLevelCallbackFunction(void* p);
 	void loadNextLevelCallbackFunction();
