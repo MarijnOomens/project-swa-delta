@@ -10,7 +10,7 @@ public:
 	Advertisement(int x, int y, const std::vector<std::string>& textureList);
 	void update() override;
 	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
-	void interact() override;
+	void interact(std::shared_ptr<BehaviourObject> interactor) override;
 private:
 	std::string text;
 	std::vector<std::string> possibleTextures;

@@ -19,7 +19,7 @@ Pokeball::Pokeball(int x, int y, std::string texture) {
 	this->components.emplace_back(cc);
 }
 
-void Pokeball::interact()
+void Pokeball::interact(std::shared_ptr<BehaviourObject> interactor)
 {
 	if (gc != nullptr) {
 		SceneModifier::getInstance().deleteObjectFromScene(gc);

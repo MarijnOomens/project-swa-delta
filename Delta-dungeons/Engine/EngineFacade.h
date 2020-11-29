@@ -30,7 +30,7 @@ public:
 	ENGINE_API void resetSpeedGame();
 	ENGINE_API void pauseGame();
 	ENGINE_API void addObjectToScene(std::shared_ptr<BehaviourObject> addObject);
-	ENGINE_API void passInteract(int x, int y);
+	ENGINE_API void passInteract(std::shared_ptr<BehaviourObject> player, int x, int y);
 	ENGINE_API void passCollisionCheck(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction);
 	ENGINE_API void deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject);
 	ENGINE_API void deleteColliderFromScene(std::shared_ptr<CollidingComponent> deletedCollider);

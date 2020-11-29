@@ -81,7 +81,7 @@ void Player::handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboard
 	// resets collision for next move with collsion check.
 }
 
-void Player::interact() {}
+void Player::interact(std::shared_ptr<BehaviourObject> interactor) {}
 
 /// <summary>
 /// This method handles the logic when a keybutton has been pressed.
@@ -150,16 +150,16 @@ void Player::handleKeyPressed(const KeyCodes& keyCodes)
 void Player::handleInteraction()
 {
 	if (KeyCodes::KEY_UP == currentDirection || KeyCodes::KEY_W == currentDirection) {
-		interactFunc(pointer, transform.position.x, transform.position.y - 128);
+		interactFunc(pointer, shared_from_this(), transform.position.x, transform.position.y - 128);
 	}
 	else if (KeyCodes::KEY_LEFT == currentDirection || KeyCodes::KEY_A == currentDirection) {
-		interactFunc(pointer, transform.position.x - 128, transform.position.y);
+		interactFunc(pointer, shared_from_this(), transform.position.x - 128, transform.position.y);
 	}
 	else if (KeyCodes::KEY_RIGHT == currentDirection || KeyCodes::KEY_D == currentDirection) {
-		interactFunc(pointer, transform.position.x + 128, transform.position.y);
+		interactFunc(pointer, shared_from_this(), transform.position.x + 128, transform.position.y);
 	}
 	else if (KeyCodes::KEY_DOWN == currentDirection || KeyCodes::KEY_S == currentDirection) {
-		interactFunc(pointer, transform.position.x, transform.position.y + 128);
+		interactFunc(pointer, shared_from_this(), transform.position.x, transform.position.y + 128);
 	}
 }
 
@@ -368,6 +368,16 @@ void Player::eatBerry() {
 	}
 	std::cout << health << std::endl;
 	std::cout << amountOfBerries << std::endl;
+}
+
+void Player::addBerry() {
+	
+	amountOfBerries += 1;
+	std::cout << amountOfBerries << std::endl;
+}
+
+void Player::addPokeball() {
+	amountOfPokeballs += 1;
 }
 
 void Player::registerCollision(int x, int y, bool isDamaged, bool isTransitioned) {

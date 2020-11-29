@@ -122,9 +122,9 @@ void EngineFacade::addObjectToScene(std::shared_ptr<BehaviourObject> addObject)
 	engineController->addObjectToScene(addObject);
 }
 
-void EngineFacade::passInteract(int x, int y)
+void EngineFacade::passInteract(std::shared_ptr<BehaviourObject> player, int x, int y)
 {
-	engineController->passInteract(x, y);
+	engineController->passInteract(player, x, y);
 }
 
 void EngineFacade::passCollisionCheck(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction) {

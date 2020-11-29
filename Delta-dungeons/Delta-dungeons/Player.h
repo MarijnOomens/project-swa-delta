@@ -9,7 +9,7 @@
 #include "DebugUtilities.h"
 #include "StopStrategy.h"
 
-typedef void(*cbInteract) (void*, int, int);
+typedef void(*cbInteract) (void*, std::shared_ptr<BehaviourObject>, int, int);
 typedef void(*cbCamera) (void*, int, int);
 typedef void(*cbGameOver) (void*);
 typedef void(*cbHUD) (void*, bool);
@@ -34,7 +34,7 @@ public:
 	Player(int spawnX, int spawnY, cbCollision collisionCB, cbNextLevel nextLevelcb, cbCamera f, cbInteract interactCB, cbGameOver gameOverFunc, cbHUD hudCB, void* p);
 
 	void handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
-	void interact() override;
+	void interact(std::shared_ptr<BehaviourObject> interactor) override;
 	void registerCollision(int x, int y, bool isDamaged, bool isTransitioned) override;
 	void handleKeyPressed(const KeyCodes& keyCodes);
 	void handleKeyReleased(const KeyCodes& keyCodes);
@@ -60,12 +60,15 @@ public:
 	void handleInteraction();
 	void registerHit();
 	void eatBerry();
+	void addBerry();
+	void addPokeball();
 private:
 	const int animationSpeed = 130;
 	int health = 5;
 	int maxHealth = 5;
 	int amountCaught;
-	int amountOfBerries = 5;
+	int amountOfBerries = 0;
+	int amountOfPokeballs = 0;
 	int baseMovementSpeed;
 	int x, y;
 	int count;

@@ -84,4 +84,4 @@ void Scene::start()
 	AudioUtilities::getInstance().playAudio("zagadka", true);
 }
 
-void Scene::interact() {}
+void Scene::interact(std::shared_ptr<BehaviourObject> interactor) {}

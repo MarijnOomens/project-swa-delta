@@ -20,7 +20,7 @@ NPC::NPC(int x, int y, std::string &texture)
 	this->components.emplace_back(cc);
 }
 
-void NPC::interact(){}
+void NPC::interact(std::shared_ptr<BehaviourObject> interactor){}
 
 void NPC::registerCollision(int x, int y, bool isDamaged, bool isTransitioned) {
 

@@ -32,8 +32,8 @@ public:
 	static void staticCameraCallbackFunction(void* p, int x, int y);
 	void passPlayerPosition(int x, int y);
 
-	static void staticInteractCallbackFunction(void* p, int x, int y);
-	void interactCallbackFunction(int x, int y);
+	static void staticInteractCallbackFunction(void* p, std::shared_ptr<BehaviourObject> player, int x, int y);
+	void interactCallbackFunction(std::shared_ptr<BehaviourObject> player, int x, int y);
 
 	static void staticGameOverbackFunction(void* p);
 	void gameOverCallbackFunction();

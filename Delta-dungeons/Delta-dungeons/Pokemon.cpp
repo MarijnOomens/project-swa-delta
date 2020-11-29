@@ -20,7 +20,7 @@ Pokemon::Pokemon(int x, int y, std::string& texture)
 	this->components.emplace_back(cc);
 }
 
-void Pokemon::interact()
+void Pokemon::interact(std::shared_ptr<BehaviourObject> interactor)
 {
 }
 

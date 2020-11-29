@@ -14,7 +14,7 @@ public:
 
 	void update() override;
 	void handleInput(const KeyCodes &keyCode, const KeyboardEvent &keyboardEvent, Vector2D &mousePos) override;
-	void interact() override;
+	void interact(std::shared_ptr<BehaviourObject> interactor) override;
 	void start() override;
 
 private:

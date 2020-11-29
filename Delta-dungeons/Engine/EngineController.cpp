@@ -256,9 +256,9 @@ void EngineController::addObjectToScene(std::shared_ptr<BehaviourObject> addObje
 	}
 }
 
-void EngineController::passInteract(int x, int y)
+void EngineController::passInteract(std::shared_ptr<BehaviourObject> player, int x, int y)
 {
-	sceneManager.passInteract(x, y);
+	sceneManager.passInteract(player, x, y);
 }
 
 void EngineController::passCollisionCheck(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction)
