@@ -42,7 +42,7 @@ HUD::HUD(int hM, int h, int b, int p)
 
 	berryCount = std::make_shared<TextComponent>(std::to_string(amountOfBerries), "joystix", color, 32);
 	berryCount->transform.position = { 220, 40 };
-	this->components.emplace_back(std::move(berryCount));
+	this->components.emplace_back(berryCount);
 
 	std::unique_ptr<TextComponent> ballsLabel = std::make_unique<TextComponent>("PkBalls", "joystix", color, 32);
 	ballsLabel->transform.position = { 10, 70 };
@@ -50,7 +50,7 @@ HUD::HUD(int hM, int h, int b, int p)
 
 	ballsCount = std::make_shared<TextComponent>(std::to_string(amountOfPokeballs), "joystix", color, 32);
 	ballsCount->transform.position = { 220, 70 };
-	this->components.emplace_back(std::move(ballsCount));
+	this->components.emplace_back(ballsCount);
 }
 
 void HUD::updateHUD(int h, int b, int p)
