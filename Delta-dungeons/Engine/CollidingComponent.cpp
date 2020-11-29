@@ -17,9 +17,9 @@ void CollidingComponent::update() {}
 
 void CollidingComponent::start() {}
 
-void CollidingComponent::actCollision(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction)
+void CollidingComponent::actCollision(std::shared_ptr<BehaviourObject> collider, int x, int y)
 {
-	strategy->actCollision(collider, x, y, direction);
+	strategy->actCollision(collider, x, y);
 }
 
 void CollidingComponent::setStrategy(std::shared_ptr<CollisionStrategy> chosenStrategy) {

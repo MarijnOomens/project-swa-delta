@@ -127,8 +127,8 @@ void EngineFacade::passInteract(int x, int y)
 	engineController->passInteract(x, y);
 }
 
-void EngineFacade::passCollisionCheck(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction, int w) {
-	engineController->passCollisionCheck(collider, x, y, direction, w);
+void EngineFacade::passCollisionCheck(std::shared_ptr<BehaviourObject> collider, int x, int y, int w) {
+	engineController->passCollisionCheck(collider, x, y, w);
 }
 
 void EngineFacade::deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject)
