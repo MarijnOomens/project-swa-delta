@@ -3,6 +3,7 @@
 LoadSaveScreen::LoadSaveScreen()
 {
 	this->textures.try_emplace("load_save", "Assets/Menu/Load-Save/background.png");
+	this->textures.try_emplace("button_load", "Assets/Menu/Button/button-load.png");
 	this->fonts.try_emplace("joystix", "Assets/Font/joystix.ttf");
 
 	gc = std::make_unique<GraphicsComponent>();
@@ -18,11 +19,11 @@ LoadSaveScreen::LoadSaveScreen()
 	this->components.emplace_back(std::move(loadSaveText));
 
 
-	std::vector<std::string> possibleButtonTexLoad = { "button_play" };
+	std::vector<std::string> possibleButtonTexLoad = { "button_load" };
 	std::unique_ptr<Button> load1Button = std::make_unique<Button>(500, 200, possibleButtonTexLoad, staticLoad1CallbackFunction, this);
 	this->components.emplace_back(std::move(load1Button));
 
-	std::vector<std::string> possibleButtonTexExit = { "button_exit" };
+	std::vector<std::string> possibleButtonTexExit = { "button_back" };
 	std::unique_ptr<Button> exitButton = std::make_unique<Button>(500, 780, possibleButtonTexExit, staticBackCallbackFunction, this);
 	this->components.emplace_back(std::move(exitButton));
 }

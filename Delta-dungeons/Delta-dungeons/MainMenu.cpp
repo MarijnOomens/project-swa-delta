@@ -3,7 +3,7 @@
 MainMenu::MainMenu() 
 {
 	this->textures.try_emplace("main_menu", "Assets/Menu/Main-Menu/background.png");
-	this->textures.try_emplace("button_play", "Assets/Menu/Button/button-play-2.png");
+	this->textures.try_emplace("button_play", "Assets/Menu/Button/button-play.png");
 	this->textures.try_emplace("button_credits", "Assets/Menu/Button/button-credits.png");
 	this->textures.try_emplace("button_exit", "Assets/Menu/Button/button-exit.png");
 	this->textures.try_emplace("ad", "Assets/Advertisement/Advertisement.png");
@@ -41,7 +41,7 @@ MainMenu::MainMenu()
 
 	// Advertisement
 	std::vector<std::string> adTexture = { "ad" };
-	std::unique_ptr<Advertisement> adButton = std::make_unique<Advertisement>(420, 820, adTexture);
+	std::unique_ptr<Advertisement> adButton = std::make_unique<Advertisement>(870, 890, adTexture);
 	this->components.emplace_back(std::move(adButton));
 }
 

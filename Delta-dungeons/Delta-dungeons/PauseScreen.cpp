@@ -21,7 +21,7 @@ PauseScreen::PauseScreen()
 	std::unique_ptr<Button> saveButton = std::make_unique<Button>(512, 500, buttonSave, staticSaveCallbackFunction, this);
 	this->components.emplace_back(std::move(saveButton));
 
-	std::vector<std::string> buttonExit = { "button_exit" };
+	std::vector<std::string> buttonExit = { "button_back" };
 	std::unique_ptr<Button> exitButton = std::make_unique<Button>(512, 700, buttonExit, staticExitCallbackFunction, this);
 	this->components.emplace_back(std::move(exitButton));
 

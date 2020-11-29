@@ -6,7 +6,7 @@
 CreditScreen::CreditScreen()
 {
 	this->textures.try_emplace("credits", "Assets/Menu/Credits/background.png");
-	this->textures.try_emplace("button_exit", "Assets/Menu/Button/button-exit.png");
+	this->textures.try_emplace("button_back", "Assets/Menu/Button/button-back.png");
 	this->fonts.try_emplace("joystix", "Assets/Font/joystix.ttf");
 
 	gc = std::make_unique<GraphicsComponent>();
@@ -15,7 +15,7 @@ CreditScreen::CreditScreen()
 	gc->imageDimensions = { 1280, 960 };
 	this->components.emplace_back(std::move(gc));
 
-	std::vector<std::string> possibleButtonTexExit = { "button_exit" };
+	std::vector<std::string> possibleButtonTexExit = { "button_back" };
 	std::unique_ptr<Button> exitButton = std::make_unique<Button>(500, 800, possibleButtonTexExit, staticBackCallbackFunction, this);
 	this->components.emplace_back(std::move(exitButton));
 
