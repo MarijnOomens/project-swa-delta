@@ -8,7 +8,7 @@ typedef void(*cbCamera) (void*, int, int);
 typedef void(*cbInteract) (void*, int, int);
 typedef void(*cbGameOver) (void*);
 typedef void(*cbHUD) (void*, bool);
-typedef void(*cbCollision) (void*, std::shared_ptr<BehaviourObject>, int, int, int);
+typedef void(*cbCollision) (void*, std::shared_ptr<BehaviourObject>, int, int, KeyCodes, int);
 typedef void(*cbNextLevel) (void*);
 
 class PlayerManager

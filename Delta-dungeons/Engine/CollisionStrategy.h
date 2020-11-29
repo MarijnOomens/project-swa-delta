@@ -15,6 +15,6 @@ public:
 	ENGINE_API CollisionStrategy& operator=(CollisionStrategy const& other) = delete;
 	ENGINE_API CollisionStrategy& operator=(CollisionStrategy&& other) = delete;
 
-    ENGINE_API virtual void actCollision(std::shared_ptr<BehaviourObject> collider, int x, int y) = 0;
+    ENGINE_API virtual void actCollision(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction) = 0;
 private:
 };

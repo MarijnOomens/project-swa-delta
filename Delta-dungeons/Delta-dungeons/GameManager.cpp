@@ -139,14 +139,14 @@ void GameManager::createLevel(std::string levelName)
 	engineFacade->createCamera(playerManager.player->transform.position.x, playerManager.player->transform.position.y);
 }
 
-void GameManager::staticCheckCollisionCallbackFunction(void* p, std::shared_ptr<BehaviourObject> collider, int x, int y, int w)
+void GameManager::staticCheckCollisionCallbackFunction(void* p, std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction, int w)
 {
-	((GameManager*)p)->passCollisionCheck(collider, x, y,w);
+	((GameManager*)p)->passCollisionCheck(collider, x, y, direction,w);
 }
 
-void GameManager::passCollisionCheck(std::shared_ptr<BehaviourObject> collider, int x, int y, int w)
+void GameManager::passCollisionCheck(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction, int w)
 {
-	engineFacade->passCollisionCheck(collider, x, y, w);
+	engineFacade->passCollisionCheck(collider, x, y, direction, w);
 }
 
 void GameManager::staticCameraCallbackFunction(void* p, int x, int y)

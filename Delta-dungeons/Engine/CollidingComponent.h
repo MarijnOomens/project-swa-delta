@@ -15,7 +15,7 @@ public:
 	ENGINE_API CollidingComponent(std::shared_ptr<CollisionStrategy> strategy);
 	ENGINE_API ~CollidingComponent();
 
-	ENGINE_API void actCollision(std::shared_ptr<BehaviourObject> collider, int x, int y);
+	ENGINE_API void actCollision(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction);
 	ENGINE_API void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
 	ENGINE_API void interact() override;
 	ENGINE_API void update() override;
