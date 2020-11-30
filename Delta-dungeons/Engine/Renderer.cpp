@@ -182,8 +182,6 @@ void Renderer::drawTexture(SDL_Texture* texture, const Transform& transform, con
 		if (animated)
 		{
 			source.x = source.w * static_cast<int>((SDL_GetTicks() / speed) % frames);
-			//std::cout << source.x << std::endl;
-			//std::cout << ((SDL_GetTicks() / speed) % frames) << std::endl;
 			source.y = row * source.h;
 		}
 
