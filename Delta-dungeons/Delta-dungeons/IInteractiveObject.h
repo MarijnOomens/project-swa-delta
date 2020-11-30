@@ -4,7 +4,7 @@
 #include "CollidingComponent.h"
 #include <map>
 
-class InteractiveObject : public GameObject
+class IInteractiveObject : public GameObject
 {
 public:
 	std::map<std::string, std::string> textures;

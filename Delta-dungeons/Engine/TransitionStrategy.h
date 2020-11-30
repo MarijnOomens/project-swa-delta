@@ -1,6 +1,6 @@
 #pragma once
 #include "CollisionStrategy.h"
-#include "InteractiveObject.h"
+#include "IInteractiveObject.h"
 class TransitionStrategy : public CollisionStrategy
 {
 public:
