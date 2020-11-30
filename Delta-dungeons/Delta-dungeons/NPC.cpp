@@ -1,6 +1,6 @@
 #include "NPC.h"
 
-NPC::NPC(int x, int y, std::string &texture) 
+NPC::NPC(int x, int y, std::string& texture)
 {
 	this->transform.position = { x * 128, y * 128 };
 	this->transform.scale.multiply({ 4, 4 });
@@ -20,8 +20,6 @@ NPC::NPC(int x, int y, std::string &texture)
 	this->components.emplace_back(cc);
 }
 
-void NPC::interact(){}
+void NPC::interact() {}
 
-void NPC::registerCollision(int x, int y, bool isDamaged, bool isTransitioned) {
-
-}
+void NPC::registerCollision(int x, int y, bool isDamaged, bool isTransitioned) {}

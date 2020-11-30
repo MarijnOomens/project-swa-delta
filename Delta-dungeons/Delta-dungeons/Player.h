@@ -60,7 +60,7 @@ public:
 	void handleInteraction();
 	void registerHit();
 private:
-	const int animationSpeed = 130;
+	const int animationSpeed = 180;
 	int health;
 	int amountCaught;
 	int baseMovementSpeed;
