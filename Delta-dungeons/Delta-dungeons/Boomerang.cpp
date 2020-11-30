@@ -43,3 +43,7 @@ void Boomerang::use()
 	isActivated = !isActivated;
 	func(pointer, isActivated);
 }
+
+void Boomerang::setParent() {
+	cc->parent = shared_from_this();
+}

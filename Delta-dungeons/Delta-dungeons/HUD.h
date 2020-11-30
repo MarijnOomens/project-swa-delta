@@ -19,6 +19,8 @@ public:
 	void updateHighScore(int param);
 	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
 	void update() override;
+	void setParent() override;
+
 	void interact(std::shared_ptr<BehaviourObject> interactor) override;
 	void addHealth();
 	void deleteHealth();

@@ -13,6 +13,7 @@ public:
 
 	void interact(std::shared_ptr<BehaviourObject> interactor) override;
 	void registerCollision(int x, int y, bool isDamaged, bool isTransitioned) override;
+	void setParent() override;
 
 protected:
 	std::string sfxPath;

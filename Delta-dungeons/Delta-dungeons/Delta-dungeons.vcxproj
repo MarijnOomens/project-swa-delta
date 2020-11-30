@@ -169,7 +169,6 @@
     <ClCompile Include="GameObjectBuilder.cpp" />
     <ClCompile Include="GameOverScreen.cpp" />
     <ClCompile Include="GameWinScreen.cpp" />
-    <ClCompile Include="HealingItem.cpp" />
     <ClCompile Include="HelpScreen.cpp" />
     <ClCompile Include="HUD.cpp" />
     <ClCompile Include="HUDManager.cpp" />

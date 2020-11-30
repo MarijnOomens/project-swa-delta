@@ -10,7 +10,7 @@ public:
 	std::string tag;
 	bool isTrigger = false;
 	std::shared_ptr<CollisionStrategy> strategy;
-
+	std::shared_ptr<BehaviourObject> parent;
 	ENGINE_API CollidingComponent();
 	ENGINE_API CollidingComponent(std::shared_ptr<CollisionStrategy> strategy);
 	ENGINE_API ~CollidingComponent();
@@ -19,6 +19,7 @@ public:
 	ENGINE_API void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
 	ENGINE_API void interact(std::shared_ptr<BehaviourObject> interactor) override;
 	ENGINE_API void update() override;
+	ENGINE_API void setParent() override;
 	ENGINE_API void start() override;
 	ENGINE_API void setStrategy(std::shared_ptr<CollisionStrategy> strategy);
 };

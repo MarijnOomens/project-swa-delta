@@ -13,6 +13,8 @@ public:
 
 	void interact(std::shared_ptr<BehaviourObject> interactor) override;
 	void use() override;
+	void setParent() override;
+
 private:
 	std::shared_ptr<CollisionStrategy> stp;
 	std::shared_ptr<GraphicsComponent> gc;

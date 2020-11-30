@@ -18,7 +18,7 @@ typedef void(*cbCollision) (void*, std::shared_ptr<BehaviourObject>, int, int, K
 typedef void(*cbNextLevel) (void*);
 
 
-class Player : public InteractiveObject, public std::enable_shared_from_this<BehaviourObject>
+class Player : public InteractiveObject
 {
 public:
 	std::map<std::string, std::string> textures;
@@ -64,6 +64,7 @@ public:
 	void pokeballCallbackFunction();
 
 	void update() override;
+	void setParent() override;
 	void handleInteraction();
 	void registerHit();
 	void eatBerry();

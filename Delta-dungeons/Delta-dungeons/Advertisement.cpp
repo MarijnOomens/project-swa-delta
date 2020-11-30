@@ -26,3 +26,5 @@ void Advertisement::update() {}
 void Advertisement::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) {}
 
 void Advertisement::interact(std::shared_ptr<BehaviourObject> interactor) {}
+
+void Advertisement::setParent() {}
