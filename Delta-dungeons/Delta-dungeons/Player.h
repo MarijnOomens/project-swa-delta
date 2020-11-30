@@ -13,7 +13,7 @@ typedef void(*cbInteract) (void*, int, int);
 typedef void(*cbCamera) (void*, int, int);
 typedef void(*cbGameOver) (void*);
 typedef void(*cbHUD) (void*, bool);
-typedef void(*cbCollision) (void*, std::shared_ptr<BehaviourObject>, int, int, KeyCodes);
+typedef void(*cbCollision) (void*, std::shared_ptr<BehaviourObject>, int, int, KeyCodes, int);
 typedef void(*cbNextLevel) (void*);
 
 class Player : public InteractiveObject, public std::enable_shared_from_this<BehaviourObject>
@@ -66,7 +66,7 @@ private:
 	int baseMovementSpeed;
 	int x, y;
 	int count;
-	bool runActivated = false;
+	bool isWalking = true;
 	bool boomerangActivated = false;
 	bool cheatCollision = false;
 	bool hasMoved = false;
