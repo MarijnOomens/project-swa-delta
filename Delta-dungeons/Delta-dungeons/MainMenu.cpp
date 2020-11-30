@@ -14,29 +14,29 @@ MainMenu::MainMenu()
 	gc->imageDimensions = { 1280, 960 };
 	this->components.emplace_back(std::move(gc));
 
-	Colour color = { 0, 0, 0, 255 };
-	std::unique_ptr<TextComponent> gameTitleText = std::make_unique<TextComponent>("Delta Dungeons", "joystix", color, 72);
-	gameTitleText->transform.position = { 230, 40 };
-	this->components.emplace_back(std::move(gameTitleText));
+	Colour color = { 255, 203, 5, 255 };
+	std::unique_ptr<TextComponent> creditsText = std::make_unique<TextComponent>("DELTA DUNGEONS", "joystix", color, 72);
+	creditsText->transform.position = { 230, 50 };
+	this->components.emplace_back(std::move(creditsText));
 
 	// Play button
 	std::vector<std::string> possibleButtonTexPlay = { "button_play" };
-	std::unique_ptr<Button> playButton = std::make_unique<Button>(500, 270, possibleButtonTexPlay, staticOpenGameCallbackFunction, this);
+	std::unique_ptr<Button> playButton = std::make_unique<Button>(500, 230, possibleButtonTexPlay, staticOpenGameCallbackFunction, this);
 	this->components.emplace_back(std::move(playButton));
 
 	// Credits button
 	std::vector<std::string> possibleButtonTexCredits = { "button_credits" };
-	std::unique_ptr<Button> creditsButton = std::make_unique<Button>(500, 400, possibleButtonTexCredits, staticOpenCreditsCallbackFunction, this);
+	std::unique_ptr<Button> creditsButton = std::make_unique<Button>(500, 360, possibleButtonTexCredits, staticOpenCreditsCallbackFunction, this);
 	this->components.emplace_back(std::move(creditsButton));
 
 	// Help button
 	std::vector<std::string> possibleButtonTexHelp = { "button_help" };
-	std::unique_ptr<Button> helpButton = std::make_unique<Button>(500, 530, possibleButtonTexHelp, staticOpenHelpCallbackFunction, this);
+	std::unique_ptr<Button> helpButton = std::make_unique<Button>(500, 490, possibleButtonTexHelp, staticOpenHelpCallbackFunction, this);
 	this->components.emplace_back(std::move(helpButton));
 
 	// Exit button
 	std::vector<std::string> possibleButtonTexExit = { "button_exit" };
-	std::unique_ptr<Button> exitButton = std::make_unique<Button>(500, 660, possibleButtonTexExit, staticExitCallbackFunction, this);
+	std::unique_ptr<Button> exitButton = std::make_unique<Button>(500, 620, possibleButtonTexExit, staticExitCallbackFunction, this);
 	this->components.emplace_back(std::move(exitButton));
 
 	// Advertisement

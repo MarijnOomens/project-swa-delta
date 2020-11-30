@@ -12,7 +12,6 @@ HelpScreen::HelpScreen()
 	this->components.emplace_back(std::move(gc));
 
 	Colour color = { 0, 0, 0, 255 };
-
 	std::unique_ptr<TextComponent> helpText = std::make_unique<TextComponent>("Help screen", "joystix", color, 64);
 	helpText->transform.position = { 390, 20 };
 	this->components.emplace_back(std::move(helpText));
