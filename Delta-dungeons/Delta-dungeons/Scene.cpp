@@ -24,7 +24,7 @@ void Scene::addGraphics(std::string levelName)
 	fpsText->transform.position = { 1200, 10 };
 	components.emplace_back(fpsText);
 
-	beats.try_emplace("zagadka", "Assets/Audio/Zagadka.ogg");
+	beats.try_emplace("match", "Assets/Audio/match.ogg");
 }
 
 std::map<std::string, std::string> Scene::passTextures(std::string levelName) const
@@ -81,7 +81,7 @@ void Scene::update()
 
 void Scene::start()
 {
-	AudioUtilities::getInstance().playAudio("zagadka", true);
+	AudioUtilities::getInstance().playAudio("match", true);
 }
 
 void Scene::interact() {}

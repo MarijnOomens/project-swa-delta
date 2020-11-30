@@ -207,7 +207,7 @@ void EngineController::pauseScreen()
 	{
 		renderFacade->pauseGame();
 		loadPreviousScene();
-		playAudio("zagadka", true);
+		playAudio("match", true);
 	}
 	else if (!renderFacade->renderer->isPaused)
 	{
