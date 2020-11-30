@@ -78,6 +78,7 @@ void Collision::checkProjectileCollision(std::shared_ptr<BehaviourObject> collid
 			auto col2 = dynamic_cast<CollidingComponent*>(collider2.get());
 			if(x == col2->transform.position.x && y == col2->transform.position.y)
 			{
+				//col1.ac
 				/*col2->actCollision(collider, x, y, direction);
 				break;*/
 				std::cout << "HIT" << std::endl;

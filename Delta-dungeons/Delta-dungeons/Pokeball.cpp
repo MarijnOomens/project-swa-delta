@@ -1,5 +1,9 @@
 #include "Pokeball.h"
 
+Pokeball::Pokeball(const cbPokeball f, void* p) : func(f), pointer(p)
+{
+}
+
 Pokeball::Pokeball(int x, int y, std::string texture) {
 	this->transform.position = { x * 128, y * 128 };
 	this->transform.scale.multiply({ 4, 4 });
@@ -28,4 +32,6 @@ void Pokeball::interact(std::shared_ptr<BehaviourObject> interactor)
 	}
 }
 
-void Pokeball::use() {}
+void Pokeball::use() {
+	func(pointer);
+}

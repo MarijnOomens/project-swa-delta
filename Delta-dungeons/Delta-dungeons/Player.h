@@ -6,6 +6,7 @@
 #include "GraphicsComponent.h"
 #include "CollidingComponent.h"
 #include "RunningShoes.h"
+#include "Pokeball.h"
 #include "DebugUtilities.h"
 #include "StopStrategy.h"
 
@@ -16,11 +17,14 @@ typedef void(*cbHUD) (void*, int, int, int);
 typedef void(*cbCollision) (void*, std::shared_ptr<BehaviourObject>, int, int, KeyCodes);
 typedef void(*cbNextLevel) (void*);
 
+
 class Player : public InteractiveObject, public std::enable_shared_from_this<BehaviourObject>
 {
 public:
 	std::map<std::string, std::string> textures;
 	std::string texture;
+
+	std::shared_ptr<Pokeball> equippedPokeball;
 
 	cbCamera func;
 	cbInteract interactFunc;
@@ -55,6 +59,9 @@ public:
 
 	static void staticRunningShoesCallbackFunction(void* p, const bool runningActivated);
 	void runningShoesCallbackFunction(const bool runningActivated);
+
+	static void staticPokeballCallbackFunction(void* p);
+	void pokeballCallbackFunction();
 
 	void update() override;
 	void handleInteraction();

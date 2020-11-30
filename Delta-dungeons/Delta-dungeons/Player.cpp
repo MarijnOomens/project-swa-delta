@@ -17,6 +17,8 @@ Player::Player(int spawnX, int spawnY, cbCollision collisionCB, cbNextLevel next
 	std::string textureRunning = "runningshoesHUD";
 	std::unique_ptr<Boomerang> boomerang = std::make_unique<Boomerang>(textureBoomerang,staticBoomerangCallbackFunction, this);
 	std::unique_ptr<RunningShoes> running = std::make_unique<RunningShoes>(staticRunningShoesCallbackFunction, this, textureRunning);
+	equippedPokeball = std::make_shared<Pokeball>(staticPokeballCallbackFunction, this);
+
 
 	addEquipment(std::move(running));
 	addEquipment(std::move(boomerang));
@@ -139,8 +141,12 @@ void Player::handleKeyPressed(const KeyCodes& keyCodes)
 			this->texture = "player_m";
 		}
 		break;
+	//skip collision kan later geimplementeerd worden
+	//case KeyCodes::KEY_C:
+	//	DebugUtilities::getInstance().toggleCheatCollision();
+	//	break;
 	case KeyCodes::KEY_C:
-		DebugUtilities::getInstance().toggleCheatCollision();
+		equippedPokeball->use();
 		break;
 	default:
 		break;
@@ -342,6 +348,18 @@ void Player::runningShoesCallbackFunction(const bool runningActivated)
 		baseMovementSpeed = 128;
 	}
 }
+
+void Player::staticPokeballCallbackFunction(void* p)
+{
+	((Player*)p)->pokeballCallbackFunction();
+
+}
+
+void Player::pokeballCallbackFunction()
+{
+	std::cout << "i threw a pokeball" << std::endl;
+}
+
 
 void Player::registerHit() {
 	if (health > 1) 
