@@ -66,7 +66,7 @@ private:
 	int baseMovementSpeed;
 	int x, y;
 	int count;
-	bool runActivated = false;
+	bool isWalking = true;
 	bool boomerangActivated = false;
 	bool cheatCollision = false;
 	bool hasMoved = false;
