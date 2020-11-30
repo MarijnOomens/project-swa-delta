@@ -36,7 +36,6 @@ void Collision::checkCollision(std::shared_ptr<BehaviourObject> collider, int x,
 			)
 		{
 			auto col2 = dynamic_cast<CollidingComponent*>(collider2.get());
-			/*facing right*/
 			if (x + w > col2->transform.position.x &&
 				col2->transform.position.x + w > x &&
 				y + w > col2->transform.position.y &&

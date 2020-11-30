@@ -141,7 +141,7 @@ void GameManager::createLevel(std::string levelName)
 
 void GameManager::staticCheckCollisionCallbackFunction(void* p, std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction, int w)
 {
-	((GameManager*)p)->passCollisionCheck(collider, x, y, direction,w);
+	((GameManager*)p)->passCollisionCheck(collider, x, y, direction, w);
 }
 
 void GameManager::passCollisionCheck(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction, int w)
