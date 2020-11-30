@@ -17,6 +17,7 @@ public:
 	void registerColliders(std::vector<std::shared_ptr<BehaviourObject>> colliders);
 	void deleteColliderFromScene(std::shared_ptr<BehaviourObject> deletedCollider);
 	void checkCollision(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction);
+	void checkProjectileCollision(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction);
 private:
 	std::vector<std::shared_ptr<BehaviourObject>> colliderObjects;
 };

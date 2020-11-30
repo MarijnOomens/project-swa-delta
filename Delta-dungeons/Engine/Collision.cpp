@@ -63,3 +63,25 @@ void Collision::checkCollision(std::shared_ptr<BehaviourObject> collider, int x,
 		}
 	}
 }
+
+void Collision::checkProjectileCollision(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction) {
+	for (auto collider2 : colliderObjects)
+	{
+		if (
+			collider != collider2 &&
+			collider2->transform.position.x + 128 >= cameraX &&
+			1280 + cameraX >= collider2->transform.position.x &&
+			collider2->transform.position.y + 128 >= cameraY &&
+			cameraY + 1024 >= collider2->transform.position.y
+			)
+		{
+			auto col2 = dynamic_cast<CollidingComponent*>(collider2.get());
+			if(x == col2->transform.position.x && y == col2->transform.position.y)
+			{
+				/*col2->actCollision(collider, x, y, direction);
+				break;*/
+				std::cout << "HIT" << std::endl;
+			}
+		}
+	}
+}
