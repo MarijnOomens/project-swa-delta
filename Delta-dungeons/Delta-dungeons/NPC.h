@@ -20,5 +20,5 @@ protected:
 private:
 	std::shared_ptr<CollisionStrategy> stp;
 	std::shared_ptr<GraphicsComponent> gc;
-	const int animationSpeed = 130;
+	const int animationSpeed = 180;
 };

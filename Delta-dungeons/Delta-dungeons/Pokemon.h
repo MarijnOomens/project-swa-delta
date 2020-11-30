@@ -23,5 +23,5 @@ private:
 	std::string type;
 	int id;
 	int catchRate;
-	const int animationSpeed = 130;
+	const int animationSpeed = 180;
 };

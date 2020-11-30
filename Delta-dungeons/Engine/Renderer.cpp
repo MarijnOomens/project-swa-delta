@@ -24,19 +24,19 @@ Renderer::~Renderer()
 /// <param name="width">The width of the screen.</param>
 /// <param name="height">The height of the screen.</param>
 /// <param name="fullscreen">If the screen is fullscreen or not.</param>
-void Renderer::init(const std::string& title, int width, int height, bool fullscreen) 
+void Renderer::init(const std::string& title, int width, int height, bool fullscreen)
 {
 	int flags = 0;
-	if (fullscreen) 
+	if (fullscreen)
 	{
 		flags = SDL_WINDOW_FULLSCREEN;
 	}
-	try 
+	try
 	{
-		if (SDL_Init(SDL_INIT_EVERYTHING) == 0) 
+		if (SDL_Init(SDL_INIT_EVERYTHING) == 0)
 		{
 			sdlWindow = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, flags);
-			if (!sdlWindow) 
+			if (!sdlWindow)
 			{
 				isRunning = false;
 				throw("Failed to create window!");
@@ -46,7 +46,7 @@ void Renderer::init(const std::string& title, int width, int height, bool fullsc
 			{
 				SDL_SetRenderDrawColor(sdlRenderer, 0, 0, 0, 255);
 			}
-			else 
+			else
 			{
 				isRunning = false;
 				throw("Failed to create Render!");
@@ -54,7 +54,7 @@ void Renderer::init(const std::string& title, int width, int height, bool fullsc
 			isRunning = true;
 			isPaused = false;
 		}
-		else 
+		else
 		{
 			throw("Subsystems are not initialised!");
 			isRunning = false;
@@ -68,16 +68,16 @@ void Renderer::init(const std::string& title, int width, int height, bool fullsc
 			printf("SDL_mixer could not initialize! SDL_mixer Error: %s\n", Mix_GetError());
 		}
 	}
-	catch (std::string error) 
+	catch (std::string error)
 	{
 		std::cout << "Error: " << error << std::endl;
 	}
 }
 
-void Renderer::createCamera(const int x, const int y) 
+void Renderer::createCamera(const int x, const int y)
 {
 	int cameraX = x - 640;
-	if (cameraX < 0) 
+	if (cameraX < 0)
 	{
 		cameraX = 0;
 	}
@@ -111,7 +111,7 @@ bool Renderer::checkCameraPosition(const Transform& transform) const
 	return false;
 }
 
-std::tuple<int, int> Renderer::updateCamera(const int playerX,const int playerY)
+std::tuple<int, int> Renderer::updateCamera(const int playerX, const int playerY)
 {
 	int differenceX = (playerX - (camera.x + 640));
 	int differenceY = (playerY - (camera.y + 512));
@@ -182,6 +182,8 @@ void Renderer::drawTexture(SDL_Texture* texture, const Transform& transform, con
 		if (animated)
 		{
 			source.x = source.w * static_cast<int>((SDL_GetTicks() / speed) % frames);
+			//std::cout << source.x << std::endl;
+			//std::cout << ((SDL_GetTicks() / speed) % frames) << std::endl;
 			source.y = row * source.h;
 		}
 
@@ -193,7 +195,7 @@ void Renderer::drawTexture(SDL_Texture* texture, const Transform& transform, con
 				alphaCounter = 0;
 				transitioning = false;
 			}
-		} 
+		}
 		else
 		{
 			SDL_SetTextureAlphaMod(texture, SDL_ALPHA_OPAQUE);
@@ -283,8 +285,8 @@ void Renderer::transition()
 
 void Renderer::checkTransition()
 {
-	if (transitioning) 
+	if (transitioning)
 	{
-		alphaCounter+=15;
+		alphaCounter += 15;
 	}
 }
