@@ -52,6 +52,7 @@ void GraphicsComponent::interact(std::shared_ptr<BehaviourObject> interactor) {}
 
 void GraphicsComponent::start() {}
 
+void GraphicsComponent::setParent() {}
 /// <summary>
 /// Gets the textureManager pointer.
 /// </summary>

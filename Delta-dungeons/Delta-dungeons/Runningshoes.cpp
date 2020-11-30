@@ -43,3 +43,7 @@ void RunningShoes::use()
 	isActivated = !isActivated;
 	func(pointer, isActivated);
 }
+
+void RunningShoes::setParent() {
+	cc->parent = shared_from_this();
+}

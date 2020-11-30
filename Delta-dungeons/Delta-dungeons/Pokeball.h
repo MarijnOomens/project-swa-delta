@@ -17,6 +17,8 @@ public:
 
 	void interact(std::shared_ptr<BehaviourObject> interactor) override;
 	void use() override;
+	void setParent() override;
+
 private:
 	cbPokeball func;
 	void* pointer;

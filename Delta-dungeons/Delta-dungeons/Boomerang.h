@@ -16,6 +16,7 @@ public:
 	
 	void use() override;
 	void interact(std::shared_ptr<BehaviourObject> interactor) override;
+	void setParent() override;
 
 private:
 	std::shared_ptr<CollisionStrategy> stp;

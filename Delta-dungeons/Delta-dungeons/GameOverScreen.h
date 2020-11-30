@@ -12,6 +12,7 @@ public:
 	~GameOverScreen() {}
 
 	void restartGame();
+	void setParent() override;
 
 	static void staticExitCallbackFunction(const void* p);
 	void exitCallbackFunction() const;

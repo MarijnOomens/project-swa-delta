@@ -32,3 +32,7 @@ void Berry::interact(std::shared_ptr<BehaviourObject> interactor)
 }
 
 void Berry::use() {}
+
+void Berry::setParent() {
+    cc->parent = shared_from_this();
+}

@@ -75,6 +75,8 @@ void HUD::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEven
 
 void HUD::update() {}
 
+void HUD::setParent() {}
+
 void HUD::interact(std::shared_ptr<BehaviourObject> interactor) {}
 
 void HUD::addHealth()

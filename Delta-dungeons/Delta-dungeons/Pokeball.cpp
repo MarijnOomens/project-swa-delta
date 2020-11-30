@@ -35,3 +35,7 @@ void Pokeball::interact(std::shared_ptr<BehaviourObject> interactor)
 void Pokeball::use() {
 	func(pointer);
 }
+
+void Pokeball::setParent() {
+	cc->parent = shared_from_this();
+}

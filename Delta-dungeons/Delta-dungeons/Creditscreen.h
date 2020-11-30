@@ -14,6 +14,7 @@ public:
 
 	static void staticBackCallbackFunction(const void* p);
 	void backCallbackFunction() const;
+	void setParent() override;
 
 private:
 	std::vector<Button> buttons;

@@ -15,4 +15,5 @@ public:
 	void update() override;
 	void interact(std::shared_ptr<BehaviourObject> interactor) override;
 	void start() override;
+	void setParent() override;
 };

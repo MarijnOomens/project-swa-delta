@@ -47,6 +47,7 @@ Player::Player(int spawnX, int spawnY, cbCollision collisionCB, cbNextLevel next
 	stp = std::make_shared<StopStrategy>();
 	cc = std::make_shared<CollidingComponent>(stp);
 	cc->tag = "player";
+
 	cc->transform.position = this->transform.position;
 
 	this->components.emplace_back(gc);
@@ -207,6 +208,10 @@ void Player::handleKeyReleased(const KeyCodes& keyCodes)
 }
 
 void Player::update() {}
+
+void Player::setParent() {
+	cc->parent = shared_from_this();
+}
 
 /// <summary>
 /// This method moves the character up by changing the sprite animation and adjusting the Y coordinate

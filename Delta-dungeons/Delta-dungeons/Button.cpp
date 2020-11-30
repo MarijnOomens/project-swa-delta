@@ -37,3 +37,5 @@ void Button::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardE
 }
 
 void Button::interact(std::shared_ptr<BehaviourObject> interactor) {}
+
+void Button::setParent() {}

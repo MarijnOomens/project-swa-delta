@@ -69,9 +69,6 @@
     <ClCompile Include="Boomerang.cpp">
       <Filter>Source Files\Game\GameObjects\Items</Filter>
     </ClCompile>
-    <ClCompile Include="HealingItem.cpp">
-      <Filter>Source Files\Game\GameObjects\Items</Filter>
-    </ClCompile>
     <ClCompile Include="Pokeball.cpp">
       <Filter>Source Files\Game\GameObjects\Items</Filter>
     </ClCompile>
@@ -182,7 +179,7 @@
     </ClCompile>
     <ClCompile Include="AudioUtilities.cpp">
       <Filter>Source Files</Filter>
-      </ClCompile>
+    </ClCompile>
     <ClCompile Include="LoadSaveScreen.cpp">
       <Filter>Source Files\Game\GameObjects\Screens</Filter>
     </ClCompile>
@@ -322,7 +319,7 @@
     </ClInclude>
     <ClInclude Include="AudioUtilities.h">
       <Filter>Header Files</Filter>
-      </ClInclude>
+    </ClInclude>
     <ClInclude Include="LoadSaveScreen.h">
       <Filter>Header Files\Game\GameObjects\Screens</Filter>
     </ClInclude>
