@@ -28,7 +28,7 @@ HelpScreen::HelpScreen()
 	helpRun->transform.position = { 50, 280 };
 	this->components.emplace_back(std::move(helpRun));
 
-	std::unique_ptr<TextComponent> helpPause = std::make_unique<TextComponent>("Press P to pause the game.", "joystix", color, 25);
+	std::unique_ptr<TextComponent> helpPause = std::make_unique<TextComponent>("Press ESCAPE to pause the game.", "joystix", color, 25);
 	helpPause->transform.position = { 50, 360 };
 	this->components.emplace_back(std::move(helpPause));
 
@@ -36,16 +36,8 @@ HelpScreen::HelpScreen()
 	helpBack->transform.position = { 50, 440 };
 	this->components.emplace_back(std::move(helpBack));
 
-	std::unique_ptr<TextComponent> helpFps = std::make_unique<TextComponent>("Press TAB to toggle the FPS counter in the upper right corner in-game.", "joystix", color, 25);
-	helpFps->transform.position = { 50, 520 };
-	this->components.emplace_back(std::move(helpFps));
-
-	std::unique_ptr<TextComponent> helpGameSpeed = std::make_unique<TextComponent>("Press , to decrease FPS. Press . to increase FPS. Press / to reset FPS to 60.", "joystix", color, 25);
-	helpGameSpeed->transform.position = { 50, 600 };
-	this->components.emplace_back(std::move(helpGameSpeed));
-
 	std::unique_ptr<TextComponent> helpGameOver = std::make_unique<TextComponent>("Game over is triggered when the player is out of hearts. This can be done by walking into any Pokémon.", "joystix", color, 25);
-	helpGameOver->transform.position = { 50, 680 };
+	helpGameOver->transform.position = { 50, 520 };
 	this->components.emplace_back(std::move(helpGameOver));
 
 	std::vector<std::string> possibleButtonTexExit = { "button_back" };
