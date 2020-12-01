@@ -94,13 +94,5 @@ private:
 	std::shared_ptr<StopStrategy> stp;
 	std::shared_ptr<GraphicsComponent> gc;
 	AnimCategory animCategory;
-	int rightX;
-	int leftX;
-	int upY;
-	int downY;
-	std::string rightTag;
-	std::string leftTag;
-	std::string upTag;
-	std::string downTag;
 	bool tileCollision;
 };

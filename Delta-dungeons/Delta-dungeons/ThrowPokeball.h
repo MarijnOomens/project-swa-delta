@@ -16,6 +16,11 @@ public:
 	void use() override;
 	void setParent() override;
 	void update() override;
+	void moveUp(int x, int y);
+	void moveDown(int x, int y);
+	void moveLeft(int x, int y);
+	void moveRight(int x, int y);
+
 private:
 	cbSentPokemon func;
 	void* pointer;

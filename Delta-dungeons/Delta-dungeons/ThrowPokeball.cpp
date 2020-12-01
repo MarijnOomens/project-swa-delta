@@ -25,6 +25,15 @@ ThrowPokeball::ThrowPokeball(const cbSentPokemon f, void* p) : func(f) , pointer
 
 void ThrowPokeball::interact(std::shared_ptr<BehaviourObject> interactor) {}
 
+
+void ThrowPokeball::moveUp(int x, int y) {
+	this->transform.position = { x, y };
+	gc->transform = transform;
+	cc->transform = transform;
+	isMoving = true;
+	direction = "up";
+}
+
 void ThrowPokeball::use() {
 	//based on direction
 	//transform.position.y -= baseMovementSpeed;
