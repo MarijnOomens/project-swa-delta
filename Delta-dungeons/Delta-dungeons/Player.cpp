@@ -17,7 +17,7 @@ Player::Player(int spawnX, int spawnY, cbCollision collisionCB, cbNextLevel next
 	std::string textureRunning = "runningshoesHUD";
 	std::unique_ptr<Boomerang> boomerang = std::make_unique<Boomerang>(textureBoomerang,staticBoomerangCallbackFunction, this);
 	std::unique_ptr<RunningShoes> running = std::make_unique<RunningShoes>(staticRunningShoesCallbackFunction, this, textureRunning);
-	equippedPokeball = std::make_shared<Pokeball>(staticPokeballCallbackFunction, this);
+	pokeball = std::make_shared<ThrowPokeball>(staticPokeballCallbackFunction, this);
 
 
 	addEquipment(std::move(running));
@@ -51,6 +51,7 @@ Player::Player(int spawnX, int spawnY, cbCollision collisionCB, cbNextLevel next
 
 	this->components.emplace_back(gc);
 	this->components.emplace_back(cc);
+	this->components.emplace_back(pokeball);
 
 	currentDirection = KeyCodes::KEY_DOWN;
 }
@@ -154,7 +155,7 @@ void Player::handleKeyPressed(const KeyCodes& keyCodes)
 	//	DebugUtilities::getInstance().toggleCheatCollision();
 	//	break;
 	case KeyCodes::KEY_C:
-		equippedPokeball->use();
+		pokeball->use();
 		break;
 	default:
 		break;
@@ -370,6 +371,14 @@ void Player::pokeballCallbackFunction()
 	std::cout << "i threw a pokeball" << std::endl;
 }
 
+void Player::staticAddPokeballCallbackFunction(void* p) 
+{
+	((Player*)p)->addPokeball();
+}
+void Player::addPokeballCallbackFunction()
+{
+	addPokeball();
+}
 
 void Player::registerHit() {
 	if (health > 1) 
@@ -398,9 +407,18 @@ void Player::eatBerry() {
 }
 
 void Player::addBerry() {
-	
 	amountOfBerries += 1;
 	hudFunc(pointer, health, amountOfBerries, amountOfPokeballs);
+}
+
+void Player::usePokeball() {
+
+	if (amountOfPokeballs > 0) //maxHealth
+	{
+		amountOfPokeballs--;
+		hudFunc(pointer, health, amountOfBerries, amountOfPokeballs);
+		pokeball->use();
+	}
 }
 
 void Player::addPokeball() {

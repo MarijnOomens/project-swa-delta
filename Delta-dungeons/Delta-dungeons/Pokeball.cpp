@@ -1,8 +1,9 @@
 #include "Pokeball.h"
 
-Pokeball::Pokeball(const cbPokeball f, void* p) : func(f), pointer(p)
-{
-}
+//Pokeball::Pokeball(const cbAddPokeball aF, const cbSentPokemon f, void* p) : addFunc(aF), func(f) , pointer(p)
+//{
+//}
+
 
 Pokeball::Pokeball(int x, int y, std::string texture) {
 	this->transform.position = { x * 128, y * 128 };
@@ -25,6 +26,9 @@ Pokeball::Pokeball(int x, int y, std::string texture) {
 
 void Pokeball::interact(std::shared_ptr<BehaviourObject> interactor)
 {
+	auto col = dynamic_cast<Player*>(interactor.get());
+	col->addPokeball();
+
 	if (gc != nullptr) {
 		SceneModifier::getInstance().deleteObjectFromScene(gc);
 		SceneModifier::getInstance().deleteColliderFromScene(cc);
@@ -33,7 +37,6 @@ void Pokeball::interact(std::shared_ptr<BehaviourObject> interactor)
 }
 
 void Pokeball::use() {
-	func(pointer);
 }
 
 void Pokeball::setParent() {

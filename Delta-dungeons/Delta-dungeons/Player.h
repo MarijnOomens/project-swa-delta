@@ -6,9 +6,9 @@
 #include "GraphicsComponent.h"
 #include "CollidingComponent.h"
 #include "RunningShoes.h"
-#include "Pokeball.h"
 #include "DebugUtilities.h"
 #include "StopStrategy.h"
+#include "ThrowPokeball.h"
 
 typedef void(*cbInteract) (void*, std::shared_ptr<BehaviourObject>, int, int);
 typedef void(*cbCamera) (void*, int, int);
@@ -24,7 +24,7 @@ public:
 	std::map<std::string, std::string> textures;
 	std::string texture;
 
-	std::shared_ptr<Pokeball> equippedPokeball;
+	std::shared_ptr<ThrowPokeball> pokeball;
 
 	cbCamera func;
 	cbInteract interactFunc;
@@ -63,12 +63,16 @@ public:
 	static void staticPokeballCallbackFunction(void* p);
 	void pokeballCallbackFunction();
 
+	static void staticAddPokeballCallbackFunction(void* p);
+	void addPokeballCallbackFunction();
+
 	void update() override;
 	void setParent() override;
 	void handleInteraction();
 	void registerHit();
 	void eatBerry();
 	void addBerry();
+	void usePokeball();
 	void addPokeball();	
 	
 	int health = 5;

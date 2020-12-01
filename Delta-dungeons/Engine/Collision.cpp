@@ -48,7 +48,10 @@ void Collision::checkCollision(std::shared_ptr<BehaviourObject> collider, int x,
 	}
 }
 
-void Collision::checkProjectileCollision(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction) {
+void Collision::checkProjectileCollision(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction, int w) {
+	
+	//auto col1 = dynamic_cast<CollidingComponent*>(collider2.get());
+
 	for (auto collider2 : colliderObjects)
 	{
 		if (
@@ -60,13 +63,14 @@ void Collision::checkProjectileCollision(std::shared_ptr<BehaviourObject> collid
 			)
 		{
 			auto col2 = dynamic_cast<CollidingComponent*>(collider2.get());
-			if(x == col2->transform.position.x && y == col2->transform.position.y)
+			if (x + w > col2->transform.position.x &&
+				col2->transform.position.x + w > x &&
+				y + w > col2->transform.position.y &&
+				col2->transform.position.y + w > y)
 			{
-				//collider knows his pokemon, just like other puzzles
-				//col1.ac
-				/*col2->actCollision(collider, x, y, direction);
-				break;*/
+				//col2->actCollision(collider, x, y, direction);
 				std::cout << "HIT" << std::endl;
+				break;
 			}
 		}
 	}

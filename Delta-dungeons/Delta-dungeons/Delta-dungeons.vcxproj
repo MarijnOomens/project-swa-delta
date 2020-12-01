@@ -192,6 +192,7 @@
     <ClCompile Include="RunningShoes.cpp" />
     <ClCompile Include="SceneLoader.cpp" />
     <ClCompile Include="SceneModifier.cpp" />
+    <ClCompile Include="ThrowPokeball.cpp" />
     <ClCompile Include="XMLFacade.cpp" />
     <ClCompile Include="XMLParser.cpp" />
     <ClCompile Include="XMLSceneParser.cpp" />
@@ -227,6 +228,7 @@
     <ClInclude Include="PlayerManager.h" />
     <ClInclude Include="RunningShoes.h" />
     <ClInclude Include="SceneLoader.h" />
+    <ClInclude Include="ThrowPokeball.h" />
     <ClInclude Include="XMLFacade.h" />
     <ClInclude Include="XMLParser.h" />
     <ClInclude Include="XMLSceneParser.h" />
