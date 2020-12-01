@@ -8,7 +8,7 @@ GameOverScreen::GameOverScreen()
 
 
 	gc = std::make_unique<GraphicsComponent>();
-	gc->setTexture("gameover");
+	gc->setTexture("game_over");
 	gc->isScreen = true;
 	gc->imageDimensions = { 1280, 960 };
 	this->components.emplace_back(std::move(gc));
