@@ -20,6 +20,7 @@ public:
 	void moveDown(int x, int y);
 	void moveLeft(int x, int y);
 	void moveRight(int x, int y);
+	void updateTransform(int x, int y);
 
 private:
 	cbSentPokemon func;

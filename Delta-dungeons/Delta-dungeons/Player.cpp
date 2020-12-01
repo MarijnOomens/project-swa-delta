@@ -155,7 +155,7 @@ void Player::handleKeyPressed(const KeyCodes& keyCodes)
 	//	DebugUtilities::getInstance().toggleCheatCollision();
 	//	break;
 	case KeyCodes::KEY_C:
-		pokeball->use();
+		usePokeball();
 		break;
 	default:
 		break;
@@ -371,15 +371,6 @@ void Player::pokeballCallbackFunction()
 	std::cout << "i threw a pokeball" << std::endl;
 }
 
-void Player::staticAddPokeballCallbackFunction(void* p) 
-{
-	((Player*)p)->addPokeball();
-}
-void Player::addPokeballCallbackFunction()
-{
-	addPokeball();
-}
-
 void Player::registerHit() {
 	if (health > 1) 
 	{
@@ -417,7 +408,18 @@ void Player::usePokeball() {
 	{
 		amountOfPokeballs--;
 		hudFunc(pointer, health, amountOfBerries, amountOfPokeballs);
-		pokeball->use();
+		if (currentDirection == KeyCodes::KEY_UP || currentDirection == KeyCodes::KEY_W) {
+			pokeball->moveUp(transform.position.x, transform.position.y + 16);
+		}
+		else if(currentDirection == KeyCodes::KEY_DOWN || currentDirection == KeyCodes::KEY_S) {
+			pokeball->moveDown(transform.position.x, transform.position.y - 16);
+		}
+		else if (currentDirection == KeyCodes::KEY_LEFT || currentDirection == KeyCodes::KEY_A) {
+			pokeball->moveLeft(transform.position.x - 16, transform.position.y);
+		}
+		else if(currentDirection == KeyCodes::KEY_RIGHT || currentDirection == KeyCodes::KEY_D) {
+			pokeball->moveRight(transform.position.x + 16, transform.position.y);
+		}
 	}
 }
 

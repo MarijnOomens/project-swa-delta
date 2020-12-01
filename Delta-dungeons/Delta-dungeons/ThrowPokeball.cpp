@@ -25,34 +25,51 @@ ThrowPokeball::ThrowPokeball(const cbSentPokemon f, void* p) : func(f) , pointer
 
 void ThrowPokeball::interact(std::shared_ptr<BehaviourObject> interactor) {}
 
-
 void ThrowPokeball::moveUp(int x, int y) {
-	this->transform.position = { x, y };
-	gc->transform = transform;
-	cc->transform = transform;
+	updateTransform(x, y);
 	isMoving = true;
 	direction = "up";
 }
 
-void ThrowPokeball::use() {
-	//based on direction
-	//transform.position.y -= baseMovementSpeed;
-	this->transform.position = { 1280, 1280 };
-	gc->transform = transform;
-	cc->transform = transform;
+void ThrowPokeball::moveDown(int x, int y) {
+	updateTransform(x, y);
+	isMoving = true;
+	direction = "down";
+}
+
+void ThrowPokeball::moveLeft(int x, int y) {
+	updateTransform(x, y);
+	isMoving = true;
+	direction = "left";
+}
+
+void ThrowPokeball::moveRight(int x, int y) {
+	updateTransform(x, y);
 	isMoving = true;
 	direction = "right";
-	func(pointer);
 }
+
+void ThrowPokeball::use() {}
 
 void ThrowPokeball::update() {
 	if (isMoving) {
-		if (direction == "right") {
-			this->transform.position.x += 16;
-			gc->transform = transform;
-			cc->transform = transform;
+		if (direction == "up") {
+			updateTransform(transform.position.x, transform.position.y - 16);
+			//checkCollisionboi
+		} else 	if (direction == "down") {
+			updateTransform(transform.position.x, transform.position.y + 16);
+		} else if (direction == "left") {
+			updateTransform(transform.position.x - 16, transform.position.y);
+		} else if (direction == "right") {
+			updateTransform(transform.position.x + 16, transform.position.y);
 		}
 	}
+}
+
+void ThrowPokeball::updateTransform(int x, int y) {
+	this->transform.position = { x, y };
+	gc->transform = transform;
+	cc->transform = transform;
 }
 
 void ThrowPokeball::setParent() {}

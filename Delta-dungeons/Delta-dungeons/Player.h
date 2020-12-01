@@ -63,8 +63,6 @@ public:
 	static void staticPokeballCallbackFunction(void* p);
 	void pokeballCallbackFunction();
 
-	static void staticAddPokeballCallbackFunction(void* p);
-	void addPokeballCallbackFunction();
 
 	void update() override;
 	void setParent() override;
@@ -78,7 +76,7 @@ public:
 	int health = 5;
 	int maxHealth = 5;
 	int amountOfBerries = 0;
-	int amountOfPokeballs = 0;	
+	int amountOfPokeballs = 20;	
 private:
 	const int animationSpeed = 130;
 	int amountCaught = 0;
