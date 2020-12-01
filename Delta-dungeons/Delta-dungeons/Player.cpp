@@ -404,7 +404,7 @@ void Player::addBerry() {
 
 void Player::usePokeball() {
 
-	if (amountOfPokeballs > 0) //maxHealth
+	if (amountOfPokeballs > 0) 
 	{
 		amountOfPokeballs--;
 		hudFunc(pointer, health, amountOfBerries, amountOfPokeballs);
