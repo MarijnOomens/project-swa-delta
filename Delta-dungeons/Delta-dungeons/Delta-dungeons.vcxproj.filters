@@ -49,6 +49,12 @@
     <Filter Include="Source Files\XMLParser">
       <UniqueIdentifier>{5d2ec776-f080-497e-b7f7-0315870065ef}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Game\Creation">
+      <UniqueIdentifier>{fe1450a4-8e4f-46dd-b58a-132dab0be7d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game\Creation">
+      <UniqueIdentifier>{cd0676a7-3ab0-48db-a993-e80460649379}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameManager.cpp">
@@ -325,6 +331,9 @@
     </ClInclude>
     <ClInclude Include="World.h">
       <Filter>Header Files\Game\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="IScene.h">
+      <Filter>Header Files\Game\Creation</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
