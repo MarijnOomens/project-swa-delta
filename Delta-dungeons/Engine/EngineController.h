@@ -1,7 +1,9 @@
 #pragma once
 
 #include "BehaviourObject.h"
-#include "AssetManager.h"
+#include "TextureAssetManager.h"
+#include "FontAssetManager.h"
+#include "AudioAssetManager.h"
 #include "GameObject.h"
 #include "Input.h"
 #include "RenderFacade.h"
@@ -12,7 +14,7 @@
 #include "CollidingComponent.h"
 #include <vector>
 #include "Collision.h"
-#include "Audio.h"
+#include "AudioManager.h"
 
 // Engincontroller class
 //
@@ -27,7 +29,7 @@ public:
 
 	static void staticPassCameraDimensionFunction(void* p, Transform dimensions);
 	void passCameraDimensionFunction(Transform& dimensions);
-	
+
 
 	static void staticInputCallbackFunction(void* p, const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos);
 	void inputCallbackFunction(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos);
@@ -64,9 +66,12 @@ private:
 	std::vector<int> hudLayers;
 	std::shared_ptr<RenderFacade> renderFacade;
 	std::shared_ptr<TextureManager> textureManager;
-	std::shared_ptr<AssetManager> assetManager;
+	std::shared_ptr<FontManager> fontManager;
+	std::unique_ptr<AudioManager> audioManager;
+	std::shared_ptr<TextureAssetManager> textureAssetManager;
+	std::shared_ptr<FontAssetManager> fontAssetManager;
+	std::shared_ptr<AudioAssetManager> audioAssetManager;
 	std::shared_ptr<Input> input;
-	std::unique_ptr<Audio> audio;
 	SceneManager sceneManager;
 	std::shared_ptr<Collision> collision;
 	bool isGameOver = false;

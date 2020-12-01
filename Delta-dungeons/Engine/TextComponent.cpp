@@ -15,7 +15,7 @@ TextComponent::TextComponent(const std::string &text,const std::string &font,con
 void TextComponent::update() {
 	if (text != "")
 	{
-		textureManager->drawText(text, font, colour, this->transform, fontSize);
+		fontManager->drawText(text, font, colour, this->transform, fontSize);
 	}
 }
 
@@ -27,9 +27,9 @@ void TextComponent::changeText(const std::string& text) {
 /// This methods adds a reference to the gobal TextureManager.
 /// </summary>
 /// <param name="tm">The TextureManager.</param>
-void TextComponent::addTextureManager(std::shared_ptr<TextureManager> tm)
+void TextComponent::addFontManager(std::shared_ptr<FontManager> fm)
 {
-	textureManager = tm;
+	fontManager = fm;
 }
 
 void TextComponent::handleInput(const KeyCodes &keyCode, const KeyboardEvent &keyboardEvent, Vector2D &mousePos) {}

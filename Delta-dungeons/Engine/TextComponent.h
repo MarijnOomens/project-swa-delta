@@ -1,7 +1,7 @@
 #pragma once
 #include "BehaviourObject.h"
 #include "Colour.h"
-#include "TextureManager.h"
+#include "FontManager.h"
 #include "main.h"
 
 class TextComponent : public BehaviourObject {
@@ -10,7 +10,7 @@ public:
 	ENGINE_API ~TextComponent() {};
 
 	ENGINE_API void changeText(const std::string& text);
-	ENGINE_API void addTextureManager(std::shared_ptr<TextureManager> tm);
+	ENGINE_API void addFontManager(std::shared_ptr<FontManager> fm);
 
 	void update() override;
 	void handleInput(const KeyCodes &keyCode, const KeyboardEvent &keyboardEvent, Vector2D &mousePos) override;
@@ -18,7 +18,7 @@ public:
 	void start() override;
 
 private:
-	std::shared_ptr<TextureManager> textureManager;
+	std::shared_ptr<FontManager> fontManager;
 	std::string text;
 	std::string font;
 	Colour colour;

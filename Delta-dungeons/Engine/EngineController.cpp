@@ -6,12 +6,16 @@
 EngineController::EngineController()
 {
 	collision = std::make_shared<Collision>();
-	assetManager = std::make_shared<AssetManager>();
+	textureAssetManager = std::make_shared<TextureAssetManager>();
+	fontAssetManager = std::make_shared<FontAssetManager>();
+	audioAssetManager = std::make_shared<AudioAssetManager>();
+
 	renderFacade = std::make_shared<RenderFacade>(staticPassCameraDimensionFunction, this);
-	textureManager = std::make_shared<TextureManager>(renderFacade, assetManager);
+	textureManager = std::make_shared<TextureManager>(renderFacade, textureAssetManager);
 	input = std::make_shared<Input>(staticInputCallbackFunction, this);
-	audio = std::make_unique<Audio>(assetManager);
-	
+	fontManager = std::make_shared<FontManager>(renderFacade, fontAssetManager);
+	audioManager = std::make_unique<AudioManager>(audioAssetManager);
+
 	initRenderer("Delta Dungeons", 1280, 960, false);
 }
 
@@ -32,7 +36,7 @@ void EngineController::staticPassCameraDimensionFunction(void* p, Transform tran
 	((EngineController*)p)->passCameraDimensionFunction(transform);
 }
 
-void EngineController::passCameraDimensionFunction(Transform &transform)
+void EngineController::passCameraDimensionFunction(Transform& transform)
 {
 	collision->setCameraDimensions(transform);
 }
@@ -74,7 +78,7 @@ void EngineController::inputCallbackFunction(const KeyCodes keyCode, const Keybo
 /// <param name="path">Texture path.</param>
 void EngineController::addTexture(const std::string& name, const std::string& path)
 {
-	assetManager->addTexture(name, path);
+	textureAssetManager->addAsset(name, path);
 }
 
 void EngineController::createCamera(const int x, const int y)const
@@ -101,7 +105,7 @@ void EngineController::startGame()
 		}
 		else
 		{
-			
+
 		}
 		checkTransition();
 		checkGameOver();
@@ -130,7 +134,7 @@ void EngineController::registerScene(const std::string& sceneName, const std::ve
 		else if (dynamic_cast<TextComponent*>(o.get()) != nullptr)
 		{
 			auto ntc = dynamic_cast<TextComponent*>(o.get());
-			ntc->addTextureManager(textureManager);
+			ntc->addFontManager(fontManager);
 			tempObjects.emplace_back(o);
 		}
 		else
@@ -179,7 +183,7 @@ void EngineController::passPlayerPosition(int x, int y)
 void EngineController::registerTextures(const std::map<std::string, std::string> textures) {
 	for (const auto& t : textures)
 	{
-		assetManager->addTexture(t.first, t.second);
+		textureAssetManager->addAsset(t.first, t.second);
 	}
 }
 
@@ -190,14 +194,14 @@ void EngineController::registerTextures(const std::map<std::string, std::string>
 void EngineController::registerFonts(std::map<std::string, std::string> fonts) {
 	for (auto& t : fonts)
 	{
-		assetManager->addFont(t.first, t.second);
+		fontAssetManager->addAsset(t.first, t.second);
 	}
 }
 
 void EngineController::registerAudio(std::map<std::string, std::string> tracks) {
 	for (auto& t : tracks)
 	{
-		assetManager->addAudio(t.first, t.second);
+		audioAssetManager->addAsset(t.first, t.second);
 	}
 }
 
@@ -304,7 +308,7 @@ void EngineController::checkTransition()const
 
 void EngineController::playAudio(const std::string& trackName, bool looped)
 {
-	audio->playAudio(trackName, looped);
+	audioManager->playAudio(trackName, looped);
 }
 
 void EngineController::deleteScene(const std::string& sceneName)
