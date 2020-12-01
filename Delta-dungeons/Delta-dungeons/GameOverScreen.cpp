@@ -15,7 +15,7 @@ GameOverScreen::GameOverScreen()
 
 	// Main menu button
 	std::vector<std::string> possibleButtonTexMainMenu = { "button_exit" };
-	std::shared_ptr<Button> mainMenuButton = std::make_shared<Button>(500, 750, possibleButtonTexMainMenu, staticExitCallbackFunction, this);
+	std::shared_ptr<Button> mainMenuButton = std::make_shared<Button>(512, 750, possibleButtonTexMainMenu, staticExitCallbackFunction, this);
 	this->components.emplace_back(mainMenuButton);
 
 	Colour color = { 255, 255, 255, 255 };

@@ -105,11 +105,12 @@ void InputWrapper::handleKeyPressed(const bool isPaused)
 	{
 		func(pointer, KeyCodes::KEY_P, KeyboardEvent::KEY_PRESSED, mousePosition);
 	}
-	else if (event.key.keysym.sym == SDLK_ESCAPE)
+
+	if (event.key.keysym.sym == SDLK_ESCAPE)
 	{
 		func(pointer, KeyCodes::KEY_ESC, KeyboardEvent::KEY_PRESSED, mousePosition);
 	}
-	else if (event.key.keysym.sym == SDLK_BACKSPACE)
+	if (event.key.keysym.sym == SDLK_BACKSPACE)
 	{
 		func(pointer, KeyCodes::KEY_BACKSPACE, KeyboardEvent::KEY_PRESSED, mousePosition);
 	}

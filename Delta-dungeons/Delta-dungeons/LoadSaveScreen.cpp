@@ -20,11 +20,11 @@ LoadSaveScreen::LoadSaveScreen()
 
 
 	std::vector<std::string> possibleButtonTexLoad = { "button_load" };
-	std::unique_ptr<Button> load1Button = std::make_unique<Button>(500, 200, possibleButtonTexLoad, staticLoad1CallbackFunction, this);
+	std::unique_ptr<Button> load1Button = std::make_unique<Button>(512, 200, possibleButtonTexLoad, staticLoad1CallbackFunction, this);
 	this->components.emplace_back(std::move(load1Button));
 
 	std::vector<std::string> possibleButtonTexExit = { "button_back" };
-	std::unique_ptr<Button> exitButton = std::make_unique<Button>(500, 780, possibleButtonTexExit, staticBackCallbackFunction, this);
+	std::unique_ptr<Button> exitButton = std::make_unique<Button>(512, 850, possibleButtonTexExit, staticBackCallbackFunction, this);
 	this->components.emplace_back(std::move(exitButton));
 }
 

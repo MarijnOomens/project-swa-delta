@@ -13,7 +13,7 @@ HelpScreen::HelpScreen()
 
 	Colour color = { 0, 0, 0, 255 };
 	std::unique_ptr<TextComponent> helpText = std::make_unique<TextComponent>("Help screen", "joystix", color, 64);
-	helpText->transform.position = { 390, 20 };
+	helpText->transform.position = { 370, 20 };
 	this->components.emplace_back(std::move(helpText));
 
 	std::unique_ptr<TextComponent> helpMove = std::make_unique<TextComponent>("Use arrow keys or W, A, S and D to move your character.", "joystix", color, 25);
@@ -49,7 +49,7 @@ HelpScreen::HelpScreen()
 	this->components.emplace_back(std::move(helpGameOver));
 
 	std::vector<std::string> possibleButtonTexExit = { "button_back" };
-	std::unique_ptr<Button> exitButton = std::make_unique<Button>(500, 780, possibleButtonTexExit, staticBackCallbackFunction, this);
+	std::unique_ptr<Button> exitButton = std::make_unique<Button>(512, 850, possibleButtonTexExit, staticBackCallbackFunction, this);
 	this->components.emplace_back(std::move(exitButton));
 }
 

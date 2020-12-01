@@ -21,22 +21,22 @@ MainMenu::MainMenu()
 
 	// Play button
 	std::vector<std::string> possibleButtonTexPlay = { "button_play" };
-	std::unique_ptr<Button> playButton = std::make_unique<Button>(500, 230, possibleButtonTexPlay, staticOpenGameCallbackFunction, this);
+	std::unique_ptr<Button> playButton = std::make_unique<Button>(512, 230, possibleButtonTexPlay, staticOpenGameCallbackFunction, this);
 	this->components.emplace_back(std::move(playButton));
 
 	// Credits button
 	std::vector<std::string> possibleButtonTexCredits = { "button_credits" };
-	std::unique_ptr<Button> creditsButton = std::make_unique<Button>(500, 360, possibleButtonTexCredits, staticOpenCreditsCallbackFunction, this);
+	std::unique_ptr<Button> creditsButton = std::make_unique<Button>(512, 360, possibleButtonTexCredits, staticOpenCreditsCallbackFunction, this);
 	this->components.emplace_back(std::move(creditsButton));
 
 	// Help button
 	std::vector<std::string> possibleButtonTexHelp = { "button_help" };
-	std::unique_ptr<Button> helpButton = std::make_unique<Button>(500, 490, possibleButtonTexHelp, staticOpenHelpCallbackFunction, this);
+	std::unique_ptr<Button> helpButton = std::make_unique<Button>(512, 490, possibleButtonTexHelp, staticOpenHelpCallbackFunction, this);
 	this->components.emplace_back(std::move(helpButton));
 
 	// Exit button
 	std::vector<std::string> possibleButtonTexExit = { "button_exit" };
-	std::unique_ptr<Button> exitButton = std::make_unique<Button>(500, 620, possibleButtonTexExit, staticExitCallbackFunction, this);
+	std::unique_ptr<Button> exitButton = std::make_unique<Button>(512, 620, possibleButtonTexExit, staticExitCallbackFunction, this);
 	this->components.emplace_back(std::move(exitButton));
 
 	// Advertisement
@@ -62,10 +62,6 @@ void MainMenu::handleInput(const KeyCodes &keyCode, const KeyboardEvent &keyboar
 		{
 			SceneLoader::getInstance().loadScene("CreditScreen", "MainMenu", false);
 		}
-		else if (keyCode == KeyCodes::KEY_BACKSPACE)
-		{
-			SceneLoader::getInstance().loadPreviousScene();
-		}
 		else if (keyCode == KeyCodes::KEY_H)
 		{
 			SceneLoader::getInstance().loadScene("HelpScreen", "MainMenu", false);
@@ -80,7 +76,7 @@ void MainMenu::staticOpenGameCallbackFunction(const void* p)
 
 void MainMenu::openGameCallbackFunction() const
 {
-	SceneLoader::getInstance().loadScene("LoadSaveScreen", "MainMenu", false);
+	SceneLoader::getInstance().loadScene("LoadSaveScreen", "MainMenu", true);
 }
 
 void MainMenu::staticOpenCreditsCallbackFunction(const void* p) 
