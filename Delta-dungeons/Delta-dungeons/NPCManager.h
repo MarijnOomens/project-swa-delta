@@ -13,7 +13,7 @@ class NPCManager
 {
 public:
 	std::vector<std::string> trainerList;
-	std::map<std::string, std::shared_ptr<InteractiveObject>> npcs;
+	std::map<std::string, std::shared_ptr<IInteractiveObject>> npcs;
 
 	NPCManager();
 	~NPCManager() {}

@@ -2,7 +2,7 @@
 
 #include "IEquipment.h"
 #include "Boomerang.h"
-#include "InteractiveObject.h"
+#include "IInteractiveObject.h"
 #include "GraphicsComponent.h"
 #include "CollidingComponent.h"
 #include "RunningShoes.h"
@@ -16,7 +16,7 @@ typedef void(*cbHUD) (void*, bool);
 typedef void(*cbCollision) (void*, std::shared_ptr<BehaviourObject>, int, int, KeyCodes, int);
 typedef void(*cbNextLevel) (void*);
 
-class Player : public InteractiveObject, public std::enable_shared_from_this<BehaviourObject>
+class Player : public IInteractiveObject, public std::enable_shared_from_this<BehaviourObject>
 {
 public:
 	std::map<std::string, std::string> textures;

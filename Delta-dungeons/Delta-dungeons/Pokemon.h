@@ -1,13 +1,13 @@
 #pragma once
 
-#include "InteractiveObject.h"
+#include "IInteractiveObject.h"
 #include "GraphicsComponent.h"
 #include "CollidingComponent.h"
 #include <string>
 #include <map>
 #include "DamageStrategy.h"
 
-class Pokemon : public InteractiveObject
+class Pokemon : public IInteractiveObject
 {
 public:
 	Pokemon(int x, int y, std::string &texture);

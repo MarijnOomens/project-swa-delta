@@ -1,12 +1,12 @@
 #pragma once
-#include "InteractiveObject.h"
+#include "IInteractiveObject.h"
 #include "CollidingComponent.h"
 #include <string>
 #include <map>
 #include <GraphicsComponent.h>
 #include "StopStrategy.h"
 
-class NPC : public InteractiveObject
+class NPC : public IInteractiveObject
 {
 public:
 	NPC(int x, int y, std::string& texture);

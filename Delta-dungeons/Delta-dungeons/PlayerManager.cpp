@@ -6,7 +6,7 @@
 void PlayerManager::createPlayer(const std::string& levelName, cbCollision collisionCb, cbNextLevel nextLevelcb, cbCamera cb, cbInteract interactCB, cbGameOver gameOverCB, cbHUD hudCB, void* p)
 {
     std::unique_ptr<XMLSceneParser> parser = std::make_unique<XMLSceneParser>();
-    std::shared_ptr<ParserData> positionData = parser->getPlayerPosition("Assets/Maps/" + levelName + "/level.xml");
+    std::shared_ptr<ParserData> positionData = parser->getPlayerPosition("Assets/Map/" + levelName + "/level.xml");
 	player = std::make_shared<Player>(std::stoi(positionData->x), std::stoi(positionData->y), collisionCb, nextLevelcb, cb, interactCB, gameOverCB, hudCB, p);
 }
 

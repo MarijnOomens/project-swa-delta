@@ -75,9 +75,6 @@
     <ClCompile Include="Pokeball.cpp">
       <Filter>Source Files\Game\GameObjects\Items</Filter>
     </ClCompile>
-    <ClCompile Include="InteractiveObject.cpp">
-      <Filter>Source Files\Game\GameObjects\InteractiveObjects</Filter>
-    </ClCompile>
     <ClCompile Include="NPC.cpp">
       <Filter>Source Files\Game\GameObjects\InteractiveObjects</Filter>
     </ClCompile>
@@ -153,9 +150,6 @@
     <ClCompile Include="GameObjectBuilder.cpp">
       <Filter>Source Files\Game\GameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="Equipment.cpp">
-      <Filter>Source Files\Game\GameObjects\Items</Filter>
-    </ClCompile>
     <ClCompile Include="DebugUtilities.cpp">
       <Filter>Source Files\Game</Filter>
     </ClCompile>
@@ -182,9 +176,15 @@
     </ClCompile>
     <ClCompile Include="AudioUtilities.cpp">
       <Filter>Source Files</Filter>
-      </ClCompile>
+    </ClCompile>
     <ClCompile Include="LoadSaveScreen.cpp">
       <Filter>Source Files\Game\GameObjects\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="IEquipment.cpp">
+      <Filter>Source Files\Game\GameObjects\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="IInteractiveObject.cpp">
+      <Filter>Source Files\Game\GameObjects\InteractiveObjects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -257,9 +257,6 @@
     <ClInclude Include="Pokeball.h">
       <Filter>Header Files\Game\GameObjects\Items</Filter>
     </ClInclude>
-    <ClInclude Include="InteractiveObject.h">
-      <Filter>Header Files\Game\GameObjects\InteractiveObjects</Filter>
-    </ClInclude>
     <ClInclude Include="Pokemon.h">
       <Filter>Header Files\Game\GameObjects\InteractiveObjects</Filter>
     </ClInclude>
@@ -322,9 +319,12 @@
     </ClInclude>
     <ClInclude Include="AudioUtilities.h">
       <Filter>Header Files</Filter>
-      </ClInclude>
+    </ClInclude>
     <ClInclude Include="LoadSaveScreen.h">
       <Filter>Header Files\Game\GameObjects\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="IInteractiveObject.h">
+      <Filter>Header Files\Game\GameObjects\InteractiveObjects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
