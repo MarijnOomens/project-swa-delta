@@ -1,12 +1,12 @@
-#include "Scene.h"
+#include "World.h"
 
 /// <summary>
 /// Scene is where a TileMap can be created.
 /// </summary>
 
-Scene::Scene(int x, int y) : x(x), y(y) {}
+World::World(int x, int y) : x(x), y(y) {}
 
-void Scene::addGraphics(std::string levelName)
+void World::addGraphics(std::string levelName)
 {
 	components.clear();
 	XMLSceneParser xmlSceneParser;
@@ -27,19 +27,19 @@ void Scene::addGraphics(std::string levelName)
 	beats.try_emplace("match", "Assets/Audio/match.ogg");
 }
 
-std::map<std::string, std::string> Scene::passTextures(std::string levelName) const
+std::map<std::string, std::string> World::passTextures(std::string levelName) const
 {
 	std::map<std::string, std::string> texture;
 	texture.try_emplace(levelName, "Assets/Maps/" + levelName + "/tileset.png");
 	return texture;
 }
 
-std::map<std::string, std::string> Scene::passBeats() const
+std::map<std::string, std::string> World::passBeats() const
 {
 	return beats;
 }
 
-void Scene::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos)
+void World::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos)
 {
 	if (keyboardEvent == KeyboardEvent::KEY_PRESSED)
 	{
@@ -66,7 +66,7 @@ void Scene::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEv
 	}
 }
 
-void Scene::update()
+void World::update()
 {
 	if (DebugUtilities::getInstance().isShowingFPS())
 	{
@@ -79,9 +79,9 @@ void Scene::update()
 	}
 }
 
-void Scene::start()
+void World::start()
 {
 	AudioUtilities::getInstance().playAudio("match", true);
 }
 
-void Scene::interact() {}
+void World::interact() {}

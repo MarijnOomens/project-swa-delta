@@ -102,9 +102,6 @@
     <ClCompile Include="HelpScreen.cpp">
       <Filter>Source Files\Game\GameObjects\Screens</Filter>
     </ClCompile>
-    <ClCompile Include="Scene.cpp">
-      <Filter>Source Files\XMLParser</Filter>
-    </ClCompile>
     <ClCompile Include="XMLFacade.cpp">
       <Filter>Source Files\XMLParser</Filter>
     </ClCompile>
@@ -182,9 +179,12 @@
     </ClCompile>
     <ClCompile Include="AudioUtilities.cpp">
       <Filter>Source Files</Filter>
-      </ClCompile>
+    </ClCompile>
     <ClCompile Include="LoadSaveScreen.cpp">
       <Filter>Source Files\Game\GameObjects\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="World.cpp">
+      <Filter>Source Files\Game\GameObjects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -296,9 +296,6 @@
     <ClInclude Include="RunningShoes.h">
       <Filter>Header Files\Game\GameObjects\Items</Filter>
     </ClInclude>
-    <ClInclude Include="Scene.h">
-      <Filter>Header Files\XMLParser</Filter>
-    </ClInclude>
     <ClInclude Include="ParserData.h">
       <Filter>Header Files\XMLParser</Filter>
     </ClInclude>
@@ -322,9 +319,12 @@
     </ClInclude>
     <ClInclude Include="AudioUtilities.h">
       <Filter>Header Files</Filter>
-      </ClInclude>
+    </ClInclude>
     <ClInclude Include="LoadSaveScreen.h">
       <Filter>Header Files\Game\GameObjects\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="World.h">
+      <Filter>Header Files\Game\GameObjects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

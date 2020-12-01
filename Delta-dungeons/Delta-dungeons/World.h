@@ -13,11 +13,11 @@
 #include <sstream>
 #include "AudioUtilities.h"
 
-class Scene : public GameObject
+class World : public GameObject
 {
 public:
-	Scene() {}
-	Scene(int x, int y);
+	World() {}
+	World(int x, int y);
 
 	void addGraphics(std::string levelName);
 	std::map<std::string, std::string> passTextures(std::string levelName) const;

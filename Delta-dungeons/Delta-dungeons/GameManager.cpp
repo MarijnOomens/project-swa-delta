@@ -12,11 +12,12 @@ GameManager::GameManager()
 	SceneModifier::getInstance().setEngineFacade(engineFacade);
 	AudioUtilities::getInstance().setEngineFacade(engineFacade);
 
+	world = std::make_shared<World>();
+
 	uiManager.createBaseScreens();
 	registerTextures(uiManager.passTextures());
 	registerFonts(uiManager.passFonts());
 	registerAudio(uiManager.passBeats());
-	scene = std::make_shared<Scene>();
 
 	for (auto& o : uiManager.screens)
 	{
@@ -42,11 +43,11 @@ void GameManager::registerBehaviourObjects()
 {
 
 	std::vector<std::shared_ptr<BehaviourObject>> level;
-	for (auto& t : scene->getComponentsRecursive())
+	for (auto& t : world->getComponentsRecursive())
 	{
 		level.emplace_back(t);
 	}
-	level.emplace_back(scene);
+	level.emplace_back(world);
 
 	for (auto& o : npcManager.npcs)
 	{
@@ -128,9 +129,9 @@ void GameManager::createLevel(std::string levelName)
 	}
 	registerTextures(hudManager.passTextures());
 
-	scene->addGraphics(levelName);
-	registerTextures(scene->passTextures(levelName));
-	registerAudio(scene->passBeats());
+	world->addGraphics(levelName);
+	registerTextures(world->passTextures(levelName));
+	registerAudio(world->passBeats());
 
 	eqManager.createEquipment(levelName);
 	registerTextures(eqManager.passTextures());

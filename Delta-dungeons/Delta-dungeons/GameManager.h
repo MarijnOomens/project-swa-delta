@@ -8,7 +8,7 @@
 #include "SceneLoader.h"
 #include "NPCManager.h"
 #include "PokemonManager.h"
-#include "Scene.h"
+#include "World.h"
 #include "DebugUtilities.h"
 #include "SceneModifier.h"
 #include "HUDManager.h"
@@ -46,7 +46,7 @@ public:
 
 private:
 	std::shared_ptr<EngineFacade> engineFacade;
-	std::shared_ptr<Scene> scene;
+	std::shared_ptr<World> world;
 	UIManager uiManager;
 	PlayerManager playerManager;
 	EquipmentManager eqManager;

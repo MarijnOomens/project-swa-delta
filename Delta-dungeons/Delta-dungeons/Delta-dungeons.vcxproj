@@ -196,7 +196,7 @@
     <ClCompile Include="XMLFacade.cpp" />
     <ClCompile Include="XMLParser.cpp" />
     <ClCompile Include="XMLSceneParser.cpp" />
-    <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="World.cpp" />
     <ClCompile Include="Screen.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="UIManager.cpp" />
@@ -244,7 +244,7 @@
     <ClInclude Include="rapidxml_iterators.hpp" />
     <ClInclude Include="rapidxml_print.hpp" />
     <ClInclude Include="rapidxml_utils.hpp" />
-    <ClInclude Include="Scene.h" />
+    <ClInclude Include="World.h" />
     <ClInclude Include="Screen.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="UIManager.h" />
