@@ -57,7 +57,7 @@ void EngineController::staticInputCallbackFunction(void* p, const KeyCodes keyCo
 void EngineController::inputCallbackFunction(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos)
 {
 	sceneManager.setSceneSwitched(false);
-	if (keyCode == KeyCodes::KEY_ESC)
+	if (keyCode == KeyCodes::KEY_F10)
 	{
 		quitGame();
 	}

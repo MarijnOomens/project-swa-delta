@@ -35,7 +35,7 @@ void PauseScreen::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyb
 {
 	if (keyboardEvent == KeyboardEvent::KEY_PRESSED)
 	{
-		if (keyCode == KeyCodes::KEY_P)
+		if (keyCode == KeyCodes::KEY_ESC)
 		{
 			DebugUtilities::getInstance().pauseGame();
 		}

@@ -51,13 +51,13 @@ void Scene::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEv
 		case KeyCodes::KEY_COMMA:
 			DebugUtilities::getInstance().slowDownGame();
 			break;
-		case KeyCodes::KEY_POINT:
+		case KeyCodes::KEY_PERIOD:
 			DebugUtilities::getInstance().speedUpGame();
 			break;
 		case KeyCodes::KEY_SLASH:
 			DebugUtilities::getInstance().resetSpeedGame();
 			break;
-		case KeyCodes::KEY_P:
+		case KeyCodes::KEY_ESC:
 			DebugUtilities::getInstance().pauseGame();
 			break;
 		default:
