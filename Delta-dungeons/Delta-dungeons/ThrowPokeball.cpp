@@ -55,18 +55,18 @@ void ThrowPokeball::update() {
 	if (isMoving) {
 		if (direction == "up") {
 			updateTransform(transform.position.x, transform.position.y - 16);
-			tFunc(gameMangerPointer, shared_from_this(), transform.position.x, transform.position.y, KeyCodes::KEY_UP, 128);
+			tFunc(gameMangerPointer, cc, transform.position.x, transform.position.y, KeyCodes::KEY_UP, 128);
 		} else 	if (direction == "down") {
 			updateTransform(transform.position.x, transform.position.y + 16);
-			tFunc(gameMangerPointer, shared_from_this(), transform.position.x, transform.position.y, KeyCodes::KEY_DOWN, 128);
+			tFunc(gameMangerPointer, cc, transform.position.x, transform.position.y, KeyCodes::KEY_DOWN, 128);
 
 		} else if (direction == "left") {
 			updateTransform(transform.position.x - 16, transform.position.y);
-			tFunc(gameMangerPointer, shared_from_this(), transform.position.x, transform.position.y, KeyCodes::KEY_LEFT, 128);
+			tFunc(gameMangerPointer, cc, transform.position.x, transform.position.y, KeyCodes::KEY_LEFT, 128);
 
 		} else if (direction == "right") {
 			updateTransform(transform.position.x + 16, transform.position.y);
-			tFunc(gameMangerPointer, shared_from_this(), transform.position.x, transform.position.y, KeyCodes::KEY_RIGHT, 128);
+			tFunc(gameMangerPointer, cc, transform.position.x, transform.position.y, KeyCodes::KEY_RIGHT, 128);
 		}
 	}
 }
@@ -77,4 +77,6 @@ void ThrowPokeball::updateTransform(int x, int y) {
 	cc->transform = transform;
 }
 
-void ThrowPokeball::setParent() {}
+void ThrowPokeball::setParent() {
+	cc->parent = shared_from_this();
+}

@@ -23,6 +23,7 @@ public:
 	void moveRight(int x, int y);
 	void updateTransform(int x, int y);
 
+	std::shared_ptr<CollidingComponent> cc;
 private:
 	cbSentPokemon func;
 	cbThrowCollision tFunc;
@@ -33,6 +34,6 @@ private:
 	std::string direction;
 	std::shared_ptr<GraphicsComponent> gc;
 	std::shared_ptr<CollisionStrategy> stp;
-	std::shared_ptr<CollidingComponent> cc;
+	
 
 };

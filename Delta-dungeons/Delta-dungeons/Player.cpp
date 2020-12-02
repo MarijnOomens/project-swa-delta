@@ -18,7 +18,7 @@ Player::Player(int spawnX, int spawnY, cbCollision collisionCB, cbThrowCollision
 	std::unique_ptr<Boomerang> boomerang = std::make_unique<Boomerang>(textureBoomerang,staticBoomerangCallbackFunction, this);
 	std::unique_ptr<RunningShoes> running = std::make_unique<RunningShoes>(staticRunningShoesCallbackFunction, this, textureRunning);
 	pokeball = std::make_shared<ThrowPokeball>(throwCB, staticPokeballCallbackFunction, this, p);
-
+	pokeball->setParent();
 
 	addEquipment(std::move(running));
 	addEquipment(std::move(boomerang));
@@ -409,16 +409,16 @@ void Player::usePokeball() {
 		amountOfPokeballs--;
 		hudFunc(pointer, health, amountOfBerries, amountOfPokeballs);
 		if (currentDirection == KeyCodes::KEY_UP || currentDirection == KeyCodes::KEY_W) {
-			pokeball->moveUp(transform.position.x, transform.position.y + 16);
+			pokeball->moveUp(transform.position.x, transform.position.y - 128);
 		}
 		else if(currentDirection == KeyCodes::KEY_DOWN || currentDirection == KeyCodes::KEY_S) {
-			pokeball->moveDown(transform.position.x, transform.position.y - 16);
+			pokeball->moveDown(transform.position.x, transform.position.y + 128);
 		}
 		else if (currentDirection == KeyCodes::KEY_LEFT || currentDirection == KeyCodes::KEY_A) {
-			pokeball->moveLeft(transform.position.x - 16, transform.position.y);
+			pokeball->moveLeft(transform.position.x - 128, transform.position.y);
 		}
 		else if(currentDirection == KeyCodes::KEY_RIGHT || currentDirection == KeyCodes::KEY_D) {
-			pokeball->moveRight(transform.position.x + 16, transform.position.y);
+			pokeball->moveRight(transform.position.x + 128, transform.position.y);
 		}
 	}
 }
