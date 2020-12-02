@@ -30,7 +30,7 @@ std::shared_ptr<Pokemon> GameObjectBuilder::getPokemon(int x, int y, std::string
 /// <param name="y">Correct y of equipment</param>
 /// <param name="name">Name of Equipment.</param>
 /// <returns>Correct Equipment object.</returns>
-std::shared_ptr<IEquipment> GameObjectBuilder::getEquipment(int x, int y, std::string name)
+std::shared_ptr<IEquipment> GameObjectBuilder::getEquipment(int x, int y, const std::string& name, const std::string& levelName)
 {
 	if (name == "pokeball")
 	{
@@ -55,5 +55,11 @@ std::shared_ptr<IEquipment> GameObjectBuilder::getEquipment(int x, int y, std::s
 		std::shared_ptr<Boomerang> boomerang = std::make_shared<Boomerang>(x, y, name);
 		boomerang->textures.try_emplace(name, "Assets/Equipment/" + name + ".png");
 		return boomerang;
+	}
+	else if (name == "medal")
+	{
+		std::shared_ptr<Medal> medal = std::make_shared<Medal>(x, y, name);
+		medal->textures.try_emplace(name, "Assets/Equipment/" + name + "_" + levelName +".png");
+		return medal;
 	}
 }
