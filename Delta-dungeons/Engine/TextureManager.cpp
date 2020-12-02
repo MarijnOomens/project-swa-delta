@@ -13,8 +13,6 @@ TextureManager::TextureManager(std::shared_ptr<RenderFacade> rf, std::shared_ptr
 	renderFacade = rf;
 }
 
-void TextureManager::loadTexture() {}
-
 /// <summary>
 /// gets the path of the texture and passes it onto the renderFacade.
 /// </summary>
