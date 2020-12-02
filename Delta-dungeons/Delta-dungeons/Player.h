@@ -77,6 +77,7 @@ public:
 	int maxHealth = 5;
 	int amountOfBerries = 0;
 	int amountOfPokeballs = 20;	
+	int amountOfPokemons = 0;
 private:
 	const int animationSpeed = 130;
 	int amountCaught = 0;

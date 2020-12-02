@@ -28,6 +28,7 @@ void ThrowPokeball::interact(std::shared_ptr<BehaviourObject> interactor) {
 	if (object != nullptr) {
 		std::cout << "Hit a pokemon! " << std::endl;
 		object->catchPokemon();
+		func(playerPointer);
 	}
 	reset();
 }
