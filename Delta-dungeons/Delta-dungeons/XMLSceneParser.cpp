@@ -42,11 +42,16 @@ std::vector<std::shared_ptr<PokemonParserData>> XMLSceneParser::loadPokemon(cons
 {
 	return facade.loadPokemon(path);
 }
+
+std::vector<std::string> XMLSceneParser::loadNPC(const std::string& path)
+{
+	return facade.loadNPC(path);
+}
+
 /// <summary>
 ///  Gets the ParserData only for equipment.
 /// </summary>
 /// <returns> A list with parserdata for equipment only.</returns>
-
 std::vector<std::shared_ptr<ParserData>> XMLSceneParser::getEquipmentDataList(const std::string& path)
 {
 	return facade.getEquipmentDataList(path);

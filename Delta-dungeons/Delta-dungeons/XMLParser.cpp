@@ -82,11 +82,29 @@ std::vector<std::shared_ptr<PokemonParserData>> XMLParser::loadPokemon(const std
 
 	return parserDataList;
 }
+
+std::vector<std::string> XMLParser::loadNPC(const std::string& path)
+{
+	std::vector<std::string> parserDataList;
+
+	rapidxml::file<> xmlFile(path.c_str());
+	rapidxml::xml_document<> doc;
+
+	doc.parse<0>(xmlFile.data());
+	xml_node<>* node = doc.first_node("NPCs");
+
+	for (xml_node<>* npc = node->first_node(); npc; npc = npc->next_sibling())
+	{
+		parserDataList.emplace_back(npc->first_attribute("name")->value());
+	}
+
+	return parserDataList;
+}
+
 /// <summary>
 ///  Gets the ParserData only for equipment.
 /// </summary>
 /// <returns> A list with parserdata for NPCs only.</returns>
-
 std::vector<std::shared_ptr<ParserData>> XMLParser::getEquipmentDataList(const std::string& path)
 {
 	std::vector<std::shared_ptr<ParserData>> equipmentDataList;

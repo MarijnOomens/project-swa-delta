@@ -12,8 +12,8 @@
 class NPCManager
 {
 public:
-	std::vector<std::string> trainerList;
 	std::map<std::string, std::shared_ptr<IInteractiveObject>> npcs;
+	std::vector<std::string> parsedNpcs;
 
 	NPCManager();
 	~NPCManager() {}
@@ -22,7 +22,7 @@ public:
 	std::map<std::string, std::string> passTextures() const;
 
 	void addTrainers();
-	std::string getRandomNPC();
+	int getRandomNPC();
 private:
 	std::shared_ptr<GameObjectBuilder> builder;
 };
