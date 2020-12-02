@@ -404,7 +404,7 @@ void Player::addBerry() {
 
 void Player::usePokeball() {
 
-	if (amountOfPokeballs > 0) 
+	if (amountOfPokeballs > 0 && !pokeball->isMoving) 
 	{
 		amountOfPokeballs--;
 		hudFunc(pointer, health, amountOfBerries, amountOfPokeballs);

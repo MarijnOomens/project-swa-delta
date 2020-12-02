@@ -49,6 +49,7 @@ void Collision::checkCollision(std::shared_ptr<BehaviourObject> collider, int x,
 }
 
 void Collision::checkProjectileCollision(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction, int w) {
+	auto col1 = dynamic_cast<CollidingComponent*>(collider.get());
 	if (
 		collider->transform.position.x + 128 >= cameraX &&
 		1280 + cameraX >= collider->transform.position.x &&
@@ -56,7 +57,6 @@ void Collision::checkProjectileCollision(std::shared_ptr<BehaviourObject> collid
 		cameraY + 1024 >= collider->transform.position.y
 		)
 	{
-		auto col1 = dynamic_cast<CollidingComponent*>(collider.get());
 		
 		for (auto collider2 : colliderObjects)
 		{
@@ -75,13 +75,13 @@ void Collision::checkProjectileCollision(std::shared_ptr<BehaviourObject> collid
 					y + w > col2->transform.position.y &&
 					col2->transform.position.y + w > y)
 				{
-					std::cout << "HIT" << std::endl;
+					col1->parent->interact(col2->parent);
 					break;
 				}
 			}
 		}
 	}
 	else {
-		std::cout << "OUT OF RANGEEEEE" << std::endl;
+		col1->parent->interact(nullptr);
 	}
 }

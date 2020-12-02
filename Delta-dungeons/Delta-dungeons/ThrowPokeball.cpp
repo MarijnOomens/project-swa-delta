@@ -23,7 +23,13 @@ ThrowPokeball::ThrowPokeball(const cbThrowCollision tF, const cbSentPokemon f, v
 	this->components.emplace_back(cc);
 }
 
-void ThrowPokeball::interact(std::shared_ptr<BehaviourObject> interactor) {}
+void ThrowPokeball::interact(std::shared_ptr<BehaviourObject> interactor) {
+	auto object = dynamic_cast<Pokemon*>(interactor.get());
+	if (object != nullptr) {
+		std::cout << "Hit a pokemon! " << std::endl;
+	}
+	reset();
+}
 
 void ThrowPokeball::moveUp(int x, int y) {
 	updateTransform(x, y);
@@ -75,6 +81,12 @@ void ThrowPokeball::updateTransform(int x, int y) {
 	this->transform.position = { x, y };
 	gc->transform = transform;
 	cc->transform = transform;
+}
+
+void ThrowPokeball::reset() {
+	updateTransform(-10, -10);
+	isMoving = false;
+	direction = "";
 }
 
 void ThrowPokeball::setParent() {

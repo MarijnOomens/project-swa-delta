@@ -3,6 +3,7 @@
 #include "IEquipment.h"
 #include "GraphicsComponent.h"
 #include "StopStrategy.h"
+#include "Pokemon.h"
 
 typedef void(*cbSentPokemon) (void*);
 typedef void(*cbThrowCollision) (void*, std::shared_ptr<BehaviourObject>, int, int, KeyCodes, int);
@@ -22,18 +23,18 @@ public:
 	void moveLeft(int x, int y);
 	void moveRight(int x, int y);
 	void updateTransform(int x, int y);
+	void reset();
 
-	std::shared_ptr<CollidingComponent> cc;
+	bool isMoving = false;
 private:
 	cbSentPokemon func;
 	cbThrowCollision tFunc;
 	void* playerPointer;
 	void* gameMangerPointer;
 
-	bool isMoving;
 	std::string direction;
 	std::shared_ptr<GraphicsComponent> gc;
+	std::shared_ptr<CollidingComponent> cc;	
 	std::shared_ptr<CollisionStrategy> stp;
 	
-
 };
