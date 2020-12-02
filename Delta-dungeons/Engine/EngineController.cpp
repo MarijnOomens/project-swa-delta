@@ -57,7 +57,7 @@ void EngineController::staticInputCallbackFunction(void* p, const KeyCodes keyCo
 void EngineController::inputCallbackFunction(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos)
 {
 	sceneManager.setSceneSwitched(false);
-	if (keyCode == KeyCodes::KEY_ESC)
+	if (keyCode == KeyCodes::KEY_F10)
 	{
 		quitGame();
 	}
@@ -99,10 +99,7 @@ void EngineController::startGame()
 			renderFacade->beforeFrame();
 			sceneManager.update();
 		}
-		else
-		{
-			
-		}
+
 		checkTransition();
 		checkGameOver();
 		renderFacade->afterFrame();
@@ -155,6 +152,10 @@ void EngineController::loadScene(const std::string& sceneName, const std::string
 void EngineController::loadPreviousScene()
 {
 	sceneManager.loadPreviousScene();
+	if (!sceneManager.isOverlayScene)
+	{
+		transitionScene();
+	}
 }
 
 void EngineController::addOverlayScene(const std::string& sceneName)
@@ -207,13 +208,11 @@ void EngineController::pauseScreen()
 	{
 		renderFacade->pauseGame();
 		loadPreviousScene();
-		playAudio("zagadka", true);
 	}
 	else if (!renderFacade->renderer->isPaused)
 	{
 		renderFacade->pauseGame();
 		addOverlayScene("PauseScreen");
-		playAudio("touch", true);
 	}
 }
 

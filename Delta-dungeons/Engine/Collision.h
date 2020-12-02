@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 #include "CollidingComponent.h"
-#include "InteractiveObject.h"
+#include "IInteractiveObject.h"
 
 class Collision {
 public:

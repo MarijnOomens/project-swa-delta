@@ -1,9 +1,9 @@
 #pragma once
 
-#include "InteractiveObject.h"
+#include "IInteractiveObject.h"
 #include <string>
 
-class PuzzleObject : InteractiveObject
+class PuzzleObject : IInteractiveObject
 {
 protected:
 	std::string sfxPath;

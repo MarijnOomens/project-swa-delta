@@ -15,12 +15,12 @@ enum class KeyCodes {
 	KEY_B,
 	KEY_G,
 	KEY_C,
-	KEY_P,
 	KEY_H,
 	KEY_COMMA,
-	KEY_POINT,
+	KEY_PERIOD,
 	KEY_SLASH,
 	KEY_BACKSPACE,
 	KEY_TAB,
+	KEY_F10,
 	MOUSE
 };

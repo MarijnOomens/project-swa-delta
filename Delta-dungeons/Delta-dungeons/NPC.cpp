@@ -1,6 +1,6 @@
 #include "NPC.h"
 
-NPC::NPC(int x, int y, std::string &texture) 
+NPC::NPC(int x, int y, std::string& texture)
 {
 	this->transform.position = { x * 128, y * 128 };
 	this->transform.scale.multiply({ 4, 4 });
@@ -26,6 +26,4 @@ void NPC::setParent() {
 	cc->parent = shared_from_this();
 }
 
-void NPC::registerCollision(int x, int y, bool isDamaged, bool isTransitioned) {
-
-}
+void NPC::registerCollision(int x, int y, bool isDamaged, bool isTransitioned) {}

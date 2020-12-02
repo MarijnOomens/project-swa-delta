@@ -163,7 +163,7 @@
     <ClCompile Include="CreditScreen.cpp" />
     <ClCompile Include="DebugUtilities.cpp" />
     <ClCompile Include="DialoguePopup.cpp" />
-    <ClCompile Include="Equipment.cpp" />
+    <ClCompile Include="IEquipment.cpp" />
     <ClCompile Include="EquipmentManager.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameObjectBuilder.cpp" />
@@ -174,7 +174,7 @@
     <ClCompile Include="HUDManager.cpp" />
     <ClCompile Include="IEquipment.h" />
     <ClCompile Include="InteractiveManager.cpp" />
-    <ClCompile Include="InteractiveObject.cpp" />
+    <ClCompile Include="IInteractiveObject.cpp" />
     <ClCompile Include="LoadSaveScreen.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="NPC.cpp" />
@@ -233,7 +233,7 @@
     <ClInclude Include="XMLParser.h" />
     <ClInclude Include="XMLSceneParser.h" />
     <ClInclude Include="InteractiveManager.h" />
-    <ClInclude Include="InteractiveObject.h" />
+    <ClInclude Include="IInteractiveObject.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="NPC.h" />
     <ClInclude Include="PauseScreen.h" />

@@ -1,14 +1,14 @@
 #pragma once
 
 #include <vector>
-#include "InteractiveObject.h"
+#include "IInteractiveObject.h"
 
 class InteractiveManager {
 public:
 	void createBaseInteractive();
 
 private:
-	std::vector<InteractiveObject> pokemon;
-	std::vector<InteractiveObject> NPC;
-	std::vector<InteractiveObject> puzzleObjects;
+	std::vector<IInteractiveObject> pokemon;
+	std::vector<IInteractiveObject> NPC;
+	std::vector<IInteractiveObject> puzzleObjects;
 };

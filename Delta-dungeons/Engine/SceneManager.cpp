@@ -2,14 +2,18 @@
 
 void SceneManager::update()
 {
-	for (const auto& bo : scenes[currentScene])
+	for (const auto& s : activeScenes)
 	{
-		bo->update();
+		for (const auto& bo : scenes[s])
+		{
+			bo->update();
+		}
 	}
 }
 
 void SceneManager::loadScene(const std::string& sceneName, const std::string& fromScene, const bool clearPrevious)
 {
+	isOverlayScene = false;
 	currentScene = sceneName;
 
 	if (clearPrevious)
@@ -53,6 +57,7 @@ void SceneManager::loadPreviousScene()
 void SceneManager::addOverlayScene(const std::string& sceneName)
 {
 	isSceneSwitched = true;
+	isOverlayScene = true;
 
 	activeScenes.push_back(sceneName);
 	currentScene = sceneName;

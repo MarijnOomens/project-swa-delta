@@ -2,7 +2,7 @@
 
 #include "IEquipment.h"
 #include "Boomerang.h"
-#include "InteractiveObject.h"
+#include "IInteractiveObject.h"
 #include "GraphicsComponent.h"
 #include "CollidingComponent.h"
 #include "RunningShoes.h"
@@ -18,7 +18,7 @@ typedef void(*cbCollision) (void*, std::shared_ptr<BehaviourObject>, int, int, K
 typedef void(*cbNextLevel) (void*);
 
 
-class Player : public InteractiveObject
+class Player : public IInteractiveObject
 {
 public:
 	std::map<std::string, std::string> textures;
@@ -80,6 +80,7 @@ public:
 private:
 	const int animationSpeed = 130;
 	int amountCaught = 0;
+	int health;
 	int baseMovementSpeed;
 	int x, y;
 	int count;

@@ -8,11 +8,12 @@
 
 class SceneManager {
 public:
+	bool isOverlayScene = false;
+
 	SceneManager() {}
 	~SceneManager() {}
 
 	void update();
-	void transition();
 	void loadScene(const std::string& sceneName,const std::string& fromScene,const bool clearPrevious);
 	void registerScene(const std::string& sceneName, const std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects);
 	void loadPreviousScene();
