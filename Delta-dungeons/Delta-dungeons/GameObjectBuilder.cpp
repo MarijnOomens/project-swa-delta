@@ -58,8 +58,8 @@ std::shared_ptr<IEquipment> GameObjectBuilder::getEquipment(int x, int y, const 
 	}
 	else if (name == "medal")
 	{
-		std::shared_ptr<Medal> medal = std::make_shared<Medal>(x, y, name);
-		medal->textures.try_emplace(name, "Assets/Equipment/" + name + "_" + levelName +".png");
+		std::shared_ptr<Medal> medal = std::make_shared<Medal>(x, y, name + levelName);
+		medal->textures.try_emplace(name + levelName , "Assets/Equipment/" + name + "_" + levelName + ".png");
 		return medal;
 	}
 }

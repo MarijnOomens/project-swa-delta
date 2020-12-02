@@ -34,7 +34,7 @@ std::vector<std::shared_ptr<ParserData>> XMLParser::parseXML(const std::string& 
 			}
 		}
 
-		if (layerName == "collision")
+		if (layerName == "collider")
 		{
 			for (xml_node<>* tile = layer->first_node(); tile; tile = tile->next_sibling())
 			{
@@ -118,7 +118,7 @@ std::vector<std::shared_ptr<ParserData>> XMLParser::getEquipmentDataList(const s
 	for (xml_node<>* layer = node->first_node(); layer; layer = layer->next_sibling())
 	{
 		std::string layerName = layer->first_attribute("name")->value();
-		if (layerName == "collision")
+		if (layerName == "collider")
 		{
 			for (xml_node<>* tile = layer->first_node(); tile; tile = tile->next_sibling())
 			{
@@ -151,7 +151,7 @@ std::vector<std::shared_ptr<ParserData>> XMLParser::getNPCDataList(const std::st
 	for (xml_node<>* layer = node->first_node(); layer; layer = layer->next_sibling())
 	{
 		std::string layerName = layer->first_attribute("name")->value();
-		if (layerName == "collision")
+		if (layerName == "collider")
 		{
 			for (xml_node<>* tile = layer->first_node(); tile; tile = tile->next_sibling())
 			{
@@ -184,7 +184,7 @@ std::shared_ptr<ParserData> XMLParser::getPlayerPosition(const std::string& path
 	for (xml_node<>* layer = node->first_node(); layer; layer = layer->next_sibling())
 	{
 		std::string layerName = layer->first_attribute("name")->value();
-		if (layerName == "collision")
+		if (layerName == "collider")
 		{
 			for (xml_node<>* tile = layer->first_node(); tile; tile = tile->next_sibling())
 			{
