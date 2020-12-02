@@ -146,7 +146,6 @@ void GameManager::passCollisionCheck(std::shared_ptr<BehaviourObject> collider, 
 	engineFacade->passCollisionCheck(collider, x, y, direction, w);
 }
 
-
 void GameManager::staticThrowCollisionCallbackFunction(void* p, std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction, int w)
 {
 	((GameManager*)p)->throwCollisionCheck(collider, x, y, direction, w);

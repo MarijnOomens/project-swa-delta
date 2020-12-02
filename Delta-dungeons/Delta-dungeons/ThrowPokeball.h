@@ -11,7 +11,7 @@ class ThrowPokeball : public IEquipment
 {
 public:
 	ThrowPokeball() {}
-	ThrowPokeball(const cbThrowCollision tF, const cbSentPokemon f, void* p);
+	ThrowPokeball(const cbThrowCollision tF, const cbSentPokemon f, void* p, void* g);
 
 	void interact(std::shared_ptr<BehaviourObject> interactor) override;
 	void use() override;
@@ -26,7 +26,8 @@ public:
 private:
 	cbSentPokemon func;
 	cbThrowCollision tFunc;
-	void* pointer;
+	void* playerPointer;
+	void* gameMangerPointer;
 
 	bool isMoving;
 	std::string direction;

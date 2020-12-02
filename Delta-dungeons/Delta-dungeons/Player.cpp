@@ -17,7 +17,7 @@ Player::Player(int spawnX, int spawnY, cbCollision collisionCB, cbThrowCollision
 	std::string textureRunning = "runningshoesHUD";
 	std::unique_ptr<Boomerang> boomerang = std::make_unique<Boomerang>(textureBoomerang,staticBoomerangCallbackFunction, this);
 	std::unique_ptr<RunningShoes> running = std::make_unique<RunningShoes>(staticRunningShoesCallbackFunction, this, textureRunning);
-	pokeball = std::make_shared<ThrowPokeball>(throwCB, staticPokeballCallbackFunction, this);
+	pokeball = std::make_shared<ThrowPokeball>(throwCB, staticPokeballCallbackFunction, this, p);
 
 
 	addEquipment(std::move(running));

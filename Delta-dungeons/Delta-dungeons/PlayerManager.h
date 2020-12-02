@@ -10,7 +10,6 @@ typedef void(*cbGameOver) (void*);
 typedef void(*cbHUD) (void*, int, int, int);
 typedef void(*cbCollision) (void*, std::shared_ptr<BehaviourObject>, int, int, KeyCodes, int);
 typedef void(*cbThrowCollision) (void*, std::shared_ptr<BehaviourObject>, int, int, KeyCodes, int);
-
 typedef void(*cbNextLevel) (void*);
 
 class PlayerManager
