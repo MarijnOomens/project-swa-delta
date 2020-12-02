@@ -27,6 +27,7 @@ void ThrowPokeball::interact(std::shared_ptr<BehaviourObject> interactor) {
 	auto object = dynamic_cast<Pokemon*>(interactor.get());
 	if (object != nullptr) {
 		std::cout << "Hit a pokemon! " << std::endl;
+		object->catchPokemon();
 	}
 	reset();
 }

@@ -20,9 +20,24 @@ Pokemon::Pokemon(int x, int y, std::string& texture)
 	this->components.emplace_back(cc);
 }
 
+void Pokemon::catchPokemon () {
+
+	this->transform.position = { -10, -10 };
+	gc->transform = transform;
+	cc->transform = transform;
+		
+	//SceneModifier::getInstance().deleteObjectFromScene(gc);
+	SceneModifier::getInstance().deleteColliderFromScene(cc);
+	
+}
+
+
+
 void Pokemon::interact(std::shared_ptr<BehaviourObject> interactor)
 {
 
+	//auto col = dynamic_cast<Player*>(interactor.get());
+	//col->addBerry();
 }
 
 void Pokemon::setParent() {

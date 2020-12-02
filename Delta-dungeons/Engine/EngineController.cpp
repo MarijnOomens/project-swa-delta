@@ -99,7 +99,6 @@ void EngineController::startGame()
 			renderFacade->beforeFrame();
 			sceneManager.update();
 		}
-
 		checkTransition();
 		checkGameOver();
 		renderFacade->afterFrame();
