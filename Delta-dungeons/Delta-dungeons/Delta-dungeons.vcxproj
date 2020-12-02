@@ -178,6 +178,7 @@
     <ClCompile Include="InteractiveObject.cpp" />
     <ClCompile Include="LoadSaveScreen.cpp" />
     <ClCompile Include="MainMenu.cpp" />
+    <ClCompile Include="MainMenuScene.cpp" />
     <ClCompile Include="NPC.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="NPCManager.cpp" />
@@ -191,6 +192,7 @@
     <ClCompile Include="PuzzleObject.cpp" />
     <ClCompile Include="ParserData.cpp" />
     <ClCompile Include="RunningShoes.cpp" />
+    <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneLoader.cpp" />
     <ClCompile Include="SceneModifier.cpp" />
     <ClCompile Include="XMLFacade.cpp" />
@@ -220,10 +222,11 @@
     <ClInclude Include="HUD.h" />
     <ClInclude Include="HUDManager.h" />
     <ClInclude Include="LoadSaveScreen.h" />
+    <ClInclude Include="MainMenuScene.h" />
     <ClInclude Include="NPCManager.h" />
     <ClInclude Include="PokemonManager.h" />
     <ClInclude Include="PokemonParserData.h" />
-    <ClInclude Include="IScene.h" />
+    <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneModifier.h" />
     <ClInclude Include="ParserData.h" />
     <ClInclude Include="PlayerManager.h" />
