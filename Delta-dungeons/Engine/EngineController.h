@@ -22,7 +22,7 @@
 
 class EngineController {
 public:
-	EngineController();
+	EngineController(const std::string& title, int screenWidth, int screenHeight, bool fullScreen);
 	~EngineController() {}
 
 	void initRenderer(const std::string& title, int width, int height, bool fullscreen);

@@ -3,7 +3,7 @@
 /// <summary>
 /// This class has the responsibility of managing different classes in the engine. It communicaties with classes like TextureManager and RenderFacade.
 /// </summary>
-EngineController::EngineController()
+EngineController::EngineController(const std::string& title, int screenWidth, int screenHeight, bool fullScreen)
 {
 	collision = std::make_shared<Collision>();
 	textureAssetManager = std::make_shared<TextureAssetManager>();
@@ -16,7 +16,7 @@ EngineController::EngineController()
 	fontManager = std::make_shared<FontManager>(renderFacade, fontAssetManager);
 	audioManager = std::make_unique<AudioManager>(audioAssetManager);
 
-	initRenderer("Delta Dungeons", 1280, 960, false);
+	initRenderer(title, screenWidth, screenHeight, fullScreen);
 }
 
 /// <summary>

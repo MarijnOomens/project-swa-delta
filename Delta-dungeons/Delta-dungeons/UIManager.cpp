@@ -3,7 +3,7 @@
 /// <summary>
 /// This methods creates all screens needed for the game to run. Examples are the "MainMenu" and "Credits" screens. These are added into a list.
 /// </summary>
-void UIManager::createBaseScreens() 
+void UIManager::createBaseScreens()
 {
 	std::unique_ptr<MainMenu> mainMenu = std::make_unique<MainMenu>();
 	screens.try_emplace("MainMenu", std::move(mainMenu));

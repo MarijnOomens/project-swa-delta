@@ -7,9 +7,9 @@
 /// <summary>
 ///  Init creates a unique EngineController object.
 /// </summary>
-void EngineFacade::init() 
+void EngineFacade::init(const std::string& title, int screenWidth, int screenHeight, bool fullScreen)
 {
-	engineController = std::make_unique<EngineController>();
+	engineController = std::make_unique<EngineController>(title, screenWidth, screenHeight, fullScreen);
 }
 
 /// <summary>

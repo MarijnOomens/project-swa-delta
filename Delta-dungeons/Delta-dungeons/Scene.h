@@ -4,9 +4,11 @@
 #include <vector>
 #include "BehaviourObject.h"
 
-class IScene
+class Scene
 {
 public:
+	std::string name;
+
 	std::vector<std::shared_ptr<BehaviourObject>> getBehaviourObjects();
 	void setBehaviourObjects(std::vector<std::shared_ptr<BehaviourObject>>);
 
