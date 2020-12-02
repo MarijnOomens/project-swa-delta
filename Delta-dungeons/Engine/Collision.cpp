@@ -51,26 +51,34 @@ void Collision::checkCollision(std::shared_ptr<BehaviourObject> collider, int x,
 void Collision::checkProjectileCollision(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction, int w) {
 	
 	//auto col1 = dynamic_cast<CollidingComponent*>(collider2.get());
-
-	for (auto collider2 : colliderObjects)
+	if (
+		collider->transform.position.x + 128 >= cameraX &&
+		1280 + cameraX >= collider->transform.position.x &&
+		collider->transform.position.y + 128 >= cameraY &&
+		cameraY + 1024 >= collider->transform.position.y
+		)
 	{
-		if (
-			collider != collider2 &&
-			collider2->transform.position.x + 128 >= cameraX &&
-			1280 + cameraX >= collider2->transform.position.x &&
-			collider2->transform.position.y + 128 >= cameraY &&
-			cameraY + 1024 >= collider2->transform.position.y
-			)
+
+		for (auto collider2 : colliderObjects)
 		{
-			auto col2 = dynamic_cast<CollidingComponent*>(collider2.get());
-			if (x + w > col2->transform.position.x &&
-				col2->transform.position.x + w > x &&
-				y + w > col2->transform.position.y &&
-				col2->transform.position.y + w > y)
+			if (
+				collider != collider2 &&
+				collider2->transform.position.x + 128 >= cameraX &&
+				1280 + cameraX >= collider2->transform.position.x &&
+				collider2->transform.position.y + 128 >= cameraY &&
+				cameraY + 1024 >= collider2->transform.position.y
+				)
 			{
-				//col2->actCollision(collider, x, y, direction);
-				std::cout << "HIT" << std::endl;
-				break;
+				auto col2 = dynamic_cast<CollidingComponent*>(collider2.get());
+				if (x + w > col2->transform.position.x &&
+					col2->transform.position.x + w > x &&
+					y + w > col2->transform.position.y &&
+					col2->transform.position.y + w > y)
+				{
+					//col2->actCollision(collider, x, y, direction);
+					std::cout << "HIT" << std::endl;
+					break;
+				}
 			}
 		}
 	}

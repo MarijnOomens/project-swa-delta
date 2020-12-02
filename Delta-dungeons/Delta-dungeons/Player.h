@@ -63,7 +63,6 @@ public:
 	static void staticPokeballCallbackFunction(void* p);
 	void pokeballCallbackFunction();
 
-
 	void update() override;
 	void setParent() override;
 	void handleInteraction();
@@ -80,7 +79,6 @@ public:
 private:
 	const int animationSpeed = 130;
 	int amountCaught = 0;
-	int health;
 	int baseMovementSpeed;
 	int x, y;
 	int count;

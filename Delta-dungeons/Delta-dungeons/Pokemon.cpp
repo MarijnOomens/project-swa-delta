@@ -22,6 +22,7 @@ Pokemon::Pokemon(int x, int y, std::string& texture)
 
 void Pokemon::interact(std::shared_ptr<BehaviourObject> interactor)
 {
+
 }
 
 void Pokemon::setParent() {

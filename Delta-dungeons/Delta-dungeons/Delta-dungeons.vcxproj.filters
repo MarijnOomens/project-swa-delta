@@ -325,6 +325,7 @@
     </ClInclude>
     <ClInclude Include="ThrowPokeball.h">
       <Filter>Header Files\Game\GameObjects\Items</Filter>
+    </ClInclude>
     <ClInclude Include="IInteractiveObject.h">
       <Filter>Header Files\Game\GameObjects\InteractiveObjects</Filter>
     </ClInclude>
