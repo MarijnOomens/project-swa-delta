@@ -5,11 +5,12 @@
 #include "StopStrategy.h"
 
 typedef void(*cbSentPokemon) (void*);
+typedef void(*cbThrowCollision) (void*, std::shared_ptr<BehaviourObject>, int, int, KeyCodes, int);
 class ThrowPokeball : public IEquipment
 {
 public:
 	ThrowPokeball() {}
-	ThrowPokeball(const cbSentPokemon f, void* p);
+	ThrowPokeball(const cbThrowCollision tF, const cbSentPokemon f, void* p);
 
 
 	void interact(std::shared_ptr<BehaviourObject> interactor) override;
@@ -24,6 +25,7 @@ public:
 
 private:
 	cbSentPokemon func;
+	cbThrowCollision tFunc;
 	void* pointer;
 
 	bool isMoving;

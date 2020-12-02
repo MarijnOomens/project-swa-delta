@@ -10,14 +10,14 @@
 /// Defines the movementspeed and the runactivated bool
 /// Creates the graphicscomponent for the player sprite and saves the texturename and png location, width, height
 /// </summary>
-Player::Player(int spawnX, int spawnY, cbCollision collisionCB, cbNextLevel nextLevelcb, const cbCamera f, cbInteract interactCB, cbGameOver gameOverF, cbHUD hudCB, void* p)
+Player::Player(int spawnX, int spawnY, cbCollision collisionCB, cbThrowCollision throwCB, cbNextLevel nextLevelcb, const cbCamera f, cbInteract interactCB, cbGameOver gameOverF, cbHUD hudCB, void* p)
 : collisionFunc(collisionCB), nextLevelFunc(nextLevelcb), func(f), interactFunc(interactCB), gameOverFunc(gameOverF), hudFunc(hudCB), pointer(p)
 {
 	std::string textureBoomerang ="boomerangHUD" ;
 	std::string textureRunning = "runningshoesHUD";
 	std::unique_ptr<Boomerang> boomerang = std::make_unique<Boomerang>(textureBoomerang,staticBoomerangCallbackFunction, this);
 	std::unique_ptr<RunningShoes> running = std::make_unique<RunningShoes>(staticRunningShoesCallbackFunction, this, textureRunning);
-	pokeball = std::make_shared<ThrowPokeball>(staticPokeballCallbackFunction, this);
+	pokeball = std::make_shared<ThrowPokeball>(throwCB, staticPokeballCallbackFunction, this);
 
 
 	addEquipment(std::move(running));

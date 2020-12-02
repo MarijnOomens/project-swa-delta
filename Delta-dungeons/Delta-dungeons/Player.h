@@ -15,6 +15,7 @@ typedef void(*cbCamera) (void*, int, int);
 typedef void(*cbGameOver) (void*);
 typedef void(*cbHUD) (void*, int, int, int);
 typedef void(*cbCollision) (void*, std::shared_ptr<BehaviourObject>, int, int, KeyCodes, int);
+typedef void(*cbThrowCollision) (void*, std::shared_ptr<BehaviourObject>, int, int, KeyCodes, int);
 typedef void(*cbNextLevel) (void*);
 
 
@@ -35,7 +36,7 @@ public:
 	KeyCodes currentDirection;
 	void* pointer;
 
-	Player(int spawnX, int spawnY, cbCollision collisionCB, cbNextLevel nextLevelcb, cbCamera f, cbInteract interactCB, cbGameOver gameOverFunc, cbHUD hudCB, void* p);
+	Player(int spawnX, int spawnY, cbCollision collisionCB, cbThrowCollision throwCB, cbNextLevel nextLevelcb, cbCamera f, cbInteract interactCB, cbGameOver gameOverFunc, cbHUD hudCB, void* p);
 
 	void handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
 	void interact(std::shared_ptr<BehaviourObject> interactor) override;

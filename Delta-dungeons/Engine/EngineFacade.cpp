@@ -131,6 +131,10 @@ void EngineFacade::passCollisionCheck(std::shared_ptr<BehaviourObject> collider,
 	engineController->passCollisionCheck(collider, x, y, direction, w);
 }
 
+void EngineFacade::throwCollisionCheck(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction, int w) {
+	engineController->throwCollisionCheck(collider, x, y, direction, w);
+}
+
 void EngineFacade::deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject)
 {
 	engineController->deleteObjectFromScene(deletedObject);

@@ -112,7 +112,7 @@ void GameManager::registerAudio(std::map<std::string, std::string> beats)
 
 void GameManager::createLevel(std::string levelName)
 {
-	playerManager.createPlayer(levelName, staticCheckCollisionCallbackFunction, staticLoadNextLevelCallbackFunction, staticCameraCallbackFunction, staticInteractCallbackFunction, staticGameOverbackFunction, staticUpdateHUDCallbackFunction, this);
+	playerManager.createPlayer(levelName, staticCheckCollisionCallbackFunction, staticThrowCollisionCallbackFunction, staticLoadNextLevelCallbackFunction, staticCameraCallbackFunction, staticInteractCallbackFunction, staticGameOverbackFunction, staticUpdateHUDCallbackFunction, this);
 	registerTextures(playerManager.passTextures());
 
 	npcManager.createNPC(levelName);
@@ -145,6 +145,18 @@ void GameManager::passCollisionCheck(std::shared_ptr<BehaviourObject> collider, 
 {
 	engineFacade->passCollisionCheck(collider, x, y, direction, w);
 }
+
+
+void GameManager::staticThrowCollisionCallbackFunction(void* p, std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction, int w)
+{
+	((GameManager*)p)->throwCollisionCheck(collider, x, y, direction, w);
+}
+
+void GameManager::throwCollisionCheck(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction, int w)
+{
+	engineFacade->throwCollisionCheck(collider, x, y, direction, w);
+}
+
 
 void GameManager::staticCameraCallbackFunction(void* p, int x, int y)
 {

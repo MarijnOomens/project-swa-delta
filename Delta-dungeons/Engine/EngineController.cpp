@@ -265,6 +265,11 @@ void EngineController::passCollisionCheck(std::shared_ptr<BehaviourObject> colli
 	collision->checkCollision(collider, x, y, direction, w);
 }
 
+void EngineController::throwCollisionCheck(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction, int w)
+{
+	collision->checkProjectileCollision(collider, x, y, direction, w);
+}
+
 void EngineController::deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject)
 {
 	sceneManager.deleteObjectFromScene(deletedObject);
