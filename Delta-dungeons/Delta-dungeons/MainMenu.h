@@ -17,6 +17,7 @@ public:
 	MainMenu();
 
 	void start() override;
+	void setParent() override;
 
 	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
 

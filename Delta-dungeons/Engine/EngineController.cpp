@@ -99,7 +99,6 @@ void EngineController::startGame()
 			renderFacade->beforeFrame();
 			sceneManager.update();
 		}
-
 		checkTransition();
 		checkGameOver();
 		renderFacade->afterFrame();
@@ -255,14 +254,19 @@ void EngineController::addObjectToScene(std::shared_ptr<BehaviourObject> addObje
 	}
 }
 
-void EngineController::passInteract(int x, int y)
+void EngineController::passInteract(std::shared_ptr<BehaviourObject> player, int x, int y)
 {
-	sceneManager.passInteract(x, y);
+	sceneManager.passInteract(player, x, y);
 }
 
 void EngineController::passCollisionCheck(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction, int w)
 {
 	collision->checkCollision(collider, x, y, direction, w);
+}
+
+void EngineController::throwCollisionCheck(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction, int w)
+{
+	collision->checkProjectileCollision(collider, x, y, direction, w);
 }
 
 void EngineController::deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject)

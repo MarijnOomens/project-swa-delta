@@ -19,8 +19,11 @@ Pokeball::Pokeball(int x, int y, std::string texture) {
 	this->components.emplace_back(cc);
 }
 
-void Pokeball::interact()
+void Pokeball::interact(std::shared_ptr<BehaviourObject> interactor)
 {
+	auto col = dynamic_cast<Player*>(interactor.get());
+	col->addPokeball();
+
 	if (gc != nullptr) {
 		SceneModifier::getInstance().deleteObjectFromScene(gc);
 		SceneModifier::getInstance().deleteColliderFromScene(cc);
@@ -28,4 +31,9 @@ void Pokeball::interact()
 	}
 }
 
-void Pokeball::use() {}
+void Pokeball::use() {
+}
+
+void Pokeball::setParent() {
+	cc->parent = shared_from_this();
+}

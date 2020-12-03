@@ -84,4 +84,4 @@ void Scene::start()
 	AudioUtilities::getInstance().playAudio("match", true);
 }
 
-void Scene::interact() {}
+void Scene::interact(std::shared_ptr<BehaviourObject> interactor) {}

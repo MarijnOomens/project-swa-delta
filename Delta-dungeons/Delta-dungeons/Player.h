@@ -8,19 +8,24 @@
 #include "RunningShoes.h"
 #include "DebugUtilities.h"
 #include "StopStrategy.h"
+#include "ThrowPokeball.h"
 
-typedef void(*cbInteract) (void*, int, int);
+typedef void(*cbInteract) (void*, std::shared_ptr<BehaviourObject>, int, int);
 typedef void(*cbCamera) (void*, int, int);
 typedef void(*cbGameOver) (void*);
-typedef void(*cbHUD) (void*, bool);
+typedef void(*cbHUD) (void*, int, int, int);
 typedef void(*cbCollision) (void*, std::shared_ptr<BehaviourObject>, int, int, KeyCodes, int);
+typedef void(*cbThrowCollision) (void*, std::shared_ptr<BehaviourObject>, int, int, KeyCodes, int);
 typedef void(*cbNextLevel) (void*);
 
-class Player : public IInteractiveObject, public std::enable_shared_from_this<BehaviourObject>
+
+class Player : public IInteractiveObject
 {
 public:
 	std::map<std::string, std::string> textures;
 	std::string texture;
+
+	std::shared_ptr<ThrowPokeball> pokeball;
 
 	cbCamera func;
 	cbInteract interactFunc;
@@ -31,10 +36,10 @@ public:
 	KeyCodes currentDirection;
 	void* pointer;
 
-	Player(int spawnX, int spawnY, cbCollision collisionCB, cbNextLevel nextLevelcb, cbCamera f, cbInteract interactCB, cbGameOver gameOverFunc, cbHUD hudCB, void* p);
+	Player(int spawnX, int spawnY, cbCollision collisionCB, cbThrowCollision throwCB, cbNextLevel nextLevelcb, cbCamera f, cbInteract interactCB, cbGameOver gameOverFunc, cbHUD hudCB, void* p);
 
 	void handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
-	void interact() override;
+	void interact(std::shared_ptr<BehaviourObject> interactor) override;
 	void registerCollision(int x, int y, bool isDamaged, bool isTransitioned) override;
 	void handleKeyPressed(const KeyCodes& keyCodes);
 	void handleKeyReleased(const KeyCodes& keyCodes);
@@ -56,13 +61,26 @@ public:
 	static void staticRunningShoesCallbackFunction(void* p, const bool runningActivated);
 	void runningShoesCallbackFunction(const bool runningActivated);
 
+	static void staticPokeballCallbackFunction(void* p);
+	void pokeballCallbackFunction();
+
 	void update() override;
+	void setParent() override;
 	void handleInteraction();
 	void registerHit();
+	void eatBerry();
+	void addBerry();
+	void usePokeball();
+	void addPokeball();	
+	
+	int health = 5;
+	int maxHealth = 5;
+	int amountOfBerries = 0;
+	int amountOfPokeballs = 20;	
+	int amountOfPokemons = 0;
 private:
 	const int animationSpeed = 180;
-	int health;
-	int amountCaught;
+	int amountCaught = 0;
 	int baseMovementSpeed;
 	int x, y;
 	int count;
@@ -75,13 +93,5 @@ private:
 	std::shared_ptr<StopStrategy> stp;
 	std::shared_ptr<GraphicsComponent> gc;
 	AnimCategory animCategory;
-	int rightX;
-	int leftX;
-	int upY;
-	int downY;
-	std::string rightTag;
-	std::string leftTag;
-	std::string upTag;
-	std::string downTag;
 	bool tileCollision;
 };

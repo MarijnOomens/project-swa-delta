@@ -80,3 +80,5 @@ void CreditScreen::backCallbackFunction()const
 {
 	SceneLoader::getInstance().loadPreviousScene();
 }
+
+void CreditScreen::setParent() {}

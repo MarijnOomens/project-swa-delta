@@ -25,7 +25,7 @@ RunningShoes::RunningShoes(int x, int y, std::string texture)
 	this->components.emplace_back(cc);
 }
 
-void RunningShoes::interact()
+void RunningShoes::interact(std::shared_ptr<BehaviourObject> interactor)
 {
 	if (gc != nullptr) {
 		SceneModifier::getInstance().deleteObjectFromScene(gc);
@@ -42,4 +42,8 @@ void RunningShoes::use()
 {
 	isActivated = !isActivated;
 	func(pointer, isActivated);
+}
+
+void RunningShoes::setParent() {
+	cc->parent = shared_from_this();
 }

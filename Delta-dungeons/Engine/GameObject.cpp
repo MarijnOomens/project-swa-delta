@@ -10,6 +10,8 @@ void GameObject::update() {}
 
 void GameObject::start() {}
 
+void GameObject::setParent() {}
+
 /// <summary>
 /// This method returns a list of all gameObjects within a gameObject. The method is recursive to get all underlying objects.
 /// </summary>

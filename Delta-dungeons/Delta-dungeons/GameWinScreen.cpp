@@ -33,3 +33,5 @@ void GameWinScreen::exitCallbackFunction() const
 {
 	SceneLoader::getInstance().loadScene("MainMenu", "", true);
 }
+
+void GameWinScreen::setParent() {}
