@@ -7,13 +7,10 @@
 #include "StopStrategy.h"
 #include "Player.h"
 
-//typedef void(*cbSentPokemon) (void*);
-//typedef void(*cbAddPokeball) (void*);
 class Pokeball : public IEquipment
 {
 public:
 	Pokeball() {}
-	//Pokeball(const cbSentPokemon f, void* p);
 	Pokeball(int x, int y, std::string texture);
 
 	void interact(std::shared_ptr<BehaviourObject> interactor) override;
@@ -21,8 +18,6 @@ public:
 	void setParent() override;
 
 private:
-	//cbSentPokemon func;
-	//cbAddPokeball addFunc;
 	void* pointer;
 	std::shared_ptr<CollisionStrategy> stp;
 	std::shared_ptr<GraphicsComponent> gc;

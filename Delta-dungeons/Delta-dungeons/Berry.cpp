@@ -22,7 +22,8 @@ Berry::Berry(int x, int y, std::string texture) {
 void Berry::interact(std::shared_ptr<BehaviourObject> interactor)
 {
     auto col = dynamic_cast<Player*>(interactor.get());
-    col->addBerry();
+    if(col != nullptr) { col->addBerry(); }
+    
 
     if (gc != nullptr) {
         SceneModifier::getInstance().deleteObjectFromScene(gc);

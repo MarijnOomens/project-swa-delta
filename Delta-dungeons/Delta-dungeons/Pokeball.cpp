@@ -1,10 +1,5 @@
 #include "Pokeball.h"
 
-//Pokeball::Pokeball(const cbAddPokeball aF, const cbSentPokemon f, void* p) : addFunc(aF), func(f) , pointer(p)
-//{
-//}
-
-
 Pokeball::Pokeball(int x, int y, std::string texture) {
 	this->transform.position = { x * 128, y * 128 };
 	this->transform.scale.multiply({ 4, 4 });

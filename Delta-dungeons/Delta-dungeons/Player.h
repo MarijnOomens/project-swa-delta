@@ -79,7 +79,7 @@ public:
 	int amountOfPokeballs = 20;	
 	int amountOfPokemons = 0;
 private:
-	const int animationSpeed = 130;
+	const int animationSpeed = 180;
 	int amountCaught = 0;
 	int baseMovementSpeed;
 	int x, y;

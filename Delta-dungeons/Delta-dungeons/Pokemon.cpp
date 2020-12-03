@@ -25,20 +25,12 @@ void Pokemon::catchPokemon () {
 	this->transform.position = { -10, -10 };
 	gc->transform = transform;
 	cc->transform = transform;
-		
-	//SceneModifier::getInstance().deleteObjectFromScene(gc);
+
 	SceneModifier::getInstance().deleteColliderFromScene(cc);
 	
 }
 
-
-
-void Pokemon::interact(std::shared_ptr<BehaviourObject> interactor)
-{
-
-	//auto col = dynamic_cast<Player*>(interactor.get());
-	//col->addBerry();
-}
+void Pokemon::interact(std::shared_ptr<BehaviourObject> interactor) {}
 
 void Pokemon::setParent() {
 	cc->parent = shared_from_this();

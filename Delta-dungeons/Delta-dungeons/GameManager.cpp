@@ -167,14 +167,14 @@ void GameManager::passPlayerPosition(int x, int y)
 	engineFacade->passPlayerPosition(x, y);
 }
 
-void GameManager::staticInteractCallbackFunction(void* p, std::shared_ptr<BehaviourObject> player, int x, int y)
+void GameManager::staticInteractCallbackFunction(void* p, std::shared_ptr<BehaviourObject> interactor, int x, int y)
 {
-	((GameManager*)p)->interactCallbackFunction(player, x, y);
+	((GameManager*)p)->interactCallbackFunction(interactor, x, y);
 }
 
-void GameManager::interactCallbackFunction(std::shared_ptr<BehaviourObject> player, int x, int y)
+void GameManager::interactCallbackFunction(std::shared_ptr<BehaviourObject> interactor, int x, int y)
 {
-	engineFacade->passInteract(player, x, y);
+	engineFacade->passInteract(interactor, x, y);
 }
 
 void GameManager::staticGameOverbackFunction(void* p)

@@ -17,8 +17,6 @@ ThrowPokeball::ThrowPokeball(const cbThrowCollision tF, const cbSentPokemon f, v
 	
 	gc->setTexture("pokeball");
 
-	//textures.try_emplace(name, "Assets/Equipment/" + name + ".png");
-
 	this->components.emplace_back(gc);
 	this->components.emplace_back(cc);
 }

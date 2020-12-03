@@ -369,8 +369,6 @@ void Player::staticPokeballCallbackFunction(void* p)
 void Player::pokeballCallbackFunction()
 {
 	amountOfPokemons += 1;
-	std::cout << "i caught a pokemon!" << std::endl;
-	std::cout << "Totalpokemons: " << amountOfPokemons << std::endl;
 }
 
 void Player::registerHit() {
