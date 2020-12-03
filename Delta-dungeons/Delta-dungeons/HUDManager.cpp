@@ -1,8 +1,8 @@
 #include "HUDManager.h"
 
-void HUDManager::createHud()
+void HUDManager::createHud(int healthMax, int health, int berries, int pokeballs)
 {
-	hud = std::make_shared<HUD>(3);
+	hud = std::make_shared<HUD>(healthMax, health, berries, pokeballs);
 }
 
 void HUDManager::addItem(const std::string& texturePath)
@@ -20,7 +20,16 @@ std::map<std::string, std::string> HUDManager::passTextures() const
 	return totalTextures;
 }
 
-void HUDManager::updateHUDHealth (bool hit)
+std::map<std::string, std::string> HUDManager::passFonts() const
 {
-	hud->updateHealth(hit);
+	std::map<std::string, std::string> totalFonts;
+	for (auto& t : hud->fonts) {
+		totalFonts.try_emplace(t.first, t.second);
+	}
+	return totalFonts;
+}
+
+void HUDManager::updateHUD(int health, int berries, int pokeballs)
+{
+	hud->updateHUD(health, berries, pokeballs);
 }

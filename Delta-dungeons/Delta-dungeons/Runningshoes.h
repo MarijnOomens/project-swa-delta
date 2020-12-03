@@ -12,7 +12,8 @@ public:
 	RunningShoes(const cbEquipment f, void* p, const std::string& t);
 	RunningShoes(int x, int y, std::string texture);
 
-	void interact() override;
+	void interact(std::shared_ptr<BehaviourObject> interactor) override;
+	void setParent() override;
 	void use() override;
 private:
 	std::shared_ptr<CollisionStrategy> stp;

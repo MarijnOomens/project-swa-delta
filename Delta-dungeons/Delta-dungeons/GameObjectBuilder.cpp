@@ -13,6 +13,7 @@
 std::shared_ptr<NPC> GameObjectBuilder::getNPC(int x, int y, std::string name)
 {
 	std::shared_ptr<NPC> npc = std::make_shared<NPC>(x, y, name);
+	npc->setParent();
 	npc->textures.try_emplace(name, "Assets/NPC/" + name + "_anims.png");
 	return npc;
 }
@@ -20,6 +21,7 @@ std::shared_ptr<NPC> GameObjectBuilder::getNPC(int x, int y, std::string name)
 std::shared_ptr<Pokemon> GameObjectBuilder::getPokemon(int x, int y, std::string name)
 {
 	std::shared_ptr<Pokemon> pokemon = std::make_shared<Pokemon>(x, y, name);
+	pokemon->setParent();
 	pokemon->textures.try_emplace(name, "Assets/Pokemon/" + name + "_anims.png");
 	return pokemon;
 }
@@ -35,24 +37,28 @@ std::shared_ptr<IEquipment> GameObjectBuilder::getEquipment(int x, int y, std::s
 	if (name == "pokeball")
 	{
 		std::shared_ptr<Pokeball> pokeball = std::make_shared<Pokeball>(x, y, name);
+		pokeball->setParent();
 		pokeball->textures.try_emplace(name, "Assets/Equipment/" + name + ".png");
 		return pokeball;
 	}
 	else if (name == "berry")
 	{
 		std::shared_ptr<Berry> berry = std::make_shared<Berry>(x, y, name);
+		berry->setParent();
 		berry->textures.try_emplace(name, "Assets/Equipment/" + name + ".png");
 		return berry;
 	}
 	else if (name == "running_shoes")
 	{
 		std::shared_ptr<RunningShoes> runningShoes = std::make_shared<RunningShoes>(x, y, name);
+		runningShoes->setParent();
 		runningShoes->textures.try_emplace(name, "Assets/Equipment/" + name + ".png");
 		return runningShoes;
 	}
 	else if (name == "boomerang")
 	{
 		std::shared_ptr<Boomerang> boomerang = std::make_shared<Boomerang>(x, y, name);
+		boomerang->setParent();
 		boomerang->textures.try_emplace(name, "Assets/Equipment/" + name + ".png");
 		return boomerang;
 	}

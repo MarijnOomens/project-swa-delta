@@ -90,4 +90,6 @@ void Tile::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEve
 
 void Tile::update() {}
 
-void Tile::interact() {}
+void Tile::setParent() {}
+
+void Tile::interact(std::shared_ptr<BehaviourObject> interactor) {}

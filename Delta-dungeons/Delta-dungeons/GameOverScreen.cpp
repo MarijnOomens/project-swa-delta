@@ -35,3 +35,5 @@ void GameOverScreen::exitCallbackFunction() const
 {
 	SceneLoader::getInstance().loadScene("MainMenu", "", true);
 }
+
+void GameOverScreen::setParent() {}

@@ -15,7 +15,8 @@ public:
 	Boomerang(int x, int y, std::string texture);
 	
 	void use() override;
-	void interact() override;
+	void interact(std::shared_ptr<BehaviourObject> interactor) override;
+	void setParent() override;
 
 private:
 	std::shared_ptr<CollisionStrategy> stp;

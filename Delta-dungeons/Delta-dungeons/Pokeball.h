@@ -5,6 +5,7 @@
 #include "GraphicsComponent.h"
 #include "CollidingComponent.h"
 #include "StopStrategy.h"
+#include "Player.h"
 
 class Pokeball : public IEquipment
 {
@@ -12,9 +13,12 @@ public:
 	Pokeball() {}
 	Pokeball(int x, int y, std::string texture);
 
-	void interact() override;
+	void interact(std::shared_ptr<BehaviourObject> interactor) override;
 	void use() override;
+	void setParent() override;
+
 private:
+	void* pointer;
 	std::shared_ptr<CollisionStrategy> stp;
 	std::shared_ptr<GraphicsComponent> gc;
 	std::shared_ptr<CollidingComponent> cc;

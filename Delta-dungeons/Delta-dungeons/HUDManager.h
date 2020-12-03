@@ -10,11 +10,12 @@ public:
 	std::shared_ptr<HUD> hud;
 
 	HUDManager() {};
-	~HUDManager() {}
+	~HUDManager() {};
 
-	void createHud();
+	void createHud(int healthMax, int health, int berries, int pokeballs);
 	void addItem(const std::string& texturePath);
 	std::map<std::string, std::string> passTextures() const;
-	void updateHUDHealth(bool hit);
+	std::map<std::string, std::string> passFonts() const;
+	void updateHUD(int health, int berries, int pokeballs);
 
 };

@@ -69,9 +69,6 @@
     <ClCompile Include="Boomerang.cpp">
       <Filter>Source Files\Game\GameObjects\Items</Filter>
     </ClCompile>
-    <ClCompile Include="HealingItem.cpp">
-      <Filter>Source Files\Game\GameObjects\Items</Filter>
-    </ClCompile>
     <ClCompile Include="Pokeball.cpp">
       <Filter>Source Files\Game\GameObjects\Items</Filter>
     </ClCompile>
@@ -179,6 +176,9 @@
     </ClCompile>
     <ClCompile Include="LoadSaveScreen.cpp">
       <Filter>Source Files\Game\GameObjects\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="ThrowPokeball.cpp">
+      <Filter>Source Files\Game\GameObjects\Items</Filter>
     </ClCompile>
     <ClCompile Include="IEquipment.cpp">
       <Filter>Source Files\Game\GameObjects\Items</Filter>
@@ -322,6 +322,9 @@
     </ClInclude>
     <ClInclude Include="LoadSaveScreen.h">
       <Filter>Header Files\Game\GameObjects\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="ThrowPokeball.h">
+      <Filter>Header Files\Game\GameObjects\Items</Filter>
     </ClInclude>
     <ClInclude Include="IInteractiveObject.h">
       <Filter>Header Files\Game\GameObjects\InteractiveObjects</Filter>

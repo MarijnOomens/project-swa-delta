@@ -23,7 +23,7 @@ public:
 	void handleSceneInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos);
 	void addObjectToScene(std::shared_ptr<BehaviourObject> addObject);
 	void deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject);
-	void passInteract(int x, int y);
+	void passInteract(std::shared_ptr<BehaviourObject> player, int x, int y);
 	std::string getCurrentScene();
 	void deleteScene(const std::string& sceneName);
 
