@@ -6,7 +6,7 @@ class Medal : public IEquipment
 public:
 	Medal(int x, int y, std::string texture);
 
-	void interact() override;
+	void interact(std::shared_ptr<BehaviourObject> parent) override;
 	void use() override;
 
 private:

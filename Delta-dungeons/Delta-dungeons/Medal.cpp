@@ -19,7 +19,7 @@ Medal::Medal(int x, int y, std::string texture) {
     this->components.emplace_back(cc);
 }
 
-void Medal::interact()
+void Medal::interact(std::shared_ptr<BehaviourObject> parent)
 {
     if (gc != nullptr) {
         SceneModifier::getInstance().deleteObjectFromScene(gc);
