@@ -204,6 +204,24 @@
     <ClCompile Include="IInteractiveObject.cpp">
       <Filter>Source Files\Game\GameObjects\InteractiveObjects</Filter>
     </ClCompile>
+    <ClCompile Include="CreditScreenScene.cpp">
+      <Filter>Source Files\Game\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="PauseScreenScene.cpp">
+      <Filter>Source Files\Game\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadSaveScreenScene.cpp">
+      <Filter>Source Files\Game\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOverScreenScene.cpp">
+      <Filter>Source Files\Game\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="GameWinScreenScene.cpp">
+      <Filter>Source Files\Game\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="HelpScreenScene.cpp">
+      <Filter>Source Files\Game\Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h">
@@ -352,6 +370,24 @@
     </ClInclude>
     <ClInclude Include="IInteractiveObject.h">
       <Filter>Header Files\Game\GameObjects\InteractiveObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="CreditScreenScene.h">
+      <Filter>Header Files\Game\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="PauseScreenScene.h">
+      <Filter>Header Files\Game\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOverScreenScene.h">
+      <Filter>Header Files\Game\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="GameWinScreenScene.h">
+      <Filter>Header Files\Game\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="HelpScreenScene.h">
+      <Filter>Header Files\Game\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadSaveScreenScene.h">
+      <Filter>Header Files\Game\Scenes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
