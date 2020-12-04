@@ -11,7 +11,7 @@ void World::addGraphics(std::string levelName)
 	components.clear();
 	XMLSceneParser xmlSceneParser;
 
-	tileMap = xmlSceneParser.loadScene("Assets/Maps/" + levelName + "/level.xml");
+	tileMap = xmlSceneParser.loadScene("Assets/Map/" + levelName + "/level.xml");
 
 	for (std::shared_ptr<Tile> t : tileMap)
 	{
@@ -30,7 +30,7 @@ void World::addGraphics(std::string levelName)
 std::map<std::string, std::string> World::passTextures(std::string levelName) const
 {
 	std::map<std::string, std::string> texture;
-	texture.try_emplace(levelName, "Assets/Maps/" + levelName + "/tileset.png");
+	texture.try_emplace(levelName, "Assets/Map/" + levelName + "/tileset.png");
 	return texture;
 }
 
@@ -51,13 +51,13 @@ void World::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEv
 		case KeyCodes::KEY_COMMA:
 			DebugUtilities::getInstance().slowDownGame();
 			break;
-		case KeyCodes::KEY_POINT:
+		case KeyCodes::KEY_PERIOD:
 			DebugUtilities::getInstance().speedUpGame();
 			break;
 		case KeyCodes::KEY_SLASH:
 			DebugUtilities::getInstance().resetSpeedGame();
 			break;
-		case KeyCodes::KEY_P:
+		case KeyCodes::KEY_ESC:
 			DebugUtilities::getInstance().pauseGame();
 			break;
 		default:
@@ -84,4 +84,6 @@ void World::start()
 	AudioUtilities::getInstance().playAudio("match", true);
 }
 
-void World::interact() {}
+void World::setParent() {}
+
+void World::interact(std::shared_ptr<BehaviourObject> interactor) {}
