@@ -29,17 +29,20 @@ public:
 	static void staticCheckCollisionCallbackFunction(void* p, std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction, int w);
 	void passCollisionCheck(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction, int w);
 
+	static void staticThrowCollisionCallbackFunction(void* p, std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction, int w);
+	void throwCollisionCheck(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction, int w);
+
 	static void staticCameraCallbackFunction(void* p, int x, int y);
 	void passPlayerPosition(int x, int y);
 
-	static void staticInteractCallbackFunction(void* p, int x, int y);
-	void interactCallbackFunction(int x, int y);
+	static void staticInteractCallbackFunction(void* p, std::shared_ptr<BehaviourObject> player, int x, int y);
+	void interactCallbackFunction(std::shared_ptr<BehaviourObject> player, int x, int y);
 
 	static void staticGameOverbackFunction(void* p);
 	void gameOverCallbackFunction();
 
-	static void staticUpdateHUDHealthCallbackFunction(void* p, bool hit);
-	void updateHUDHealthCallbackFunction(bool hit);
+	static void staticUpdateHUDCallbackFunction(void* p, int health, int berries, int pokeballs);
+	void updateHUDCallbackFunction(int health, int berries, int pokeballs);
 
 	static void staticLoadNextLevelCallbackFunction(void* p);
 	void loadNextLevelCallbackFunction();

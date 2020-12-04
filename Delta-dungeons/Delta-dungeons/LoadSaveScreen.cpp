@@ -2,11 +2,12 @@
 
 LoadSaveScreen::LoadSaveScreen()
 {
-	this->textures.try_emplace("loadsavescreen", "Assets/help.png");
-	this->fonts.try_emplace("joystix", "Assets/joystix.ttf");
+	this->textures.try_emplace("load_save", "Assets/Menu/Load-Save/background.png");
+	this->textures.try_emplace("button_load", "Assets/Menu/Button/button-load.png");
+	this->fonts.try_emplace("joystix", "Assets/Font/joystix.ttf");
 
 	gc = std::make_unique<GraphicsComponent>();
-	gc->setTexture("loadsavescreen");
+	gc->setTexture("load_save");
 	gc->isScreen = true;
 	gc->imageDimensions = { 1280, 960 };
 	this->components.emplace_back(std::move(gc));
@@ -18,12 +19,12 @@ LoadSaveScreen::LoadSaveScreen()
 	this->components.emplace_back(std::move(loadSaveText));
 
 
-	std::vector<std::string> possibleButtonTexLoad = { "button_play" };
-	std::unique_ptr<Button> load1Button = std::make_unique<Button>(500, 200, possibleButtonTexLoad, staticLoad1CallbackFunction, this);
+	std::vector<std::string> possibleButtonTexLoad = { "button_load" };
+	std::unique_ptr<Button> load1Button = std::make_unique<Button>(512, 200, possibleButtonTexLoad, staticLoad1CallbackFunction, this);
 	this->components.emplace_back(std::move(load1Button));
 
-	std::vector<std::string> possibleButtonTexExit = { "button_exit" };
-	std::unique_ptr<Button> exitButton = std::make_unique<Button>(500, 780, possibleButtonTexExit, staticBackCallbackFunction, this);
+	std::vector<std::string> possibleButtonTexExit = { "button_back" };
+	std::unique_ptr<Button> exitButton = std::make_unique<Button>(512, 850, possibleButtonTexExit, staticBackCallbackFunction, this);
 	this->components.emplace_back(std::move(exitButton));
 }
 
@@ -57,3 +58,5 @@ void LoadSaveScreen::backCallbackFunction() const
 {
 	SceneLoader::getInstance().loadPreviousScene();
 }
+
+void LoadSaveScreen::setParent() {}

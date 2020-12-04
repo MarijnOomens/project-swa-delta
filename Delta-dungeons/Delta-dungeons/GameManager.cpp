@@ -111,7 +111,7 @@ void GameManager::registerAudio(std::map<std::string, std::string> beats)
 
 void GameManager::createLevel(std::string levelName)
 {
-	playerManager.createPlayer(levelName, staticCheckCollisionCallbackFunction, staticLoadNextLevelCallbackFunction, staticCameraCallbackFunction, staticInteractCallbackFunction, staticGameOverbackFunction, staticUpdateHUDHealthCallbackFunction, this);
+	playerManager.createPlayer(levelName, staticCheckCollisionCallbackFunction, staticThrowCollisionCallbackFunction, staticLoadNextLevelCallbackFunction, staticCameraCallbackFunction, staticInteractCallbackFunction, staticGameOverbackFunction, staticUpdateHUDCallbackFunction, this);
 	registerTextures(playerManager.passTextures());
 
 	npcManager.createNPC(levelName);
@@ -120,12 +120,9 @@ void GameManager::createLevel(std::string levelName)
 	pokemonManager.createPokemon(levelName);
 	registerTextures(pokemonManager.passTextures());
 
-	hudManager.createHud();
-	for (std::string& texture : playerManager.getItems())
-	{
-		hudManager.addItem(texture);
-	}
+	hudManager.createHud(playerManager.player->maxHealth, playerManager.player->health, playerManager.player->amountOfBerries, playerManager.player->amountOfPokeballs);
 	registerTextures(hudManager.passTextures());
+	registerFonts(hudManager.passFonts());
 
 	world->addGraphics(levelName);
 	registerTextures(world->passTextures(levelName));
@@ -148,6 +145,17 @@ void GameManager::passCollisionCheck(std::shared_ptr<BehaviourObject> collider, 
 	engineFacade->passCollisionCheck(collider, x, y, direction, w);
 }
 
+void GameManager::staticThrowCollisionCallbackFunction(void* p, std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction, int w)
+{
+	((GameManager*)p)->throwCollisionCheck(collider, x, y, direction, w);
+}
+
+void GameManager::throwCollisionCheck(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction, int w)
+{
+	engineFacade->throwCollisionCheck(collider, x, y, direction, w);
+}
+
+
 void GameManager::staticCameraCallbackFunction(void* p, int x, int y)
 {
 	((GameManager*)p)->passPlayerPosition(x, y);
@@ -158,14 +166,14 @@ void GameManager::passPlayerPosition(int x, int y)
 	engineFacade->passPlayerPosition(x, y);
 }
 
-void GameManager::staticInteractCallbackFunction(void* p, int x, int y)
+void GameManager::staticInteractCallbackFunction(void* p, std::shared_ptr<BehaviourObject> interactor, int x, int y)
 {
-	((GameManager*)p)->interactCallbackFunction(x, y);
+	((GameManager*)p)->interactCallbackFunction(interactor, x, y);
 }
 
-void GameManager::interactCallbackFunction(int x, int y)
+void GameManager::interactCallbackFunction(std::shared_ptr<BehaviourObject> interactor, int x, int y)
 {
-	engineFacade->passInteract(x, y);
+	engineFacade->passInteract(interactor, x, y);
 }
 
 void GameManager::staticGameOverbackFunction(void* p)
@@ -178,14 +186,14 @@ void GameManager::gameOverCallbackFunction()
 	engineFacade->gameOver();
 }
 
-void GameManager::staticUpdateHUDHealthCallbackFunction(void* p, bool hit)
+void GameManager::staticUpdateHUDCallbackFunction(void* p, int health, int berries, int pokeballs)
 {
-	((GameManager*)p)->updateHUDHealthCallbackFunction(hit);
+	((GameManager*)p)->updateHUDCallbackFunction( health, berries, pokeballs);
 }
 
-void GameManager::updateHUDHealthCallbackFunction(bool hit)
+void GameManager::updateHUDCallbackFunction( int health, int berries, int pokeballs)
 {
-	hudManager.updateHUDHealth(hit);
+	hudManager.updateHUD( health, berries, pokeballs);
 }
 
 void GameManager::staticLoadNextLevelCallbackFunction(void* p)

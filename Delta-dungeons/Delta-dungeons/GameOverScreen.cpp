@@ -2,20 +2,20 @@
 
 GameOverScreen::GameOverScreen()
 {
-	this->textures.try_emplace("gameover", "Assets/gameover.png");
-	this->textures.try_emplace("button_mainmenu", "Assets/screen-components/button-designs/pastels/button-exit-1.png");
-	this->fonts.try_emplace("joystix", "Assets/comic.ttf");
+	this->textures.try_emplace("game_over", "Assets/Menu/Game-Over/background.png");
+	this->textures.try_emplace("button_exit", "Assets/Menu/Button/button-exit.png");
+	this->fonts.try_emplace("joystix", "Assets/Font/joystix.ttf");
 
 
 	gc = std::make_unique<GraphicsComponent>();
-	gc->setTexture("gameover");
+	gc->setTexture("game_over");
 	gc->isScreen = true;
 	gc->imageDimensions = { 1280, 960 };
 	this->components.emplace_back(std::move(gc));
 
 	// Main menu button
-	std::vector<std::string> possibleButtonTexMainMenu = { "button_mainmenu" };
-	std::shared_ptr<Button> mainMenuButton = std::make_shared<Button>(500, 750, possibleButtonTexMainMenu, staticExitCallbackFunction, this);
+	std::vector<std::string> possibleButtonTexMainMenu = { "button_exit" };
+	std::shared_ptr<Button> mainMenuButton = std::make_shared<Button>(512, 750, possibleButtonTexMainMenu, staticExitCallbackFunction, this);
 	this->components.emplace_back(mainMenuButton);
 
 	Colour color = { 255, 255, 255, 255 };
@@ -35,3 +35,5 @@ void GameOverScreen::exitCallbackFunction() const
 {
 	SceneLoader::getInstance().loadScene("MainMenu", "", true);
 }
+
+void GameOverScreen::setParent() {}

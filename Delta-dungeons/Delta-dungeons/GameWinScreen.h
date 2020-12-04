@@ -10,6 +10,7 @@ class GameWinScreen : public Screen
 public:
 	GameWinScreen();
 	~GameWinScreen() {}
+	void setParent() override;
 
 	static void staticExitCallbackFunction(const void* p);
 	void exitCallbackFunction() const;

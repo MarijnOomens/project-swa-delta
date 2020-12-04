@@ -12,7 +12,7 @@ Advertisement::Advertisement(int x, int y, const std::vector<std::string>& textu
 	transform.position = { x, y };
 
 	m_gc->transform = this->transform;
-	m_gc->imageDimensions = { 860, 140 };
+	m_gc->imageDimensions = { 410, 70 };
 	m_gc->transform.scale.multiply({ 1, 1 });
 	m_gc->isScreen = true;
 
@@ -25,4 +25,6 @@ void Advertisement::update() {}
 
 void Advertisement::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) {}
 
-void Advertisement::interact() {}
+void Advertisement::interact(std::shared_ptr<BehaviourObject> interactor) {}
+
+void Advertisement::setParent() {}

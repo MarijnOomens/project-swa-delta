@@ -61,7 +61,7 @@ void EngineController::staticInputCallbackFunction(void* p, const KeyCodes keyCo
 void EngineController::inputCallbackFunction(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos)
 {
 	sceneManager.setSceneSwitched(false);
-	if (keyCode == KeyCodes::KEY_ESC)
+	if (keyCode == KeyCodes::KEY_F10)
 	{
 		quitGame();
 	}
@@ -102,10 +102,6 @@ void EngineController::startGame()
 		{
 			renderFacade->beforeFrame();
 			sceneManager.update();
-		}
-		else
-		{
-
 		}
 		checkTransition();
 		checkGameOver();
@@ -159,6 +155,10 @@ void EngineController::loadScene(const std::string& sceneName, const std::string
 void EngineController::loadPreviousScene()
 {
 	sceneManager.loadPreviousScene();
+	if (!sceneManager.isOverlayScene)
+	{
+		transitionScene();
+	}
 }
 
 void EngineController::addOverlayScene(const std::string& sceneName)
@@ -211,13 +211,11 @@ void EngineController::pauseScreen()
 	{
 		renderFacade->pauseGame();
 		loadPreviousScene();
-		playAudio("match", true);
 	}
 	else if (!renderFacade->renderer->isPaused)
 	{
 		renderFacade->pauseGame();
 		addOverlayScene("PauseScreen");
-		playAudio("touch", true);
 	}
 }
 
@@ -260,14 +258,19 @@ void EngineController::addObjectToScene(std::shared_ptr<BehaviourObject> addObje
 	}
 }
 
-void EngineController::passInteract(int x, int y)
+void EngineController::passInteract(std::shared_ptr<BehaviourObject> player, int x, int y)
 {
-	sceneManager.passInteract(x, y);
+	sceneManager.passInteract(player, x, y);
 }
 
 void EngineController::passCollisionCheck(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction, int w)
 {
 	collision->checkCollision(collider, x, y, direction, w);
+}
+
+void EngineController::throwCollisionCheck(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction, int w)
+{
+	collision->checkProjectileCollision(collider, x, y, direction, w);
 }
 
 void EngineController::deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject)

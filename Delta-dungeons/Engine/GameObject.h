@@ -13,5 +13,7 @@ public:
 	ENGINE_API virtual void handleInput(const KeyCodes &keyCode, const KeyboardEvent &keyboardEvent, Vector2D &mousePos);
 	ENGINE_API virtual void update();
 	ENGINE_API virtual void start();
+	ENGINE_API virtual void setParent();
+
 	ENGINE_API std::vector<std::shared_ptr<BehaviourObject>> getComponentsRecursive();
 };

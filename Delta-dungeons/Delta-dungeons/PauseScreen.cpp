@@ -2,10 +2,10 @@
 
 PauseScreen::PauseScreen() 
 {
-	this->textures.try_emplace("pause", "Assets/Pause_filter.png");
-	this->textures.try_emplace("button_help", "Assets/button_help.png");
-	this->textures.try_emplace("button_save", "Assets/button_save.png");
-	this->fonts.try_emplace("joystix", "Assets/joystix.ttf");
+	this->textures.try_emplace("pause", "Assets/Menu/Pause/Pause_filter.png");
+	this->textures.try_emplace("button_help", "Assets/Menu/Button/button-help.png");
+	this->textures.try_emplace("button_save", "Assets/Menu/Button/button-save.png");
+	this->fonts.try_emplace("joystix", "Assets/Font/joystix.ttf");
 
 	gc = std::make_unique<GraphicsComponent>();
 	gc->setTexture("pause");
@@ -25,17 +25,17 @@ PauseScreen::PauseScreen()
 	std::unique_ptr<Button> exitButton = std::make_unique<Button>(512, 700, buttonExit, staticExitCallbackFunction, this);
 	this->components.emplace_back(std::move(exitButton));
 
-	Colour color = { 255, 255, 255, 255 };
-	std::unique_ptr<TextComponent> creditsText = std::make_unique<TextComponent>("Pause", "joystix", color, 64);
-	creditsText->transform.position = { 515, 100 };
-	this->components.emplace_back(std::move(creditsText));
+	Colour color = { 0, 0, 0, 255 };
+	std::unique_ptr<TextComponent> pauseText = std::make_unique<TextComponent>("Pause", "joystix", color, 64);
+	pauseText->transform.position = { 515, 100 };
+	this->components.emplace_back(std::move(pauseText));
 }
 
 void PauseScreen::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos)
 {
 	if (keyboardEvent == KeyboardEvent::KEY_PRESSED)
 	{
-		if (keyCode == KeyCodes::KEY_P)
+		if (keyCode == KeyCodes::KEY_ESC)
 		{
 			DebugUtilities::getInstance().pauseGame();
 		}
@@ -69,3 +69,5 @@ void PauseScreen::exitCallbackFunction() const
 {
 	SceneLoader::getInstance().loadScene("MainMenu", "", true);
 }
+
+void PauseScreen::setParent() {}

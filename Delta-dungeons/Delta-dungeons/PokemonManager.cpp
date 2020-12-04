@@ -9,8 +9,8 @@ void PokemonManager::createPokemon(std::string levelName)
 {
 	pokemon.clear();
 	std::unique_ptr<XMLSceneParser> parser = std::make_unique<XMLSceneParser>();
-	std::vector<std::shared_ptr<ParserData>> pokemonTile = parser->getNPCDataList("Assets/Maps/" + levelName + "/level.xml");
-	parsedPokemon = parser->loadPokemon("Assets/Maps/" + levelName + "/pokemon.xml");
+	std::vector<std::shared_ptr<ParserData>> pokemonTile = parser->getNPCDataList("Assets/Map/" + levelName + "/level.xml");
+	parsedPokemon = parser->loadPokemon("Assets/Map/" + levelName + "/pokemon.xml");
 	srand(time(0));
 	for (auto parsedTile : pokemonTile)
 	{

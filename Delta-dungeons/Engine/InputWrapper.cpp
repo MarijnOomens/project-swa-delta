@@ -15,7 +15,7 @@ void InputWrapper::handleInput(const bool isPaused)
 			handleKeyPressed(isPaused);
 			break;
 		case SDL_QUIT:
-			func(pointer, KeyCodes::KEY_ESC, KeyboardEvent::KEY_PRESSED, {0, 0});
+			func(pointer, KeyCodes::KEY_F10, KeyboardEvent::KEY_PRESSED, {0, 0});
 			break;
 		case SDL_KEYUP:
 			handleKeyReleased();
@@ -67,11 +67,11 @@ void InputWrapper::handleKeyPressed(const bool isPaused)
 		case SDLK_e:
 			func(pointer, KeyCodes::KEY_E, KeyboardEvent::KEY_PRESSED, mousePosition);
 			break;
+		case SDLK_b:
+			func(pointer, KeyCodes::KEY_B, KeyboardEvent::KEY_PRESSED, mousePosition);
+			break;
 		case SDLK_g:
 			func(pointer, KeyCodes::KEY_G, KeyboardEvent::KEY_PRESSED, mousePosition);
-			break;
-		case SDLK_p:
-			func(pointer, KeyCodes::KEY_P, KeyboardEvent::KEY_PRESSED, mousePosition);
 			break;
 		case SDLK_h:
 			func(pointer, KeyCodes::KEY_H, KeyboardEvent::KEY_PRESSED, mousePosition);
@@ -86,7 +86,7 @@ void InputWrapper::handleKeyPressed(const bool isPaused)
 			func(pointer, KeyCodes::KEY_SLASH, KeyboardEvent::KEY_PRESSED, mousePosition);
 			break;
 		case SDLK_PERIOD:
-			func(pointer, KeyCodes::KEY_POINT, KeyboardEvent::KEY_PRESSED, mousePosition);
+			func(pointer, KeyCodes::KEY_PERIOD, KeyboardEvent::KEY_PRESSED, mousePosition);
 			break;
 		case SDLK_ESCAPE:
 			func(pointer, KeyCodes::KEY_ESC, KeyboardEvent::KEY_PRESSED, mousePosition);
@@ -101,15 +101,16 @@ void InputWrapper::handleKeyPressed(const bool isPaused)
 			break;
 			}
 		}
-	else if (event.key.keysym.sym == SDLK_p) 
-	{
-		func(pointer, KeyCodes::KEY_P, KeyboardEvent::KEY_PRESSED, mousePosition);
-	}
-	else if (event.key.keysym.sym == SDLK_ESCAPE)
+	else if (event.key.keysym.sym == SDLK_ESCAPE) 
 	{
 		func(pointer, KeyCodes::KEY_ESC, KeyboardEvent::KEY_PRESSED, mousePosition);
 	}
-	else if (event.key.keysym.sym == SDLK_BACKSPACE)
+
+	if (event.key.keysym.sym == SDLK_F10)
+	{
+		func(pointer, KeyCodes::KEY_F10, KeyboardEvent::KEY_PRESSED, mousePosition);
+	}
+	if (event.key.keysym.sym == SDLK_BACKSPACE)
 	{
 		func(pointer, KeyCodes::KEY_BACKSPACE, KeyboardEvent::KEY_PRESSED, mousePosition);
 	}

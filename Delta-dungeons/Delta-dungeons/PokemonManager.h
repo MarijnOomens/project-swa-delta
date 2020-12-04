@@ -4,14 +4,14 @@
 #include <string>
 #include <memory>
 #include <ctime>
-#include "InteractiveObject.h"
+#include "IInteractiveObject.h"
 #include "GameObjectBuilder.h"
 #include "XMLSceneParser.h"
 
 class PokemonManager
 {
 public:
-	std::map<std::string, std::shared_ptr<InteractiveObject>> pokemon;
+	std::map<std::string, std::shared_ptr<IInteractiveObject>> pokemon;
 	std::vector<std::shared_ptr<PokemonParserData>> parsedPokemon;
 
 	PokemonManager();

@@ -25,7 +25,7 @@ Boomerang::Boomerang(int x, int y, std::string texture)
 	this->components.emplace_back(cc);
 }
 
-void Boomerang::interact()
+void Boomerang::interact(std::shared_ptr<BehaviourObject> interactor)
 {
 	if (gc != nullptr) {
 		SceneModifier::getInstance().deleteObjectFromScene(gc);
@@ -42,4 +42,8 @@ void Boomerang::use()
 {
 	isActivated = !isActivated;
 	func(pointer, isActivated);
+}
+
+void Boomerang::setParent() {
+	cc->parent = shared_from_this();
 }

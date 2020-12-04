@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 #include "CollidingComponent.h"
-#include "InteractiveObject.h"
+#include "IInteractiveObject.h"
 
 class Collision {
 public:
@@ -17,6 +17,7 @@ public:
 	void registerColliders(std::vector<std::shared_ptr<BehaviourObject>> colliders);
 	void deleteColliderFromScene(std::shared_ptr<BehaviourObject> deletedCollider);
 	void checkCollision(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction, int w);
+	void checkProjectileCollision(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction, int w);
 private:
 	std::vector<std::shared_ptr<BehaviourObject>> colliderObjects;
 };
