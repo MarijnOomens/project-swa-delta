@@ -24,8 +24,28 @@ NPC::NPC(int x, int y, std::string& texture)
 
 void NPC::interact(std::shared_ptr<BehaviourObject> interactor)
 {
-	gc->playAnimation(5, 3, animationSpeed, false);
+	playAnimation(interactor->transform);
 	SceneLoader::getInstance().addOverlayScene("Dialogue");
+}
+
+void NPC::playAnimation(Transform t)
+{
+	if (t.position.x > transform.position.x)
+	{
+		gc->playAnimation(5, 3, animationSpeed, true);
+	}
+	else if (t.position.x < transform.position.x)
+	{
+		gc->playAnimation(5, 3, animationSpeed, false);
+	}
+	if (t.position.y > transform.position.y)
+	{
+		gc->playAnimation(0, 3, animationSpeed, false);
+	}
+	else if (t.position.y < transform.position.y)
+	{
+		gc->playAnimation(4, 3, animationSpeed, false);
+	}
 }
 
 void NPC::setParent() {
