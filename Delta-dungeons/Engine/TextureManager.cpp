@@ -29,5 +29,4 @@ void TextureManager::drawTexture(const std::string name, const Transform& transf
 {
 	std::string texturePath = textureAssetManager->getAsset(name);
 	renderFacade->drawTexture(texturePath, transform, coordinates, sourceDimensions, row, frames, speed, animated, flipped,isScreen);
-
 }

@@ -5,12 +5,8 @@
 /// </summary>
 void UIManager::createBaseScreens()
 {
-	std::unique_ptr<MainMenu> mainMenu = std::make_unique<MainMenu>();
-	screens.try_emplace("MainMenu", std::move(mainMenu));
 	std::unique_ptr<PauseScreen> pause = std::make_unique<PauseScreen>();
 	screens.try_emplace("PauseScreen", std::move(pause));
-	std::unique_ptr<CreditScreen> credits = std::make_unique<CreditScreen>();
-	screens.try_emplace("CreditsScreen", std::move(credits));
 	std::unique_ptr<HelpScreen> help = std::make_unique<HelpScreen>();
 	screens.try_emplace("HelpScreen", std::move(help));
 	std::unique_ptr<GameOverScreen> gameOver = std::make_unique<GameOverScreen>();

@@ -2,14 +2,14 @@
 
 MainMenuScene::MainMenuScene()
 {
-	this->name = "MainMenu";
+	this->name = "MainMenuScreen";
 	this->setBehaviourObjects({ std::make_shared<MainMenu>() });
-	this->setTexture("mainmenu", "Assets/screen-components/mainmenu-designs/mainmenu-2.png");
-	this->setTexture("button_play", "Assets/screen-components/button-designs/pastels/button-play-1.png");
-	this->setTexture("button_credits", "Assets/screen-components/button-designs/pastels/button-credits-1.png");
-	this->setTexture("button_exit", "Assets/screen-components/button-designs/pastels/button-exit-1.png");
-	this->setTexture("ad", "Assets/ADS/Advertisement.png");
-	
+	this->setTexture("main_menu", "Assets/Menu/Main-Menu/background.png");
+	this->setTexture("button_play", "Assets/Menu/Button/button-play.png");
+	this->setTexture("button_credits", "Assets/Menu/Button/button-credits.png");
+	this->setTexture("button_help", "Assets/Menu/Button/button-help.png");
+	this->setTexture("button_exit", "Assets/Menu/Button/button-exit.png");
+	this->setTexture("ad", "Assets/Advertisement/Advertisement.png");
 	this->setFont("joystix", "Assets/Font/joystix.ttf");
 	this->setBeat("touch", "Assets/Audio/touch.ogg");
 }

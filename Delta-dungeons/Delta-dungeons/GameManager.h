@@ -1,7 +1,12 @@
 #pragma once
 
-//#include "UIManager.h"
 #include "MainMenuScene.h"
+#include "CreditScreenScene.h"
+#include "PauseScreenScene.h"
+#include "HelpScreenScene.h"
+#include "GameOverScreenScene.h"
+#include "GameWinScreenScene.h"
+#include "LoadSaveScreenScene.h"
 #include "EquipmentManager.h"
 #include "PlayerManager.h"
 #include "EngineFacade.h"
@@ -51,13 +56,19 @@ public:
 private:
 	std::shared_ptr<EngineFacade> engineFacade;
 	std::shared_ptr<World> world;
-	//UIManager uiManager;
 	MainMenuScene mainMenuScene;
+	CreditScreenScene creditScreenScene;
+	PauseScreenScene pauseScreenScene;
+	HelpScreenScene helpScreenScene;
+	GameOverScreenScene gameOverScreenScene;
+	GameWinScreenScene gameWinScreenScene;
+	LoadSaveScreenScene loadSaveScreenScene;
 	PlayerManager playerManager;
 	EquipmentManager eqManager;
 	NPCManager npcManager;
 	PokemonManager pokemonManager;
 	HUDManager hudManager;
+	std::vector<Scene> scenes;
 	std::vector<std::string> levels{ "Level1", "Dungeon1","Level2", "Dungeon2","Level3", "Dungeon3", "Level4" };
 	int currentlevel = 0;
 };

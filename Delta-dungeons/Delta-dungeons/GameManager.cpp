@@ -14,25 +14,15 @@ GameManager::GameManager()
 
 	world = std::make_shared<World>();
 
-	//uiManager.createBaseScreens();
-	//registerTextures(uiManager.passTextures());
-	//registerFonts(uiManager.passFonts());
+	scenes = { mainMenuScene, creditScreenScene, pauseScreenScene, helpScreenScene, gameOverScreenScene, gameWinScreenScene, loadSaveScreenScene };
 
-	//for (auto& o : uiManager.screens)
-	//{
-	//	std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects;
-	//	behaviourObjects.emplace_back(o.second);
-	//	for (auto& c : o.second->getComponentsRecursive())
-	//	{
-	//		behaviourObjects.emplace_back(c);
-	//	}
-	//	engineFacade->registerScene(o.first, behaviourObjects);
-	//}
-
-	engineFacade->registerScene(mainMenuScene.name, mainMenuScene.getBehaviourObjects());
-	registerTextures(mainMenuScene.getTextures());
-	registerFonts(mainMenuScene.getFonts());
-	registerAudio(mainMenuScene.getBeats());
+	for (auto& s : scenes)
+	{
+		registerTextures(s.getTextures());
+		registerFonts(s.getFonts());
+		registerAudio(s.getBeats());
+		engineFacade->registerScene(s.name, s.getBehaviourObjects());
+	}
 
 	createLevel(levels[currentlevel]);
 
