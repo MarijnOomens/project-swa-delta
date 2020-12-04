@@ -1,5 +1,18 @@
 #include "Scene.h"
 
+void Scene::registerBehaviourObjects()
+{
+	for (auto& o : behaviourObjects)
+	{
+		if (dynamic_cast<GameObject*>(o.get()) != nullptr)
+		{
+			auto go = dynamic_cast<GameObject*>(o.get());
+			auto gor = go->getComponentsRecursive();
+			behaviourObjects.insert(behaviourObjects.end(), gor.begin(), behaviourObjects.end());
+		}
+	}
+}
+
 std::vector<std::shared_ptr<BehaviourObject>> Scene::getBehaviourObjects()
 {
 	return behaviourObjects;
@@ -8,6 +21,7 @@ std::vector<std::shared_ptr<BehaviourObject>> Scene::getBehaviourObjects()
 void Scene::setBehaviourObjects(std::vector<std::shared_ptr<BehaviourObject>> bo)
 {
 	behaviourObjects = bo;
+	registerBehaviourObjects();
 }
 
 std::map<std::string, std::string> Scene::getTextures()
@@ -15,9 +29,9 @@ std::map<std::string, std::string> Scene::getTextures()
 	return textures;
 }
 
-void Scene::setTextures(std::map<std::string, std::string> t)
+void Scene::setTexture(const std::string& name, const std::string& t)
 {
-	textures = t;
+	textures.try_emplace(name, t);
 }
 
 std::map<std::string, std::string> Scene::getFonts()
@@ -25,9 +39,9 @@ std::map<std::string, std::string> Scene::getFonts()
 	return fonts;
 }
 
-void Scene::setFonts(std::map<std::string, std::string> f)
+void Scene::setFont(const std::string& name, const std::string& f)
 {
-	fonts = f;
+	textures.try_emplace(name, f);
 }
 
 std::map<std::string, std::string> Scene::getBeats()
@@ -35,7 +49,7 @@ std::map<std::string, std::string> Scene::getBeats()
 	return beats;
 }
 
-void Scene::setBeats(std::map<std::string, std::string> b)
+void Scene::setBeat(const std::string& name, const std::string& b)
 {
-	beats = b;
+	textures.try_emplace(name, b);
 }

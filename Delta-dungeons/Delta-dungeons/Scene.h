@@ -3,23 +3,26 @@
 #include <string>
 #include <vector>
 #include "BehaviourObject.h"
+#include "GameObject.h"
 
 class Scene
 {
 public:
 	std::string name;
 
+	virtual void registerBehaviourObjects();
+
 	std::vector<std::shared_ptr<BehaviourObject>> getBehaviourObjects();
 	void setBehaviourObjects(std::vector<std::shared_ptr<BehaviourObject>>);
 
 	std::map<std::string, std::string> getTextures();
-	void setTextures(std::map<std::string, std::string>);
+	void setTexture(const std::string& name, const std::string& t);
 
 	std::map<std::string, std::string> getFonts();
-	void setFonts(std::map<std::string, std::string>);
+	void setFont(const std::string& name, const std::string& t);
 
 	std::map<std::string, std::string> getBeats();
-	void setBeats(std::map<std::string, std::string>);
+	void setBeat(const std::string& name, const std::string& t);
 private:
 	std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects;
 	std::map<std::string, std::string> textures;

@@ -17,7 +17,6 @@ GameManager::GameManager()
 	uiManager.createBaseScreens();
 	registerTextures(uiManager.passTextures());
 	registerFonts(uiManager.passFonts());
-	registerAudio(uiManager.passBeats());
 
 	for (auto& o : uiManager.screens)
 	{
@@ -41,7 +40,6 @@ GameManager::GameManager()
 /// </summary>
 void GameManager::registerBehaviourObjects()
 {
-
 	std::vector<std::shared_ptr<BehaviourObject>> level;
 	for (auto& t : world->getComponentsRecursive())
 	{
@@ -67,9 +65,9 @@ void GameManager::registerBehaviourObjects()
 		level.emplace_back(o.second);
 	}
 
-	for (auto& o : pokemonManger.pokemon)
+	for (auto& o : pokemonManager.pokemon)
 	{
-		for (auto& n : o.second.get()->getComponentsRecursive())
+		for (auto& n : o.second->getComponentsRecursive())
 		{
 			level.emplace_back(n);
 		}
@@ -119,8 +117,8 @@ void GameManager::createLevel(std::string levelName)
 	npcManager.createNPC(levelName);
 	registerTextures(npcManager.passTextures());
 
-	pokemonManger.createPokemon(levelName);
-	registerTextures(pokemonManger.passTextures());
+	pokemonManager.createPokemon(levelName);
+	registerTextures(pokemonManager.passTextures());
 
 	hudManager.createHud();
 	for (std::string& texture : playerManager.getItems())
