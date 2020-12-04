@@ -2,6 +2,8 @@
 
 NPC::NPC(int x, int y, std::string& texture)
 {
+	this->textures.try_emplace("dialogue_box", "Assets/Dialogue/text_box.png");
+
 	this->transform.position = { x * 128, y * 128 };
 	this->transform.scale.multiply({ 4, 4 });
 	gc = std::make_shared<GraphicsComponent>();
@@ -20,7 +22,17 @@ NPC::NPC(int x, int y, std::string& texture)
 	this->components.emplace_back(cc);
 }
 
-void NPC::interact(std::shared_ptr<BehaviourObject> interactor){}
+void NPC::interact(std::shared_ptr<BehaviourObject> interactor)
+{
+	std::shared_ptr<DialoguePopup> dialoguePopup = std::make_shared<DialoguePopup>();
+
+	for (auto& c : dialoguePopup->getComponentsRecursive())
+	{
+		SceneModifier::getInstance().addObjectToScene(c);
+	}
+
+	SceneModifier::getInstance().addObjectToScene(dialoguePopup);
+}
 
 void NPC::setParent() {
 	cc->parent = shared_from_this();

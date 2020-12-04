@@ -5,6 +5,7 @@
 #include <map>
 #include <GraphicsComponent.h>
 #include "StopStrategy.h"
+#include "DialoguePopup.h"
 
 class NPC : public IInteractiveObject
 {
