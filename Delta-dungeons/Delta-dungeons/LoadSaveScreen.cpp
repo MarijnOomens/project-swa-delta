@@ -2,10 +2,6 @@
 
 LoadSaveScreen::LoadSaveScreen()
 {
-	this->textures.try_emplace("load_save", "Assets/Menu/Load-Save/background.png");
-	this->textures.try_emplace("button_load", "Assets/Menu/Button/button-load.png");
-	this->fonts.try_emplace("joystix", "Assets/Font/joystix.ttf");
-
 	gc = std::make_unique<GraphicsComponent>();
 	gc->setTexture("load_save");
 	gc->isScreen = true;
