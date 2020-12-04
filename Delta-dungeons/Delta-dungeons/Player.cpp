@@ -433,3 +433,5 @@ void Player::registerCollision(int x, int y, bool isDamaged, bool isTransitioned
 	if (isTransitioned) { nextLevelFunc(pointer); }
 	hasMoved = true;
 }
+
+void Player::start(){}

@@ -93,3 +93,5 @@ void Tile::update() {}
 void Tile::setParent() {}
 
 void Tile::interact(std::shared_ptr<BehaviourObject> interactor) {}
+
+void Tile::start() {}

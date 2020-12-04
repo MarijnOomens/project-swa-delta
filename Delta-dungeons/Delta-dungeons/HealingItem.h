@@ -2,7 +2,7 @@
 
 #include "IEquipment.h"
 
-class HealingItem : IEquipment
+class HealingItem
 {
 private:
 	int healHealth;

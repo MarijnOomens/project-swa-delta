@@ -27,3 +27,9 @@ void NPC::setParent() {
 }
 
 void NPC::registerCollision(int x, int y, bool isDamaged, bool isTransitioned) {}
+
+void NPC::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) {}
+
+void NPC::update() {}
+
+void NPC::start() {}

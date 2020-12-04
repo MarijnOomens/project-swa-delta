@@ -66,6 +66,7 @@ public:
 
 	void update() override;
 	void setParent() override;
+	void start() override;
 	void handleInteraction();
 	void registerHit();
 	void eatBerry();

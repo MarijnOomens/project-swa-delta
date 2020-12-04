@@ -92,3 +92,7 @@ void ThrowPokeball::reset() {
 void ThrowPokeball::setParent() {
 	cc->parent = shared_from_this();
 }
+
+void ThrowPokeball::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) {}
+
+void ThrowPokeball::start() {}

@@ -20,6 +20,7 @@ public:
 	void update() override;
 	void interact(std::shared_ptr<BehaviourObject> interactor) override;
 	void setParent() override;
+	void start() override;
 
 private:
 	Vector2D imageCoordinates;

@@ -11,9 +11,13 @@ public:
 	Berry() {}
 	Berry(int x, int y, std::string texture);
 
+
 	void interact(std::shared_ptr<BehaviourObject> interactor) override;
 	void use() override;
 	void setParent() override;
+	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos)override;
+	void update() override;
+	void start()override;
 
 private:
 	std::shared_ptr<CollisionStrategy> stp;
