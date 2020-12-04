@@ -1,4 +1,8 @@
 <NPCs>
-<NPC name="acetrainer_m"/>
-<NPC name="acetrainer_f"/>
+<NPC name="acetrainer_m">
+<Dialogue text="I heard rumours about deoxys changing forms depending on the amount of pokemon caught."/>
+</NPC>
+<NPC name="acetrainer_f">
+<Dialogue text="I heard a riddle, standard, attack, defense, speed. What does it mean?"/>
+</NPC>
 </NPCs>

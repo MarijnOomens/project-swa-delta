@@ -129,3 +129,8 @@ void SceneManager::deleteScene(const std::string& sceneName)
 {
 	scenes[sceneName].clear();
 }
+
+void SceneManager::replaceScene(const std::string sceneName, std::vector<std::shared_ptr<BehaviourObject>> objects)
+{
+	scenes[sceneName] = objects;
+}

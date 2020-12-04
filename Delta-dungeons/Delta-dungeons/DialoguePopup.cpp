@@ -1,6 +1,6 @@
 #include "DialoguePopup.h"
 
-DialoguePopup::DialoguePopup()
+DialoguePopup::DialoguePopup(const std::string& dialogue)
 {
 	gc = std::make_unique<GraphicsComponent>();
 	gc->setTexture("dialogue_box");
@@ -12,7 +12,7 @@ DialoguePopup::DialoguePopup()
 	this->components.emplace_back(std::move(gc));
 
 	Colour color = { 255, 255, 255, 255 };
-	std::unique_ptr<TextComponent> dialogueText = std::make_unique<TextComponent>("Hello mister.", "joystix", color, 18);
+	std::unique_ptr<TextComponent> dialogueText = std::make_unique<TextComponent>(dialogue, "joystix", color, 30);
 	dialogueText->transform.position = { 50, 750 };
 	this->components.emplace_back(std::move(dialogueText));
 }

@@ -26,3 +26,8 @@ void SceneModifier::setEngineFacade(std::shared_ptr<EngineFacade> engineFacade)
 {
 	this->engineFacade = engineFacade;
 }
+
+void SceneModifier::replaceScene(const std::string sceneName, std::vector<std::shared_ptr<BehaviourObject>> objects)
+{
+	engineFacade->replaceScene(sceneName, objects);
+}

@@ -189,6 +189,9 @@
     <ClCompile Include="Medal.cpp">
       <Filter>Source Files\Game\GameObjects\Items</Filter>
     </ClCompile>
+    <ClCompile Include="NPCParserData.cpp">
+      <Filter>Source Files\XMLParser</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h">
@@ -334,6 +337,9 @@
     </ClInclude>
     <ClInclude Include="Medal.h">
       <Filter>Header Files\Game\GameObjects\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="NPCParserData.h">
+      <Filter>Header Files\XMLParser</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

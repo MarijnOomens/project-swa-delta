@@ -15,8 +15,8 @@ void NPCManager::createNPC(std::string levelName)
 	for (auto parsedTile : npcTile)
 	{
 		if (parsedTile->tileId == "1") {
-			std::string n = parsedNpcs[getRandomNPC()];
-			npcs.emplace(n + std::to_string(npcs.size()), builder->getNPC(std::stoi(parsedTile->x), std::stoi(parsedTile->y), n));
+			std::shared_ptr<NPCParserData> n = parsedNpcs[getRandomNPC()];
+			npcs.emplace(n->name + std::to_string(npcs.size()), builder->getNPC(std::stoi(parsedTile->x), std::stoi(parsedTile->y), n->name, n->dialogue));
 		}
 	}
 }

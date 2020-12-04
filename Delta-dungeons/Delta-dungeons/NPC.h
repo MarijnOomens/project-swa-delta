@@ -7,11 +7,12 @@
 #include "StopStrategy.h"
 #include "DialoguePopup.h"
 #include "SceneLoader.h"
+#include "SceneModifier.h"
 
 class NPC : public IInteractiveObject
 {
 public:
-	NPC(int x, int y, std::string& texture);
+	NPC(int x, int y, const std::string& texture, const std::string& d);
 
 	void interact(std::shared_ptr<BehaviourObject> interactor) override;
 	void registerCollision(int x, int y, bool isDamaged, bool isTransitioned) override;
@@ -25,4 +26,5 @@ private:
 	std::shared_ptr<CollisionStrategy> stp;
 	std::shared_ptr<GraphicsComponent> gc;
 	const int animationSpeed = 180;
+	const std::string dialogue;
 };

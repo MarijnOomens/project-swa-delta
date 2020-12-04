@@ -43,7 +43,7 @@ std::vector<std::shared_ptr<PokemonParserData>> XMLSceneParser::loadPokemon(cons
 	return facade.loadPokemon(path);
 }
 
-std::vector<std::string> XMLSceneParser::loadNPC(const std::string& path)
+std::vector<std::shared_ptr<NPCParserData>> XMLSceneParser::loadNPC(const std::string& path)
 {
 	return facade.loadNPC(path);
 }

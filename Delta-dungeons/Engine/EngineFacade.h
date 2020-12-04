@@ -39,6 +39,7 @@ public:
 	ENGINE_API void gameOver();
 	ENGINE_API void playAudio(const std::string& trackName, bool looped);
 	ENGINE_API void deleteScene(const std::string& sceneName);
+	ENGINE_API void replaceScene(const std::string sceneName, std::vector<std::shared_ptr<BehaviourObject>> objects);
 
 private:
 	std::unique_ptr<EngineController> engineController;

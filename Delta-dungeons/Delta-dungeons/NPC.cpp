@@ -1,6 +1,6 @@
 #include "NPC.h"
 
-NPC::NPC(int x, int y, std::string& texture)
+NPC::NPC(int x, int y, const std::string& texture, const std::string& d): dialogue(d)
 {
 	this->textures.try_emplace("dialogue_box", "Assets/Dialogue/text_box.png");
 
@@ -25,6 +25,14 @@ NPC::NPC(int x, int y, std::string& texture)
 void NPC::interact(std::shared_ptr<BehaviourObject> interactor)
 {
 	playAnimation(interactor->transform);
+	std::shared_ptr<DialoguePopup> dialoguePopup = std::make_shared<DialoguePopup>(dialogue);
+	std::vector<std::shared_ptr<BehaviourObject>> objects;
+	objects.emplace_back(dialoguePopup);
+	for (auto& c : dialoguePopup->getComponentsRecursive())
+	{
+		objects.emplace_back(c);
+	}
+	SceneModifier::getInstance().replaceScene("Dialogue", objects);
 	SceneLoader::getInstance().addOverlayScene("Dialogue");
 }
 

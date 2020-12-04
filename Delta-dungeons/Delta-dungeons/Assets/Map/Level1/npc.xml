@@ -1,4 +1,8 @@
 <NPCs>
-<NPC name="youngster"/>
-<NPC name="bugtrainer"/>
+<NPC name="youngster">
+<Dialogue text="I like shorts, they are comfy and easy to wear."/>
+</NPC>
+<NPC name="bugtrainer">
+<Dialogue text="Look at my bugs!"/>
+</NPC>
 </NPCs>

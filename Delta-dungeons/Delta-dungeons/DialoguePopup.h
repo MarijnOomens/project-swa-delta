@@ -9,7 +9,7 @@
 class DialoguePopup : public Screen
 {
 public:
-	DialoguePopup();
+	DialoguePopup(const std::string& dialogue = "");
 
 	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos);
 

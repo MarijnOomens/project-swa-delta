@@ -83,9 +83,9 @@ std::vector<std::shared_ptr<PokemonParserData>> XMLParser::loadPokemon(const std
 	return parserDataList;
 }
 
-std::vector<std::string> XMLParser::loadNPC(const std::string& path)
+std::vector<std::shared_ptr<NPCParserData>> XMLParser::loadNPC(const std::string& path)
 {
-	std::vector<std::string> parserDataList;
+	std::vector<std::shared_ptr<NPCParserData>> parserDataList;
 
 	rapidxml::file<> xmlFile(path.c_str());
 	rapidxml::xml_document<> doc;
@@ -95,7 +95,8 @@ std::vector<std::string> XMLParser::loadNPC(const std::string& path)
 
 	for (xml_node<>* npc = node->first_node(); npc; npc = npc->next_sibling())
 	{
-		parserDataList.emplace_back(npc->first_attribute("name")->value());
+		std::shared_ptr<NPCParserData> n = std::make_shared<NPCParserData>(npc->first_attribute("name")->value(), npc->first_node("Dialogue")->first_attribute("text")->value());
+		parserDataList.emplace_back(n);
 	}
 
 	return parserDataList;

@@ -8,12 +8,13 @@
 #include <memory>
 #include <cstdlib>
 #include <ctime>
+#include "NPCParserData.h"
 
 class NPCManager
 {
 public:
 	std::map<std::string, std::shared_ptr<IInteractiveObject>> npcs;
-	std::vector<std::string> parsedNpcs;
+	std::vector<std::shared_ptr<NPCParserData>> parsedNpcs;
 
 	NPCManager();
 	~NPCManager() {}

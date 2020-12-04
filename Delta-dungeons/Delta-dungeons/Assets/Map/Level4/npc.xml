@@ -1,3 +1,5 @@
 <NPCs>
-<NPC name="bob"/>
+<NPC name="bob">
+<Dialogue text="Congrats you won the game!"/>
+</NPC>
 </NPCs>
