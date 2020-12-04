@@ -19,6 +19,8 @@ void UIManager::createBaseScreens()
 	screens.try_emplace("GameWin", std::move(gameWin));
 	std::unique_ptr<LoadSaveScreen> loadSaveScreen = std::make_unique<LoadSaveScreen>();
 	screens.try_emplace("LoadSaveScreen", std::move(loadSaveScreen));
+	std::unique_ptr<DialoguePopup> dialoguePopup = std::make_unique<DialoguePopup>();
+	screens.try_emplace("Dialogue", std::move(dialoguePopup));
 
 	beats.try_emplace("touch", "Assets/Audio/touch.ogg");
 	

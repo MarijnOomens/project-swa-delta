@@ -11,7 +11,14 @@ DialoguePopup::DialoguePopup()
 	gc->transform.position = this->transform.position;
 
 	this->components.emplace_back(std::move(gc));
+}
 
+void DialoguePopup::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos)
+{
+	if (keyboardEvent == KeyboardEvent::KEY_PRESSED && keyCode == KeyCodes::KEY_E)
+	{
+		SceneLoader::getInstance().loadPreviousScene();
+	}
 }
 
 void DialoguePopup::playDialogue(std::vector<std::string> param)

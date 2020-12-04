@@ -11,6 +11,7 @@
 #include "GameWinScreen.h"
 #include "PauseScreen.h"
 #include "LoadSaveScreen.h"
+#include "DialoguePopup.h"
 
 class UIManager 
 {

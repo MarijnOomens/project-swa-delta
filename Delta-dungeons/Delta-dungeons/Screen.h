@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include "GraphicsComponent.h"
+#include "SceneLoader.h"
 
 class Screen : public GameObject
 {

@@ -24,14 +24,7 @@ NPC::NPC(int x, int y, std::string& texture)
 
 void NPC::interact(std::shared_ptr<BehaviourObject> interactor)
 {
-	std::shared_ptr<DialoguePopup> dialoguePopup = std::make_shared<DialoguePopup>();
-
-	for (auto& c : dialoguePopup->getComponentsRecursive())
-	{
-		SceneModifier::getInstance().addObjectToScene(c);
-	}
-
-	SceneModifier::getInstance().addObjectToScene(dialoguePopup);
+	SceneLoader::getInstance().addOverlayScene("Dialogue");
 }
 
 void NPC::setParent() {
