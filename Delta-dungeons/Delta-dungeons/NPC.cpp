@@ -24,6 +24,7 @@ NPC::NPC(int x, int y, std::string& texture)
 
 void NPC::interact(std::shared_ptr<BehaviourObject> interactor)
 {
+	gc->playAnimation(5, 3, animationSpeed, false);
 	SceneLoader::getInstance().addOverlayScene("Dialogue");
 }
 

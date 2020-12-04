@@ -9,8 +9,12 @@ DialoguePopup::DialoguePopup()
 
 	this->transform.position = { 5, 700 };
 	gc->transform.position = this->transform.position;
-
 	this->components.emplace_back(std::move(gc));
+
+	Colour color = { 255, 255, 255, 255 };
+	std::unique_ptr<TextComponent> dialogueText = std::make_unique<TextComponent>("Hello mister.", "joystix", color, 18);
+	dialogueText->transform.position = { 50, 750 };
+	this->components.emplace_back(std::move(dialogueText));
 }
 
 void DialoguePopup::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos)
