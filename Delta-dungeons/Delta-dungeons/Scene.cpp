@@ -8,7 +8,10 @@ void Scene::registerBehaviourObjects()
 		{
 			auto go = dynamic_cast<GameObject*>(o.get());
 			auto gor = go->getComponentsRecursive();
-			behaviourObjects.insert(behaviourObjects.end(), gor.begin(), behaviourObjects.end());
+			for (auto& bo : gor)
+			{
+				behaviourObjects.emplace_back(bo);
+			}
 		}
 	}
 }
@@ -41,7 +44,7 @@ std::map<std::string, std::string> Scene::getFonts()
 
 void Scene::setFont(const std::string& name, const std::string& f)
 {
-	textures.try_emplace(name, f);
+	fonts.try_emplace(name, f);
 }
 
 std::map<std::string, std::string> Scene::getBeats()
@@ -51,5 +54,5 @@ std::map<std::string, std::string> Scene::getBeats()
 
 void Scene::setBeat(const std::string& name, const std::string& b)
 {
-	textures.try_emplace(name, b);
+	beats.try_emplace(name, b);
 }

@@ -14,20 +14,25 @@ GameManager::GameManager()
 
 	world = std::make_shared<World>();
 
-	uiManager.createBaseScreens();
-	registerTextures(uiManager.passTextures());
-	registerFonts(uiManager.passFonts());
+	//uiManager.createBaseScreens();
+	//registerTextures(uiManager.passTextures());
+	//registerFonts(uiManager.passFonts());
 
-	for (auto& o : uiManager.screens)
-	{
-		std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects;
-		behaviourObjects.emplace_back(o.second);
-		for (auto& c : o.second->getComponentsRecursive())
-		{
-			behaviourObjects.emplace_back(c);
-		}
-		engineFacade->registerScene(o.first, behaviourObjects);
-	}
+	//for (auto& o : uiManager.screens)
+	//{
+	//	std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects;
+	//	behaviourObjects.emplace_back(o.second);
+	//	for (auto& c : o.second->getComponentsRecursive())
+	//	{
+	//		behaviourObjects.emplace_back(c);
+	//	}
+	//	engineFacade->registerScene(o.first, behaviourObjects);
+	//}
+
+	engineFacade->registerScene(mainMenuScene.name, mainMenuScene.getBehaviourObjects());
+	registerTextures(mainMenuScene.getTextures());
+	registerFonts(mainMenuScene.getFonts());
+	registerAudio(mainMenuScene.getBeats());
 
 	createLevel(levels[currentlevel]);
 
@@ -188,12 +193,12 @@ void GameManager::gameOverCallbackFunction()
 
 void GameManager::staticUpdateHUDCallbackFunction(void* p, int health, int berries, int pokeballs)
 {
-	((GameManager*)p)->updateHUDCallbackFunction( health, berries, pokeballs);
+	((GameManager*)p)->updateHUDCallbackFunction(health, berries, pokeballs);
 }
 
-void GameManager::updateHUDCallbackFunction( int health, int berries, int pokeballs)
+void GameManager::updateHUDCallbackFunction(int health, int berries, int pokeballs)
 {
-	hudManager.updateHUD( health, berries, pokeballs);
+	hudManager.updateHUD(health, berries, pokeballs);
 }
 
 void GameManager::staticLoadNextLevelCallbackFunction(void* p)

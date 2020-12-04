@@ -9,7 +9,7 @@ MainMenuScene::MainMenuScene()
 	this->setTexture("button_credits", "Assets/screen-components/button-designs/pastels/button-credits-1.png");
 	this->setTexture("button_exit", "Assets/screen-components/button-designs/pastels/button-exit-1.png");
 	this->setTexture("ad", "Assets/ADS/Advertisement.png");
-
-	//this->setFont("");
+	
+	this->setFont("joystix", "Assets/Font/joystix.ttf");
 	this->setBeat("touch", "Assets/Audio/touch.ogg");
 }

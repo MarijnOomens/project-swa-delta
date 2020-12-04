@@ -4,6 +4,8 @@
 
 class MainMenuScene : public Scene
 {
+public:
 	MainMenuScene();
 	~MainMenuScene() {};
+private:
 };

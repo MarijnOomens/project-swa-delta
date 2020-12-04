@@ -1,6 +1,7 @@
 #pragma once
 
-#include "UIManager.h"
+//#include "UIManager.h"
+#include "MainMenuScene.h"
 #include "EquipmentManager.h"
 #include "PlayerManager.h"
 #include "EngineFacade.h"
@@ -50,7 +51,8 @@ public:
 private:
 	std::shared_ptr<EngineFacade> engineFacade;
 	std::shared_ptr<World> world;
-	UIManager uiManager;
+	//UIManager uiManager;
+	MainMenuScene mainMenuScene;
 	PlayerManager playerManager;
 	EquipmentManager eqManager;
 	NPCManager npcManager;
