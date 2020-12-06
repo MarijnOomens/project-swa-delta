@@ -167,7 +167,6 @@
     <ClCompile Include="GameOverScreenScene.cpp" />
     <ClCompile Include="GameWinScreenScene.cpp" />
     <ClCompile Include="HelpScreenScene.cpp" />
-    <ClCompile Include="IEquipment.cpp" />
     <ClCompile Include="EquipmentManager.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameObjectBuilder.cpp" />

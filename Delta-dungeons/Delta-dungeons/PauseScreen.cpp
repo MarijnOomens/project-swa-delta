@@ -61,7 +61,7 @@ void PauseScreen::staticExitCallbackFunction(const void* p)
 
 void PauseScreen::exitCallbackFunction() const
 {
-	SceneLoader::getInstance().loadScene("MainMenu", "", true);
+	SceneLoader::getInstance().loadScene("MainMenuScreen", "", true);
 }
 
 void PauseScreen::setParent() {}

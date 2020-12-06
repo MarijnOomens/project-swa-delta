@@ -26,7 +26,7 @@ GameManager::GameManager()
 
 	createLevel(levels[currentlevel]);
 
-	engineFacade->loadScene("MainMenu", "", true);
+	engineFacade->loadScene("MainMenuScreen", "", true);
 	engineFacade->startGame();
 }
 

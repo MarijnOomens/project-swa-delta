@@ -50,15 +50,15 @@ void MainMenu::handleInput(const KeyCodes &keyCode, const KeyboardEvent &keyboar
 	{
 		if (keyCode == KeyCodes::KEY_E)
 		{
-			SceneLoader::getInstance().loadScene("Level1", "MainMenu", false);
+			SceneLoader::getInstance().loadScene("Level1", "MainMenuScreen", false);
 		}
 		else if (keyCode == KeyCodes::KEY_G)
 		{
-			SceneLoader::getInstance().loadScene("CreditScreen", "MainMenu", false);
+			SceneLoader::getInstance().loadScene("CreditScreen", "MainMenuScreen", false);
 		}
 		else if (keyCode == KeyCodes::KEY_H)
 		{
-			SceneLoader::getInstance().loadScene("HelpScreen", "MainMenu", false);
+			SceneLoader::getInstance().loadScene("HelpScreen", "MainMenuScreen", false);
 		}
 	}
 }
@@ -70,7 +70,7 @@ void MainMenu::staticOpenGameCallbackFunction(const void* p)
 
 void MainMenu::openGameCallbackFunction() const
 {
-	SceneLoader::getInstance().loadScene("LoadSaveScreen", "MainMenu", true);
+	SceneLoader::getInstance().loadScene("LoadSaveScreen", "MainMenuScreen", true);
 }
 
 void MainMenu::staticOpenCreditsCallbackFunction(const void* p) 
@@ -80,7 +80,7 @@ void MainMenu::staticOpenCreditsCallbackFunction(const void* p)
 
 void MainMenu::openCreditsCallbackFunction() const
 {
-	SceneLoader::getInstance().loadScene("CreditsScreen", "MainMenu", true);
+	SceneLoader::getInstance().loadScene("CreditScreen", "MainMenuScreen", true);
 }
 
 void MainMenu::staticOpenHelpCallbackFunction(const void* p)
@@ -90,7 +90,7 @@ void MainMenu::staticOpenHelpCallbackFunction(const void* p)
 
 void MainMenu::openHelpCallbackFunction() const
 {
-	SceneLoader::getInstance().loadScene("HelpScreen", "MainMenu", true);
+	SceneLoader::getInstance().loadScene("HelpScreen", "MainMenuScreen", true);
 }
 
 void MainMenu::staticExitCallbackFunction(const void* p) 

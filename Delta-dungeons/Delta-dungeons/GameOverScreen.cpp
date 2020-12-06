@@ -28,7 +28,7 @@ void GameOverScreen::staticExitCallbackFunction(const void* p)
 
 void GameOverScreen::exitCallbackFunction() const
 {
-	SceneLoader::getInstance().loadScene("MainMenu", "", true);
+	SceneLoader::getInstance().loadScene("MainMenuScreen", "", true);
 }
 
 void GameOverScreen::setParent() {}
