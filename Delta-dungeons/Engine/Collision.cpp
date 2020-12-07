@@ -85,3 +85,68 @@ void Collision::checkProjectileCollision(std::shared_ptr<BehaviourObject> collid
 		col1->parent->interact(nullptr);
 	}
 }
+
+
+//aangeroepen vanuit player, we roepen interact aan van de puzzle
+
+void Collision::checkPuzzleCollision(int x, int y, KeyCodes direction, int w)
+{
+	CollidingComponent* col1 = nullptr;
+	for (auto& collider1 : colliderObjects)
+	{
+		if (
+			collider1->transform.position.x + 128 >= cameraX &&
+			1280 + cameraX >= collider1->transform.position.x &&
+			collider1->transform.position.y + 128 >= cameraY &&
+			cameraY + 1024 >= collider1->transform.position.y
+			)
+		{
+			if (x + w > collider1->transform.position.x &&
+				collider1->transform.position.x + w > x &&
+				y + w > collider1->transform.position.y &&
+				collider1->transform.position.y + w > y)
+			{
+				col1 = dynamic_cast<CollidingComponent*>(collider1.get());
+				//col1->actCollision(col1->parent, x, y, direction);
+				break;
+			}
+		}
+	}
+
+	bool foundCollision = false;
+	if (col1 != nullptr) {
+		for (auto& collider2 : colliderObjects)
+		{
+			if (
+				collider2->transform.position.x + 128 >= cameraX &&
+				1280 + cameraX >= collider2->transform.position.x &&
+				collider2->transform.position.y + 128 >= cameraY &&
+				cameraY + 1024 >= collider2->transform.position.y
+				)
+			{
+				auto col2 = dynamic_cast<CollidingComponent*>(collider2.get());
+				if (x + w > col2->transform.position.x &&
+					col2->transform.position.x + w > x &&
+					y + w > col2->transform.position.y &&
+					col2->transform.position.y + w > y)
+				{
+
+					//col2->actCollision(col1->parent, x, y, direction);
+					foundCollision = true;
+					break;
+				}
+			}
+		}
+		if (!foundCollision)
+		{
+			//col1->actCollision(col1->parent, x, y, direction);
+		}
+	}
+
+}
+
+
+//roep collision->checkcollsion aan
+	//die zet hasmoved op true
+//if(hasmoved = false) 
+	//beweeg de boulder
