@@ -163,6 +163,7 @@
     <ClCompile Include="CreditScreen.cpp" />
     <ClCompile Include="CreditScreenScene.cpp" />
     <ClCompile Include="DebugUtilities.cpp" />
+    <ClCompile Include="DialoguePopupScene.cpp" />
     <ClCompile Include="DialoguePopup.cpp" />
     <ClCompile Include="GameOverScreenScene.cpp" />
     <ClCompile Include="GameWinScreenScene.cpp" />
@@ -218,6 +219,7 @@
     <ClInclude Include="Creditscreen.h" />
     <ClInclude Include="CreditScreenScene.h" />
     <ClInclude Include="DebugUtilities.h" />
+    <ClInclude Include="DialoguePopupScene.h" />
     <ClInclude Include="DialoguePopup.h" />
     <ClInclude Include="EquipmentManager.h" />
     <ClInclude Include="GameManager.h" />

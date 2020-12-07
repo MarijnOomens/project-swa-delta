@@ -14,7 +14,7 @@ GameManager::GameManager()
 
 	world = std::make_shared<World>();
 
-	scenes = { mainMenuScene, creditScreenScene, pauseScreenScene, helpScreenScene, gameOverScreenScene, gameWinScreenScene, loadSaveScreenScene };
+	scenes = { mainMenuScene, creditScreenScene, pauseScreenScene, helpScreenScene, gameOverScreenScene, gameWinScreenScene, loadSaveScreenScene, dialoguePopupScene };
 
 	for (auto& s : scenes)
 	{

@@ -222,6 +222,9 @@
     <ClCompile Include="Player.cpp">
       <Filter>Source Files\Game\GameObjects\InteractiveObjects</Filter>
     </ClCompile>
+    <ClCompile Include="DialoguePopupScene.cpp">
+      <Filter>Source Files\Game\Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h">
@@ -391,6 +394,9 @@
     </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>Header Files\Game\GameObjects\InteractiveObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="DialoguePopupScene.h">
+      <Filter>Header Files\Game\Scenes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

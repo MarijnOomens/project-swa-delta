@@ -7,6 +7,7 @@
 #include "GameOverScreenScene.h"
 #include "GameWinScreenScene.h"
 #include "LoadSaveScreenScene.h"
+#include "DialoguePopupScene.h"
 #include "EquipmentManager.h"
 #include "PlayerManager.h"
 #include "EngineFacade.h"
@@ -63,6 +64,7 @@ private:
 	GameOverScreenScene gameOverScreenScene;
 	GameWinScreenScene gameWinScreenScene;
 	LoadSaveScreenScene loadSaveScreenScene;
+	DialoguePopupScene dialoguePopupScene;
 	PlayerManager playerManager;
 	EquipmentManager eqManager;
 	NPCManager npcManager;

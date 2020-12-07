@@ -332,7 +332,7 @@ void EngineController::replaceScene(const std::string sceneName, std::vector<std
 		else if (dynamic_cast<TextComponent*>(o.get()) != nullptr)
 		{
 			auto ntc = dynamic_cast<TextComponent*>(o.get());
-			ntc->addTextureManager(textureManager);
+			ntc->addFontManager(fontManager);
 		}
 	}
 	sceneManager.replaceScene(sceneName, objects);
