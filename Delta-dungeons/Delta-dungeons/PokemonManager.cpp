@@ -37,7 +37,7 @@ int PokemonManager::getRandomPokemon()
 	bool hasFound = false;
 	while (!hasFound) 
 	{
-		int randomPokemon = rand() % (parsedPokemon.size() - 1);
+		int randomPokemon = rand() % (parsedPokemon.size());
 		int random = rand() % 100;
 		if (random < std::stoi(parsedPokemon[randomPokemon]->encounterRate))
 		{

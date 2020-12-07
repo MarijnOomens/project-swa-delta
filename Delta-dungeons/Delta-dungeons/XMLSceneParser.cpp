@@ -23,16 +23,16 @@ std::vector<std::shared_ptr<Tile>> XMLSceneParser::loadScene(const std::string& 
 			if(tile->tileId[2])
 			{
 				int third = tile->tileId[2] - 48;
-				tileMap.emplace_back(std::make_shared<Tile>(std::stoi(tile->x), std::stoi(tile->y), (first * 10) + second, third, tile->isCollider, tile->isTrigger));
+				tileMap.emplace_back(std::make_shared<Tile>(std::stoi(tile->x), std::stoi(tile->y), (first * 10) + second, third, tile->isCollider, tile->isTrigger, tile->isWinTrigger));
 			}
 			else 
 			{
-				tileMap.emplace_back(std::make_shared<Tile>(std::stoi(tile->x), std::stoi(tile->y), first, second, tile->isCollider, tile->isTrigger));
+				tileMap.emplace_back(std::make_shared<Tile>(std::stoi(tile->x), std::stoi(tile->y), first, second, tile->isCollider, tile->isTrigger, tile->isWinTrigger));
 			}
 		}
 		else
 		{
-			tileMap.emplace_back(std::make_shared<Tile>(std::stoi(tile->x), std::stoi(tile->y), first, tile->isCollider, tile->isTrigger));
+			tileMap.emplace_back(std::make_shared<Tile>(std::stoi(tile->x), std::stoi(tile->y), first, tile->isCollider, tile->isTrigger, tile->isWinTrigger));
 		}
 	}
 	return tileMap;
@@ -42,11 +42,16 @@ std::vector<std::shared_ptr<PokemonParserData>> XMLSceneParser::loadPokemon(cons
 {
 	return facade.loadPokemon(path);
 }
+
+std::vector<std::shared_ptr<NPCParserData>> XMLSceneParser::loadNPC(const std::string& path)
+{
+	return facade.loadNPC(path);
+}
+
 /// <summary>
 ///  Gets the ParserData only for equipment.
 /// </summary>
 /// <returns> A list with parserdata for equipment only.</returns>
-
 std::vector<std::shared_ptr<ParserData>> XMLSceneParser::getEquipmentDataList(const std::string& path)
 {
 	return facade.getEquipmentDataList(path);

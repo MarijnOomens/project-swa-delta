@@ -177,6 +177,9 @@
     <ClInclude Include="AudioManager.h">
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
+    <ClInclude Include="LevelWinStrategy.h">
+      <Filter>Header Files\Engine\Collider</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Vector2D.cpp">
@@ -277,6 +280,9 @@
     </ClCompile>
     <ClCompile Include="TextureAssetManager.cpp">
       <Filter>Source Files\Engine\AssetManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelWinStrategy.cpp">
+      <Filter>Source Files\Engine\Collider</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

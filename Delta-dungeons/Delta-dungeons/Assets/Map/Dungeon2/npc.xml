@@ -1,0 +1,14 @@
+<NPCs>
+<NPC name="youngster">
+<Dialogue text="I hate sand it gets in my shorts, which makes it not comfy and easy to wear."/>
+</NPC>
+<NPC name="bugtrainer">
+<Dialogue text="WHERE ARE MY BUGS!"/>
+</NPC>
+<NPC name="acetrainer_m">
+<Dialogue text="I heard rumours about a gallade appearing in a lava area."/>
+</NPC>
+<NPC name="acetrainer_f">
+<Dialogue text="I heard rumours about a gardevoir appearing in a lava area."/>
+</NPC>
+</NPCs>

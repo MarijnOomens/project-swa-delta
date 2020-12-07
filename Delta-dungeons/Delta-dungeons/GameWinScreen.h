@@ -12,6 +12,8 @@ public:
 	~GameWinScreen() {}
 	void setParent() override;
 
+	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
+
 	static void staticExitCallbackFunction(const void* p);
 	void exitCallbackFunction() const;
 };

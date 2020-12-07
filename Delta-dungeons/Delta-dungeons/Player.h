@@ -9,6 +9,7 @@
 #include "DebugUtilities.h"
 #include "StopStrategy.h"
 #include "ThrowPokeball.h"
+#include "SceneLoader.h"
 
 typedef void(*cbInteract) (void*, std::shared_ptr<BehaviourObject>, int, int);
 typedef void(*cbCamera) (void*, int, int);
@@ -40,7 +41,7 @@ public:
 
 	void handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
 	void interact(std::shared_ptr<BehaviourObject> interactor) override;
-	void registerCollision(int x, int y, bool isDamaged, bool isTransitioned) override;
+	void registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger) override;
 	void handleKeyPressed(const KeyCodes& keyCodes);
 	void handleKeyReleased(const KeyCodes& keyCodes);
 

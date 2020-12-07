@@ -318,3 +318,22 @@ void EngineController::deleteScene(const std::string& sceneName)
 {
 	sceneManager.deleteScene(sceneName);
 }
+
+void EngineController::replaceScene(const std::string sceneName, std::vector<std::shared_ptr<BehaviourObject>> objects)
+{
+
+	for (const auto& o : objects)
+	{
+		if (dynamic_cast<GraphicsComponent*>(o.get()) != nullptr)
+		{
+			auto ngc = dynamic_cast<GraphicsComponent*>(o.get());
+			ngc->addTextureManager(textureManager);
+		}
+		else if (dynamic_cast<TextComponent*>(o.get()) != nullptr)
+		{
+			auto ntc = dynamic_cast<TextComponent*>(o.get());
+			ntc->addTextureManager(textureManager);
+		}
+	}
+	sceneManager.replaceScene(sceneName, objects);
+}

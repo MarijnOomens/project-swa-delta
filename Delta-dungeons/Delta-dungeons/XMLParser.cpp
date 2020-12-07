@@ -34,7 +34,7 @@ std::vector<std::shared_ptr<ParserData>> XMLParser::parseXML(const std::string& 
 			}
 		}
 
-		if (layerName == "collision")
+		if (layerName == "collider")
 		{
 			for (xml_node<>* tile = layer->first_node(); tile; tile = tile->next_sibling())
 			{
@@ -42,7 +42,7 @@ std::vector<std::shared_ptr<ParserData>> XMLParser::parseXML(const std::string& 
 				std::string yVal = tile->first_attribute("y")->value();
 				std::string tileId = tile->first_attribute("tile")->value();
 
-				if (tileId != "-1" && (tileId == "8" || tileId =="9"))
+				if (tileId != "-1" && (tileId == "8" || tileId == "9" || tileId == "19"))
 				{
 					for (int x = 0; x < parserDataList.size(); x++)
 					{
@@ -52,6 +52,10 @@ std::vector<std::shared_ptr<ParserData>> XMLParser::parseXML(const std::string& 
 							if (tileId == "9")
 							{
 								parserDataList.at(x)->isTrigger = true;
+							}
+							else if (tileId == "19")
+							{
+								parserDataList.at(x)->isWinTrigger = true;
 							}
 							break;
 						}
@@ -82,11 +86,35 @@ std::vector<std::shared_ptr<PokemonParserData>> XMLParser::loadPokemon(const std
 
 	return parserDataList;
 }
+
+std::vector<std::shared_ptr<NPCParserData>> XMLParser::loadNPC(const std::string& path)
+{
+	std::vector<std::shared_ptr<NPCParserData>> parserDataList;
+
+	rapidxml::file<> xmlFile(path.c_str());
+	rapidxml::xml_document<> doc;
+
+	doc.parse<0>(xmlFile.data());
+	xml_node<>* node = doc.first_node("NPCs");
+
+	for (xml_node<>* npc = node->first_node(); npc; npc = npc->next_sibling())
+	{
+		std::vector<std::string> dialogues;
+		for (xml_node<>* dialogue = npc->first_node(); dialogue; dialogue = dialogue->next_sibling())
+		{
+			dialogues.emplace_back(dialogue->first_attribute("text")->value());
+		}
+		std::shared_ptr<NPCParserData> n = std::make_shared<NPCParserData>(npc->first_attribute("name")->value(), dialogues);
+		parserDataList.emplace_back(n);
+	}
+
+	return parserDataList;
+}
+
 /// <summary>
 ///  Gets the ParserData only for equipment.
 /// </summary>
 /// <returns> A list with parserdata for NPCs only.</returns>
-
 std::vector<std::shared_ptr<ParserData>> XMLParser::getEquipmentDataList(const std::string& path)
 {
 	std::vector<std::shared_ptr<ParserData>> equipmentDataList;
@@ -100,7 +128,7 @@ std::vector<std::shared_ptr<ParserData>> XMLParser::getEquipmentDataList(const s
 	for (xml_node<>* layer = node->first_node(); layer; layer = layer->next_sibling())
 	{
 		std::string layerName = layer->first_attribute("name")->value();
-		if (layerName == "collision")
+		if (layerName == "collider")
 		{
 			for (xml_node<>* tile = layer->first_node(); tile; tile = tile->next_sibling())
 			{
@@ -109,7 +137,7 @@ std::vector<std::shared_ptr<ParserData>> XMLParser::getEquipmentDataList(const s
 				std::string tileId = tile->first_attribute("tile")->value();
 
 				//filters data for all equipment in the game.
-				if (tileId == "3" || tileId == "4" || tileId == "5" || tileId == "6")
+				if (tileId == "3" || tileId == "4" || tileId == "5" || tileId == "6" || tileId == "22" || tileId == "23" || tileId == "24")
 				{
 					std::shared_ptr<ParserData> p = std::make_shared<ParserData>(tile->first_attribute("x")->value(), tile->first_attribute("y")->value(), tile->first_attribute("tile")->value());
 					equipmentDataList.push_back(p);
@@ -133,7 +161,7 @@ std::vector<std::shared_ptr<ParserData>> XMLParser::getNPCDataList(const std::st
 	for (xml_node<>* layer = node->first_node(); layer; layer = layer->next_sibling())
 	{
 		std::string layerName = layer->first_attribute("name")->value();
-		if (layerName == "collision")
+		if (layerName == "collider")
 		{
 			for (xml_node<>* tile = layer->first_node(); tile; tile = tile->next_sibling())
 			{
@@ -166,7 +194,7 @@ std::shared_ptr<ParserData> XMLParser::getPlayerPosition(const std::string& path
 	for (xml_node<>* layer = node->first_node(); layer; layer = layer->next_sibling())
 	{
 		std::string layerName = layer->first_attribute("name")->value();
-		if (layerName == "collision")
+		if (layerName == "collider")
 		{
 			for (xml_node<>* tile = layer->first_node(); tile; tile = tile->next_sibling())
 			{

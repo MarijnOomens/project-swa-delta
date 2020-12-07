@@ -62,6 +62,7 @@ public:
 	void checkTransition()const;
 	void playAudio(const std::string& trackName, bool looped);
 	void deleteScene(const std::string& sceneName);
+	void replaceScene(const std::string sceneName, std::vector<std::shared_ptr<BehaviourObject>> objects);
 
 private:
 	std::vector<int> hudLayers;

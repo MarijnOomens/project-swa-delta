@@ -182,9 +182,11 @@
     <ClCompile Include="LoadSaveScreenScene.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="MainMenuScene.cpp" />
+    <ClCompile Include="Medal.cpp" />
     <ClCompile Include="NPC.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="NPCManager.cpp" />
+    <ClCompile Include="NPCParserData.cpp" />
     <ClCompile Include="PauseScreen.cpp" />
     <ClCompile Include="PauseScreenScene.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -234,6 +236,8 @@
     <ClInclude Include="MainMenuScene.h" />
     <ClInclude Include="NPCManager.h" />
     <ClInclude Include="PauseScreenScene.h" />
+    <ClInclude Include="Medal.h" />
+    <ClInclude Include="NPCParserData.h" />
     <ClInclude Include="PokemonManager.h" />
     <ClInclude Include="PokemonParserData.h" />
     <ClInclude Include="Scene.h" />

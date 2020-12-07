@@ -111,7 +111,7 @@ void SceneManager::deleteObjectFromScene(std::shared_ptr<BehaviourObject> delete
 void SceneManager::passInteract(std::shared_ptr<BehaviourObject> player, int x, int y)
 {
 	for (const auto& bo : scenes[currentScene]) {
-		if (bo != nullptr) {
+		if (bo != nullptr && !isSceneSwitched) {
 			if (bo->transform.position.x == x && bo->transform.position.y == y)
 			{
 				bo->interact(player);
@@ -128,4 +128,9 @@ std::string SceneManager::getCurrentScene()
 void SceneManager::deleteScene(const std::string& sceneName)
 {
 	scenes[sceneName].clear();
+}
+
+void SceneManager::replaceScene(const std::string sceneName, std::vector<std::shared_ptr<BehaviourObject>> objects)
+{
+	scenes[sceneName] = objects;
 }

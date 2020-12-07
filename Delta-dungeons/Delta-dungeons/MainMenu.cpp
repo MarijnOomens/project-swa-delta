@@ -44,24 +44,7 @@ void MainMenu::start()
 	AudioUtilities::getInstance().playAudio("touch", true);
 }
 
-void MainMenu::handleInput(const KeyCodes &keyCode, const KeyboardEvent &keyboardEvent, Vector2D &mousePos)
-{
-	if (keyboardEvent == KeyboardEvent::KEY_PRESSED)
-	{
-		if (keyCode == KeyCodes::KEY_E)
-		{
-			SceneLoader::getInstance().loadScene("Level1", "MainMenuScreen", false);
-		}
-		else if (keyCode == KeyCodes::KEY_G)
-		{
-			SceneLoader::getInstance().loadScene("CreditScreen", "MainMenuScreen", false);
-		}
-		else if (keyCode == KeyCodes::KEY_H)
-		{
-			SceneLoader::getInstance().loadScene("HelpScreen", "MainMenuScreen", false);
-		}
-	}
-}
+void MainMenu::handleInput(const KeyCodes &keyCode, const KeyboardEvent &keyboardEvent, Vector2D &mousePos) {}
 
 void MainMenu::staticOpenGameCallbackFunction(const void* p) 
 {

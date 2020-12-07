@@ -26,6 +26,7 @@ public:
 	void passInteract(std::shared_ptr<BehaviourObject> player, int x, int y);
 	std::string getCurrentScene();
 	void deleteScene(const std::string& sceneName);
+	void replaceScene(const std::string sceneName, std::vector<std::shared_ptr<BehaviourObject>> objects);
 
 private:
 	std::map<std::string, std::vector<std::shared_ptr<BehaviourObject>>> scenes;

@@ -8,12 +8,13 @@
 #include <memory>
 #include <cstdlib>
 #include <ctime>
+#include "NPCParserData.h"
 
 class NPCManager
 {
 public:
-	std::vector<std::string> trainerList;
 	std::map<std::string, std::shared_ptr<IInteractiveObject>> npcs;
+	std::vector<std::shared_ptr<NPCParserData>> parsedNpcs;
 
 	NPCManager();
 	~NPCManager() {}
@@ -22,7 +23,7 @@ public:
 	std::map<std::string, std::string> passTextures() const;
 
 	void addTrainers();
-	std::string getRandomNPC();
+	int getRandomNPC();
 private:
 	std::shared_ptr<GameObjectBuilder> builder;
 };
