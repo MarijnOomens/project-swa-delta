@@ -15,7 +15,7 @@ public:
 	NPC(int x, int y, const std::string& texture, const std::string& d);
 
 	void interact(std::shared_ptr<BehaviourObject> interactor) override;
-	void registerCollision(int x, int y, bool isDamaged, bool isTransitioned) override;
+	void registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger) override;
 	void setParent() override;
 	void playAnimation(Transform t);
 

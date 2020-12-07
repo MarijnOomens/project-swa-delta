@@ -185,6 +185,7 @@
     <ClInclude Include="InputWrapper.h" />
     <ClInclude Include="Keyboardevent.h" />
     <ClInclude Include="Keycodes.h" />
+    <ClInclude Include="LevelWinStrategy.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="Rectangle.h" />
@@ -215,6 +216,7 @@
     <ClCompile Include="BehaviourObject.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GraphicsComponent.cpp" />
+    <ClCompile Include="LevelWinStrategy.cpp" />
     <ClCompile Include="RenderFacade.cpp" />
     <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="Renderer.cpp" />

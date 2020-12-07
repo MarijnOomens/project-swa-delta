@@ -24,6 +24,17 @@ GameWinScreen::GameWinScreen()
 	this->components.emplace_back(gameWinText);
 }
 
+void GameWinScreen::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos)
+{
+	if (keyboardEvent == KeyboardEvent::KEY_PRESSED)
+	{
+		if (keyCode == KeyCodes::KEY_BACKSPACE)
+		{
+			SceneLoader::getInstance().loadPreviousScene();
+		}
+	}
+}
+
 void GameWinScreen::staticExitCallbackFunction(const void* p)
 {
 	((GameWinScreen*)p)->exitCallbackFunction();

@@ -428,8 +428,10 @@ void Player::addPokeball() {
 	hudFunc(pointer, health, amountOfBerries, amountOfPokeballs);
 }
 
-void Player::registerCollision(int x, int y, bool isDamaged, bool isTransitioned) {
+void Player::registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger) {
 	if (isDamaged) { registerHit(); }
 	if (isTransitioned) { nextLevelFunc(pointer); }
+	if (isWinTrigger) { SceneLoader::getInstance().loadScene("GameWin", SceneLoader::getInstance().getCurrentLevel(), false); }
+
 	hasMoved = true;
 }

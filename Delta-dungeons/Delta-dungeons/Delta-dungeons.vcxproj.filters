@@ -123,9 +123,6 @@
     <ClCompile Include="HUD.cpp">
       <Filter>Source Files\Game\GameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Source Files\Game\GameObjects</Filter>
-    </ClCompile>
     <ClCompile Include="Tile.cpp">
       <Filter>Source Files\Game\GameObjects</Filter>
     </ClCompile>
@@ -192,6 +189,9 @@
     <ClCompile Include="NPCParserData.cpp">
       <Filter>Source Files\XMLParser</Filter>
     </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\Game\GameObjects\InteractiveObjects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h">
@@ -228,9 +228,6 @@
       <Filter>Header Files\Game</Filter>
     </ClInclude>
     <ClInclude Include="Tile.h">
-      <Filter>Header Files\Game\GameObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
       <Filter>Header Files\Game\GameObjects</Filter>
     </ClInclude>
     <ClInclude Include="HUD.h">
@@ -340,6 +337,9 @@
     </ClInclude>
     <ClInclude Include="NPCParserData.h">
       <Filter>Header Files\XMLParser</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files\Game\GameObjects\InteractiveObjects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

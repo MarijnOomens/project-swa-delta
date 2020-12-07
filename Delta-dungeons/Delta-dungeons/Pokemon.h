@@ -14,7 +14,7 @@ public:
 	Pokemon(int x, int y, std::string &texture);
 	void interact(std::shared_ptr<BehaviourObject> interactor) override;
 	void catchPokemon();
-	void registerCollision(int x, int y, bool isDamaged, bool isTransitioned) override;
+	void registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger) override;
 	void setParent() override;
 protected:
 	std::string sfxPath;

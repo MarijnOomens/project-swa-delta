@@ -6,7 +6,7 @@
 /// <param name="x">The horizontal placement of tile</param>
 /// <param name="y">The vertical placement of tile</param>
 /// <param name="xImage">Specific horizontal image location of tile png</param>
-Tile::Tile(int x, int y, int xImage, bool collider, bool isTrigger)
+Tile::Tile(int x, int y, int xImage, bool collider, bool isTrigger, bool isWinTrigger)
 {
 	originX = x * 128;
 	originY = y * 128;
@@ -23,13 +23,16 @@ Tile::Tile(int x, int y, int xImage, bool collider, bool isTrigger)
 		{
 			stp = std::make_shared<TransitionStrategy>();
 		}
+		else if (isWinTrigger)
+		{
+			stp = std::make_shared<LevelWinStrategy>();
+		}
 		else 
 		{
 			stp = std::make_shared<StopStrategy>();
 		}
 		cc = std::make_shared<CollidingComponent>(stp);
 		cc->tag = "tile";
-		cc->isTrigger = isTrigger;
 		cc->transform.position = this->transform.position;
 		this->components.emplace_back(cc);
 	}
@@ -43,7 +46,7 @@ Tile::Tile(int x, int y, int xImage, bool collider, bool isTrigger)
 /// <param name="xImage">Horizontal image location of tile png</param>
 /// <param name="yImage">Vertical image location of tile png</param>
 
-Tile::Tile(int x, int y, int yImage, int xImage, bool collider, bool isTrigger)
+Tile::Tile(int x, int y, int yImage, int xImage, bool collider, bool isTrigger, bool isWinTrigger)
 {
 	originX = x * 128;
 	originY = y * 128;
@@ -59,13 +62,16 @@ Tile::Tile(int x, int y, int yImage, int xImage, bool collider, bool isTrigger)
 		{
 			stp = std::make_shared<TransitionStrategy>();
 		}
+		else if (isWinTrigger)
+		{
+			stp = std::make_shared<LevelWinStrategy>();
+		}
 		else
 		{
 			stp = std::make_shared<StopStrategy>();
 		}
 		cc = std::make_shared<CollidingComponent>(stp);
 		cc->tag = "tile";
-		cc->isTrigger = isTrigger;
 		cc->transform.position = this->transform.position;
 		this->components.emplace_back(cc);
 	}
