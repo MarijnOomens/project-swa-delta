@@ -1035,7 +1035,7 @@
     <tile x="10" y="4" tile="8" rot="0" flipX="false"/>
     <tile x="11" y="4" tile="8" rot="0" flipX="false"/>
     <tile x="12" y="4" tile="8" rot="0" flipX="false"/>
-    <tile x="13" y="4" tile="-1" rot="0" flipX="false"/>
+    <tile x="13" y="4" tile="19" rot="0" flipX="false"/>
     <tile x="14" y="4" tile="8" rot="0" flipX="false"/>
     <tile x="15" y="4" tile="8" rot="0" flipX="false"/>
     <tile x="16" y="4" tile="8" rot="0" flipX="false"/>
