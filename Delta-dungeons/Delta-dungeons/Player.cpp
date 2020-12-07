@@ -23,7 +23,7 @@ Player::Player(int spawnX, int spawnY, cbCollision collisionCB, cbThrowCollision
 	addEquipment(std::move(running));
 	addEquipment(std::move(boomerang));
 
-	baseMovementSpeed = 128;
+	baseMovementSpeed = 16;
 	tileCollision = false;
 
 	this->transform.position.x = spawnX*128;
@@ -213,6 +213,7 @@ void Player::handleKeyReleased(const KeyCodes& keyCodes)
 	default:
 		break;
 	}
+	hasMoved = false;
 }
 
 void Player::update() {}
@@ -228,16 +229,17 @@ void Player::setParent() {
 void Player::moveUp()
 {
 	//de huidige positie bijhouden.
-	collisionFunc(pointer, shared_from_this(), this->transform.position.x, this->transform.position.y -128, KeyCodes::KEY_UP, (gc->imageDimensions.x * gc->transform.scale.x));
 	if (!hasMoved) {
-		transform.position.y -= baseMovementSpeed;
-		cc->transform.position.y = this->transform.position.y;
-		gc->transform.position = transform.position;
+		collisionFunc(pointer, shared_from_this(), this->transform.position.x, this->transform.position.y - baseMovementSpeed, KeyCodes::KEY_UP, (gc->imageDimensions.x * gc->transform.scale.x));
+		if (!hasMoved) {
+			transform.position.y -= baseMovementSpeed;
+			cc->transform.position.y = this->transform.position.y;
+			gc->transform.position = transform.position;
 
-		isWalking ? gc->playAnimation(2, 4, animationSpeed, false) : gc->playAnimation(7, 3, animationSpeed, false);
-		func(pointer, transform.position.x, transform.position.y);
+			isWalking ? gc->playAnimation(2, 4, animationSpeed, false) : gc->playAnimation(7, 3, animationSpeed, false);
+			func(pointer, transform.position.x, transform.position.y);
+		}
 	}
-	hasMoved = false;
 }
 
 /// <summary>
@@ -246,16 +248,17 @@ void Player::moveUp()
 /// </summary>
 void Player::moveDown()
 {
-	collisionFunc(pointer, shared_from_this(), this->transform.position.x, this->transform.position.y+128, KeyCodes::KEY_DOWN, (gc->imageDimensions.x * gc->transform.scale.x));
 	if (!hasMoved) {
-		transform.position.y += baseMovementSpeed;
-		cc->transform.position.y = this->transform.position.y;
-		gc->transform.position = transform.position;
+		collisionFunc(pointer, shared_from_this(), this->transform.position.x, this->transform.position.y + baseMovementSpeed, KeyCodes::KEY_DOWN, (gc->imageDimensions.x * gc->transform.scale.x));
+		if (!hasMoved) {
+			transform.position.y += baseMovementSpeed;
+			cc->transform.position.y = this->transform.position.y;
+			gc->transform.position = transform.position;
 
-		isWalking ? gc->playAnimation(1, 4, animationSpeed, false) : gc->playAnimation(6, 3, animationSpeed, false);
-		func(pointer, transform.position.x, transform.position.y);
+			isWalking ? gc->playAnimation(1, 4, animationSpeed, false) : gc->playAnimation(6, 3, animationSpeed, false);
+			func(pointer, transform.position.x, transform.position.y);
+		}
 	}
-	hasMoved = false;
 }
 
 /// <summary>
@@ -264,16 +267,17 @@ void Player::moveDown()
 /// </summary>
 void Player::moveLeft()
 {
-	collisionFunc(pointer, shared_from_this(), this->transform.position.x-128, this->transform.position.y, KeyCodes::KEY_LEFT, (gc->imageDimensions.x * gc->transform.scale.x));
 	if (!hasMoved) {
-		transform.position.x -= baseMovementSpeed;
-		cc->transform.position.x = this->transform.position.x;
-		gc->transform.position = transform.position;
+		collisionFunc(pointer, shared_from_this(), this->transform.position.x - baseMovementSpeed, this->transform.position.y, KeyCodes::KEY_LEFT, (gc->imageDimensions.x * gc->transform.scale.x));
+		if (!hasMoved) {
+			transform.position.x -= baseMovementSpeed;
+			cc->transform.position.x = this->transform.position.x;
+			gc->transform.position = transform.position;
 
-		isWalking ? gc->playAnimation(3, 4, animationSpeed, false) : gc->playAnimation(8, 3, animationSpeed, false);
-		func(pointer, transform.position.x, transform.position.y);
+			isWalking ? gc->playAnimation(3, 4, animationSpeed, false) : gc->playAnimation(8, 3, animationSpeed, false);
+			func(pointer, transform.position.x, transform.position.y);
+		}
 	}
-	hasMoved = false;
 }
 
 /// <summary>
@@ -282,16 +286,17 @@ void Player::moveLeft()
 /// </summary>
 void Player::moveRight()
 {
-	collisionFunc(pointer, shared_from_this(), this->transform.position.x+128, this->transform.position.y, KeyCodes::KEY_RIGHT, (gc->imageDimensions.x * gc->transform.scale.x));
-	if(!hasMoved) {
-		transform.position.x += baseMovementSpeed;
-		cc->transform.position.x = this->transform.position.x;
-		gc->transform.position = transform.position;
+	if (!hasMoved) {
+		collisionFunc(pointer, shared_from_this(), this->transform.position.x + baseMovementSpeed, this->transform.position.y, KeyCodes::KEY_RIGHT, (gc->imageDimensions.x * gc->transform.scale.x));
+		if (!hasMoved) {
+			transform.position.x += baseMovementSpeed;
+			cc->transform.position.x = this->transform.position.x;
+			gc->transform.position = transform.position;
 
-		isWalking ? gc->playAnimation(3, 4, animationSpeed, true) : gc->playAnimation(8, 3, animationSpeed, true);
-		func(pointer, transform.position.x, transform.position.y);
+			isWalking ? gc->playAnimation(3, 4, animationSpeed, true) : gc->playAnimation(8, 3, animationSpeed, true);
+			func(pointer, transform.position.x, transform.position.y);
+		}
 	}
-	hasMoved = false;
 }
 
 /// <summary>

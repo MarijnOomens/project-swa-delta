@@ -27,8 +27,9 @@ void Collision::checkCollision(std::shared_ptr<BehaviourObject> collider, int x,
 {
 	for (auto& collider2 : colliderObjects)
 	{
+		auto col1 = dynamic_cast<IInteractiveObject*>(collider.get());
 		if (
-			collider != collider2 &&
+			col1->cc != collider2 &&
 			collider2->transform.position.x + 128 >= cameraX &&
 			1280 + cameraX >= collider2->transform.position.x &&
 			collider2->transform.position.y + 128 >= cameraY &&
