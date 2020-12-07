@@ -187,6 +187,8 @@
     <ClInclude Include="Keycodes.h" />
     <ClInclude Include="LevelWinStrategy.h" />
     <ClInclude Include="main.h" />
+    <ClInclude Include="PuzzleEntranceStrategy.h" />
+    <ClInclude Include="PuzzleExitStrategy.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="Rectangle.h" />
     <ClInclude Include="RenderFacade.h" />
@@ -217,6 +219,8 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GraphicsComponent.cpp" />
     <ClCompile Include="LevelWinStrategy.cpp" />
+    <ClCompile Include="PuzzleEntranceStrategy.cpp" />
+    <ClCompile Include="PuzzleExitStrategy.cpp" />
     <ClCompile Include="RenderFacade.cpp" />
     <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="Renderer.cpp" />
