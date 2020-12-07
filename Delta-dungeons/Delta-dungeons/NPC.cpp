@@ -1,6 +1,6 @@
 #include "NPC.h"
 
-NPC::NPC(int x, int y, const std::string& texture, const std::string& d): dialogue(d)
+NPC::NPC(int x, int y, const std::string& texture, const std::vector<std::string> d): dialogue(d)
 {
 	this->textures.try_emplace("dialogue_box", "Assets/Dialogue/text_box.png");
 
@@ -25,7 +25,7 @@ NPC::NPC(int x, int y, const std::string& texture, const std::string& d): dialog
 void NPC::interact(std::shared_ptr<BehaviourObject> interactor)
 {
 	playAnimation(interactor->transform);
-	std::shared_ptr<DialoguePopup> dialoguePopup = std::make_shared<DialoguePopup>(dialogue);
+	std::shared_ptr<DialoguePopup> dialoguePopup = std::make_shared<DialoguePopup>(getRandomDialogue());
 	std::vector<std::shared_ptr<BehaviourObject>> objects;
 	objects.emplace_back(dialoguePopup);
 	for (auto& c : dialoguePopup->getComponentsRecursive())
@@ -55,6 +55,13 @@ void NPC::playAnimation(Transform t)
 		gc->playAnimation(4, 3, animationSpeed, false);
 	}
 }
+
+std::string NPC::getRandomDialogue()
+{
+	int randomDialogue = rand() % (dialogue.size());
+	return dialogue[randomDialogue];
+}
+
 
 void NPC::setParent() {
 	cc->parent = shared_from_this();

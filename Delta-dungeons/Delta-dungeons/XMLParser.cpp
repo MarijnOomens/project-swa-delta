@@ -99,7 +99,12 @@ std::vector<std::shared_ptr<NPCParserData>> XMLParser::loadNPC(const std::string
 
 	for (xml_node<>* npc = node->first_node(); npc; npc = npc->next_sibling())
 	{
-		std::shared_ptr<NPCParserData> n = std::make_shared<NPCParserData>(npc->first_attribute("name")->value(), npc->first_node("Dialogue")->first_attribute("text")->value());
+		std::vector<std::string> dialogues;
+		for (xml_node<>* dialogue = npc->first_node(); dialogue; dialogue = dialogue->next_sibling())
+		{
+			dialogues.emplace_back(dialogue->first_attribute("text")->value());
+		}
+		std::shared_ptr<NPCParserData> n = std::make_shared<NPCParserData>(npc->first_attribute("name")->value(), dialogues);
 		parserDataList.emplace_back(n);
 	}
 

@@ -24,8 +24,3 @@ void DialoguePopup::handleInput(const KeyCodes& keyCode, const KeyboardEvent& ke
 		SceneLoader::getInstance().loadPreviousScene();
 	}
 }
-
-void DialoguePopup::playDialogue(std::vector<std::string> param)
-{
-
-}

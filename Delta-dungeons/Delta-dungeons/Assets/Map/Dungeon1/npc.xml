@@ -1,8 +1,12 @@
 <NPCs>
-<NPC name="youngster">
-<Dialogue text="I like shorts, they are comfy and easy to wear."/>
-</NPC>
-<NPC name="bugtrainer">
-<Dialogue text="Look at my bugs!"/>
-</NPC>
+	<NPC name="youngster">
+		<Dialogue text="I like shorts, they are comfy and easy to wear."/>
+		<Dialogue text="Watch out for Raticate!"/>
+		<Dialogue text="Are you good at puzzles?"/>
+	</NPC>
+	<NPC name="bugtrainer">
+		<Dialogue text="Look at my bugs!"/>
+		<Dialogue text="Have you seen Butterfree?"/>
+		<Dialogue text="I heard this somewhere: 'UPPERLEFT', 'BOTTOMLEFT', 'BOTTOMRIGHT', 'UPPERRIGHT'."/>
+	</NPC>
 </NPCs>
