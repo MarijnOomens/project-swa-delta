@@ -230,7 +230,7 @@ void Player::moveUp()
 {
 	//de huidige positie bijhouden.
 	if (!hasMoved) {
-		collisionFunc(pointer, shared_from_this(), this->transform.position.x, this->transform.position.y - baseMovementSpeed, KeyCodes::KEY_UP, (gc->imageDimensions.x * gc->transform.scale.x));
+		collisionFunc(pointer, cc, shared_from_this(), this->transform.position.x, this->transform.position.y - baseMovementSpeed, KeyCodes::KEY_UP, (gc->imageDimensions.x * gc->transform.scale.x));
 		if (!hasMoved) {
 			transform.position.y -= baseMovementSpeed;
 			cc->transform.position.y = this->transform.position.y;
@@ -249,7 +249,7 @@ void Player::moveUp()
 void Player::moveDown()
 {
 	if (!hasMoved) {
-		collisionFunc(pointer, shared_from_this(), this->transform.position.x, this->transform.position.y + baseMovementSpeed, KeyCodes::KEY_DOWN, (gc->imageDimensions.x * gc->transform.scale.x));
+		collisionFunc(pointer, cc, shared_from_this(), this->transform.position.x, this->transform.position.y + baseMovementSpeed, KeyCodes::KEY_DOWN, (gc->imageDimensions.x * gc->transform.scale.x));
 		if (!hasMoved) {
 			transform.position.y += baseMovementSpeed;
 			cc->transform.position.y = this->transform.position.y;
@@ -268,7 +268,7 @@ void Player::moveDown()
 void Player::moveLeft()
 {
 	if (!hasMoved) {
-		collisionFunc(pointer, shared_from_this(), this->transform.position.x - baseMovementSpeed, this->transform.position.y, KeyCodes::KEY_LEFT, (gc->imageDimensions.x * gc->transform.scale.x));
+		collisionFunc(pointer, cc, shared_from_this(), this->transform.position.x - baseMovementSpeed, this->transform.position.y, KeyCodes::KEY_LEFT, (gc->imageDimensions.x * gc->transform.scale.x));
 		if (!hasMoved) {
 			transform.position.x -= baseMovementSpeed;
 			cc->transform.position.x = this->transform.position.x;
@@ -287,7 +287,7 @@ void Player::moveLeft()
 void Player::moveRight()
 {
 	if (!hasMoved) {
-		collisionFunc(pointer, shared_from_this(), this->transform.position.x + baseMovementSpeed, this->transform.position.y, KeyCodes::KEY_RIGHT, (gc->imageDimensions.x * gc->transform.scale.x));
+		collisionFunc(pointer, cc, shared_from_this(), this->transform.position.x + baseMovementSpeed, this->transform.position.y, KeyCodes::KEY_RIGHT, (gc->imageDimensions.x * gc->transform.scale.x));
 		if (!hasMoved) {
 			transform.position.x += baseMovementSpeed;
 			cc->transform.position.x = this->transform.position.x;

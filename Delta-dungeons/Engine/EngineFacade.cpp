@@ -127,8 +127,8 @@ void EngineFacade::passInteract(std::shared_ptr<BehaviourObject> player, int x, 
 	engineController->passInteract(player, x, y);
 }
 
-void EngineFacade::passCollisionCheck(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction, int w) {
-	engineController->passCollisionCheck(collider, x, y, direction, w);
+void EngineFacade::passCollisionCheck(std::shared_ptr<CollidingComponent> collider, std::shared_ptr<BehaviourObject> behaviourObject, int x, int y, KeyCodes direction, int w) {
+	engineController->passCollisionCheck(collider, behaviourObject,x, y, direction, w);
 }
 
 void EngineFacade::throwCollisionCheck(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction, int w) {
