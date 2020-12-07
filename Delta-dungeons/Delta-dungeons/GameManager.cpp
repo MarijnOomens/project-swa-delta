@@ -31,7 +31,6 @@ GameManager::GameManager()
 
 	createLevel(levels[currentlevel]);
 	SceneLoader::getInstance().setCurrentLevel(levels[currentlevel]);
-
 	engineFacade->loadScene("MainMenu", "", true);
 	engineFacade->startGame();
 }
@@ -132,6 +131,8 @@ void GameManager::createLevel(std::string levelName)
 
 	eqManager.createEquipment(levelName);
 	registerTextures(eqManager.passTextures());
+
+	puzzleManager.createBoundaries(levelName);
 
 	registerBehaviourObjects();
 	engineFacade->createCamera(playerManager.player->transform.position.x, playerManager.player->transform.position.y);

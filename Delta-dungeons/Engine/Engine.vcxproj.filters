@@ -135,9 +135,6 @@
     <ClInclude Include="StopStrategy.h">
       <Filter>Header Files\Engine\Collider</Filter>
     </ClInclude>
-	<ClInclude Include="PushStrategy.h">
-		<Filter>Header Files\Engine\Collider</Filter>
-	</ClInclude>
     <ClInclude Include="CollidingComponent.h">
       <Filter>Header Files\Engine\Collider</Filter>
     </ClInclude>
@@ -242,9 +239,6 @@
     <ClCompile Include="StopStrategy.cpp">
       <Filter>Source Files\Engine\Collider</Filter>
     </ClCompile>
-	<ClCompile Include="PushStrategy.cpp">
-		<Filter>Source Files\Engine\Collider</Filter>
-	</ClCompile>
     <ClCompile Include="CollidingComponent.cpp">
       <Filter>Source Files\Engine\Collider</Filter>
     </ClCompile>

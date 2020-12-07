@@ -8,6 +8,7 @@
 #include "SceneLoader.h"
 #include "NPCManager.h"
 #include "PokemonManager.h"
+#include "PuzzleManager.h"
 #include "Scene.h"
 #include "DebugUtilities.h"
 #include "SceneModifier.h"
@@ -56,6 +57,7 @@ private:
 	NPCManager npcManager;
 	PokemonManager pokemonManger;
 	HUDManager hudManager;
+	PuzzleManager puzzleManager;
 	std::vector<std::string> levels{ "Level1", "Dungeon1", "Level2", "Dungeon2", "Level3", "Dungeon3", "Level4" };
 	int currentlevel = 0;
 };
