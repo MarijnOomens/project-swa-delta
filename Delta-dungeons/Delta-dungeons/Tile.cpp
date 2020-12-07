@@ -6,7 +6,7 @@
 /// <param name="x">The horizontal placement of tile</param>
 /// <param name="y">The vertical placement of tile</param>
 /// <param name="xImage">Specific horizontal image location of tile png</param>
-Tile::Tile(int x, int y, int xImage, bool collider, bool isTrigger, bool isWinTrigger)
+Tile::Tile(int x, int y, int xImage, bool collider, bool isTrigger, bool isWinTrigger, bool isPuzzleEntrance, bool isPuzzleExit)
 {
 	originX = x * 128;
 	originY = y * 128;
@@ -27,6 +27,14 @@ Tile::Tile(int x, int y, int xImage, bool collider, bool isTrigger, bool isWinTr
 		{
 			stp = std::make_shared<LevelWinStrategy>();
 		}
+		else if (isPuzzleEntrance)
+		{
+			stp = std::make_shared<PuzzleEntranceStrategy>();
+		}
+		else if (isPuzzleExit)
+		{
+			stp = std::make_shared<PuzzleExitStrategy>();
+		}
 		else 
 		{
 			stp = std::make_shared<StopStrategy>();
@@ -46,7 +54,7 @@ Tile::Tile(int x, int y, int xImage, bool collider, bool isTrigger, bool isWinTr
 /// <param name="xImage">Horizontal image location of tile png</param>
 /// <param name="yImage">Vertical image location of tile png</param>
 
-Tile::Tile(int x, int y, int yImage, int xImage, bool collider, bool isTrigger, bool isWinTrigger)
+Tile::Tile(int x, int y, int yImage, int xImage, bool collider, bool isTrigger, bool isWinTrigger, bool isPuzzleEntrance, bool isPuzzleExit)
 {
 	originX = x * 128;
 	originY = y * 128;
@@ -65,6 +73,14 @@ Tile::Tile(int x, int y, int yImage, int xImage, bool collider, bool isTrigger, 
 		else if (isWinTrigger)
 		{
 			stp = std::make_shared<LevelWinStrategy>();
+		}
+		else if (isPuzzleEntrance)
+		{
+			stp = std::make_shared<PuzzleEntranceStrategy>();
+		}
+		else if (isPuzzleExit)
+		{
+			stp = std::make_shared<PuzzleExitStrategy>();
 		}
 		else
 		{

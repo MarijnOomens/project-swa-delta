@@ -428,10 +428,28 @@ void Player::addPokeball() {
 	hudFunc(pointer, health, amountOfBerries, amountOfPokeballs);
 }
 
-void Player::registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger) {
-	if (isDamaged) { registerHit(); }
-	if (isTransitioned) { nextLevelFunc(pointer); }
-	if (isWinTrigger) { SceneLoader::getInstance().loadScene("GameWin", SceneLoader::getInstance().getCurrentLevel(), false); }
-
+void Player::registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger, bool isPuzzleEntrance, bool isPuzzleExit) {
 	hasMoved = true;
+
+	if (isDamaged) 
+		registerHit(); 
+
+	if (isTransitioned) 
+		nextLevelFunc(pointer); 
+
+
+	if (isWinTrigger) 
+		SceneLoader::getInstance().loadScene("GameWin", SceneLoader::getInstance().getCurrentLevel(), false); 
+
+	if (isPuzzleEntrance)
+	{
+		std::cout << "Entered puzzle.." << std::endl;
+		hasMoved = false;
+	}
+
+	if (isPuzzleExit)
+	{
+		std::cout << "Left puzzle.." << std::endl;
+		hasMoved = false;
+	}
 }

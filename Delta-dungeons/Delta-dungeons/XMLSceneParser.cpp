@@ -23,16 +23,16 @@ std::vector<std::shared_ptr<Tile>> XMLSceneParser::loadScene(const std::string& 
 			if(tile->tileId[2])
 			{
 				int third = tile->tileId[2] - 48;
-				tileMap.emplace_back(std::make_shared<Tile>(std::stoi(tile->x), std::stoi(tile->y), (first * 10) + second, third, tile->isCollider, tile->isTrigger, tile->isWinTrigger));
+				tileMap.emplace_back(std::make_shared<Tile>(std::stoi(tile->x), std::stoi(tile->y), (first * 10) + second, third, tile->isCollider, tile->isTrigger, tile->isWinTrigger, tile->isPuzzleEntrance, tile->isPuzzleExit));
 			}
 			else 
 			{
-				tileMap.emplace_back(std::make_shared<Tile>(std::stoi(tile->x), std::stoi(tile->y), first, second, tile->isCollider, tile->isTrigger, tile->isWinTrigger));
+				tileMap.emplace_back(std::make_shared<Tile>(std::stoi(tile->x), std::stoi(tile->y), first, second, tile->isCollider, tile->isTrigger, tile->isWinTrigger, tile->isPuzzleEntrance, tile->isPuzzleExit));
 			}
 		}
 		else
 		{
-			tileMap.emplace_back(std::make_shared<Tile>(std::stoi(tile->x), std::stoi(tile->y), first, tile->isCollider, tile->isTrigger, tile->isWinTrigger));
+			tileMap.emplace_back(std::make_shared<Tile>(std::stoi(tile->x), std::stoi(tile->y), first, tile->isCollider, tile->isTrigger, tile->isWinTrigger, tile->isPuzzleEntrance, tile->isPuzzleExit));
 		}
 	}
 	return tileMap;
