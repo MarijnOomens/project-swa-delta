@@ -8,7 +8,6 @@
 class Berry : public IEquipment
 {
 public:
-	Berry() {}
 	Berry(int x, int y, std::string texture);
 
 	void interact(std::shared_ptr<BehaviourObject> interactor) override;

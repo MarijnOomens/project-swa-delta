@@ -1,15 +1,3 @@
 <Pokemons>
-<Pokemon name="ponyta" encounterRate="75"/>
-<Pokemon name="growlithe" encounterRate="75"/>
-<Pokemon name="flygon" encounterRate="40"/>
-<Pokemon name="magmortar" encounterRate="40"/>
-<Pokemon name="magby" encounterRate="85"/>
-<Pokemon name="magmar" encounterRate="60"/>
-<Pokemon name="luxray" encounterRate="50"/>
-<Pokemon name="flareon" encounterRate="55"/>
-<Pokemon name="arcenine" encounterRate="55"/>
-<Pokemon name="rapidash" encounterRate="55"/>
-<Pokemon name="gardevoir" encounterRate="30"/>
-<Pokemon name="gallade" encounterRate="30"/>
-<Pokemon name="garchomp" encounterRate="25"/>
+<Pokemon name="deoxys_standard" encounterRate="100"/>
 </Pokemons>

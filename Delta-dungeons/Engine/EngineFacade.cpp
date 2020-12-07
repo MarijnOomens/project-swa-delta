@@ -159,3 +159,8 @@ void EngineFacade::deleteScene(const std::string& sceneName)
 {
 	engineController->deleteScene(sceneName);
 }
+
+void EngineFacade::replaceScene(const std::string sceneName, std::vector<std::shared_ptr<BehaviourObject>> objects)
+{
+	engineController->replaceScene(sceneName, objects);
+}

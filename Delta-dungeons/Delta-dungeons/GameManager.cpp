@@ -30,6 +30,7 @@ GameManager::GameManager()
 	}
 
 	createLevel(levels[currentlevel]);
+	SceneLoader::getInstance().setCurrentLevel(levels[currentlevel]);
 
 	engineFacade->loadScene("MainMenu", "", true);
 	engineFacade->startGame();
@@ -207,5 +208,6 @@ void GameManager::loadNextLevelCallbackFunction()
 	engineFacade->deleteScene(levels[currentlevel]);
 	currentlevel++;
 	createLevel(levels[currentlevel]);
+	SceneLoader::getInstance().setCurrentLevel(levels[currentlevel]);
 	engineFacade->loadScene(levels[currentlevel], levels[currentlevel - 1], true);
 }

@@ -10,9 +10,9 @@
 //	return pokemon;
 //}
 
-std::shared_ptr<NPC> GameObjectBuilder::getNPC(int x, int y, std::string name)
+std::shared_ptr<NPC> GameObjectBuilder::getNPC(int x, int y, std::string name, std::vector<std::string> dialogue)
 {
-	std::shared_ptr<NPC> npc = std::make_shared<NPC>(x, y, name);
+	std::shared_ptr<NPC> npc = std::make_shared<NPC>(x, y, name, dialogue);
 	npc->setParent();
 	npc->textures.try_emplace(name, "Assets/NPC/" + name + "_anims.png");
 	return npc;
@@ -32,7 +32,7 @@ std::shared_ptr<Pokemon> GameObjectBuilder::getPokemon(int x, int y, std::string
 /// <param name="y">Correct y of equipment</param>
 /// <param name="name">Name of Equipment.</param>
 /// <returns>Correct Equipment object.</returns>
-std::shared_ptr<IEquipment> GameObjectBuilder::getEquipment(int x, int y, std::string name)
+std::shared_ptr<IEquipment> GameObjectBuilder::getEquipment(int x, int y, const std::string& name, const std::string& levelName)
 {
 	if (name == "pokeball")
 	{
@@ -61,5 +61,11 @@ std::shared_ptr<IEquipment> GameObjectBuilder::getEquipment(int x, int y, std::s
 		boomerang->setParent();
 		boomerang->textures.try_emplace(name, "Assets/Equipment/" + name + ".png");
 		return boomerang;
+	}
+	else if (name == "medal")
+	{
+		std::shared_ptr<Medal> medal = std::make_shared<Medal>(x, y, name + levelName);
+		medal->textures.try_emplace(name + levelName , "Assets/Equipment/" + name + "_" + levelName + ".png");
+		return medal;
 	}
 }

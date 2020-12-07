@@ -14,7 +14,8 @@ public:
 	void interact(std::shared_ptr<BehaviourObject> player) override;
 	virtual void setParent() = 0;
 
-	virtual void registerCollision(int x, int y, bool isDamaged, bool isTransitioned) = 0;
+	virtual void registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger) = 0;
+
 	std::shared_ptr<CollidingComponent> cc;
 private:
 	std::string name;

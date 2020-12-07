@@ -2501,7 +2501,7 @@
     <tile x="48" y="49" tile="51" rot="0" flipX="false"/>
     <tile x="49" y="49" tile="52" rot="0" flipX="false"/>
   </layer>
-  <layer number="0" name="collision">
+  <layer number="0" name="collider">
     <tile x="0" y="0" tile="8" rot="0" flipX="false"/>
     <tile x="1" y="0" tile="8" rot="0" flipX="false"/>
     <tile x="2" y="0" tile="8" rot="0" flipX="false"/>
