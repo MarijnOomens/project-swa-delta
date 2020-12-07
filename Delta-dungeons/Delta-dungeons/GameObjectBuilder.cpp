@@ -38,7 +38,6 @@ std::shared_ptr<IEquipment> GameObjectBuilder::getEquipment(int x, int y, const 
 	{
 		std::shared_ptr<Pokeball> pokeball = std::make_shared<Pokeball>(x, y, name);
 		pokeball->setParent();
-		pokeball->textures.try_emplace(name, "Assets/Equipment/" + name + ".png");
 		return pokeball;
 	}
 	else if (name == "berry")

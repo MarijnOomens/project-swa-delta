@@ -14,6 +14,7 @@ public:
 
 	std::vector<std::shared_ptr<BehaviourObject>> getBehaviourObjects();
 	void setBehaviourObjects(std::vector<std::shared_ptr<BehaviourObject>>);
+	void addBehaviourObject(std::shared_ptr<BehaviourObject>);
 
 	std::map<std::string, std::string> getTextures();
 	void setTexture(const std::string& name, const std::string& t);

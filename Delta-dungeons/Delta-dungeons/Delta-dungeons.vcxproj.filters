@@ -225,6 +225,12 @@
     <ClCompile Include="DialoguePopupScene.cpp">
       <Filter>Source Files\Game\Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="LevelBuilder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelScene.cpp">
+      <Filter>Source Files\Game\Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h">
@@ -396,6 +402,12 @@
       <Filter>Header Files\Game\GameObjects\InteractiveObjects</Filter>
     </ClInclude>
     <ClInclude Include="DialoguePopupScene.h">
+      <Filter>Header Files\Game\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelBuilder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelScene.h">
       <Filter>Header Files\Game\Scenes</Filter>
     </ClInclude>
   </ItemGroup>

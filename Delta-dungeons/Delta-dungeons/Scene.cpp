@@ -2,6 +2,7 @@
 
 void Scene::registerBehaviourObjects()
 {
+	std::vector<std::shared_ptr<BehaviourObject>> containedObjects;
 	for (auto& o : behaviourObjects)
 	{
 		if (dynamic_cast<GameObject*>(o.get()) != nullptr)
@@ -10,9 +11,13 @@ void Scene::registerBehaviourObjects()
 			auto gor = go->getComponentsRecursive();
 			for (auto& bo : gor)
 			{
-				behaviourObjects.emplace_back(bo);
+				containedObjects.emplace_back(bo);
 			}
 		}
+	}
+	for (auto& co : containedObjects)
+	{
+		behaviourObjects.emplace_back(co);
 	}
 }
 

@@ -179,6 +179,8 @@
     <ClCompile Include="IEquipment.h" />
     <ClCompile Include="InteractiveManager.cpp" />
     <ClCompile Include="IInteractiveObject.cpp" />
+    <ClCompile Include="LevelBuilder.cpp" />
+    <ClCompile Include="LevelScene.cpp" />
     <ClCompile Include="LoadSaveScreen.cpp" />
     <ClCompile Include="LoadSaveScreenScene.cpp" />
     <ClCompile Include="MainMenu.cpp" />
@@ -233,6 +235,8 @@
     <ClInclude Include="HelpScreenScene.h" />
     <ClInclude Include="HUD.h" />
     <ClInclude Include="HUDManager.h" />
+    <ClInclude Include="LevelBuilder.h" />
+    <ClInclude Include="LevelScene.h" />
     <ClInclude Include="LoadSaveScreen.h" />
     <ClInclude Include="LoadSaveScreenScene.h" />
     <ClInclude Include="MainMenuScene.h" />

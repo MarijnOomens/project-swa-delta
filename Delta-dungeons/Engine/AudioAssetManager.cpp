@@ -7,7 +7,10 @@
 /// <param name="path">Path of audio.</param>
 void AudioAssetManager::addAsset(const std::string& id, const std::string& path)
 {
-	audioAssets.try_emplace(id, path);
+	if (!audioAssets.count(id))
+	{
+		audioAssets.try_emplace(id, path);
+	}
 }
 
 /// <summary>

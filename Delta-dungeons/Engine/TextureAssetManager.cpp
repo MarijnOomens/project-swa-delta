@@ -7,7 +7,10 @@
 /// <param name="path">Path of texture.</param>
 void TextureAssetManager::addAsset(const std::string& id, const std::string& path)
 {
-	textureAssets.try_emplace(id, path);
+	if (!textureAssets.count(id))
+	{
+		textureAssets.try_emplace(id, path);
+	}
 }
 
 /// <summary>

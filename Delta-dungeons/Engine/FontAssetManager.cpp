@@ -7,7 +7,10 @@
 /// <param name="path">Path of font.</param>
 void FontAssetManager::addAsset(const std::string& id, const std::string& path)
 {
-	fontAssets.try_emplace(id, path);
+	if (!fontAssets.count(id))
+	{
+		fontAssets.try_emplace(id, path);
+	}
 }
 
 /// <summary>
