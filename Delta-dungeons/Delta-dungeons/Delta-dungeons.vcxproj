@@ -159,6 +159,7 @@
     <ClCompile Include="AudioUtilities.cpp" />
     <ClCompile Include="Berry.cpp" />
     <ClCompile Include="Boomerang.cpp" />
+    <ClCompile Include="BoulderPuzzleObject.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="CreditScreen.cpp" />
     <ClCompile Include="DebugUtilities.cpp" />
@@ -189,6 +190,7 @@
     <ClCompile Include="Pokemon.cpp" />
     <ClCompile Include="PokemonManager.cpp" />
     <ClCompile Include="PokemonParserData.cpp" />
+    <ClCompile Include="Puzzle.cpp" />
     <ClCompile Include="PuzzleObject.cpp" />
     <ClCompile Include="ParserData.cpp" />
     <ClCompile Include="PuzzleParserData.cpp" />
@@ -203,13 +205,14 @@
     <ClCompile Include="Screen.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="UIManager.cpp" />
-	<ClCompile Include="PuzzleManager.cpp" />
+    <ClCompile Include="PuzzleManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Advertisement.h" />
     <ClInclude Include="AudioUtilities.h" />
     <ClInclude Include="Berry.h" />
     <ClInclude Include="Boomerang.h" />
+    <ClInclude Include="BoulderPuzzleObject.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="Creditscreen.h" />
     <ClInclude Include="DebugUtilities.h" />
@@ -229,6 +232,7 @@
     <ClInclude Include="NPCParserData.h" />
     <ClInclude Include="PokemonManager.h" />
     <ClInclude Include="PokemonParserData.h" />
+    <ClInclude Include="Puzzle.h" />
     <ClInclude Include="PuzzleParserData.h" />
     <ClInclude Include="SceneModifier.h" />
     <ClInclude Include="ParserData.h" />
@@ -256,7 +260,7 @@
     <ClInclude Include="Screen.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="UIManager.h" />
-	<ClInclude Include="PuzzleManager.h" />
+    <ClInclude Include="PuzzleManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

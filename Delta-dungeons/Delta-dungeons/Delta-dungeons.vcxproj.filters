@@ -159,7 +159,7 @@
     <ClCompile Include="PokemonManager.cpp">
       <Filter>Source Files\Game</Filter>
     </ClCompile>
-	<ClCompile Include="PuzzleManager.cpp">
+    <ClCompile Include="PuzzleManager.cpp">
       <Filter>Source Files\Game</Filter>
     </ClCompile>
     <ClCompile Include="PokemonParserData.cpp">
@@ -195,11 +195,17 @@
     <ClCompile Include="PuzzleParserData.cpp">
       <Filter>Source Files\XMLParser</Filter>
     </ClCompile>
+    <ClCompile Include="IEquipment.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Puzzle.cpp">
+      <Filter>Source Files\Game\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="BoulderPuzzleObject.cpp">
+      <Filter>Source Files\Game\GameObjects\InteractiveObjects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="IEquipment.h">
-      <Filter>Header Files\Game\GameObjects\Items</Filter>
-    </ClInclude>
     <ClInclude Include="GameManager.h">
       <Filter>Header Files\Game</Filter>
     </ClInclude>
@@ -230,7 +236,7 @@
     <ClInclude Include="EquipmentManager.h">
       <Filter>Header Files\Game</Filter>
     </ClInclude>
-	<ClInclude Include="PuzzleManager.h">
+    <ClInclude Include="PuzzleManager.h">
       <Filter>Header Files\Game</Filter>
     </ClInclude>
     <ClInclude Include="InteractiveManager.h">
@@ -352,6 +358,12 @@
     </ClInclude>
     <ClInclude Include="PuzzleParserData.h">
       <Filter>Header Files\XMLParser</Filter>
+    </ClInclude>
+    <ClInclude Include="Puzzle.h">
+      <Filter>Header Files\Game\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="BoulderPuzzleObject.h">
+      <Filter>Header Files\Game\GameObjects\InteractiveObjects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

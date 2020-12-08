@@ -1,13 +1,15 @@
 #pragma once
 #include "XMLSceneParser.h"
-
+#include "Puzzle.h"
 class PuzzleManager
 {
 public:
 	std::map<std::string, std::shared_ptr<IInteractiveObject>> boundaries;
+	std::vector<std::shared_ptr<Puzzle>> puzzles;
+	//std::vector<std::shared_ptr<ParserData>> parsedPuzzles;
 
 	//voor meerdere levels dezelfde parser gebruiken
-	//std::vector<std::shared_ptr<PokemonParserData>> parsedPokemon;
+	//vector puzzle.cpp
 
 	PuzzleManager() {}
 	~PuzzleManager() {}
