@@ -295,7 +295,7 @@ void EngineController::checkGameOver()
 		if (timer == 0) {
 			isGameOver = false;
 			timer = 30;
-			loadScene("GameOver", "", true);
+			loadScene("GameOverScreen", "", true);
 		}
 		else
 		{

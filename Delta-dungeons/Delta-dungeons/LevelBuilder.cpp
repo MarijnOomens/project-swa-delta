@@ -93,14 +93,14 @@ Scene LevelBuilder::getResult()
 	return scene;
 }
 
-void LevelBuilder::staticCheckCollisionCallbackFunction(void* p, std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction, int w)
+void LevelBuilder::staticCheckCollisionCallbackFunction(void* p, std::shared_ptr<CollidingComponent> collider, std::shared_ptr<BehaviourObject> behaviourObject, int x, int y, KeyCodes direction, int w)
 {
-	((LevelBuilder*)p)->passCollisionCheck(collider, x, y, direction, w);
+	((LevelBuilder*)p)->passCollisionCheck(collider, behaviourObject, x, y, direction, w);
 }
 
-void LevelBuilder::passCollisionCheck(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction, int w)
+void LevelBuilder::passCollisionCheck(std::shared_ptr<CollidingComponent> collider, std::shared_ptr<BehaviourObject> behaviourObject, int x, int y, KeyCodes direction, int w)
 {
-	engineFacade->passCollisionCheck(collider, x, y, direction, w);
+	engineFacade->passCollisionCheck(collider, behaviourObject, x, y, direction, w);
 }
 
 void LevelBuilder::staticThrowCollisionCallbackFunction(void* p, std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction, int w)
