@@ -11,8 +11,7 @@
 class Pokemon : public IInteractiveObject
 {
 public:
-	Pokemon(int x, int y, std::string &texture);
-
+	Pokemon(int x, int y, const std::string &texture);
 	void interact(std::shared_ptr<BehaviourObject> interactor) override;
 	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
 	void catchPokemon();

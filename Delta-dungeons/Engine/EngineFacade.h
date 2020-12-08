@@ -31,7 +31,7 @@ public:
 	ENGINE_API void pauseGame();
 	ENGINE_API void addObjectToScene(std::shared_ptr<BehaviourObject> addObject);
 	ENGINE_API void passInteract(std::shared_ptr<BehaviourObject> player, int x, int y);
-	ENGINE_API void passCollisionCheck(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction, int w);
+	ENGINE_API void passCollisionCheck(std::shared_ptr<CollidingComponent> collider, std::shared_ptr<BehaviourObject> behaviourObject, int x, int y, KeyCodes direction, int w);
 	ENGINE_API void throwCollisionCheck(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction, int w);
 
 	ENGINE_API void deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject);

@@ -17,7 +17,7 @@ public:
 
 	//std::shared_ptr<Player> getPlayer(int x, int y);
 	std::shared_ptr<NPC> getNPC(int x, int y, std::string name, std::vector<std::string> dialogue);
-	std::shared_ptr<Pokemon> getPokemon(int x, int y, std::string name);
+	std::shared_ptr<Pokemon> getPokemon(int x, int y, const std::string& name);
 	std::shared_ptr<IEquipment> getEquipment(int x, int y, const std::string& name, const std::string& levelName);
 private:
 };

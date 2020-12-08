@@ -18,7 +18,7 @@ std::shared_ptr<NPC> GameObjectBuilder::getNPC(int x, int y, std::string name, s
 	return npc;
 }
 
-std::shared_ptr<Pokemon> GameObjectBuilder::getPokemon(int x, int y, std::string name)
+std::shared_ptr<Pokemon> GameObjectBuilder::getPokemon(int x, int y, const std::string& name)
 {
 	std::shared_ptr<Pokemon> pokemon = std::make_shared<Pokemon>(x, y, name);
 	pokemon->setParent();
