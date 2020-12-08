@@ -1,11 +1,11 @@
 #pragma once
 #include "LevelScene.h"
 #include "Vector2D.h"
-#include "EquipmentManager.h"
-#include "HUDManager.h"
-#include "PokemonManager.h"
-#include "NPCManager.h"
-#include "PlayerManager.h"
+#include "EquipmentFactory.h"
+#include "HUDFactory.h"
+#include "PokemonFactory.h"
+#include "NPCFactory.h"
+#include "PlayerFactory.h"
 #include "EngineFacade.h"
 #include "World.h"
 
@@ -55,11 +55,11 @@ private:
 	std::string levelName;
 	LevelScene scene;
 
-	PlayerManager playerManager;
-	EquipmentManager eqManager;
-	NPCManager npcManager;
-	PokemonManager pokemonManager;
-	HUDManager hudManager;
+	PlayerFactory playerFactory;
+	EquipmentFactory equipmentFactory;
+	NPCFactory npcFactory;
+	PokemonFactory pokemonFactory;
+	HUDFactory hudFactory;
 	std::shared_ptr<World> world;
 
 	std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects;

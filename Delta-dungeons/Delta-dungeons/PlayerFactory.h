@@ -4,6 +4,8 @@
 #include "XMLSceneParser.h"
 #include <iostream>
 #include <string>
+#include "GameObjectFactory.h"
+
 typedef void(*cbCamera) (void*, int, int);
 typedef void(*cbInteract) (void*, std::shared_ptr<BehaviourObject>, int, int);
 typedef void(*cbGameOver) (void*);
@@ -11,13 +13,13 @@ typedef void(*cbHUD) (void*, int, int, int);
 typedef void(*cbCollision) (void*, std::shared_ptr<CollidingComponent>, std::shared_ptr<BehaviourObject>, int, int, KeyCodes, int);
 typedef void(*cbThrowCollision) (void*, std::shared_ptr<BehaviourObject>, int, int, KeyCodes, int);
 
-class PlayerManager
+class PlayerFactory
 {
 public:
 	std::shared_ptr<Player> player;
 
-	PlayerManager() {}
-	~PlayerManager() {}
+	PlayerFactory() {}
+	~PlayerFactory() {}
 
 	void createPlayer(const std::string& levelName, cbCollision collisionCB, cbThrowCollision throwCB, cbCamera cb, cbInteract interactCB, cbGameOver gameOverCB, cbHUD hudCB, void* p);
 

@@ -4,13 +4,13 @@
 #include <memory>
 #include "HUD.h"
 
-class HUDManager
+class HUDFactory : public GameObjectFactory
 {
 public:
 	std::shared_ptr<HUD> hud;
 
-	HUDManager() {};
-	~HUDManager() {};
+	HUDFactory() {};
+	~HUDFactory() {};
 
 	void createHud(int healthMax, int health, int berries, int pokeballs);
 	void addItem(const std::string& texturePath);

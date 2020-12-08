@@ -1,11 +1,11 @@
-#include "NPCManager.h"
+#include "NPCFactory.h"
 
-NPCManager::NPCManager()
+NPCFactory::NPCFactory()
 {
 	builder = std::make_shared<GameObjectBuilder>();
 }
 
-void NPCManager::createNPC(std::string levelName)
+void NPCFactory::createNPCs(const std::string& levelName)
 {
 	npcs.clear();
 	std::unique_ptr<XMLSceneParser> parser = std::make_unique<XMLSceneParser>();
@@ -21,7 +21,7 @@ void NPCManager::createNPC(std::string levelName)
 	}
 }
 
-std::map<std::string, std::string> NPCManager::passTextures() const
+std::map<std::string, std::string> NPCFactory::passTextures() const
 {
 	std::map<std::string, std::string> totalTextures;
 	for (auto& npc : npcs) {
@@ -32,7 +32,7 @@ std::map<std::string, std::string> NPCManager::passTextures() const
 	return totalTextures;
 }
 
-int NPCManager::getRandomNPC()
+int NPCFactory::getRandomNPC()
 {
 	int randomNpc = rand() % (parsedNpcs.size());
 	return randomNpc;

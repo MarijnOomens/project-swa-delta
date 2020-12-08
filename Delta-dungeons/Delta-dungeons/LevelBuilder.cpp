@@ -9,23 +9,23 @@ void LevelBuilder::reset()
 
 Vector2D LevelBuilder::setPlayer()
 {
-	playerManager.createPlayer(levelName, staticCheckCollisionCallbackFunction, staticThrowCollisionCallbackFunction, staticCameraCallbackFunction, staticInteractCallbackFunction, staticGameOverbackFunction, staticUpdateHUDCallbackFunction, this);
-	behaviourObjects.emplace_back(playerManager.getPlayerObject());
-	for (auto& t : playerManager.getPlayerObject()->textures)
+	playerFactory.createPlayer(levelName, staticCheckCollisionCallbackFunction, staticThrowCollisionCallbackFunction, staticCameraCallbackFunction, staticInteractCallbackFunction, staticGameOverbackFunction, staticUpdateHUDCallbackFunction, this);
+	behaviourObjects.emplace_back(playerFactory.getPlayerObject());
+	for (auto& t : playerFactory.getPlayerObject()->textures)
 	{
 		scene.setTexture(t.first, t.second);
 	}
-	return playerManager.getPlayerObject()->transform.position;
+	return playerFactory.getPlayerObject()->transform.position;
 }
 
 void LevelBuilder::setNPCs()
 {
-	npcManager.createNPC(levelName);
-	for (auto& npc : npcManager.npcs)
+	npcFactory.createNPCs(levelName);
+	for (auto& npc : npcFactory.npcs)
 	{
 		behaviourObjects.emplace_back(npc.second);
 	}
-	for (auto& t : npcManager.passTextures())
+	for (auto& t : npcFactory.passTextures())
 	{
 		scene.setTexture(t.first, t.second);
 	}
@@ -33,12 +33,12 @@ void LevelBuilder::setNPCs()
 
 void LevelBuilder::setPokemon()
 {
-	pokemonManager.createPokemon(levelName);
-	for (auto& p : pokemonManager.pokemon)
+	pokemonFactory.createPokemon(levelName);
+	for (auto& p : pokemonFactory.pokemon)
 	{
 		behaviourObjects.emplace_back(p.second);
 	}
-	for (auto& t : pokemonManager.passTextures())
+	for (auto& t : pokemonFactory.passTextures())
 	{
 		scene.setTexture(t.first, t.second);
 	}
@@ -46,13 +46,13 @@ void LevelBuilder::setPokemon()
 
 void LevelBuilder::setHud()
 {
-	hudManager.createHud(playerManager.getPlayerObject()->maxHealth, playerManager.getPlayerObject()->health, playerManager.getPlayerObject()->amountOfBerries, playerManager.getPlayerObject()->amountOfPokeballs);
-	behaviourObjects.emplace_back(hudManager.hud);
-	for (auto& t : hudManager.passTextures())
+	hudFactory.createHud(playerFactory.getPlayerObject()->maxHealth, playerFactory.getPlayerObject()->health, playerFactory.getPlayerObject()->amountOfBerries, playerFactory.getPlayerObject()->amountOfPokeballs);
+	behaviourObjects.emplace_back(hudFactory.hud);
+	for (auto& t : hudFactory.passTextures())
 	{
 		scene.setTexture(t.first, t.second);
 	}
-	for (auto& f : hudManager.passFonts())
+	for (auto& f : hudFactory.passFonts())
 	{
 		scene.setTexture(f.first, f.second);
 	}
@@ -75,12 +75,12 @@ void LevelBuilder::setWorld()
 
 void LevelBuilder::setEquipment()
 {
-	eqManager.createEquipment(levelName);
-	for (auto& t : eqManager.passTextures())
+	equipmentFactory.createEquipment(levelName);
+	for (auto& t : equipmentFactory.passTextures())
 	{
 		scene.setTexture(t.first, t.second);
 	}
-	for (auto& bo : eqManager.equipments)
+	for (auto& bo : equipmentFactory.equipments)
 	{
 		behaviourObjects.emplace_back(bo.second);
 	}
@@ -150,5 +150,5 @@ void LevelBuilder::staticUpdateHUDCallbackFunction(void* p, int health, int berr
 
 void LevelBuilder::updateHUDCallbackFunction(int health, int berries, int pokeballs)
 {
-	hudManager.updateHUD(health, berries, pokeballs);
+	hudFactory.updateHUD(health, berries, pokeballs);
 }

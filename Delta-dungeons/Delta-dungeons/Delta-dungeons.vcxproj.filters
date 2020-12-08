@@ -66,9 +66,6 @@
     <ClCompile Include="GameManager.cpp">
       <Filter>Source Files\Game</Filter>
     </ClCompile>
-    <ClCompile Include="EquipmentManager.cpp">
-      <Filter>Source Files\Game</Filter>
-    </ClCompile>
     <ClCompile Include="InteractiveManager.cpp">
       <Filter>Source Files\Game</Filter>
     </ClCompile>
@@ -138,13 +135,7 @@
     <ClCompile Include="IEquipment.h">
       <Filter>Header Files\Game\GameObjects\Items</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerManager.cpp">
-      <Filter>Source Files\Game</Filter>
-    </ClCompile>
     <ClCompile Include="SceneLoader.cpp">
-      <Filter>Source Files\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="NPCManager.cpp">
       <Filter>Source Files\Game</Filter>
     </ClCompile>
     <ClCompile Include="GameObjectBuilder.cpp">
@@ -170,9 +161,6 @@
     </ClCompile>
     <ClCompile Include="PokemonParserData.cpp">
       <Filter>Source Files\XMLParser</Filter>
-    </ClCompile>
-    <ClCompile Include="HUDManager.cpp">
-      <Filter>Source Files\Game</Filter>
     </ClCompile>
     <ClCompile Include="AudioUtilities.cpp">
       <Filter>Source Files</Filter>
@@ -231,6 +219,18 @@
     <ClCompile Include="LevelScene.cpp">
       <Filter>Source Files\Game\Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="PlayerFactory.cpp">
+      <Filter>Source Files\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="EquipmentFactory.cpp">
+      <Filter>Source Files\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="NPCFactory.cpp">
+      <Filter>Source Files\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="HUDFactory.cpp">
+      <Filter>Source Files\Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h">
@@ -256,9 +256,6 @@
     </ClInclude>
     <ClInclude Include="XMLSceneParser.h">
       <Filter>Header Files\XMLParser</Filter>
-    </ClInclude>
-    <ClInclude Include="EquipmentManager.h">
-      <Filter>Header Files\Game</Filter>
     </ClInclude>
     <ClInclude Include="InteractiveManager.h">
       <Filter>Header Files\Game</Filter>
@@ -314,13 +311,7 @@
     <ClInclude Include="DialoguePopup.h">
       <Filter>Header Files\Game\GameObjects</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerManager.h">
-      <Filter>Header Files\Game</Filter>
-    </ClInclude>
     <ClInclude Include="SceneLoader.h">
-      <Filter>Header Files\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="NPCManager.h">
       <Filter>Header Files\Game</Filter>
     </ClInclude>
     <ClInclude Include="GameObjectBuilder.h">
@@ -344,14 +335,8 @@
     <ClInclude Include="GameWinScreen.h">
       <Filter>Header Files\Game\GameObjects\Screens</Filter>
     </ClInclude>
-    <ClInclude Include="PokemonManager.h">
-      <Filter>Header Files\Game</Filter>
-    </ClInclude>
     <ClInclude Include="PokemonParserData.h">
       <Filter>Header Files\XMLParser</Filter>
-    </ClInclude>
-    <ClInclude Include="HUDManager.h">
-      <Filter>Header Files\Game</Filter>
     </ClInclude>
     <ClInclude Include="AudioUtilities.h">
       <Filter>Header Files</Filter>
@@ -409,6 +394,24 @@
     </ClInclude>
     <ClInclude Include="LevelScene.h">
       <Filter>Header Files\Game\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjectFactory.h">
+      <Filter>Header Files\Game\Creation</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerFactory.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="EquipmentFactory.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="NPCFactory.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="PokemonFactory.h">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="HUDFactory.h">
+      <Filter>Header Files\Game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

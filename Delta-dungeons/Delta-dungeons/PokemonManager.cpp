@@ -1,11 +1,11 @@
-#include "PokemonManager.h"
+#include "PokemonFactory.h"
 
-PokemonManager::PokemonManager()
+PokemonFactory::PokemonFactory()
 {
 	builder = std::make_shared<GameObjectBuilder>();
 }
 
-void PokemonManager::createPokemon(std::string levelName)
+void PokemonFactory::createPokemon(std::string levelName)
 {
 	pokemon.clear();
 	std::unique_ptr<XMLSceneParser> parser = std::make_unique<XMLSceneParser>();
@@ -21,7 +21,7 @@ void PokemonManager::createPokemon(std::string levelName)
 	}
 }
 
-std::map<std::string, std::string> PokemonManager::passTextures() const
+std::map<std::string, std::string> PokemonFactory::passTextures() const
 {
 	std::map<std::string, std::string> totalTextures;
 	for (auto& npc : pokemon) {
@@ -32,7 +32,7 @@ std::map<std::string, std::string> PokemonManager::passTextures() const
 	return totalTextures;
 }
 
-int PokemonManager::getRandomPokemon()
+int PokemonFactory::getRandomPokemon()
 {
 	bool hasFound = false;
 	while (!hasFound) 

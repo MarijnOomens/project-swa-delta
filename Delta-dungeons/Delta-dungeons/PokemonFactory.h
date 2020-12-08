@@ -8,14 +8,14 @@
 #include "GameObjectBuilder.h"
 #include "XMLSceneParser.h"
 
-class PokemonManager
+class PokemonFactory : public GameObjectFactory
 {
 public:
 	std::map<std::string, std::shared_ptr<IInteractiveObject>> pokemon;
 	std::vector<std::shared_ptr<PokemonParserData>> parsedPokemon;
 
-	PokemonManager();
-	~PokemonManager() {}
+	PokemonFactory();
+	~PokemonFactory() {}
 
 	void createPokemon(std::string levelName);
 	std::map<std::string, std::string> passTextures() const;
