@@ -259,9 +259,9 @@ void EngineController::passInteract(std::shared_ptr<BehaviourObject> player, int
 	sceneManager.passInteract(player, x, y);
 }
 
-void EngineController::passCollisionCheck(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction, int w)
+void EngineController::passCollisionCheck(std::shared_ptr<CollidingComponent> collider, std::shared_ptr<BehaviourObject> behaviourObject, int x, int y, KeyCodes direction, int w)
 {
-	collision->checkCollision(collider, x, y, direction, w);
+	collision->checkCollision(collider, behaviourObject, x, y, direction, w);
 }
 
 void EngineController::throwCollisionCheck(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction, int w)
