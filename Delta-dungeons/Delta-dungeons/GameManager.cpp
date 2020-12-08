@@ -24,7 +24,6 @@ GameManager::GameManager()
 		engineFacade->registerScene(s.name, s.getBehaviourObjects());
 	}
 
-
 	engineFacade->loadScene("MainMenuScreen", "", true);
 	engineFacade->startGame();
 }

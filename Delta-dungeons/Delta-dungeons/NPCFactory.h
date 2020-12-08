@@ -9,6 +9,7 @@
 #include <cstdlib>
 #include <ctime>
 #include "NPCParserData.h"
+#include "GameObjectFactory.h"
 
 class NPCFactory : public GameObjectFactory
 {

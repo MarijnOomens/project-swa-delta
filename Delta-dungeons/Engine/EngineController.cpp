@@ -110,10 +110,28 @@ void EngineController::startGame()
 	}
 }
 
-void EngineController::registerScene(const std::string& sceneName, const std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects)
+void EngineController::registerScene(const std::string& sceneName, std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects)
 {
-	std::vector<std::shared_ptr<BehaviourObject>> tempObjects;
 	std::vector<std::shared_ptr<BehaviourObject>> colliderObjects;
+
+	std::vector<std::shared_ptr<BehaviourObject>> containedObjects;
+	for (auto& o : behaviourObjects)
+	{
+		if (dynamic_cast<GameObject*>(o.get()) != nullptr)
+		{
+			auto go = dynamic_cast<GameObject*>(o.get());
+			auto gor = go->getComponentsRecursive();
+			for (auto& bo : gor)
+			{
+				containedObjects.emplace_back(bo);
+			}
+		}
+	}
+
+	for (auto& co : containedObjects)
+	{
+		behaviourObjects.emplace_back(co);
+	}
 
 	for (const auto& o : behaviourObjects)
 	{
@@ -121,7 +139,6 @@ void EngineController::registerScene(const std::string& sceneName, const std::ve
 		{
 			auto ngc = dynamic_cast<GraphicsComponent*>(o.get());
 			ngc->addTextureManager(textureManager);
-			tempObjects.emplace_back(o);
 		}
 		else if (dynamic_cast<CollidingComponent*>(o.get()) != nullptr)
 		{
@@ -131,11 +148,6 @@ void EngineController::registerScene(const std::string& sceneName, const std::ve
 		{
 			auto ntc = dynamic_cast<TextComponent*>(o.get());
 			ntc->addFontManager(fontManager);
-			tempObjects.emplace_back(o);
-		}
-		else
-		{
-			tempObjects.emplace_back(o);
 		}
 	}
 	collision->registerColliders(colliderObjects);

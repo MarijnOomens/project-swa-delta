@@ -38,7 +38,7 @@ public:
 	void registerFonts(std::map<std::string, std::string> fonts);
 	void registerAudio(std::map<std::string, std::string> tracks);
 	void startGame();
-	void registerScene(const std::string& sceneName, const std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects);
+	void registerScene(const std::string& sceneName, std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects);
 	void loadScene(const std::string& sceneName, const std::string& fromScene, bool clearPrevious);
 	void loadPreviousScene();
 	void addOverlayScene(const std::string& sceneName);

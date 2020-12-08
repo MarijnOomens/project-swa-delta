@@ -7,6 +7,7 @@
 #include "IInteractiveObject.h"
 #include "GameObjectBuilder.h"
 #include "XMLSceneParser.h"
+#include "GameObjectFactory.h"
 
 class PokemonFactory : public GameObjectFactory
 {

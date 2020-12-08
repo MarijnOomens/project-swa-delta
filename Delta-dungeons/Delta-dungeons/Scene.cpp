@@ -1,26 +1,5 @@
 #include "Scene.h"
 
-void Scene::registerBehaviourObjects()
-{
-	std::vector<std::shared_ptr<BehaviourObject>> containedObjects;
-	for (auto& o : behaviourObjects)
-	{
-		if (dynamic_cast<GameObject*>(o.get()) != nullptr)
-		{
-			auto go = dynamic_cast<GameObject*>(o.get());
-			auto gor = go->getComponentsRecursive();
-			for (auto& bo : gor)
-			{
-				containedObjects.emplace_back(bo);
-			}
-		}
-	}
-	for (auto& co : containedObjects)
-	{
-		behaviourObjects.emplace_back(co);
-	}
-}
-
 std::vector<std::shared_ptr<BehaviourObject>> Scene::getBehaviourObjects()
 {
 	return behaviourObjects;
@@ -29,7 +8,6 @@ std::vector<std::shared_ptr<BehaviourObject>> Scene::getBehaviourObjects()
 void Scene::setBehaviourObjects(std::vector<std::shared_ptr<BehaviourObject>> bo)
 {
 	behaviourObjects = bo;
-	registerBehaviourObjects();
 }
 
 std::map<std::string, std::string> Scene::getTextures()

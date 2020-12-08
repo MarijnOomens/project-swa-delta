@@ -3,6 +3,7 @@
 #include <map>
 #include <memory>
 #include "HUD.h"
+#include "GameObjectFactory.h"
 
 class HUDFactory : public GameObjectFactory
 {

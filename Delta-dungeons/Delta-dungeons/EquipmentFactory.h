@@ -2,6 +2,7 @@
 #include "GameObjectBuilder.h"
 #include "Pokeball.h"
 #include "XMLSceneParser.h"
+#include "GameObjectFactory.h"
 #include <string>
 #include <map>
 #include <memory>
