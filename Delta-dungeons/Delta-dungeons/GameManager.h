@@ -26,6 +26,9 @@ public:
 
 	void createLevel(std::string levelName);
 
+	static void staticLoadNextLevelCallbackFunction(void* p);
+	void loadNextLevelCallbackFunction();
+
 private:
 	std::shared_ptr<EngineFacade> engineFacade;
 

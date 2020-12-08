@@ -3,11 +3,11 @@
 /// <summary>
 /// This is a manager class for the player in which the Player is created and the texture is stored.
 /// </summary>
-void PlayerFactory::createPlayer(const std::string& levelName, cbCollision collisionCb, cbThrowCollision throwCB, cbCamera cb, cbInteract interactCB, cbGameOver gameOverCB, cbHUD hudCB, void* p)
+void PlayerFactory::createPlayer(const std::string& levelName, cbCollision collisionCb, cbThrowCollision throwCB, cbNextLevel nextLevelCb, cbCamera cb, cbInteract interactCB, cbGameOver gameOverCB, cbHUD hudCB, void* p, void* gm)
 {
     std::unique_ptr<XMLSceneParser> parser = std::make_unique<XMLSceneParser>();
     std::shared_ptr<ParserData> positionData = parser->getPlayerPosition("Assets/Map/" + levelName + "/level.xml");
-	player = std::make_shared<Player>(std::stoi(positionData->x), std::stoi(positionData->y), collisionCb, throwCB, cb, interactCB, gameOverCB, hudCB, p);
+	player = std::make_shared<Player>(std::stoi(positionData->x), std::stoi(positionData->y), collisionCb, throwCB, nextLevelCb, cb, interactCB, gameOverCB, hudCB, p, gm);
     player->setParent();
 }
 

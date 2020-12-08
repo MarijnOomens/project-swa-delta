@@ -14,7 +14,6 @@ GameManager::GameManager()
 
 	scenes = { mainMenuScene, creditScreenScene, pauseScreenScene, helpScreenScene, gameOverScreenScene, gameWinScreenScene, loadSaveScreenScene, dialoguePopupScene };
 
-	createLevel(levels[currentlevel]);
 
 	for (auto& s : scenes)
 	{
@@ -23,6 +22,8 @@ GameManager::GameManager()
 		registerAudio(s.getBeats());
 		engineFacade->registerScene(s.name, s.getBehaviourObjects());
 	}
+
+	createLevel(levels[currentlevel]);
 
 	engineFacade->loadScene("MainMenuScreen", "", true);
 	engineFacade->startGame();
@@ -57,8 +58,26 @@ void GameManager::createLevel(std::string levelName)
 	levelBuilder->setNPCs();
 	levelBuilder->setEquipment();
 	levelBuilder->setPokemon();
-	Vector2D camPosition = levelBuilder->setPlayer();
+	Vector2D camPosition = levelBuilder->setPlayer(staticLoadNextLevelCallbackFunction, this);
 	levelBuilder->setHud();
-	scenes.emplace_back(levelBuilder->getResult());
+	auto level = levelBuilder->getResult();
+	registerTextures(level.getTextures());
+	registerFonts(level.getFonts());
+	registerAudio(level.getBeats());
+	engineFacade->registerScene(levelName, level.getBehaviourObjects());
 	engineFacade->createCamera(camPosition.x, camPosition.y);
+}
+
+void GameManager::staticLoadNextLevelCallbackFunction(void* p)
+{
+	((GameManager*)p)->loadNextLevelCallbackFunction();
+}
+
+void GameManager::loadNextLevelCallbackFunction()
+{
+	engineFacade->deleteScene(levels[currentlevel]);
+	currentlevel++;
+	createLevel(levels[currentlevel]);
+	SceneLoader::getInstance().setCurrentLevel(levels[currentlevel]);
+	engineFacade->loadScene(levels[currentlevel], levels[currentlevel - 1], true);
 }

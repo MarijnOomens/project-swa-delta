@@ -15,6 +15,7 @@ typedef void(*cbGameOver) (void*);
 typedef void(*cbHUD) (void*, int, int, int);
 typedef void(*cbCollision) (void*, std::shared_ptr<CollidingComponent>, std::shared_ptr<BehaviourObject> behaviourObject, int, int, KeyCodes, int);
 typedef void(*cbThrowCollision) (void*, std::shared_ptr<BehaviourObject>, int, int, KeyCodes, int);
+typedef void(*cbNextLevel) (void*);
 
 class LevelBuilder
 {
@@ -22,7 +23,7 @@ public:
 	LevelBuilder(const std::string& levelName, std::shared_ptr<EngineFacade> ef);
 	~LevelBuilder() {};
 	void reset();
-	Vector2D setPlayer();
+	Vector2D setPlayer(cbNextLevel f, void* gm);
 	void setNPCs();
 	void setPokemon();
 	void setHud();

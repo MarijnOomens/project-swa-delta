@@ -7,9 +7,9 @@ void LevelBuilder::reset()
 	scene = LevelScene();
 }
 
-Vector2D LevelBuilder::setPlayer()
+Vector2D LevelBuilder::setPlayer(cbNextLevel f, void* gm)
 {
-	playerFactory.createPlayer(levelName, staticCheckCollisionCallbackFunction, staticThrowCollisionCallbackFunction, staticCameraCallbackFunction, staticInteractCallbackFunction, staticGameOverbackFunction, staticUpdateHUDCallbackFunction, this);
+	playerFactory.createPlayer(levelName, staticCheckCollisionCallbackFunction, staticThrowCollisionCallbackFunction, f, staticCameraCallbackFunction, staticInteractCallbackFunction, staticGameOverbackFunction, staticUpdateHUDCallbackFunction, this, gm);
 	behaviourObjects.emplace_back(playerFactory.getPlayerObject());
 	for (auto& t : playerFactory.getPlayerObject()->textures)
 	{

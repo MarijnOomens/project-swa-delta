@@ -12,6 +12,7 @@ typedef void(*cbGameOver) (void*);
 typedef void(*cbHUD) (void*, int, int, int);
 typedef void(*cbCollision) (void*, std::shared_ptr<CollidingComponent>, std::shared_ptr<BehaviourObject>, int, int, KeyCodes, int);
 typedef void(*cbThrowCollision) (void*, std::shared_ptr<BehaviourObject>, int, int, KeyCodes, int);
+typedef void(*cbNextLevel) (void*);
 
 class PlayerFactory
 {
@@ -21,7 +22,7 @@ public:
 	PlayerFactory() {}
 	~PlayerFactory() {}
 
-	void createPlayer(const std::string& levelName, cbCollision collisionCB, cbThrowCollision throwCB, cbCamera cb, cbInteract interactCB, cbGameOver gameOverCB, cbHUD hudCB, void* p);
+	void createPlayer(const std::string& levelName, cbCollision collisionCB, cbThrowCollision throwCB, cbNextLevel nextLevelCb, cbCamera cb, cbInteract interactCB, cbGameOver gameOverCB, cbHUD hudCB, void* p, void* gm);
 
 	std::map<std::string, std::string> passTextures() const;
 	std::shared_ptr<Player> getPlayerObject();
