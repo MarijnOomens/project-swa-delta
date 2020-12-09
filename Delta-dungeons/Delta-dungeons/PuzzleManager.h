@@ -4,6 +4,7 @@
 #include "BoulderPuzzleObject.h"
 
 typedef void(*cbCollision) (void*, std::shared_ptr<BehaviourObject>, int, int, KeyCodes, int);
+typedef void(*cbInteract) (void*, std::shared_ptr<BehaviourObject>, int, int);
 
 class PuzzleManager
 {
@@ -20,7 +21,7 @@ public:
 	
 
 	void createPuzzles(std::string levelName);
-	void createPuzzle(std::string levelName, cbCollision collisionCb, void* p);
+	void createPuzzle(std::string levelName, cbInteract interactCb, cbCollision collisionCb, void* p);
 
 
 	std::map<std::string, std::string> passTextures() const;

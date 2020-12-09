@@ -4,7 +4,9 @@
 #include "PuzzleObject.h"
 #include "ParserData.h"
 #include "BoulderPuzzleObject.h"
+#include "TriggerPuzzleObject.h";
 
+typedef void(*cbInteract) (void*, std::shared_ptr<BehaviourObject>, int, int);
 typedef void(*cbCollision) (void*, std::shared_ptr<BehaviourObject>, int, int, KeyCodes, int);
 
 class Puzzle
@@ -38,7 +40,9 @@ public:
 	//todo
 	//static method
 
-	void createBoulder(std::shared_ptr<ParserData> parser, cbCollision cbCollision, void* gPointer);
+	void createBoulder(std::shared_ptr<ParserData> parser, cbCollision cbCollision, cbInteract cbInteract, void* gPointer);
+	void createTrigger(std::shared_ptr<ParserData> parser);
+
 	static void staticTriggerCallbackFunction(void* p, int x, int y);
 	void trigger(int x, int y);
 
