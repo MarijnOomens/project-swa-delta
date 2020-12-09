@@ -1,11 +1,11 @@
-#include "EquipmentManager.h"
+#include "EquipmentFactory.h"
 
-EquipmentManager::EquipmentManager()
+EquipmentFactory::EquipmentFactory()
 {
 	builder = std::make_shared<GameObjectBuilder>();
 }
 
-void EquipmentManager::createEquipment(std::string levelName)
+void EquipmentFactory::createEquipment(const std::string& levelName)
 {
 	equipments.clear();
 	std::unique_ptr<XMLSceneParser> xmlSceneParser = std::make_unique<XMLSceneParser>();
@@ -36,7 +36,7 @@ void EquipmentManager::createEquipment(std::string levelName)
 	}
 }
 
-std::map<std::string, std::string> EquipmentManager::passTextures() const
+std::map<std::string, std::string> EquipmentFactory::passTextures() const
 {
 	std::map<std::string, std::string> totalTextures;
 	for (auto& equipment : equipments) 

@@ -2,12 +2,6 @@
 
 MainMenu::MainMenu() 
 {
-	this->textures.try_emplace("main_menu", "Assets/Menu/Main-Menu/background.png");
-	this->textures.try_emplace("button_play", "Assets/Menu/Button/button-play.png");
-	this->textures.try_emplace("button_credits", "Assets/Menu/Button/button-credits.png");
-	this->textures.try_emplace("button_exit", "Assets/Menu/Button/button-exit.png");
-	this->textures.try_emplace("ad", "Assets/Advertisement/Advertisement.png");
-
 	gc = std::make_unique<GraphicsComponent>();
 	gc->setTexture("main_menu");
 	gc->isScreen = true;
@@ -59,7 +53,7 @@ void MainMenu::staticOpenGameCallbackFunction(const void* p)
 
 void MainMenu::openGameCallbackFunction() const
 {
-	SceneLoader::getInstance().loadScene("LoadSaveScreen", "MainMenu", true);
+	SceneLoader::getInstance().loadScene("LoadSaveScreen", "MainMenuScreen", true);
 }
 
 void MainMenu::staticOpenCreditsCallbackFunction(const void* p) 
@@ -69,7 +63,7 @@ void MainMenu::staticOpenCreditsCallbackFunction(const void* p)
 
 void MainMenu::openCreditsCallbackFunction() const
 {
-	SceneLoader::getInstance().loadScene("CreditsScreen", "MainMenu", true);
+	SceneLoader::getInstance().loadScene("CreditScreen", "MainMenuScreen", true);
 }
 
 void MainMenu::staticOpenHelpCallbackFunction(const void* p)
@@ -79,7 +73,7 @@ void MainMenu::staticOpenHelpCallbackFunction(const void* p)
 
 void MainMenu::openHelpCallbackFunction() const
 {
-	SceneLoader::getInstance().loadScene("HelpScreen", "MainMenu", true);
+	SceneLoader::getInstance().loadScene("HelpScreen", "MainMenuScreen", true);
 }
 
 void MainMenu::staticExitCallbackFunction(const void* p) 

@@ -3,16 +3,20 @@
 /// <summary>
 /// This class has the responsibility of managing different classes in the engine. It communicaties with classes like TextureManager and RenderFacade.
 /// </summary>
-EngineController::EngineController()
+EngineController::EngineController(const std::string& title, int screenWidth, int screenHeight, bool fullScreen)
 {
 	collision = std::make_shared<Collision>();
-	assetManager = std::make_shared<AssetManager>();
+	textureAssetManager = std::make_shared<TextureAssetManager>();
+	fontAssetManager = std::make_shared<FontAssetManager>();
+	audioAssetManager = std::make_shared<AudioAssetManager>();
+
 	renderFacade = std::make_shared<RenderFacade>(staticPassCameraDimensionFunction, this);
-	textureManager = std::make_shared<TextureManager>(renderFacade, assetManager);
+	textureManager = std::make_shared<TextureManager>(renderFacade, textureAssetManager);
 	input = std::make_shared<Input>(staticInputCallbackFunction, this);
-	audio = std::make_unique<Audio>(assetManager);
-	
-	initRenderer("Delta Dungeons", 1280, 960, false);
+	fontManager = std::make_shared<FontManager>(renderFacade, fontAssetManager);
+	audioManager = std::make_unique<AudioManager>(audioAssetManager);
+
+	initRenderer(title, screenWidth, screenHeight, fullScreen);
 }
 
 /// <summary>
@@ -27,12 +31,12 @@ void EngineController::initRenderer(const std::string& title, int width, int hei
 	renderFacade->init(title, width, height, fullscreen);
 }
 
-void EngineController::staticPassCameraDimensionFunction(void* p, Transform transform)
+void EngineController::staticPassCameraDimensionFunction(void* p, const Transform& transform)
 {
 	((EngineController*)p)->passCameraDimensionFunction(transform);
 }
 
-void EngineController::passCameraDimensionFunction(Transform &transform)
+void EngineController::passCameraDimensionFunction(const Transform& transform)
 {
 	collision->setCameraDimensions(transform);
 }
@@ -74,7 +78,7 @@ void EngineController::inputCallbackFunction(const KeyCodes keyCode, const Keybo
 /// <param name="path">Texture path.</param>
 void EngineController::addTexture(const std::string& name, const std::string& path)
 {
-	assetManager->addTexture(name, path);
+	textureAssetManager->addAsset(name, path);
 }
 
 void EngineController::createCamera(const int x, const int y)const
@@ -106,10 +110,28 @@ void EngineController::startGame()
 	}
 }
 
-void EngineController::registerScene(const std::string& sceneName, const std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects)
+void EngineController::registerScene(const std::string& sceneName, std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects)
 {
-	std::vector<std::shared_ptr<BehaviourObject>> tempObjects;
 	std::vector<std::shared_ptr<BehaviourObject>> colliderObjects;
+
+	std::vector<std::shared_ptr<BehaviourObject>> containedObjects;
+	for (auto& o : behaviourObjects)
+	{
+		if (dynamic_cast<GameObject*>(o.get()) != nullptr)
+		{
+			auto go = dynamic_cast<GameObject*>(o.get());
+			auto gor = go->getComponentsRecursive();
+			for (auto& bo : gor)
+			{
+				containedObjects.emplace_back(bo);
+			}
+		}
+	}
+
+	for (auto& co : containedObjects)
+	{
+		behaviourObjects.emplace_back(co);
+	}
 
 	for (const auto& o : behaviourObjects)
 	{
@@ -117,7 +139,6 @@ void EngineController::registerScene(const std::string& sceneName, const std::ve
 		{
 			auto ngc = dynamic_cast<GraphicsComponent*>(o.get());
 			ngc->addTextureManager(textureManager);
-			tempObjects.emplace_back(o);
 		}
 		else if (dynamic_cast<CollidingComponent*>(o.get()) != nullptr)
 		{
@@ -126,12 +147,7 @@ void EngineController::registerScene(const std::string& sceneName, const std::ve
 		else if (dynamic_cast<TextComponent*>(o.get()) != nullptr)
 		{
 			auto ntc = dynamic_cast<TextComponent*>(o.get());
-			ntc->addTextureManager(textureManager);
-			tempObjects.emplace_back(o);
-		}
-		else
-		{
-			tempObjects.emplace_back(o);
+			ntc->addFontManager(fontManager);
 		}
 	}
 	collision->registerColliders(colliderObjects);
@@ -179,7 +195,7 @@ void EngineController::passPlayerPosition(int x, int y)
 void EngineController::registerTextures(const std::map<std::string, std::string> textures) {
 	for (const auto& t : textures)
 	{
-		assetManager->addTexture(t.first, t.second);
+		textureAssetManager->addAsset(t.first, t.second);
 	}
 }
 
@@ -190,14 +206,14 @@ void EngineController::registerTextures(const std::map<std::string, std::string>
 void EngineController::registerFonts(std::map<std::string, std::string> fonts) {
 	for (auto& t : fonts)
 	{
-		assetManager->addFont(t.first, t.second);
+		fontAssetManager->addAsset(t.first, t.second);
 	}
 }
 
 void EngineController::registerAudio(std::map<std::string, std::string> tracks) {
 	for (auto& t : tracks)
 	{
-		assetManager->addAudio(t.first, t.second);
+		audioAssetManager->addAsset(t.first, t.second);
 	}
 }
 
@@ -291,7 +307,7 @@ void EngineController::checkGameOver()
 		if (timer == 0) {
 			isGameOver = false;
 			timer = 30;
-			loadScene("GameOver", "", true);
+			loadScene("GameOverScreen", "", true);
 		}
 		else
 		{
@@ -307,7 +323,7 @@ void EngineController::checkTransition()const
 
 void EngineController::playAudio(const std::string& trackName, bool looped)
 {
-	audio->playAudio(trackName, looped);
+	audioManager->playAudio(trackName, looped);
 }
 
 void EngineController::deleteScene(const std::string& sceneName)
@@ -328,7 +344,7 @@ void EngineController::replaceScene(const std::string sceneName, std::vector<std
 		else if (dynamic_cast<TextComponent*>(o.get()) != nullptr)
 		{
 			auto ntc = dynamic_cast<TextComponent*>(o.get());
-			ntc->addTextureManager(textureManager);
+			ntc->addFontManager(fontManager);
 		}
 	}
 	sceneManager.replaceScene(sceneName, objects);

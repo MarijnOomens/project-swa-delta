@@ -109,3 +109,5 @@ void HUD::addItem(const std::string& texturepath)
 	SceneModifier::getInstance().addObjectToScene(itemGc);
 	amountItems++;
 }
+
+void HUD::start() {}

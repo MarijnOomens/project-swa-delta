@@ -37,3 +37,9 @@ void Pokeball::use() {
 void Pokeball::setParent() {
 	cc->parent = shared_from_this();
 }
+
+void Pokeball::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) {}
+
+void Pokeball::start() {}
+
+void Pokeball::update() {}

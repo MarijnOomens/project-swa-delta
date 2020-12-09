@@ -16,7 +16,7 @@ void Collision::deleteColliderFromScene(std::shared_ptr<BehaviourObject> deleted
 	}
 }
 
-void Collision::setCameraDimensions(Transform &transform) {
+void Collision::setCameraDimensions(const Transform& transform) {
 	cameraX = transform.position.x;
 	cameraY = transform.position.y;
 	cameraW = transform.scale.x;

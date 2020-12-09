@@ -47,3 +47,9 @@ void Boomerang::use()
 void Boomerang::setParent() {
 	cc->parent = shared_from_this();
 }
+
+void Boomerang::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) {}
+
+void Boomerang::update() {}
+
+void Boomerang::start() {}

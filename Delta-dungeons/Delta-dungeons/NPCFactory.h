@@ -9,20 +9,19 @@
 #include <cstdlib>
 #include <ctime>
 #include "NPCParserData.h"
+#include "GameObjectFactory.h"
 
-class NPCManager
+class NPCFactory : public GameObjectFactory
 {
 public:
 	std::map<std::string, std::shared_ptr<IInteractiveObject>> npcs;
 	std::vector<std::shared_ptr<NPCParserData>> parsedNpcs;
 
-	NPCManager();
-	~NPCManager() {}
+	NPCFactory();
 
-	void createNPC(std::string levelName);
+	void createNPCs(const std::string& levelName);
 	std::map<std::string, std::string> passTextures() const;
 
-	void addTrainers();
 	int getRandomNPC();
 private:
 	std::shared_ptr<GameObjectBuilder> builder;
