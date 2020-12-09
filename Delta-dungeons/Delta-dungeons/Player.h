@@ -88,9 +88,11 @@ private:
 	int count;
 	bool isWalking = true;
 	bool boomerangActivated = false;
-	bool noDamageCheat = false;
 	bool hasMoved = false;
 	bool noCollisionCheat = false;
+	bool noDamageCheat = false;
+	bool infinteBerries = false;
+	bool infinitePokeballs = false;
 	std::vector<int> pokemonCaught;
 	std::vector<std::unique_ptr<IEquipment>> equipment;
 	std::shared_ptr<StopStrategy> stp;

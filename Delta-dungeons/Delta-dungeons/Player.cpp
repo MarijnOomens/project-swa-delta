@@ -164,6 +164,12 @@ void Player::handleKeyPressed(const KeyCodes& keyCodes)
 	case KeyCodes::KEY_2:
 		noDamageCheat = !noDamageCheat;
 		break;
+	case KeyCodes::KEY_3:
+		infinitePokeballs = !infinitePokeballs;
+		break;
+	case KeyCodes::KEY_4:
+		infinteBerries = !infinteBerries;
+		break;
 	default:
 		break;
 	}
@@ -401,11 +407,14 @@ void Player::registerHit() {
 
 void Player::eatBerry() {
 	
-	if (health < maxHealth && amountOfBerries > 0) //maxHealth
+	if ((health < maxHealth && amountOfBerries > 0) || infinteBerries) //maxHealth
 	{
 		health++;
-		amountOfBerries--;
 		hudFunc(pointer, health, amountOfBerries, amountOfPokeballs);
+		if (!infinteBerries) 
+		{
+			amountOfBerries--;
+		}
 	}
 }
 
@@ -416,10 +425,13 @@ void Player::addBerry() {
 
 void Player::usePokeball() {
 
-	if (amountOfPokeballs > 0 && !pokeball->isMoving) 
+	if ((amountOfPokeballs > 0 || infinitePokeballs) && !pokeball->isMoving) 
 	{
-		amountOfPokeballs--;
-		hudFunc(pointer, health, amountOfBerries, amountOfPokeballs);
+		if (!infinitePokeballs)
+		{
+			amountOfPokeballs--;
+			hudFunc(pointer, health, amountOfBerries, amountOfPokeballs);
+		}
 		if (currentDirection == KeyCodes::KEY_UP || currentDirection == KeyCodes::KEY_W) {
 			pokeball->moveUp(transform.position.x, transform.position.y - 128);
 		}
