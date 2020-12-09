@@ -158,6 +158,18 @@ void Player::handleKeyPressed(const KeyCodes& keyCodes)
 	case KeyCodes::KEY_C:
 		usePokeball();
 		break;
+	case KeyCodes::KEY_1:
+		noCollisionCheat = !noCollisionCheat;
+		break;
+	case KeyCodes::KEY_2:
+		noDamageCheat = !noDamageCheat;
+		break;
+	case KeyCodes::KEY_3:
+		infinitePokeballs = !infinitePokeballs;
+		break;
+	case KeyCodes::KEY_4:
+		infinteBerries = !infinteBerries;
+		break;
 	default:
 		break;
 	}
@@ -230,9 +242,9 @@ void Player::setParent() {
 void Player::moveUp()
 {
 	//de huidige positie bijhouden.
-	if (!hasMoved) {
+	if (!hasMoved || noCollisionCheat) {
 		collisionFunc(pointer, cc, shared_from_this(), this->transform.position.x, this->transform.position.y - baseMovementSpeed, KeyCodes::KEY_UP, (gc->imageDimensions.x * gc->transform.scale.x));
-		if (!hasMoved) {
+		if (!hasMoved || noCollisionCheat) {
 			transform.position.y -= baseMovementSpeed;
 			cc->transform.position.y = this->transform.position.y;
 			gc->transform.position = transform.position;
@@ -249,9 +261,9 @@ void Player::moveUp()
 /// </summary>
 void Player::moveDown()
 {
-	if (!hasMoved) {
+	if (!hasMoved || noCollisionCheat) {
 		collisionFunc(pointer, cc, shared_from_this(), this->transform.position.x, this->transform.position.y + baseMovementSpeed, KeyCodes::KEY_DOWN, (gc->imageDimensions.x * gc->transform.scale.x));
-		if (!hasMoved) {
+		if (!hasMoved || noCollisionCheat) {
 			transform.position.y += baseMovementSpeed;
 			cc->transform.position.y = this->transform.position.y;
 			gc->transform.position = transform.position;
@@ -268,9 +280,9 @@ void Player::moveDown()
 /// </summary>
 void Player::moveLeft()
 {
-	if (!hasMoved) {
+	if (!hasMoved || noCollisionCheat) {
 		collisionFunc(pointer, cc, shared_from_this(), this->transform.position.x - baseMovementSpeed, this->transform.position.y, KeyCodes::KEY_LEFT, (gc->imageDimensions.x * gc->transform.scale.x));
-		if (!hasMoved) {
+		if (!hasMoved || noCollisionCheat) {
 			transform.position.x -= baseMovementSpeed;
 			cc->transform.position.x = this->transform.position.x;
 			gc->transform.position = transform.position;
@@ -287,9 +299,9 @@ void Player::moveLeft()
 /// </summary>
 void Player::moveRight()
 {
-	if (!hasMoved) {
+	if (!hasMoved || noCollisionCheat) {
 		collisionFunc(pointer, cc, shared_from_this(), this->transform.position.x + baseMovementSpeed, this->transform.position.y, KeyCodes::KEY_RIGHT, (gc->imageDimensions.x * gc->transform.scale.x));
-		if (!hasMoved) {
+		if (!hasMoved || noCollisionCheat) {
 			transform.position.x += baseMovementSpeed;
 			cc->transform.position.x = this->transform.position.x;
 			gc->transform.position = transform.position;
@@ -395,11 +407,14 @@ void Player::registerHit() {
 
 void Player::eatBerry() {
 	
-	if (health < maxHealth && amountOfBerries > 0) //maxHealth
+	if ((health < maxHealth && amountOfBerries > 0) || infinteBerries) //maxHealth
 	{
 		health++;
-		amountOfBerries--;
 		hudFunc(pointer, health, amountOfBerries, amountOfPokeballs);
+		if (!infinteBerries) 
+		{
+			amountOfBerries--;
+		}
 	}
 }
 
@@ -410,10 +425,13 @@ void Player::addBerry() {
 
 void Player::usePokeball() {
 
-	if (amountOfPokeballs > 0 && !pokeball->isMoving) 
+	if ((amountOfPokeballs > 0 || infinitePokeballs) && !pokeball->isMoving) 
 	{
-		amountOfPokeballs--;
-		hudFunc(pointer, health, amountOfBerries, amountOfPokeballs);
+		if (!infinitePokeballs)
+		{
+			amountOfPokeballs--;
+			hudFunc(pointer, health, amountOfBerries, amountOfPokeballs);
+		}
 		if (currentDirection == KeyCodes::KEY_UP || currentDirection == KeyCodes::KEY_W) {
 			pokeball->moveUp(transform.position.x, transform.position.y - 128);
 		}
@@ -435,7 +453,7 @@ void Player::addPokeball() {
 }
 
 void Player::registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger) {
-	if (isDamaged) { registerHit(); }
+	if (isDamaged && !noDamageCheat) { registerHit(); }
 	if (isTransitioned) { nextLevelFunc(gmPointer); }
 	if (isWinTrigger) { SceneLoader::getInstance().loadScene("GameWin", SceneLoader::getInstance().getCurrentLevel(), false); }
 
