@@ -5,7 +5,7 @@
 #include <string>
 #include <GraphicsComponent.h>
 
-typedef void(*cbPushCollision) (void*, int, int);
+typedef void(*cbInteract) (void*, std::shared_ptr<BehaviourObject>, int, int);
 typedef void(*cbCollision) (void*, std::shared_ptr<BehaviourObject>, int, int, KeyCodes, int);
 
 class BoulderPuzzleObject : public IInteractiveObject
@@ -14,10 +14,8 @@ public:
 	BoulderPuzzleObject() {}
 	~BoulderPuzzleObject() {}
 
-	BoulderPuzzleObject(const cbPushCollision, void* p, cbCollision, void* gP, int x, int y, const std::string& texture);
-	cbPushCollision pFunc;
-	void* pPointer;
-
+	BoulderPuzzleObject(cbInteract, cbCollision, void* gP, int x, int y, const std::string& texture);
+	cbInteract iFunc;
 	cbCollision cFunc;
 	void* gPointer;
 

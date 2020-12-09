@@ -1,6 +1,6 @@
 #include "BoulderPuzzleObject.h"
 
-BoulderPuzzleObject::BoulderPuzzleObject(const cbPushCollision cbP, void* p, cbCollision cbC, void* gP, int x, int y, const std::string& texture) : pFunc(cbP), pPointer(p), cFunc(cbC), gPointer(gP)
+BoulderPuzzleObject::BoulderPuzzleObject(cbInteract cbI, cbCollision cbC, void* gP, int x, int y, const std::string& texture) : iFunc(cbI), cFunc(cbC), gPointer(gP)
 {
 	this->transform.position = { x * 128, y * 128 };
 	this->transform.scale.multiply({ 4, 4 });
@@ -38,7 +38,7 @@ void BoulderPuzzleObject::move(KeyCodes direction)
 			if (canPush) {
 				pushed = true;
 				endY = transform.position.y - 128;
-				pFunc(pPointer, transform.position.x, transform.position.y - 128);
+				iFunc(gPointer, shared_from_this(), transform.position.x, transform.position.y - 128);
 			}
 			canPush = true;
 		}
@@ -47,7 +47,7 @@ void BoulderPuzzleObject::move(KeyCodes direction)
 			if (canPush) {
 				pushed = true;
 				endY = transform.position.y + 128;
-				pFunc(pPointer, transform.position.x, transform.position.y + 128);
+				iFunc(gPointer, shared_from_this(), transform.position.x, transform.position.y + 128);
 			}
 			canPush = true;
 		}
@@ -56,7 +56,7 @@ void BoulderPuzzleObject::move(KeyCodes direction)
 			if (canPush) {
 				pushed = true;
 				endX = transform.position.x - 128;
-				pFunc(pPointer, transform.position.x - 128, transform.position.y);
+				iFunc(gPointer, shared_from_this(), transform.position.x - 128, transform.position.y);
 			}
 			canPush = true;
 		}
@@ -65,7 +65,7 @@ void BoulderPuzzleObject::move(KeyCodes direction)
 			if (canPush) {
 				pushed = true;
 				endX = transform.position.x + 128;
-				pFunc(pPointer, transform.position.x + 128, transform.position.y);
+				iFunc(gPointer, shared_from_this(), transform.position.x + 128, transform.position.y);
 			}
 			canPush = true;
 		}
