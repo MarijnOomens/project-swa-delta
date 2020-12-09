@@ -38,7 +38,7 @@ void BoulderPuzzleObject::move(KeyCodes direction)
 			if (canPush) {
 				pushed = true;
 				endY = transform.position.y - 128;
-				//tFunc(gameMangerPointer, transform.position.x, transform.position.y);
+				pFunc(pPointer, transform.position.x, transform.position.y - 128);
 			}
 			canPush = true;
 		}
@@ -47,7 +47,7 @@ void BoulderPuzzleObject::move(KeyCodes direction)
 			if (canPush) {
 				pushed = true;
 				endY = transform.position.y + 128;
-				//tFunc(gameMangerPointer, transform.position.x, transform.position.y);
+				pFunc(pPointer, transform.position.x, transform.position.y + 128);
 			}
 			canPush = true;
 		}
@@ -56,7 +56,7 @@ void BoulderPuzzleObject::move(KeyCodes direction)
 			if (canPush) {
 				pushed = true;
 				endX = transform.position.x - 128;
-				//tFunc(gameMangerPointer, transform.position.x, transform.position.y);
+				pFunc(pPointer, transform.position.x - 128, transform.position.y);
 			}
 			canPush = true;
 		}
@@ -65,7 +65,7 @@ void BoulderPuzzleObject::move(KeyCodes direction)
 			if (canPush) {
 				pushed = true;
 				endX = transform.position.x + 128;
-				//tFunc(gameMangerPointer, transform.position.x, transform.position.y);
+				pFunc(pPointer, transform.position.x + 128, transform.position.y);
 			}
 			canPush = true;
 		}
