@@ -160,6 +160,9 @@ void Player::handleKeyPressed(const KeyCodes& keyCodes)
 	case KeyCodes::KEY_1:
 		noCollisionCheat = !noCollisionCheat;
 		break;
+	case KeyCodes::KEY_2:
+		noDamageCheat = !noDamageCheat;
+		break;
 	default:
 		break;
 	}
@@ -437,7 +440,7 @@ void Player::addPokeball() {
 }
 
 void Player::registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger) {
-	if (isDamaged) { registerHit(); }
+	if (isDamaged && !noDamageCheat) { registerHit(); }
 	if (isTransitioned) { nextLevelFunc(pointer); }
 	if (isWinTrigger) { SceneLoader::getInstance().loadScene("GameWin", SceneLoader::getInstance().getCurrentLevel(), false); }
 

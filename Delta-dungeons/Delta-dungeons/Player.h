@@ -87,7 +87,7 @@ private:
 	int count;
 	bool isWalking = true;
 	bool boomerangActivated = false;
-	bool cheatCollision = false;
+	bool noDamageCheat = false;
 	bool hasMoved = false;
 	bool noCollisionCheat = false;
 	std::vector<int> pokemonCaught;
