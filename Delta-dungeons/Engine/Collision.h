@@ -13,7 +13,7 @@ public:
 	int cameraW = 0;
 	int cameraH = 0;
 
-	void setCameraDimensions(Transform &transform);
+	void setCameraDimensions(const Transform& transform);
 	void registerColliders(std::vector<std::shared_ptr<BehaviourObject>> colliders);
 	void deleteColliderFromScene(std::shared_ptr<BehaviourObject> deletedCollider);
 	void checkCollision(std::shared_ptr<CollidingComponent> collider, std::shared_ptr<BehaviourObject> behaviourObject, int x, int y, KeyCodes direction, int w);

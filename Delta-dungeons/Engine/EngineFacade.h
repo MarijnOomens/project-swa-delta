@@ -10,7 +10,7 @@ public:
 	ENGINE_API EngineFacade() {}
 	ENGINE_API ~EngineFacade() {}
 
-	ENGINE_API void init();
+	ENGINE_API void init(const std::string& title, int screenWidth, int screenHeight, bool fullScreen);
 	ENGINE_API void addTexture(const std::string& name, const std::string& path);
 	ENGINE_API void registerBehaviourObjects(std::vector<std::shared_ptr<BehaviourObject>> objects);
 	ENGINE_API void registerTextures(std::map<std::string, std::string> textures);

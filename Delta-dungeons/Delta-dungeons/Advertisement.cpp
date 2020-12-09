@@ -28,3 +28,5 @@ void Advertisement::handleInput(const KeyCodes& keyCode, const KeyboardEvent& ke
 void Advertisement::interact(std::shared_ptr<BehaviourObject> interactor) {}
 
 void Advertisement::setParent() {}
+
+void Advertisement::start() {}

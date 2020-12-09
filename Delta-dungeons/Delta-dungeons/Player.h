@@ -19,7 +19,6 @@ typedef void(*cbCollision) (void*, std::shared_ptr<CollidingComponent>, std::sha
 typedef void(*cbThrowCollision) (void*, std::shared_ptr<BehaviourObject>, int, int, KeyCodes, int);
 typedef void(*cbNextLevel) (void*);
 
-
 class Player : public IInteractiveObject
 {
 public:
@@ -36,8 +35,9 @@ public:
 	cbNextLevel nextLevelFunc;
 	KeyCodes currentDirection;
 	void* pointer;
+	void* gmPointer;
 
-	Player(int spawnX, int spawnY, cbCollision collisionCB, cbThrowCollision throwCB, cbNextLevel nextLevelcb, cbCamera f, cbInteract interactCB, cbGameOver gameOverFunc, cbHUD hudCB, void* p);
+	Player(int spawnX, int spawnY, cbCollision collisionCB, cbThrowCollision throwCB, cbNextLevel nextLevelcb, cbCamera f, cbInteract interactCB, cbGameOver gameOverFunc, cbHUD hudCB, void* p, void* gm);
 
 	void handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
 	void interact(std::shared_ptr<BehaviourObject> interactor) override;
@@ -67,6 +67,7 @@ public:
 
 	void update() override;
 	void setParent() override;
+	void start() override;
 	void handleInteraction();
 	void registerHit();
 	void eatBerry();

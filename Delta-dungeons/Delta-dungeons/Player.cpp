@@ -10,8 +10,8 @@
 /// Defines the movementspeed and the runactivated bool
 /// Creates the graphicscomponent for the player sprite and saves the texturename and png location, width, height
 /// </summary>
-Player::Player(int spawnX, int spawnY, cbCollision collisionCB, cbThrowCollision throwCB, cbNextLevel nextLevelcb, const cbCamera f, cbInteract interactCB, cbGameOver gameOverF, cbHUD hudCB, void* p)
-: collisionFunc(collisionCB), nextLevelFunc(nextLevelcb), func(f), interactFunc(interactCB), gameOverFunc(gameOverF), hudFunc(hudCB), pointer(p)
+Player::Player(int spawnX, int spawnY, cbCollision collisionCB, cbThrowCollision throwCB, cbNextLevel nextLevelcb, const cbCamera f, cbInteract interactCB, cbGameOver gameOverF, cbHUD hudCB, void* p, void* gm)
+: collisionFunc(collisionCB), nextLevelFunc(nextLevelcb), func(f), interactFunc(interactCB), gameOverFunc(gameOverF), hudFunc(hudCB), pointer(p), gmPointer(gm)
 {
 	std::string textureBoomerang ="boomerangHUD" ;
 	std::string textureRunning = "runningshoesHUD";
@@ -33,6 +33,7 @@ Player::Player(int spawnX, int spawnY, cbCollision collisionCB, cbThrowCollision
 	this->textures.try_emplace("player_f", "Assets/Player/player_f_anims.png");
 	this->textures.try_emplace(textureBoomerang, "Assets/HUD/Boomerang.png");
 	this->textures.try_emplace(textureRunning, "Assets/HUD/Runningshoes.png");
+	this->textures.try_emplace("pokeball", "Assets/Equipment/pokeball.png");
 	this->texture = "player_m";
 
 	gc = std::make_shared<GraphicsComponent>();
@@ -435,8 +436,10 @@ void Player::addPokeball() {
 
 void Player::registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger) {
 	if (isDamaged) { registerHit(); }
-	if (isTransitioned) { nextLevelFunc(pointer); }
+	if (isTransitioned) { nextLevelFunc(gmPointer); }
 	if (isWinTrigger) { SceneLoader::getInstance().loadScene("GameWin", SceneLoader::getInstance().getCurrentLevel(), false); }
 
 	hasMoved = true;
 }
+
+void Player::start(){}
