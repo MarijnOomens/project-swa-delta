@@ -5,7 +5,7 @@
 #include <GraphicsComponent.h>
 #include "BoulderPuzzleObject.h"
 
-typedef void(*cbTriggerCollision) (void*, int, int);
+typedef void(*cbTriggerCollision) (void*);
 
 class TriggerPuzzleObject : public IInteractiveObject
 {

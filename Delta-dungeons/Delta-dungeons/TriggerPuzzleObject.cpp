@@ -24,7 +24,8 @@ TriggerPuzzleObject::TriggerPuzzleObject(const cbTriggerCollision cbT, void* p, 
 void TriggerPuzzleObject::interact(std::shared_ptr<BehaviourObject> interactor) {
 	auto object = dynamic_cast<BoulderPuzzleObject*>(interactor.get());
 	if (object != nullptr) {
-		tFunc(tPointer, object->transform.position.x, object->transform.position.y);
+		triggered = true;
+		tFunc(tPointer);
 	}
 }
 

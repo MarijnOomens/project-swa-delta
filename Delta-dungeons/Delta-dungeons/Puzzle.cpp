@@ -19,12 +19,13 @@ void Puzzle::createTrigger(std::shared_ptr<ParserData> parser)
 }
 
 
-void Puzzle::staticTriggerCallbackFunction(void* p, int x, int y)
+void Puzzle::staticTriggerCallbackFunction(void* p)
 {
-	((Puzzle*)p)->trigger(x, y);
+	((Puzzle*)p)->trigger();
 }
 
-void Puzzle::trigger(int x, int y)
+void Puzzle::trigger()
 {
+	//check in puzzle if all triggers are true
 	std::cout << "trigger" << std::endl;
 }

@@ -35,6 +35,13 @@ std::map<std::string, std::string> PuzzleManager::passTextures() const
 			totalTextures.try_emplace(t.first, t.second);
 		}
 	}
+	//for (auto& puzzleTrigger : puzzle->triggers)
+	//{
+	//	for (auto& trigger : puzzleTrigger.second->textures)
+	//	{
+	//		totalTextures.try_emplace(trigger.first, trigger.second);
+	//	}
+	//}
 	return totalTextures;
 }
 
