@@ -141,7 +141,7 @@ void GameManager::createLevel(std::string levelName)
 	eqManager.createEquipment(levelName);
 	registerTextures(eqManager.passTextures());
 
-	puzzleManager.createPuzzle(levelName);
+	puzzleManager.createPuzzle(levelName, staticCheckCollisionCallbackFunction, this);
 	registerTextures(puzzleManager.passTextures());
 
 	registerBehaviourObjects();

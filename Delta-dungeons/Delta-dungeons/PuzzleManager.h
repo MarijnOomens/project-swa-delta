@@ -2,6 +2,9 @@
 #include "XMLSceneParser.h"
 #include "Puzzle.h"
 #include "BoulderPuzzleObject.h"
+
+typedef void(*cbCollision) (void*, std::shared_ptr<BehaviourObject>, int, int, KeyCodes, int);
+
 class PuzzleManager
 {
 public:
@@ -17,7 +20,7 @@ public:
 	
 
 	void createPuzzles(std::string levelName);
-	void createPuzzle(std::string levelName);
+	void createPuzzle(std::string levelName, cbCollision collisionCb, void* p);
 
 
 	std::map<std::string, std::string> passTextures() const;

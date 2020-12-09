@@ -6,6 +6,7 @@
 #include <GraphicsComponent.h>
 
 typedef void(*cbPushCollision) (void*, int, int);
+typedef void(*cbCollision) (void*, std::shared_ptr<BehaviourObject>, int, int, KeyCodes, int);
 
 class BoulderPuzzleObject : public IInteractiveObject
 {
@@ -13,16 +14,19 @@ public:
 	BoulderPuzzleObject() {}
 	~BoulderPuzzleObject() {}
 
-	BoulderPuzzleObject(const cbPushCollision, void* p, int x, int y, const std::string& texture);
+	BoulderPuzzleObject(const cbPushCollision, void* p, cbCollision, void* gP, int x, int y, const std::string& texture);
 	cbPushCollision pFunc;
 	void* pPointer;
+
+	cbCollision cFunc;
+	void* gPointer;
 
 	void interact(std::shared_ptr<BehaviourObject> interactor) override;
 	void setParent() override;
 	void update() override;
 	void updateTransform(int x, int y);
 
-	bool isMoving = false;
+	bool canPush = true;
 
 	//interact add the direction
 	//directions decides if either x or y gets adjusted

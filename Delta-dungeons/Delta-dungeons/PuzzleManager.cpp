@@ -1,6 +1,6 @@
 #include "PuzzleManager.h"
 
-void PuzzleManager::createPuzzle(std::string levelName)
+void PuzzleManager::createPuzzle(std::string levelName, cbCollision collisionCB, void* p)
 {
 	//create puzzle1
 	puzzle = std::make_shared<Puzzle>();
@@ -13,7 +13,7 @@ void PuzzleManager::createPuzzle(std::string levelName)
 	{
 		if (std::stoi(parsedTile->tileId) == 17) 
 		{
-			puzzle->createBoulder(parsedTile);
+			puzzle->createBoulder(parsedTile, collisionCB, p);
 		}
 			//puzzles->at(0)->puzzles->createPuzzleTile(parsedTile);
 		//elseif
