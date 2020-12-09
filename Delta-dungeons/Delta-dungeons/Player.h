@@ -89,6 +89,7 @@ private:
 	bool boomerangActivated = false;
 	bool cheatCollision = false;
 	bool hasMoved = false;
+	bool noCollisionCheat = false;
 	std::vector<int> pokemonCaught;
 	std::vector<std::unique_ptr<IEquipment>> equipment;
 	std::shared_ptr<StopStrategy> stp;

@@ -97,6 +97,9 @@ void InputWrapper::handleKeyPressed(const bool isPaused)
 		case SDLK_BACKSPACE:
 			func(pointer, KeyCodes::KEY_BACKSPACE, KeyboardEvent::KEY_PRESSED, mousePosition);
 			break;
+		case SDLK_1:
+			func(pointer, KeyCodes::KEY_1, KeyboardEvent::KEY_PRESSED, mousePosition);
+			break;
 		default:
 			break;
 			}

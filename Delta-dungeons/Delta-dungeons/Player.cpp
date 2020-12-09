@@ -157,6 +157,9 @@ void Player::handleKeyPressed(const KeyCodes& keyCodes)
 	case KeyCodes::KEY_C:
 		usePokeball();
 		break;
+	case KeyCodes::KEY_1:
+		noCollisionCheat = !noCollisionCheat;
+		break;
 	default:
 		break;
 	}
@@ -229,9 +232,9 @@ void Player::setParent() {
 void Player::moveUp()
 {
 	//de huidige positie bijhouden.
-	if (!hasMoved) {
+	if (!hasMoved || noCollisionCheat) {
 		collisionFunc(pointer, cc, shared_from_this(), this->transform.position.x, this->transform.position.y - baseMovementSpeed, KeyCodes::KEY_UP, (gc->imageDimensions.x * gc->transform.scale.x));
-		if (!hasMoved) {
+		if (!hasMoved || noCollisionCheat) {
 			transform.position.y -= baseMovementSpeed;
 			cc->transform.position.y = this->transform.position.y;
 			gc->transform.position = transform.position;
@@ -248,9 +251,9 @@ void Player::moveUp()
 /// </summary>
 void Player::moveDown()
 {
-	if (!hasMoved) {
+	if (!hasMoved || noCollisionCheat) {
 		collisionFunc(pointer, cc, shared_from_this(), this->transform.position.x, this->transform.position.y + baseMovementSpeed, KeyCodes::KEY_DOWN, (gc->imageDimensions.x * gc->transform.scale.x));
-		if (!hasMoved) {
+		if (!hasMoved || noCollisionCheat) {
 			transform.position.y += baseMovementSpeed;
 			cc->transform.position.y = this->transform.position.y;
 			gc->transform.position = transform.position;
@@ -267,9 +270,9 @@ void Player::moveDown()
 /// </summary>
 void Player::moveLeft()
 {
-	if (!hasMoved) {
+	if (!hasMoved || noCollisionCheat) {
 		collisionFunc(pointer, cc, shared_from_this(), this->transform.position.x - baseMovementSpeed, this->transform.position.y, KeyCodes::KEY_LEFT, (gc->imageDimensions.x * gc->transform.scale.x));
-		if (!hasMoved) {
+		if (!hasMoved || noCollisionCheat) {
 			transform.position.x -= baseMovementSpeed;
 			cc->transform.position.x = this->transform.position.x;
 			gc->transform.position = transform.position;
@@ -286,9 +289,9 @@ void Player::moveLeft()
 /// </summary>
 void Player::moveRight()
 {
-	if (!hasMoved) {
+	if (!hasMoved || noCollisionCheat) {
 		collisionFunc(pointer, cc, shared_from_this(), this->transform.position.x + baseMovementSpeed, this->transform.position.y, KeyCodes::KEY_RIGHT, (gc->imageDimensions.x * gc->transform.scale.x));
-		if (!hasMoved) {
+		if (!hasMoved || noCollisionCheat) {
 			transform.position.x += baseMovementSpeed;
 			cc->transform.position.x = this->transform.position.x;
 			gc->transform.position = transform.position;
