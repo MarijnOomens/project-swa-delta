@@ -25,8 +25,11 @@ public:
 	void setParent() override;
 	void update() override;
 	void updateTransform(int x, int y);
-
+	KeyCodes currentDirection;
 	bool canPush = true;
+	bool pushed = false;
+	int endY = 0;
+	int endX = 0;
 
 	//interact add the direction
 	//directions decides if either x or y gets adjusted

@@ -25,19 +25,19 @@ BoulderPuzzleObject::BoulderPuzzleObject(const cbPushCollision cbP, void* p, cbC
 void BoulderPuzzleObject::interact(std::shared_ptr<BehaviourObject> interactor) {
 	auto object = dynamic_cast<Player*>(interactor.get());
 	if (object != nullptr) {
-		std::cout << "Pushed object!" << std::endl;
-
 		move(object->currentDirection);
 	}
 }
 
 void BoulderPuzzleObject::move(KeyCodes direction) 
 {
+	currentDirection = direction;
 	//if (isMoving) {
 		if (direction == KeyCodes::KEY_UP || direction == KeyCodes::KEY_W) {
 			cFunc(gPointer, shared_from_this(), transform.position.x, transform.position.y - 128, KeyCodes::KEY_UP, (gc->imageDimensions.x * gc->transform.scale.x));
 			if (canPush) {
-				updateTransform(transform.position.x, transform.position.y - 128);
+				pushed = true;
+				endY = transform.position.y - 128;
 				//tFunc(gameMangerPointer, transform.position.x, transform.position.y);
 			}
 			canPush = true;
@@ -45,7 +45,8 @@ void BoulderPuzzleObject::move(KeyCodes direction)
 		else if (direction == KeyCodes::KEY_DOWN || direction == KeyCodes::KEY_S) {
 			cFunc(gPointer, shared_from_this(), transform.position.x, transform.position.y + 128, KeyCodes::KEY_DOWN, (gc->imageDimensions.x * gc->transform.scale.x));
 			if (canPush) {
-				updateTransform(transform.position.x, transform.position.y + 128);
+				pushed = true;
+				endY = transform.position.y + 128;
 				//tFunc(gameMangerPointer, transform.position.x, transform.position.y);
 			}
 			canPush = true;
@@ -53,7 +54,8 @@ void BoulderPuzzleObject::move(KeyCodes direction)
 		else if (direction == KeyCodes::KEY_LEFT || direction == KeyCodes::KEY_A) {
 			cFunc(gPointer, shared_from_this(), this->transform.position.x - 128, this->transform.position.y, KeyCodes::KEY_LEFT, (gc->imageDimensions.x * gc->transform.scale.x));
 			if (canPush) {
-				updateTransform(transform.position.x - 128, transform.position.y);
+				pushed = true;
+				endX = transform.position.x - 128;
 				//tFunc(gameMangerPointer, transform.position.x, transform.position.y);
 			}
 			canPush = true;
@@ -61,7 +63,8 @@ void BoulderPuzzleObject::move(KeyCodes direction)
 		else if (direction == KeyCodes::KEY_RIGHT || direction == KeyCodes::KEY_D) {
 			cFunc(gPointer, shared_from_this(), this->transform.position.x + 128, this->transform.position.y, KeyCodes::KEY_RIGHT, (gc->imageDimensions.x * gc->transform.scale.x));
 			if (canPush) {
-				updateTransform(transform.position.x + 128, transform.position.y);
+				pushed = true;
+				endX = transform.position.x + 128;
 				//tFunc(gameMangerPointer, transform.position.x, transform.position.y);
 			}
 			canPush = true;
@@ -81,7 +84,33 @@ void BoulderPuzzleObject::setParent() {
 
 void BoulderPuzzleObject::registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger, bool isPuzzleEntrance, bool isPuzzleExit) 
 {
+	std::cout << "Can't push object!" << std::endl;
 	canPush = false;
 }
 
-void BoulderPuzzleObject::update() {}
+void BoulderPuzzleObject::update() 
+{
+	if (pushed) 
+	{
+		if (currentDirection == KeyCodes::KEY_DOWN || currentDirection == KeyCodes::KEY_S)
+		{
+			if (transform.position.y < endY) { updateTransform(transform.position.x, transform.position.y + 8); }
+			else { pushed = false; }
+		}
+		else if (currentDirection == KeyCodes::KEY_UP || currentDirection == KeyCodes::KEY_W)
+		{
+			if (transform.position.y > endY) { updateTransform(transform.position.x, transform.position.y - 8); }
+			else { pushed = false; }
+		}
+		else if (currentDirection == KeyCodes::KEY_LEFT || currentDirection == KeyCodes::KEY_A)
+		{
+			if (transform.position.x > endX) { updateTransform(transform.position.x - 8, transform.position.y); }
+			else { pushed = false; }
+		}
+		else if (currentDirection == KeyCodes::KEY_RIGHT || currentDirection == KeyCodes::KEY_D)
+		{
+			if (transform.position.x < endX) { updateTransform(transform.position.x + 8, transform.position.y); }
+			else { pushed = false; }
+		}
+	}
+}
