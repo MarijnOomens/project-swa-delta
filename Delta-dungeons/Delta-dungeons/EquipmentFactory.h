@@ -14,8 +14,7 @@ public:
 	std::map<std::string, std::shared_ptr<IEquipment>> equipments;
 
 	EquipmentFactory();
-	~EquipmentFactory() {}
 
-	void createEquipment(std::string levelName);
+	void createEquipment(const std::string& levelName);
 	std::map<std::string, std::string> passTextures() const;
 };

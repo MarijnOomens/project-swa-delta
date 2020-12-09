@@ -6,6 +6,5 @@ class GameOverScreenScene : public Scene
 {
 public:
 	GameOverScreenScene();
-	~GameOverScreenScene() {}
 private:
 };

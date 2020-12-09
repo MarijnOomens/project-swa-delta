@@ -18,7 +18,6 @@ public:
 	std::vector<std::shared_ptr<NPCParserData>> parsedNpcs;
 
 	NPCFactory();
-	~NPCFactory() {}
 
 	void createNPCs(const std::string& levelName);
 	std::map<std::string, std::string> passTextures() const;

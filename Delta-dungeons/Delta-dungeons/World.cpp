@@ -6,7 +6,7 @@
 
 World::World(int x, int y) : x(x), y(y) {}
 
-void World::addGraphics(std::string levelName)
+void World::addGraphics(const std::string& levelName)
 {
 	components.clear();
 	XMLSceneParser xmlSceneParser;

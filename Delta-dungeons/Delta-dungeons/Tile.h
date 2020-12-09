@@ -16,7 +16,7 @@ public:
 	Tile(int x, int y, int xImage, bool collider, bool isTrigger, bool isWinTrigger);
 	Tile(int x, int y, int xImage, int yImage, bool collider, bool isTrigger, bool isWinTrigger);
 
-	void addGraphicsComponent(std::string& imageName);
+	void addGraphicsComponent(const std::string& imageName);
 	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
 	void update() override;
 	void interact(std::shared_ptr<BehaviourObject> interactor) override;

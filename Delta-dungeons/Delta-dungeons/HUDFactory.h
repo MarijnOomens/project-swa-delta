@@ -11,7 +11,6 @@ public:
 	std::shared_ptr<HUD> hud;
 
 	HUDFactory() {};
-	~HUDFactory() {};
 
 	void createHud(int healthMax, int health, int berries, int pokeballs);
 	void addItem(const std::string& texturePath);

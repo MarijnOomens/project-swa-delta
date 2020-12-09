@@ -11,5 +11,5 @@ public:
 	std::string getAsset(const std::string& id) override;
 
 private:
-	std::map<const std::string, const std::string> textureAssets;
+	std::map<std::string, std::string> textureAssets;
 };

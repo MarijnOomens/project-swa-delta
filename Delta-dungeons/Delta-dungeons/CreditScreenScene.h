@@ -6,6 +6,5 @@ class CreditScreenScene : public Scene
 {
 public:
 	CreditScreenScene();
-	~CreditScreenScene() {};
 private:
 };

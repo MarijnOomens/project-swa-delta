@@ -16,9 +16,8 @@ public:
 	std::vector<std::shared_ptr<PokemonParserData>> parsedPokemon;
 
 	PokemonFactory();
-	~PokemonFactory() {}
 
-	void createPokemon(std::string levelName);
+	void createPokemon(const std::string& levelName);
 	std::map<std::string, std::string> passTextures() const;
 
 private:

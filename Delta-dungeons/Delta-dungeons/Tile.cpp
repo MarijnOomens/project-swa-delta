@@ -82,7 +82,7 @@ Tile::Tile(int x, int y, int yImage, int xImage, bool collider, bool isTrigger, 
 /// </summary>
 /// <param name="graphicsComnponent">An clean graphicscomponent without tile information</param>
 /// <param name="name">Texture name of the png</param>
-void Tile::addGraphicsComponent(std::string& name)
+void Tile::addGraphicsComponent(const std::string& name)
 {
 	gc = std::make_shared<GraphicsComponent>();
 	gc->transform = transform;

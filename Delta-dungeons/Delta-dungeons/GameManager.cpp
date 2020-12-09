@@ -50,7 +50,7 @@ void GameManager::registerAudio(std::map<std::string, std::string> beats)
 	engineFacade->registerAudio(beats);
 }
 
-void GameManager::createLevel(std::string levelName)
+void GameManager::createLevel(const std::string& levelName)
 {
 	SceneLoader::getInstance().setCurrentLevel(levels[currentlevel]);
 	levelBuilder = std::make_unique<LevelBuilder>(levelName, engineFacade);
@@ -58,9 +58,10 @@ void GameManager::createLevel(std::string levelName)
 	levelBuilder->setNPCs();
 	levelBuilder->setEquipment();
 	levelBuilder->setPokemon();
-	Vector2D camPosition = levelBuilder->setPlayer(staticLoadNextLevelCallbackFunction, this);
+	levelBuilder->setPlayer(staticLoadNextLevelCallbackFunction, this);
+	Vector2D camPosition = levelBuilder->getPlayerPosition();
 	levelBuilder->setHud();
-	auto level = levelBuilder->getResult();
+	auto level = levelBuilder->getScene();
 	registerTextures(level.getTextures());
 	registerFonts(level.getFonts());
 	registerAudio(level.getBeats());

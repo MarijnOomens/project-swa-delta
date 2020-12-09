@@ -19,7 +19,7 @@ public:
 	World() {}
 	World(int x, int y);
 
-	void addGraphics(std::string levelName);
+	void addGraphics(const std::string& levelName);
 	std::map<std::string, std::string> passTextures(std::string levelName) const;
 	std::map<std::string, std::string> passBeats() const;
 

@@ -5,7 +5,7 @@ PokemonFactory::PokemonFactory()
 	builder = std::make_shared<GameObjectBuilder>();
 }
 
-void PokemonFactory::createPokemon(std::string levelName)
+void PokemonFactory::createPokemon(const std::string& levelName)
 {
 	pokemon.clear();
 	std::unique_ptr<XMLSceneParser> parser = std::make_unique<XMLSceneParser>();

@@ -196,7 +196,7 @@
     <ClCompile Include="PlayerFactory.cpp" />
     <ClCompile Include="Pokeball.cpp" />
     <ClCompile Include="Pokemon.cpp" />
-    <ClCompile Include="PokemonManager.cpp" />
+    <ClCompile Include="PokemonFactory.cpp" />
     <ClCompile Include="PokemonParserData.cpp" />
     <ClCompile Include="PuzzleObject.cpp" />
     <ClCompile Include="ParserData.cpp" />
@@ -231,7 +231,6 @@
     <ClInclude Include="GameOverScreenScene.h" />
     <ClInclude Include="GameWinScreen.h" />
     <ClInclude Include="GameWinScreenScene.h" />
-    <ClInclude Include="HealingItem.h" />
     <ClInclude Include="HelpScreen.h" />
     <ClInclude Include="HelpScreenScene.h" />
     <ClInclude Include="HUD.h" />

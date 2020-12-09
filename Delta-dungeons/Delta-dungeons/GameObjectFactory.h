@@ -5,4 +5,5 @@
 class GameObjectFactory
 {
 public:
+	virtual ~GameObjectFactory() {};
 };

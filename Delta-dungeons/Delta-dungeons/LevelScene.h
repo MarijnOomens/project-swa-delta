@@ -4,5 +4,4 @@ class LevelScene : public Scene
 {
 public:
 	LevelScene() {};
-	~LevelScene() {};
 };

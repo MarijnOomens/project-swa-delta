@@ -156,9 +156,6 @@
     <ClCompile Include="GameWinScreen.cpp">
       <Filter>Source Files\Game\GameObjects\Screens</Filter>
     </ClCompile>
-    <ClCompile Include="PokemonManager.cpp">
-      <Filter>Source Files\Game</Filter>
-    </ClCompile>
     <ClCompile Include="PokemonParserData.cpp">
       <Filter>Source Files\XMLParser</Filter>
     </ClCompile>
@@ -219,17 +216,20 @@
     <ClCompile Include="LevelScene.cpp">
       <Filter>Source Files\Game\Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerFactory.cpp">
-      <Filter>Source Files\Game</Filter>
-    </ClCompile>
     <ClCompile Include="EquipmentFactory.cpp">
-      <Filter>Source Files\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="NPCFactory.cpp">
-      <Filter>Source Files\Game</Filter>
+      <Filter>Source Files\Game\Creation</Filter>
     </ClCompile>
     <ClCompile Include="HUDFactory.cpp">
-      <Filter>Source Files\Game</Filter>
+      <Filter>Source Files\Game\Creation</Filter>
+    </ClCompile>
+    <ClCompile Include="NPCFactory.cpp">
+      <Filter>Source Files\Game\Creation</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerFactory.cpp">
+      <Filter>Source Files\Game\Creation</Filter>
+    </ClCompile>
+    <ClCompile Include="PokemonFactory.cpp">
+      <Filter>Source Files\Game\Creation</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -285,9 +285,6 @@
       <Filter>Header Files\Game\GameObjects\Items</Filter>
     </ClInclude>
     <ClInclude Include="Boomerang.h">
-      <Filter>Header Files\Game\GameObjects\Items</Filter>
-    </ClInclude>
-    <ClInclude Include="HealingItem.h">
       <Filter>Header Files\Game\GameObjects\Items</Filter>
     </ClInclude>
     <ClInclude Include="Pokeball.h">
@@ -398,20 +395,20 @@
     <ClInclude Include="GameObjectFactory.h">
       <Filter>Header Files\Game\Creation</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerFactory.h">
-      <Filter>Header Files\Game</Filter>
-    </ClInclude>
     <ClInclude Include="EquipmentFactory.h">
-      <Filter>Header Files\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="NPCFactory.h">
-      <Filter>Header Files\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="PokemonFactory.h">
-      <Filter>Header Files\Game</Filter>
+      <Filter>Header Files\Game\Creation</Filter>
     </ClInclude>
     <ClInclude Include="HUDFactory.h">
-      <Filter>Header Files\Game</Filter>
+      <Filter>Header Files\Game\Creation</Filter>
+    </ClInclude>
+    <ClInclude Include="NPCFactory.h">
+      <Filter>Header Files\Game\Creation</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerFactory.h">
+      <Filter>Header Files\Game\Creation</Filter>
+    </ClInclude>
+    <ClInclude Include="PokemonFactory.h">
+      <Filter>Header Files\Game\Creation</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

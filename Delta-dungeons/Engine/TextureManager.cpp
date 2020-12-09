@@ -25,7 +25,7 @@ TextureManager::TextureManager(std::shared_ptr<RenderFacade> rf, std::shared_ptr
 /// <param name="speed">The speed of the animation in case its animated</param>
 /// <param name="animated">A boolean to represent if it is animated or not.</param>
 /// <param name="flipped">A boolean to represent if it is flipped or not.</param>
-void TextureManager::drawTexture(const std::string name, const Transform& transform, const Vector2D& coordinates, const Vector2D& sourceDimensions, int row, int frames, int speed, bool animated, bool flipped, bool isScreen)
+void TextureManager::drawTexture(const std::string& name, const Transform& transform, const Vector2D& coordinates, const Vector2D& sourceDimensions, int row, int frames, int speed, bool animated, bool flipped, bool isScreen)
 {
 	std::string texturePath = textureAssetManager->getAsset(name);
 	renderFacade->drawTexture(texturePath, transform, coordinates, sourceDimensions, row, frames, speed, animated, flipped,isScreen);

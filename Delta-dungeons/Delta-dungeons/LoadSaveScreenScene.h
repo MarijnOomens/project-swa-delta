@@ -6,7 +6,6 @@ class LoadSaveScreenScene : public Scene
 {
 public:
 	LoadSaveScreenScene();
-	~LoadSaveScreenScene() {}
 private:
 };
 

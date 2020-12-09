@@ -8,18 +8,20 @@
 class Scene
 {
 public:
+	virtual ~Scene() {};
+
 	std::string name;
 
-	std::vector<std::shared_ptr<BehaviourObject>> getBehaviourObjects();
+	std::vector<std::shared_ptr<BehaviourObject>> getBehaviourObjects() const;
 	void setBehaviourObjects(std::vector<std::shared_ptr<BehaviourObject>>);
 
-	std::map<std::string, std::string> getTextures();
+	std::map<std::string, std::string> getTextures() const;
 	void setTexture(const std::string& name, const std::string& t);
 
-	std::map<std::string, std::string> getFonts();
+	std::map<std::string, std::string> getFonts() const;
 	void setFont(const std::string& name, const std::string& t);
 
-	std::map<std::string, std::string> getBeats();
+	std::map<std::string, std::string> getBeats() const;
 	void setBeat(const std::string& name, const std::string& t);
 private:
 	std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects;

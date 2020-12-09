@@ -6,7 +6,7 @@
 
 class TextComponent : public BehaviourObject {
 public:
-	ENGINE_API TextComponent(const std::string& text, const std::string& font, const Colour& colour, const int fontSize);
+	ENGINE_API TextComponent(const std::string& text, const std::string& font, const Colour& colour, int fontSize);
 	ENGINE_API ~TextComponent() {};
 
 	ENGINE_API void changeText(const std::string& text);

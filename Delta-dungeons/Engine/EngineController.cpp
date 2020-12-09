@@ -31,12 +31,12 @@ void EngineController::initRenderer(const std::string& title, int width, int hei
 	renderFacade->init(title, width, height, fullscreen);
 }
 
-void EngineController::staticPassCameraDimensionFunction(void* p, Transform transform)
+void EngineController::staticPassCameraDimensionFunction(void* p, const Transform& transform)
 {
 	((EngineController*)p)->passCameraDimensionFunction(transform);
 }
 
-void EngineController::passCameraDimensionFunction(Transform& transform)
+void EngineController::passCameraDimensionFunction(const Transform& transform)
 {
 	collision->setCameraDimensions(transform);
 }

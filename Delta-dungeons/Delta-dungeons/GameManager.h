@@ -24,7 +24,7 @@ public:
 	void registerFonts(std::map<std::string, std::string> fonts);
 	void registerAudio(std::map<std::string, std::string> beats);
 
-	void createLevel(std::string levelName);
+	void createLevel(const std::string& levelName);
 
 	static void staticLoadNextLevelCallbackFunction(void* p);
 	void loadNextLevelCallbackFunction();

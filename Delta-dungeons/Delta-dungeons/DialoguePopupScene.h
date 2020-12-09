@@ -6,6 +6,5 @@ class DialoguePopupScene : public Scene
 {
 public:
 	DialoguePopupScene();
-	~DialoguePopupScene() {}
 private:
 };

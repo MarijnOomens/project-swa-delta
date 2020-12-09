@@ -33,7 +33,7 @@ Player::Player(int spawnX, int spawnY, cbCollision collisionCB, cbThrowCollision
 	this->textures.try_emplace("player_f", "Assets/Player/player_f_anims.png");
 	this->textures.try_emplace(textureBoomerang, "Assets/HUD/Boomerang.png");
 	this->textures.try_emplace(textureRunning, "Assets/HUD/Runningshoes.png");
-	textures.try_emplace("pokeball", "Assets/Equipment/pokeball.png");
+	this->textures.try_emplace("pokeball", "Assets/Equipment/pokeball.png");
 	this->texture = "player_m";
 
 	gc = std::make_shared<GraphicsComponent>();

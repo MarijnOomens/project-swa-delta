@@ -20,7 +20,6 @@ public:
 	std::shared_ptr<Player> player;
 
 	PlayerFactory() {}
-	~PlayerFactory() {}
 
 	void createPlayer(const std::string& levelName, cbCollision collisionCB, cbThrowCollision throwCB, cbNextLevel nextLevelCb, cbCamera cb, cbInteract interactCB, cbGameOver gameOverCB, cbHUD hudCB, void* p, void* gm);
 

@@ -5,7 +5,7 @@ EquipmentFactory::EquipmentFactory()
 	builder = std::make_shared<GameObjectBuilder>();
 }
 
-void EquipmentFactory::createEquipment(std::string levelName)
+void EquipmentFactory::createEquipment(const std::string& levelName)
 {
 	equipments.clear();
 	std::unique_ptr<XMLSceneParser> xmlSceneParser = std::make_unique<XMLSceneParser>();

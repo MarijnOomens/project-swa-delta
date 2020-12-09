@@ -6,7 +6,6 @@ class PauseScreenScene : public Scene
 {
 public:
 	PauseScreenScene();
-	~PauseScreenScene() {}
 private:
 };
 

@@ -23,13 +23,14 @@ public:
 	LevelBuilder(const std::string& levelName, std::shared_ptr<EngineFacade> ef);
 	~LevelBuilder() {};
 	void reset();
-	Vector2D setPlayer(cbNextLevel f, void* gm);
+	void setPlayer(cbNextLevel f, void* gm);
+	Vector2D getPlayerPosition();
 	void setNPCs();
 	void setPokemon();
 	void setHud();
 	void setWorld();
 	void setEquipment();
-	Scene getResult();
+	Scene getScene();
 
 	static void staticCheckCollisionCallbackFunction(void* p, std::shared_ptr<CollidingComponent> collider, std::shared_ptr<BehaviourObject> behaviourObject, int x, int y, KeyCodes direction, int w);
 	void passCollisionCheck(std::shared_ptr<CollidingComponent> collider, std::shared_ptr<BehaviourObject> behaviourObject, int x, int y, KeyCodes direction, int w);

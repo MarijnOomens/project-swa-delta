@@ -7,7 +7,7 @@ void LevelBuilder::reset()
 	scene = LevelScene();
 }
 
-Vector2D LevelBuilder::setPlayer(cbNextLevel f, void* gm)
+void LevelBuilder::setPlayer(cbNextLevel f, void* gm)
 {
 	playerFactory.createPlayer(levelName, staticCheckCollisionCallbackFunction, staticThrowCollisionCallbackFunction, f, staticCameraCallbackFunction, staticInteractCallbackFunction, staticGameOverbackFunction, staticUpdateHUDCallbackFunction, this, gm);
 	behaviourObjects.emplace_back(playerFactory.getPlayerObject());
@@ -15,6 +15,10 @@ Vector2D LevelBuilder::setPlayer(cbNextLevel f, void* gm)
 	{
 		scene.setTexture(t.first, t.second);
 	}
+}
+
+Vector2D LevelBuilder::getPlayerPosition()
+{
 	return playerFactory.getPlayerObject()->transform.position;
 }
 
@@ -86,7 +90,7 @@ void LevelBuilder::setEquipment()
 	}
 }
 
-Scene LevelBuilder::getResult()
+Scene LevelBuilder::getScene()
 {
 	scene.name = levelName;
 	scene.setBehaviourObjects(behaviourObjects);

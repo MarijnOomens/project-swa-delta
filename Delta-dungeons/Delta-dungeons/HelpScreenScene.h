@@ -6,6 +6,5 @@ class HelpScreenScene : public Scene
 {
 public:
 	HelpScreenScene();
-	~HelpScreenScene() {}
 private:
 };
