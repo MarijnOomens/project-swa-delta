@@ -15,6 +15,7 @@ ThrowPokeball::ThrowPokeball(const cbThrowCollision tF, const cbSentPokemon f, v
 	cc->tag = "pokeball";
 	cc->transform.position = this->transform.position;
 	
+	textures.try_emplace("pokeball", "Assets/Equipment/pokeball.png");
 	gc->setTexture("pokeball");
 
 	this->components.emplace_back(gc);
@@ -92,3 +93,7 @@ void ThrowPokeball::reset() {
 void ThrowPokeball::setParent() {
 	cc->parent = shared_from_this();
 }
+
+void ThrowPokeball::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) {}
+
+void ThrowPokeball::start() {}

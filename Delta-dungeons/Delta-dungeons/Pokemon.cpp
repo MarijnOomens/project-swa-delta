@@ -39,3 +39,9 @@ void Pokemon::setParent() {
 void Pokemon::registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger) {
 
 }
+
+void Pokemon::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) {}
+
+void Pokemon::update() {}
+
+void Pokemon::start() {}

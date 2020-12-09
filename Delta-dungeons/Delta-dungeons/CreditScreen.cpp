@@ -5,10 +5,6 @@
 
 CreditScreen::CreditScreen()
 {
-	this->textures.try_emplace("credits", "Assets/Menu/Credits/background.png");
-	this->textures.try_emplace("button_back", "Assets/Menu/Button/button-back.png");
-	this->fonts.try_emplace("joystix", "Assets/Font/joystix.ttf");
-
 	gc = std::make_unique<GraphicsComponent>();
 	gc->isScreen = true;
 	gc->setTexture("credits");

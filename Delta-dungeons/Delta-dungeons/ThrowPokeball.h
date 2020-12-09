@@ -16,7 +16,10 @@ public:
 
 	void interact(std::shared_ptr<BehaviourObject> interactor) override;
 	void use() override;
+	void start() override;
 	void setParent() override;
+
+	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos)override;
 	void update() override;
 	void moveUp(int x, int y);
 	void moveDown(int x, int y);
