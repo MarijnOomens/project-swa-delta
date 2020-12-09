@@ -1145,8 +1145,8 @@
     <tile x="4" y="25" tile="10" rot="0" flipX="false"/>
     <tile x="5" y="25" tile="10" rot="0" flipX="false"/>
     <tile x="6" y="25" tile="10" rot="0" flipX="false"/>
-    <tile x="7" y="25" tile="18" rot="0" flipX="false"/>
-    <tile x="8" y="25" tile="18" rot="0" flipX="false"/>
+    <tile x="7" y="25" tile="20" rot="0" flipX="false"/>
+    <tile x="8" y="25" tile="20" rot="0" flipX="false"/>
     <tile x="9" y="25" tile="10" rot="0" flipX="false"/>
     <tile x="10" y="25" tile="10" rot="0" flipX="false"/>
     <tile x="11" y="25" tile="10" rot="0" flipX="false"/>

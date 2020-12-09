@@ -66,6 +66,15 @@ void GameManager::registerBehaviourObjects()
 		level.emplace_back(o.second);
 	}
 
+	for (auto& o : puzzleManager.puzzle->boulders)
+	{
+		for (auto& n : o.second->getComponentsRecursive())
+		{
+			level.emplace_back(n);
+		}
+		level.emplace_back(o.second);
+	}
+
 	for (auto& o : pokemonManger.pokemon)
 	{
 		for (auto& n : o.second.get()->getComponentsRecursive())
@@ -132,7 +141,8 @@ void GameManager::createLevel(std::string levelName)
 	eqManager.createEquipment(levelName);
 	registerTextures(eqManager.passTextures());
 
-	puzzleManager.createBoundaries(levelName);
+	puzzleManager.createPuzzle(levelName);
+	registerTextures(puzzleManager.passTextures());
 
 	registerBehaviourObjects();
 	engineFacade->createCamera(playerManager.player->transform.position.x, playerManager.player->transform.position.y);

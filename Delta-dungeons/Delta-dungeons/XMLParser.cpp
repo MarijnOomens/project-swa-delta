@@ -42,7 +42,7 @@ std::vector<std::shared_ptr<ParserData>> XMLParser::parseXML(const std::string& 
 				std::string yVal = tile->first_attribute("y")->value();
 				std::string tileId = tile->first_attribute("tile")->value();
 
-				if (tileId != "-1" && (	tileId == "2" || tileId == "8" || tileId == "9" || tileId == "11" || tileId == "16" || tileId == "18" || tileId == "19"))
+				if (tileId != "-1" && ( tileId == "8" || tileId == "9" || tileId == "11" || tileId == "19"))
 				{
 					for (int x = 0; x < parserDataList.size(); x++)
 					{
@@ -60,10 +60,6 @@ std::vector<std::shared_ptr<ParserData>> XMLParser::parseXML(const std::string& 
 							else if (tileId == "11")
 							{
 								parserDataList.at(x)->isCollider = true;
-							}
-							else if (tileId == "18")
-							{
-								parserDataList.at(x)->isPuzzleExit = true;
 							}
 							else if (tileId == "19")
 							{
@@ -216,7 +212,7 @@ std::vector<std::shared_ptr<ParserData>> XMLParser::getPuzzleBoundData(const std
 				std::string tileId = tile->first_attribute("tile")->value();
 
 				//filters data for puzzle boundaries
-				if (tileId == "2" || tileId == "11" || tileId == "18")
+				if (tileId == "2" || tileId == "11" || tileId == "17" || tileId == "18")
 				{
 					std::shared_ptr<ParserData> p = std::make_shared<ParserData>(tile->first_attribute("x")->value(), tile->first_attribute("y")->value(), tile->first_attribute("tile")->value());
 					boundaryDataList.push_back(p);

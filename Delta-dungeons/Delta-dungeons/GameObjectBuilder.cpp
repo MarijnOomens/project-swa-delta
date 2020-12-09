@@ -10,6 +10,7 @@
 //	return pokemon;
 //}
 
+
 std::shared_ptr<NPC> GameObjectBuilder::getNPC(int x, int y, std::string name, std::vector<std::string> dialogue)
 {
 	std::shared_ptr<NPC> npc = std::make_shared<NPC>(x, y, name, dialogue);
