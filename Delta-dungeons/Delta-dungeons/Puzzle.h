@@ -15,38 +15,18 @@ public:
 	Puzzle() {}
 	~Puzzle() {}
 
-	//interactive object: 
+	//interactive objects puzzle 1: 
 		//door, trigger, boulder
-
-	//deur die open kan gaan, //interact bevat opendoorBoolean check
 	std::vector<std::shared_ptr<IInteractiveObject>> doors;
-
-
-
-	//boulder die gepushed kan worden, //interact bevat direction
 	std::map<std::string, std::shared_ptr<IInteractiveObject>> boulders;
-
-	//gameobject die checkt of iets op //interact bevat isTriggered bool
 	std::map<std::string, std::shared_ptr<IInteractiveObject>> triggers;
-
-	//std::vector<std::shared_ptr<IInteractiveObject>> boulders;
-
-	//verzamel alle behaviourobjects
-	//en paas ze door 
-
-
-	//interact->gaat pas open 
-																			//check x, y, cast to door, settrue
-	//player --- boulder -> interact(behaviourobject) --- func --- puzzle->doors->settrue() --- puzzle->checkTrue() --- opendoor 
-
-	//todo
-	//static method
 
 	void createBoulder(std::shared_ptr<ParserData> parser, cbCollision cbCollision, cbInteract cbInteract, void* gPointer);
 	void createTrigger(std::shared_ptr<ParserData> parser);
 
 	static void staticTriggerCallbackFunction(void* p);
 	void trigger();
-
+	//check in puzzle if all triggers are true
+		//then call interact from door class, to open/remove collider door
 private:
 };

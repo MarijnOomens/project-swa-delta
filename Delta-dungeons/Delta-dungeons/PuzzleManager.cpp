@@ -19,8 +19,6 @@ void PuzzleManager::createPuzzle(std::string levelName, cbInteract interactCB, c
 		{
 			puzzle->createTrigger(parsedTile);
 		}
-			//puzzles->at(0)->puzzles->createPuzzleTile(parsedTile);
-		//elseif
 	}
 	//create puzzle 2
 }
@@ -65,16 +63,3 @@ std::map<std::string, std::string> PuzzleManager::passTextures() const
 
 //filteren van tileid 17 18
 	//aka filtered parserdata
-
-//getparser voor alle puzzelstukken en pas logica toe voor boundaries
-	//all puzzle parserdata
-
-//getParser checktiles within boundaries
-	//
-
-
-
-
-//checkpuzzlecollision
-//pushstrategy
-	// if nullptry (set)

@@ -26,6 +26,5 @@ void Puzzle::staticTriggerCallbackFunction(void* p)
 
 void Puzzle::trigger()
 {
-	//check in puzzle if all triggers are true
 	std::cout << "trigger" << std::endl;
 }
