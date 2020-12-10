@@ -18,12 +18,12 @@ DoorPuzzleObject::DoorPuzzleObject(int x, int y, const std::string& texture)
 	cc->transform.position = this->transform.position;
 
 	this->components.emplace_back(gc);
-	//this->components.emplace_back(cc);
+	this->components.emplace_back(cc);
 }
 
 void DoorPuzzleObject::interact(std::shared_ptr<BehaviourObject> interactor) {
 	if (interactor == nullptr) {
-		//gc->setTexture("openDoor");
+		gc->setTexture("");
 		SceneModifier::getInstance().deleteColliderFromScene(cc);
 	}
 }

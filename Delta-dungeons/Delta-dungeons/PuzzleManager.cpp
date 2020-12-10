@@ -19,6 +19,10 @@ void PuzzleManager::createPuzzle(std::string levelName, cbInteract interactCB, c
 		{
 			puzzle->createTrigger(parsedTile);
 		}
+		else if (std::stoi(parsedTile->tileId) == 18)
+		{
+			puzzle->createDoor(parsedTile);
+		}
 	}
 	//create puzzle 2
 }
@@ -34,6 +38,13 @@ std::map<std::string, std::string> PuzzleManager::passTextures() const
 		}
 	}
 	//for (auto& puzzleTrigger : puzzle->triggers)
+	//{
+	//	for (auto& trigger : puzzleTrigger.second->textures)
+	//	{
+	//		totalTextures.try_emplace(trigger.first, trigger.second);
+	//	}
+	//}
+	//for (auto& puzzleTrigger : puzzle->doors)
 	//{
 	//	for (auto& trigger : puzzleTrigger.second->textures)
 	//	{
