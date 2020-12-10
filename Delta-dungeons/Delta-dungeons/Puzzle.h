@@ -22,6 +22,10 @@ public:
 	std::map<std::string, std::shared_ptr<IInteractiveObject>> boulders;
 	std::map<std::string, std::shared_ptr<IInteractiveObject>> triggers;
 
+	//om te voorkomen dat gamemanager voor iedere unieke map moet registreren
+	std::map<std::string, std::shared_ptr<IInteractiveObject>> allPuzzles;
+
+
 	void createDoor(std::shared_ptr<ParserData> parser);
 	void createBoulder(std::shared_ptr<ParserData> parser, cbCollision cbCollision, cbInteract cbInteract, void* gPointer);
 	void createTrigger(std::shared_ptr<ParserData> parser);

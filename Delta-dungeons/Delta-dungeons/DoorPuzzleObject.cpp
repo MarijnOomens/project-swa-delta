@@ -23,7 +23,8 @@ DoorPuzzleObject::DoorPuzzleObject(int x, int y, const std::string& texture)
 
 void DoorPuzzleObject::interact(std::shared_ptr<BehaviourObject> interactor) {
 	if (interactor == nullptr) {
-		gc->setTexture("");
+		//gc->setTexture("pikachu");
+		SceneModifier::getInstance().deleteObjectFromScene(gc);
 		SceneModifier::getInstance().deleteColliderFromScene(cc);
 	}
 }

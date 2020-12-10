@@ -10,6 +10,7 @@ void Puzzle::createBoulder(std::shared_ptr<ParserData> parser, cbCollision cbC, 
 	boulder->textures.try_emplace("boulder", "Assets/Equipment/pokeball.png");
 	//
 	boulders.emplace("boulder" + parser->x + parser->y, boulder);
+	allPuzzles.emplace("boulder" + parser->x + parser->y, boulder);
 }
 
 void Puzzle::createTrigger(std::shared_ptr<ParserData> parser)
@@ -20,7 +21,8 @@ void Puzzle::createTrigger(std::shared_ptr<ParserData> parser)
 	trigger->setParent();
 	trigger->textures.try_emplace("trigger", "Assets/Equipment/pokeball.png");
 	//
-	boulders.emplace("trigger" + parser->x + parser->y, trigger);
+	triggers.emplace("trigger" + parser->x + parser->y, trigger);
+	allPuzzles.emplace("trigger" + parser->x + parser->y, trigger);
 }
 
 void Puzzle::createDoor(std::shared_ptr<ParserData> parser)
@@ -31,7 +33,8 @@ void Puzzle::createDoor(std::shared_ptr<ParserData> parser)
 	door->setParent();
 	door->textures.try_emplace("door", "Assets/Equipment/pokeball.png");
 	//
-	boulders.emplace("door" + parser->x + parser->y, door);
+	doors.emplace("door" + parser->x + parser->y, door);
+	allPuzzles.emplace("door" + parser->x + parser->y, door);
 }
 
 
@@ -51,5 +54,6 @@ void Puzzle::open()
 
 void Puzzle::trigger()
 {
+	open();
 	std::cout << "trigger" << std::endl;
 }

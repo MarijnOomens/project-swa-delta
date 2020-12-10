@@ -66,7 +66,7 @@ void GameManager::registerBehaviourObjects()
 		level.emplace_back(o.second);
 	}
 
-	for (auto& o : puzzleManager.puzzle->boulders)
+	for (auto& o : puzzleManager.puzzle->allPuzzles)
 	{
 		for (auto& n : o.second->getComponentsRecursive())
 		{
