@@ -42,18 +42,14 @@ std::vector<std::shared_ptr<ParserData>> XMLParser::parseXML(const std::string& 
 				std::string yVal = tile->first_attribute("y")->value();
 				std::string tileId = tile->first_attribute("tile")->value();
 
-				if (tileId != "-1" && ( tileId == "8" || tileId == "9" || tileId == "11" || tileId == "19"))
+				if (tileId != "-1" && ( tileId == "2" || tileId == "8" || tileId == "9" || tileId == "10" || tileId == "11" || tileId == "19"))
 				{
 					for (int x = 0; x < parserDataList.size(); x++)
 					{
 						if (xVal == parserDataList.at(x)->x && yVal == parserDataList.at(x)->y)
 						{
 							parserDataList.at(x)->isCollider = true;
-							if (tileId == "2")
-							{
-								parserDataList.at(x)->isPuzzleEntrance = true;
-							}
-							else if (tileId == "9")
+							if (tileId == "9")
 							{
 								parserDataList.at(x)->isTrigger = true;
 							}
@@ -190,9 +186,9 @@ std::vector<std::shared_ptr<ParserData>> XMLParser::getNPCDataList(const std::st
 	return npcDataList;
 }
 
-std::vector<std::shared_ptr<ParserData>> XMLParser::getPuzzleBoundData(const std::string& path)
+std::vector<std::shared_ptr<ParserData>> XMLParser::getPuzzleData(const std::string& path)
 {
-	std::vector<std::shared_ptr<ParserData>> boundaryDataList;
+	std::vector<std::shared_ptr<ParserData>> puzzleOneData;
 
 	rapidxml::file<> xmlFile(path.c_str());
 	rapidxml::xml_document<> doc;
@@ -212,15 +208,15 @@ std::vector<std::shared_ptr<ParserData>> XMLParser::getPuzzleBoundData(const std
 				std::string tileId = tile->first_attribute("tile")->value();
 
 				//filters data for puzzle boundaries
-				if (tileId == "2" || tileId == "11" || tileId == "16" || tileId == "17" || tileId == "18")
+				if (tileId == "16" || tileId == "17" || tileId == "12" || tileId == "13" || tileId == "14" || tileId == "15" || tileId == "20" || tileId == "18")
 				{
 					std::shared_ptr<ParserData> p = std::make_shared<ParserData>(tile->first_attribute("x")->value(), tile->first_attribute("y")->value(), tile->first_attribute("tile")->value());
-					boundaryDataList.push_back(p);
+					puzzleOneData.push_back(p);
 				}
 			}
 		}
 	}
-	return boundaryDataList;
+	return puzzleOneData;
 }
 
 std::shared_ptr<ParserData> XMLParser::getPlayerPosition(const std::string& path)

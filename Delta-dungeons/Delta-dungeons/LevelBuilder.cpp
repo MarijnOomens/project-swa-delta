@@ -97,7 +97,11 @@ void LevelBuilder::setPuzzle()
 	{
 		scene.setTexture(t.first, t.second);
 	}
-	for (auto& bo : puzzleFactory.puzzle->allPuzzles)
+	for (auto& bo : puzzleFactory.puzzleOne->allPuzzleObjects)
+	{
+		behaviourObjects.emplace_back(bo.second);
+	}
+	for (auto& bo : puzzleFactory.puzzleTwo->allPuzzleObjects)
 	{
 		behaviourObjects.emplace_back(bo.second);
 	}

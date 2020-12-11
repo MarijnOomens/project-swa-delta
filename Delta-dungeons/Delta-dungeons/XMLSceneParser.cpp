@@ -64,7 +64,7 @@ std::vector<std::shared_ptr<ParserData>> XMLSceneParser::getNPCDataList(const st
 
 std::vector<std::shared_ptr<ParserData>> XMLSceneParser::getPuzzleData(const std::string& path)
 {
-	return facade.getPuzzleBoundData(path);
+	return facade.getPuzzleData(path);
 }
 
 std::shared_ptr<ParserData> XMLSceneParser::getPlayerPosition(const std::string& path)

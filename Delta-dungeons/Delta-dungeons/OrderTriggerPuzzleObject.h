@@ -3,19 +3,22 @@
 #include "Player.h"
 #include <string>
 #include <GraphicsComponent.h>
-#include "BoulderPuzzleObject.h"
 
-typedef void(*cbTriggerCollision) (void*);
+typedef void(*cbOrderTrigger) (void*, int);
 
-class TriggerPuzzleObject : public IInteractiveObject
+class OrderTriggerPuzzleObject : public IInteractiveObject
 {
 public:
-	TriggerPuzzleObject() {}
-	~TriggerPuzzleObject() {}
+	cbOrderTrigger oFunc;
+	void* pointer;
 
-	TriggerPuzzleObject(const cbTriggerCollision, void* p, int x, int y, const std::string& texture);
-	cbTriggerCollision tFunc;
-	void* tPointer;
+	bool triggered = false;
+	int orderNumber = 0;
+
+	OrderTriggerPuzzleObject() {}
+	~OrderTriggerPuzzleObject() {}
+
+	OrderTriggerPuzzleObject(const cbOrderTrigger, void* p, int orderNumber, int x, int y, const std::string& texture);
 
 	void handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
 	void interact(std::shared_ptr<BehaviourObject> interactor) override;
@@ -25,10 +28,11 @@ public:
 	void update() override;
 
 	void updateTransform(int x, int y);
-	bool triggered = false;
 
 
 private:
+	std::shared_ptr<CollisionStrategy> stp;
 	std::shared_ptr<GraphicsComponent> gc;
 	std::shared_ptr<CollidingComponent> cc;
+
 };

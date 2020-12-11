@@ -467,13 +467,13 @@ void Player::registerCollision(int x, int y, bool isDamaged, bool isTransitioned
 
 	if (isPuzzleEntrance)
 	{
-		std::cout << "Entered puzzle.." << std::endl;
+		//std::cout << "Entered puzzle.." << std::endl;
 		hasMoved = false;
 	}
 
 	if (isPuzzleExit)
 	{
-		std::cout << "Left puzzle.." << std::endl;
+		//std::cout << "Left puzzle.." << std::endl;
 		hasMoved = false;
 	}
 }

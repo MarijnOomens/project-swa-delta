@@ -11,7 +11,8 @@ class PuzzleFactory
 public:
 	std::map<std::string, std::shared_ptr<IInteractiveObject>> boundaries;
 	//std::vector<std::shared_ptr<Puzzle>> puzzles;
-	std::shared_ptr<Puzzle> puzzle;
+	std::shared_ptr<Puzzle> puzzleOne;
+	std::shared_ptr<Puzzle> puzzleTwo;
 
 	//voor meerdere levels dezelfde parser gebruiken
 	//vector puzzle.cpp
@@ -20,7 +21,7 @@ public:
 	~PuzzleFactory() {}
 	
 
-	void createPuzzles(std::string levelName);
+	//void createPuzzles(std::string levelName);
 	void createPuzzle(std::string levelName, cbInteract interactCb, cbCollision collisionCb, void* p);
 
 
