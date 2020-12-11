@@ -53,10 +53,6 @@ std::vector<std::shared_ptr<ParserData>> XMLParser::parseXML(const std::string& 
 							{
 								parserDataList.at(x)->isTrigger = true;
 							}
-							else if (tileId == "11")
-							{
-								parserDataList.at(x)->isCollider = true;
-							}
 							else if (tileId == "19")
 							{
 								parserDataList.at(x)->isWinTrigger = true;
