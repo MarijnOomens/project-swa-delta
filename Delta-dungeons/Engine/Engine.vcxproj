@@ -163,13 +163,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AudioAssetManager.h" />
     <ClInclude Include="AudioFacade.h" />
     <ClInclude Include="CollidingComponent.h" />
     <ClInclude Include="Collision.h" />
     <ClInclude Include="DamageStrategy.h" />
     <ClInclude Include="EngineFacade.h" />
     <ClInclude Include="AudioWrapper.h" />
-    <ClInclude Include="AssetManager.h" />
+    <ClInclude Include="FontAssetManager.h" />
+    <ClInclude Include="FontManager.h" />
+    <ClInclude Include="IAssetManager.h" />
     <ClInclude Include="BehaviourObject.h" />
     <ClInclude Include="Colour.h" />
     <ClInclude Include="DrawController.h" />
@@ -193,16 +196,18 @@
     <ClInclude Include="Rectangle.h" />
     <ClInclude Include="RenderFacade.h" />
     <ClInclude Include="SceneManager.h" />
-    <ClInclude Include="Audio.h" />
+    <ClInclude Include="AudioManager.h" />
     <ClInclude Include="StopStrategy.h" />
     <ClInclude Include="CollisionStrategy.h" />
     <ClInclude Include="TextComponent.h" />
+    <ClInclude Include="TextureAssetManager.h" />
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="TransitionStrategy.h" />
     <ClInclude Include="Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AudioAssetManager.cpp" />
     <ClCompile Include="AudioFacade.cpp" />
     <ClCompile Include="CollidingComponent.cpp" />
     <ClCompile Include="Collision.cpp" />
@@ -212,9 +217,10 @@
     <ClCompile Include="Colour.cpp" />
     <ClCompile Include="EngineController.cpp" />
     <ClCompile Include="DrawController.cpp" />
+    <ClCompile Include="FontManager.cpp" />
     <ClCompile Include="InputFacade.cpp" />
     <ClCompile Include="InputWrapper.cpp" />
-    <ClCompile Include="AssetManager.cpp" />
+    <ClCompile Include="FontAssetManager.cpp" />
     <ClCompile Include="BehaviourObject.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GraphicsComponent.cpp" />
@@ -227,10 +233,11 @@
     <ClCompile Include="FrameManager.cpp" />
     <ClCompile Include="HUDComponent.cpp" />
     <ClCompile Include="SceneManager.cpp" />
-    <ClCompile Include="Audio.cpp" />
+    <ClCompile Include="AudioManager.cpp" />
     <ClCompile Include="StopStrategy.cpp" />
     <ClCompile Include="CollisionStrategy.cpp" />
     <ClCompile Include="TextComponent.cpp" />
+    <ClCompile Include="TextureAssetManager.cpp" />
     <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="TransitionStrategy.cpp" />
     <ClCompile Include="Vector2D.cpp" />

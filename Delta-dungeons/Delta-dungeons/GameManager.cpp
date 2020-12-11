@@ -6,96 +6,27 @@
 GameManager::GameManager()
 {
 	engineFacade = std::make_shared<EngineFacade>();
-	engineFacade->init();
+	engineFacade->init("Delta Dungeons", 1280, 960, false);
 	SceneLoader::getInstance().setEngineFacade(engineFacade);
 	DebugUtilities::getInstance().setEngineFacade(engineFacade);
 	SceneModifier::getInstance().setEngineFacade(engineFacade);
 	AudioUtilities::getInstance().setEngineFacade(engineFacade);
 
-	uiManager.createBaseScreens();
-	registerTextures(uiManager.passTextures());
-	registerFonts(uiManager.passFonts());
-	registerAudio(uiManager.passBeats());
-	scene = std::make_shared<Scene>();
+	scenes = { mainMenuScene, creditScreenScene, pauseScreenScene, helpScreenScene, gameOverScreenScene, gameWinScreenScene, loadSaveScreenScene, dialoguePopupScene };
 
-	for (auto& o : uiManager.screens)
+
+	for (auto& s : scenes)
 	{
-		std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects;
-		behaviourObjects.emplace_back(o.second);
-		for (auto& c : o.second->getComponentsRecursive())
-		{
-			behaviourObjects.emplace_back(c);
-		}
-		engineFacade->registerScene(o.first, behaviourObjects);
+		registerTextures(s.getTextures());
+		registerFonts(s.getFonts());
+		registerAudio(s.getBeats());
+		engineFacade->registerScene(s.name, s.getBehaviourObjects());
 	}
 
 	createLevel(levels[currentlevel]);
-	SceneLoader::getInstance().setCurrentLevel(levels[currentlevel]);
-	engineFacade->loadScene("MainMenu", "", true);
+
+	engineFacade->loadScene("MainMenuScreen", "", true);
 	engineFacade->startGame();
-}
-
-/// <summary>
-/// This methods registers all BehaviourObjects from all managers into one big list within the GameManager.
-/// </summary>
-void GameManager::registerBehaviourObjects()
-{
-
-	std::vector<std::shared_ptr<BehaviourObject>> level;
-	for (auto& t : scene->getComponentsRecursive())
-	{
-		level.emplace_back(t);
-	}
-	level.emplace_back(scene);
-
-	for (auto& o : npcManager.npcs)
-	{
-		for (auto& n : o.second->getComponentsRecursive())
-		{
-			level.emplace_back(n);
-		}
-		level.emplace_back(o.second);
-	}
-
-	for (auto& o : eqManager.equipments)
-	{
-		for (auto& n : o.second->getComponentsRecursive())
-		{
-			level.emplace_back(n);
-		}
-		level.emplace_back(o.second);
-	}
-
-	for (auto& o : puzzleManager.puzzle->allPuzzles)
-	{
-		for (auto& n : o.second->getComponentsRecursive())
-		{
-			level.emplace_back(n);
-		}
-		level.emplace_back(o.second);
-	}
-
-	for (auto& o : pokemonManger.pokemon)
-	{
-		for (auto& n : o.second.get()->getComponentsRecursive())
-		{
-			level.emplace_back(n);
-		}
-		level.emplace_back(o.second);
-	}
-
-	for (auto& c : playerManager.player->getComponentsRecursive())
-	{
-		level.emplace_back(c);
-	}
-	level.emplace_back(playerManager.player);
-
-	for (auto& c : hudManager.hud->getComponentsRecursive())
-	{
-		level.emplace_back(c);
-	}
-	level.emplace_back(hudManager.hud);
-	engineFacade->registerScene(levels[currentlevel], level);
 }
 
 /// <summary>
@@ -119,94 +50,23 @@ void GameManager::registerAudio(std::map<std::string, std::string> beats)
 	engineFacade->registerAudio(beats);
 }
 
-void GameManager::createLevel(std::string levelName)
+void GameManager::createLevel(const std::string& levelName)
 {
-	playerManager.createPlayer(levelName, staticCheckCollisionCallbackFunction, staticThrowCollisionCallbackFunction, staticLoadNextLevelCallbackFunction, staticCameraCallbackFunction, staticInteractCallbackFunction, staticGameOverbackFunction, staticUpdateHUDCallbackFunction, this);
-	registerTextures(playerManager.passTextures());
-
-	npcManager.createNPC(levelName);
-	registerTextures(npcManager.passTextures());
-
-	pokemonManger.createPokemon(levelName);
-	registerTextures(pokemonManger.passTextures());
-
-	hudManager.createHud(playerManager.player->maxHealth, playerManager.player->health, playerManager.player->amountOfBerries, playerManager.player->amountOfPokeballs);
-	registerTextures(hudManager.passTextures());
-	registerFonts(hudManager.passFonts());
-
-	scene->addGraphics(levelName);
-	registerTextures(scene->passTextures(levelName));
-	registerAudio(scene->passBeats());
-
-	eqManager.createEquipment(levelName);
-	registerTextures(eqManager.passTextures());
-
-	puzzleManager.createPuzzle(levelName, staticInteractCallbackFunction, staticCheckCollisionCallbackFunction, this);
-	registerTextures(puzzleManager.passTextures());
-
-	registerBehaviourObjects();
-	engineFacade->createCamera(playerManager.player->transform.position.x, playerManager.player->transform.position.y);
-}
-
-void GameManager::staticCheckCollisionCallbackFunction(void* p, std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction, int w)
-{
-	((GameManager*)p)->passCollisionCheck(collider, x, y, direction, w);
-}
-
-void GameManager::passCollisionCheck(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction, int w)
-{
-	engineFacade->passCollisionCheck(collider, x, y, direction, w);
-}
-
-void GameManager::staticThrowCollisionCallbackFunction(void* p, std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction, int w)
-{
-	((GameManager*)p)->throwCollisionCheck(collider, x, y, direction, w);
-}
-
-void GameManager::throwCollisionCheck(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction, int w)
-{
-	engineFacade->throwCollisionCheck(collider, x, y, direction, w);
-}
-
-
-void GameManager::staticCameraCallbackFunction(void* p, int x, int y)
-{
-	((GameManager*)p)->passPlayerPosition(x, y);
-}
-
-void GameManager::passPlayerPosition(int x, int y)
-{
-	engineFacade->passPlayerPosition(x, y);
-}
-
-void GameManager::staticInteractCallbackFunction(void* p, std::shared_ptr<BehaviourObject> interactor, int x, int y)
-{
-	((GameManager*)p)->interactCallbackFunction(interactor, x, y);
-}
-
-void GameManager::interactCallbackFunction(std::shared_ptr<BehaviourObject> interactor, int x, int y)
-{
-	engineFacade->passInteract(interactor, x, y);
-}
-
-void GameManager::staticGameOverbackFunction(void* p)
-{
-	((GameManager*)p)->gameOverCallbackFunction();
-}
-
-void GameManager::gameOverCallbackFunction()
-{
-	engineFacade->gameOver();
-}
-
-void GameManager::staticUpdateHUDCallbackFunction(void* p, int health, int berries, int pokeballs)
-{
-	((GameManager*)p)->updateHUDCallbackFunction( health, berries, pokeballs);
-}
-
-void GameManager::updateHUDCallbackFunction( int health, int berries, int pokeballs)
-{
-	hudManager.updateHUD( health, berries, pokeballs);
+	SceneLoader::getInstance().setCurrentLevel(levels[currentlevel]);
+	levelBuilder = std::make_unique<LevelBuilder>(levelName, engineFacade);
+	levelBuilder->setWorld();
+	levelBuilder->setNPCs();
+	levelBuilder->setEquipment();
+	levelBuilder->setPokemon();
+	levelBuilder->setPlayer(staticLoadNextLevelCallbackFunction, this);
+	Vector2D camPosition = levelBuilder->getPlayerPosition();
+	levelBuilder->setHud();
+	auto level = levelBuilder->getScene();
+	registerTextures(level.getTextures());
+	registerFonts(level.getFonts());
+	registerAudio(level.getBeats());
+	engineFacade->registerScene(levelName, level.getBehaviourObjects());
+	engineFacade->createCamera(camPosition.x, camPosition.y);
 }
 
 void GameManager::staticLoadNextLevelCallbackFunction(void* p)

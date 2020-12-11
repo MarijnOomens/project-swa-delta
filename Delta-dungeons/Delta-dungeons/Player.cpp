@@ -10,8 +10,8 @@
 /// Defines the movementspeed and the runactivated bool
 /// Creates the graphicscomponent for the player sprite and saves the texturename and png location, width, height
 /// </summary>
-Player::Player(int spawnX, int spawnY, cbCollision collisionCB, cbThrowCollision throwCB, cbNextLevel nextLevelcb, const cbCamera f, cbInteract interactCB, cbGameOver gameOverF, cbHUD hudCB, void* p)
-: collisionFunc(collisionCB), nextLevelFunc(nextLevelcb), func(f), interactFunc(interactCB), gameOverFunc(gameOverF), hudFunc(hudCB), pointer(p)
+Player::Player(int spawnX, int spawnY, cbCollision collisionCB, cbThrowCollision throwCB, cbNextLevel nextLevelcb, const cbCamera f, cbInteract interactCB, cbGameOver gameOverF, cbHUD hudCB, void* p, void* gm)
+: collisionFunc(collisionCB), nextLevelFunc(nextLevelcb), func(f), interactFunc(interactCB), gameOverFunc(gameOverF), hudFunc(hudCB), pointer(p), gmPointer(gm)
 {
 	std::string textureBoomerang ="boomerangHUD" ;
 	std::string textureRunning = "runningshoesHUD";
@@ -23,7 +23,7 @@ Player::Player(int spawnX, int spawnY, cbCollision collisionCB, cbThrowCollision
 	addEquipment(std::move(running));
 	addEquipment(std::move(boomerang));
 
-	baseMovementSpeed = 128;
+	baseMovementSpeed = 16;
 	tileCollision = false;
 
 	this->transform.position.x = spawnX*128;
@@ -33,6 +33,7 @@ Player::Player(int spawnX, int spawnY, cbCollision collisionCB, cbThrowCollision
 	this->textures.try_emplace("player_f", "Assets/Player/player_f_anims.png");
 	this->textures.try_emplace(textureBoomerang, "Assets/HUD/Boomerang.png");
 	this->textures.try_emplace(textureRunning, "Assets/HUD/Runningshoes.png");
+	this->textures.try_emplace("pokeball", "Assets/Equipment/pokeball.png");
 	this->texture = "player_m";
 
 	gc = std::make_shared<GraphicsComponent>();
@@ -157,6 +158,18 @@ void Player::handleKeyPressed(const KeyCodes& keyCodes)
 	case KeyCodes::KEY_C:
 		usePokeball();
 		break;
+	case KeyCodes::KEY_1:
+		noCollisionCheat = !noCollisionCheat;
+		break;
+	case KeyCodes::KEY_2:
+		noDamageCheat = !noDamageCheat;
+		break;
+	case KeyCodes::KEY_3:
+		infinitePokeballs = !infinitePokeballs;
+		break;
+	case KeyCodes::KEY_4:
+		infinteBerries = !infinteBerries;
+		break;
 	default:
 		break;
 	}
@@ -213,6 +226,7 @@ void Player::handleKeyReleased(const KeyCodes& keyCodes)
 	default:
 		break;
 	}
+	hasMoved = false;
 }
 
 void Player::update() {}
@@ -228,16 +242,17 @@ void Player::setParent() {
 void Player::moveUp()
 {
 	//de huidige positie bijhouden.
-	collisionFunc(pointer, shared_from_this(), this->transform.position.x, this->transform.position.y -128, KeyCodes::KEY_UP, (gc->imageDimensions.x * gc->transform.scale.x));
-	if (!hasMoved) {
-		transform.position.y -= baseMovementSpeed;
-		cc->transform.position.y = this->transform.position.y;
-		gc->transform.position = transform.position;
+	if (!hasMoved || noCollisionCheat) {
+		collisionFunc(pointer, cc, shared_from_this(), this->transform.position.x, this->transform.position.y - baseMovementSpeed, KeyCodes::KEY_UP, (gc->imageDimensions.x * gc->transform.scale.x));
+		if (!hasMoved || noCollisionCheat) {
+			transform.position.y -= baseMovementSpeed;
+			cc->transform.position.y = this->transform.position.y;
+			gc->transform.position = transform.position;
 
-		isWalking ? gc->playAnimation(2, 4, animationSpeed, false) : gc->playAnimation(7, 3, animationSpeed, false);
-		func(pointer, transform.position.x, transform.position.y);
+			isWalking ? gc->playAnimation(2, 4, animationSpeed, false) : gc->playAnimation(7, 3, animationSpeed, false);
+			func(pointer, transform.position.x, transform.position.y);
+		}
 	}
-	hasMoved = false;
 }
 
 /// <summary>
@@ -246,16 +261,17 @@ void Player::moveUp()
 /// </summary>
 void Player::moveDown()
 {
-	collisionFunc(pointer, shared_from_this(), this->transform.position.x, this->transform.position.y+128, KeyCodes::KEY_DOWN, (gc->imageDimensions.x * gc->transform.scale.x));
-	if (!hasMoved) {
-		transform.position.y += baseMovementSpeed;
-		cc->transform.position.y = this->transform.position.y;
-		gc->transform.position = transform.position;
+	if (!hasMoved || noCollisionCheat) {
+		collisionFunc(pointer, cc, shared_from_this(), this->transform.position.x, this->transform.position.y + baseMovementSpeed, KeyCodes::KEY_DOWN, (gc->imageDimensions.x * gc->transform.scale.x));
+		if (!hasMoved || noCollisionCheat) {
+			transform.position.y += baseMovementSpeed;
+			cc->transform.position.y = this->transform.position.y;
+			gc->transform.position = transform.position;
 
-		isWalking ? gc->playAnimation(1, 4, animationSpeed, false) : gc->playAnimation(6, 3, animationSpeed, false);
-		func(pointer, transform.position.x, transform.position.y);
+			isWalking ? gc->playAnimation(1, 4, animationSpeed, false) : gc->playAnimation(6, 3, animationSpeed, false);
+			func(pointer, transform.position.x, transform.position.y);
+		}
 	}
-	hasMoved = false;
 }
 
 /// <summary>
@@ -264,16 +280,17 @@ void Player::moveDown()
 /// </summary>
 void Player::moveLeft()
 {
-	collisionFunc(pointer, shared_from_this(), this->transform.position.x-128, this->transform.position.y, KeyCodes::KEY_LEFT, (gc->imageDimensions.x * gc->transform.scale.x));
-	if (!hasMoved) {
-		transform.position.x -= baseMovementSpeed;
-		cc->transform.position.x = this->transform.position.x;
-		gc->transform.position = transform.position;
+	if (!hasMoved || noCollisionCheat) {
+		collisionFunc(pointer, cc, shared_from_this(), this->transform.position.x - baseMovementSpeed, this->transform.position.y, KeyCodes::KEY_LEFT, (gc->imageDimensions.x * gc->transform.scale.x));
+		if (!hasMoved || noCollisionCheat) {
+			transform.position.x -= baseMovementSpeed;
+			cc->transform.position.x = this->transform.position.x;
+			gc->transform.position = transform.position;
 
-		isWalking ? gc->playAnimation(3, 4, animationSpeed, false) : gc->playAnimation(8, 3, animationSpeed, false);
-		func(pointer, transform.position.x, transform.position.y);
+			isWalking ? gc->playAnimation(3, 4, animationSpeed, false) : gc->playAnimation(8, 3, animationSpeed, false);
+			func(pointer, transform.position.x, transform.position.y);
+		}
 	}
-	hasMoved = false;
 }
 
 /// <summary>
@@ -282,16 +299,17 @@ void Player::moveLeft()
 /// </summary>
 void Player::moveRight()
 {
-	collisionFunc(pointer, shared_from_this(), this->transform.position.x+128, this->transform.position.y, KeyCodes::KEY_RIGHT, (gc->imageDimensions.x * gc->transform.scale.x));
-	if(!hasMoved) {
-		transform.position.x += baseMovementSpeed;
-		cc->transform.position.x = this->transform.position.x;
-		gc->transform.position = transform.position;
+	if (!hasMoved || noCollisionCheat) {
+		collisionFunc(pointer, cc, shared_from_this(), this->transform.position.x + baseMovementSpeed, this->transform.position.y, KeyCodes::KEY_RIGHT, (gc->imageDimensions.x * gc->transform.scale.x));
+		if (!hasMoved || noCollisionCheat) {
+			transform.position.x += baseMovementSpeed;
+			cc->transform.position.x = this->transform.position.x;
+			gc->transform.position = transform.position;
 
-		isWalking ? gc->playAnimation(3, 4, animationSpeed, true) : gc->playAnimation(8, 3, animationSpeed, true);
-		func(pointer, transform.position.x, transform.position.y);
+			isWalking ? gc->playAnimation(3, 4, animationSpeed, true) : gc->playAnimation(8, 3, animationSpeed, true);
+			func(pointer, transform.position.x, transform.position.y);
+		}
 	}
-	hasMoved = false;
 }
 
 /// <summary>
@@ -389,11 +407,14 @@ void Player::registerHit() {
 
 void Player::eatBerry() {
 	
-	if (health < maxHealth && amountOfBerries > 0) //maxHealth
+	if ((health < maxHealth && amountOfBerries > 0) || infinteBerries) //maxHealth
 	{
 		health++;
-		amountOfBerries--;
 		hudFunc(pointer, health, amountOfBerries, amountOfPokeballs);
+		if (!infinteBerries) 
+		{
+			amountOfBerries--;
+		}
 	}
 }
 
@@ -404,10 +425,13 @@ void Player::addBerry() {
 
 void Player::usePokeball() {
 
-	if (amountOfPokeballs > 0 && !pokeball->isMoving) 
+	if ((amountOfPokeballs > 0 || infinitePokeballs) && !pokeball->isMoving) 
 	{
-		amountOfPokeballs--;
-		hudFunc(pointer, health, amountOfBerries, amountOfPokeballs);
+		if (!infinitePokeballs)
+		{
+			amountOfPokeballs--;
+			hudFunc(pointer, health, amountOfBerries, amountOfPokeballs);
+		}
 		if (currentDirection == KeyCodes::KEY_UP || currentDirection == KeyCodes::KEY_W) {
 			pokeball->moveUp(transform.position.x, transform.position.y - 128);
 		}
@@ -431,11 +455,11 @@ void Player::addPokeball() {
 void Player::registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger, bool isPuzzleEntrance, bool isPuzzleExit) {
 	hasMoved = true;
 
-	if (isDamaged) 
+	if (isDamaged && !noDamageCheat) 
 		registerHit(); 
 
 	if (isTransitioned) 
-		nextLevelFunc(pointer); 
+		nextLevelFunc(gmPointer); 
 
 
 	if (isWinTrigger) 
@@ -453,3 +477,5 @@ void Player::registerCollision(int x, int y, bool isDamaged, bool isTransitioned
 		hasMoved = false;
 	}
 }
+
+void Player::start() {}

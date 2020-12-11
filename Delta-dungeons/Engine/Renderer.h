@@ -9,7 +9,7 @@
 #include <memory>
 #include <tuple>
 
-typedef void(*cbPassCameraDimension) (void*, Transform);
+typedef void(*cbPassCameraDimension) (void*, const Transform&);
 
 class Renderer {
 public:

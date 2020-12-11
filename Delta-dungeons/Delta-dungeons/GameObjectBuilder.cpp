@@ -19,7 +19,7 @@ std::shared_ptr<NPC> GameObjectBuilder::getNPC(int x, int y, std::string name, s
 	return npc;
 }
 
-std::shared_ptr<Pokemon> GameObjectBuilder::getPokemon(int x, int y, std::string name)
+std::shared_ptr<Pokemon> GameObjectBuilder::getPokemon(int x, int y, const std::string& name)
 {
 	std::shared_ptr<Pokemon> pokemon = std::make_shared<Pokemon>(x, y, name);
 	pokemon->setParent();
@@ -39,7 +39,6 @@ std::shared_ptr<IEquipment> GameObjectBuilder::getEquipment(int x, int y, const 
 	{
 		std::shared_ptr<Pokeball> pokeball = std::make_shared<Pokeball>(x, y, name);
 		pokeball->setParent();
-		pokeball->textures.try_emplace(name, "Assets/Equipment/" + name + ".png");
 		return pokeball;
 	}
 	else if (name == "berry")

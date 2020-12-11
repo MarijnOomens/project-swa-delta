@@ -3,7 +3,7 @@
 #include "IInteractiveObject.h"
 #include <string>
 
-class PuzzleObject : IInteractiveObject
+class PuzzleObject
 {
 
 	//interact add the direction

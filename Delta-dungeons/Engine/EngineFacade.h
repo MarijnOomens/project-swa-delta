@@ -10,7 +10,7 @@ public:
 	ENGINE_API EngineFacade() {}
 	ENGINE_API ~EngineFacade() {}
 
-	ENGINE_API void init();
+	ENGINE_API void init(const std::string& title, int screenWidth, int screenHeight, bool fullScreen);
 	ENGINE_API void addTexture(const std::string& name, const std::string& path);
 	ENGINE_API void registerBehaviourObjects(std::vector<std::shared_ptr<BehaviourObject>> objects);
 	ENGINE_API void registerTextures(std::map<std::string, std::string> textures);
@@ -31,7 +31,7 @@ public:
 	ENGINE_API void pauseGame();
 	ENGINE_API void addObjectToScene(std::shared_ptr<BehaviourObject> addObject);
 	ENGINE_API void passInteract(std::shared_ptr<BehaviourObject> player, int x, int y);
-	ENGINE_API void passCollisionCheck(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction, int w);
+	ENGINE_API void passCollisionCheck(std::shared_ptr<CollidingComponent> collider, std::shared_ptr<BehaviourObject> behaviourObject, int x, int y, KeyCodes direction, int w);
 	ENGINE_API void throwCollisionCheck(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction, int w);
 
 	ENGINE_API void deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject);

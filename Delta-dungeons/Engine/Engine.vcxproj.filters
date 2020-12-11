@@ -49,6 +49,12 @@
     <Filter Include="Header Files\SDL\Audio">
       <UniqueIdentifier>{51410d6a-09bf-4e86-8e50-4a7d371cd5d6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Engine\AssetManagement">
+      <UniqueIdentifier>{9436e98f-16bc-4491-8c86-3cc9d53ebe2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\AssetManagement">
+      <UniqueIdentifier>{55186404-d3f4-489f-914c-741461c8fa64}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Vector2D.h">
@@ -76,9 +82,6 @@
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="TextureManager.h">
-      <Filter>Header Files\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="AssetManager.h">
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Keyboardevent.h">
@@ -144,9 +147,6 @@
     <ClInclude Include="DamageStrategy.h">
       <Filter>Header Files\Engine\Collider</Filter>
     </ClInclude>
-    <ClInclude Include="Audio.h">
-      <Filter>Header Files\Engine</Filter>
-    </ClInclude>
     <ClInclude Include="AudioWrapper.h">
       <Filter>Header Files\SDL\Audio</Filter>
     </ClInclude>
@@ -158,6 +158,24 @@
     </ClInclude>
     <ClInclude Include="TransitionStrategy.h">
       <Filter>Header Files\Engine\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioAssetManager.h">
+      <Filter>Header Files\Engine\AssetManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureAssetManager.h">
+      <Filter>Header Files\Engine\AssetManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="FontAssetManager.h">
+      <Filter>Header Files\Engine\AssetManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="IAssetManager.h">
+      <Filter>Header Files\Engine\AssetManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="FontManager.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioManager.h">
+      <Filter>Header Files\Engine</Filter>
     </ClInclude>
     <ClInclude Include="LevelWinStrategy.h">
       <Filter>Header Files\Engine\Collider</Filter>
@@ -218,9 +236,6 @@
     <ClCompile Include="BehaviourObject.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="AssetManager.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
     <ClCompile Include="Input.cpp">
       <Filter>Source Files\Engine\Input</Filter>
     </ClCompile>
@@ -248,9 +263,6 @@
     <ClCompile Include="DamageStrategy.cpp">
       <Filter>Source Files\Engine\Collider</Filter>
     </ClCompile>
-    <ClCompile Include="Audio.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
     <ClCompile Include="AudioWrapper.cpp">
       <Filter>Source Files\SDL\Audio</Filter>
     </ClCompile>
@@ -259,6 +271,21 @@
     </ClCompile>
     <ClCompile Include="TransitionStrategy.cpp">
       <Filter>Source Files\Engine\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="AudioAssetManager.cpp">
+      <Filter>Source Files\Engine\AssetManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="FontAssetManager.cpp">
+      <Filter>Source Files\Engine\AssetManagement</Filter>
+    </ClCompile>
+    <ClCompile Include="FontManager.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="AudioManager.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureAssetManager.cpp">
+      <Filter>Source Files\Engine\AssetManagement</Filter>
     </ClCompile>
     <ClCompile Include="LevelWinStrategy.cpp">
       <Filter>Source Files\Engine\Collider</Filter>

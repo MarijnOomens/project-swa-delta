@@ -1,7 +1,9 @@
 #pragma once
 
 #include "BehaviourObject.h"
-#include "AssetManager.h"
+#include "TextureAssetManager.h"
+#include "FontAssetManager.h"
+#include "AudioAssetManager.h"
 #include "GameObject.h"
 #include "Input.h"
 #include "RenderFacade.h"
@@ -12,7 +14,7 @@
 #include "CollidingComponent.h"
 #include <vector>
 #include "Collision.h"
-#include "Audio.h"
+#include "AudioManager.h"
 
 // Engincontroller class
 //
@@ -20,14 +22,14 @@
 
 class EngineController {
 public:
-	EngineController();
+	EngineController(const std::string& title, int screenWidth, int screenHeight, bool fullScreen);
 	~EngineController() {}
 
 	void initRenderer(const std::string& title, int width, int height, bool fullscreen);
 
-	static void staticPassCameraDimensionFunction(void* p, Transform dimensions);
-	void passCameraDimensionFunction(Transform& dimensions);
-	
+	static void staticPassCameraDimensionFunction(void* p, const Transform& dimensions);
+	void passCameraDimensionFunction(const Transform& dimensions);
+
 
 	static void staticInputCallbackFunction(void* p, const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos);
 	void inputCallbackFunction(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos);
@@ -36,7 +38,7 @@ public:
 	void registerFonts(std::map<std::string, std::string> fonts);
 	void registerAudio(std::map<std::string, std::string> tracks);
 	void startGame();
-	void registerScene(const std::string& sceneName, const std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects);
+	void registerScene(const std::string& sceneName, std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects);
 	void loadScene(const std::string& sceneName, const std::string& fromScene, bool clearPrevious);
 	void loadPreviousScene();
 	void addOverlayScene(const std::string& sceneName);
@@ -51,7 +53,7 @@ public:
 	void resetSpeedGame() const;
 	void addObjectToScene(std::shared_ptr<BehaviourObject> addObject);
 	void passInteract(std::shared_ptr<BehaviourObject> player, int x, int y);
-	void passCollisionCheck(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction, int w);
+	void passCollisionCheck(std::shared_ptr<CollidingComponent> collider, std::shared_ptr<BehaviourObject> behaviourObject, int x, int y, KeyCodes direction, int w);
 	void throwCollisionCheck(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction, int w);
 	void deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject);
 	void deleteColliderFromScene(std::shared_ptr<CollidingComponent> deletedCollider);
@@ -66,9 +68,12 @@ private:
 	std::vector<int> hudLayers;
 	std::shared_ptr<RenderFacade> renderFacade;
 	std::shared_ptr<TextureManager> textureManager;
-	std::shared_ptr<AssetManager> assetManager;
+	std::shared_ptr<FontManager> fontManager;
+	std::unique_ptr<AudioManager> audioManager;
+	std::shared_ptr<TextureAssetManager> textureAssetManager;
+	std::shared_ptr<FontAssetManager> fontAssetManager;
+	std::shared_ptr<AudioAssetManager> audioAssetManager;
 	std::shared_ptr<Input> input;
-	std::unique_ptr<Audio> audio;
 	SceneManager sceneManager;
 	std::shared_ptr<Collision> collision;
 	bool isGameOver = false;

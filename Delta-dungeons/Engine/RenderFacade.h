@@ -11,7 +11,7 @@
 #include <map>
 #include "Colour.h"
 
-typedef void(*cbPassCameraDimension) (void*, Transform);
+typedef void(*cbPassCameraDimension) (void*, const Transform&);
 
 class RenderFacade 
 {

@@ -2,11 +2,6 @@
 
 GameWinScreen::GameWinScreen()
 {
-	this->textures.try_emplace("game_win", "Assets/Menu/Game-Win/background.png");
-	this->textures.try_emplace("button_exit", "Assets/Menu/Button/button-exit.png");
-	this->fonts.try_emplace("joystix", "Assets/Font/joystix.ttf");
-
-
 	gc = std::make_unique<GraphicsComponent>();
 	gc->setTexture("game_win");
 	gc->isScreen = true;
@@ -42,7 +37,7 @@ void GameWinScreen::staticExitCallbackFunction(const void* p)
 
 void GameWinScreen::exitCallbackFunction() const
 {
-	SceneLoader::getInstance().loadScene("MainMenu", "", true);
+	SceneLoader::getInstance().loadScene("MainMenuScreen", "", true);
 }
 
 void GameWinScreen::setParent() {}

@@ -7,9 +7,9 @@
 /// <summary>
 ///  Init creates a unique EngineController object.
 /// </summary>
-void EngineFacade::init() 
+void EngineFacade::init(const std::string& title, int screenWidth, int screenHeight, bool fullScreen)
 {
-	engineController = std::make_unique<EngineController>();
+	engineController = std::make_unique<EngineController>(title, screenWidth, screenHeight, fullScreen);
 }
 
 /// <summary>
@@ -127,8 +127,8 @@ void EngineFacade::passInteract(std::shared_ptr<BehaviourObject> player, int x, 
 	engineController->passInteract(player, x, y);
 }
 
-void EngineFacade::passCollisionCheck(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction, int w) {
-	engineController->passCollisionCheck(collider, x, y, direction, w);
+void EngineFacade::passCollisionCheck(std::shared_ptr<CollidingComponent> collider, std::shared_ptr<BehaviourObject> behaviourObject, int x, int y, KeyCodes direction, int w) {
+	engineController->passCollisionCheck(collider, behaviourObject,x, y, direction, w);
 }
 
 void EngineFacade::throwCollisionCheck(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction, int w) {

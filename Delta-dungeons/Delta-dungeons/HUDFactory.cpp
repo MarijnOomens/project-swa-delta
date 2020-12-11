@@ -1,16 +1,16 @@
-#include "HUDManager.h"
+#include "HUDFactory.h"
 
-void HUDManager::createHud(int healthMax, int health, int berries, int pokeballs)
+void HUDFactory::createHud(int healthMax, int health, int berries, int pokeballs)
 {
 	hud = std::make_shared<HUD>(healthMax, health, berries, pokeballs);
 }
 
-void HUDManager::addItem(const std::string& texturePath)
+void HUDFactory::addItem(const std::string& texturePath)
 {
 	hud->addItem(texturePath);
 }
 
-std::map<std::string, std::string> HUDManager::passTextures() const
+std::map<std::string, std::string> HUDFactory::passTextures() const
 {
 	std::map<std::string, std::string> totalTextures;
 	for (auto& t : hud->textures)
@@ -20,7 +20,7 @@ std::map<std::string, std::string> HUDManager::passTextures() const
 	return totalTextures;
 }
 
-std::map<std::string, std::string> HUDManager::passFonts() const
+std::map<std::string, std::string> HUDFactory::passFonts() const
 {
 	std::map<std::string, std::string> totalFonts;
 	for (auto& t : hud->fonts) {
@@ -29,7 +29,7 @@ std::map<std::string, std::string> HUDManager::passFonts() const
 	return totalFonts;
 }
 
-void HUDManager::updateHUD(int health, int berries, int pokeballs)
+void HUDFactory::updateHUD(int health, int berries, int pokeballs)
 {
 	hud->updateHUD(health, berries, pokeballs);
 }

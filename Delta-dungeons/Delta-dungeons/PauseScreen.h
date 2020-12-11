@@ -19,8 +19,6 @@ public:
 	void saveCallbackFunction() const;
 	static void staticExitCallbackFunction(const void* p);
 	void exitCallbackFunction() const;
-
-
 private:
 	std::vector<Button> buttons;
 };
