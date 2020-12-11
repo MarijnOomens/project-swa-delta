@@ -857,8 +857,8 @@
     <tile x="4" y="7" tile="11" rot="0" flipX="false"/>
     <tile x="5" y="7" tile="11" rot="0" flipX="false"/>
     <tile x="6" y="7" tile="11" rot="0" flipX="false"/>
-    <tile x="7" y="7" tile="2" rot="0" flipX="false"/>
-    <tile x="8" y="7" tile="2" rot="0" flipX="false"/>
+    <tile x="7" y="7" tile="-1" rot="0" flipX="false"/>
+    <tile x="8" y="7" tile="-1" rot="0" flipX="false"/>
     <tile x="9" y="7" tile="11" rot="0" flipX="false"/>
     <tile x="10" y="7" tile="11" rot="0" flipX="false"/>
     <tile x="11" y="7" tile="11" rot="0" flipX="false"/>
