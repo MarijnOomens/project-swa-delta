@@ -6,7 +6,7 @@
 #include <GraphicsComponent.h>
 
 typedef void(*cbInteract) (void*, std::shared_ptr<BehaviourObject>, int, int);
-typedef void(*cbCollision) (void*, std::shared_ptr<BehaviourObject>, int, int, KeyCodes, int);
+typedef void(*cbCollision) (void*, std::shared_ptr<CollidingComponent>, std::shared_ptr<BehaviourObject>, int, int, KeyCodes, int);
 
 class BoulderPuzzleObject : public IInteractiveObject
 {
@@ -19,8 +19,11 @@ public:
 	cbCollision cFunc;
 	void* gPointer;
 
+	void handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
 	void interact(std::shared_ptr<BehaviourObject> interactor) override;
+	void registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger, bool isPuzzleEntrance, bool isPuzzleExit) override;
 	void setParent() override;
+	void start() override;
 	void update() override;
 	void updateTransform(int x, int y);
 	KeyCodes currentDirection;
@@ -37,7 +40,6 @@ public:
 	//else 
 		//call move method within puzzleobject
 		//call func method of puzzle.cpp
-	void registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger, bool isPuzzleEntrance, bool isPuzzleExit) override;
 	void move(KeyCodes direction);
 
 private:

@@ -8,7 +8,7 @@
 #include "DoorPuzzleObject.h"
 
 typedef void(*cbInteract) (void*, std::shared_ptr<BehaviourObject>, int, int);
-typedef void(*cbCollision) (void*, std::shared_ptr<BehaviourObject>, int, int, KeyCodes, int);
+typedef void(*cbCollision) (void*, std::shared_ptr<CollidingComponent>, std::shared_ptr<BehaviourObject>, int, int, KeyCodes, int);
 
 class Puzzle
 {

@@ -156,9 +156,6 @@
     <ClCompile Include="GameWinScreen.cpp">
       <Filter>Source Files\Game\GameObjects\Screens</Filter>
     </ClCompile>
-    <ClCompile Include="PuzzleManager.cpp">
-      <Filter>Source Files\Game</Filter>
-    </ClCompile>
     <ClCompile Include="PokemonParserData.cpp">
       <Filter>Source Files\XMLParser</Filter>
     </ClCompile>
@@ -252,6 +249,9 @@
     <ClCompile Include="PokemonFactory.cpp">
       <Filter>Source Files\Game\Creation</Filter>
     </ClCompile>
+    <ClCompile Include="PuzzleFactory.cpp">
+      <Filter>Source Files\Game\Creation</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h">
@@ -277,9 +277,6 @@
     </ClInclude>
     <ClInclude Include="XMLSceneParser.h">
       <Filter>Header Files\XMLParser</Filter>
-    </ClInclude>
-    <ClInclude Include="PuzzleManager.h">
-      <Filter>Header Files\Game</Filter>
     </ClInclude>
     <ClInclude Include="InteractiveManager.h">
       <Filter>Header Files\Game</Filter>
@@ -447,6 +444,9 @@
       <Filter>Header Files\Game\Creation</Filter>
     </ClInclude>
     <ClInclude Include="PokemonFactory.h">
+      <Filter>Header Files\Game\Creation</Filter>
+    </ClInclude>
+    <ClInclude Include="PuzzleFactory.h">
       <Filter>Header Files\Game\Creation</Filter>
     </ClInclude>
   </ItemGroup>

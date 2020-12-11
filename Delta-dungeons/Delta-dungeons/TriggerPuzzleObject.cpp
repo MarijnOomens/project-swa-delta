@@ -21,6 +21,8 @@ TriggerPuzzleObject::TriggerPuzzleObject(const cbTriggerCollision cbT, void* p, 
 	//this->components.emplace_back(cc);
 }
 
+void TriggerPuzzleObject::handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) {}
+
 void TriggerPuzzleObject::interact(std::shared_ptr<BehaviourObject> interactor) {
 	auto object = dynamic_cast<BoulderPuzzleObject*>(interactor.get());
 	if (object != nullptr) {
@@ -35,6 +37,8 @@ void TriggerPuzzleObject::updateTransform(int x, int y) {
 }
 
 void TriggerPuzzleObject::setParent() {}
+
+void TriggerPuzzleObject::start() {}
 
 void TriggerPuzzleObject::registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger, bool isPuzzleEntrance, bool isPuzzleExit) {}
 

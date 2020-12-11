@@ -21,6 +21,8 @@ DoorPuzzleObject::DoorPuzzleObject(int x, int y, const std::string& texture)
 	this->components.emplace_back(cc);
 }
 
+void DoorPuzzleObject::handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) {}
+
 void DoorPuzzleObject::interact(std::shared_ptr<BehaviourObject> interactor) {
 	if (interactor == nullptr) {
 		//gc->setTexture("pikachu");
@@ -32,6 +34,8 @@ void DoorPuzzleObject::interact(std::shared_ptr<BehaviourObject> interactor) {
 void DoorPuzzleObject::updateTransform(int x, int y) {}
 
 void DoorPuzzleObject::setParent() {}
+
+void DoorPuzzleObject::start() {}
 
 void DoorPuzzleObject::registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger, bool isPuzzleEntrance, bool isPuzzleExit) {}
 

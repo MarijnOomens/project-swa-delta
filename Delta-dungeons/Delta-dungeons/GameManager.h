@@ -10,7 +10,7 @@
 #include "DialoguePopupScene.h"
 #include "EngineFacade.h"
 #include "SceneLoader.h"
-#include "PuzzleManager.h"
+#include "PuzzleFactory.h"
 #include "Scene.h"
 #include "DebugUtilities.h"
 #include "SceneModifier.h"

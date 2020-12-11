@@ -3,10 +3,10 @@
 #include "Puzzle.h"
 #include "BoulderPuzzleObject.h"
 
-typedef void(*cbCollision) (void*, std::shared_ptr<BehaviourObject>, int, int, KeyCodes, int);
+typedef void(*cbCollision) (void*, std::shared_ptr<CollidingComponent>, std::shared_ptr<BehaviourObject>, int, int, KeyCodes, int);
 typedef void(*cbInteract) (void*, std::shared_ptr<BehaviourObject>, int, int);
 
-class PuzzleManager
+class PuzzleFactory
 {
 public:
 	std::map<std::string, std::shared_ptr<IInteractiveObject>> boundaries;
@@ -16,8 +16,8 @@ public:
 	//voor meerdere levels dezelfde parser gebruiken
 	//vector puzzle.cpp
 
-	PuzzleManager() {}
-	~PuzzleManager() {}
+	PuzzleFactory() {}
+	~PuzzleFactory() {}
 	
 
 	void createPuzzles(std::string levelName);

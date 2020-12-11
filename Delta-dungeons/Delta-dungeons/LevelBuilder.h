@@ -6,6 +6,7 @@
 #include "PokemonFactory.h"
 #include "NPCFactory.h"
 #include "PlayerFactory.h"
+#include "PuzzleFactory.h"
 #include "EngineFacade.h"
 #include "World.h"
 
@@ -30,6 +31,7 @@ public:
 	void setHud();
 	void setWorld();
 	void setEquipment();
+	void setPuzzle();
 	Scene getScene();
 
 	static void staticCheckCollisionCallbackFunction(void* p, std::shared_ptr<CollidingComponent> collider, std::shared_ptr<BehaviourObject> behaviourObject, int x, int y, KeyCodes direction, int w);
@@ -62,6 +64,7 @@ private:
 	NPCFactory npcFactory;
 	PokemonFactory pokemonFactory;
 	HUDFactory hudFactory;
+	PuzzleFactory puzzleFactory;
 	std::shared_ptr<World> world;
 
 	std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects;

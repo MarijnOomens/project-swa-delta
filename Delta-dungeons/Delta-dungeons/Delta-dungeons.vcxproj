@@ -216,7 +216,7 @@
     <ClCompile Include="World.cpp" />
     <ClCompile Include="Screen.cpp" />
     <ClCompile Include="Tile.cpp" />
-    <ClCompile Include="PuzzleManager.cpp" />
+    <ClCompile Include="PuzzleFactory.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Advertisement.h" />
@@ -283,7 +283,7 @@
     <ClInclude Include="World.h" />
     <ClInclude Include="Screen.h" />
     <ClInclude Include="Tile.h" />
-    <ClInclude Include="PuzzleManager.h" />
+    <ClInclude Include="PuzzleFactory.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

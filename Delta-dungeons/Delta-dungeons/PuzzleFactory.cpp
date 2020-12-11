@@ -1,6 +1,6 @@
-#include "PuzzleManager.h"
+#include "PuzzleFactory.h"
 
-void PuzzleManager::createPuzzle(std::string levelName, cbInteract interactCB, cbCollision collisionCB, void* p)
+void PuzzleFactory::createPuzzle(std::string levelName, cbInteract interactCB, cbCollision collisionCB, void* p)
 {
 	//create puzzle1
 	puzzle = std::make_shared<Puzzle>();
@@ -27,7 +27,7 @@ void PuzzleManager::createPuzzle(std::string levelName, cbInteract interactCB, c
 	//create puzzle 2
 }
 
-std::map<std::string, std::string> PuzzleManager::passTextures() const
+std::map<std::string, std::string> PuzzleFactory::passTextures() const
 {
 	std::map<std::string, std::string> totalTextures;
 	for (auto& puzzle : puzzle->boulders)
