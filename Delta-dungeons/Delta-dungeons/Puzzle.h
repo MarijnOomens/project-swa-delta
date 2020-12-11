@@ -18,9 +18,9 @@ public:
 
 	//interactive objects puzzle 1: 
 		//door, trigger, boulder
-	std::map<std::string, std::shared_ptr<IInteractiveObject>> doors;
-	std::map<std::string, std::shared_ptr<IInteractiveObject>> boulders;
-	std::map<std::string, std::shared_ptr<IInteractiveObject>> triggers;
+	std::map<std::string, std::shared_ptr<DoorPuzzleObject>> doors;
+	std::map<std::string, std::shared_ptr<BoulderPuzzleObject>> boulders;
+	std::map<std::string, std::shared_ptr<TriggerPuzzleObject>> triggers;
 
 	//om te voorkomen dat gamemanager voor iedere unieke map moet registreren
 	std::map<std::string, std::shared_ptr<IInteractiveObject>> allPuzzles;
