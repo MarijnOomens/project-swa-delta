@@ -76,21 +76,21 @@ std::shared_ptr<IInteractiveObject> GameObjectBuilder::getPuzzle(int x, int y, c
 	{
 		std::shared_ptr<BoulderPuzzleObject> boulder = std::make_shared<BoulderPuzzleObject>(interactCB, collisionCB, p, x, y, name);
 		boulder->setParent();
-		boulder->textures.try_emplace(name, "Assets/Equipment/pokeball.png");
+		boulder->textures.try_emplace(name, "Assets/Equipment/" + name + ".png");
 		return boulder;
 	}
 	else if (name == "boulder_button")
 	{
 		std::shared_ptr<BoulderTriggerPuzzleObject> boulderTrigger = std::make_shared<BoulderTriggerPuzzleObject>(x, y, name);
 		boulderTrigger->setParent();
-		boulderTrigger->textures.try_emplace(name, "Assets/Equipment/pokeball.png");
+		boulderTrigger->textures.try_emplace(name, "Assets/Equipment/" + name + ".png");
 		return boulderTrigger;
 	}
 	else if (name == "door")
 	{
 		std::shared_ptr<DoorPuzzleObject> door = std::make_shared<DoorPuzzleObject>(x, y, name);
 		door->setParent();
-		door->textures.try_emplace(name, "Assets/Equipment/pokeball.png");
+		door->textures.try_emplace(name, "Assets/Equipment/" + name + ".png");
 		return door;
 	}
 }
