@@ -213,9 +213,6 @@
     <ClCompile Include="IEquipment.h">
       <Filter>Header Files</Filter>
     </ClCompile>
-    <ClCompile Include="Puzzle.cpp">
-      <Filter>Source Files\Game\GameObjects</Filter>
-    </ClCompile>
     <ClCompile Include="BoulderPuzzleObject.cpp">
       <Filter>Source Files\Game\GameObjects\InteractiveObjects</Filter>
     </ClCompile>
@@ -254,6 +251,9 @@
     </ClCompile>
     <ClCompile Include="OrderTriggerPuzzleObject.cpp">
       <Filter>Source Files\Game\GameObjects\InteractiveObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Puzzle.cpp">
+      <Filter>Source Files\Game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -410,9 +410,6 @@
     <ClInclude Include="PuzzleParserData.h">
       <Filter>Header Files\XMLParser</Filter>
     </ClInclude>
-    <ClInclude Include="Puzzle.h">
-      <Filter>Header Files\Game\GameObjects</Filter>
-    </ClInclude>
     <ClInclude Include="BoulderPuzzleObject.h">
       <Filter>Header Files\Game\GameObjects\InteractiveObjects</Filter>
     </ClInclude>
@@ -454,6 +451,9 @@
     </ClInclude>
     <ClInclude Include="OrderTriggerPuzzleObject.h">
       <Filter>Header Files\Game\GameObjects\InteractiveObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Puzzle.h">
+      <Filter>Header Files\Game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,31 +1,42 @@
 #include "PuzzleFactory.h"
 
+PuzzleFactory::PuzzleFactory()
+{
+	builder = std::make_shared<GameObjectBuilder>();
+}
+
 void PuzzleFactory::createPuzzle(std::string levelName, cbInteract interactCB, cbCollision collisionCB, void* p)
 {
-	//create puzzle1
-	puzzleOne = std::make_shared<Puzzle>();
+	puzzleObjects.clear();
 	std::unique_ptr<XMLSceneParser> parser = std::make_unique<XMLSceneParser>();
-	std::vector<std::shared_ptr<ParserData>> parsedPuzzleTiles
-		= parser->getPuzzleData("Assets/Map/" + levelName + "/level.xml");
+	std::vector<std::shared_ptr<ParserData>> puzzleData = parser->getPuzzleData("Assets/Map/" + levelName + "/level.xml");
 
 	//interactive puzzle tile id's are unique for puzzle one
-	for (auto parsedTile : parsedPuzzleTiles)
+	for (auto parsedPuzzle : puzzleData)
 	{
-		if (std::stoi(parsedTile->tileId) == 17) 
+		if (std::stoi(parsedPuzzle->tileId) == 17)
 		{
-			puzzleOne->createBoulder(parsedTile, collisionCB, interactCB, p);
+			
+			puzzleObjects.insert(std::pair<std::string, std::shared_ptr<IInteractiveObject>>("puzzle1", 
+				builder->getPuzzle(std::stoi(parsedPuzzle->x), std::stoi(parsedPuzzle->y), "boulder", levelName, collisionCB, interactCB, p)));
 		}
-		else if (std::stoi(parsedTile->tileId) == 16)
+		else if (std::stoi(parsedPuzzle->tileId) == 16)
 		{
-			puzzleOne->createTrigger(parsedTile);
+			puzzleObjects.insert(std::pair<std::string, std::shared_ptr<IInteractiveObject>>("puzzle1",
+				builder->getPuzzle(std::stoi(parsedPuzzle->x), std::stoi(parsedPuzzle->y), "boulder_button", levelName, collisionCB, interactCB, p)));
 		}
-		else if (std::stoi(parsedTile->tileId) == 18)
+		else if (std::stoi(parsedPuzzle->tileId) == 18)
 		{
-			puzzleOne->createDoor(parsedTile);
+			puzzleObjects.insert(std::pair<std::string, std::shared_ptr<IInteractiveObject>>("puzzle1",
+				builder->getPuzzle(std::stoi(parsedPuzzle->x), std::stoi(parsedPuzzle->y), "door", levelName, collisionCB, interactCB, p)));
 		}
 	}
 
-	puzzleTwo = std::make_shared<Puzzle>();
+	puzzle = std::make_unique<Puzzle>(puzzleObjects);
+
+	// ^^opsplitsen in functies, createPuzzle1, createPuzzle2
+
+	/*puzzleTwo = std::make_shared<Puzzle>();
 	for (auto parsedTile : parsedPuzzleTiles)
 	{
 		if (std::stoi(parsedTile->tileId) == 12)
@@ -48,15 +59,15 @@ void PuzzleFactory::createPuzzle(std::string levelName, cbInteract interactCB, c
 		{
 			puzzleTwo->createDoor(parsedTile);
 		}
-	}
+	}*/
 }
 
 std::map<std::string, std::string> PuzzleFactory::passTextures() const
 {
 	std::map<std::string, std::string> totalTextures;
-	for (auto& puzzle : puzzleOne->allPuzzleObjects)
+	for (auto& object : puzzleObjects)
 	{
-		for (auto& t : puzzle.second->textures)
+		for (auto& t : object.second->textures)
 		{
 			totalTextures.try_emplace(t.first, t.second);
 		}

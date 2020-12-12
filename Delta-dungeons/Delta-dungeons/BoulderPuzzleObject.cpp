@@ -6,7 +6,7 @@ BoulderPuzzleObject::BoulderPuzzleObject(cbInteract cbI, cbCollision cbC, void* 
 	this->transform.scale.multiply({ 4, 4 });
 
 	gc = std::make_shared<GraphicsComponent>();
-	gc->setTexture("pokeball");
+	gc->setTexture(texture);
 
 	gc->imageDimensions = { 32, 32 };
 	gc->transform = transform;

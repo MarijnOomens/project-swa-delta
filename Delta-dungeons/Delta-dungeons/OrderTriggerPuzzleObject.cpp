@@ -7,7 +7,7 @@ OrderTriggerPuzzleObject::OrderTriggerPuzzleObject(const cbOrderTrigger cbO, voi
 	this->orderNumber = orderNumber;
 
 	gc = std::make_shared<GraphicsComponent>();
-	gc->setTexture("pokeball");
+	gc->setTexture(texture);
 
 	gc->imageDimensions = { 32, 32 };
 	gc->transform = transform;
