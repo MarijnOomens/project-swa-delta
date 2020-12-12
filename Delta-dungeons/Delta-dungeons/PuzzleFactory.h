@@ -3,6 +3,7 @@
 #include "GameObjectBuilder.h"
 #include "GameObjectFactory.h"
 #include "Puzzle.h"
+#include <memory>
 
 typedef void(*cbCollision) (void*, std::shared_ptr<CollidingComponent>, std::shared_ptr<BehaviourObject>, int, int, KeyCodes, int);
 typedef void(*cbInteract) (void*, std::shared_ptr<BehaviourObject>, int, int);
@@ -19,9 +20,6 @@ public:
 	void createPuzzle(std::string levelName, cbInteract interactCb, cbCollision collisionCb, void* p);
 
 	std::map<std::string, std::string> passTextures() const;
-
-private:
-	std::unique_ptr<Puzzle> puzzle;
 
 };
 

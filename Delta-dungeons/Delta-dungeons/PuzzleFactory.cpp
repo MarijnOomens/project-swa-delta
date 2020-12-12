@@ -8,6 +8,7 @@ PuzzleFactory::PuzzleFactory()
 void PuzzleFactory::createPuzzle(std::string levelName, cbInteract interactCB, cbCollision collisionCB, void* p)
 {
 	puzzleObjects.clear();
+
 	std::unique_ptr<XMLSceneParser> parser = std::make_unique<XMLSceneParser>();
 	std::vector<std::shared_ptr<ParserData>> puzzleData = parser->getPuzzleData("Assets/Map/" + levelName + "/level.xml");
 
@@ -31,8 +32,6 @@ void PuzzleFactory::createPuzzle(std::string levelName, cbInteract interactCB, c
 				builder->getPuzzle(std::stoi(parsedPuzzle->x), std::stoi(parsedPuzzle->y), "door", levelName, collisionCB, interactCB, p)));
 		}
 	}
-
-	puzzle = std::make_unique<Puzzle>(puzzleObjects);
 
 	// ^^opsplitsen in functies, createPuzzle1, createPuzzle2
 
