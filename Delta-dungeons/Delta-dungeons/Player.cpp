@@ -95,39 +95,29 @@ void Player::handleKeyPressed(const KeyCodes& keyCodes)
 {
 	switch (keyCodes)
 	{
+	case KeyCodes::KEY_W:
 	case KeyCodes::KEY_UP:
 		moveUp();
 		if (!isWalking) { moveUp(); }
 		break;
+	case KeyCodes::KEY_S:
 	case KeyCodes::KEY_DOWN:
 		moveDown();
 		if (!isWalking) { moveDown(); }
 		break;
+	case KeyCodes::KEY_A:
 	case KeyCodes::KEY_LEFT:
 		moveLeft();
 		if (!isWalking) { moveLeft(); }
 		break;
+	case KeyCodes::KEY_D:
 	case KeyCodes::KEY_RIGHT:
 		moveRight();
 		if (!isWalking){ moveRight(); }
 		break;
-	case KeyCodes::KEY_W:
-		moveUp();
-		if (!isWalking)moveUp();
-		break;
-	case KeyCodes::KEY_S:
-		moveDown();
-		if (!isWalking)moveDown();
-		break;
-	case KeyCodes::KEY_A:
-		moveLeft();
-		if (!isWalking)moveLeft();
-		break;
-	case KeyCodes::KEY_D:
-		moveRight();
-		if (!isWalking)moveRight();
-		break;
 	case KeyCodes::KEY_Q:
+		hasMoved = false;
+		getIdleAnimation();
 		for (auto& comp : equipment)
 		{
 			comp->use();
@@ -151,10 +141,6 @@ void Player::handleKeyPressed(const KeyCodes& keyCodes)
 			this->texture = "player_m";
 		}
 		break;
-	//skip collision kan later geimplementeerd worden
-	//case KeyCodes::KEY_C:
-	//	DebugUtilities::getInstance().toggleCheatCollision();
-	//	break;
 	case KeyCodes::KEY_C:
 		usePokeball();
 		break;
@@ -199,30 +185,15 @@ void Player::handleKeyReleased(const KeyCodes& keyCodes)
 {
 	switch (keyCodes)
 	{
-	case KeyCodes::KEY_UP:
-		gc->playAnimation(4, 3, animationSpeed, false);
-		break;
-	case KeyCodes::KEY_DOWN:
-		gc->playAnimation(0, 3, animationSpeed, false);
-		break;
-	case KeyCodes::KEY_LEFT:
-		gc->playAnimation(5, 3, animationSpeed, false);
-		break;
-	case KeyCodes::KEY_RIGHT:
-		gc->playAnimation(5, 3, animationSpeed, true);
-		break;
 	case KeyCodes::KEY_W:
-		gc->playAnimation(4, 3, animationSpeed, false);
-		break;
+	case KeyCodes::KEY_UP:
 	case KeyCodes::KEY_S:
-		gc->playAnimation(0, 3, animationSpeed, false);
-		break;
+	case KeyCodes::KEY_DOWN:
 	case KeyCodes::KEY_A:
-		gc->playAnimation(5, 3, animationSpeed, false);
-		break;
+	case KeyCodes::KEY_LEFT:
 	case KeyCodes::KEY_D:
-		gc->playAnimation(5, 3, animationSpeed, true);
-		break;
+	case KeyCodes::KEY_RIGHT:
+		getIdleAnimation();
 	default:
 		break;
 	}
@@ -320,8 +291,6 @@ void Player::addEquipment(std::unique_ptr<IEquipment> item)
 {
 	equipment.emplace_back(std::move(item));
 }
-
-void Player::damagePlayer(int damage) {}
 
 void::Player::updateCaughtPokemon(int pokemonId) {}
 
@@ -461,3 +430,28 @@ void Player::registerCollision(int x, int y, bool isDamaged, bool isTransitioned
 }
 
 void Player::start(){}
+
+void Player::getIdleAnimation()
+{
+	switch (currentDirection)
+	{
+	case KeyCodes::KEY_UP:
+	case KeyCodes::KEY_W:
+		gc->playAnimation(4, 3, animationSpeed, false);
+		break;
+	case KeyCodes::KEY_DOWN:
+	case KeyCodes::KEY_S:
+		gc->playAnimation(0, 3, animationSpeed, false);
+		break;
+	case KeyCodes::KEY_LEFT:
+	case KeyCodes::KEY_A:
+		gc->playAnimation(5, 3, animationSpeed, false);
+		break;
+	case KeyCodes::KEY_RIGHT:
+	case KeyCodes::KEY_D:
+		gc->playAnimation(5, 3, animationSpeed, true);
+		break;
+	default:
+		break;
+	}
+}

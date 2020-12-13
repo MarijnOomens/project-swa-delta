@@ -51,7 +51,6 @@ public:
 	void moveRight();
 
 	void addEquipment(std::unique_ptr<IEquipment> equipment);
-	void damagePlayer(int damage);
 	void updateCaughtPokemon(int pokemonId);
 	std::vector<std::string> getItems();
 	std::shared_ptr<CollidingComponent> getCollider();
@@ -73,7 +72,8 @@ public:
 	void eatBerry();
 	void addBerry();
 	void usePokeball();
-	void addPokeball();	
+	void addPokeball();
+	void getIdleAnimation();
 	
 	int health = 5;
 	int maxHealth = 5;
