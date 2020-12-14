@@ -70,7 +70,7 @@ std::shared_ptr<IEquipment> GameObjectBuilder::getEquipment(int x, int y, const 
 	}
 }
 
-std::shared_ptr<IInteractiveObject> GameObjectBuilder::getPuzzle(int x, int y, const std::string& name, const std::string& levelName, cbCollision collisionCB, cbInteract interactCB, void* p)
+std::shared_ptr<IInteractiveObject> GameObjectBuilder::getPuzzle(int x, int y, const std::string& name, const std::string& levelName, cbCollision collisionCB, cbInteract interactCB, void* p, int tileId)
 {
 	if (name == "boulder")
 	{
@@ -85,6 +85,13 @@ std::shared_ptr<IInteractiveObject> GameObjectBuilder::getPuzzle(int x, int y, c
 		boulderTrigger->setParent();
 		boulderTrigger->textures.try_emplace(name, "Assets/Equipment/" + name + ".png");
 		return boulderTrigger;
+	}
+	else if (name == "order_button")
+	{
+		std::shared_ptr<OrderTriggerPuzzleObject> orderTrigger = std::make_shared<OrderTriggerPuzzleObject>(x, y, name, tileId);
+		orderTrigger->setParent();
+		orderTrigger->textures.try_emplace(name, "Assets/Equipment/" + name + ".png");
+		return orderTrigger;
 	}
 	else if (name == "door")
 	{

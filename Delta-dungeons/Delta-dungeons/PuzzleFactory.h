@@ -15,6 +15,8 @@ public:
 	std::shared_ptr<GameObjectBuilder> builder;
 	std::multimap<std::string, std::shared_ptr<IInteractiveObject>> puzzleObjects;
 
+	std::shared_ptr<Puzzle> puzzle;
+
 	PuzzleFactory();
 	
 	void createPuzzle(std::string levelName, cbInteract interactCb, cbCollision collisionCb, void* p);

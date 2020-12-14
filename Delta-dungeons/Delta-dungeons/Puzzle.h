@@ -11,12 +11,16 @@ class Puzzle
 {
 public:
 	Puzzle(std::multimap<std::string, std::shared_ptr<IInteractiveObject>> puzzleObjects);
-	
-
 
 	static void staticBoulderTriggerCallbackFunction(void* p);
 	void checkBoulderTriggers();
-	void openDoors();
+	
+	static void staticOrderTriggerCallbackFunction(void* p, int orderNumber);
+	void orderTrigger(int orderNumber);
+
+
+	void resetOrder();
+	void openDoors(const std::string& puzzleName);
 
 private:
 	std::multimap<std::string, std::shared_ptr<IInteractiveObject>> puzzleObjects;

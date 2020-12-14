@@ -1,10 +1,10 @@
 #include "OrderTriggerPuzzleObject.h"
 
-OrderTriggerPuzzleObject::OrderTriggerPuzzleObject(const cbOrderTrigger cbO, void* p, int orderNumber, int x, int y, const std::string& texture) : oFunc(cbO), pointer(p)
+OrderTriggerPuzzleObject::OrderTriggerPuzzleObject(int x, int y, const std::string& texture, int tileId)
 {
 	this->transform.position = { x * 128, y * 128 };
 	this->transform.scale.multiply({ 4, 4 });
-	this->orderNumber = orderNumber;
+	setOrderNumber(tileId);
 
 	gc = std::make_shared<GraphicsComponent>();
 	gc->setTexture(texture);
@@ -22,6 +22,31 @@ OrderTriggerPuzzleObject::OrderTriggerPuzzleObject(const cbOrderTrigger cbO, voi
 	this->components.emplace_back(cc);
 }
 
+void OrderTriggerPuzzleObject::setOrderNumber(int tileId)
+{
+	switch (tileId)
+	{
+	case 12:
+		this->orderNumber = 0;
+		break;
+	case 13:
+		this->orderNumber = 1;
+		break;
+	case 14:
+		this->orderNumber = 2;
+		break;
+	case 15:
+		this->orderNumber = 3;
+		break;
+	}
+}
+
+void OrderTriggerPuzzleObject::setOrderTriggerCallback(cbOrderTrigger orderCb, void* p)
+{
+	this->oFunc = orderCb;
+	this->pointer = p;
+}
+
 void OrderTriggerPuzzleObject::handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) {}
 
 void OrderTriggerPuzzleObject::interact(std::shared_ptr<BehaviourObject> interactor)
@@ -35,7 +60,10 @@ void OrderTriggerPuzzleObject::updateTransform(int x, int y)
 	gc->transform = transform;
 }
 
-void OrderTriggerPuzzleObject::setParent() {}
+void OrderTriggerPuzzleObject::setParent() 
+{
+	//orderPuzzleObject = shared_from_this();
+}
 
 void OrderTriggerPuzzleObject::start() {}
 

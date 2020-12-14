@@ -16,49 +16,50 @@ void PuzzleFactory::createPuzzle(std::string levelName, cbInteract interactCB, c
 	for (auto parsedPuzzle : puzzleData)
 	{
 		if (std::stoi(parsedPuzzle->tileId) == 17)
-		{
-			
+		{	
 			puzzleObjects.insert(std::pair<std::string, std::shared_ptr<IInteractiveObject>>("puzzle1", 
-				builder->getPuzzle(std::stoi(parsedPuzzle->x), std::stoi(parsedPuzzle->y), "boulder", levelName, collisionCB, interactCB, p)));
+				builder->getPuzzle(std::stoi(parsedPuzzle->x), std::stoi(parsedPuzzle->y), "boulder", levelName, collisionCB, interactCB, p, std::stoi(parsedPuzzle->tileId))));
 		}
 		else if (std::stoi(parsedPuzzle->tileId) == 16)
 		{
 			puzzleObjects.insert(std::pair<std::string, std::shared_ptr<IInteractiveObject>>("puzzle1",
-				builder->getPuzzle(std::stoi(parsedPuzzle->x), std::stoi(parsedPuzzle->y), "boulder_button", levelName, collisionCB, interactCB, p)));
+				builder->getPuzzle(std::stoi(parsedPuzzle->x), std::stoi(parsedPuzzle->y), "boulder_button", levelName, collisionCB, interactCB, p, std::stoi(parsedPuzzle->tileId))));
 		}
 		else if (std::stoi(parsedPuzzle->tileId) == 18)
 		{
 			puzzleObjects.insert(std::pair<std::string, std::shared_ptr<IInteractiveObject>>("puzzle1",
-				builder->getPuzzle(std::stoi(parsedPuzzle->x), std::stoi(parsedPuzzle->y), "door", levelName, collisionCB, interactCB, p)));
+				builder->getPuzzle(std::stoi(parsedPuzzle->x), std::stoi(parsedPuzzle->y), "door", levelName, collisionCB, interactCB, p, std::stoi(parsedPuzzle->tileId))));
+		}
+		else if (std::stoi(parsedPuzzle->tileId) == 12)
+		{
+			puzzleObjects.insert(std::pair<std::string, std::shared_ptr<IInteractiveObject>>("puzzle2",
+				builder->getPuzzle(std::stoi(parsedPuzzle->x), std::stoi(parsedPuzzle->y), "order_button", levelName, collisionCB, interactCB, p, std::stoi(parsedPuzzle->tileId))));
+		}
+		else if (std::stoi(parsedPuzzle->tileId) == 13)
+		{
+			puzzleObjects.insert(std::pair<std::string, std::shared_ptr<IInteractiveObject>>("puzzle2",
+				builder->getPuzzle(std::stoi(parsedPuzzle->x), std::stoi(parsedPuzzle->y), "order_button", levelName, collisionCB, interactCB, p, std::stoi(parsedPuzzle->tileId))));
+		}
+		else if (std::stoi(parsedPuzzle->tileId) == 14)
+		{
+			puzzleObjects.insert(std::pair<std::string, std::shared_ptr<IInteractiveObject>>("puzzle2",
+				builder->getPuzzle(std::stoi(parsedPuzzle->x), std::stoi(parsedPuzzle->y), "order_button", levelName, collisionCB, interactCB, p, std::stoi(parsedPuzzle->tileId))));
+		}
+		else if (std::stoi(parsedPuzzle->tileId) == 15)
+		{
+			puzzleObjects.insert(std::pair<std::string, std::shared_ptr<IInteractiveObject>>("puzzle2",
+				builder->getPuzzle(std::stoi(parsedPuzzle->x), std::stoi(parsedPuzzle->y), "order_button", levelName, collisionCB, interactCB, p, std::stoi(parsedPuzzle->tileId))));
+		}
+		else if (std::stoi(parsedPuzzle->tileId) == 20)
+		{
+			puzzleObjects.insert(std::pair<std::string, std::shared_ptr<IInteractiveObject>>("puzzle2",
+				builder->getPuzzle(std::stoi(parsedPuzzle->x), std::stoi(parsedPuzzle->y), "door", levelName, collisionCB, interactCB, p, std::stoi(parsedPuzzle->tileId))));
 		}
 	}
 
-	// ^^opsplitsen in functies, createPuzzle1, createPuzzle2
+	puzzle = std::make_shared<Puzzle>(puzzleObjects);
 
-	/*puzzleTwo = std::make_shared<Puzzle>();
-	for (auto parsedTile : parsedPuzzleTiles)
-	{
-		if (std::stoi(parsedTile->tileId) == 12)
-		{
-			puzzleTwo->addToTriggerOrder(parsedTile, 0);
-		}
-		else if (std::stoi(parsedTile->tileId) == 13)
-		{
-			puzzleTwo->addToTriggerOrder(parsedTile, 1);
-		}
-		else if (std::stoi(parsedTile->tileId) == 14)
-		{
-			puzzleTwo->addToTriggerOrder(parsedTile, 2);
-		}
-		else if (std::stoi(parsedTile->tileId) == 15)
-		{
-			puzzleTwo->addToTriggerOrder(parsedTile, 3);
-		}
-		else if (std::stoi(parsedTile->tileId) == 20)
-		{
-			puzzleTwo->createDoor(parsedTile);
-		}
-	}*/
+	// ^^opsplitsen in functies, createPuzzle1, createPuzzle2
 }
 
 std::map<std::string, std::string> PuzzleFactory::passTextures() const

@@ -9,6 +9,8 @@ typedef void(*cbOrderTrigger) (void*, int);
 class OrderTriggerPuzzleObject : public IInteractiveObject
 {
 public:
+	//std::shared_ptr<OrderTriggerPuzzleObject> orderPuzzleObject;
+
 	cbOrderTrigger oFunc;
 	void* pointer;
 
@@ -18,7 +20,10 @@ public:
 	OrderTriggerPuzzleObject() {}
 	~OrderTriggerPuzzleObject() {}
 
-	OrderTriggerPuzzleObject(const cbOrderTrigger, void* p, int orderNumber, int x, int y, const std::string& texture);
+	OrderTriggerPuzzleObject(int x, int y, const std::string& texture, int tileId);
+
+	void setOrderNumber(int tileId);
+	void setOrderTriggerCallback(cbOrderTrigger orderCb, void* p);
 
 	void handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
 	void interact(std::shared_ptr<BehaviourObject> interactor) override;
@@ -34,5 +39,4 @@ private:
 	std::shared_ptr<CollisionStrategy> stp;
 	std::shared_ptr<GraphicsComponent> gc;
 	std::shared_ptr<CollidingComponent> cc;
-
 };
