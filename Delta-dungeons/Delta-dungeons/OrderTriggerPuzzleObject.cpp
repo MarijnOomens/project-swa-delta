@@ -12,7 +12,7 @@ OrderTriggerPuzzleObject::OrderTriggerPuzzleObject(int x, int y, const std::stri
 	gc->imageDimensions = { 32, 32 };
 	gc->transform = transform;
 	gc->isScreen = false;
-
+	
 	stp = std::make_shared<StopStrategy>();
 	cc = std::make_shared<CollidingComponent>(stp);
 	cc->tag = "door";
@@ -51,6 +51,7 @@ void OrderTriggerPuzzleObject::handleInput(const KeyCodes& keyCodes, const Keybo
 
 void OrderTriggerPuzzleObject::interact(std::shared_ptr<BehaviourObject> interactor)
 {
+	triggered = true;
 	oFunc(pointer, orderNumber);
 }
 
@@ -62,10 +63,13 @@ void OrderTriggerPuzzleObject::updateTransform(int x, int y)
 
 void OrderTriggerPuzzleObject::setParent() 
 {
-	//orderPuzzleObject = shared_from_this();
+	orderPuzzleObject = shared_from_this();
 }
 
-void OrderTriggerPuzzleObject::start() {}
+void OrderTriggerPuzzleObject::start() 
+{
+	triggered = false;
+}
 
 void OrderTriggerPuzzleObject::registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger, bool isPuzzleEntrance, bool isPuzzleExit) {}
 

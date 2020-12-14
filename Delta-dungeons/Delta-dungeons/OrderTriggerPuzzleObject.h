@@ -9,7 +9,7 @@ typedef void(*cbOrderTrigger) (void*, int);
 class OrderTriggerPuzzleObject : public IInteractiveObject
 {
 public:
-	//std::shared_ptr<OrderTriggerPuzzleObject> orderPuzzleObject;
+	std::shared_ptr<BehaviourObject> orderPuzzleObject;
 
 	cbOrderTrigger oFunc;
 	void* pointer;
