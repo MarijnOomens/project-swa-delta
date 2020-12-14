@@ -164,16 +164,16 @@ void Player::handleKeyPressed(const KeyCodes& keyCodes)
 void Player::handleInteraction()
 {
 	if (KeyCodes::KEY_UP == currentDirection || KeyCodes::KEY_W == currentDirection) {
-		interactFunc(pointer, shared_from_this(), transform.position.x, transform.position.y - 128);
+		interactFunc(pointer, shared_from_this(), transform.position.x, transform.position.y - 128, 128);
 	}
 	else if (KeyCodes::KEY_LEFT == currentDirection || KeyCodes::KEY_A == currentDirection) {
-		interactFunc(pointer, shared_from_this(), transform.position.x - 128, transform.position.y);
+		interactFunc(pointer, shared_from_this(), transform.position.x - 128, transform.position.y, 128);
 	}
 	else if (KeyCodes::KEY_RIGHT == currentDirection || KeyCodes::KEY_D == currentDirection) {
-		interactFunc(pointer, shared_from_this(), transform.position.x + 128, transform.position.y);
+		interactFunc(pointer, shared_from_this(), transform.position.x + 128, transform.position.y, 128);
 	}
 	else if (KeyCodes::KEY_DOWN == currentDirection || KeyCodes::KEY_S == currentDirection) {
-		interactFunc(pointer, shared_from_this(), transform.position.x, transform.position.y + 128);
+		interactFunc(pointer, shared_from_this(), transform.position.x, transform.position.y + 128, 128);
 	}
 }
 
