@@ -52,4 +52,7 @@ void HighScoreScreen::start()
 	{
 		beatText->changeText("CONGRATS, YOU BEAT THE HIGH SCORE!");
 	}
+	else {
+		beatText->changeText("");
+	}
 }
