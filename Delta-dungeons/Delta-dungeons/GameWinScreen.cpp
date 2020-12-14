@@ -10,7 +10,7 @@ GameWinScreen::GameWinScreen()
 
 	// Next button
 	std::vector<std::string> possibleButtonTexNext = { "button_next" };
-	std::shared_ptr<Button> nextButton = std::make_shared<Button>(512, 750, possibleButtonTexNext, staticExitCallbackFunction, this);
+	std::shared_ptr<Button> nextButton = std::make_shared<Button>(512, 750, possibleButtonTexNext, staticNextCallbackFunction, this);
 	this->components.emplace_back(nextButton);
 
 	Colour color = { 0, 0, 0, 255 };
@@ -30,12 +30,12 @@ void GameWinScreen::handleInput(const KeyCodes& keyCode, const KeyboardEvent& ke
 	}
 }
 
-void GameWinScreen::staticExitCallbackFunction(const void* p)
+void GameWinScreen::staticNextCallbackFunction(const void* p)
 {
-	((GameWinScreen*)p)->exitCallbackFunction();
+	((GameWinScreen*)p)->nextCallbackFunction();
 }
 
-void GameWinScreen::exitCallbackFunction() const
+void GameWinScreen::nextCallbackFunction() const
 {
 	SceneLoader::getInstance().loadScene("HighScoreScreen", "", true);
 }

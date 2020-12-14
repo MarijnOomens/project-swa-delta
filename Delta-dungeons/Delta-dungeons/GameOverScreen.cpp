@@ -10,7 +10,7 @@ GameOverScreen::GameOverScreen()
 
 	// Next button
 	std::vector<std::string> possibleButtonTexNext = { "button_next" };
-	std::shared_ptr<Button> nextButton = std::make_shared<Button>(512, 750, possibleButtonTexNext, staticExitCallbackFunction, this);
+	std::shared_ptr<Button> nextButton = std::make_shared<Button>(512, 750, possibleButtonTexNext, staticNextCallbackFunction, this);
 	this->components.emplace_back(nextButton);
 
 	Colour color = { 255, 255, 255, 255 };
@@ -19,12 +19,12 @@ GameOverScreen::GameOverScreen()
 	this->components.emplace_back(gameOverText);
 }
 
-void GameOverScreen::staticExitCallbackFunction(const void* p)
+void GameOverScreen::staticNextCallbackFunction(const void* p)
 {
-	((GameOverScreen*)p)->exitCallbackFunction();
+	((GameOverScreen*)p)->nextCallbackFunction();
 }
 
-void GameOverScreen::exitCallbackFunction() const
+void GameOverScreen::nextCallbackFunction() const
 {
 	SceneLoader::getInstance().loadScene("HighScoreScreen", "", true);
 }
