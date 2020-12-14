@@ -52,7 +52,7 @@ public:
 	void speedUpGame() const;
 	void resetSpeedGame() const;
 	void addObjectToScene(std::shared_ptr<BehaviourObject> addObject);
-	void passInteract(std::shared_ptr<BehaviourObject> player, int x, int y, int w);
+	void passInteract(std::shared_ptr<BehaviourObject> player, int x, int y, int w, int h);
 	void passCollisionCheck(std::shared_ptr<CollidingComponent> collider, std::shared_ptr<BehaviourObject> behaviourObject, int x, int y, KeyCodes direction, int w);
 	void throwCollisionCheck(std::shared_ptr<BehaviourObject> collider, int x, int y, KeyCodes direction, int w);
 	void deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject);

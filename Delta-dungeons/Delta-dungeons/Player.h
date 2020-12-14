@@ -11,7 +11,7 @@
 #include "ThrowPokeball.h"
 #include "SceneLoader.h"
 
-typedef void(*cbInteract) (void*, std::shared_ptr<BehaviourObject>, int, int,int);
+typedef void(*cbInteract) (void*, std::shared_ptr<BehaviourObject>, int, int, int, int);
 typedef void(*cbCamera) (void*, int, int);
 typedef void(*cbGameOver) (void*);
 typedef void(*cbHUD) (void*, int, int, int);
