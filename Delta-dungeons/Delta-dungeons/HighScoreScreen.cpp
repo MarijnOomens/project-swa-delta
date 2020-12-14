@@ -13,12 +13,19 @@ HighScoreScreen::HighScoreScreen()
 	std::shared_ptr<Button> mainMenuButton = std::make_shared<Button>(512, 750, possibleButtonTexMainMenu, staticExitCallbackFunction, this);
 	this->components.emplace_back(mainMenuButton);
 
-	std::string score = "67";
+	Colour color1 = { 237, 134, 0, 255 };
+	beatText = std::make_shared<TextComponent>("", "joystix", color1, 80);
+	beatText->transform.position = { 50, 100 };
+	this->components.emplace_back(beatText);
 
 	Colour color = { 255, 255, 255, 255 };
-	std::shared_ptr<TextComponent> highScoreText = std::make_shared<TextComponent>("HIGH SCORE: " + score, "joystix", color, 64);
+	highScoreText = std::make_shared<TextComponent>("HIGH SCORE: " + std::to_string(0), "joystix", color, 64);
 	highScoreText->transform.position = { 275, 450 };
 	this->components.emplace_back(highScoreText);
+
+	yourScoreText = std::make_shared<TextComponent>("YOUR SCORE: " + std::to_string(0), "joystix", color, 64);
+	yourScoreText->transform.position = { 275, 550 };
+	this->components.emplace_back(yourScoreText);
 }
 
 void HighScoreScreen::staticExitCallbackFunction(const void* p)
@@ -32,3 +39,17 @@ void HighScoreScreen::exitCallbackFunction() const
 }
 
 void HighScoreScreen::setParent() {}
+
+void HighScoreScreen::start()
+{
+	score = GameState::getInstance().getHighScore();
+	highScoreText->changeText("HIGH SCORE: " + std::to_string(score));
+
+	int yourScore = GameState::getInstance().getCaughtPokemon();
+	yourScoreText->changeText("YOUR SCORE: " + std::to_string(yourScore));
+
+	if (yourScore == score && score != 0)
+	{
+		beatText->changeText("CONGRATS, YOU BEAT THE HIGH SCORE!");
+	}
+}
