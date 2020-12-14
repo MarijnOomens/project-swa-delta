@@ -28,6 +28,7 @@ void Berry::interact(std::shared_ptr<BehaviourObject> interactor)
     if (gc != nullptr) {
         SceneModifier::getInstance().deleteObjectFromScene(gc);
         SceneModifier::getInstance().deleteColliderFromScene(cc);
+        SceneModifier::getInstance().deleteObjectFromScene(shared_from_this());
         gc = nullptr;
     }
 }

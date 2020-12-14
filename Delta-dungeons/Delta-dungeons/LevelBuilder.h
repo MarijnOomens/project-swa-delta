@@ -10,7 +10,7 @@
 #include "World.h"
 
 typedef void(*cbCamera) (void*, int, int);
-typedef void(*cbInteract) (void*, std::shared_ptr<BehaviourObject>, int, int);
+typedef void(*cbInteract) (void*, std::shared_ptr<BehaviourObject>, int, int, int, int);
 typedef void(*cbGameOver) (void*);
 typedef void(*cbHUD) (void*, int, int, int);
 typedef void(*cbCollision) (void*, std::shared_ptr<CollidingComponent>, std::shared_ptr<BehaviourObject> behaviourObject, int, int, KeyCodes, int);
@@ -41,8 +41,8 @@ public:
 	static void staticCameraCallbackFunction(void* p, int x, int y);
 	void passPlayerPosition(int x, int y);
 
-	static void staticInteractCallbackFunction(void* p, std::shared_ptr<BehaviourObject> player, int x, int y);
-	void interactCallbackFunction(std::shared_ptr<BehaviourObject> player, int x, int y);
+	static void staticInteractCallbackFunction(void* p, std::shared_ptr<BehaviourObject> player, int x, int y, int w, int h);
+	void interactCallbackFunction(std::shared_ptr<BehaviourObject> player, int x, int y, int w, int h);
 
 	static void staticGameOverbackFunction(void* p);
 	void gameOverCallbackFunction();
