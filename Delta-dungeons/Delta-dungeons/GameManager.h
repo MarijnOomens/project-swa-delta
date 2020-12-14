@@ -14,6 +14,7 @@
 #include "SceneModifier.h"
 #include "AudioUtilities.h"
 #include "LevelBuilder.h"
+#include "HighScoreScreenScene.h"
 
 class GameManager {
 public:
@@ -40,9 +41,10 @@ private:
 	GameWinScreenScene gameWinScreenScene;
 	LoadSaveScreenScene loadSaveScreenScene;
 	DialoguePopupScene dialoguePopupScene;
+	HighScoreScreenScene highScoreScreenScene;
 
 	std::unique_ptr<LevelBuilder> levelBuilder;
 	std::vector<Scene> scenes;
-	std::vector<std::string> levels{ "Level1", "Dungeon1","Level2", "Dungeon2","Level3", "Dungeon3", "Level4" };
+	std::vector<std::string> levels{ "Level4", "Dungeon1","Level2", "Dungeon2","Level3", "Dungeon3", "Level4" };
 	int currentlevel = 0;
 };

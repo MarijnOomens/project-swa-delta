@@ -37,7 +37,7 @@ void GameWinScreen::staticExitCallbackFunction(const void* p)
 
 void GameWinScreen::exitCallbackFunction() const
 {
-	SceneLoader::getInstance().loadScene("MainMenuScreen", "", true);
+	SceneLoader::getInstance().loadScene("HighScoreScreen", "", true);
 }
 
 void GameWinScreen::setParent() {}

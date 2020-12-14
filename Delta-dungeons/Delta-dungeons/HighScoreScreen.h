@@ -1,15 +1,12 @@
 #pragma once
-
 #include "Screen.h"
-#include "TextComponent.h"
 #include "Button.h"
-#include "SceneLoader.h"
 
-class GameOverScreen : public Screen
+class HighScoreScreen : public Screen
 {
 public:
-	GameOverScreen();
-	~GameOverScreen() {}
+	HighScoreScreen();
+	~HighScoreScreen() {};
 
 	void setParent() override;
 
