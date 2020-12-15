@@ -825,8 +825,8 @@
     <tile x="4" y="5" tile="-1" rot="0" flipX="false"/>
     <tile x="5" y="5" tile="-1" rot="0" flipX="false"/>
     <tile x="6" y="5" tile="8" rot="0" flipX="false"/>
-    <tile x="7" y="5" tile="-1" rot="0" flipX="false"/>
-    <tile x="8" y="5" tile="-1" rot="0" flipX="false"/>
+    <tile x="7" y="5" tile="0" rot="0" flipX="false"/>
+    <tile x="8" y="5" tile="2" rot="0" flipX="false"/>
     <tile x="9" y="5" tile="8" rot="0" flipX="false"/>
     <tile x="10" y="5" tile="-1" rot="0" flipX="false"/>
     <tile x="11" y="5" tile="-1" rot="0" flipX="false"/>
@@ -906,7 +906,7 @@
     <tile x="5" y="10" tile="-1" rot="0" flipX="false"/>
     <tile x="6" y="10" tile="17" rot="0" flipX="false"/>
     <tile x="7" y="10" tile="-1" rot="0" flipX="false"/>
-    <tile x="8" y="10" tile="21" rot="0" flipX="false"/>
+    <tile x="8" y="10" tile="-1" rot="0" flipX="false"/>
     <tile x="9" y="10" tile="-1" rot="0" flipX="false"/>
     <tile x="10" y="10" tile="-1" rot="0" flipX="false"/>
     <tile x="11" y="10" tile="11" rot="0" flipX="false"/>
@@ -1049,7 +1049,7 @@
     <tile x="4" y="19" tile="10" rot="0" flipX="false"/>
     <tile x="5" y="19" tile="10" rot="0" flipX="false"/>
     <tile x="6" y="19" tile="10" rot="0" flipX="false"/>
-    <tile x="7" y="19" tile="0" rot="0" flipX="false"/>
+    <tile x="7" y="19" tile="-1" rot="0" flipX="false"/>
     <tile x="8" y="19" tile="-1" rot="0" flipX="false"/>
     <tile x="9" y="19" tile="10" rot="0" flipX="false"/>
     <tile x="10" y="19" tile="10" rot="0" flipX="false"/>

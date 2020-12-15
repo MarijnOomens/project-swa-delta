@@ -2,6 +2,8 @@
 
 BoulderPuzzleObject::BoulderPuzzleObject(cbInteract cbI, cbCollision cbC, void* lbP, int x, int y, const std::string& texture) : iFunc(cbI), cFunc(cbC), lbPointer(lbP)
 {
+	this->startX = x * 128;
+	this->startY = y * 128;
 	this->transform.position = { x * 128, y * 128 };
 	this->transform.scale.multiply({ 4, 4 });
 
@@ -40,10 +42,13 @@ void BoulderPuzzleObject::registerCollision(int x, int y, bool isDamaged, bool i
 
 void BoulderPuzzleObject::setParent() 
 {
-	cc->parent = shared_from_this();
+	sharedFromThis = shared_from_this();
 }
 
-void BoulderPuzzleObject::start() {}
+void BoulderPuzzleObject::start() 
+{
+	updateTransform(startX, startY);
+}
 
 void BoulderPuzzleObject::update()
 {

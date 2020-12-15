@@ -5,6 +5,28 @@ Puzzle::Puzzle(std::multimap<std::string, std::shared_ptr<IInteractiveObject>> p
 	setCallbacks();
 }
 
+
+void Puzzle::staticResetBouldersCallbackFunction(void* p)
+{
+	((Puzzle*)p)->resetBoulders();
+}
+
+void Puzzle::resetBoulders()
+{
+	bool isAllTriggered = true;
+	for (auto& object : puzzleObjects)
+	{
+		if (object.first == "puzzle1" && dynamic_cast<BoulderPuzzleObject*>(object.second.get()) != nullptr)
+		{
+			dynamic_cast<BoulderPuzzleObject*>(object.second.get())->sharedFromThis->start();
+		}
+		else if (object.first == "puzzle1" && dynamic_cast<BoulderTriggerPuzzleObject*>(object.second.get()) != nullptr)
+		{
+			dynamic_cast<BoulderTriggerPuzzleObject*>(object.second.get())->sharedFromThis->start();
+		}
+	}
+}
+
 void Puzzle::staticBoulderTriggerCallbackFunction(void* p)
 {
 	((Puzzle*)p)->checkBoulderTriggers();
@@ -117,7 +139,6 @@ int Puzzle::getOrderTriggerAmount()
 			max++;
 		}
 	}
-
 	return max;
 }
 
@@ -134,6 +155,11 @@ void Puzzle::setCallbacks()
 		{
 			auto orderTriggerObject = dynamic_cast<OrderTriggerPuzzleObject*>(object.second.get());
 			orderTriggerObject->setOrderTriggerCallback(staticOrderTriggerCallbackFunction, this);
+		}
+		else if (dynamic_cast<ResetPuzzleObject*>(object.second.get()) != nullptr)
+		{
+			auto orderTriggerObject = dynamic_cast<ResetPuzzleObject*>(object.second.get());
+			orderTriggerObject->setResetTriggerCallback(staticResetBouldersCallbackFunction, this);
 		}
 	}
 }

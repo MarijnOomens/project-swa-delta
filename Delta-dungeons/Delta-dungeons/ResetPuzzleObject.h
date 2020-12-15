@@ -3,24 +3,22 @@
 #include "IInteractiveObject.h"
 #include "Player.h"
 #include "GraphicsComponent.h"
-#include "BoulderPuzzleObject.h"
 
 #include <string>
 
-typedef void(*cbTriggerCollision) (void*);
+typedef void(*cbResetTrigger) (void*);
 
-class BoulderTriggerPuzzleObject : public IInteractiveObject
+class ResetPuzzleObject : public IInteractiveObject
 {
 public:
-	bool triggered = false;
-	std::shared_ptr<BehaviourObject> sharedFromThis;
+	std::shared_ptr<BehaviourObject> orderPuzzleObject;
 
-	BoulderTriggerPuzzleObject() {}
-	~BoulderTriggerPuzzleObject() {}
+	ResetPuzzleObject() {}
+	~ResetPuzzleObject() {}
 
-	BoulderTriggerPuzzleObject(int x, int y, const std::string& texture);
+	ResetPuzzleObject(int x, int y, const std::string& texture);
 
-	void setBoulderTriggerCallback(cbTriggerCollision triggerCB, void* p);
+	void setResetTriggerCallback(cbResetTrigger orderCb, void* p);
 
 	void handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
 	void interact(std::shared_ptr<BehaviourObject> interactor) override;
@@ -30,9 +28,10 @@ public:
 	void update() override;
 
 private:
+	std::shared_ptr<CollisionStrategy> stp;
 	std::shared_ptr<GraphicsComponent> gc;
 	std::shared_ptr<CollidingComponent> cc;
 
-	cbTriggerCollision tFunc;
+	cbResetTrigger rFunc;
 	void* pointer;
 };

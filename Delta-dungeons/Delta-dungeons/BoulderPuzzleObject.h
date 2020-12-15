@@ -12,6 +12,8 @@ typedef void(*cbCollision) (void*, std::shared_ptr<CollidingComponent>, std::sha
 class BoulderPuzzleObject : public IInteractiveObject
 {
 public:
+	std::shared_ptr<BehaviourObject> sharedFromThis;
+
 	BoulderPuzzleObject() {}
 	~BoulderPuzzleObject() {}
 
@@ -40,6 +42,8 @@ private:
 
 	bool canPush = true;
 	bool pushed = false;
+	int startX = 0;
+	int startY = 0;
 	int endY = 0;
 	int endX = 0;
 };

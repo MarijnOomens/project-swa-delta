@@ -4,6 +4,7 @@
 #include "OrderTriggerPuzzleObject.h"
 #include "BoulderPuzzleObject.h"
 #include "BoulderTriggerPuzzleObject.h"
+#include "ResetPuzzleObject.h"
 
 #include <map>
 
@@ -11,6 +12,9 @@ class Puzzle
 {
 public:
 	Puzzle(std::multimap<std::string, std::shared_ptr<IInteractiveObject>> puzzleObjects);
+
+	static void staticResetBouldersCallbackFunction(void* p);
+	void resetBoulders();
 
 	static void staticBoulderTriggerCallbackFunction(void* p);
 	void checkBoulderTriggers();

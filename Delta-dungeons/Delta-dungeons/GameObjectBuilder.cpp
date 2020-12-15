@@ -107,4 +107,11 @@ std::shared_ptr<IInteractiveObject> GameObjectBuilder::getPuzzle(int x, int y, c
 		boulderGameOver->textures.try_emplace(name, "Assets/Equipment/" + name + ".png");
 		return boulderGameOver;
 	}
+	else if (name == "reset")
+	{
+		std::shared_ptr<ResetPuzzleObject> boulderGameOver = std::make_shared<ResetPuzzleObject>(x, y, name);
+		boulderGameOver->setParent();
+		boulderGameOver->textures.try_emplace(name, "Assets/Equipment/pokeball.png");
+		return boulderGameOver;
+	}
 }

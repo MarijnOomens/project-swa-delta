@@ -206,6 +206,7 @@
     <ClCompile Include="PuzzleObject.cpp" />
     <ClCompile Include="ParserData.cpp" />
     <ClCompile Include="PuzzleParserData.cpp" />
+    <ClCompile Include="ResetPuzzleObject.cpp" />
     <ClCompile Include="RunningShoes.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneLoader.cpp" />
@@ -260,6 +261,7 @@
     <ClInclude Include="PokemonParserData.h" />
     <ClInclude Include="Puzzle.h" />
     <ClInclude Include="PuzzleParserData.h" />
+    <ClInclude Include="ResetPuzzleObject.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneModifier.h" />
     <ClInclude Include="ParserData.h" />
