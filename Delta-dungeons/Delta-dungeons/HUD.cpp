@@ -51,6 +51,10 @@ HUD::HUD(int hM, int h, int b, int p)
 	ballsCount = std::make_shared<TextComponent>(std::to_string(amountOfPokeballs), "joystix", color, 32);
 	ballsCount->transform.position = { 220, 70 };
 	this->components.emplace_back(ballsCount);
+
+	score = std::make_shared<TextComponent>("", "joystix", color, 32);
+	score->transform.position = { 10, 100 };
+	this->components.emplace_back(score);
 }
 
 void HUD::updateHUD(int h, int b, int p)
@@ -69,11 +73,13 @@ void HUD::updateHUD(int h, int b, int p)
 
 void HUD::updateCollectedCrystals(int param) {}
 
-void HUD::updateHighScore(int param) {}
-
 void HUD::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos){}
 
-void HUD::update() {}
+void HUD::update() 
+{
+	int scoreInt = GameState::getInstance().getCaughtPokemon();
+	score->changeText("Score " + std::to_string(scoreInt));
+}
 
 void HUD::setParent() {}
 

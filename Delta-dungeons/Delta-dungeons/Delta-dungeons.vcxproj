@@ -166,6 +166,7 @@
     <ClCompile Include="DialoguePopupScene.cpp" />
     <ClCompile Include="DialoguePopup.cpp" />
     <ClCompile Include="GameOverScreenScene.cpp" />
+    <ClCompile Include="GameState.cpp" />
     <ClCompile Include="GameWinScreenScene.cpp" />
     <ClCompile Include="HelpScreenScene.cpp" />
     <ClCompile Include="EquipmentFactory.cpp" />
@@ -174,6 +175,8 @@
     <ClCompile Include="GameOverScreen.cpp" />
     <ClCompile Include="GameWinScreen.cpp" />
     <ClCompile Include="HelpScreen.cpp" />
+    <ClCompile Include="HighScoreScreen.cpp" />
+    <ClCompile Include="HighScoreScreenScene.cpp" />
     <ClCompile Include="HUD.cpp" />
     <ClCompile Include="HUDFactory.cpp" />
     <ClCompile Include="IEquipment.h" />
@@ -229,10 +232,13 @@
     <ClInclude Include="GameObjectFactory.h" />
     <ClInclude Include="GameOverScreen.h" />
     <ClInclude Include="GameOverScreenScene.h" />
+    <ClInclude Include="GameState.h" />
     <ClInclude Include="GameWinScreen.h" />
     <ClInclude Include="GameWinScreenScene.h" />
     <ClInclude Include="HelpScreen.h" />
     <ClInclude Include="HelpScreenScene.h" />
+    <ClInclude Include="HighScoreScreen.h" />
+    <ClInclude Include="HighScoreScreenScene.h" />
     <ClInclude Include="HUD.h" />
     <ClInclude Include="HUDFactory.h" />
     <ClInclude Include="LevelBuilder.h" />

@@ -8,10 +8,10 @@ GameWinScreen::GameWinScreen()
 	gc->imageDimensions = { 1280, 960 };
 	this->components.emplace_back(std::move(gc));
 
-	// Main menu button
-	std::vector<std::string> possibleButtonTexMainMenu = { "button_exit" };
-	std::shared_ptr<Button> mainMenuButton = std::make_shared<Button>(512, 750, possibleButtonTexMainMenu, staticExitCallbackFunction, this);
-	this->components.emplace_back(mainMenuButton);
+	// Next button
+	std::vector<std::string> possibleButtonTexNext = { "button_next" };
+	std::shared_ptr<Button> nextButton = std::make_shared<Button>(512, 750, possibleButtonTexNext, staticNextCallbackFunction, this);
+	this->components.emplace_back(nextButton);
 
 	Colour color = { 0, 0, 0, 255 };
 	std::shared_ptr<TextComponent> gameWinText = std::make_shared<TextComponent>("GAME COMPLETED", "joystix", color, 64);
@@ -30,14 +30,14 @@ void GameWinScreen::handleInput(const KeyCodes& keyCode, const KeyboardEvent& ke
 	}
 }
 
-void GameWinScreen::staticExitCallbackFunction(const void* p)
+void GameWinScreen::staticNextCallbackFunction(const void* p)
 {
-	((GameWinScreen*)p)->exitCallbackFunction();
+	((GameWinScreen*)p)->nextCallbackFunction();
 }
 
-void GameWinScreen::exitCallbackFunction() const
+void GameWinScreen::nextCallbackFunction() const
 {
-	SceneLoader::getInstance().loadScene("MainMenuScreen", "", true);
+	SceneLoader::getInstance().loadScene("HighScoreScreen", "", true);
 }
 
 void GameWinScreen::setParent() {}

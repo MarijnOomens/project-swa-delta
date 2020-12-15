@@ -424,7 +424,7 @@ void Player::addPokeball() {
 void Player::registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger) {
 	if (isDamaged && !noDamageCheat) { registerHit(); }
 	if (isTransitioned) { nextLevelFunc(gmPointer); }
-	if (isWinTrigger) { SceneLoader::getInstance().loadScene("GameWin", SceneLoader::getInstance().getCurrentLevel(), false); }
+	if (isWinTrigger) { SceneLoader::getInstance().loadScene("GameWinScreen", SceneLoader::getInstance().getCurrentLevel(), false); }
 
 	hasMoved = true;
 }

@@ -231,6 +231,15 @@
     <ClCompile Include="PokemonFactory.cpp">
       <Filter>Source Files\Game\Creation</Filter>
     </ClCompile>
+    <ClCompile Include="HighScoreScreen.cpp">
+      <Filter>Source Files\Game\GameObjects\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="HighScoreScreenScene.cpp">
+      <Filter>Source Files\Game\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="GameState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h">
@@ -409,6 +418,15 @@
     </ClInclude>
     <ClInclude Include="PokemonFactory.h">
       <Filter>Header Files\Game\Creation</Filter>
+    </ClInclude>
+    <ClInclude Include="HighScoreScreen.h">
+      <Filter>Header Files\Game\GameObjects\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="HighScoreScreenScene.h">
+      <Filter>Header Files\Game\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="GameState.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
