@@ -28,9 +28,6 @@ public:
 	void start() override;
 	void update() override;
 
-	void updateTransform(int x, int y);
-
-
 private:
 	std::shared_ptr<GraphicsComponent> gc;
 	std::shared_ptr<CollidingComponent> cc;

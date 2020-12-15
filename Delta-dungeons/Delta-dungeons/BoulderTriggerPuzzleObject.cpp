@@ -40,9 +40,3 @@ void BoulderTriggerPuzzleObject::setParent() {}
 void BoulderTriggerPuzzleObject::start() {}
 
 void BoulderTriggerPuzzleObject::update() {}
-
-void BoulderTriggerPuzzleObject::updateTransform(int x, int y) 
-{
-	this->transform.position = { x, y };
-	gc->transform = transform;
-}
