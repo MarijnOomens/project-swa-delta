@@ -213,9 +213,9 @@ void Player::setParent() {
 void Player::moveUp()
 {
 	//de huidige positie bijhouden.
-	if (!hasMoved || noCollisionCheat) {
+	if (!hasMoved || (noCollisionCheat && !isNewLevel)) {
 		collisionFunc(pointer, cc, shared_from_this(), this->transform.position.x, this->transform.position.y - baseMovementSpeed, KeyCodes::KEY_UP, (gc->imageDimensions.x * gc->transform.scale.x));
-		if (!hasMoved || noCollisionCheat) {
+		if (!hasMoved || (noCollisionCheat && !isNewLevel)) {
 			transform.position.y -= baseMovementSpeed;
 			cc->transform.position.y = this->transform.position.y;
 			gc->transform.position = transform.position;
@@ -232,9 +232,9 @@ void Player::moveUp()
 /// </summary>
 void Player::moveDown()
 {
-	if (!hasMoved || noCollisionCheat) {
+	if (!hasMoved || (noCollisionCheat && !isNewLevel)) {
 		collisionFunc(pointer, cc, shared_from_this(), this->transform.position.x, this->transform.position.y + baseMovementSpeed, KeyCodes::KEY_DOWN, (gc->imageDimensions.x * gc->transform.scale.x));
-		if (!hasMoved || noCollisionCheat) {
+		if (!hasMoved || (noCollisionCheat && !isNewLevel)) {
 			transform.position.y += baseMovementSpeed;
 			cc->transform.position.y = this->transform.position.y;
 			gc->transform.position = transform.position;
@@ -251,9 +251,9 @@ void Player::moveDown()
 /// </summary>
 void Player::moveLeft()
 {
-	if (!hasMoved || noCollisionCheat) {
+	if (!hasMoved || (noCollisionCheat && !isNewLevel)) {
 		collisionFunc(pointer, cc, shared_from_this(), this->transform.position.x - baseMovementSpeed, this->transform.position.y, KeyCodes::KEY_LEFT, (gc->imageDimensions.x * gc->transform.scale.x));
-		if (!hasMoved || noCollisionCheat) {
+		if (!hasMoved || (noCollisionCheat && !isNewLevel)) {
 			transform.position.x -= baseMovementSpeed;
 			cc->transform.position.x = this->transform.position.x;
 			gc->transform.position = transform.position;
@@ -270,9 +270,9 @@ void Player::moveLeft()
 /// </summary>
 void Player::moveRight()
 {
-	if (!hasMoved || noCollisionCheat) {
+	if (!hasMoved || (noCollisionCheat && !isNewLevel)) {
 		collisionFunc(pointer, cc, shared_from_this(), this->transform.position.x + baseMovementSpeed, this->transform.position.y, KeyCodes::KEY_RIGHT, (gc->imageDimensions.x * gc->transform.scale.x));
-		if (!hasMoved || noCollisionCheat) {
+		if (!hasMoved || (noCollisionCheat && !isNewLevel)) {
 			transform.position.x += baseMovementSpeed;
 			cc->transform.position.x = this->transform.position.x;
 			gc->transform.position = transform.position;
@@ -423,7 +423,7 @@ void Player::addPokeball() {
 
 void Player::registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger) {
 	if (isDamaged && !noDamageCheat) { registerHit(); }
-	if (isTransitioned) { nextLevelFunc(gmPointer); }
+	if (isTransitioned) { isNewLevel = true; nextLevelFunc(gmPointer); }
 	if (isWinTrigger) { SceneLoader::getInstance().loadScene("GameWinScreen", SceneLoader::getInstance().getCurrentLevel(), false); }
 
 	hasMoved = true;
