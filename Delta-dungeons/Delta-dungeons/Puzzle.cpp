@@ -2,21 +2,7 @@
 
 Puzzle::Puzzle(std::multimap<std::string, std::shared_ptr<IInteractiveObject>> puzzleObjects) : puzzleObjects(puzzleObjects)
 {
-	for (auto& object : this->puzzleObjects)
-	{
-		if (dynamic_cast<BoulderTriggerPuzzleObject*>(object.second.get()) != nullptr)
-		{
-			auto triggerObject = dynamic_cast<BoulderTriggerPuzzleObject*>(object.second.get());
-			triggerObject->setBoulderTriggerCallback(staticBoulderTriggerCallbackFunction, this);
-		}
-		else if (dynamic_cast<OrderTriggerPuzzleObject*>(object.second.get()) != nullptr)
-		{
-			auto orderTriggerObject = dynamic_cast<OrderTriggerPuzzleObject*>(object.second.get());
-			orderTriggerObject->setOrderTriggerCallback(staticOrderTriggerCallbackFunction, this);
-		}
-
-	}
-	//std::cout << max << std::endl;
+	setCallbacks();
 }
 
 void Puzzle::staticBoulderTriggerCallbackFunction(void* p)
@@ -52,16 +38,12 @@ void Puzzle::staticOrderTriggerCallbackFunction(void* p, int orderNumber)
 
 void Puzzle::orderTrigger(int orderNumber)
 {
-	int max = 3;
-
+	int max = getOrderTriggerAmount();
 	int orderCounter = 0;
 	bool isOrderCorrect = false;
 	bool exit = false;
-	if (orderNumber == 0)
-	{
-		return;
-	}
-	while (!exit)
+
+	while (!exit && orderNumber != 0)
 	{
 		for (auto& object : puzzleObjects)
 		{
@@ -99,10 +81,6 @@ void Puzzle::orderTrigger(int orderNumber)
 	{
 		openDoors("puzzle2");
 	}
-	//if (exit)
-	//{
-	//	return;
-	//}
 }
 
 void Puzzle::resetOrder()
@@ -125,6 +103,37 @@ void Puzzle::openDoors(const std::string& puzzleName)
 		{
 			auto doorObject = dynamic_cast<DoorPuzzleObject*>(object.second.get());
 			doorObject->interact(nullptr);
+		}
+	}
+}
+
+int Puzzle::getOrderTriggerAmount()
+{
+	int max = -1;
+	for (auto& object : puzzleObjects)
+	{
+		if (object.first == "puzzle2", dynamic_cast<OrderTriggerPuzzleObject*>(object.second.get()))
+		{
+			max++;
+		}
+	}
+
+	return max;
+}
+
+void Puzzle::setCallbacks()
+{
+	for (auto& object : this->puzzleObjects)
+	{
+		if (dynamic_cast<BoulderTriggerPuzzleObject*>(object.second.get()) != nullptr)
+		{
+			auto triggerObject = dynamic_cast<BoulderTriggerPuzzleObject*>(object.second.get());
+			triggerObject->setBoulderTriggerCallback(staticBoulderTriggerCallbackFunction, this);
+		}
+		else if (dynamic_cast<OrderTriggerPuzzleObject*>(object.second.get()) != nullptr)
+		{
+			auto orderTriggerObject = dynamic_cast<OrderTriggerPuzzleObject*>(object.second.get());
+			orderTriggerObject->setOrderTriggerCallback(staticOrderTriggerCallbackFunction, this);
 		}
 	}
 }

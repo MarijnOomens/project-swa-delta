@@ -180,12 +180,6 @@
     <ClInclude Include="LevelWinStrategy.h">
       <Filter>Header Files\Engine\Collider</Filter>
     </ClInclude>
-    <ClInclude Include="PuzzleEntranceStrategy.h">
-      <Filter>Header Files\Engine\Collider</Filter>
-    </ClInclude>
-    <ClInclude Include="PuzzleExitStrategy.h">
-      <Filter>Header Files\Engine\Collider</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Vector2D.cpp">
@@ -288,12 +282,6 @@
       <Filter>Source Files\Engine\AssetManagement</Filter>
     </ClCompile>
     <ClCompile Include="LevelWinStrategy.cpp">
-      <Filter>Source Files\Engine\Collider</Filter>
-    </ClCompile>
-    <ClCompile Include="PuzzleEntranceStrategy.cpp">
-      <Filter>Source Files\Engine\Collider</Filter>
-    </ClCompile>
-    <ClCompile Include="PuzzleExitStrategy.cpp">
       <Filter>Source Files\Engine\Collider</Filter>
     </ClCompile>
   </ItemGroup>

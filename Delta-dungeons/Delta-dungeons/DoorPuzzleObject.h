@@ -1,8 +1,9 @@
 #pragma once
 #include "IInteractiveObject.h"
 #include "Player.h"
+#include "GraphicsComponent.h"
+
 #include <string>
-#include <GraphicsComponent.h>
 
 typedef void(*cbTriggerCollision) (void*);
 
@@ -16,12 +17,10 @@ public:
 
 	void handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
 	void interact(std::shared_ptr<BehaviourObject> interactor) override;
+	void registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger) override;
 	void setParent() override;
 	void start() override;
 	void update() override;
-	void registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger, bool isPuzzleEntrance, bool isPuzzleExit) override;
-	void updateTransform(int x, int y);
-
 
 private:
 	std::shared_ptr<CollisionStrategy> stp;

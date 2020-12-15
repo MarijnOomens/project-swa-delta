@@ -55,6 +55,8 @@ void OrderTriggerPuzzleObject::interact(std::shared_ptr<BehaviourObject> interac
 	oFunc(pointer, orderNumber);
 }
 
+void OrderTriggerPuzzleObject::registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger) {}
+
 void OrderTriggerPuzzleObject::updateTransform(int x, int y) 
 {
 	this->transform.position = { x, y };
@@ -71,6 +73,5 @@ void OrderTriggerPuzzleObject::start()
 	triggered = false;
 }
 
-void OrderTriggerPuzzleObject::registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger, bool isPuzzleEntrance, bool isPuzzleExit) {}
 
 void OrderTriggerPuzzleObject::update() {}

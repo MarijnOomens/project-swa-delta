@@ -67,7 +67,7 @@ void NPC::setParent() {
 	cc->parent = shared_from_this();
 }
 
-void NPC::registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger, bool isPuzzleEntrance, bool isPuzzleExit) {}
+void NPC::registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger) {}
 
 void NPC::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) {}
 

@@ -23,20 +23,20 @@ DoorPuzzleObject::DoorPuzzleObject(int x, int y, const std::string& texture)
 
 void DoorPuzzleObject::handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) {}
 
-void DoorPuzzleObject::interact(std::shared_ptr<BehaviourObject> interactor) {
-	if (interactor == nullptr) {
+void DoorPuzzleObject::interact(std::shared_ptr<BehaviourObject> interactor) 
+{
+	if (interactor == nullptr) 
+	{
 		//gc->setTexture("pikachu");
 		SceneModifier::getInstance().deleteObjectFromScene(gc);
 		SceneModifier::getInstance().deleteColliderFromScene(cc);
 	}
 }
 
-void DoorPuzzleObject::updateTransform(int x, int y) {}
+void DoorPuzzleObject::registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger) {}
 
 void DoorPuzzleObject::setParent() {}
 
 void DoorPuzzleObject::start() {}
-
-void DoorPuzzleObject::registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger, bool isPuzzleEntrance, bool isPuzzleExit) {}
 
 void DoorPuzzleObject::update() {}

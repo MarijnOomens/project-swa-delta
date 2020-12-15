@@ -1,8 +1,10 @@
 #pragma once
+
 #include "IInteractiveObject.h"
 #include "Player.h"
+#include "GraphicsComponent.h"
+
 #include <string>
-#include <GraphicsComponent.h>
 
 typedef void(*cbOrderTrigger) (void*, int);
 
@@ -10,9 +12,6 @@ class OrderTriggerPuzzleObject : public IInteractiveObject
 {
 public:
 	std::shared_ptr<BehaviourObject> orderPuzzleObject;
-
-	cbOrderTrigger oFunc;
-	void* pointer;
 
 	bool triggered = false;
 	int orderNumber = 0;
@@ -27,7 +26,7 @@ public:
 
 	void handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
 	void interact(std::shared_ptr<BehaviourObject> interactor) override;
-	void registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger, bool isPuzzleEntrance, bool isPuzzleExit) override;
+	void registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger) override;
 	void setParent() override;
 	void start() override;
 	void update() override;
@@ -39,4 +38,7 @@ private:
 	std::shared_ptr<CollisionStrategy> stp;
 	std::shared_ptr<GraphicsComponent> gc;
 	std::shared_ptr<CollidingComponent> cc;
+
+	cbOrderTrigger oFunc;
+	void* pointer;
 };

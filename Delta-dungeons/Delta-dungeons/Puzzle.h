@@ -11,6 +11,7 @@ class Puzzle
 {
 public:
 	Puzzle(std::multimap<std::string, std::shared_ptr<IInteractiveObject>> puzzleObjects);
+
 	static void staticBoulderTriggerCallbackFunction(void* p);
 	void checkBoulderTriggers();
 	
@@ -19,6 +20,10 @@ public:
 
 	void resetOrder();
 	void openDoors(const std::string& puzzleName);
+
+	int getOrderTriggerAmount();
+	void setCallbacks();
+
 private:
 	std::multimap<std::string, std::shared_ptr<IInteractiveObject>> puzzleObjects;
 };

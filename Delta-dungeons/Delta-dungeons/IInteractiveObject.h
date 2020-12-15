@@ -10,7 +10,7 @@ public:
 	std::map<std::string, std::string> textures;
 	std::shared_ptr<CollidingComponent> cc;
 
-	virtual void registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger, bool isPuzzleEntrance, bool isPuzzleExit) = 0;
+	virtual void registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger) = 0;
 private:
 	std::string name;
 	std::string dialogue;

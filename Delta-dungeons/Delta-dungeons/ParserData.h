@@ -9,8 +9,6 @@ public:
 	bool isCollider = false;
 	bool isTrigger = false;
 	bool isWinTrigger = false;
-	bool isPuzzleEntrance = false;
-	bool isPuzzleExit = false;
 
 	ParserData() {}
 	~ParserData() {}

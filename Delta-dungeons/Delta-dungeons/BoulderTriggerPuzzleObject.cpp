@@ -23,23 +23,26 @@ void BoulderTriggerPuzzleObject::setBoulderTriggerCallback(cbTriggerCollision tr
 
 void BoulderTriggerPuzzleObject::handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) {}
 
-void BoulderTriggerPuzzleObject::interact(std::shared_ptr<BehaviourObject> interactor) {
+void BoulderTriggerPuzzleObject::interact(std::shared_ptr<BehaviourObject> interactor) 
+{
 	auto object = dynamic_cast<BoulderPuzzleObject*>(interactor.get());
-	if (object != nullptr) {
+	if (object != nullptr)
+	{
 		triggered = true;
 		tFunc(pointer);
 	}
 }
 
-void BoulderTriggerPuzzleObject::updateTransform(int x, int y) {
-	this->transform.position = { x, y };
-	gc->transform = transform;
-}
+void BoulderTriggerPuzzleObject::registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger) {}
 
 void BoulderTriggerPuzzleObject::setParent() {}
 
 void BoulderTriggerPuzzleObject::start() {}
 
-void BoulderTriggerPuzzleObject::registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger, bool isPuzzleEntrance, bool isPuzzleExit) {}
-
 void BoulderTriggerPuzzleObject::update() {}
+
+void BoulderTriggerPuzzleObject::updateTransform(int x, int y) 
+{
+	this->transform.position = { x, y };
+	gc->transform = transform;
+}
