@@ -100,4 +100,11 @@ std::shared_ptr<IInteractiveObject> GameObjectBuilder::getPuzzle(int x, int y, c
 		door->textures.try_emplace(name, "Assets/Equipment/" + name + ".png");
 		return door;
 	}
+	else if (name == "game_over")
+	{
+		std::shared_ptr<BoulderGameOverPuzzleObject> boulderGameOver = std::make_shared<BoulderGameOverPuzzleObject>(x, y, name);
+		boulderGameOver->setParent();
+		boulderGameOver->textures.try_emplace(name, "Assets/Equipment/" + name + ".png");
+		return boulderGameOver;
+	}
 }

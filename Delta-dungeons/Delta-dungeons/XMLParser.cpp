@@ -204,7 +204,7 @@ std::vector<std::shared_ptr<ParserData>> XMLParser::getPuzzleData(const std::str
 				std::string tileId = tile->first_attribute("tile")->value();
 
 				//filters data for puzzle boundaries
-				if (tileId == "16" || tileId == "17" || tileId == "12" || tileId == "13" || tileId == "14" || tileId == "15" || tileId == "20" || tileId == "18")
+				if (tileId == "16" || tileId == "17" || tileId == "18" || tileId == "21" || tileId == "12" || tileId == "13" || tileId == "14" || tileId == "15" || tileId == "20")
 				{
 					std::shared_ptr<ParserData> p = std::make_shared<ParserData>(tile->first_attribute("x")->value(), tile->first_attribute("y")->value(), tile->first_attribute("tile")->value());
 					puzzleOneData.push_back(p);
