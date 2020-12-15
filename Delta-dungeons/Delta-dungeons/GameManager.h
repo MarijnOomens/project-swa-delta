@@ -45,6 +45,6 @@ private:
 
 	std::unique_ptr<LevelBuilder> levelBuilder;
 	std::vector<Scene> scenes;
-	std::vector<std::string> levels{ "Level1", "Dungeon1","Level2", "Dungeon2","Level3", "Dungeon3", "Level4" };
+	std::vector<std::string> levels{ "Dungeon1", "Dungeon1","Level2", "Dungeon2","Level3", "Dungeon3", "Level4" };
 	int currentlevel = 0;
 };
