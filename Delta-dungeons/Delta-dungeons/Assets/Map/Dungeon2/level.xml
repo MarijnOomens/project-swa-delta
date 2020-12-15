@@ -3849,8 +3849,8 @@
     <tile x="4" y="14" tile="-1" rot="0" flipX="false"/>
     <tile x="5" y="14" tile="-1" rot="0" flipX="false"/>
     <tile x="6" y="14" tile="11" rot="0" flipX="false"/>
-    <tile x="7" y="14" tile="2" rot="0" flipX="false"/>
-    <tile x="8" y="14" tile="2" rot="0" flipX="false"/>
+    <tile x="7" y="14" tile="-1" rot="0" flipX="false"/>
+    <tile x="8" y="14" tile="-1" rot="0" flipX="false"/>
     <tile x="9" y="14" tile="11" rot="0" flipX="false"/>
     <tile x="10" y="14" tile="11" rot="0" flipX="false"/>
     <tile x="11" y="14" tile="11" rot="0" flipX="false"/>
@@ -4092,7 +4092,7 @@
     <tile x="7" y="18" tile="21" rot="0" flipX="false"/>
     <tile x="8" y="18" tile="-1" rot="0" flipX="false"/>
     <tile x="9" y="18" tile="8" rot="0" flipX="false"/>
-    <tile x="10" y="18" tile="-1" rot="0" flipX="false"/>
+    <tile x="10" y="18" tile="16" rot="0" flipX="false"/>
     <tile x="11" y="18" tile="-1" rot="0" flipX="false"/>
     <tile x="12" y="18" tile="-1" rot="0" flipX="false"/>
     <tile x="13" y="18" tile="21" rot="0" flipX="false"/>
@@ -4185,8 +4185,8 @@
     <tile x="40" y="19" tile="-1" rot="0" flipX="false"/>
     <tile x="41" y="19" tile="-1" rot="0" flipX="false"/>
     <tile x="42" y="19" tile="10" rot="0" flipX="false"/>
-    <tile x="43" y="19" tile="2" rot="0" flipX="false"/>
-    <tile x="44" y="19" tile="2" rot="0" flipX="false"/>
+    <tile x="43" y="19" tile="-1" rot="0" flipX="false"/>
+    <tile x="44" y="19" tile="-1" rot="0" flipX="false"/>
     <tile x="45" y="19" tile="10" rot="0" flipX="false"/>
     <tile x="46" y="19" tile="10" rot="0" flipX="false"/>
     <tile x="47" y="19" tile="10" rot="0" flipX="false"/>
@@ -4209,7 +4209,7 @@
     <tile x="4" y="20" tile="-1" rot="0" flipX="false"/>
     <tile x="5" y="20" tile="-1" rot="0" flipX="false"/>
     <tile x="6" y="20" tile="11" rot="0" flipX="false"/>
-    <tile x="7" y="20" tile="-1" rot="0" flipX="false"/>
+    <tile x="7" y="20" tile="16" rot="0" flipX="false"/>
     <tile x="8" y="20" tile="-1" rot="0" flipX="false"/>
     <tile x="9" y="20" tile="-1" rot="0" flipX="false"/>
     <tile x="10" y="20" tile="-1" rot="0" flipX="false"/>
@@ -4950,7 +4950,7 @@
     <tile x="25" y="32" tile="-1" rot="0" flipX="false"/>
     <tile x="26" y="32" tile="-1" rot="0" flipX="false"/>
     <tile x="27" y="32" tile="-1" rot="0" flipX="false"/>
-    <tile x="28" y="32" tile="2" rot="0" flipX="false"/>
+    <tile x="28" y="32" tile="-1" rot="0" flipX="false"/>
     <tile x="29" y="32" tile="-1" rot="0" flipX="false"/>
     <tile x="30" y="32" tile="-1" rot="0" flipX="false"/>
     <tile x="31" y="32" tile="8" rot="0" flipX="false"/>
@@ -5010,7 +5010,7 @@
     <tile x="25" y="33" tile="-1" rot="0" flipX="false"/>
     <tile x="26" y="33" tile="-1" rot="0" flipX="false"/>
     <tile x="27" y="33" tile="-1" rot="0" flipX="false"/>
-    <tile x="28" y="33" tile="2" rot="0" flipX="false"/>
+    <tile x="28" y="33" tile="-1" rot="0" flipX="false"/>
     <tile x="29" y="33" tile="-1" rot="0" flipX="false"/>
     <tile x="30" y="33" tile="8" rot="0" flipX="false"/>
     <tile x="31" y="33" tile="-1" rot="0" flipX="false"/>
@@ -5070,7 +5070,7 @@
     <tile x="25" y="34" tile="-1" rot="0" flipX="false"/>
     <tile x="26" y="34" tile="-1" rot="0" flipX="false"/>
     <tile x="27" y="34" tile="-1" rot="0" flipX="false"/>
-    <tile x="28" y="34" tile="2" rot="0" flipX="false"/>
+    <tile x="28" y="34" tile="-1" rot="0" flipX="false"/>
     <tile x="29" y="34" tile="-1" rot="0" flipX="false"/>
     <tile x="30" y="34" tile="-1" rot="0" flipX="false"/>
     <tile x="31" y="34" tile="-1" rot="0" flipX="false"/>

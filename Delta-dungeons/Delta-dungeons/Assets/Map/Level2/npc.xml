@@ -5,7 +5,7 @@
 </NPC>
 <NPC name="bugtrainer">
 <Dialogue text="WHERE ARE MY BUGS!"/>
-<Dialogue text="?"/>
+<Dialogue text="Brooo, check my rock-type Pokémon!"/> <!--~Raymond, 2020-->
 </NPC>
 <NPC name="acetrainer_m">
 <Dialogue text="I heard rumours about a gallade appearing in a lava area."/>
