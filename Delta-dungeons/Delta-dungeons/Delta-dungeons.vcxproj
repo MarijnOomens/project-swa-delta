@@ -159,12 +159,14 @@
     <ClCompile Include="AudioUtilities.cpp" />
     <ClCompile Include="Berry.cpp" />
     <ClCompile Include="Boomerang.cpp" />
+    <ClCompile Include="BoulderPuzzleObject.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="CreditScreen.cpp" />
     <ClCompile Include="CreditScreenScene.cpp" />
     <ClCompile Include="DebugUtilities.cpp" />
     <ClCompile Include="DialoguePopupScene.cpp" />
     <ClCompile Include="DialoguePopup.cpp" />
+    <ClCompile Include="DoorPuzzleObject.cpp" />
     <ClCompile Include="GameOverScreenScene.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="GameWinScreenScene.cpp" />
@@ -193,6 +195,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="NPCFactory.cpp" />
     <ClCompile Include="NPCParserData.cpp" />
+    <ClCompile Include="OrderTriggerPuzzleObject.cpp" />
     <ClCompile Include="PauseScreen.cpp" />
     <ClCompile Include="PauseScreenScene.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -201,31 +204,37 @@
     <ClCompile Include="Pokemon.cpp" />
     <ClCompile Include="PokemonFactory.cpp" />
     <ClCompile Include="PokemonParserData.cpp" />
-    <ClCompile Include="PuzzleObject.cpp" />
+    <ClCompile Include="Puzzle.cpp" />
     <ClCompile Include="ParserData.cpp" />
+    <ClCompile Include="PuzzleParserData.cpp" />
+    <ClCompile Include="ResetPuzzleObject.cpp" />
     <ClCompile Include="RunningShoes.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneLoader.cpp" />
     <ClCompile Include="SceneModifier.cpp" />
     <ClCompile Include="ThrowPokeball.cpp" />
+    <ClCompile Include="BoulderTriggerPuzzleObject.cpp" />
     <ClCompile Include="XMLFacade.cpp" />
     <ClCompile Include="XMLParser.cpp" />
     <ClCompile Include="XMLSceneParser.cpp" />
     <ClCompile Include="World.cpp" />
     <ClCompile Include="Screen.cpp" />
     <ClCompile Include="Tile.cpp" />
+    <ClCompile Include="PuzzleFactory.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Advertisement.h" />
     <ClInclude Include="AudioUtilities.h" />
     <ClInclude Include="Berry.h" />
     <ClInclude Include="Boomerang.h" />
+    <ClInclude Include="BoulderPuzzleObject.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="Creditscreen.h" />
     <ClInclude Include="CreditScreenScene.h" />
     <ClInclude Include="DebugUtilities.h" />
     <ClInclude Include="DialoguePopupScene.h" />
     <ClInclude Include="DialoguePopup.h" />
+    <ClInclude Include="DoorPuzzleObject.h" />
     <ClInclude Include="EquipmentFactory.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameObjectBuilder.h" />
@@ -247,11 +256,15 @@
     <ClInclude Include="LoadSaveScreenScene.h" />
     <ClInclude Include="MainMenuScene.h" />
     <ClInclude Include="NPCFactory.h" />
+    <ClInclude Include="OrderTriggerPuzzleObject.h" />
     <ClInclude Include="PauseScreenScene.h" />
     <ClInclude Include="Medal.h" />
     <ClInclude Include="NPCParserData.h" />
     <ClInclude Include="PokemonFactory.h" />
     <ClInclude Include="PokemonParserData.h" />
+    <ClInclude Include="Puzzle.h" />
+    <ClInclude Include="PuzzleParserData.h" />
+    <ClInclude Include="ResetPuzzleObject.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneModifier.h" />
     <ClInclude Include="ParserData.h" />
@@ -259,6 +272,7 @@
     <ClInclude Include="RunningShoes.h" />
     <ClInclude Include="SceneLoader.h" />
     <ClInclude Include="ThrowPokeball.h" />
+    <ClInclude Include="BoulderTriggerPuzzleObject.h" />
     <ClInclude Include="XMLFacade.h" />
     <ClInclude Include="XMLParser.h" />
     <ClInclude Include="XMLSceneParser.h" />
@@ -270,7 +284,6 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="Pokeball.h" />
     <ClInclude Include="Pokemon.h" />
-    <ClInclude Include="PuzzleObject.h" />
     <ClInclude Include="rapidxml.hpp" />
     <ClInclude Include="rapidxml_iterators.hpp" />
     <ClInclude Include="rapidxml_print.hpp" />
@@ -278,6 +291,7 @@
     <ClInclude Include="World.h" />
     <ClInclude Include="Screen.h" />
     <ClInclude Include="Tile.h" />
+    <ClInclude Include="PuzzleFactory.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

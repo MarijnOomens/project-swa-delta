@@ -58,6 +58,7 @@ void GameManager::createLevel(const std::string& levelName)
 	levelBuilder->setNPCs();
 	levelBuilder->setEquipment();
 	levelBuilder->setPokemon();
+	levelBuilder->setPuzzle();
 	levelBuilder->setPlayer(staticLoadNextLevelCallbackFunction, this);
 	Vector2D camPosition = levelBuilder->getPlayerPosition();
 	levelBuilder->setHud();

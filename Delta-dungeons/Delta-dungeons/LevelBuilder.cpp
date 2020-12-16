@@ -90,6 +90,19 @@ void LevelBuilder::setEquipment()
 	}
 }
 
+void LevelBuilder::setPuzzle()
+{
+	puzzleFactory.createPuzzle(levelName, staticInteractCallbackFunction, staticCheckCollisionCallbackFunction, this);
+	for (auto& t : puzzleFactory.passTextures())
+	{
+		scene.setTexture(t.first, t.second);
+	}
+	for (auto& bo : puzzleFactory.puzzleObjects)
+	{
+		behaviourObjects.emplace_back(bo.second);
+	}
+}
+
 Scene LevelBuilder::getScene()
 {
 	scene.name = levelName;

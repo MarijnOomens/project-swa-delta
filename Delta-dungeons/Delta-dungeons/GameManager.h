@@ -10,6 +10,8 @@
 #include "DialoguePopupScene.h"
 #include "EngineFacade.h"
 #include "SceneLoader.h"
+#include "PuzzleFactory.h"
+#include "Scene.h"
 #include "DebugUtilities.h"
 #include "SceneModifier.h"
 #include "AudioUtilities.h"
@@ -45,6 +47,6 @@ private:
 
 	std::unique_ptr<LevelBuilder> levelBuilder;
 	std::vector<Scene> scenes;
-	std::vector<std::string> levels{ "Level1", "Dungeon1","Level2", "Dungeon2","Level3", "Dungeon3", "Level4" };
+	std::vector<std::string> levels{ "Level1", "Dungeon1", "Level2", "Dungeon2", "Level3", "Dungeon3", "Level4" };
 	int currentlevel = 0;
 };

@@ -10,6 +10,7 @@
 //	return pokemon;
 //}
 
+
 std::shared_ptr<NPC> GameObjectBuilder::getNPC(int x, int y, std::string name, std::vector<std::string> dialogue)
 {
 	std::shared_ptr<NPC> npc = std::make_shared<NPC>(x, y, name, dialogue);
@@ -67,4 +68,34 @@ std::shared_ptr<IEquipment> GameObjectBuilder::getEquipment(int x, int y, const 
 		medal->textures.try_emplace(name + levelName , "Assets/Equipment/" + name + "_" + levelName + ".png");
 		return medal;
 	}
+}
+
+std::shared_ptr<IInteractiveObject> GameObjectBuilder::getPuzzle(int x, int y, const std::string& name, cbCollision collisionCB, cbInteract interactCB, void* p, int tileId)
+{
+	std::shared_ptr<IInteractiveObject> puzzleObject;
+
+	if (name == "boulder")
+	{
+		puzzleObject = std::make_shared<BoulderPuzzleObject>(interactCB, collisionCB, p, x, y, name);
+	}
+	else if (name == "boulder_button")
+	{
+		puzzleObject = std::make_shared<BoulderTriggerPuzzleObject>(x, y, name);
+	}
+	else if (name == "order_not_pressed")
+	{
+		puzzleObject = std::make_shared<OrderTriggerPuzzleObject>(x, y, name, tileId);
+	}
+	else if (name == "door")
+	{
+		puzzleObject = std::make_shared<DoorPuzzleObject>(x, y, name);
+	}
+	else if (name == "reset")
+	{
+		puzzleObject = std::make_shared<ResetPuzzleObject>(x, y, name);
+	}
+
+	puzzleObject->setParent();
+	puzzleObject->textures.try_emplace(name, "Assets/Equipment/" + name + ".png");
+	return puzzleObject;
 }
