@@ -6,7 +6,7 @@
 
 #include <string>
 
-typedef void(*cbInteract) (void*, std::shared_ptr<BehaviourObject>, int, int);
+typedef void(*cbInteract) (void*, std::shared_ptr<BehaviourObject>, int, int, int, int);
 typedef void(*cbCollision) (void*, std::shared_ptr<CollidingComponent>, std::shared_ptr<BehaviourObject>, int, int, KeyCodes, int);
 
 class BoulderPuzzleObject : public IInteractiveObject

@@ -8,7 +8,7 @@
 #include <memory>
 
 typedef void(*cbCollision) (void*, std::shared_ptr<CollidingComponent>, std::shared_ptr<BehaviourObject>, int, int, KeyCodes, int);
-typedef void(*cbInteract) (void*, std::shared_ptr<BehaviourObject>, int, int);
+typedef void(*cbInteract) (void*, std::shared_ptr<BehaviourObject>, int, int, int, int);
 
 class PuzzleFactory : public GameObjectFactory
 {

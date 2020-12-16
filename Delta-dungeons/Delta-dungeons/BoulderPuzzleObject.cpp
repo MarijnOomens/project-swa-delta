@@ -94,7 +94,7 @@ void BoulderPuzzleObject::move(KeyCodes direction)
 		{
 			pushed = true;
 			endY = transform.position.y - 128;
-			iFunc(lbPointer, shared_from_this(), transform.position.x, transform.position.y - 128);
+			iFunc(lbPointer, shared_from_this(), transform.position.x, transform.position.y - 128, 128, 128);
 		}
 		canPush = true;
 	}
@@ -105,7 +105,7 @@ void BoulderPuzzleObject::move(KeyCodes direction)
 		{
 			pushed = true;
 			endY = transform.position.y + 128;
-			iFunc(lbPointer, shared_from_this(), transform.position.x, transform.position.y + 128);
+			iFunc(lbPointer, shared_from_this(), transform.position.x, transform.position.y + 128, 128, 128);
 		}
 		canPush = true;
 	}
@@ -116,7 +116,7 @@ void BoulderPuzzleObject::move(KeyCodes direction)
 		{
 			pushed = true;
 			endX = transform.position.x - 128;
-			iFunc(lbPointer, shared_from_this(), transform.position.x - 128, transform.position.y);
+			iFunc(lbPointer, shared_from_this(), transform.position.x - 128, transform.position.y, 128, 128);
 		}
 		canPush = true;
 	}
@@ -127,7 +127,7 @@ void BoulderPuzzleObject::move(KeyCodes direction)
 		{
 			pushed = true;
 			endX = transform.position.x + 128;
-			iFunc(lbPointer, shared_from_this(), transform.position.x + 128, transform.position.y);
+			iFunc(lbPointer, shared_from_this(), transform.position.x + 128, transform.position.y, 128, 128);
 		}
 		canPush = true;
 	}

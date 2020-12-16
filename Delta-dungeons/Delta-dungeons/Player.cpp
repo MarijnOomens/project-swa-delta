@@ -124,6 +124,7 @@ void Player::handleKeyPressed(const KeyCodes& keyCodes)
 		}
 		break;
 	case KeyCodes::KEY_E:
+		getIdleAnimation();
 		handleInteraction();
 		break;
 	case KeyCodes::KEY_B:
