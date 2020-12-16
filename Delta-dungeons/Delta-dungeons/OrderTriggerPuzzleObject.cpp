@@ -73,7 +73,7 @@ void OrderTriggerPuzzleObject::setParent()
 
 void OrderTriggerPuzzleObject::start() 
 {
-	gc->setTexture("order_button");
+	gc->setTexture("order_not_pressed");
 	triggered = false;
 }
 
