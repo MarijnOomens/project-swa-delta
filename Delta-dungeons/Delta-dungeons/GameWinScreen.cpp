@@ -39,5 +39,3 @@ void GameWinScreen::nextCallbackFunction() const
 {
 	SceneLoader::getInstance().loadScene("HighScoreScreen", "", true);
 }
-
-void GameWinScreen::setParent() {}

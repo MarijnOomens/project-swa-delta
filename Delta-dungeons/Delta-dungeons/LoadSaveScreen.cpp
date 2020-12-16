@@ -55,5 +55,3 @@ void LoadSaveScreen::backCallbackFunction() const
 {
 	SceneLoader::getInstance().loadPreviousScene();
 }
-
-void LoadSaveScreen::setParent() {}

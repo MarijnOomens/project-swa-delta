@@ -85,5 +85,3 @@ void MainMenu::exitCallbackFunction() const
 {
 	SceneLoader::getInstance().quitGame();
 }
-
-void MainMenu::setParent() {}

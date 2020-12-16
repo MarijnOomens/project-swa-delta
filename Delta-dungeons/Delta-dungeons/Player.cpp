@@ -200,9 +200,8 @@ void Player::handleKeyReleased(const KeyCodes& keyCodes)
 	hasMoved = false;
 }
 
-void Player::update() {}
-
-void Player::setParent() {
+void Player::setParent() 
+{
 	cc->parent = shared_from_this();
 }
 
@@ -292,8 +291,6 @@ void Player::addEquipment(std::unique_ptr<IEquipment> item)
 	equipment.emplace_back(std::move(item));
 }
 
-void::Player::updateCaughtPokemon(int pokemonId) {}
-
 std::vector<std::string> Player::getItems()
 {
 	std::vector<std::string> items;
@@ -304,7 +301,8 @@ std::vector<std::string> Player::getItems()
 	return items;
 }
 
-std::shared_ptr<CollidingComponent> Player::getCollider() {
+std::shared_ptr<CollidingComponent> Player::getCollider() 
+{
 	return cc;
 }
 
@@ -358,7 +356,8 @@ void Player::pokeballCallbackFunction()
 	amountOfPokemons += 1;
 }
 
-void Player::registerHit() {
+void Player::registerHit() 
+{
 	if (health > 1) 
 	{
 		health--;
@@ -374,8 +373,8 @@ void Player::registerHit() {
 	
 }
 
-void Player::eatBerry() {
-	
+void Player::eatBerry() 
+{	
 	if ((health < maxHealth && amountOfBerries > 0) || infinteBerries) //maxHealth
 	{
 		health++;
@@ -387,13 +386,14 @@ void Player::eatBerry() {
 	}
 }
 
-void Player::addBerry() {
+void Player::addBerry() 
+{
 	amountOfBerries += 1;
 	hudFunc(pointer, health, amountOfBerries, amountOfPokeballs);
 }
 
-void Player::usePokeball() {
-
+void Player::usePokeball() 
+{
 	if ((amountOfPokeballs > 0 || infinitePokeballs) && !pokeball->isMoving) 
 	{
 		if (!infinitePokeballs)
@@ -416,20 +416,20 @@ void Player::usePokeball() {
 	}
 }
 
-void Player::addPokeball() {
+void Player::addPokeball() 
+{
 	amountOfPokeballs += 1;
 	hudFunc(pointer, health, amountOfBerries, amountOfPokeballs);
 }
 
-void Player::registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger) {
+void Player::registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger) 
+{
 	if (isDamaged && !noDamageCheat) { registerHit(); }
 	if (isTransitioned) { isNewLevel = true; nextLevelFunc(gmPointer); }
 	if (isWinTrigger) { SceneLoader::getInstance().loadScene("GameWinScreen", SceneLoader::getInstance().getCurrentLevel(), false); }
 
 	hasMoved = true;
 }
-
-void Player::start(){}
 
 void Player::getIdleAnimation()
 {

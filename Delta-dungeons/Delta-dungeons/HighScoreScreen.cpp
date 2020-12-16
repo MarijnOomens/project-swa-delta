@@ -38,8 +38,6 @@ void HighScoreScreen::exitCallbackFunction() const
 	SceneLoader::getInstance().loadScene("MainMenuScreen", "", true);
 }
 
-void HighScoreScreen::setParent() {}
-
 void HighScoreScreen::start()
 {
 	score = GameState::getInstance().getHighScore();

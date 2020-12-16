@@ -28,5 +28,3 @@ void GameOverScreen::nextCallbackFunction() const
 {
 	SceneLoader::getInstance().loadScene("HighScoreScreen", "", true);
 }
-
-void GameOverScreen::setParent() {}
