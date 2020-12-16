@@ -31,9 +31,6 @@ public:
 	void start() override;
 	void update() override;
 
-	void updateTransform(int x, int y);
-
-
 private:
 	std::shared_ptr<CollisionStrategy> stp;
 	std::shared_ptr<GraphicsComponent> gc;

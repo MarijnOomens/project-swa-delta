@@ -60,12 +60,6 @@ void OrderTriggerPuzzleObject::interact(std::shared_ptr<BehaviourObject> interac
 
 void OrderTriggerPuzzleObject::registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger) {}
 
-void OrderTriggerPuzzleObject::updateTransform(int x, int y) 
-{
-	this->transform.position = { x, y };
-	gc->transform = transform;
-}
-
 void OrderTriggerPuzzleObject::setParent() 
 {
 	orderPuzzleObject = shared_from_this();
