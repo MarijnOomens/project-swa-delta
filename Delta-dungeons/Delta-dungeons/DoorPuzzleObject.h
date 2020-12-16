@@ -6,8 +6,6 @@
 
 #include <string>
 
-typedef void(*cbTriggerCollision) (void*);
-
 class DoorPuzzleObject : public IInteractiveObject
 {
 public:

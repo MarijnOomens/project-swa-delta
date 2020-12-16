@@ -22,9 +22,9 @@ public:
 	static void staticOrderTriggerCallbackFunction(void* p, int orderNumber);
 	void orderTrigger(int orderNumber);
 
+	bool searchOrderTriggerPuzzle(int orderNumber);
 	void resetOrder();
 	void openDoors(const std::string& puzzleName);
-
 	int getOrderTriggerAmount();
 	void setCallbacks();
 

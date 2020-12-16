@@ -5,7 +5,6 @@ Puzzle::Puzzle(std::multimap<std::string, std::shared_ptr<IInteractiveObject>> p
 	setCallbacks();
 }
 
-
 void Puzzle::staticResetBouldersCallbackFunction(void* p)
 {
 	((Puzzle*)p)->resetBoulders();
@@ -60,48 +59,33 @@ void Puzzle::staticOrderTriggerCallbackFunction(void* p, int orderNumber)
 
 void Puzzle::orderTrigger(int orderNumber)
 {
-	int max = getOrderTriggerAmount();
-	int orderCounter = 0;
-	bool isOrderCorrect = false;
-	bool exit = false;
+	bool isOrderCorrect = true;
 
-	while (!exit && orderNumber != 0)
+	for (int i = 0; i < orderNumber; i++)
 	{
-		for (auto& object : puzzleObjects)
+		if (!searchOrderTriggerPuzzle(i))
 		{
-			if (object.first == "puzzle2", dynamic_cast<OrderTriggerPuzzleObject*>(object.second.get()))
-			{
-				auto orderObject = dynamic_cast<OrderTriggerPuzzleObject*>(object.second.get());
-				if (orderCounter == orderObject->orderNumber)
-				{
-					if (!orderObject->triggered)
-					{
-						resetOrder();
-						exit = true;
-					}
-					else
-					{
-						if (orderCounter == max) {
-							isOrderCorrect = true;
-							exit = true; 
-						}
-						else if (orderCounter == orderNumber)
-						{
-							exit = true; 
-						}
-						else
-						{
-							orderCounter++;
-						}
-					}
-				}
-			}
+			resetOrder();
+			isOrderCorrect = false;
+			break;
 		}
 	}
 
-	if (isOrderCorrect && orderCounter == max)
+	if (isOrderCorrect && getOrderTriggerAmount() == orderNumber)
 	{
 		openDoors("puzzle2");
+	}
+}
+
+bool Puzzle::searchOrderTriggerPuzzle(int orderNumber)
+{
+	for (auto& object : this->puzzleObjects)
+	{
+		auto triggerObject = dynamic_cast<OrderTriggerPuzzleObject*>(object.second.get());
+		if (triggerObject != nullptr && triggerObject->orderNumber == orderNumber)
+		{
+			return triggerObject->triggered;
+		}
 	}
 }
 
