@@ -17,7 +17,7 @@ public:
 	BoulderPuzzleObject() {}
 	~BoulderPuzzleObject() {}
 
-	BoulderPuzzleObject(cbInteract, cbCollision, void* lbP, int x, int y, const std::string& texture);
+	BoulderPuzzleObject(cbInteract cbI, cbCollision cbC, void* lbP, int x, int y, const std::string& texture);
 
 	void handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
 	void interact(std::shared_ptr<BehaviourObject> interactor) override;
