@@ -9,8 +9,7 @@ class GameWinScreen : public Screen
 {
 public:
 	GameWinScreen();
-	~GameWinScreen() {}
-	void setParent() override;
+	void setParent() override {}
 
 	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
 

@@ -63,5 +63,3 @@ void PauseScreen::exitCallbackFunction() const
 {
 	SceneLoader::getInstance().loadScene("MainMenuScreen", "", true);
 }
-
-void PauseScreen::setParent() {}

@@ -10,7 +10,7 @@ class PauseScreen : public Screen
 {
 public:
 	PauseScreen();
-	void setParent() override;
+	void setParent() override {}
 
 	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
 	static void staticOpenHelpCallbackFunction(const void* p);

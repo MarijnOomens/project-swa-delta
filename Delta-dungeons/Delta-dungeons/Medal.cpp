@@ -1,6 +1,7 @@
 #include "Medal.h"
 
-Medal::Medal(int x, int y, std::string texture) {
+Medal::Medal(int x, int y, std::string texture) 
+{
 	this->transform.position = { x * 128, y * 128 };
 	this->transform.scale.multiply({ 4, 4 });
 
@@ -28,13 +29,3 @@ void Medal::interact(std::shared_ptr<BehaviourObject> parent)
 		gc = nullptr;
 	}
 }
-
-void Medal::use() {}
-
-void Medal::setParent() {}
-
-void Medal::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) {}
-
-void Medal::start() {}
-
-void Medal::update() {}

@@ -9,7 +9,7 @@ public:
 	HighScoreScreen();
 	~HighScoreScreen() {};
 
-	void setParent() override;
+	void setParent() override {}
 	void start() override;
 
 	static void staticExitCallbackFunction(const void* p);

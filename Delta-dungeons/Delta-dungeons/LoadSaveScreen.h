@@ -13,7 +13,7 @@ public:
 	LoadSaveScreen();
 
 	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
-	void setParent() override;
+	void setParent() override {}
 
 	static void staticLoad1CallbackFunction(const void* p);
 	void load1CallbackFunction() const;

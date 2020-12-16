@@ -26,8 +26,9 @@ public:
 	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
 	void update() override;
 	void start() override;
-	void setParent() override;
-	void interact(std::shared_ptr<BehaviourObject> interactor) override;
+	void setParent() override {}
+	void interact(std::shared_ptr<BehaviourObject> interactor) override {}
+	void registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger) override {}
 
 private:
 	int x = 0, y = 0;

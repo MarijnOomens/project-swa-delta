@@ -12,15 +12,14 @@ typedef void(*cbThrowCollision) (void*, std::shared_ptr<BehaviourObject>, int, i
 class ThrowPokeball : public IEquipment
 {
 public:
-	ThrowPokeball() {}
 	ThrowPokeball(const cbThrowCollision tF, const cbSentPokemon f, void* p, void* g);
 
 	void interact(std::shared_ptr<BehaviourObject> interactor) override;
-	void use() override;
-	void start() override;
+	void use() override {}
+	void start() override {}
 	void setParent() override;
-
-	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos)override;
+	void registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger) override {}
+	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos)override {}
 	void update() override;
 	void moveUp(int x, int y);
 	void moveDown(int x, int y);

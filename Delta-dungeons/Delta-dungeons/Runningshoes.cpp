@@ -48,9 +48,3 @@ void RunningShoes::use()
 void RunningShoes::setParent() {
 	cc->parent = shared_from_this();
 }
-
-void RunningShoes::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) {}
-
-void RunningShoes::update() {}
-
-void RunningShoes::start() {}
