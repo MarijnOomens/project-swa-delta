@@ -167,7 +167,6 @@
     <ClCompile Include="DialoguePopupScene.cpp" />
     <ClCompile Include="DialoguePopup.cpp" />
     <ClCompile Include="DoorPuzzleObject.cpp" />
-    <ClCompile Include="BoulderGameOverPuzzleObject.cpp" />
     <ClCompile Include="GameOverScreenScene.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="GameWinScreenScene.cpp" />
@@ -241,7 +240,6 @@
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameObjectBuilder.h" />
     <ClInclude Include="GameObjectFactory.h" />
-    <ClInclude Include="BoulderGameOverPuzzleObject.h" />
     <ClInclude Include="GameOverScreen.h" />
     <ClInclude Include="GameOverScreenScene.h" />
     <ClInclude Include="GameState.h" />

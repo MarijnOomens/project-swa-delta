@@ -255,9 +255,6 @@
     <ClCompile Include="Puzzle.cpp">
       <Filter>Source Files\Game</Filter>
     </ClCompile>
-    <ClCompile Include="BoulderGameOverPuzzleObject.cpp">
-      <Filter>Source Files\Game\GameObjects\InteractiveObjects</Filter>
-    </ClCompile>
     <ClCompile Include="ResetPuzzleObject.cpp">
       <Filter>Source Files\Game\GameObjects\InteractiveObjects</Filter>
     </ClCompile>
@@ -469,9 +466,6 @@
     </ClInclude>
     <ClInclude Include="Puzzle.h">
       <Filter>Header Files\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="BoulderGameOverPuzzleObject.h">
-      <Filter>Header Files\Game\GameObjects\InteractiveObjects</Filter>
     </ClInclude>
     <ClInclude Include="ResetPuzzleObject.h">
       <Filter>Header Files\Game\GameObjects\InteractiveObjects</Filter>
