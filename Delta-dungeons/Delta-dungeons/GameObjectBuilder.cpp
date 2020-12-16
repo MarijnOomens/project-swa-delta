@@ -86,7 +86,7 @@ std::shared_ptr<IInteractiveObject> GameObjectBuilder::getPuzzle(int x, int y, c
 		boulderTrigger->textures.try_emplace(name, "Assets/Equipment/" + name + ".png");
 		return boulderTrigger;
 	}
-	else if (name == "order_button")
+	else if (name == "order_not_pressed")
 	{
 		std::shared_ptr<OrderTriggerPuzzleObject> orderTrigger = std::make_shared<OrderTriggerPuzzleObject>(x, y, name, tileId);
 		orderTrigger->setParent();
@@ -100,7 +100,7 @@ std::shared_ptr<IInteractiveObject> GameObjectBuilder::getPuzzle(int x, int y, c
 		door->textures.try_emplace(name, "Assets/Equipment/" + name + ".png");
 		return door;
 	}
-	else if (name == "boulder_game_over")
+	else if (name == "crack")
 	{
 		std::shared_ptr<BoulderGameOverPuzzleObject> boulderGameOver = std::make_shared<BoulderGameOverPuzzleObject>(x, y, name);
 		boulderGameOver->setParent();
@@ -111,7 +111,7 @@ std::shared_ptr<IInteractiveObject> GameObjectBuilder::getPuzzle(int x, int y, c
 	{
 		std::shared_ptr<ResetPuzzleObject> boulderGameOver = std::make_shared<ResetPuzzleObject>(x, y, name);
 		boulderGameOver->setParent();
-		boulderGameOver->textures.try_emplace(name, "Assets/Equipment/pokeball.png");
+		boulderGameOver->textures.try_emplace(name, "Assets/Equipment/" + name + ".png");
 		return boulderGameOver;
 	}
 }

@@ -2,9 +2,11 @@
 
 OrderTriggerPuzzleObject::OrderTriggerPuzzleObject(int x, int y, const std::string& texture, int tileId)
 {
+	this->textures.try_emplace("order_pressed", "Assets/Equipment/order_pressed.png");
 	this->transform.position = { x * 128, y * 128 };
 	this->transform.scale.multiply({ 4, 4 });
 	setOrderNumber(tileId);
+
 
 	gc = std::make_shared<GraphicsComponent>();
 	gc->setTexture(texture);
@@ -51,6 +53,7 @@ void OrderTriggerPuzzleObject::handleInput(const KeyCodes& keyCodes, const Keybo
 
 void OrderTriggerPuzzleObject::interact(std::shared_ptr<BehaviourObject> interactor)
 {
+	gc->setTexture("order_pressed");
 	triggered = true;
 	oFunc(pointer, orderNumber);
 }
@@ -70,6 +73,7 @@ void OrderTriggerPuzzleObject::setParent()
 
 void OrderTriggerPuzzleObject::start() 
 {
+	gc->setTexture("order_button");
 	triggered = false;
 }
 
