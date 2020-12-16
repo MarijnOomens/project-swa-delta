@@ -1,6 +1,7 @@
 #include "Pokeball.h"
 
-Pokeball::Pokeball(int x, int y, std::string texture) {
+Pokeball::Pokeball(int x, int y, std::string texture) 
+{
 	this->transform.position = { x * 128, y * 128 };
 	this->transform.scale.multiply({ 4, 4 });
 
@@ -32,15 +33,7 @@ void Pokeball::interact(std::shared_ptr<BehaviourObject> interactor)
 	}
 }
 
-void Pokeball::use() {
-}
-
-void Pokeball::setParent() {
+void Pokeball::setParent() 
+{
 	cc->parent = shared_from_this();
 }
-
-void Pokeball::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) {}
-
-void Pokeball::start() {}
-
-void Pokeball::update() {}

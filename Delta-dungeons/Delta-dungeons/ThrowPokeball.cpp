@@ -22,7 +22,8 @@ ThrowPokeball::ThrowPokeball(const cbThrowCollision tF, const cbSentPokemon f, v
 	this->components.emplace_back(cc);
 }
 
-void ThrowPokeball::interact(std::shared_ptr<BehaviourObject> interactor) {
+void ThrowPokeball::interact(std::shared_ptr<BehaviourObject> interactor) 
+{
 	auto object = dynamic_cast<Pokemon*>(interactor.get());
 	if (object != nullptr) {
 		GameState::getInstance().addCaughPokemon(1);
@@ -32,33 +33,36 @@ void ThrowPokeball::interact(std::shared_ptr<BehaviourObject> interactor) {
 	reset();
 }
 
-void ThrowPokeball::moveUp(int x, int y) {
+void ThrowPokeball::moveUp(int x, int y) 
+{
 	updateTransform(x, y);
 	isMoving = true;
 	direction = "up";
 }
 
-void ThrowPokeball::moveDown(int x, int y) {
+void ThrowPokeball::moveDown(int x, int y) 
+{
 	updateTransform(x, y);
 	isMoving = true;
 	direction = "down";
 }
 
-void ThrowPokeball::moveLeft(int x, int y) {
+void ThrowPokeball::moveLeft(int x, int y) 
+{
 	updateTransform(x, y);
 	isMoving = true;
 	direction = "left";
 }
 
-void ThrowPokeball::moveRight(int x, int y) {
+void ThrowPokeball::moveRight(int x, int y) 
+{
 	updateTransform(x, y);
 	isMoving = true;
 	direction = "right";
 }
 
-void ThrowPokeball::use() {}
-
-void ThrowPokeball::update() {
+void ThrowPokeball::update() 
+{
 	if (isMoving) {
 		if (direction == "up") {
 			updateTransform(transform.position.x, transform.position.y - 16);
@@ -78,22 +82,21 @@ void ThrowPokeball::update() {
 	}
 }
 
-void ThrowPokeball::updateTransform(int x, int y) {
+void ThrowPokeball::updateTransform(int x, int y) 
+{
 	this->transform.position = { x, y };
 	gc->transform = transform;
 	cc->transform = transform;
 }
 
-void ThrowPokeball::reset() {
+void ThrowPokeball::reset() 
+{
 	updateTransform(-10, -10);
 	isMoving = false;
 	direction = "";
 }
 
-void ThrowPokeball::setParent() {
+void ThrowPokeball::setParent() 
+{
 	cc->parent = shared_from_this();
 }
-
-void ThrowPokeball::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) {}
-
-void ThrowPokeball::start() {}

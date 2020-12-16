@@ -33,14 +33,7 @@ void Berry::interact(std::shared_ptr<BehaviourObject> interactor)
     }
 }
 
-void Berry::use() {}
-
-void Berry::setParent() {
+void Berry::setParent() 
+{
     cc->parent = shared_from_this();
 }
-
-void Berry::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) {}
-
-void Berry::update() {}
-
-void Berry::start() {}

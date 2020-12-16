@@ -62,5 +62,3 @@ void HelpScreen::backCallbackFunction() const
 {
 	SceneLoader::getInstance().loadPreviousScene();
 }
-
-void HelpScreen::setParent() {}

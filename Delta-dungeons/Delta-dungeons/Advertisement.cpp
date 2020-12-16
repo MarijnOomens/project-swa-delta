@@ -20,13 +20,3 @@ Advertisement::Advertisement(int x, int y, const std::vector<std::string>& textu
 	m_gc->setTexture(possibleTextures[0]);
 	this->components.emplace_back(m_gc);
 }
-
-void Advertisement::update() {}
-
-void Advertisement::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) {}
-
-void Advertisement::interact(std::shared_ptr<BehaviourObject> interactor) {}
-
-void Advertisement::setParent() {}
-
-void Advertisement::start() {}

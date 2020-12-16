@@ -71,19 +71,11 @@ void HUD::updateHUD(int h, int b, int p)
 	ballsCount->changeText(std::to_string(amountOfPokeballs));
 }
 
-void HUD::updateCollectedCrystals(int param) {}
-
-void HUD::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos){}
-
 void HUD::update() 
 {
 	int scoreInt = GameState::getInstance().getCaughtPokemon();
 	score->changeText("Score " + std::to_string(scoreInt));
 }
-
-void HUD::setParent() {}
-
-void HUD::interact(std::shared_ptr<BehaviourObject> interactor) {}
 
 void HUD::addHealth()
 {
@@ -115,5 +107,3 @@ void HUD::addItem(const std::string& texturepath)
 	SceneModifier::getInstance().addObjectToScene(itemGc);
 	amountItems++;
 }
-
-void HUD::start() {}

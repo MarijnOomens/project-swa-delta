@@ -51,7 +51,7 @@ public:
 	void moveRight();
 
 	void addEquipment(std::unique_ptr<IEquipment> equipment);
-	void updateCaughtPokemon(int pokemonId);
+	void updateCaughtPokemon(int pokemonId) {}
 	std::vector<std::string> getItems();
 	std::shared_ptr<CollidingComponent> getCollider();
 
@@ -64,9 +64,9 @@ public:
 	static void staticPokeballCallbackFunction(void* p);
 	void pokeballCallbackFunction();
 
-	void update() override;
+	void update() override {}
 	void setParent() override;
-	void start() override;
+	void start() override {}
 	void handleInteraction();
 	void registerHit();
 	void eatBerry();

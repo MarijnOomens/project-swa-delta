@@ -10,15 +10,15 @@
 class Pokeball : public IEquipment
 {
 public:
-	Pokeball() {}
 	Pokeball(int x, int y, std::string texture);
 
 	void setParent() override;
-	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos)override;
-	void start()override;
-	void update() override;
+	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos)override {}
+	void start()override {}
+	void update() override {}
 	void interact(std::shared_ptr<BehaviourObject> interactor) override;
-	void use() override;
+	void use() override {}
+	void registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger) override {}
 
 private:
 	void* pointer;

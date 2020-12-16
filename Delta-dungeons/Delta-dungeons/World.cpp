@@ -83,7 +83,3 @@ void World::start()
 {
 	AudioUtilities::getInstance().playAudio("match", true);
 }
-
-void World::setParent() {}
-
-void World::interact(std::shared_ptr<BehaviourObject> interactor) {}

@@ -91,13 +91,3 @@ void Tile::addGraphicsComponent(const std::string& name)
 	gc->isScreen = false;
 	this->components.emplace_back(gc);
 }
-
-void Tile::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) {}
-
-void Tile::update() {}
-
-void Tile::setParent() {}
-
-void Tile::interact(std::shared_ptr<BehaviourObject> interactor) {}
-
-void Tile::start() {}

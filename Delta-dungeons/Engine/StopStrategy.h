@@ -1,7 +1,7 @@
 #pragma once
 #include <memory>
 #include "CollisionStrategy.h"
-#include "IInteractiveObject.h"
+#include "GameObject.h"
 
 class StopStrategy : public CollisionStrategy
 {
