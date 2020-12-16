@@ -84,9 +84,6 @@
     <ClCompile Include="Pokemon.cpp">
       <Filter>Source Files\Game\GameObjects\InteractiveObjects</Filter>
     </ClCompile>
-    <ClCompile Include="PuzzleObject.cpp">
-      <Filter>Source Files\Game\GameObjects\InteractiveObjects</Filter>
-    </ClCompile>
     <ClCompile Include="Button.cpp">
       <Filter>Source Files\Game\GameObjects\Screens</Filter>
     </ClCompile>
@@ -327,9 +324,6 @@
       <Filter>Header Files\Game\GameObjects\Items</Filter>
     </ClInclude>
     <ClInclude Include="Pokemon.h">
-      <Filter>Header Files\Game\GameObjects\InteractiveObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="PuzzleObject.h">
       <Filter>Header Files\Game\GameObjects\InteractiveObjects</Filter>
     </ClInclude>
     <ClInclude Include="NPC.h">

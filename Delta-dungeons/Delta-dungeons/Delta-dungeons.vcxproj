@@ -205,7 +205,6 @@
     <ClCompile Include="PokemonFactory.cpp" />
     <ClCompile Include="PokemonParserData.cpp" />
     <ClCompile Include="Puzzle.cpp" />
-    <ClCompile Include="PuzzleObject.cpp" />
     <ClCompile Include="ParserData.cpp" />
     <ClCompile Include="PuzzleParserData.cpp" />
     <ClCompile Include="ResetPuzzleObject.cpp" />
@@ -285,7 +284,6 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="Pokeball.h" />
     <ClInclude Include="Pokemon.h" />
-    <ClInclude Include="PuzzleObject.h" />
     <ClInclude Include="rapidxml.hpp" />
     <ClInclude Include="rapidxml_iterators.hpp" />
     <ClInclude Include="rapidxml_print.hpp" />
