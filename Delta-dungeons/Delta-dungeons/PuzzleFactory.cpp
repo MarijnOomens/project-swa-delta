@@ -43,11 +43,6 @@ void PuzzleFactory::createPuzzleOne(std::shared_ptr<ParserData> parsedData, std:
 		puzzleObjects.insert(std::pair<std::string, std::shared_ptr<IInteractiveObject>>("puzzle1",
 			builder->getPuzzle(std::stoi(parsedData->x), std::stoi(parsedData->y), "door", levelName, collisionCb, interactCb, p, std::stoi(parsedData->tileId))));
 	}
-	else if (std::stoi(parsedData->tileId) == 21)
-	{
-		puzzleObjects.insert(std::pair<std::string, std::shared_ptr<IInteractiveObject>>("puzzle1",
-			builder->getPuzzle(std::stoi(parsedData->x), std::stoi(parsedData->y), "crack", levelName, collisionCb, interactCb, p, std::stoi(parsedData->tileId))));
-	}
 	else if (std::stoi(parsedData->tileId) == 2)
 	{
 		puzzleObjects.insert(std::pair<std::string, std::shared_ptr<IInteractiveObject>>("puzzle1",

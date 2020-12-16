@@ -12,7 +12,6 @@
 #include "BoulderTriggerPuzzleObject.h"
 #include "DoorPuzzleObject.h"
 #include "OrderTriggerPuzzleObject.h"
-#include "BoulderGameOverPuzzleObject.h"
 #include "ResetPuzzleObject.h"
 
 class GameObjectBuilder 
