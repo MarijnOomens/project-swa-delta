@@ -11,7 +11,7 @@
 #include "ThrowPokeball.h"
 #include "SceneLoader.h"
 
-typedef void(*cbInteract) (void*, std::shared_ptr<BehaviourObject>, int, int);
+typedef void(*cbInteract) (void*, std::shared_ptr<BehaviourObject>, int, int, int, int);
 typedef void(*cbCamera) (void*, int, int);
 typedef void(*cbGameOver) (void*);
 typedef void(*cbHUD) (void*, int, int, int);
@@ -51,7 +51,6 @@ public:
 	void moveRight();
 
 	void addEquipment(std::unique_ptr<IEquipment> equipment);
-	void damagePlayer(int damage);
 	void updateCaughtPokemon(int pokemonId);
 	std::vector<std::string> getItems();
 	std::shared_ptr<CollidingComponent> getCollider();
@@ -73,7 +72,8 @@ public:
 	void eatBerry();
 	void addBerry();
 	void usePokeball();
-	void addPokeball();	
+	void addPokeball();
+	void getIdleAnimation();
 	
 	int health = 5;
 	int maxHealth = 5;
@@ -93,6 +93,7 @@ private:
 	bool noDamageCheat = false;
 	bool infinteBerries = false;
 	bool infinitePokeballs = false;
+	bool isNewLevel = false;
 	std::vector<int> pokemonCaught;
 	std::vector<std::unique_ptr<IEquipment>> equipment;
 	std::shared_ptr<StopStrategy> stp;

@@ -4,6 +4,7 @@
 #include "TextComponent.h"
 #include "SceneLoader.h"
 #include "Button.h"
+#include "GameState.h"
 
 class LoadSaveScreen : public Screen
 {

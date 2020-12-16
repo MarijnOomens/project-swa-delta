@@ -4,6 +4,7 @@
 #include "GraphicsComponent.h"
 #include <map>
 #include "SceneModifier.h"
+#include "GameState.h"
 
 class HUD : public GameObject
 {
@@ -16,7 +17,6 @@ public:
 
 	void updateHUD(int health, int berries, int pokeballs);
 	void updateCollectedCrystals(int param);
-	void updateHighScore(int param);
 	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
 	void update() override;
 	void setParent() override;
@@ -36,5 +36,5 @@ private:
 	std::shared_ptr<TextComponent> ballsCount;
 	int amountItems = 0;
 	int collectedCrystals;
-	int highScore;
+	std::shared_ptr<TextComponent> score;
 };

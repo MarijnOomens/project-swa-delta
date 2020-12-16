@@ -95,39 +95,29 @@ void Player::handleKeyPressed(const KeyCodes& keyCodes)
 {
 	switch (keyCodes)
 	{
+	case KeyCodes::KEY_W:
 	case KeyCodes::KEY_UP:
 		moveUp();
 		if (!isWalking) { moveUp(); }
 		break;
+	case KeyCodes::KEY_S:
 	case KeyCodes::KEY_DOWN:
 		moveDown();
 		if (!isWalking) { moveDown(); }
 		break;
+	case KeyCodes::KEY_A:
 	case KeyCodes::KEY_LEFT:
 		moveLeft();
 		if (!isWalking) { moveLeft(); }
 		break;
+	case KeyCodes::KEY_D:
 	case KeyCodes::KEY_RIGHT:
 		moveRight();
 		if (!isWalking){ moveRight(); }
 		break;
-	case KeyCodes::KEY_W:
-		moveUp();
-		if (!isWalking)moveUp();
-		break;
-	case KeyCodes::KEY_S:
-		moveDown();
-		if (!isWalking)moveDown();
-		break;
-	case KeyCodes::KEY_A:
-		moveLeft();
-		if (!isWalking)moveLeft();
-		break;
-	case KeyCodes::KEY_D:
-		moveRight();
-		if (!isWalking)moveRight();
-		break;
 	case KeyCodes::KEY_Q:
+		hasMoved = false;
+		getIdleAnimation();
 		for (auto& comp : equipment)
 		{
 			comp->use();
@@ -151,10 +141,6 @@ void Player::handleKeyPressed(const KeyCodes& keyCodes)
 			this->texture = "player_m";
 		}
 		break;
-	//skip collision kan later geimplementeerd worden
-	//case KeyCodes::KEY_C:
-	//	DebugUtilities::getInstance().toggleCheatCollision();
-	//	break;
 	case KeyCodes::KEY_C:
 		usePokeball();
 		break;
@@ -178,16 +164,16 @@ void Player::handleKeyPressed(const KeyCodes& keyCodes)
 void Player::handleInteraction()
 {
 	if (KeyCodes::KEY_UP == currentDirection || KeyCodes::KEY_W == currentDirection) {
-		interactFunc(pointer, shared_from_this(), transform.position.x, transform.position.y - 128);
+		interactFunc(pointer, shared_from_this(), transform.position.x, transform.position.y - 128, 128, 128);
 	}
 	else if (KeyCodes::KEY_LEFT == currentDirection || KeyCodes::KEY_A == currentDirection) {
-		interactFunc(pointer, shared_from_this(), transform.position.x - 128, transform.position.y);
+		interactFunc(pointer, shared_from_this(), transform.position.x - 128, transform.position.y, 128, 128);
 	}
 	else if (KeyCodes::KEY_RIGHT == currentDirection || KeyCodes::KEY_D == currentDirection) {
-		interactFunc(pointer, shared_from_this(), transform.position.x + 128, transform.position.y);
+		interactFunc(pointer, shared_from_this(), transform.position.x + 128, transform.position.y, 128, 128);
 	}
 	else if (KeyCodes::KEY_DOWN == currentDirection || KeyCodes::KEY_S == currentDirection) {
-		interactFunc(pointer, shared_from_this(), transform.position.x, transform.position.y + 128);
+		interactFunc(pointer, shared_from_this(), transform.position.x, transform.position.y + 128, 128, 128);
 	}
 }
 
@@ -199,30 +185,15 @@ void Player::handleKeyReleased(const KeyCodes& keyCodes)
 {
 	switch (keyCodes)
 	{
-	case KeyCodes::KEY_UP:
-		gc->playAnimation(4, 3, animationSpeed, false);
-		break;
-	case KeyCodes::KEY_DOWN:
-		gc->playAnimation(0, 3, animationSpeed, false);
-		break;
-	case KeyCodes::KEY_LEFT:
-		gc->playAnimation(5, 3, animationSpeed, false);
-		break;
-	case KeyCodes::KEY_RIGHT:
-		gc->playAnimation(5, 3, animationSpeed, true);
-		break;
 	case KeyCodes::KEY_W:
-		gc->playAnimation(4, 3, animationSpeed, false);
-		break;
+	case KeyCodes::KEY_UP:
 	case KeyCodes::KEY_S:
-		gc->playAnimation(0, 3, animationSpeed, false);
-		break;
+	case KeyCodes::KEY_DOWN:
 	case KeyCodes::KEY_A:
-		gc->playAnimation(5, 3, animationSpeed, false);
-		break;
+	case KeyCodes::KEY_LEFT:
 	case KeyCodes::KEY_D:
-		gc->playAnimation(5, 3, animationSpeed, true);
-		break;
+	case KeyCodes::KEY_RIGHT:
+		getIdleAnimation();
 	default:
 		break;
 	}
@@ -242,9 +213,9 @@ void Player::setParent() {
 void Player::moveUp()
 {
 	//de huidige positie bijhouden.
-	if (!hasMoved || noCollisionCheat) {
+	if (!hasMoved || (noCollisionCheat && !isNewLevel)) {
 		collisionFunc(pointer, cc, shared_from_this(), this->transform.position.x, this->transform.position.y - baseMovementSpeed, KeyCodes::KEY_UP, (gc->imageDimensions.x * gc->transform.scale.x));
-		if (!hasMoved || noCollisionCheat) {
+		if (!hasMoved || (noCollisionCheat && !isNewLevel)) {
 			transform.position.y -= baseMovementSpeed;
 			cc->transform.position.y = this->transform.position.y;
 			gc->transform.position = transform.position;
@@ -261,9 +232,9 @@ void Player::moveUp()
 /// </summary>
 void Player::moveDown()
 {
-	if (!hasMoved || noCollisionCheat) {
+	if (!hasMoved || (noCollisionCheat && !isNewLevel)) {
 		collisionFunc(pointer, cc, shared_from_this(), this->transform.position.x, this->transform.position.y + baseMovementSpeed, KeyCodes::KEY_DOWN, (gc->imageDimensions.x * gc->transform.scale.x));
-		if (!hasMoved || noCollisionCheat) {
+		if (!hasMoved || (noCollisionCheat && !isNewLevel)) {
 			transform.position.y += baseMovementSpeed;
 			cc->transform.position.y = this->transform.position.y;
 			gc->transform.position = transform.position;
@@ -280,9 +251,9 @@ void Player::moveDown()
 /// </summary>
 void Player::moveLeft()
 {
-	if (!hasMoved || noCollisionCheat) {
+	if (!hasMoved || (noCollisionCheat && !isNewLevel)) {
 		collisionFunc(pointer, cc, shared_from_this(), this->transform.position.x - baseMovementSpeed, this->transform.position.y, KeyCodes::KEY_LEFT, (gc->imageDimensions.x * gc->transform.scale.x));
-		if (!hasMoved || noCollisionCheat) {
+		if (!hasMoved || (noCollisionCheat && !isNewLevel)) {
 			transform.position.x -= baseMovementSpeed;
 			cc->transform.position.x = this->transform.position.x;
 			gc->transform.position = transform.position;
@@ -299,9 +270,9 @@ void Player::moveLeft()
 /// </summary>
 void Player::moveRight()
 {
-	if (!hasMoved || noCollisionCheat) {
+	if (!hasMoved || (noCollisionCheat && !isNewLevel)) {
 		collisionFunc(pointer, cc, shared_from_this(), this->transform.position.x + baseMovementSpeed, this->transform.position.y, KeyCodes::KEY_RIGHT, (gc->imageDimensions.x * gc->transform.scale.x));
-		if (!hasMoved || noCollisionCheat) {
+		if (!hasMoved || (noCollisionCheat && !isNewLevel)) {
 			transform.position.x += baseMovementSpeed;
 			cc->transform.position.x = this->transform.position.x;
 			gc->transform.position = transform.position;
@@ -320,8 +291,6 @@ void Player::addEquipment(std::unique_ptr<IEquipment> item)
 {
 	equipment.emplace_back(std::move(item));
 }
-
-void Player::damagePlayer(int damage) {}
 
 void::Player::updateCaughtPokemon(int pokemonId) {}
 
@@ -453,16 +422,36 @@ void Player::addPokeball() {
 }
 
 void Player::registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger) {
+	if (isDamaged && !noDamageCheat) { registerHit(); }
+	if (isTransitioned) { isNewLevel = true; nextLevelFunc(gmPointer); }
+	if (isWinTrigger) { SceneLoader::getInstance().loadScene("GameWinScreen", SceneLoader::getInstance().getCurrentLevel(), false); }
+
 	hasMoved = true;
-
-	if (isDamaged && !noDamageCheat) 
-		registerHit(); 
-
-	if (isTransitioned) 
-		nextLevelFunc(gmPointer); 
-
-	if (isWinTrigger) 
-		SceneLoader::getInstance().loadScene("GameWin", SceneLoader::getInstance().getCurrentLevel(), false); 
 }
 
-void Player::start() {}
+void Player::start(){}
+
+void Player::getIdleAnimation()
+{
+	switch (currentDirection)
+	{
+	case KeyCodes::KEY_UP:
+	case KeyCodes::KEY_W:
+		gc->playAnimation(4, 3, animationSpeed, false);
+		break;
+	case KeyCodes::KEY_DOWN:
+	case KeyCodes::KEY_S:
+		gc->playAnimation(0, 3, animationSpeed, false);
+		break;
+	case KeyCodes::KEY_LEFT:
+	case KeyCodes::KEY_A:
+		gc->playAnimation(5, 3, animationSpeed, false);
+		break;
+	case KeyCodes::KEY_RIGHT:
+	case KeyCodes::KEY_D:
+		gc->playAnimation(5, 3, animationSpeed, true);
+		break;
+	default:
+		break;
+	}
+}

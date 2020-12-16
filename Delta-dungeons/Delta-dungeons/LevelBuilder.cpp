@@ -140,14 +140,14 @@ void LevelBuilder::passPlayerPosition(int x, int y)
 	engineFacade->passPlayerPosition(x, y);
 }
 
-void LevelBuilder::staticInteractCallbackFunction(void* p, std::shared_ptr<BehaviourObject> interactor, int x, int y)
+void LevelBuilder::staticInteractCallbackFunction(void* p, std::shared_ptr<BehaviourObject> interactor, int x, int y, int w, int h)
 {
-	((LevelBuilder*)p)->interactCallbackFunction(interactor, x, y);
+	((LevelBuilder*)p)->interactCallbackFunction(interactor, x, y, w, h);
 }
 
-void LevelBuilder::interactCallbackFunction(std::shared_ptr<BehaviourObject> interactor, int x, int y)
+void LevelBuilder::interactCallbackFunction(std::shared_ptr<BehaviourObject> interactor, int x, int y, int w, int h)
 {
-	engineFacade->passInteract(interactor, x, y);
+	engineFacade->passInteract(interactor, x, y, w, h);
 }
 
 void LevelBuilder::staticGameOverbackFunction(void* p)

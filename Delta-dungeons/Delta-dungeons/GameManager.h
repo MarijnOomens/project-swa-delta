@@ -16,6 +16,7 @@
 #include "SceneModifier.h"
 #include "AudioUtilities.h"
 #include "LevelBuilder.h"
+#include "HighScoreScreenScene.h"
 
 class GameManager {
 public:
@@ -42,6 +43,7 @@ private:
 	GameWinScreenScene gameWinScreenScene;
 	LoadSaveScreenScene loadSaveScreenScene;
 	DialoguePopupScene dialoguePopupScene;
+	HighScoreScreenScene highScoreScreenScene;
 
 	std::unique_ptr<LevelBuilder> levelBuilder;
 	std::vector<Scene> scenes;

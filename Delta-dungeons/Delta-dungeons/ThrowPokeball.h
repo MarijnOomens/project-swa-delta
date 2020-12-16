@@ -4,6 +4,7 @@
 #include "GraphicsComponent.h"
 #include "StopStrategy.h"
 #include "Pokemon.h"
+#include "GameState.h"
 
 typedef void(*cbSentPokemon) (void*);
 typedef void(*cbThrowCollision) (void*, std::shared_ptr<BehaviourObject>, int, int, KeyCodes, int);

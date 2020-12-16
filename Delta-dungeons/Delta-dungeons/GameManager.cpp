@@ -12,7 +12,7 @@ GameManager::GameManager()
 	SceneModifier::getInstance().setEngineFacade(engineFacade);
 	AudioUtilities::getInstance().setEngineFacade(engineFacade);
 
-	scenes = { mainMenuScene, creditScreenScene, pauseScreenScene, helpScreenScene, gameOverScreenScene, gameWinScreenScene, loadSaveScreenScene, dialoguePopupScene };
+	scenes = { mainMenuScene, creditScreenScene, pauseScreenScene, helpScreenScene, gameOverScreenScene, gameWinScreenScene, loadSaveScreenScene, dialoguePopupScene, highScoreScreenScene };
 
 
 	for (auto& s : scenes)

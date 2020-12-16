@@ -24,6 +24,7 @@ void Medal::interact(std::shared_ptr<BehaviourObject> parent)
 	if (gc != nullptr) {
 		SceneModifier::getInstance().deleteObjectFromScene(gc);
 		SceneModifier::getInstance().deleteColliderFromScene(cc);
+		SceneModifier::getInstance().deleteObjectFromScene(shared_from_this());
 		gc = nullptr;
 	}
 }
