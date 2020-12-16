@@ -21,8 +21,8 @@ public:
 	PuzzleFactory();
 	
 	void createPuzzle(std::string levelName, cbInteract interactCb, cbCollision collisionCb, void* p);
-	void createPuzzleOne(std::shared_ptr<ParserData>, std::string levelName, cbInteract interactCb, cbCollision collisionCb, void* p);
-	void createPuzzleTwo(std::shared_ptr<ParserData>, std::string levelName, cbInteract interactCb, cbCollision collisionCb, void* p);
+	void createPuzzleOne(std::shared_ptr<ParserData> data, std::string levelName, cbInteract interactCb, cbCollision collisionCb, void* p);
+	void createPuzzleTwo(std::shared_ptr<ParserData> data, std::string levelName, cbInteract interactCb, cbCollision collisionCb, void* p);
 
 	std::map<std::string, std::string> passTextures() const;
 
