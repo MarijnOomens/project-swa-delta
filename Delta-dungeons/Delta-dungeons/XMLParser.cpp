@@ -42,7 +42,7 @@ std::vector<std::shared_ptr<ParserData>> XMLParser::parseXML(const std::string& 
 				std::string yVal = tile->first_attribute("y")->value();
 				std::string tileId = tile->first_attribute("tile")->value();
 
-				if (tileId != "-1" && ( tileId == "2" || tileId == "8" || tileId == "9" || tileId == "10" || tileId == "11" || tileId == "19"))
+				if (tileId == "2" || tileId == "8" || tileId == "9" || tileId == "10" || tileId == "11" || tileId == "19")
 				{
 					for (int x = 0; x < parserDataList.size(); x++)
 					{

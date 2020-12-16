@@ -33,8 +33,6 @@ void BoulderTriggerPuzzleObject::interact(std::shared_ptr<BehaviourObject> inter
 	}
 }
 
-void BoulderTriggerPuzzleObject::registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger) {}
-
 void BoulderTriggerPuzzleObject::setParent() 
 {
 	sharedFromThis = shared_from_this();
@@ -45,4 +43,3 @@ void BoulderTriggerPuzzleObject::start()
 	triggered = false;
 }
 
-void BoulderTriggerPuzzleObject::update() {}

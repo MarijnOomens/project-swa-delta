@@ -7,7 +7,6 @@ OrderTriggerPuzzleObject::OrderTriggerPuzzleObject(int x, int y, const std::stri
 	this->transform.scale.multiply({ 4, 4 });
 	setOrderNumber(tileId);
 
-
 	gc = std::make_shared<GraphicsComponent>();
 	gc->setTexture(texture);
 
@@ -49,16 +48,12 @@ void OrderTriggerPuzzleObject::setOrderTriggerCallback(cbOrderTrigger orderCb, v
 	this->pointer = p;
 }
 
-void OrderTriggerPuzzleObject::handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) {}
-
 void OrderTriggerPuzzleObject::interact(std::shared_ptr<BehaviourObject> interactor)
 {
 	gc->setTexture("order_pressed");
 	triggered = true;
 	oFunc(pointer, orderNumber);
 }
-
-void OrderTriggerPuzzleObject::registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger) {}
 
 void OrderTriggerPuzzleObject::setParent() 
 {
@@ -70,6 +65,3 @@ void OrderTriggerPuzzleObject::start()
 	gc->setTexture("order_not_pressed");
 	triggered = false;
 }
-
-
-void OrderTriggerPuzzleObject::update() {}

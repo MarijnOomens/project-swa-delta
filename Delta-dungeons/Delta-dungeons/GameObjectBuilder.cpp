@@ -70,41 +70,32 @@ std::shared_ptr<IEquipment> GameObjectBuilder::getEquipment(int x, int y, const 
 	}
 }
 
-std::shared_ptr<IInteractiveObject> GameObjectBuilder::getPuzzle(int x, int y, const std::string& name, const std::string& levelName, cbCollision collisionCB, cbInteract interactCB, void* p, int tileId)
+std::shared_ptr<IInteractiveObject> GameObjectBuilder::getPuzzle(int x, int y, const std::string& name, cbCollision collisionCB, cbInteract interactCB, void* p, int tileId)
 {
+	std::shared_ptr<IInteractiveObject> puzzleObject;
+
 	if (name == "boulder")
 	{
-		std::shared_ptr<BoulderPuzzleObject> boulder = std::make_shared<BoulderPuzzleObject>(interactCB, collisionCB, p, x, y, name);
-		boulder->setParent();
-		boulder->textures.try_emplace(name, "Assets/Equipment/" + name + ".png");
-		return boulder;
+		puzzleObject = std::make_shared<BoulderPuzzleObject>(interactCB, collisionCB, p, x, y, name);
 	}
 	else if (name == "boulder_button")
 	{
-		std::shared_ptr<BoulderTriggerPuzzleObject> boulderTrigger = std::make_shared<BoulderTriggerPuzzleObject>(x, y, name);
-		boulderTrigger->setParent();
-		boulderTrigger->textures.try_emplace(name, "Assets/Equipment/" + name + ".png");
-		return boulderTrigger;
+		puzzleObject = std::make_shared<BoulderTriggerPuzzleObject>(x, y, name);
 	}
 	else if (name == "order_not_pressed")
 	{
-		std::shared_ptr<OrderTriggerPuzzleObject> orderTrigger = std::make_shared<OrderTriggerPuzzleObject>(x, y, name, tileId);
-		orderTrigger->setParent();
-		orderTrigger->textures.try_emplace(name, "Assets/Equipment/" + name + ".png");
-		return orderTrigger;
+		puzzleObject = std::make_shared<OrderTriggerPuzzleObject>(x, y, name, tileId);
 	}
 	else if (name == "door")
 	{
-		std::shared_ptr<DoorPuzzleObject> door = std::make_shared<DoorPuzzleObject>(x, y, name);
-		door->setParent();
-		door->textures.try_emplace(name, "Assets/Equipment/" + name + ".png");
-		return door;
+		puzzleObject = std::make_shared<DoorPuzzleObject>(x, y, name);
 	}
 	else if (name == "reset")
 	{
-		std::shared_ptr<ResetPuzzleObject> boulderGameOver = std::make_shared<ResetPuzzleObject>(x, y, name);
-		boulderGameOver->setParent();
-		boulderGameOver->textures.try_emplace(name, "Assets/Equipment/" + name + ".png");
-		return boulderGameOver;
+		puzzleObject = std::make_shared<ResetPuzzleObject>(x, y, name);
 	}
+
+	puzzleObject->setParent();
+	puzzleObject->textures.try_emplace(name, "Assets/Equipment/" + name + ".png");
+	return puzzleObject;
 }

@@ -24,10 +24,11 @@ public:
 
 	void handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
 	void interact(std::shared_ptr<BehaviourObject> interactor) override;
-	void registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger) override;
 	void setParent() override;
 	void start() override;
-	void update() override;
+
+	void registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger) override {}
+	void update() override {}
 
 private:
 	std::shared_ptr<GraphicsComponent> gc;

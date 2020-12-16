@@ -23,8 +23,6 @@ BoulderPuzzleObject::BoulderPuzzleObject(cbInteract cbI, cbCollision cbC, void* 
 	this->components.emplace_back(cc);
 }
 
-void BoulderPuzzleObject::handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) {}
-
 void BoulderPuzzleObject::interact(std::shared_ptr<BehaviourObject> interactor)
 {
 	auto object = dynamic_cast<Player*>(interactor.get());
@@ -36,7 +34,6 @@ void BoulderPuzzleObject::interact(std::shared_ptr<BehaviourObject> interactor)
 
 void BoulderPuzzleObject::registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger)
 {
-	std::cout << "Can't push object!" << std::endl;
 	canPush = false;
 }
 

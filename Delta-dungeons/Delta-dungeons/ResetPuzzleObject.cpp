@@ -27,21 +27,12 @@ void ResetPuzzleObject::setResetTriggerCallback(cbResetTrigger resetCb, void* p)
 	this->pointer = p;
 }
 
-void ResetPuzzleObject::handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) {}
-
 void ResetPuzzleObject::interact(std::shared_ptr<BehaviourObject> interactor)
 {
 	rFunc(pointer);
 }
 
-void ResetPuzzleObject::registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger) {}
-
 void ResetPuzzleObject::setParent()
 {
 	orderPuzzleObject = shared_from_this();
 }
-
-void ResetPuzzleObject::start() {}
-
-
-void ResetPuzzleObject::update() {}
