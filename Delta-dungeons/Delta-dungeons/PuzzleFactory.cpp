@@ -14,13 +14,20 @@ void PuzzleFactory::createPuzzle(std::string levelName, cbInteract interactCb, c
 
 	for (auto parsedPuzzle : puzzleData)
 	{
-		if (std::stoi(parsedPuzzle->tileId) == 16 || std::stoi(parsedPuzzle->tileId) == 17 || std::stoi(parsedPuzzle->tileId) == 18 || std::stoi(parsedPuzzle->tileId) == 21 || std::stoi(parsedPuzzle->tileId) == 2)
+		if (std::stoi(parsedPuzzle->tileId) == 16 || std::stoi(parsedPuzzle->tileId) == 18 || std::stoi(parsedPuzzle->tileId) == 21 || std::stoi(parsedPuzzle->tileId) == 2)
 		{	
 			createPuzzleOne(parsedPuzzle, "puzzle1", interactCb, collisionCb, p);
 		}
 		else if (std::stoi(parsedPuzzle->tileId) == 12 || std::stoi(parsedPuzzle->tileId) == 13 || std::stoi(parsedPuzzle->tileId) == 14 || std::stoi(parsedPuzzle->tileId) == 15 || std::stoi(parsedPuzzle->tileId) == 20)
 		{
 			createPuzzleTwo(parsedPuzzle, "puzzle2", interactCb, collisionCb, p);
+		}
+	}
+	for (auto parsedPuzzle : puzzleData)
+	{
+		if (std::stoi(parsedPuzzle->tileId) == 17)
+		{
+			createPuzzleOne(parsedPuzzle, "puzzle1", interactCb, collisionCb, p);
 		}
 	}
 	puzzle = std::make_shared<Puzzle>(puzzleObjects);

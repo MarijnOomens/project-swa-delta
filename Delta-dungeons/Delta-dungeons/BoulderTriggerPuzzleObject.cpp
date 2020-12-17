@@ -6,7 +6,7 @@ BoulderTriggerPuzzleObject::BoulderTriggerPuzzleObject(int x, int y, const std::
 	this->transform.scale.multiply({ 4, 4 });
 
 	gc = std::make_shared<GraphicsComponent>();
-	gc->setTexture("boulder");
+	gc->setTexture(texture);
 
 	gc->imageDimensions = { 32, 32 };
 	gc->transform = transform;
