@@ -12,9 +12,9 @@ void PuzzleFactory::createPuzzle(std::string levelName, cbInteract interactCb, c
 	std::unique_ptr<XMLSceneParser> parser = std::make_unique<XMLSceneParser>();
 	std::vector<std::shared_ptr<ParserData>> puzzleData = parser->getPuzzleData("Assets/Map/" + levelName + "/level.xml");
 
-	for (auto parsedPuzzle : puzzleData)
+	for (auto& parsedPuzzle : puzzleData)
 	{
-		if (std::stoi(parsedPuzzle->tileId) == 16 || std::stoi(parsedPuzzle->tileId) == 18 || std::stoi(parsedPuzzle->tileId) == 21 || std::stoi(parsedPuzzle->tileId) == 2)
+		if (std::stoi(parsedPuzzle->tileId) == 16 || std::stoi(parsedPuzzle->tileId) == 18 || std::stoi(parsedPuzzle->tileId) == 2)
 		{	
 			createPuzzleOne(parsedPuzzle, "puzzle1", interactCb, collisionCb, p);
 		}
@@ -23,14 +23,18 @@ void PuzzleFactory::createPuzzle(std::string levelName, cbInteract interactCb, c
 			createPuzzleTwo(parsedPuzzle, "puzzle2", interactCb, collisionCb, p);
 		}
 	}
-	for (auto parsedPuzzle : puzzleData)
+	for (auto& parsedPuzzle : puzzleData)
 	{
 		if (std::stoi(parsedPuzzle->tileId) == 17)
 		{
 			createPuzzleOne(parsedPuzzle, "puzzle1", interactCb, collisionCb, p);
 		}
 	}
-	puzzle = std::make_shared<Puzzle>(puzzleObjects);
+
+	if (!puzzleObjects.empty())
+	{
+		puzzle = std::make_shared<Puzzle>(puzzleObjects);
+	}
 }
 
 void PuzzleFactory::createPuzzleOne(std::shared_ptr<ParserData> parsedData, const std::string& puzzleName, cbInteract interactCb, cbCollision collisionCb, void* p)
@@ -55,14 +59,14 @@ void PuzzleFactory::createPuzzleOne(std::shared_ptr<ParserData> parsedData, cons
 
 void PuzzleFactory::createPuzzleTwo(std::shared_ptr<ParserData> parsedData, const std::string& puzzleName, cbInteract interactCb, cbCollision collisionCb, void* p)
 {
-		if (std::stoi(parsedData->tileId) == 12 || std::stoi(parsedData->tileId) == 13 || std::stoi(parsedData->tileId) == 14 || std::stoi(parsedData->tileId) == 15)
-		{
-			createPuzzleObject(parsedData, puzzleName, "order_not_pressed", interactCb, collisionCb, p);
-		}
-		else if (std::stoi(parsedData->tileId) == 20)
-		{
-			createPuzzleObject(parsedData, puzzleName, "door", interactCb, collisionCb, p);
-		}
+	if (std::stoi(parsedData->tileId) == 12 || std::stoi(parsedData->tileId) == 13 || std::stoi(parsedData->tileId) == 14 || std::stoi(parsedData->tileId) == 15)
+	{
+		createPuzzleObject(parsedData, puzzleName, "order_not_pressed", interactCb, collisionCb, p);
+	}
+	else if (std::stoi(parsedData->tileId) == 20)
+	{
+		createPuzzleObject(parsedData, puzzleName, "door", interactCb, collisionCb, p);
+	}
 }
 
 void PuzzleFactory::createPuzzleObject(std::shared_ptr<ParserData> parsedData, const std::string& puzzleName, const std::string& objectName, cbInteract interactCb, cbCollision collisionCb, void* p)
