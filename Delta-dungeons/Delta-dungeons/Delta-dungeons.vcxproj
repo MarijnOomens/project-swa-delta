@@ -182,7 +182,6 @@
     <ClCompile Include="HUD.cpp" />
     <ClCompile Include="HUDFactory.cpp" />
     <ClCompile Include="IEquipment.h" />
-    <ClCompile Include="InteractiveManager.cpp" />
     <ClCompile Include="IInteractiveObject.cpp" />
     <ClCompile Include="LevelBuilder.cpp" />
     <ClCompile Include="LevelScene.cpp" />
@@ -276,7 +275,6 @@
     <ClInclude Include="XMLFacade.h" />
     <ClInclude Include="XMLParser.h" />
     <ClInclude Include="XMLSceneParser.h" />
-    <ClInclude Include="InteractiveManager.h" />
     <ClInclude Include="IInteractiveObject.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="NPC.h" />
