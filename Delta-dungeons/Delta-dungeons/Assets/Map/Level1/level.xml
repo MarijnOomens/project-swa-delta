@@ -1528,7 +1528,7 @@
     <tile x="11" y="10" tile="-1" rot="0" flipX="false"/>
     <tile x="12" y="10" tile="-1" rot="0" flipX="false"/>
     <tile x="13" y="10" tile="-1" rot="0" flipX="false"/>
-    <tile x="14" y="10" tile="-1" rot="0" flipX="false"/>
+    <tile x="14" y="10" tile="0" rot="0" flipX="false"/>
     <tile x="15" y="10" tile="-1" rot="0" flipX="false"/>
     <tile x="16" y="10" tile="-1" rot="0" flipX="false"/>
     <tile x="17" y="10" tile="-1" rot="0" flipX="false"/>
@@ -2179,7 +2179,7 @@
     <tile x="14" y="28" tile="8" rot="0" flipX="false"/>
     <tile x="15" y="28" tile="8" rot="0" flipX="false"/>
     <tile x="16" y="28" tile="-1" rot="0" flipX="false"/>
-    <tile x="17" y="28" tile="0" rot="0" flipX="false"/>
+    <tile x="17" y="28" tile="-1" rot="0" flipX="false"/>
     <tile x="18" y="28" tile="-1" rot="0" flipX="false"/>
     <tile x="19" y="28" tile="-1" rot="0" flipX="false"/>
     <tile x="20" y="28" tile="8" rot="0" flipX="false"/>

@@ -61,12 +61,15 @@
     <Filter Include="Header Files\Game\Scenes">
       <UniqueIdentifier>{0c089fd8-4906-4827-a468-873c847a6b66}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Game\Singletons">
+      <UniqueIdentifier>{2ce87519-f610-4a02-96d1-740d9de10d7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game\Singleton">
+      <UniqueIdentifier>{32a2cd96-3b61-4419-a5a2-496877cb3221}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameManager.cpp">
-      <Filter>Source Files\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="InteractiveManager.cpp">
       <Filter>Source Files\Game</Filter>
     </ClCompile>
     <ClCompile Include="Berry.cpp">
@@ -129,17 +132,8 @@
     <ClCompile Include="DialoguePopup.cpp">
       <Filter>Source Files\Game\GameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="IEquipment.h">
-      <Filter>Header Files\Game\GameObjects\Items</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneLoader.cpp">
-      <Filter>Source Files\Game</Filter>
-    </ClCompile>
     <ClCompile Include="GameObjectBuilder.cpp">
       <Filter>Source Files\Game\GameObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="DebugUtilities.cpp">
-      <Filter>Source Files\Game</Filter>
     </ClCompile>
     <ClCompile Include="RunningShoes.cpp">
       <Filter>Source Files\Game\GameObjects\Items</Filter>
@@ -147,17 +141,11 @@
     <ClCompile Include="Advertisement.cpp">
       <Filter>Source Files\Game\GameObjects\Screens</Filter>
     </ClCompile>
-    <ClCompile Include="SceneModifier.cpp">
-      <Filter>Source Files\Game</Filter>
-    </ClCompile>
     <ClCompile Include="GameWinScreen.cpp">
       <Filter>Source Files\Game\GameObjects\Screens</Filter>
     </ClCompile>
     <ClCompile Include="PokemonParserData.cpp">
       <Filter>Source Files\XMLParser</Filter>
-    </ClCompile>
-    <ClCompile Include="AudioUtilities.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="LoadSaveScreen.cpp">
       <Filter>Source Files\Game\GameObjects\Screens</Filter>
@@ -219,9 +207,6 @@
     <ClCompile Include="DialoguePopupScene.cpp">
       <Filter>Source Files\Game\Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="LevelBuilder.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="LevelScene.cpp">
       <Filter>Source Files\Game\Scenes</Filter>
     </ClCompile>
@@ -261,8 +246,26 @@
     <ClCompile Include="HighScoreScreenScene.cpp">
       <Filter>Source Files\Game\Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="LevelBuilder.cpp">
+      <Filter>Source Files\Game\Creation</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugUtilities.cpp">
+      <Filter>Source Files\Game\Singletons</Filter>
+    </ClCompile>
+    <ClCompile Include="AudioUtilities.cpp">
+      <Filter>Source Files\Game\Singletons</Filter>
+    </ClCompile>
     <ClCompile Include="GameState.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Game\Singletons</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneLoader.cpp">
+      <Filter>Source Files\Game\Singletons</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneModifier.cpp">
+      <Filter>Source Files\Game\Singletons</Filter>
+    </ClCompile>
+    <ClCompile Include="IEquipment.h">
+      <Filter>Header Files\Game\GameObjects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -289,9 +292,6 @@
     </ClInclude>
     <ClInclude Include="XMLSceneParser.h">
       <Filter>Header Files\XMLParser</Filter>
-    </ClInclude>
-    <ClInclude Include="InteractiveManager.h">
-      <Filter>Header Files\Game</Filter>
     </ClInclude>
     <ClInclude Include="Tile.h">
       <Filter>Header Files\Game\GameObjects</Filter>
@@ -338,14 +338,8 @@
     <ClInclude Include="DialoguePopup.h">
       <Filter>Header Files\Game\GameObjects</Filter>
     </ClInclude>
-    <ClInclude Include="SceneLoader.h">
-      <Filter>Header Files\Game</Filter>
-    </ClInclude>
     <ClInclude Include="GameObjectBuilder.h">
       <Filter>Header Files\Game\GameObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="DebugUtilities.h">
-      <Filter>Header Files\Game</Filter>
     </ClInclude>
     <ClInclude Include="RunningShoes.h">
       <Filter>Header Files\Game\GameObjects\Items</Filter>
@@ -356,17 +350,11 @@
     <ClInclude Include="Advertisement.h">
       <Filter>Header Files\Game\GameObjects\Screens</Filter>
     </ClInclude>
-    <ClInclude Include="SceneModifier.h">
-      <Filter>Header Files\Game</Filter>
-    </ClInclude>
     <ClInclude Include="GameWinScreen.h">
       <Filter>Header Files\Game\GameObjects\Screens</Filter>
     </ClInclude>
     <ClInclude Include="PokemonParserData.h">
       <Filter>Header Files\XMLParser</Filter>
-    </ClInclude>
-    <ClInclude Include="AudioUtilities.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="LoadSaveScreen.h">
       <Filter>Header Files\Game\GameObjects\Screens</Filter>
@@ -470,8 +458,20 @@
     <ClInclude Include="HighScoreScreenScene.h">
       <Filter>Header Files\Game\Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="DebugUtilities.h">
+      <Filter>Header Files\Game\Singleton</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneLoader.h">
+      <Filter>Header Files\Game\Singleton</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneModifier.h">
+      <Filter>Header Files\Game\Singleton</Filter>
+    </ClInclude>
     <ClInclude Include="GameState.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Game\Singleton</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioUtilities.h">
+      <Filter>Header Files\Game\Singleton</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
