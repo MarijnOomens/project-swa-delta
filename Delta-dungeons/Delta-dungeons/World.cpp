@@ -25,6 +25,12 @@ void World::addGraphics(const std::string& levelName)
 	components.emplace_back(fpsText);
 
 	beats.try_emplace("match", "Assets/Audio/match.ogg");
+	beats.try_emplace("eueu", "Assets/Audio/eueu.wav");
+	beats.try_emplace("hurt", "Assets/Audio/hurt.wav");
+	beats.try_emplace("caught", "Assets/Audio/caught.wav");
+	beats.try_emplace("pickup", "Assets/Audio/pickup.wav");
+	beats.try_emplace("berry", "Assets/Audio/berry.wav");
+	beats.try_emplace("boulder", "Assets/Audio/boulder.wav");
 }
 
 std::map<std::string, std::string> World::passTextures(std::string levelName) const

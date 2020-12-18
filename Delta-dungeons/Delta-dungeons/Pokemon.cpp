@@ -22,6 +22,7 @@ Pokemon::Pokemon(int x, int y, const std::string& texture)
 
 void Pokemon::catchPokemon () 
 {
+	AudioUtilities::getInstance().playEffect("caught");
 	this->transform.position = { -10, -10 };
 	gc->transform = transform;
 	cc->transform = transform;

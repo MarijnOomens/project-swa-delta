@@ -7,6 +7,7 @@
 #include <map>
 #include "DamageStrategy.h"
 #include "SceneModifier.h"
+#include "AudioUtilities.h"
 
 class Pokemon : public IInteractiveObject
 {

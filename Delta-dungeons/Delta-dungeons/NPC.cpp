@@ -58,10 +58,10 @@ void NPC::playAnimation(Transform t)
 
 std::string NPC::getRandomDialogue()
 {
+	AudioUtilities::getInstance().playEffect("eueu");
 	int randomDialogue = rand() % (dialogue.size());
 	return dialogue[randomDialogue];
 }
-
 
 void NPC::setParent() 
 {

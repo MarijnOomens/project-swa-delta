@@ -25,6 +25,7 @@ BoulderPuzzleObject::BoulderPuzzleObject(cbInteract cbI, cbCollision cbC, void* 
 
 void BoulderPuzzleObject::interact(std::shared_ptr<BehaviourObject> interactor)
 {
+	AudioUtilities::getInstance().playEffect("boulder");
 	auto object = dynamic_cast<Player*>(interactor.get());
 	if (object != nullptr) 
 	{

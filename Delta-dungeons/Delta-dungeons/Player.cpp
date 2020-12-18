@@ -359,6 +359,7 @@ void Player::pokeballCallbackFunction()
 
 void Player::registerHit() 
 {
+	AudioUtilities::getInstance().playEffect("hurt");
 	if (health > 1) 
 	{
 		health--;

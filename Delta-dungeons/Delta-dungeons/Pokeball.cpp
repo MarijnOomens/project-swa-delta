@@ -22,6 +22,7 @@ Pokeball::Pokeball(int x, int y, std::string texture)
 
 void Pokeball::interact(std::shared_ptr<BehaviourObject> interactor)
 {
+	AudioUtilities::getInstance().playEffect("pickup");
 	auto col = dynamic_cast<Player*>(interactor.get());
 	col->addPokeball();
 

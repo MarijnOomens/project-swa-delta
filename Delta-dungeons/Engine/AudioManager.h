@@ -11,6 +11,7 @@ public:
 	~AudioManager() {}
 
 	void playAudio(const std::string& name, bool loop);
+	void playEffect(const std::string& name);
 
 private:
 	std::shared_ptr<AudioAssetManager> audioAssetManager;
