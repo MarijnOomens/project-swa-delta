@@ -19,6 +19,11 @@ GameWinScreen::GameWinScreen()
 	this->components.emplace_back(gameWinText);
 }
 
+void GameWinScreen::start()
+{
+	AudioUtilities::getInstance().playAudio("credits", true);
+}
+
 void GameWinScreen::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos)
 {
 	if (keyboardEvent == KeyboardEvent::KEY_PRESSED)

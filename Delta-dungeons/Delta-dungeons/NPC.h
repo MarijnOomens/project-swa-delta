@@ -8,6 +8,7 @@
 #include "DialoguePopup.h"
 #include "SceneLoader.h"
 #include "SceneModifier.h"
+#include "AudioUtilities.h"
 
 class NPC : public IInteractiveObject
 {

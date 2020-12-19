@@ -9,6 +9,7 @@ public:
 	AudioFacade();
 	~AudioFacade() {};
 	void playAudio(const std::string& path, bool loop) const override;
+	void playEffect(const std::string& path) const override;
 
 private:
 	std::unique_ptr<AudioWrapper> wrapper;

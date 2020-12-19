@@ -48,6 +48,7 @@ void Puzzle::checkBoulderTriggers()
 
 	if (isAllTriggered)
 	{
+		AudioUtilities::getInstance().playEffect("gate");
 		openDoors("puzzle1");
 	}
 }
@@ -73,6 +74,7 @@ void Puzzle::orderTrigger(int orderNumber)
 
 	if (isOrderCorrect && getOrderTriggerAmount() == orderNumber)
 	{
+		AudioUtilities::getInstance().playEffect("gate");
 		openDoors("puzzle2");
 	}
 }

@@ -158,6 +158,11 @@ void EngineFacade::playAudio(const std::string& trackName, bool looped) const
 	engineController->playAudio(trackName, looped);
 }
 
+void EngineFacade::playEffect(const std::string& effectName) const
+{
+	engineController->playEffect(effectName);
+}
+
 void EngineFacade::deleteScene(const std::string& sceneName) const
 {
 	engineController->deleteScene(sceneName);

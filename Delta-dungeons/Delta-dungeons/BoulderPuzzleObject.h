@@ -3,6 +3,7 @@
 #include "IInteractiveObject.h"
 #include "Player.h"
 #include "GraphicsComponent.h"
+#include "AudioUtilities.h"
 
 #include <string>
 
