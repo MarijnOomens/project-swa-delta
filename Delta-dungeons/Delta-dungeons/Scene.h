@@ -1,33 +1,31 @@
 #pragma once
-
-#include "ParserData.h"
-#include "Tile.h"
-#include "TextComponent.h"
-#include "DebugUtilities.h"
-#include "XMLSceneParser.h"
-#include "GraphicsComponent.h"
-#include <array>
-#include <iostream>
-#include <list>
+#include <map>
+#include <string>
 #include <vector>
-#include <sstream>
+#include "BehaviourObject.h"
+#include "GameObject.h"
 
-class Scene : public GameObject
+class Scene
 {
 public:
-	Scene() {}
-	Scene(int x, int y);
+	virtual ~Scene() {};
 
-	void addGraphics();
-	std::map<std::string, std::string> passTextures() const;
+	std::string name;
 
-	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
-	void update() override;
-	void interact() override;
+	std::vector<std::shared_ptr<BehaviourObject>> getBehaviourObjects() const;
+	void setBehaviourObjects(std::vector<std::shared_ptr<BehaviourObject>>);
 
+	std::map<std::string, std::string> getTextures() const;
+	void setTexture(const std::string& name, const std::string& t);
+
+	std::map<std::string, std::string> getFonts() const;
+	void setFont(const std::string& name, const std::string& t);
+
+	std::map<std::string, std::string> getBeats() const;
+	void setBeat(const std::string& name, const std::string& t);
 private:
-	int x = 0, y = 0;
-	std::vector<std::shared_ptr<Tile>> tileMap;
-	std::shared_ptr<TextComponent> fpsText;
-	std::stringstream fpsString;
+	std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects;
+	std::map<std::string, std::string> textures;
+	std::map<std::string, std::string> fonts;
+	std::map<std::string, std::string> beats;
 };

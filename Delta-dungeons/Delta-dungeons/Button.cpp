@@ -21,8 +21,6 @@ Button::Button(int x, int y, const std::vector<std::string>& textureList, button
 	this->components.emplace_back(m_gc);
 }
 
-void Button::update() {}
-
 void Button::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos)
 {
 	if (keyboardEvent == KeyboardEvent::MOUSE_CLICKED)
@@ -35,5 +33,3 @@ void Button::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardE
 		}
 	}
 }
-
-void Button::interact() {}

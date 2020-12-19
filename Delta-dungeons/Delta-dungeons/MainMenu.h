@@ -9,11 +9,15 @@
 #include "Advertisement.h"
 #include "SceneLoader.h"
 #include <sstream>
+#include "AudioUtilities.h"
 
 class MainMenu : public Screen
 {
 public:
 	MainMenu();
+
+	void start() override;
+	void setParent() override {}
 
 	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
 

@@ -9,9 +9,11 @@ class GameWinScreen : public Screen
 {
 public:
 	GameWinScreen();
-	~GameWinScreen() {}
+	void setParent() override {}
 
-	static void staticExitCallbackFunction(const void* p);
-	void exitCallbackFunction() const;
+	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
+
+	static void staticNextCallbackFunction(const void* p);
+	void nextCallbackFunction() const;
 };
 

@@ -4,10 +4,6 @@
 /// A gameObject is an object within the game.
 /// </summary>
 
-void GameObject::handleInput(const KeyCodes &keyCode, const KeyboardEvent &keyboardEvent, Vector2D &mousePos) {}
-
-void GameObject::update() {}
-
 /// <summary>
 /// This method returns a list of all gameObjects within a gameObject. The method is recursive to get all underlying objects.
 /// </summary>

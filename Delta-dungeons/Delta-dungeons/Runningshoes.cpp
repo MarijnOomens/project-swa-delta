@@ -16,7 +16,8 @@ RunningShoes::RunningShoes(int x, int y, std::string texture)
 	gc->transform = transform;
 	gc->isScreen = false;
 
-	cc = std::make_shared<RegularColliderComponent>();
+	stp = std::make_shared<StopStrategy>();
+	cc = std::make_shared<CollidingComponent>(stp);
 	cc->tag = "runningshoes";
 	cc->transform.position = this->transform.position;
 
@@ -24,11 +25,12 @@ RunningShoes::RunningShoes(int x, int y, std::string texture)
 	this->components.emplace_back(cc);
 }
 
-void RunningShoes::interact()
+void RunningShoes::interact(std::shared_ptr<BehaviourObject> interactor)
 {
 	if (gc != nullptr) {
 		SceneModifier::getInstance().deleteObjectFromScene(gc);
 		SceneModifier::getInstance().deleteColliderFromScene(cc);
+		SceneModifier::getInstance().deleteObjectFromScene(shared_from_this());
 		gc = nullptr;
 	}
 }
@@ -41,4 +43,8 @@ void RunningShoes::use()
 {
 	isActivated = !isActivated;
 	func(pointer, isActivated);
+}
+
+void RunningShoes::setParent() {
+	cc->parent = shared_from_this();
 }

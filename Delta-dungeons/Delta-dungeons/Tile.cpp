@@ -6,7 +6,7 @@
 /// <param name="x">The horizontal placement of tile</param>
 /// <param name="y">The vertical placement of tile</param>
 /// <param name="xImage">Specific horizontal image location of tile png</param>
-Tile::Tile(int x, int y, int xImage, bool collider)
+Tile::Tile(int x, int y, int xImage, bool collider, bool isTrigger, bool isWinTrigger)
 {
 	originX = x * 128;
 	originY = y * 128;
@@ -19,7 +19,19 @@ Tile::Tile(int x, int y, int xImage, bool collider)
 
 	if (collider)
 	{
-		cc = std::make_shared<RegularColliderComponent>();
+		if (isTrigger) 
+		{
+			stp = std::make_shared<TransitionStrategy>();
+		}
+		else if (isWinTrigger)
+		{
+			stp = std::make_shared<LevelWinStrategy>();
+		}
+		else 
+		{
+			stp = std::make_shared<StopStrategy>();
+		}
+		cc = std::make_shared<CollidingComponent>(stp);
 		cc->tag = "tile";
 		cc->transform.position = this->transform.position;
 		this->components.emplace_back(cc);
@@ -34,7 +46,7 @@ Tile::Tile(int x, int y, int xImage, bool collider)
 /// <param name="xImage">Horizontal image location of tile png</param>
 /// <param name="yImage">Vertical image location of tile png</param>
 
-Tile::Tile(int x, int y, int yImage, int xImage, bool collider)
+Tile::Tile(int x, int y, int yImage, int xImage, bool collider, bool isTrigger, bool isWinTrigger)
 {
 	originX = x * 128;
 	originY = y * 128;
@@ -46,7 +58,19 @@ Tile::Tile(int x, int y, int yImage, int xImage, bool collider)
 
 	if (collider)
 	{
-		cc = std::make_shared<RegularColliderComponent>();
+		if (isTrigger)
+		{
+			stp = std::make_shared<TransitionStrategy>();
+		}
+		else if (isWinTrigger)
+		{
+			stp = std::make_shared<LevelWinStrategy>();
+		}
+		else
+		{
+			stp = std::make_shared<StopStrategy>();
+		}
+		cc = std::make_shared<CollidingComponent>(stp);
 		cc->tag = "tile";
 		cc->transform.position = this->transform.position;
 		this->components.emplace_back(cc);
@@ -58,7 +82,7 @@ Tile::Tile(int x, int y, int yImage, int xImage, bool collider)
 /// </summary>
 /// <param name="graphicsComnponent">An clean graphicscomponent without tile information</param>
 /// <param name="name">Texture name of the png</param>
-void Tile::addGraphicsComponent(std::string& name)
+void Tile::addGraphicsComponent(const std::string& name)
 {
 	gc = std::make_shared<GraphicsComponent>();
 	gc->transform = transform;
@@ -67,9 +91,3 @@ void Tile::addGraphicsComponent(std::string& name)
 	gc->isScreen = false;
 	this->components.emplace_back(gc);
 }
-
-void Tile::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) {}
-
-void Tile::update() {}
-
-void Tile::interact() {}

@@ -2,66 +2,49 @@
 
 MainMenu::MainMenu() 
 {
-	this->textures.try_emplace("mainmenu", "Assets/screen-components/mainmenu-designs/mainmenu-2.png");
-	this->textures.try_emplace("button_play", "Assets/screen-components/button-designs/pastels/button-play-1.png");
-	this->textures.try_emplace("button_credits", "Assets/screen-components/button-designs/pastels/button-credits-1.png");
-	this->textures.try_emplace("button_exit", "Assets/screen-components/button-designs/pastels/button-exit-1.png");
-	this->textures.try_emplace("ad", "Assets/ADS/Advertisement.png");
-
 	gc = std::make_unique<GraphicsComponent>();
-	gc->setTexture("mainmenu");
+	gc->setTexture("main_menu");
 	gc->isScreen = true;
 	gc->imageDimensions = { 1280, 960 };
 	this->components.emplace_back(std::move(gc));
 
+	Colour color = { 255, 203, 5, 255 };
+	std::unique_ptr<TextComponent> creditsText = std::make_unique<TextComponent>("DELTA DUNGEONS", "joystix", color, 72);
+	creditsText->transform.position = { 230, 50 };
+	this->components.emplace_back(std::move(creditsText));
+
 	// Play button
 	std::vector<std::string> possibleButtonTexPlay = { "button_play" };
-	std::unique_ptr<Button> playButton = std::make_unique<Button>(500, 270, possibleButtonTexPlay, staticOpenGameCallbackFunction, this);
+	std::unique_ptr<Button> playButton = std::make_unique<Button>(512, 230, possibleButtonTexPlay, staticOpenGameCallbackFunction, this);
 	this->components.emplace_back(std::move(playButton));
 
 	// Credits button
 	std::vector<std::string> possibleButtonTexCredits = { "button_credits" };
-	std::unique_ptr<Button> creditsButton = std::make_unique<Button>(500, 400, possibleButtonTexCredits, staticOpenCreditsCallbackFunction, this);
+	std::unique_ptr<Button> creditsButton = std::make_unique<Button>(512, 360, possibleButtonTexCredits, staticOpenCreditsCallbackFunction, this);
 	this->components.emplace_back(std::move(creditsButton));
 
 	// Help button
 	std::vector<std::string> possibleButtonTexHelp = { "button_help" };
-	std::unique_ptr<Button> helpButton = std::make_unique<Button>(500, 530, possibleButtonTexHelp, staticOpenHelpCallbackFunction, this);
+	std::unique_ptr<Button> helpButton = std::make_unique<Button>(512, 490, possibleButtonTexHelp, staticOpenHelpCallbackFunction, this);
 	this->components.emplace_back(std::move(helpButton));
 
 	// Exit button
 	std::vector<std::string> possibleButtonTexExit = { "button_exit" };
-	std::unique_ptr<Button> exitButton = std::make_unique<Button>(500, 660, possibleButtonTexExit, staticExitCallbackFunction, this);
+	std::unique_ptr<Button> exitButton = std::make_unique<Button>(512, 620, possibleButtonTexExit, staticExitCallbackFunction, this);
 	this->components.emplace_back(std::move(exitButton));
 
 	// Advertisement
 	std::vector<std::string> adTexture = { "ad" };
-	std::unique_ptr<Advertisement> adButton = std::make_unique<Advertisement>(200, 10, adTexture);
+	std::unique_ptr<Advertisement> adButton = std::make_unique<Advertisement>(870, 890, adTexture);
 	this->components.emplace_back(std::move(adButton));
 }
 
-void MainMenu::handleInput(const KeyCodes &keyCode, const KeyboardEvent &keyboardEvent, Vector2D &mousePos)
+void MainMenu::start()
 {
-	if (keyboardEvent == KeyboardEvent::KEY_PRESSED)
-	{
-		if (keyCode == KeyCodes::KEY_E)
-		{
-			SceneLoader::getInstance().loadScene("Level1", "MainMenu", false);
-		}
-		else if (keyCode == KeyCodes::KEY_G)
-		{
-			SceneLoader::getInstance().loadScene("CreditScreen", "MainMenu", false);
-		}
-		else if (keyCode == KeyCodes::KEY_BACKSPACE)
-		{
-			SceneLoader::getInstance().loadPreviousScene();
-		}
-		else if (keyCode == KeyCodes::KEY_H)
-		{
-			SceneLoader::getInstance().loadScene("HelpScreen", "MainMenu", false);
-		}
-	}
+	AudioUtilities::getInstance().playAudio("touch", true);
 }
+
+void MainMenu::handleInput(const KeyCodes &keyCode, const KeyboardEvent &keyboardEvent, Vector2D &mousePos) {}
 
 void MainMenu::staticOpenGameCallbackFunction(const void* p) 
 {
@@ -70,7 +53,7 @@ void MainMenu::staticOpenGameCallbackFunction(const void* p)
 
 void MainMenu::openGameCallbackFunction() const
 {
-	SceneLoader::getInstance().loadScene("Level1", "", true);
+	SceneLoader::getInstance().loadScene("LoadSaveScreen", "MainMenuScreen", true);
 }
 
 void MainMenu::staticOpenCreditsCallbackFunction(const void* p) 
@@ -80,7 +63,7 @@ void MainMenu::staticOpenCreditsCallbackFunction(const void* p)
 
 void MainMenu::openCreditsCallbackFunction() const
 {
-	SceneLoader::getInstance().loadScene("CreditsScreen", "MainMenu", true);
+	SceneLoader::getInstance().loadScene("CreditScreen", "MainMenuScreen", true);
 }
 
 void MainMenu::staticOpenHelpCallbackFunction(const void* p)
@@ -90,7 +73,7 @@ void MainMenu::staticOpenHelpCallbackFunction(const void* p)
 
 void MainMenu::openHelpCallbackFunction() const
 {
-	SceneLoader::getInstance().loadScene("HelpScreen", "MainMenu", true);
+	SceneLoader::getInstance().loadScene("HelpScreen", "MainMenuScreen", true);
 }
 
 void MainMenu::staticExitCallbackFunction(const void* p) 

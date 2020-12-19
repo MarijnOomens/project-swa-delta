@@ -3,10 +3,10 @@
 /// <summary>
 /// Inits the renderFacade. This class gives all logic to the correct classes.
 /// </summary>
-RenderFacade::RenderFacade()
+RenderFacade::RenderFacade(cbPassCameraDimension f, void* p)
 {
 	frameManager = std::make_unique<FrameManager>();
-	renderer = std::make_unique<Renderer>();
+	renderer = std::make_unique<Renderer>(f, p);
 	drawController = std::make_unique<DrawController>(renderer);
 }
 
@@ -64,7 +64,7 @@ void RenderFacade::drawTexture(const std::string& path, const std::string& text,
 	destination.w = source.w * transform.scale.x;
 	destination.h = source.h * transform.scale.y;
 
-	drawController->drawTexture(textTexture, source, destination, flip);
+	renderer->drawText(textTexture, source, destination, flip);
 }
 
 /// <summary>
@@ -122,6 +122,11 @@ void RenderFacade::afterFrame() const
 	renderer->afterFrame();
 }
 
+void RenderFacade::transition() const
+{
+	renderer->transition();
+}
+
 void RenderFacade::createCamera(const int x, const int y) const
 {
 	renderer->createCamera(x, y);
@@ -160,4 +165,9 @@ int RenderFacade::getFPS() const
 std::tuple<int, int> RenderFacade::passPlayerPosition(const int x,const int y) const
 {
 	return renderer->updateCamera(x, y);
+}
+
+void RenderFacade::checkTransition()const
+{
+	renderer->checkTransition();
 }

@@ -8,8 +8,10 @@
 
 class SceneManager {
 public:
-	SceneManager() {};
-	~SceneManager() {};
+	bool isOverlayScene = false;
+
+	SceneManager() {}
+	~SceneManager() {}
 
 	void update();
 	void loadScene(const std::string& sceneName,const std::string& fromScene,const bool clearPrevious);
@@ -19,10 +21,12 @@ public:
 	int getActiveScenesSize();
 	void setSceneSwitched(bool isSwitched);
 	void handleSceneInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos);
-	void addObjectToScene(const std::shared_ptr<BehaviourObject>& addObject);
-	void deleteObjectFromScene(const std::shared_ptr<BehaviourObject>& deletedObject);
-	void passInteract(int x, int y);
-	std::vector<std::shared_ptr<BehaviourObject>> currentObjects;
+	void addObjectToScene(std::shared_ptr<BehaviourObject> addObject);
+	void deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject);
+	void passInteract(std::shared_ptr<BehaviourObject> player, int x, int y, int w, int h);
+	std::string getCurrentScene();
+	void deleteScene(const std::string& sceneName);
+	void replaceScene(const std::string sceneName, std::vector<std::shared_ptr<BehaviourObject>> objects);
 
 private:
 	std::map<std::string, std::vector<std::shared_ptr<BehaviourObject>>> scenes;

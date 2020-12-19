@@ -11,12 +11,14 @@
 #include <map>
 #include "Colour.h"
 
+typedef void(*cbPassCameraDimension) (void*, const Transform&);
+
 class RenderFacade 
 {
 public:
 	std::shared_ptr<Renderer> renderer;
 
-	RenderFacade();
+	RenderFacade(cbPassCameraDimension cbPCD, void* p);
 	~RenderFacade() {}
 
 	std::string constructorError() const noexcept;
@@ -30,12 +32,14 @@ public:
 	void clean() const;
 	void beforeFrame() const;
 	void afterFrame() const;
+	void transition() const;
 	void createCamera(const int x, const int y) const;
 	void quitGame() const;
 	void pauseGame() const;
 	void slowDownGame() const;
 	void speedUpGame() const;
 	void resetSpeedGame() const;
+	void checkTransition() const;
 
 	std::tuple<int, int> passPlayerPosition(const int x,const int y) const;
 	int getFPS() const;

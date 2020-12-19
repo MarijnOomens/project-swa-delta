@@ -2,35 +2,46 @@
 
 #include "IEquipment.h"
 #include "Boomerang.h"
-#include "GameObject.h"
+#include "IInteractiveObject.h"
 #include "GraphicsComponent.h"
-#include "RegularColliderComponent.h"
+#include "CollidingComponent.h"
 #include "RunningShoes.h"
 #include "DebugUtilities.h"
+#include "StopStrategy.h"
+#include "ThrowPokeball.h"
+#include "SceneLoader.h"
 
-typedef void(*cbInteract) (void*, int, int);
+typedef void(*cbInteract) (void*, std::shared_ptr<BehaviourObject>, int, int, int, int);
 typedef void(*cbCamera) (void*, int, int);
 typedef void(*cbGameOver) (void*);
-typedef void(*cbHUD) (void*, bool);
+typedef void(*cbHUD) (void*, int, int, int);
+typedef void(*cbCollision) (void*, std::shared_ptr<CollidingComponent>, std::shared_ptr<BehaviourObject> behaviourObject, int, int, KeyCodes, int);
+typedef void(*cbThrowCollision) (void*, std::shared_ptr<BehaviourObject>, int, int, KeyCodes, int);
+typedef void(*cbNextLevel) (void*);
 
-class Player : public GameObject
+class Player : public IInteractiveObject
 {
 public:
 	std::map<std::string, std::string> textures;
 	std::string texture;
 
+	std::shared_ptr<ThrowPokeball> pokeball;
+
 	cbCamera func;
 	cbInteract interactFunc;
 	cbGameOver gameOverFunc;
 	cbHUD hudFunc;
-
+	cbCollision collisionFunc;
+	cbNextLevel nextLevelFunc;
 	KeyCodes currentDirection;
 	void* pointer;
+	void* gmPointer;
 
-	Player(cbCamera f, cbInteract interactCB, cbGameOver gameOverFunc, cbHUD hudCB, void* p);
+	Player(int spawnX, int spawnY, cbCollision collisionCB, cbThrowCollision throwCB, cbNextLevel nextLevelcb, cbCamera f, cbInteract interactCB, cbGameOver gameOverFunc, cbHUD hudCB, void* p, void* gm);
 
 	void handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
-	void interact() override;
+	void interact(std::shared_ptr<BehaviourObject> interactor) override;
+	void registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger) override;
 	void handleKeyPressed(const KeyCodes& keyCodes);
 	void handleKeyReleased(const KeyCodes& keyCodes);
 
@@ -40,12 +51,9 @@ public:
 	void moveRight();
 
 	void addEquipment(std::unique_ptr<IEquipment> equipment);
-	void damagePlayer(int damage);
-	void updateCaughtPokemon(int pokemonId);
+	void updateCaughtPokemon(int pokemonId) {}
 	std::vector<std::string> getItems();
-
-	static void staticCollisionCallbackFunction(void* p, int right, int left, int up, int down, std::string rightTag, std::string leftTag, std::string upTag, std::string downTag, bool hit);
-	void collisionCallbackFunction(int right, int left, int up, int down, std::string rightTag, std::string leftTag, std::string upTag, std::string downTag, bool hit);
+	std::shared_ptr<CollidingComponent> getCollider();
 
 	static void staticBoomerangCallbackFunction(void* p, const bool boomerangActivated);
 	void boomerangCallbackFunction(const bool boomerangActivated);
@@ -53,31 +61,43 @@ public:
 	static void staticRunningShoesCallbackFunction(void* p, const bool runningActivated);
 	void runningShoesCallbackFunction(const bool runningActivated);
 
-	void update() override;
+	static void staticPokeballCallbackFunction(void* p);
+	void pokeballCallbackFunction();
+
+	void update() override {}
+	void setParent() override;
+	void start() override {}
 	void handleInteraction();
 	void registerHit();
+	void eatBerry();
+	void addBerry();
+	void usePokeball();
+	void addPokeball();
+	void getIdleAnimation();
+	
+	int health = 5;
+	int maxHealth = 5;
+	int amountOfBerries = 0;
+	int amountOfPokeballs = 20;	
+	int amountOfPokemons = 0;
 private:
-	const int animationSpeed = 120;
-	int health;
-	int amountCaught;
+	const int animationSpeed = 180;
+	int amountCaught = 0;
 	int baseMovementSpeed;
 	int x, y;
 	int count;
-	bool runActivated = false;
+	bool isWalking = true;
 	bool boomerangActivated = false;
-	bool cheatCollision = false;
+	bool hasMoved = false;
+	bool noCollisionCheat = false;
+	bool noDamageCheat = false;
+	bool infinteBerries = false;
+	bool infinitePokeballs = false;
+	bool isNewLevel = false;
 	std::vector<int> pokemonCaught;
 	std::vector<std::unique_ptr<IEquipment>> equipment;
+	std::shared_ptr<StopStrategy> stp;
 	std::shared_ptr<GraphicsComponent> gc;
-	std::shared_ptr<RegularColliderComponent> cc;
 	AnimCategory animCategory;
-	int rightX;
-	int leftX;
-	int upY;
-	int downY;
-	std::string rightTag;
-	std::string leftTag;
-	std::string upTag;
-	std::string downTag;
 	bool tileCollision;
 };

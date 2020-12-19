@@ -1,75 +1,41 @@
 #include "Scene.h"
 
-/// <summary>
-/// Scene is where a TileMap can be created.
-/// </summary>
-
-Scene::Scene(int x, int y) : x(x), y(y) {}
-
-void Scene::addGraphics()
+std::vector<std::shared_ptr<BehaviourObject>> Scene::getBehaviourObjects() const
 {
-	XMLSceneParser xmlSceneParser;
-
-	tileMap = xmlSceneParser.loadScene("Assets/Maps/Level1/level.xml");
-
-	for (std::shared_ptr<Tile> t : tileMap)
-	{
-		std::string test = "Level1";
-		t->addGraphicsComponent(test);
-		components.emplace_back(std::move(t));
-	}
-
-	Colour color = { 0, 0, 0, 255 };
-	fpsText = std::make_shared<TextComponent>("", "joystix", color, 32);
-	fpsText->transform.position = { 1200, 10 };
-	components.emplace_back(fpsText);
+	return behaviourObjects;
 }
 
-std::map<std::string, std::string> Scene::passTextures() const
+void Scene::setBehaviourObjects(std::vector<std::shared_ptr<BehaviourObject>> bo)
 {
-	std::map<std::string, std::string> texture;
-	texture.try_emplace("Level1", "Assets/Maps/Level1/tileset.png");
-	return texture;
+	behaviourObjects = bo;
 }
 
-void Scene::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos)
+std::map<std::string, std::string> Scene::getTextures() const
 {
-	if (keyboardEvent == KeyboardEvent::KEY_PRESSED)
-	{
-		switch (keyCode)
-		{
-		case KeyCodes::KEY_TAB:
-			DebugUtilities::getInstance().toggleShowFPS();
-			break;
-		case KeyCodes::KEY_COMMA:
-			DebugUtilities::getInstance().slowDownGame();
-			break;
-		case KeyCodes::KEY_POINT:
-			DebugUtilities::getInstance().speedUpGame();
-			break;
-		case KeyCodes::KEY_SLASH:
-			DebugUtilities::getInstance().resetSpeedGame();
-			break;
-		case KeyCodes::KEY_P:
-			DebugUtilities::getInstance().pauseGame();
-			break;
-		default:
-			break;
-		}
-	}
+	return textures;
 }
 
-void Scene::update()
+void Scene::setTexture(const std::string& name, const std::string& t)
 {
-	if (DebugUtilities::getInstance().isShowingFPS())
-	{
-		fpsString.str(std::to_string(DebugUtilities::getInstance().getFPS()));
-		fpsText->changeText(fpsString.str());
-	}
-	else
-	{
-		fpsText->changeText("");
-	}
+	textures.try_emplace(name, t);
 }
 
-void Scene::interact() {}
+std::map<std::string, std::string> Scene::getFonts() const
+{
+	return fonts;
+}
+
+void Scene::setFont(const std::string& name, const std::string& f)
+{
+	fonts.try_emplace(name, f);
+}
+
+std::map<std::string, std::string> Scene::getBeats() const
+{
+	return beats;
+}
+
+void Scene::setBeat(const std::string& name, const std::string& b)
+{
+	beats.try_emplace(name, b);
+}

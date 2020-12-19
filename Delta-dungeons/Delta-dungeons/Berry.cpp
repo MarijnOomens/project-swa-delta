@@ -9,8 +9,9 @@ Berry::Berry(int x, int y, std::string texture) {
     gc->imageDimensions = { 32, 32 };
     gc->transform = transform;
     gc->isScreen = false;
-    
-    cc = std::make_shared<RegularColliderComponent>();
+
+    stp = std::make_shared<StopStrategy>();
+    cc = std::make_shared<CollidingComponent>(stp);
     cc->tag = "berry";
     cc->transform.position = this->transform.position;
 
@@ -18,13 +19,21 @@ Berry::Berry(int x, int y, std::string texture) {
     this->components.emplace_back(cc);
 }
 
-void Berry::interact() 
+void Berry::interact(std::shared_ptr<BehaviourObject> interactor)
 {
+    auto col = dynamic_cast<Player*>(interactor.get());
+    if(col != nullptr) { col->addBerry(); }
+    
+
     if (gc != nullptr) {
         SceneModifier::getInstance().deleteObjectFromScene(gc);
         SceneModifier::getInstance().deleteColliderFromScene(cc);
+        SceneModifier::getInstance().deleteObjectFromScene(shared_from_this());
         gc = nullptr;
     }
 }
 
-void Berry::use() {}
+void Berry::setParent() 
+{
+    cc->parent = shared_from_this();
+}

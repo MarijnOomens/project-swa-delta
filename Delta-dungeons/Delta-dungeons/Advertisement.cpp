@@ -12,7 +12,7 @@ Advertisement::Advertisement(int x, int y, const std::vector<std::string>& textu
 	transform.position = { x, y };
 
 	m_gc->transform = this->transform;
-	m_gc->imageDimensions = { 860, 140 };
+	m_gc->imageDimensions = { 410, 70 };
 	m_gc->transform.scale.multiply({ 1, 1 });
 	m_gc->isScreen = true;
 
@@ -20,9 +20,3 @@ Advertisement::Advertisement(int x, int y, const std::vector<std::string>& textu
 	m_gc->setTexture(possibleTextures[0]);
 	this->components.emplace_back(m_gc);
 }
-
-void Advertisement::update() {}
-
-void Advertisement::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) {}
-
-void Advertisement::interact() {}

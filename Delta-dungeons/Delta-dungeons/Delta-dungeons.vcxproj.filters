@@ -49,18 +49,27 @@
     <Filter Include="Source Files\XMLParser">
       <UniqueIdentifier>{5d2ec776-f080-497e-b7f7-0315870065ef}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Game\Creation">
+      <UniqueIdentifier>{fe1450a4-8e4f-46dd-b58a-132dab0be7d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game\Creation">
+      <UniqueIdentifier>{cd0676a7-3ab0-48db-a993-e80460649379}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game\Scenes">
+      <UniqueIdentifier>{30f62b00-95b5-475b-a084-d6416c7f2d44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game\Scenes">
+      <UniqueIdentifier>{0c089fd8-4906-4827-a468-873c847a6b66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game\Singletons">
+      <UniqueIdentifier>{2ce87519-f610-4a02-96d1-740d9de10d7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game\Singleton">
+      <UniqueIdentifier>{32a2cd96-3b61-4419-a5a2-496877cb3221}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameManager.cpp">
-      <Filter>Source Files\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="UIManager.cpp">
-      <Filter>Source Files\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="EquipmentManager.cpp">
-      <Filter>Source Files\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="InteractiveManager.cpp">
       <Filter>Source Files\Game</Filter>
     </ClCompile>
     <ClCompile Include="Berry.cpp">
@@ -69,22 +78,13 @@
     <ClCompile Include="Boomerang.cpp">
       <Filter>Source Files\Game\GameObjects\Items</Filter>
     </ClCompile>
-    <ClCompile Include="HealingItem.cpp">
-      <Filter>Source Files\Game\GameObjects\Items</Filter>
-    </ClCompile>
     <ClCompile Include="Pokeball.cpp">
       <Filter>Source Files\Game\GameObjects\Items</Filter>
-    </ClCompile>
-    <ClCompile Include="InteractiveObject.cpp">
-      <Filter>Source Files\Game\GameObjects\InteractiveObjects</Filter>
     </ClCompile>
     <ClCompile Include="NPC.cpp">
       <Filter>Source Files\Game\GameObjects\InteractiveObjects</Filter>
     </ClCompile>
     <ClCompile Include="Pokemon.cpp">
-      <Filter>Source Files\Game\GameObjects\InteractiveObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="PuzzleObject.cpp">
       <Filter>Source Files\Game\GameObjects\InteractiveObjects</Filter>
     </ClCompile>
     <ClCompile Include="Button.cpp">
@@ -101,9 +101,6 @@
     </ClCompile>
     <ClCompile Include="HelpScreen.cpp">
       <Filter>Source Files\Game\GameObjects\Screens</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene.cpp">
-      <Filter>Source Files\XMLParser</Filter>
     </ClCompile>
     <ClCompile Include="XMLFacade.cpp">
       <Filter>Source Files\XMLParser</Filter>
@@ -129,63 +126,150 @@
     <ClCompile Include="HUD.cpp">
       <Filter>Source Files\Game\GameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Source Files\Game\GameObjects</Filter>
-    </ClCompile>
     <ClCompile Include="Tile.cpp">
       <Filter>Source Files\Game\GameObjects</Filter>
     </ClCompile>
     <ClCompile Include="DialoguePopup.cpp">
       <Filter>Source Files\Game\GameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="IEquipment.h">
-      <Filter>Header Files\Game\GameObjects\Items</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerManager.cpp">
-      <Filter>Source Files\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneLoader.cpp">
-      <Filter>Source Files\Game</Filter>
-    </ClCompile>
-    <ClCompile Include="NPCManager.cpp">
-      <Filter>Source Files\Game</Filter>
-    </ClCompile>
     <ClCompile Include="GameObjectBuilder.cpp">
       <Filter>Source Files\Game\GameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="Equipment.cpp">
-      <Filter>Source Files\Game\GameObjects\Items</Filter>
-    </ClCompile>
-    <ClCompile Include="DebugUtilities.cpp">
-      <Filter>Source Files\Game</Filter>
-    </ClCompile>
     <ClCompile Include="RunningShoes.cpp">
       <Filter>Source Files\Game\GameObjects\Items</Filter>
-      </ClCompile>
+    </ClCompile>
     <ClCompile Include="Advertisement.cpp">
       <Filter>Source Files\Game\GameObjects\Screens</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneModifier.cpp">
-      <Filter>Source Files\Game</Filter>
     </ClCompile>
     <ClCompile Include="GameWinScreen.cpp">
       <Filter>Source Files\Game\GameObjects\Screens</Filter>
     </ClCompile>
-    <ClCompile Include="PokemonManager.cpp">
-      <Filter>Source Files\Game</Filter>
-    </ClCompile>
     <ClCompile Include="PokemonParserData.cpp">
       <Filter>Source Files\XMLParser</Filter>
     </ClCompile>
-    <ClCompile Include="HUDManager.cpp">
+    <ClCompile Include="LoadSaveScreen.cpp">
+      <Filter>Source Files\Game\GameObjects\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="World.cpp">
+      <Filter>Source Files\Game\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenuScene.cpp">
+      <Filter>Source Files\Game\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Source Files\Game\Creation</Filter>
+    </ClCompile>
+    <ClCompile Include="ThrowPokeball.cpp">
+      <Filter>Source Files\Game\GameObjects\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="IInteractiveObject.cpp">
+      <Filter>Source Files\Game\GameObjects\InteractiveObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="CreditScreenScene.cpp">
+      <Filter>Source Files\Game\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="PauseScreenScene.cpp">
+      <Filter>Source Files\Game\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadSaveScreenScene.cpp">
+      <Filter>Source Files\Game\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOverScreenScene.cpp">
+      <Filter>Source Files\Game\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="GameWinScreenScene.cpp">
+      <Filter>Source Files\Game\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="HelpScreenScene.cpp">
+      <Filter>Source Files\Game\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Medal.cpp">
+      <Filter>Source Files\Game\GameObjects\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="NPCParserData.cpp">
+      <Filter>Source Files\XMLParser</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\Game\GameObjects\InteractiveObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="PuzzleParserData.cpp">
+      <Filter>Source Files\XMLParser</Filter>
+    </ClCompile>
+    <ClCompile Include="IEquipment.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BoulderPuzzleObject.cpp">
+      <Filter>Source Files\Game\GameObjects\InteractiveObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="DoorPuzzleObject.cpp">
+      <Filter>Source Files\Game\GameObjects\InteractiveObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="DialoguePopupScene.cpp">
+      <Filter>Source Files\Game\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelScene.cpp">
+      <Filter>Source Files\Game\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="EquipmentFactory.cpp">
+      <Filter>Source Files\Game\Creation</Filter>
+    </ClCompile>
+    <ClCompile Include="HUDFactory.cpp">
+      <Filter>Source Files\Game\Creation</Filter>
+    </ClCompile>
+    <ClCompile Include="NPCFactory.cpp">
+      <Filter>Source Files\Game\Creation</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerFactory.cpp">
+      <Filter>Source Files\Game\Creation</Filter>
+    </ClCompile>
+    <ClCompile Include="PokemonFactory.cpp">
+      <Filter>Source Files\Game\Creation</Filter>
+    </ClCompile>
+    <ClCompile Include="PuzzleFactory.cpp">
+      <Filter>Source Files\Game\Creation</Filter>
+    </ClCompile>
+    <ClCompile Include="BoulderTriggerPuzzleObject.cpp">
+      <Filter>Source Files\Game\GameObjects\InteractiveObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="OrderTriggerPuzzleObject.cpp">
+      <Filter>Source Files\Game\GameObjects\InteractiveObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Puzzle.cpp">
       <Filter>Source Files\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="ResetPuzzleObject.cpp">
+      <Filter>Source Files\Game\GameObjects\InteractiveObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="HighScoreScreen.cpp">
+      <Filter>Source Files\Game\GameObjects\Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="HighScoreScreenScene.cpp">
+      <Filter>Source Files\Game\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelBuilder.cpp">
+      <Filter>Source Files\Game\Creation</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugUtilities.cpp">
+      <Filter>Source Files\Game\Singletons</Filter>
+    </ClCompile>
+    <ClCompile Include="AudioUtilities.cpp">
+      <Filter>Source Files\Game\Singletons</Filter>
+    </ClCompile>
+    <ClCompile Include="GameState.cpp">
+      <Filter>Source Files\Game\Singletons</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneLoader.cpp">
+      <Filter>Source Files\Game\Singletons</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneModifier.cpp">
+      <Filter>Source Files\Game\Singletons</Filter>
+    </ClCompile>
+    <ClCompile Include="IEquipment.h">
+      <Filter>Header Files\Game\GameObjects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h">
-      <Filter>Header Files\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="UIManager.h">
       <Filter>Header Files\Game</Filter>
     </ClInclude>
     <ClInclude Include="rapidxml_iterators.hpp">
@@ -209,16 +293,7 @@
     <ClInclude Include="XMLSceneParser.h">
       <Filter>Header Files\XMLParser</Filter>
     </ClInclude>
-    <ClInclude Include="EquipmentManager.h">
-      <Filter>Header Files\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="InteractiveManager.h">
-      <Filter>Header Files\Game</Filter>
-    </ClInclude>
     <ClInclude Include="Tile.h">
-      <Filter>Header Files\Game\GameObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
       <Filter>Header Files\Game\GameObjects</Filter>
     </ClInclude>
     <ClInclude Include="HUD.h">
@@ -245,19 +320,10 @@
     <ClInclude Include="Boomerang.h">
       <Filter>Header Files\Game\GameObjects\Items</Filter>
     </ClInclude>
-    <ClInclude Include="HealingItem.h">
-      <Filter>Header Files\Game\GameObjects\Items</Filter>
-    </ClInclude>
     <ClInclude Include="Pokeball.h">
       <Filter>Header Files\Game\GameObjects\Items</Filter>
     </ClInclude>
-    <ClInclude Include="InteractiveObject.h">
-      <Filter>Header Files\Game\GameObjects\InteractiveObjects</Filter>
-    </ClInclude>
     <ClInclude Include="Pokemon.h">
-      <Filter>Header Files\Game\GameObjects\InteractiveObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="PuzzleObject.h">
       <Filter>Header Files\Game\GameObjects\InteractiveObjects</Filter>
     </ClInclude>
     <ClInclude Include="NPC.h">
@@ -272,26 +338,11 @@
     <ClInclude Include="DialoguePopup.h">
       <Filter>Header Files\Game\GameObjects</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerManager.h">
-      <Filter>Header Files\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneLoader.h">
-      <Filter>Header Files\Game</Filter>
-    </ClInclude>
-    <ClInclude Include="NPCManager.h">
-      <Filter>Header Files\Game</Filter>
-    </ClInclude>
     <ClInclude Include="GameObjectBuilder.h">
       <Filter>Header Files\Game\GameObjects</Filter>
     </ClInclude>
-    <ClInclude Include="DebugUtilities.h">
-      <Filter>Header Files\Game</Filter>
-    </ClInclude>
     <ClInclude Include="RunningShoes.h">
       <Filter>Header Files\Game\GameObjects\Items</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene.h">
-      <Filter>Header Files\XMLParser</Filter>
     </ClInclude>
     <ClInclude Include="ParserData.h">
       <Filter>Header Files\XMLParser</Filter>
@@ -299,20 +350,128 @@
     <ClInclude Include="Advertisement.h">
       <Filter>Header Files\Game\GameObjects\Screens</Filter>
     </ClInclude>
-    <ClInclude Include="SceneModifier.h">
-      <Filter>Header Files\Game</Filter>
-    </ClInclude>
     <ClInclude Include="GameWinScreen.h">
       <Filter>Header Files\Game\GameObjects\Screens</Filter>
-    </ClInclude>
-    <ClInclude Include="PokemonManager.h">
-      <Filter>Header Files\Game</Filter>
     </ClInclude>
     <ClInclude Include="PokemonParserData.h">
       <Filter>Header Files\XMLParser</Filter>
     </ClInclude>
-    <ClInclude Include="HUDManager.h">
+    <ClInclude Include="LoadSaveScreen.h">
+      <Filter>Header Files\Game\GameObjects\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="World.h">
+      <Filter>Header Files\Game\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenuScene.h">
+      <Filter>Header Files\Game\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Header Files\Game\Creation</Filter>
+    </ClInclude>
+    <ClInclude Include="ThrowPokeball.h">
+      <Filter>Header Files\Game\GameObjects\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="IInteractiveObject.h">
+      <Filter>Header Files\Game\GameObjects\InteractiveObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="CreditScreenScene.h">
+      <Filter>Header Files\Game\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="PauseScreenScene.h">
+      <Filter>Header Files\Game\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOverScreenScene.h">
+      <Filter>Header Files\Game\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="GameWinScreenScene.h">
+      <Filter>Header Files\Game\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="HelpScreenScene.h">
+      <Filter>Header Files\Game\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadSaveScreenScene.h">
+      <Filter>Header Files\Game\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Medal.h">
+      <Filter>Header Files\Game\GameObjects\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="NPCParserData.h">
+      <Filter>Header Files\XMLParser</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files\Game\GameObjects\InteractiveObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="PuzzleParserData.h">
+      <Filter>Header Files\XMLParser</Filter>
+    </ClInclude>
+    <ClInclude Include="BoulderPuzzleObject.h">
+      <Filter>Header Files\Game\GameObjects\InteractiveObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="DoorPuzzleObject.h">
+      <Filter>Header Files\Game\GameObjects\InteractiveObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="DialoguePopupScene.h">
+      <Filter>Header Files\Game\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelBuilder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelScene.h">
+      <Filter>Header Files\Game\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjectFactory.h">
+      <Filter>Header Files\Game\Creation</Filter>
+    </ClInclude>
+    <ClInclude Include="EquipmentFactory.h">
+      <Filter>Header Files\Game\Creation</Filter>
+    </ClInclude>
+    <ClInclude Include="HUDFactory.h">
+      <Filter>Header Files\Game\Creation</Filter>
+    </ClInclude>
+    <ClInclude Include="NPCFactory.h">
+      <Filter>Header Files\Game\Creation</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerFactory.h">
+      <Filter>Header Files\Game\Creation</Filter>
+    </ClInclude>
+    <ClInclude Include="PokemonFactory.h">
+      <Filter>Header Files\Game\Creation</Filter>
+    </ClInclude>
+    <ClInclude Include="PuzzleFactory.h">
+      <Filter>Header Files\Game\Creation</Filter>
+    </ClInclude>
+    <ClInclude Include="BoulderTriggerPuzzleObject.h">
+      <Filter>Header Files\Game\GameObjects\InteractiveObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="OrderTriggerPuzzleObject.h">
+      <Filter>Header Files\Game\GameObjects\InteractiveObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Puzzle.h">
       <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="ResetPuzzleObject.h">
+      <Filter>Header Files\Game\GameObjects\InteractiveObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="HighScoreScreen.h">
+      <Filter>Header Files\Game\GameObjects\Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="HighScoreScreenScene.h">
+      <Filter>Header Files\Game\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugUtilities.h">
+      <Filter>Header Files\Game\Singleton</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneLoader.h">
+      <Filter>Header Files\Game\Singleton</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneModifier.h">
+      <Filter>Header Files\Game\Singleton</Filter>
+    </ClInclude>
+    <ClInclude Include="GameState.h">
+      <Filter>Header Files\Game\Singleton</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioUtilities.h">
+      <Filter>Header Files\Game\Singleton</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -6,106 +6,27 @@
 GameManager::GameManager()
 {
 	engineFacade = std::make_shared<EngineFacade>();
-	engineFacade->init();
+	engineFacade->init("Delta Dungeons", 1280, 960, false);
 	SceneLoader::getInstance().setEngineFacade(engineFacade);
 	DebugUtilities::getInstance().setEngineFacade(engineFacade);
 	SceneModifier::getInstance().setEngineFacade(engineFacade);
+	AudioUtilities::getInstance().setEngineFacade(engineFacade);
 
-	uiManager.createBaseScreens();
-	registerTextures(uiManager.passTextures());
-	registerFonts(uiManager.passFonts());
+	scenes = { mainMenuScene, creditScreenScene, pauseScreenScene, helpScreenScene, gameOverScreenScene, gameWinScreenScene, loadSaveScreenScene, dialoguePopupScene, highScoreScreenScene };
 
-	playerManager.createPlayer(staticCameraCallbackFunction, staticInteractCallbackFunction, staticGameOverbackFunction, staticUpdateHUDHealthCallbackFunction, this);
-	registerTextures(playerManager.passTextures());
 
-	npcManager.createNPC();
-	registerTextures(npcManager.passTextures());
-
-	pokemonManger.createPokemon();
-	registerTextures(pokemonManger.passTextures());
-	
-	hudManager.createHud();
-	for (std::string& texture: playerManager.getItems())
+	for (auto& s : scenes)
 	{
-		hudManager.addItem(texture);
+		registerTextures(s.getTextures());
+		registerFonts(s.getFonts());
+		registerAudio(s.getBeats());
+		engineFacade->registerScene(s.name, s.getBehaviourObjects());
 	}
-	registerTextures(hudManager.passTextures());
-	
-	scene = std::make_shared<Scene>();
-	scene->addGraphics();
-	registerTextures(scene->passTextures());
 
-	eqManager.createEquipment();
-	registerTextures(eqManager.passTextures());
+	createLevel(levels[currentlevel]);
 
-	registerBehaviourObjects();
-	engineFacade->createCamera(playerManager.player->transform.position.x, playerManager.player->transform.position.y);
+	engineFacade->loadScene("MainMenuScreen", "", true);
 	engineFacade->startGame();
-}
-
-/// <summary>
-/// This methods registers all BehaviourObjects from all managers into one big list within the GameManager.
-/// </summary>
-void GameManager::registerBehaviourObjects()
-{
-	for (auto& o : uiManager.screens)
-	{
-		std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects;
-		behaviourObjects.emplace_back(o.second);
-		for (auto& c : o.second->getComponentsRecursive())
-		{
-			behaviourObjects.emplace_back(c);
-		}
-		engineFacade->registerScene(o.first, behaviourObjects);
-	}
-
-	std::vector<std::shared_ptr<BehaviourObject>> level1;
-	for (auto& t : scene->getComponentsRecursive())
-	{
-		level1.emplace_back(t);
-	}
-	level1.emplace_back(scene);
-
-	for (auto& o : npcManager.npcs)
-	{
-		for (auto& n : o.second->getComponentsRecursive())
-		{
-			level1.emplace_back(n);
-		}
-		level1.emplace_back(o.second.get());
-	}
-
-	for (auto& o : eqManager.equipments)
-	{
-		for (auto& n : o.second->getComponentsRecursive())
-		{
-			level1.emplace_back(n);
-		}
-		level1.emplace_back(o.second.get());
-	}
-
-	for (auto& o : pokemonManger.pokemon)
-	{
-		for (auto& n : o.second.get()->getComponentsRecursive())
-		{
-			level1.emplace_back(n);
-		}
-		level1.emplace_back(o.second.get());
-	}
-	
-	for (auto& c : playerManager.player->getComponentsRecursive())
-	{
-		level1.emplace_back(c);
-	}
-	level1.emplace_back(playerManager.player);
-
-	for (auto& c : hudManager.hud->getComponentsRecursive())
-	{
-		level1.emplace_back(c);
-	}
-	level1.emplace_back(hudManager.hud);
-	engineFacade->registerScene("Level1", level1);
-	engineFacade->loadScene("MainMenu", "", true);
 }
 
 /// <summary>
@@ -116,16 +37,6 @@ void GameManager::registerTextures(std::map<std::string, std::string> textures)
 	engineFacade->registerTextures(textures);
 }
 
-void GameManager::staticCameraCallbackFunction(void* p, int x, int y)
-{
-	((GameManager*)p)->passPlayerPosition(x, y);
-}
-
-void GameManager::passPlayerPosition(int x, int y)
-{
-	engineFacade->passPlayerPosition(x, y);
-}
-
 /// <summary>
 /// This methods gives the engineFacade all fonts to give to the engine.
 /// </summary>
@@ -134,32 +45,41 @@ void GameManager::registerFonts(std::map<std::string, std::string> fonts)
 	engineFacade->registerFonts(fonts);
 }
 
-void GameManager::staticInteractCallbackFunction(void* p, int x, int y)
+void GameManager::registerAudio(std::map<std::string, std::string> beats)
 {
-	((GameManager*)p)->interactCallbackFunction(x, y);
+	engineFacade->registerAudio(beats);
 }
 
-void GameManager::interactCallbackFunction(int x, int y) 
+void GameManager::createLevel(const std::string& levelName)
 {
-	engineFacade->passInteract(x, y);
+	SceneLoader::getInstance().setCurrentLevel(levels[currentlevel]);
+	levelBuilder = std::make_unique<LevelBuilder>(levelName, engineFacade);
+	levelBuilder->setWorld();
+	levelBuilder->setNPCs();
+	levelBuilder->setEquipment();
+	levelBuilder->setPokemon();
+	levelBuilder->setPuzzle();
+	levelBuilder->setPlayer(staticLoadNextLevelCallbackFunction, this);
+	Vector2D camPosition = levelBuilder->getPlayerPosition();
+	levelBuilder->setHud();
+	auto level = levelBuilder->getScene();
+	registerTextures(level.getTextures());
+	registerFonts(level.getFonts());
+	registerAudio(level.getBeats());
+	engineFacade->registerScene(levelName, level.getBehaviourObjects());
+	engineFacade->createCamera(camPosition.x, camPosition.y);
 }
 
-void GameManager::staticUpdateHUDHealthCallbackFunction(void* p, bool hit)
+void GameManager::staticLoadNextLevelCallbackFunction(void* p)
 {
-	((GameManager*)p)->updateHUDHealthCallbackFunction(hit);
+	((GameManager*)p)->loadNextLevelCallbackFunction();
 }
 
-void GameManager::updateHUDHealthCallbackFunction(bool hit)
+void GameManager::loadNextLevelCallbackFunction()
 {
-	hudManager.updateHUDHealth(hit);
-}
-
-void GameManager::staticGameOverbackFunction(void* p)
-{
-	((GameManager*)p)->gameOverCallbackFunction();
-}
-
-void GameManager::gameOverCallbackFunction()
-{
-	engineFacade->gameOver();
+	engineFacade->deleteScene(levels[currentlevel]);
+	currentlevel++;
+	createLevel(levels[currentlevel]);
+	SceneLoader::getInstance().setCurrentLevel(levels[currentlevel]);
+	engineFacade->loadScene(levels[currentlevel], levels[currentlevel - 1], true);
 }

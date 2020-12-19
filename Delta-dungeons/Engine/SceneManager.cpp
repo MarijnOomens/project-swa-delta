@@ -2,14 +2,20 @@
 
 void SceneManager::update()
 {
-	for (const auto& bo : currentObjects)
+	for (const auto& s : activeScenes)
 	{
-		bo->update();
+		for (const auto& bo : scenes[s])
+		{
+			bo->update();
+		}
 	}
 }
 
 void SceneManager::loadScene(const std::string& sceneName, const std::string& fromScene, const bool clearPrevious)
 {
+	isOverlayScene = false;
+	currentScene = sceneName;
+
 	if (clearPrevious)
 	{
 		previousScenes.clear();
@@ -22,9 +28,11 @@ void SceneManager::loadScene(const std::string& sceneName, const std::string& fr
 	}
 
 	activeScenes.push_back(sceneName);
-	currentScene = sceneName;
-	currentObjects = scenes[currentScene];
+	for (auto& bo : scenes[currentScene]) {
+		bo->start();
+	}
 	isSceneSwitched = true;
+	update();
 }
 
 void SceneManager::loadPreviousScene()
@@ -42,14 +50,6 @@ void SceneManager::loadPreviousScene()
 		previousScenes.pop_back();
 	}
 
-	currentObjects.clear();
-
-	for (auto& s : activeScenes) {
-		for (auto& o : scenes[s]) {
-			currentObjects.emplace_back(o);
-		}
-	}
-
 	isSceneSwitched = true;
 	update();
 }
@@ -57,13 +57,10 @@ void SceneManager::loadPreviousScene()
 void SceneManager::addOverlayScene(const std::string& sceneName)
 {
 	isSceneSwitched = true;
+	isOverlayScene = true;
 
 	activeScenes.push_back(sceneName);
 	currentScene = sceneName;
-	for (auto& c : scenes[sceneName])
-	{
-		currentObjects.emplace_back(c);
-	}
 	update();
 }
 
@@ -92,34 +89,51 @@ void SceneManager::handleSceneInput(const KeyCodes keyCode, const KeyboardEvent 
 	}	
 }
 
-void SceneManager::addObjectToScene(const std::shared_ptr<BehaviourObject>& addObject)
+void SceneManager::addObjectToScene(std::shared_ptr<BehaviourObject> addObject)
 {
 	if (currentScene != "") 
 	{
-		currentObjects.emplace_back(addObject);
+		scenes[currentScene].emplace_back(addObject);
 	}
 	isSceneSwitched = true;
 }
 
-void SceneManager::deleteObjectFromScene(const std::shared_ptr<BehaviourObject>& deletedObject)
+void SceneManager::deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject)
 {
-	auto i = std::find(currentObjects.begin(), currentObjects.end(), deletedObject);
-	if (i != currentObjects.end())
+	auto i = std::find(scenes[currentScene].begin(), scenes[currentScene].end(), deletedObject);
+	if (i != scenes[currentScene].end())
 	{
-		currentObjects.erase(i);
+		scenes[currentScene].erase(i);
 	}
 	isSceneSwitched = true;
 }
 
-void SceneManager::passInteract(int x, int y)
+void SceneManager::passInteract(std::shared_ptr<BehaviourObject> player, int x, int y, int w, int h)
 {
-	for (const auto& bo : currentObjects) {
-		if (bo != nullptr) {
-			if (bo->transform.position.x == x && bo->transform.position.y == y)
+	for (const auto& bo : scenes[currentScene]) {
+		if (bo != nullptr && !isSceneSwitched) {
+			if (x + w > bo->transform.position.x &&
+				bo->transform.position.x + w > x &&
+				y + h > bo->transform.position.y &&
+				bo->transform.position.y + h > y)
 			{
-				bo->interact();
+				bo->interact(player);
 			}
 		}
 	}
-	
+}
+
+std::string SceneManager::getCurrentScene()
+{
+	return currentScene;
+}
+
+void SceneManager::deleteScene(const std::string& sceneName)
+{
+	scenes[sceneName].clear();
+}
+
+void SceneManager::replaceScene(const std::string sceneName, std::vector<std::shared_ptr<BehaviourObject>> objects)
+{
+	scenes[sceneName] = objects;
 }

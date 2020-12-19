@@ -1,6 +1,7 @@
 #include "Pokeball.h"
 
-Pokeball::Pokeball(int x, int y, std::string texture) {
+Pokeball::Pokeball(int x, int y, std::string texture) 
+{
 	this->transform.position = { x * 128, y * 128 };
 	this->transform.scale.multiply({ 4, 4 });
 
@@ -10,7 +11,8 @@ Pokeball::Pokeball(int x, int y, std::string texture) {
 	gc->transform = transform;
 	gc->isScreen = false;
 
-	cc = std::make_shared<RegularColliderComponent>();
+	stp = std::make_shared<StopStrategy>();
+	cc = std::make_shared<CollidingComponent>(stp);
 	cc->tag = "pokeball";
 	cc->transform.position = this->transform.position;
 
@@ -18,13 +20,20 @@ Pokeball::Pokeball(int x, int y, std::string texture) {
 	this->components.emplace_back(cc);
 }
 
-void Pokeball::interact()
+void Pokeball::interact(std::shared_ptr<BehaviourObject> interactor)
 {
+	auto col = dynamic_cast<Player*>(interactor.get());
+	col->addPokeball();
+
 	if (gc != nullptr) {
 		SceneModifier::getInstance().deleteObjectFromScene(gc);
 		SceneModifier::getInstance().deleteColliderFromScene(cc);
+		SceneModifier::getInstance().deleteObjectFromScene(shared_from_this());
 		gc = nullptr;
 	}
 }
 
-void Pokeball::use() {}
+void Pokeball::setParent() 
+{
+	cc->parent = shared_from_this();
+}
