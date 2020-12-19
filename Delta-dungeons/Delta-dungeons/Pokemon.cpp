@@ -1,6 +1,6 @@
 #include "Pokemon.h"
 
-Pokemon::Pokemon(int x, int y, const std::string& texture)
+Pokemon::Pokemon(int x, int y, const std::string& texture, cbCollision collisionCb, void* p): func(collisionCb), pointer(p)
 {
 	this->transform.position = { x * 128, y * 128 };
 	this->transform.scale.multiply({ 4, 4 });
@@ -42,6 +42,11 @@ void Pokemon::update(int time)
 	}
 }
 
+void Pokemon::registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger)
+{
+	hasMoved = true;
+}
+
 void Pokemon::walk()
 {
 	int randomDirection = rand() % 3;
@@ -49,21 +54,39 @@ void Pokemon::walk()
 	switch (randomDirection)
 	{
 	case 0:
-		transform.position.y += 32;
+		func(pointer, cc, shared_from_this(), this->transform.position.x, this->transform.position.y + 32, KeyCodes::KEY_DOWN, (gc->imageDimensions.x * gc->transform.scale.x));
+		if (!hasMoved)
+		{
+			transform.position.y += 32;
+		}
 		break;
 	case 1:
-		transform.position.y -= 32;
+		func(pointer, cc, shared_from_this(), this->transform.position.x, this->transform.position.y -32 , KeyCodes::KEY_UP, (gc->imageDimensions.x * gc->transform.scale.x));
+		if (!hasMoved)
+		{
+			transform.position.y -= 32;
+		}
 		break;
 	case 2:
-		transform.position.x += 32;
+		func(pointer, cc, shared_from_this(), this->transform.position.x + 32, this->transform.position.y, KeyCodes::KEY_RIGHT, (gc->imageDimensions.x * gc->transform.scale.x));
+		if (!hasMoved)
+		{
+			transform.position.x += 32;
+		}
 		break;
 	case 3:
-		transform.position.x -= 32;
+		func(pointer, cc, shared_from_this(), this->transform.position.x - 32, this->transform.position.y, KeyCodes::KEY_LEFT, (gc->imageDimensions.x * gc->transform.scale.x));
+		if (!hasMoved)
+		{
+			transform.position.x -= 32;
+		}
 		break;
 	default:
 		break;
 	}
 	gc->transform.position = transform.position;
+	cc->transform.position = transform.position;
+	hasMoved = false;
 }
 
 void Pokemon::playAnimation(int direction) 

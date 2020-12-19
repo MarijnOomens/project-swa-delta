@@ -37,7 +37,7 @@ void LevelBuilder::setNPCs()
 
 void LevelBuilder::setPokemon()
 {
-	pokemonFactory.createPokemon(levelName);
+	pokemonFactory.createPokemon(levelName, staticCheckCollisionCallbackFunction, this);
 	for (auto& p : pokemonFactory.pokemon)
 	{
 		behaviourObjects.emplace_back(p.second);
