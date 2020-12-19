@@ -9,7 +9,9 @@ public:
 	AudioWrapper() {}
 	~AudioWrapper() {}
 
-	void playAudio(const std::string& name, bool loop);
+	void playAudio(const std::string& path, bool loop);
+	void playEffect(const std::string& path);
 private:
 	Mix_Music* gMusic = NULL;
+	Mix_Chunk* gEffect = NULL;
 };

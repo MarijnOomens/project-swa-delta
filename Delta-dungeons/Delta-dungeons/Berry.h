@@ -5,6 +5,8 @@
 #include "CollidingComponent.h"
 #include "StopStrategy.h"
 #include "Player.h"
+#include "AudioUtilities.h"
+
 class Berry : public IEquipment
 {
 public:

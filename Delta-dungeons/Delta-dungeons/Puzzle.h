@@ -5,6 +5,7 @@
 #include "BoulderPuzzleObject.h"
 #include "BoulderTriggerPuzzleObject.h"
 #include "ResetPuzzleObject.h"
+#include "AudioUtilities.h"
 
 #include <map>
 

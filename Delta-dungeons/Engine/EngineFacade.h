@@ -38,6 +38,7 @@ public:
 	ENGINE_API void deleteColliderFromScene(std::shared_ptr<CollidingComponent> deletedCollider) const;
 	ENGINE_API void gameOver() const;
 	ENGINE_API void playAudio(const std::string& trackName, bool looped) const;
+	ENGINE_API void playEffect(const std::string& effectName) const;
 	ENGINE_API void deleteScene(const std::string& sceneName) const;
 	ENGINE_API void replaceScene(const std::string sceneName, std::vector<std::shared_ptr<BehaviourObject>> objects) const;
 

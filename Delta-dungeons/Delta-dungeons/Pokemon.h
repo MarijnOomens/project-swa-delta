@@ -7,6 +7,7 @@
 #include <map>
 #include "DamageStrategy.h"
 #include "SceneModifier.h"
+#include "AudioUtilities.h"
 
 typedef void(*cbCollision) (void*, std::shared_ptr<CollidingComponent>, std::shared_ptr<BehaviourObject> behaviourObject, int, int, KeyCodes, int);
 

@@ -9,7 +9,20 @@ void AudioWrapper::playAudio(const std::string& path, bool loop)
 	}
 	else
 	{
-		Mix_VolumeMusic(64);
+		Mix_VolumeMusic(20);
 		Mix_PlayMusic(gMusic, loop ? -1 : 0);
 	}
 }
+
+void AudioWrapper::playEffect(const std::string& path)
+{
+	gEffect = Mix_LoadWAV(path.c_str());
+	if (gEffect == NULL)
+	{
+		printf("Failed to audio effect! SDL_mixer Error: %s\n", Mix_GetError());
+	}
+	else {
+		Mix_PlayChannel(-1, gEffect, 0);
+	}
+}
+

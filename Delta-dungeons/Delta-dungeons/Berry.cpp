@@ -21,6 +21,7 @@ Berry::Berry(int x, int y, std::string texture) {
 
 void Berry::interact(std::shared_ptr<BehaviourObject> interactor)
 {
+    AudioUtilities::getInstance().playEffect("berry");
     auto col = dynamic_cast<Player*>(interactor.get());
     if(col != nullptr) { col->addBerry(); }
     

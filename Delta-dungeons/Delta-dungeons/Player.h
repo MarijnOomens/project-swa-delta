@@ -10,6 +10,7 @@
 #include "StopStrategy.h"
 #include "ThrowPokeball.h"
 #include "SceneLoader.h"
+#include "AudioUtilities.h"
 
 typedef void(*cbInteract) (void*, std::shared_ptr<BehaviourObject>, int, int, int, int);
 typedef void(*cbCamera) (void*, int, int);

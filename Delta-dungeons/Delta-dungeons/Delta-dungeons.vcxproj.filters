@@ -413,9 +413,6 @@
     <ClInclude Include="DialoguePopupScene.h">
       <Filter>Header Files\Game\Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="LevelBuilder.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="LevelScene.h">
       <Filter>Header Files\Game\Scenes</Filter>
     </ClInclude>
@@ -472,6 +469,9 @@
     </ClInclude>
     <ClInclude Include="AudioUtilities.h">
       <Filter>Header Files\Game\Singleton</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelBuilder.h">
+      <Filter>Header Files\Game\Creation</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
