@@ -31,6 +31,7 @@ void World::addGraphics(const std::string& levelName)
 	beats.try_emplace("pickup", "Assets/Audio/pickup.wav");
 	beats.try_emplace("berry", "Assets/Audio/berry.wav");
 	beats.try_emplace("boulder", "Assets/Audio/boulder.wav");
+	beats.try_emplace("gate", "Assets/Audio/gate.wav");
 }
 
 std::map<std::string, std::string> World::passTextures(std::string levelName) const

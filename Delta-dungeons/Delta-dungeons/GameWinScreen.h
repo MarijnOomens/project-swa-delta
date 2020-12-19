@@ -4,12 +4,15 @@
 #include "TextComponent.h"
 #include "Button.h"
 #include "SceneLoader.h"
+#include "AudioUtilities.h"
 
 class GameWinScreen : public Screen
 {
 public:
 	GameWinScreen();
 	void setParent() override {}
+
+	void start() override;
 
 	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
 
