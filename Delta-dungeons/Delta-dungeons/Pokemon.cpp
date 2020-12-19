@@ -32,3 +32,57 @@ void Pokemon::setParent()
 {
 	cc->parent = shared_from_this();
 }
+
+void Pokemon::update(int time)
+{
+	if ((time - previoustime) >= 3000)
+	{
+		previoustime = time;
+		walk();
+	}
+}
+
+void Pokemon::walk()
+{
+	int randomDirection = rand() % 3;
+	playAnimation(randomDirection);
+	switch (randomDirection)
+	{
+	case 0:
+		transform.position.y += 32;
+		break;
+	case 1:
+		transform.position.y -= 32;
+		break;
+	case 2:
+		transform.position.x += 32;
+		break;
+	case 3:
+		transform.position.x -= 32;
+		break;
+	default:
+		break;
+	}
+	gc->transform.position = transform.position;
+}
+
+void Pokemon::playAnimation(int direction) 
+{
+	switch (direction)
+	{
+	case 0:
+		gc->playAnimation(0, 3, animationSpeed, false);
+		break;
+	case 1:
+		gc->playAnimation(1, 3, animationSpeed, false);
+		break;
+	case 2:
+		gc->playAnimation(2, 3, animationSpeed, true);
+		break;
+	case 3:
+		gc->playAnimation(2, 3, animationSpeed, false);
+		break;
+	default:
+		break;
+	}
+}

@@ -47,7 +47,7 @@ void BoulderPuzzleObject::start()
 	updateTransform(startX, startY);
 }
 
-void BoulderPuzzleObject::update()
+void BoulderPuzzleObject::update(int time)
 {
 	if (pushed)
 	{

@@ -61,7 +61,7 @@ void ThrowPokeball::moveRight(int x, int y)
 	direction = "right";
 }
 
-void ThrowPokeball::update() 
+void ThrowPokeball::update(int time) 
 {
 	if (isMoving) {
 		if (direction == "up") {

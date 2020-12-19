@@ -10,6 +10,7 @@ public:
 	~FrameManager() {}
 
 	void setFrameStart();
+	Uint32 getFrameStart();
 	void setFrameDelay();
 	void slowDownGame();
 	void speedUpGame();

@@ -33,6 +33,11 @@ void RenderFacade::setFrameStart() const
 	frameManager->setFrameStart();
 }
 
+Uint32 RenderFacade::getFrameStart() const
+{
+	return frameManager->getFrameStart();
+}
+
 /// <summary>
 /// Calls the setFrameDelay from the frameManager
 /// </summary>

@@ -18,7 +18,9 @@ public:
 	void registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger) override {}
 	void setParent() override;
 	void start() override {}
-	void update() override {}
+	void update(int time) override;
+	void walk();
+	void playAnimation(int direction);
 protected:
 	std::string sfxPath;
 
@@ -28,5 +30,6 @@ private:
 	std::string type;
 	int id;
 	int catchRate;
+	int previoustime = 0;
 	const int animationSpeed = 180;
 };

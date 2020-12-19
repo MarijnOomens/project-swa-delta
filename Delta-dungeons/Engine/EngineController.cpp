@@ -101,7 +101,7 @@ void EngineController::startGame()
 		if (!renderFacade->renderer->isPaused)
 		{
 			renderFacade->beforeFrame();
-			sceneManager.update();
+			sceneManager.update(renderFacade->getFrameStart());
 		}
 		checkTransition();
 		checkGameOver();

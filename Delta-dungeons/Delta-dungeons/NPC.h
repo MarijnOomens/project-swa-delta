@@ -19,7 +19,7 @@ public:
 	void registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger) override {}
 	void setParent() override;
 	void start() override {}
-	void update() override {}
+	void update(int time) override {}
 	void playAnimation(Transform t);
 	std::string getRandomDialogue();
 

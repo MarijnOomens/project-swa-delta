@@ -66,7 +66,7 @@ void World::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEv
 	}
 }
 
-void World::update()
+void World::update(int time)
 {
 	if (DebugUtilities::getInstance().isShowingFPS())
 	{

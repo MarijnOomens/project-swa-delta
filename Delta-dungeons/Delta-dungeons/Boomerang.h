@@ -18,7 +18,7 @@ public:
 	void use() override;
 	void setParent() override;
 	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos)override {}
-	void update() override {}
+	void update(int time) override {}
 	void start()override {}
 	void registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger) override {}
 

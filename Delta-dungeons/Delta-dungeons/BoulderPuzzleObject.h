@@ -23,7 +23,7 @@ public:
 	void registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger) override;
 	void setParent() override;
 	void start() override;
-	void update() override;
+	void update(int time) override;
 
 	void handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override {}
 

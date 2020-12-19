@@ -28,7 +28,7 @@ public:
 	void start() override;
 
 	void registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger) override {}
-	void update() override {}
+	void update(int time) override {}
 
 private:
 	std::shared_ptr<GraphicsComponent> gc;

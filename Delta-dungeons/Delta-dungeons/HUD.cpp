@@ -71,7 +71,7 @@ void HUD::updateHUD(int h, int b, int p)
 	ballsCount->changeText(std::to_string(amountOfPokeballs));
 }
 
-void HUD::update() 
+void HUD::update(int time) 
 {
 	int scoreInt = GameState::getInstance().getCaughtPokemon();
 	score->changeText("Score " + std::to_string(scoreInt));
