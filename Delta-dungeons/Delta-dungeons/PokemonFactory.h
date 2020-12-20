@@ -10,6 +10,7 @@
 #include "GameObjectFactory.h"
 
 typedef void(*cbCollision) (void*, std::shared_ptr<CollidingComponent>, std::shared_ptr<BehaviourObject> behaviourObject, int, int, KeyCodes, int);
+typedef bool(*cbCameraRange) (void*, int, int);
 
 class PokemonFactory : public GameObjectFactory
 {
@@ -19,7 +20,7 @@ public:
 
 	PokemonFactory();
 
-	void createPokemon(const std::string& levelName, cbCollision collisionCb, void* p);
+	void createPokemon(const std::string& levelName, cbCollision collisionCb, cbCameraRange cameraCollision, void* p);
 	std::map<std::string, std::string> passTextures() const;
 
 private:

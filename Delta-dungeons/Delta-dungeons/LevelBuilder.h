@@ -55,6 +55,9 @@ public:
 	static void staticLoadNextLevelCallbackFunction(void* p);
 	void loadNextLevelCallbackFunction();
 
+	static bool staticCheckInRangeCameraCallBack(void* p, int x, int y);
+	bool checkInRangeCameraCallBack(int x, int y);
+
 private:
 	std::string levelName;
 	LevelScene scene;

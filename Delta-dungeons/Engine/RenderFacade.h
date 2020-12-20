@@ -41,6 +41,7 @@ public:
 	void speedUpGame() const;
 	void resetSpeedGame() const;
 	void checkTransition() const;
+	bool checkInRangeCamera(int x, int y) const;
 
 	std::tuple<int, int> passPlayerPosition(const int x,const int y) const;
 	int getFPS() const;

@@ -1,6 +1,6 @@
 #include "Pokemon.h"
 
-Pokemon::Pokemon(int x, int y, const std::string& texture, cbCollision collisionCb, void* p, int attackTime): func(collisionCb), pointer(p), attackTime(attackTime)
+Pokemon::Pokemon(int x, int y, const std::string& texture, cbCollision collisionCb, cbCameraRange cameraCb, void* p, int attackTime): func(collisionCb), cameraFunc(cameraCb), pointer(p), attackTime(attackTime)
 {
 	this->transform.position = { x * 128, y * 128 };
 	this->transform.scale.multiply({ 4, 4 });
@@ -39,7 +39,10 @@ void Pokemon::update(int time)
 	if ((time - previoustime) >= attackTime)
 	{
 		previoustime = time;
-		walk();
+		if(cameraFunc(pointer,transform.position.x, transform.position.y))
+		{
+			walk();
+		}
 	}
 }
 

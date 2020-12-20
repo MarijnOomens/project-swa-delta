@@ -354,3 +354,8 @@ void EngineController::replaceScene(const std::string sceneName, std::vector<std
 	}
 	sceneManager.replaceScene(sceneName, objects);
 }
+
+bool EngineController::checkInRangeCamera(int x, int y)const
+{
+	return renderFacade->checkInRangeCamera(x, y);
+}

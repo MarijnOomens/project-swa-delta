@@ -172,3 +172,8 @@ void EngineFacade::replaceScene(const std::string sceneName, std::vector<std::sh
 {
 	engineController->replaceScene(sceneName, objects);
 }
+
+bool EngineFacade::checkInRangeCamera(int x, int y)const
+{
+	return engineController->checkInRangeCamera(x,y);
+}

@@ -176,3 +176,8 @@ void RenderFacade::checkTransition()const
 {
 	renderer->checkTransition();
 }
+
+bool RenderFacade::checkInRangeCamera(int x, int y) const
+{
+	return renderer->checkInRangeCamera(x, y);
+}

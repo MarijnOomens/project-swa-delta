@@ -10,11 +10,12 @@
 #include "AudioUtilities.h"
 
 typedef void(*cbCollision) (void*, std::shared_ptr<CollidingComponent>, std::shared_ptr<BehaviourObject> behaviourObject, int, int, KeyCodes, int);
+typedef bool(*cbCameraRange) (void*, int, int);
 
 class Pokemon : public IInteractiveObject
 {
 public:
-	Pokemon(int x, int y, const std::string &texture, cbCollision collisionCb, void* p, int attackTime);
+	Pokemon(int x, int y, const std::string &texture, cbCollision collisionCb, cbCameraRange cameraCb, void* p, int attackTime);
 	void interact(std::shared_ptr<BehaviourObject> interactor) override {}
 	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override {}
 	void catchPokemon();
@@ -33,6 +34,7 @@ private:
 	std::string type;
 	int attackTime;
 	cbCollision func;
+	cbCameraRange cameraFunc;
 	void* pointer;
 	int id;
 	int catchRate;

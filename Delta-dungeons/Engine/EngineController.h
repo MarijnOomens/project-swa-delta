@@ -64,6 +64,7 @@ public:
 	void playEffect(const std::string& effectName);
 	void deleteScene(const std::string& sceneName);
 	void replaceScene(const std::string sceneName, std::vector<std::shared_ptr<BehaviourObject>> objects);
+	bool checkInRangeCamera(int x, int y) const;
 
 private:
 	std::vector<int> hudLayers;
