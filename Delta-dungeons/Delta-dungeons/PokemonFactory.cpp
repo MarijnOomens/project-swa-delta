@@ -16,7 +16,7 @@ void PokemonFactory::createPokemon(const std::string& levelName, cbCollision col
 	{
 		if (parsedTile->tileId == "7") {
 			std::shared_ptr<PokemonParserData> poke = parsedPokemon[getRandomPokemon()];
-			pokemon.emplace(poke->name + std::to_string(pokemon.size()), builder->getPokemon(std::stoi(parsedTile->x), std::stoi(parsedTile->y), poke->name, collisionCb, p));
+			pokemon.emplace(poke->name + std::to_string(pokemon.size()), builder->getPokemon(std::stoi(parsedTile->x), std::stoi(parsedTile->y), poke->name, collisionCb, p, std::stoi(poke->attackTime)));
 		}
 	}
 }

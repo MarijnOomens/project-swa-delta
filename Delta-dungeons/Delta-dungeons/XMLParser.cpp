@@ -81,7 +81,7 @@ std::vector<std::shared_ptr<PokemonParserData>> XMLParser::loadPokemon(const std
 
 	for (xml_node<>* pokemon = node->first_node(); pokemon; pokemon = pokemon->next_sibling())
 	{
-		std::shared_ptr<PokemonParserData> p = std::make_shared<PokemonParserData>(pokemon->first_attribute("name")->value(), pokemon->first_attribute("encounterRate")->value());
+		std::shared_ptr<PokemonParserData> p = std::make_shared<PokemonParserData>(pokemon->first_attribute("name")->value(), pokemon->first_attribute("encounterRate")->value(), pokemon->first_attribute("attacktime")->value());
 		parserDataList.emplace_back(p);
 	}
 
