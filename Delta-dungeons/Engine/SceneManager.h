@@ -5,6 +5,8 @@
 #include <vector>
 #include <memory>
 #include "BehaviourObject.h"
+#include "CollidingComponent.h"
+#include "GameObject.h"
 
 class SceneManager {
 public:
@@ -27,6 +29,7 @@ public:
 	std::string getCurrentScene();
 	void deleteScene(const std::string& sceneName);
 	void replaceScene(const std::string sceneName, std::vector<std::shared_ptr<BehaviourObject>> objects);
+	std::shared_ptr<BehaviourObject> getBehaviourObject(CollidingComponent* collidingComponent);
 
 private:
 	std::map<std::string, std::vector<std::shared_ptr<BehaviourObject>>> scenes;

@@ -3,9 +3,11 @@
 #include "CollidingComponent.h"
 #include "IInteractiveObject.h"
 
+typedef std::shared_ptr<BehaviourObject>(*cbGetObject) (void*, CollidingComponent*);
+
 class Collision {
 public:
-	Collision();
+	Collision(cbGetObject f, void* pointer);
 	~Collision() {}
 
 	int cameraX = 0;
@@ -22,4 +24,6 @@ public:
 
 private:
 	std::vector<std::shared_ptr<BehaviourObject>> colliderObjects;
+	cbGetObject func;
+	void* pointer;
 };

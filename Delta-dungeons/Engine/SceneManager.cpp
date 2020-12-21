@@ -137,3 +137,17 @@ void SceneManager::replaceScene(const std::string sceneName, std::vector<std::sh
 {
 	scenes[sceneName] = objects;
 }
+
+std::shared_ptr<BehaviourObject> SceneManager::getBehaviourObject(CollidingComponent* collidingComponent)
+{
+	for (const auto& bo : scenes[currentScene])
+	{
+		auto gameObject = dynamic_cast<GameObject*>(bo.get());
+		for (auto& c : gameObject->getComponentsRecursive())
+		{
+			if (c.get() == collidingComponent) {
+				return bo;
+			}
+		}
+	}
+}

@@ -1,6 +1,6 @@
 #include "Collision.h"
 
-Collision::Collision() {}
+Collision::Collision(cbGetObject f, void* p): func(f), pointer(p) {}
 
 void Collision::registerColliders(std::vector<std::shared_ptr<BehaviourObject>> colliders)
 {
@@ -41,6 +41,8 @@ void Collision::checkCollision(std::shared_ptr<CollidingComponent> collider, std
 				y + w > col2->transform.position.y &&
 				col2->transform.position.y + w > y)
 			{
+				std::shared_ptr<BehaviourObject> bo = func(pointer, col2);
+				collider->actCollision(bo, x, y, direction);
 				col2->actCollision(behaviourObject, x, y, direction);
 				break;
 			}

@@ -5,7 +5,7 @@
 /// </summary>
 EngineController::EngineController(const std::string& title, int screenWidth, int screenHeight, bool fullScreen)
 {
-	collision = std::make_shared<Collision>();
+	collision = std::make_shared<Collision>(staticGetBehaviourObjectCallBack, this);
 	textureAssetManager = std::make_shared<TextureAssetManager>();
 	fontAssetManager = std::make_shared<FontAssetManager>();
 	audioAssetManager = std::make_shared<AudioAssetManager>();
@@ -358,4 +358,14 @@ void EngineController::replaceScene(const std::string sceneName, std::vector<std
 bool EngineController::checkInRangeCamera(int x, int y)const
 {
 	return renderFacade->checkInRangeCamera(x, y);
+}
+
+std::shared_ptr<BehaviourObject> EngineController::staticGetBehaviourObjectCallBack(void* p, CollidingComponent* collidingComponent)
+{
+	return ((EngineController*)p)->getBehaviourObjectCallBack(collidingComponent);
+}
+
+std::shared_ptr<BehaviourObject> EngineController::getBehaviourObjectCallBack(CollidingComponent* collidingComponent)
+{
+	return sceneManager.getBehaviourObject(collidingComponent);
 }
