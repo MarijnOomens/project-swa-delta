@@ -267,6 +267,9 @@
     <ClCompile Include="IEquipment.h">
       <Filter>Header Files\Game\GameObjects</Filter>
     </ClCompile>
+    <ClCompile Include="SaveSystem.cpp">
+      <Filter>Source Files\XMLParser</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h">
@@ -472,6 +475,9 @@
     </ClInclude>
     <ClInclude Include="LevelBuilder.h">
       <Filter>Header Files\Game\Creation</Filter>
+    </ClInclude>
+    <ClInclude Include="SaveSystem.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

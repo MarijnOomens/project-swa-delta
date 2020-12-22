@@ -54,7 +54,7 @@ void PauseScreen::staticSaveCallbackFunction(const void* p)
 
 void PauseScreen::saveCallbackFunction() const
 {
-	GameState::getInstance().Save();
+	GameState::getInstance().save();
 }
 
 void PauseScreen::staticExitCallbackFunction(const void* p)

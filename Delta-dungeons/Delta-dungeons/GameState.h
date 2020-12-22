@@ -1,13 +1,6 @@
 #pragma once
 #include <string>
-#include "rapidxml_print.hpp"
-#include "rapidxml.hpp"
-#include "rapidxml_utils.hpp"
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <stdlib.h>
-#include <sstream>
+#include "SaveSystem.h"
 
 class GameState
 {
@@ -18,13 +11,13 @@ public:
 	void addCaughPokemon(int amount);
 	int getCaughtPokemon();
 	int getHighScore();
-	void Save();
+	void save();
 
 private:
 	static GameState gameState;
 	GameState() {}
 
-	rapidxml::xml_document<> saveDoc;
+	SaveSystem saveSystem;
 
 	std::string currentLevel = "Level1";
 	int caughtPokemon = 0;
