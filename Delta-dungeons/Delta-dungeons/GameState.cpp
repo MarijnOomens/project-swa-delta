@@ -37,3 +37,22 @@ int GameState::getHighScore()
 {
 	return highScore;
 }
+
+void GameState::Save()
+{
+	std::cout << "saving game" << std::endl;
+	rapidxml::xml_node<>* decl = saveDoc.allocate_node(rapidxml::node_type::node_declaration);
+	decl->append_attribute(saveDoc.allocate_attribute("version", "1.0"));
+	decl->append_attribute(saveDoc.allocate_attribute("encoding", "UTF-8"));
+	saveDoc.append_node(decl);
+
+	rapidxml::xml_node<>* files = saveDoc.allocate_node(rapidxml::node_element, "Files");
+	saveDoc.append_node(files);
+	rapidxml::xml_attribute<>* attr = saveDoc.allocate_attribute("dummy", "google.com");
+	files->append_attribute(attr);
+
+
+	std::ofstream myfile;
+	myfile.open("example.xml");
+	myfile << saveDoc;
+}

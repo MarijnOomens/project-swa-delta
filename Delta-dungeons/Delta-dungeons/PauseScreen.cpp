@@ -1,6 +1,6 @@
 #include "PauseScreen.h"
 
-PauseScreen::PauseScreen() 
+PauseScreen::PauseScreen()
 {
 	gc = std::make_unique<GraphicsComponent>();
 	gc->setTexture("pause");
@@ -37,7 +37,7 @@ void PauseScreen::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyb
 	}
 }
 
-void PauseScreen::staticOpenHelpCallbackFunction(const void* p) 
+void PauseScreen::staticOpenHelpCallbackFunction(const void* p)
 {
 	((PauseScreen*)p)->openHelpCallbackFunction();
 }
@@ -47,14 +47,17 @@ void PauseScreen::openHelpCallbackFunction() const
 	SceneLoader::getInstance().addOverlayScene("HelpScreen");
 }
 
-void PauseScreen::staticSaveCallbackFunction(const void* p) 
+void PauseScreen::staticSaveCallbackFunction(const void* p)
 {
 	((PauseScreen*)p)->saveCallbackFunction();
 }
 
-void PauseScreen::saveCallbackFunction() const {}
+void PauseScreen::saveCallbackFunction() const
+{
+	GameState::getInstance().Save();
+}
 
-void PauseScreen::staticExitCallbackFunction(const void* p) 
+void PauseScreen::staticExitCallbackFunction(const void* p)
 {
 	((PauseScreen*)p)->exitCallbackFunction();
 }
