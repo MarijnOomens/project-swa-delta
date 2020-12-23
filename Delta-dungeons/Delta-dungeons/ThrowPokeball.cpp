@@ -1,4 +1,5 @@
 #include "ThrowPokeball.h"
+#include "Pokemon.h"
 
 ThrowPokeball::ThrowPokeball(const cbThrowCollision tF, const cbSentPokemon f, void* p, void* g) : tFunc(tF), func(f) , playerPointer(p), gameMangerPointer(g)
 {

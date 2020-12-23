@@ -5,7 +5,7 @@ PokemonFactory::PokemonFactory()
 	builder = std::make_shared<GameObjectBuilder>();
 }
 
-void PokemonFactory::createPokemon(const std::string& levelName, cbCollision collisionCb, cbCameraRange cameraCollision, void* p)
+void PokemonFactory::createPokemon(const std::string& levelName, cbCollision collisionCb, cbCameraRange cameraCollision, cbAiCollision aiCollison, void* p)
 {
 	pokemon.clear();
 	std::unique_ptr<XMLSceneParser> parser = std::make_unique<XMLSceneParser>();
@@ -16,7 +16,7 @@ void PokemonFactory::createPokemon(const std::string& levelName, cbCollision col
 	{
 		if (parsedTile->tileId == "7") {
 			std::shared_ptr<PokemonParserData> poke = parsedPokemon[getRandomPokemon()];
-			pokemon.emplace(poke->name + std::to_string(pokemon.size()), builder->getPokemon(std::stoi(parsedTile->x), std::stoi(parsedTile->y), poke->name, collisionCb, cameraCollision, p, std::stoi(poke->attackTime)));
+			pokemon.emplace(poke->name + std::to_string(pokemon.size()), builder->getPokemon(std::stoi(parsedTile->x), std::stoi(parsedTile->y), poke->name, collisionCb, cameraCollision, aiCollison, p, std::stoi(poke->attackTime)));
 		}
 	}
 }

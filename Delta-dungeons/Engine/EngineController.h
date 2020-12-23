@@ -67,6 +67,7 @@ public:
 	bool checkInRangeCamera(int x, int y) const;
 	static std::shared_ptr<BehaviourObject> staticGetBehaviourObjectCallBack(void* p, CollidingComponent* collidingComponent);
 	std::shared_ptr<BehaviourObject> getBehaviourObjectCallBack(CollidingComponent* collidingComponent);
+	void checkAiCollision(std::shared_ptr<CollidingComponent> collider, std::shared_ptr<BehaviourObject> behaviourObject, int x, int y, KeyCodes direction, int w) const;
 
 private:
 	std::vector<int> hudLayers;

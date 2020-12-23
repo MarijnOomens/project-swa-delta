@@ -42,6 +42,7 @@ public:
 	ENGINE_API void deleteScene(const std::string& sceneName) const;
 	ENGINE_API void replaceScene(const std::string sceneName, std::vector<std::shared_ptr<BehaviourObject>> objects) const;
 	ENGINE_API bool checkInRangeCamera(int x, int y) const;
+	ENGINE_API void checkAiCollision(std::shared_ptr<CollidingComponent> collider, std::shared_ptr<BehaviourObject> behaviourObject, int x, int y, KeyCodes direction, int w) const;
 
 private:
 	std::unique_ptr<EngineController> engineController;

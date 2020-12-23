@@ -369,3 +369,8 @@ std::shared_ptr<BehaviourObject> EngineController::getBehaviourObjectCallBack(Co
 {
 	return sceneManager.getBehaviourObject(collidingComponent);
 }
+
+void EngineController::checkAiCollision(std::shared_ptr<CollidingComponent> collider, std::shared_ptr<BehaviourObject> behaviourObject, int x, int y, KeyCodes direction, int w) const
+{
+	collision->checkAiCollision(collider, behaviourObject, x, y, direction, w);
+}

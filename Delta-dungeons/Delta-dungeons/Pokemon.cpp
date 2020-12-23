@@ -1,6 +1,6 @@
 #include "Pokemon.h"
 
-Pokemon::Pokemon(int x, int y, const std::string& texture, cbCollision collisionCb, cbCameraRange cameraCb, void* p, int attackTime): func(collisionCb), cameraFunc(cameraCb), pointer(p), attackTime(attackTime)
+Pokemon::Pokemon(int x, int y, const std::string& texture, cbCollision collisionCb, cbCameraRange cameraCb, cbAiCollision aiCollision, void* p, int attackTime): func(collisionCb), cameraFunc(cameraCb), aiFunc(aiCollision), pointer(p), attackTime(attackTime)
 {
 	this->transform.position = { x * 128, y * 128 };
 	this->transform.scale.multiply({ 4, 4 });
@@ -18,6 +18,30 @@ Pokemon::Pokemon(int x, int y, const std::string& texture, cbCollision collision
 
 	this->components.emplace_back(gc);
 	this->components.emplace_back(cc);
+}
+
+void Pokemon::interact(std::shared_ptr<BehaviourObject> interactor)
+{
+	if (dynamic_cast<Player*>(interactor.get()))
+	{
+		if (interactor->transform.position.x < transform.position.x)
+		{
+			direction = 3;
+		}
+		else if (interactor->transform.position.x > transform.position.x)
+		{
+			direction = 2;
+		}
+		else if (interactor->transform.position.y < transform.position.y)
+		{
+			direction = 1;
+		}
+		else if (interactor->transform.position.y > transform.position.y)
+		{
+			direction = 0;
+		}
+		seesPlayer = true;
+	}
 }
 
 void Pokemon::catchPokemon () 
@@ -53,9 +77,9 @@ void Pokemon::registerCollision(int x, int y, bool isDamaged, bool isTransitione
 
 void Pokemon::walk()
 {
-	int randomDirection = rand() % 3;
-	playAnimation(randomDirection);
-	switch (randomDirection)
+	checkForPlayer();
+	playAnimation();
+	switch (direction)
 	{
 	case 0:
 		func(pointer, cc, shared_from_this(), this->transform.position.x, this->transform.position.y + 32, KeyCodes::KEY_DOWN, (gc->imageDimensions.x * gc->transform.scale.x));
@@ -93,7 +117,7 @@ void Pokemon::walk()
 	hasMoved = false;
 }
 
-void Pokemon::playAnimation(int direction) 
+void Pokemon::playAnimation() 
 {
 	switch (direction)
 	{
@@ -112,4 +136,26 @@ void Pokemon::playAnimation(int direction)
 	default:
 		break;
 	}
+}
+
+void Pokemon::checkForPlayer()
+{
+	aiFunc(pointer, cc, shared_from_this(), this->transform.position.x, this->transform.position.y + 32, KeyCodes::KEY_DOWN, (gc->imageDimensions.x * gc->transform.scale.x));
+	aiFunc(pointer, cc, shared_from_this(), this->transform.position.x, this->transform.position.y + 64, KeyCodes::KEY_DOWN, (gc->imageDimensions.x * gc->transform.scale.x));
+	aiFunc(pointer, cc, shared_from_this(), this->transform.position.x, this->transform.position.y + 96, KeyCodes::KEY_DOWN, (gc->imageDimensions.x * gc->transform.scale.x));
+	aiFunc(pointer, cc, shared_from_this(), this->transform.position.x, this->transform.position.y - 32, KeyCodes::KEY_UP, (gc->imageDimensions.x * gc->transform.scale.x));
+	aiFunc(pointer, cc, shared_from_this(), this->transform.position.x, this->transform.position.y - 64, KeyCodes::KEY_UP, (gc->imageDimensions.x * gc->transform.scale.x));
+	aiFunc(pointer, cc, shared_from_this(), this->transform.position.x, this->transform.position.y - 96, KeyCodes::KEY_UP, (gc->imageDimensions.x * gc->transform.scale.x));
+	aiFunc(pointer, cc, shared_from_this(), this->transform.position.x + 32, this->transform.position.y, KeyCodes::KEY_RIGHT, (gc->imageDimensions.x * gc->transform.scale.x));
+	aiFunc(pointer, cc, shared_from_this(), this->transform.position.x + 64, this->transform.position.y, KeyCodes::KEY_RIGHT, (gc->imageDimensions.x * gc->transform.scale.x));
+	aiFunc(pointer, cc, shared_from_this(), this->transform.position.x + 96, this->transform.position.y, KeyCodes::KEY_RIGHT, (gc->imageDimensions.x * gc->transform.scale.x));
+	aiFunc(pointer, cc, shared_from_this(), this->transform.position.x - 32, this->transform.position.y, KeyCodes::KEY_LEFT, (gc->imageDimensions.x * gc->transform.scale.x));
+	aiFunc(pointer, cc, shared_from_this(), this->transform.position.x - 64, this->transform.position.y, KeyCodes::KEY_LEFT, (gc->imageDimensions.x * gc->transform.scale.x));
+	aiFunc(pointer, cc, shared_from_this(), this->transform.position.x - 96, this->transform.position.y, KeyCodes::KEY_LEFT, (gc->imageDimensions.x * gc->transform.scale.x));
+
+	if (!seesPlayer) 
+	{
+		direction = rand() % 3;
+	}
+	seesPlayer = false;
 }
