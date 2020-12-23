@@ -9,36 +9,49 @@ GameState& GameState::getInstance()
 
 void GameState::reset()
 {
-	currentLevel = "Level1";
-	caughtPokemon = 0;
-	health = 5;
-	pokeBalls = 20;
-	berries = 0;
-	hasBoomerang = false;
-	hasRunningShoes = true;
-	runningShoesActivated = false;
+	currentState = GameStateObject("Level1", 0, 0, 5, 20, 0, false, true, false);
 }
 
 void GameState::addCaughPokemon(int amount)
 {
-	this->caughtPokemon += amount;
-	if (caughtPokemon > highScore)
+	this->currentState.caughtPokemon += amount;
+	if (currentState.caughtPokemon > currentState.highScore)
 	{
-		highScore = caughtPokemon;
+		currentState.highScore = currentState.caughtPokemon;
 	}
 }
 
 int GameState::getCaughtPokemon()
 {
-	return caughtPokemon;
+	return currentState.caughtPokemon;
 }
 
 int GameState::getHighScore()
 {
-	return highScore;
+	return currentState.highScore;
+}
+
+void GameState::setHealth(int h)
+{
+	currentState.health = h;
+}
+
+int GameState::getHealth()
+{
+	return currentState.health;
+}
+
+void GameState::setPokeballs(int p)
+{
+	currentState.pokeBalls = p;
 }
 
 void GameState::save()
 {
-	saveSystem.save(currentLevel, caughtPokemon, health, pokeBalls, berries, hasBoomerang, hasRunningShoes, runningShoesActivated);
+	saveSystem.save(currentState);
+}
+
+void GameState::load()
+{
+	currentState = saveSystem.load();
 }

@@ -169,6 +169,7 @@
     <ClCompile Include="DoorPuzzleObject.cpp" />
     <ClCompile Include="GameOverScreenScene.cpp" />
     <ClCompile Include="GameState.cpp" />
+    <ClCompile Include="GameStateObject.cpp" />
     <ClCompile Include="GameWinScreenScene.cpp" />
     <ClCompile Include="HelpScreenScene.cpp" />
     <ClCompile Include="EquipmentFactory.cpp" />
@@ -242,6 +243,7 @@
     <ClInclude Include="GameOverScreen.h" />
     <ClInclude Include="GameOverScreenScene.h" />
     <ClInclude Include="GameState.h" />
+    <ClInclude Include="GameStateObject.h" />
     <ClInclude Include="GameWinScreen.h" />
     <ClInclude Include="GameWinScreenScene.h" />
     <ClInclude Include="HelpScreen.h" />

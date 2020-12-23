@@ -42,7 +42,7 @@ void LoadSaveScreen::staticLoad1CallbackFunction(const void* p)
 
 void LoadSaveScreen::load1CallbackFunction() const
 {
-	GameState::getInstance().reset();
+	GameState::getInstance().load();
 	SceneLoader::getInstance().loadScene(SceneLoader::getInstance().getCurrentLevel(), "", true);
 }
 

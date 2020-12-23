@@ -59,6 +59,7 @@ HUD::HUD(int hM, int h, int b, int p)
 
 void HUD::updateHUD(int h, int b, int p)
 {
+	GameState::getInstance().setHealth(h);
 	if (h < health) {
 		deleteHealth();
 	}
@@ -68,6 +69,7 @@ void HUD::updateHUD(int h, int b, int p)
 	amountOfBerries = b;
 	berryCount->changeText(std::to_string(amountOfBerries));
 	amountOfPokeballs = p;
+	GameState::getInstance().setPokeballs(p);
 	ballsCount->changeText(std::to_string(amountOfPokeballs));
 }
 

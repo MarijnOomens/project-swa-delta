@@ -7,11 +7,13 @@
 #include <string>
 #include <stdlib.h>
 #include <sstream>
+#include "GameStateObject.h"
 
 class SaveSystem
 {
 public:
-	void save(const std::string& currentLevel, int caughtPokemon, int health, int pokeBalls, int berries, bool hasBoomerang, bool hasRunningShoes, bool runningShoesActivated);
+	void save(GameStateObject state);
+	GameStateObject load();
 	void addNodeValue(const char* name, const std::string& value);
 private:
 	rapidxml::xml_document<> saveDoc;

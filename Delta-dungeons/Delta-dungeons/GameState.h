@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include "SaveSystem.h"
+#include "GameStateObject.h"
 
 class GameState
 {
@@ -11,21 +12,17 @@ public:
 	void addCaughPokemon(int amount);
 	int getCaughtPokemon();
 	int getHighScore();
+	void setHealth(int h);
+	int getHealth();
+	void setPokeballs(int p);
 	void save();
+	void load();
 
 private:
 	static GameState gameState;
-	GameState() {}
+	GameState() {};
 
 	SaveSystem saveSystem;
 
-	std::string currentLevel = "Level1";
-	int caughtPokemon = 0;
-	int highScore = 0;
-	int health = 5;
-	int pokeBalls = 20;
-	int berries = 0;
-	bool hasBoomerang = false;
-	bool hasRunningShoes = true;
-	bool runningShoesActivated = false;
+	GameStateObject currentState;
 };
