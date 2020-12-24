@@ -68,6 +68,8 @@ public:
 	static std::shared_ptr<BehaviourObject> staticGetBehaviourObjectCallBack(void* p, CollidingComponent* collidingComponent);
 	std::shared_ptr<BehaviourObject> getBehaviourObjectCallBack(CollidingComponent* collidingComponent);
 	void checkAiCollision(std::shared_ptr<CollidingComponent> collider, std::shared_ptr<BehaviourObject> behaviourObject, int x, int y, KeyCodes direction, int w) const;
+	static int staticGetTimeCallback(void* p);
+	int getTimeCallback();
 
 private:
 	std::vector<int> hudLayers;
@@ -79,7 +81,7 @@ private:
 	std::shared_ptr<FontAssetManager> fontAssetManager;
 	std::shared_ptr<AudioAssetManager> audioAssetManager;
 	std::shared_ptr<Input> input;
-	SceneManager sceneManager;
+	std::shared_ptr<SceneManager> sceneManager;
 	std::shared_ptr<Collision> collision;
 	bool isGameOver = false;
 	int timer = 30;

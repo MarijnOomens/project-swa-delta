@@ -32,7 +32,7 @@ void SceneManager::loadScene(const std::string& sceneName, const std::string& fr
 		bo->start();
 	}
 	isSceneSwitched = true;
-	update(0);
+	update(timeFunc(pointer));
 }
 
 void SceneManager::loadPreviousScene()
@@ -51,7 +51,7 @@ void SceneManager::loadPreviousScene()
 	}
 
 	isSceneSwitched = true;
-	update(0);
+	update(timeFunc(pointer));
 }
 
 void SceneManager::addOverlayScene(const std::string& sceneName)
@@ -61,7 +61,7 @@ void SceneManager::addOverlayScene(const std::string& sceneName)
 
 	activeScenes.push_back(sceneName);
 	currentScene = sceneName;
-	update(0);
+	update(timeFunc(pointer));
 }
 
 void SceneManager::registerScene(const std::string& sceneName, const std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects)

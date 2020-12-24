@@ -8,11 +8,13 @@
 #include "CollidingComponent.h"
 #include "GameObject.h"
 
+typedef int(*cbTime) (void*);
+
 class SceneManager {
 public:
 	bool isOverlayScene = false;
 
-	SceneManager() {}
+	SceneManager(void* p, cbTime timeCb): timeFunc(timeCb), pointer(p) {}
 	~SceneManager() {}
 
 	void update(int time);
@@ -37,4 +39,6 @@ private:
 	std::vector<std::string> previousScenes;
 	std::string currentScene;
 	bool isSceneSwitched = false;
+	cbTime timeFunc;
+	void* pointer;
 };
