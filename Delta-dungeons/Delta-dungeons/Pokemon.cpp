@@ -24,19 +24,29 @@ void Pokemon::interact(std::shared_ptr<BehaviourObject> interactor)
 {
 	if (dynamic_cast<Player*>(interactor.get()))
 	{
-		if (interactor->transform.position.x < transform.position.x)
+		int xDifference = interactor->transform.position.x - transform.position.x;
+		int yDifference = interactor->transform.position.y - transform.position.y;
+		if (xDifference < 0)
+		{
+			xDifference *= -1;
+		}
+		if (yDifference < 0)
+		{
+			yDifference *= -1;
+		}
+		if (xDifference > yDifference && interactor->transform.position.x < transform.position.x)
 		{
 			direction = 3;
 		}
-		else if (interactor->transform.position.x > transform.position.x)
+		else if (xDifference > yDifference && interactor->transform.position.x > transform.position.x)
 		{
 			direction = 2;
 		}
-		else if (interactor->transform.position.y < transform.position.y)
+		else if (yDifference > xDifference && interactor->transform.position.y < transform.position.y)
 		{
 			direction = 1;
 		}
-		else if (interactor->transform.position.y > transform.position.y)
+		else if (yDifference > xDifference && interactor->transform.position.y > transform.position.y)
 		{
 			direction = 0;
 		}
@@ -44,7 +54,7 @@ void Pokemon::interact(std::shared_ptr<BehaviourObject> interactor)
 	}
 }
 
-void Pokemon::catchPokemon () 
+void Pokemon::catchPokemon() 
 {
 	AudioUtilities::getInstance().playEffect("caught");
 	this->transform.position = { -10, -10 };
