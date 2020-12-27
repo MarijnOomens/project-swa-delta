@@ -54,6 +54,7 @@ void PauseScreen::staticSaveCallbackFunction(const void* p)
 
 void PauseScreen::saveCallbackFunction() const
 {
+	AudioUtilities::getInstance().playEffect("save");
 	GameState::getInstance().save();
 }
 

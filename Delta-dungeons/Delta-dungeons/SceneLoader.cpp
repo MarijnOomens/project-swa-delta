@@ -42,7 +42,7 @@ void SceneLoader::quitGame() const
 	this->engineFacade->quitGame();
 }
 
-void SceneLoader::setCurrentLevel(std::string levelName)
+void SceneLoader::setCurrentLevel(const std::string& levelName)
 {
 	GameState::getInstance().setCurrentLevel(levelName);
 }

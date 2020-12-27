@@ -2,7 +2,6 @@
 
 void SaveSystem::save(GameStateObject state)
 {
-	std::cout << "saving game" << std::endl;
 	rapidxml::xml_node<>* decl = saveDoc.allocate_node(rapidxml::node_type::node_declaration);
 	decl->append_attribute(saveDoc.allocate_attribute("version", "1.0"));
 	decl->append_attribute(saveDoc.allocate_attribute("encoding", "UTF-8"));

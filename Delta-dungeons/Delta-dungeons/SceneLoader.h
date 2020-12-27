@@ -20,7 +20,7 @@ public:
 	void setEngineFacade(std::shared_ptr<EngineFacade> engineFacade);
 	void setLoadSceneCallback(void* p, cbLoadScene ls);
 	void quitGame() const;
-	void setCurrentLevel(std::string levelName);
+	void setCurrentLevel(const std::string& levelName);
 	std::string getCurrentLevel();
 
 private:
