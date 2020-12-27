@@ -19,4 +19,6 @@ public:
 	void load1CallbackFunction() const;
 	static void staticBackCallbackFunction(const void* p);
 	void backCallbackFunction() const;
+	static void staticNewCallbackFunction(const void* p);
+	void newCallbackFunction() const;
 };

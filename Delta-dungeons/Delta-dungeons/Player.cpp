@@ -10,12 +10,12 @@
 /// Defines the movementspeed and the runactivated bool
 /// Creates the graphicscomponent for the player sprite and saves the texturename and png location, width, height
 /// </summary>
-Player::Player(int spawnX, int spawnY, cbCollision collisionCB, cbThrowCollision throwCB, cbNextLevel nextLevelcb, const cbCamera f, cbInteract interactCB, cbGameOver gameOverF, cbHUD hudCB, void* p, void* gm)
-: collisionFunc(collisionCB), nextLevelFunc(nextLevelcb), func(f), interactFunc(interactCB), gameOverFunc(gameOverF), hudFunc(hudCB), pointer(p), gmPointer(gm)
+Player::Player(int spawnX, int spawnY, cbCollision collisionCB, cbThrowCollision throwCB, cbNextLevel nextLevelcb, const cbCamera f, cbInteract interactCB, cbGameOver gameOverF, void* p, void* gm)
+	: collisionFunc(collisionCB), nextLevelFunc(nextLevelcb), func(f), interactFunc(interactCB), gameOverFunc(gameOverF), pointer(p), gmPointer(gm)
 {
-	std::string textureBoomerang ="boomerangHUD" ;
+	std::string textureBoomerang = "boomerangHUD";
 	std::string textureRunning = "runningshoesHUD";
-	std::unique_ptr<Boomerang> boomerang = std::make_unique<Boomerang>(textureBoomerang,staticBoomerangCallbackFunction, this);
+	std::unique_ptr<Boomerang> boomerang = std::make_unique<Boomerang>(textureBoomerang, staticBoomerangCallbackFunction, this);
 	std::unique_ptr<RunningShoes> running = std::make_unique<RunningShoes>(staticRunningShoesCallbackFunction, this, textureRunning);
 	pokeball = std::make_shared<ThrowPokeball>(throwCB, staticPokeballCallbackFunction, this, p);
 	pokeball->setParent();
@@ -26,8 +26,8 @@ Player::Player(int spawnX, int spawnY, cbCollision collisionCB, cbThrowCollision
 	baseMovementSpeed = 16;
 	tileCollision = false;
 
-	this->transform.position.x = spawnX*128;
-	this->transform.position.y = spawnY*128;
+	this->transform.position.x = spawnX * 128;
+	this->transform.position.y = spawnY * 128;
 
 	this->textures.try_emplace("player_m", "Assets/Player/player2_m_anims.png");
 	this->textures.try_emplace("player_f", "Assets/Player/player_f_anims.png");
@@ -56,6 +56,16 @@ Player::Player(int spawnX, int spawnY, cbCollision collisionCB, cbThrowCollision
 
 	currentDirection = KeyCodes::KEY_DOWN;
 }
+
+void Player::start()
+{
+	this->isWalking = !GameState::getInstance().getRunningShoesActivated();
+	this->health = GameState::getInstance().getHealth();
+	this->amountOfPokeballs = GameState::getInstance().getPokeballs();
+	this->amountOfBerries = GameState::getInstance().getBerries();
+	this->amountOfPokemons = GameState::getInstance().getCaughtPokemon();
+}
+
 
 /// <summary>
 ///	handleInput receives the keyboard input through keycodes and keyboardevents
@@ -113,7 +123,7 @@ void Player::handleKeyPressed(const KeyCodes& keyCodes)
 	case KeyCodes::KEY_D:
 	case KeyCodes::KEY_RIGHT:
 		moveRight();
-		if (!isWalking){ moveRight(); }
+		if (!isWalking) { moveRight(); }
 		break;
 	case KeyCodes::KEY_Q:
 		hasMoved = false;
@@ -201,7 +211,7 @@ void Player::handleKeyReleased(const KeyCodes& keyCodes)
 	hasMoved = false;
 }
 
-void Player::setParent() 
+void Player::setParent()
 {
 	cc->parent = shared_from_this();
 }
@@ -302,7 +312,7 @@ std::vector<std::string> Player::getItems()
 	return items;
 }
 
-std::shared_ptr<CollidingComponent> Player::getCollider() 
+std::shared_ptr<CollidingComponent> Player::getCollider()
 {
 	return cc;
 }
@@ -336,14 +346,8 @@ void Player::staticRunningShoesCallbackFunction(void* p, const bool runningActiv
 /// <param name="runningActivated">This value will be used to set the runActivated property</param>
 void Player::runningShoesCallbackFunction(const bool runningActivated)
 {
-	if (runningActivated)
-	{
-		isWalking = false;
-	}
-	else
-	{
-		isWalking = true;
-	}
+	isWalking = !isWalking;
+	GameState::getInstance().setRunningShoesActivated(!isWalking);
 }
 
 void Player::staticPokeballCallbackFunction(void* p)
@@ -357,74 +361,75 @@ void Player::pokeballCallbackFunction()
 	amountOfPokemons += 1;
 }
 
-void Player::registerHit() 
+void Player::registerHit()
 {
 	AudioUtilities::getInstance().playEffect("hurt");
-	if (health > 1) 
+	if (health > 1)
 	{
 		health--;
-		hudFunc(pointer, health, amountOfBerries, amountOfPokeballs);
 	}
-	else if(health <= 1)
+	else if (health <= 1)
 	{
 		health = 0;
-		hudFunc(pointer, health, amountOfBerries, amountOfPokeballs);
 		gc->playAnimation(9, 4, animationSpeed, false);
 		gameOverFunc(pointer);
 	}
-	
+
+	GameState::getInstance().setHealth(health);
 }
 
-void Player::eatBerry() 
-{	
+void Player::eatBerry()
+{
 	if ((health < maxHealth && amountOfBerries > 0) || infinteBerries) //maxHealth
 	{
 		health++;
-		hudFunc(pointer, health, amountOfBerries, amountOfPokeballs);
-		if (!infinteBerries) 
+		GameState::getInstance().setHealth(health);
+
+		if (!infinteBerries)
 		{
 			amountOfBerries--;
+			GameState::getInstance().setBerries(amountOfBerries);
 		}
 	}
 }
 
-void Player::addBerry() 
+void Player::addBerry()
 {
 	amountOfBerries += 1;
-	hudFunc(pointer, health, amountOfBerries, amountOfPokeballs);
+	GameState::getInstance().setBerries(amountOfBerries);
 }
 
-void Player::usePokeball() 
+void Player::usePokeball()
 {
-	if ((amountOfPokeballs > 0 || infinitePokeballs) && !pokeball->isMoving) 
+	if ((amountOfPokeballs > 0 || infinitePokeballs) && !pokeball->isMoving)
 	{
 		if (!infinitePokeballs)
 		{
 			amountOfPokeballs--;
-			hudFunc(pointer, health, amountOfBerries, amountOfPokeballs);
+			GameState::getInstance().setPokeballs(amountOfPokeballs);
 		}
 		if (currentDirection == KeyCodes::KEY_UP || currentDirection == KeyCodes::KEY_W) {
 			pokeball->moveUp(transform.position.x, transform.position.y - 128);
 		}
-		else if(currentDirection == KeyCodes::KEY_DOWN || currentDirection == KeyCodes::KEY_S) {
+		else if (currentDirection == KeyCodes::KEY_DOWN || currentDirection == KeyCodes::KEY_S) {
 			pokeball->moveDown(transform.position.x, transform.position.y + 128);
 		}
 		else if (currentDirection == KeyCodes::KEY_LEFT || currentDirection == KeyCodes::KEY_A) {
 			pokeball->moveLeft(transform.position.x - 128, transform.position.y);
 		}
-		else if(currentDirection == KeyCodes::KEY_RIGHT || currentDirection == KeyCodes::KEY_D) {
+		else if (currentDirection == KeyCodes::KEY_RIGHT || currentDirection == KeyCodes::KEY_D) {
 			pokeball->moveRight(transform.position.x + 128, transform.position.y);
 		}
 	}
 }
 
-void Player::addPokeball() 
+void Player::addPokeball()
 {
 	amountOfPokeballs += 1;
-	hudFunc(pointer, health, amountOfBerries, amountOfPokeballs);
+	GameState::getInstance().setPokeballs(amountOfPokeballs);
 }
 
-void Player::registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger) 
+void Player::registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger)
 {
 	if (isDamaged && !noDamageCheat) { registerHit(); }
 	if (isTransitioned) { isNewLevel = true; nextLevelFunc(gmPointer); }

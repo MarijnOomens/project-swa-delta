@@ -28,8 +28,3 @@ std::map<std::string, std::string> HUDFactory::passFonts() const
 	}
 	return totalFonts;
 }
-
-void HUDFactory::updateHUD(int health, int berries, int pokeballs)
-{
-	hud->updateHUD(health, berries, pokeballs);
-}

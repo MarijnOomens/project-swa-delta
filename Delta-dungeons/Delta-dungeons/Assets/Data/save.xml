@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CurrentLevel>Level1</CurrentLevel>
-<CaughtPokemon>0</CaughtPokemon>
-<HighScore>0</HighScore>
-<Health>0</Health>
-<Pokeballs>17</Pokeballs>
-<Berries>0</Berries>
+<CaughtPokemon>4</CaughtPokemon>
+<HighScore>4</HighScore>
+<Health>1</Health>
+<Pokeballs>16</Pokeballs>
+<Berries>1</Berries>
 <HasBoomerang>0</HasBoomerang>
 <HasRunningShoes>1</HasRunningShoes>
 <RunningShoesActivated>0</RunningShoesActivated>

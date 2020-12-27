@@ -22,7 +22,7 @@ GameManager::GameManager()
 		registerAudio(s.getBeats());
 		engineFacade->registerScene(s.name, s.getBehaviourObjects());
 	}
-
+	
 	createLevel(levels[currentlevel]);
 
 	engineFacade->loadScene("MainMenuScreen", "", true);

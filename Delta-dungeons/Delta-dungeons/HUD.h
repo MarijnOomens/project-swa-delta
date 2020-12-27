@@ -15,7 +15,6 @@ public:
 	std::vector<std::shared_ptr<GraphicsComponent>> items;
 	HUD(int hM, int h, int b, int p);
 
-	void updateHUD(int health, int berries, int pokeballs);
 	void updateCollectedCrystals(int param) {}
 	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override {}
 	void update() override;

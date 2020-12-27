@@ -9,7 +9,7 @@ void LevelBuilder::reset()
 
 void LevelBuilder::setPlayer(cbNextLevel f, void* gm)
 {
-	playerFactory.createPlayer(levelName, staticCheckCollisionCallbackFunction, staticThrowCollisionCallbackFunction, f, staticCameraCallbackFunction, staticInteractCallbackFunction, staticGameOverbackFunction, staticUpdateHUDCallbackFunction, this, gm);
+	playerFactory.createPlayer(levelName, staticCheckCollisionCallbackFunction, staticThrowCollisionCallbackFunction, f, staticCameraCallbackFunction, staticInteractCallbackFunction, staticGameOverbackFunction, this, gm);
 	behaviourObjects.emplace_back(playerFactory.getPlayerObject());
 	for (auto& t : playerFactory.getPlayerObject()->textures)
 	{
@@ -158,14 +158,4 @@ void LevelBuilder::staticGameOverbackFunction(void* p)
 void LevelBuilder::gameOverCallbackFunction()
 {
 	engineFacade->gameOver();
-}
-
-void LevelBuilder::staticUpdateHUDCallbackFunction(void* p, int health, int berries, int pokeballs)
-{
-	((LevelBuilder*)p)->updateHUDCallbackFunction(health, berries, pokeballs);
-}
-
-void LevelBuilder::updateHUDCallbackFunction(int health, int berries, int pokeballs)
-{
-	hudFactory.updateHUD(health, berries, pokeballs);
 }

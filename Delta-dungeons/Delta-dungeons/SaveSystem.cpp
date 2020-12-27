@@ -59,11 +59,11 @@ GameStateObject SaveSystem::load()
 
 	node = doc.first_node("CaughtPokemon");
 	char* cp = node->value();
-	state.caughtPokemon = (int)*cp - 48;
+	state.caughtPokemon = std::stoi(cp);
 
 	node = doc.first_node("HighScore");
 	char* hs = node->value();
-	state.highScore = (int)*hs - 48;
+	state.highScore = std::stoi(hs);
 
 	node = doc.first_node("Health");
 	char* h = node->value();
@@ -71,11 +71,11 @@ GameStateObject SaveSystem::load()
 
 	node = doc.first_node("Pokeballs");
 	char* pb = node->value();
-	state.pokeBalls = (int)*pb - 48;
+	state.pokeBalls = std::stoi(pb);
 
 	node = doc.first_node("Berries");
 	char* b = node->value();
-	state.berries = (int)*b - 48;
+	state.berries = std::stoi(b);
 
 	node = doc.first_node("HasBoomerang");
 	char* boo = node->value();

@@ -8,8 +8,6 @@ HUD::HUD(int hM, int h, int b, int p)
 
 	maxHealth = hM;
 	health = h;
-	amountOfBerries = b;
-	amountOfPokeballs = p;
 
 	transform.position = { 0 ,0 };
 
@@ -21,11 +19,11 @@ HUD::HUD(int hM, int h, int b, int p)
 	for (int i = 0; i < maxHealth; i++)
 	{
 		std::shared_ptr<GraphicsComponent> heartGc = std::make_shared<GraphicsComponent>();
-		if (i <= h) 
+		if (i <= h)
 		{
 			heartGc->setTexture("heart");
 		}
-		else 
+		else
 		{
 			heartGc->setTexture("deadheart");
 		}
@@ -57,31 +55,26 @@ HUD::HUD(int hM, int h, int b, int p)
 	this->components.emplace_back(score);
 }
 
-void HUD::updateHUD(int h, int b, int p)
-{
-	GameState::getInstance().setHealth(h);
-	if (h < health) {
-		deleteHealth();
-	}
-	else if(h > health){
-		addHealth();
-	}
-	amountOfBerries = b;
-	berryCount->changeText(std::to_string(amountOfBerries));
-	amountOfPokeballs = p;
-	GameState::getInstance().setPokeballs(p);
-	ballsCount->changeText(std::to_string(amountOfPokeballs));
-}
-
-void HUD::update() 
+void HUD::update()
 {
 	int scoreInt = GameState::getInstance().getCaughtPokemon();
 	score->changeText("Score " + std::to_string(scoreInt));
+	int berryInt = GameState::getInstance().getBerries();
+	berryCount->changeText(std::to_string(berryInt));
+	int pokeballInt = GameState::getInstance().getPokeballs();
+	ballsCount->changeText(std::to_string(pokeballInt));
+	
+	if (GameState::getInstance().getHealth() < health) {
+		deleteHealth();
+	}
+	else if (GameState::getInstance().getHealth() > health) {
+		addHealth();
+	}
 }
 
 void HUD::addHealth()
 {
-	if (health < maxHealth) 
+	if (health < maxHealth)
 	{
 		hearts[health]->setTexture("heart");
 		health++;

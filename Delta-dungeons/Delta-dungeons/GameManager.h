@@ -18,7 +18,7 @@
 #include "LevelBuilder.h"
 #include "HighScoreScreenScene.h"
 
-class GameManager {
+class GameManager : public std::enable_shared_from_this<GameManager> {
 public:
 	GameManager();
 	~GameManager() {}

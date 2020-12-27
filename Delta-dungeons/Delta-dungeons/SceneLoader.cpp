@@ -34,10 +34,10 @@ void SceneLoader::quitGame() const
 
 void SceneLoader::setCurrentLevel(std::string levelName)
 {
-	currentLevel = levelName;
+	GameState::getInstance().setCurrentLevel(levelName);
 }
 
 std::string SceneLoader::getCurrentLevel()
 {
-	return currentLevel;
+	return GameState::getInstance().getCurrentLevel();
 }

@@ -21,6 +21,16 @@ void GameState::addCaughPokemon(int amount)
 	}
 }
 
+std::string GameState::getCurrentLevel()
+{
+	return currentState.currentLevel;
+}
+
+void GameState::setCurrentLevel(const std::string& cl)
+{
+	currentState.currentLevel = cl;
+}
+
 int GameState::getCaughtPokemon()
 {
 	return currentState.caughtPokemon;
@@ -44,6 +54,51 @@ int GameState::getHealth()
 void GameState::setPokeballs(int p)
 {
 	currentState.pokeBalls = p;
+}
+
+int GameState::getPokeballs()
+{
+	return currentState.pokeBalls;
+}
+
+void GameState::setBerries(int b)
+{
+	currentState.berries = b;
+}
+
+int GameState::getBerries()
+{
+	return currentState.berries;
+}
+
+bool GameState::getHasBoomerang()
+{
+	return currentState.hasBoomerang;
+}
+
+void GameState::setHasBoomerang(bool hasBoomerang) 
+{
+	currentState.hasBoomerang = hasBoomerang;
+}
+
+bool GameState::getHasRunningShoes()
+{
+	return currentState.hasRunningShoes;
+}
+
+void GameState::setHasRunningShoes(bool hasRunningShoes)
+{
+	currentState.hasRunningShoes = hasRunningShoes;
+}
+
+bool GameState::getRunningShoesActivated()
+{
+	return currentState.runningShoesActivated;
+}
+
+void GameState::setRunningShoesActivated(bool runningShoesActivated)
+{
+	currentState.runningShoesActivated = runningShoesActivated;
 }
 
 void GameState::save()

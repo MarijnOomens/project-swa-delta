@@ -49,12 +49,6 @@ public:
 	static void staticGameOverbackFunction(void* p);
 	void gameOverCallbackFunction();
 
-	static void staticUpdateHUDCallbackFunction(void* p, int health, int berries, int pokeballs);
-	void updateHUDCallbackFunction(int health, int berries, int pokeballs);
-
-	static void staticLoadNextLevelCallbackFunction(void* p);
-	void loadNextLevelCallbackFunction();
-
 private:
 	std::string levelName;
 	LevelScene scene;

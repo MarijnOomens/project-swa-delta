@@ -21,7 +21,7 @@ public:
 
 	PlayerFactory() {}
 
-	void createPlayer(const std::string& levelName, cbCollision collisionCB, cbThrowCollision throwCB, cbNextLevel nextLevelCb, cbCamera cb, cbInteract interactCB, cbGameOver gameOverCB, cbHUD hudCB, void* p, void* gm);
+	void createPlayer(const std::string& levelName, cbCollision collisionCB, cbThrowCollision throwCB, cbNextLevel nextLevelCb, cbCamera cb, cbInteract interactCB, cbGameOver gameOverCB, void* p, void* gm);
 
 	std::map<std::string, std::string> passTextures() const;
 	std::shared_ptr<Player> getPlayerObject();

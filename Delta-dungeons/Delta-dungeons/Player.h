@@ -15,7 +15,6 @@
 typedef void(*cbInteract) (void*, std::shared_ptr<BehaviourObject>, int, int, int, int);
 typedef void(*cbCamera) (void*, int, int);
 typedef void(*cbGameOver) (void*);
-typedef void(*cbHUD) (void*, int, int, int);
 typedef void(*cbCollision) (void*, std::shared_ptr<CollidingComponent>, std::shared_ptr<BehaviourObject> behaviourObject, int, int, KeyCodes, int);
 typedef void(*cbThrowCollision) (void*, std::shared_ptr<BehaviourObject>, int, int, KeyCodes, int);
 typedef void(*cbNextLevel) (void*);
@@ -31,14 +30,13 @@ public:
 	cbCamera func;
 	cbInteract interactFunc;
 	cbGameOver gameOverFunc;
-	cbHUD hudFunc;
 	cbCollision collisionFunc;
 	cbNextLevel nextLevelFunc;
 	KeyCodes currentDirection;
 	void* pointer;
 	void* gmPointer;
 
-	Player(int spawnX, int spawnY, cbCollision collisionCB, cbThrowCollision throwCB, cbNextLevel nextLevelcb, cbCamera f, cbInteract interactCB, cbGameOver gameOverFunc, cbHUD hudCB, void* p, void* gm);
+	Player(int spawnX, int spawnY, cbCollision collisionCB, cbThrowCollision throwCB, cbNextLevel nextLevelcb, cbCamera f, cbInteract interactCB, cbGameOver gameOverFunc, void* p, void* gm);
 
 	void handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
 	void interact(std::shared_ptr<BehaviourObject> interactor) override;
@@ -67,7 +65,7 @@ public:
 
 	void update() override {}
 	void setParent() override;
-	void start() override {}
+	void start() override;
 	void handleInteraction();
 	void registerHit();
 	void eatBerry();
@@ -75,11 +73,11 @@ public:
 	void usePokeball();
 	void addPokeball();
 	void getIdleAnimation();
-	
-	int health = 5;
+
+	int health = 0;
 	int maxHealth = 5;
 	int amountOfBerries = 0;
-	int amountOfPokeballs = 20;	
+	int amountOfPokeballs = 0;
 	int amountOfPokemons = 0;
 private:
 	const int animationSpeed = 180;
