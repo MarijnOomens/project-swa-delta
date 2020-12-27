@@ -433,7 +433,7 @@ void Player::registerCollision(int x, int y, bool isDamaged, bool isTransitioned
 {
 	if (isDamaged && !noDamageCheat) { registerHit(); }
 	if (isTransitioned) { isNewLevel = true; nextLevelFunc(gmPointer); }
-	if (isWinTrigger) { SceneLoader::getInstance().loadScene("GameWinScreen", SceneLoader::getInstance().getCurrentLevel(), false); }
+	if (isWinTrigger) { SceneLoader::getInstance().loadScene("GameWinScreen", SceneLoader::getInstance().getCurrentLevel(), false, false); }
 
 	hasMoved = true;
 }

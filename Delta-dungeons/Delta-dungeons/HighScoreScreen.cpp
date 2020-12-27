@@ -35,7 +35,7 @@ void HighScoreScreen::staticExitCallbackFunction(const void* p)
 
 void HighScoreScreen::exitCallbackFunction() const
 {
-	SceneLoader::getInstance().loadScene("MainMenuScreen", "", true);
+	SceneLoader::getInstance().loadScene("MainMenuScreen", "", true, false);
 }
 
 void HighScoreScreen::start()

@@ -48,7 +48,7 @@ void LoadSaveScreen::newCallbackFunction() const
 	GameState::getInstance().reset();
 	GameState::getInstance().save();
 	GameState::getInstance().load();
-	SceneLoader::getInstance().loadScene(SceneLoader::getInstance().getCurrentLevel(), "", true);
+	SceneLoader::getInstance().loadScene(SceneLoader::getInstance().getCurrentLevel(), "", true, true);
 }
 
 void LoadSaveScreen::staticLoad1CallbackFunction(const void* p)
@@ -59,7 +59,7 @@ void LoadSaveScreen::staticLoad1CallbackFunction(const void* p)
 void LoadSaveScreen::load1CallbackFunction() const
 {
 	GameState::getInstance().load();
-	SceneLoader::getInstance().loadScene(SceneLoader::getInstance().getCurrentLevel(), "", true);
+	SceneLoader::getInstance().loadScene(SceneLoader::getInstance().getCurrentLevel(), "", true, true);
 }
 
 void LoadSaveScreen::staticBackCallbackFunction(const void* p)

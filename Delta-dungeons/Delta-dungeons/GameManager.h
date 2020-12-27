@@ -18,7 +18,7 @@
 #include "LevelBuilder.h"
 #include "HighScoreScreenScene.h"
 
-class GameManager : public std::enable_shared_from_this<GameManager> {
+class GameManager {
 public:
 	GameManager();
 	~GameManager() {}
@@ -27,6 +27,7 @@ public:
 	void registerFonts(std::map<std::string, std::string> fonts);
 	void registerAudio(std::map<std::string, std::string> beats);
 
+	static void createLevelCallback(void* p, const std::string& levelName);
 	void createLevel(const std::string& levelName);
 
 	static void staticLoadNextLevelCallbackFunction(void* p);

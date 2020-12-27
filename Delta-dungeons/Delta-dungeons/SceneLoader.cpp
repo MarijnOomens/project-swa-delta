@@ -7,8 +7,12 @@ SceneLoader& SceneLoader::getInstance()
 	return sceneLoader;
 }
 
-void SceneLoader::loadScene(const std::string& sceneName, const std::string& fromScene, bool clearPrevious) const
+void SceneLoader::loadScene(const std::string& sceneName, const std::string& fromScene, bool clearPrevious, bool isLevel) const
 {
+	if (isLevel)
+	{
+		ls(p, sceneName);
+	}
 	engineFacade->loadScene(sceneName, fromScene, clearPrevious);
 }
 
@@ -25,6 +29,12 @@ void SceneLoader::addOverlayScene(const std::string& sceneName)const
 void SceneLoader::setEngineFacade(std::shared_ptr<EngineFacade> engineFacade)
 {
 	this->engineFacade = engineFacade;
+}
+
+void SceneLoader::setLoadSceneCallback(void* p, cbLoadScene ls)
+{
+	this->p = p;
+	this->ls = ls;
 }
 
 void SceneLoader::quitGame() const

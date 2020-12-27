@@ -42,5 +42,5 @@ void GameWinScreen::staticNextCallbackFunction(const void* p)
 
 void GameWinScreen::nextCallbackFunction() const
 {
-	SceneLoader::getInstance().loadScene("HighScoreScreen", "", true);
+	SceneLoader::getInstance().loadScene("HighScoreScreen", "", true, false);
 }
