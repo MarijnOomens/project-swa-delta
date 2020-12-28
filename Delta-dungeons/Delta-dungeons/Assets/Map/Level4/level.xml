@@ -133,7 +133,7 @@
     <tile x="10" y="4" tile="86" rot="0" flipX="false"/>
     <tile x="11" y="4" tile="87" rot="0" flipX="false"/>
     <tile x="12" y="4" tile="84" rot="0" flipX="false"/>
-    <tile x="13" y="4" tile="48" rot="0" flipX="false"/>
+    <tile x="13" y="4" tile="116" rot="0" flipX="false"/>
     <tile x="14" y="4" tile="88" rot="0" flipX="false"/>
     <tile x="15" y="4" tile="89" rot="0" flipX="false"/>
     <tile x="16" y="4" tile="90" rot="0" flipX="false"/>

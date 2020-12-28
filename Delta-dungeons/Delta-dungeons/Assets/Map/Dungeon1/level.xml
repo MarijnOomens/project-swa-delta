@@ -631,8 +631,8 @@
     <tile x="4" y="39" tile="29" rot="0" flipX="false"/>
     <tile x="5" y="39" tile="30" rot="0" flipX="false"/>
     <tile x="6" y="39" tile="35" rot="0" flipX="false"/>
-    <tile x="7" y="39" tile="37" rot="0" flipX="false"/>
-    <tile x="8" y="39" tile="37" rot="0" flipX="false"/>
+    <tile x="7" y="39" tile="54" rot="0" flipX="false"/>
+    <tile x="8" y="39" tile="54" rot="0" flipX="false"/>
     <tile x="9" y="39" tile="35" rot="0" flipX="false"/>
     <tile x="10" y="39" tile="29" rot="0" flipX="false"/>
     <tile x="11" y="39" tile="30" rot="0" flipX="false"/>
