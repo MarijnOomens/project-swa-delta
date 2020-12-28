@@ -381,7 +381,7 @@ void Player::registerHit()
 
 void Player::eatBerry()
 {
-	if ((health < maxHealth && amountOfBerries > 0) || infinteBerries) //maxHealth
+	if ((health < maxHealth && amountOfBerries > 0) || infinteBerries && health < maxHealth) //maxHealth
 	{
 		health++;
 		GameState::getInstance().setHealth(health);

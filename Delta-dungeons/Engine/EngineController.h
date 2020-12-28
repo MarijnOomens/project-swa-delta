@@ -46,6 +46,7 @@ public:
 	void createCamera(int x, int y) const;
 	void passPlayerPosition(int x, int y);
 	void pauseScreen();
+	void pauseInput();
 	void quitGame() const;
 	int getFPS() const;
 	void slowDownGame() const;
@@ -84,5 +85,6 @@ private:
 	std::shared_ptr<SceneManager> sceneManager;
 	std::shared_ptr<Collision> collision;
 	bool isGameOver = false;
+	bool inputPaused = false;
 	int timer = 30;
 };

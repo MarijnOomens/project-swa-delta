@@ -9,6 +9,8 @@
 #include "SceneLoader.h"
 #include "SceneModifier.h"
 #include "AudioUtilities.h"
+#include "DebugUtilities.h"
+#include "GameState.h"
 
 class NPC : public IInteractiveObject
 {
@@ -32,4 +34,5 @@ private:
 	std::shared_ptr<GraphicsComponent> gc;
 	const int animationSpeed = 180;
 	const std::vector<std::string> dialogue;
+	bool isTalking = false;
 };

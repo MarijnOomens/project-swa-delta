@@ -29,6 +29,7 @@ public:
 	ENGINE_API void speedUpGame() const;
 	ENGINE_API void resetSpeedGame() const;
 	ENGINE_API void pauseGame() const;
+	ENGINE_API void pauseInput() const;
 	ENGINE_API void addObjectToScene(std::shared_ptr<BehaviourObject> addObject) const;
 	ENGINE_API void passInteract(std::shared_ptr<BehaviourObject> player, int x, int y, int w, int h) const;
 	ENGINE_API void passCollisionCheck(std::shared_ptr<CollidingComponent> collider, std::shared_ptr<BehaviourObject> behaviourObject, int x, int y, KeyCodes direction, int w) const;

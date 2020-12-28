@@ -15,6 +15,7 @@ public:
 	void speedUpGame() const;
 	void resetSpeedGame() const;
 	void pauseGame() const;
+	void pauseInput() const;
 
 	void toggleCheatCollision();
 	bool isCheatCollisionOn();

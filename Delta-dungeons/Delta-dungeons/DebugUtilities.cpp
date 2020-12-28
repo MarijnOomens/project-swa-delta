@@ -47,6 +47,11 @@ void DebugUtilities::pauseGame()const
 	engineFacade->pauseGame();
 }
 
+void DebugUtilities::pauseInput()const
+{
+	engineFacade->pauseInput();
+}
+
 void DebugUtilities::toggleCheatCollision()
 {
 	cheatCollision = !cheatCollision;

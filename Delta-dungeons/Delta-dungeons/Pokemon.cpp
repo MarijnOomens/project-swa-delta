@@ -70,12 +70,15 @@ void Pokemon::setParent()
 
 void Pokemon::update(int time)
 {
-	if ((time - previoustime) >= attackTime)
+	if (!GameState::getInstance().getIsPaused()) 
 	{
-		previoustime = time;
-		if(cameraFunc(pointer,transform.position.x, transform.position.y))
+		if ((time - previoustime) >= attackTime)
 		{
-			walk();
+			previoustime = time;
+			if (cameraFunc(pointer, transform.position.x, transform.position.y))
+			{
+				walk();
+			}
 		}
 	}
 }

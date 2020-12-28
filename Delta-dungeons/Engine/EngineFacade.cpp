@@ -118,6 +118,11 @@ void EngineFacade::pauseGame() const
 	engineController->pauseScreen();
 }
 
+void EngineFacade::pauseInput() const
+{
+	engineController->pauseInput();
+}
+
 void EngineFacade::addObjectToScene(std::shared_ptr<BehaviourObject> addObject) const
 {
 	engineController->addObjectToScene(addObject);
