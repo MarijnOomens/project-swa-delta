@@ -24,7 +24,7 @@ public:
 	std::map<std::string, std::string> passBeats() const;
 
 	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
-	void update() override;
+	void update(int time) override;
 	void start() override;
 	void setParent() override {}
 	void interact(std::shared_ptr<BehaviourObject> interactor) override {}

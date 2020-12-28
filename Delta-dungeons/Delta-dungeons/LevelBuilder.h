@@ -49,6 +49,18 @@ public:
 	static void staticGameOverbackFunction(void* p);
 	void gameOverCallbackFunction();
 
+	static void staticUpdateHUDCallbackFunction(void* p, int health, int berries, int pokeballs);
+	void updateHUDCallbackFunction(int health, int berries, int pokeballs);
+
+	static void staticLoadNextLevelCallbackFunction(void* p);
+	void loadNextLevelCallbackFunction();
+
+	static bool staticCheckInRangeCameraCallBack(void* p, int x, int y);
+	bool checkInRangeCameraCallBack(int x, int y);
+
+	static void staticAiCollisionCallback(void* p, std::shared_ptr<CollidingComponent> collider, std::shared_ptr<BehaviourObject> behaviourObject, int x, int y, KeyCodes direction, int w);
+	void aiCollisionCallback(std::shared_ptr<CollidingComponent> collider, std::shared_ptr<BehaviourObject> behaviourObject, int x, int y, KeyCodes direction, int w);
+
 private:
 	std::string levelName;
 	LevelScene scene;

@@ -12,7 +12,7 @@ public:
 	ENGINE_API void changeText(const std::string& text);
 	ENGINE_API void addFontManager(std::shared_ptr<FontManager> fm);
 
-	void update() override;
+	void update(int time) override;
 	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
 	void interact(std::shared_ptr<BehaviourObject> interactor) override;
 	void start() override;

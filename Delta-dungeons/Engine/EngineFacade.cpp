@@ -172,3 +172,13 @@ void EngineFacade::replaceScene(const std::string sceneName, std::vector<std::sh
 {
 	engineController->replaceScene(sceneName, objects);
 }
+
+bool EngineFacade::checkInRangeCamera(int x, int y)const
+{
+	return engineController->checkInRangeCamera(x,y);
+}
+
+void EngineFacade::checkAiCollision(std::shared_ptr<CollidingComponent> collider, std::shared_ptr<BehaviourObject> behaviourObject, int x, int y, KeyCodes direction, int w) const
+{
+	engineController->checkAiCollision(collider, behaviourObject, x, y, direction, w);
+}

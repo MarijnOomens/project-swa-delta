@@ -33,6 +33,11 @@ void RenderFacade::setFrameStart() const
 	frameManager->setFrameStart();
 }
 
+Uint32 RenderFacade::getFrameStart() const
+{
+	return frameManager->getFrameStart();
+}
+
 /// <summary>
 /// Calls the setFrameDelay from the frameManager
 /// </summary>
@@ -170,4 +175,9 @@ std::tuple<int, int> RenderFacade::passPlayerPosition(const int x,const int y) c
 void RenderFacade::checkTransition()const
 {
 	renderer->checkTransition();
+}
+
+bool RenderFacade::checkInRangeCamera(int x, int y) const
+{
+	return renderer->checkInRangeCamera(x, y);
 }

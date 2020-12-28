@@ -19,6 +19,6 @@ public:
 	ENGINE_API virtual void setParent() = 0;
 	ENGINE_API virtual void handleInput(const KeyCodes &keyCode, const KeyboardEvent &keyboardEvent, Vector2D &mousePos) = 0;
 	ENGINE_API virtual void start() = 0;
-	ENGINE_API virtual void update() = 0;
+	ENGINE_API virtual void update(int time) = 0;
 	ENGINE_API virtual void interact(std::shared_ptr<BehaviourObject> player) = 0;
 };

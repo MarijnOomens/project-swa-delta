@@ -1,15 +1,15 @@
 <Pokemons>
-<Pokemon name="trapinch" encounterRate="75"/>
-<Pokemon name="gible" encounterRate="75"/>
-<Pokemon name="gabite" encounterRate="40"/>
-<Pokemon name="vibrava" encounterRate="40"/>
-<Pokemon name="cacnea" encounterRate="85"/>
-<Pokemon name="kirlia" encounterRate="60"/>
-<Pokemon name="cactune" encounterRate="50"/>
-<Pokemon name="luxio" encounterRate="55"/>
-<Pokemon name="umbreon" encounterRate="30"/>
-<Pokemon name="espeon" encounterRate="30"/>
-<Pokemon name="torterra" encounterRate="25"/>
-<Pokemon name="tyrunt" encounterRate="85"/>
-<Pokemon name="tyrantrum" encounterRate="50"/>
+<Pokemon name="trapinch" encounterRate="75" attacktime="7000"/>
+<Pokemon name="gible" encounterRate="75" attacktime="7000"/>
+<Pokemon name="gabite" encounterRate="40" attacktime="5000"/>
+<Pokemon name="vibrava" encounterRate="40" attacktime="5000"/>
+<Pokemon name="cacnea" encounterRate="85" attacktime="7000"/>
+<Pokemon name="kirlia" encounterRate="60" attacktime="5000"/>
+<Pokemon name="cactune" encounterRate="50" attacktime="4000"/>
+<Pokemon name="luxio" encounterRate="55" attacktime="4000"/>
+<Pokemon name="umbreon" encounterRate="30" attacktime="4000"/>
+<Pokemon name="espeon" encounterRate="30" attacktime="4000"/>
+<Pokemon name="torterra" encounterRate="25" attacktime="4500"/>
+<Pokemon name="tyrunt" encounterRate="85" attacktime="6000"/>
+<Pokemon name="tyrantrum" encounterRate="50" attacktime="3500"/>
 </Pokemons>

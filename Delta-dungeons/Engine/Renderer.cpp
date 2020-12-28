@@ -288,3 +288,15 @@ void Renderer::checkTransition()
 		alphaCounter += 15;
 	}
 }
+
+bool Renderer::checkInRangeCamera(int x, int y) const
+{
+	if (x + 128 >= camera.x &&
+		1280 + camera.x >= x &&
+		y + 128 >= camera.y &&
+		camera.y + 1024 >= y)
+	{
+		return true;
+	}
+	return false;
+}
