@@ -14,9 +14,9 @@ void Input::staticCallbackFunction(void* p, const KeyCodes keyCode, const Keyboa
 	((Input*)p)->callBackFunction(keyCode, keyboardEvent, mousePos);
 }
 
-void Input::handleInput(bool isPaused) const
+void Input::handleInput(bool isPaused, bool inConversation) const
 {
-	facade->handleInput(isPaused);
+	facade->handleInput(isPaused, inConversation);
 }
 
 void Input::callBackFunction(const KeyCodes keyCode,const KeyboardEvent keyboardEvent, Vector2D mousePos) const

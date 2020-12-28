@@ -10,6 +10,6 @@ class IInputFacade
 public:
 	std::unique_ptr<InputWrapper> inputWrapper;
 
-	virtual void handleInput(const bool isPaused) const = 0;
+	virtual void handleInput(const bool isPaused, const bool inConversation) const = 0;
 	virtual void mapKeyBindings(const KeyCodes& code) = 0;
 };

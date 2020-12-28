@@ -28,6 +28,8 @@ public:
 	void setRunningShoesActivated(bool runningShoesActivated);
 	void save();
 	void load();
+	void setIsPaused(bool paused);
+	bool getIsPaused() const;
 
 private:
 	static GameState gameState; 
@@ -35,4 +37,5 @@ private:
 
 	SaveSystem saveSystem;
 	GameStateObject currentState;
+	bool isPaused;
 };

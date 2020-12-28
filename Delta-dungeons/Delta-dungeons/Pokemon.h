@@ -8,6 +8,7 @@
 #include "SceneModifier.h"
 #include "AudioUtilities.h"
 #include "Player.h"
+#include "GameState.h"
 
 typedef void(*cbCollision) (void*, std::shared_ptr<CollidingComponent>, std::shared_ptr<BehaviourObject> behaviourObject, int, int, KeyCodes, int);
 typedef bool(*cbCameraRange) (void*, int, int);

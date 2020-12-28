@@ -2,6 +2,8 @@
 
 #include "Screen.h"
 #include "SceneModifier.h"
+#include "DebugUtilities.h"
+#include "GameState.h"
 
 #include <string>
 #include <vector>

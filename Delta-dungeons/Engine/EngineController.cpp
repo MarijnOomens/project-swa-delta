@@ -97,7 +97,7 @@ void EngineController::startGame()
 		renderFacade->setFrameStart();
 		if (!isGameOver && !renderFacade->renderer->transitioning)
 		{
-			input->handleInput(renderFacade->renderer->isPaused);
+			input->handleInput(renderFacade->renderer->isPaused, inputPaused);
 		}
 		if (!renderFacade->renderer->isPaused)
 		{
@@ -230,6 +230,11 @@ void EngineController::pauseScreen()
 		renderFacade->pauseGame();
 		addOverlayScene("PauseScreen");
 	}
+}
+
+void EngineController::pauseInput() 
+{
+	inputPaused = !inputPaused;
 }
 
 void EngineController::quitGame() const

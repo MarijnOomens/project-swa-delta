@@ -110,3 +110,13 @@ void GameState::load()
 {
 	currentState = saveSystem.load();
 }
+
+void GameState::setIsPaused(bool paused)
+{
+	isPaused = paused;
+}
+
+bool GameState::getIsPaused() const
+{
+	return isPaused;
+}

@@ -22,5 +22,7 @@ void DialoguePopup::handleInput(const KeyCodes& keyCode, const KeyboardEvent& ke
 	if (keyboardEvent == KeyboardEvent::KEY_PRESSED && keyCode == KeyCodes::KEY_E)
 	{
 		SceneLoader::getInstance().loadPreviousScene();
+		DebugUtilities::getInstance().pauseInput();
+		GameState::getInstance().setIsPaused(false);
 	}
 }
