@@ -19,7 +19,7 @@ LoadSaveScreen::LoadSaveScreen()
 	this->components.emplace_back(std::move(newButton));
 
 	std::vector<std::string> possibleButtonTexLoad = { "button_continue" };
-	std::unique_ptr<Button> load1Button = std::make_unique<Button>(512, 400, possibleButtonTexLoad, staticLoad1CallbackFunction, this);
+	std::unique_ptr<Button> load1Button = std::make_unique<Button>(512, 400, possibleButtonTexLoad, staticLoadCallbackFunction, this);
 	this->components.emplace_back(std::move(load1Button));
 
 	std::vector<std::string> possibleButtonTexExit = { "button_back" };
@@ -51,12 +51,12 @@ void LoadSaveScreen::newCallbackFunction() const
 	SceneLoader::getInstance().loadScene(SceneLoader::getInstance().getCurrentLevel(), "", true, true);
 }
 
-void LoadSaveScreen::staticLoad1CallbackFunction(const void* p)
+void LoadSaveScreen::staticLoadCallbackFunction(const void* p)
 {
-	((LoadSaveScreen*)p)->load1CallbackFunction();
+	((LoadSaveScreen*)p)->loadCallbackFunction();
 }
 
-void LoadSaveScreen::load1CallbackFunction() const
+void LoadSaveScreen::loadCallbackFunction() const
 {
 	GameState::getInstance().load();
 	SceneLoader::getInstance().loadScene(SceneLoader::getInstance().getCurrentLevel(), "", true, true);

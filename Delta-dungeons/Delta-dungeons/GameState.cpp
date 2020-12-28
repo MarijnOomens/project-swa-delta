@@ -12,7 +12,7 @@ void GameState::reset()
 	currentState = GameStateObject("Level1", 0, 0, 5, 20, 0, false, true, false);
 }
 
-void GameState::addCaughPokemon(int amount)
+void GameState::addCaughtPokemon(int amount)
 {
 	this->currentState.caughtPokemon += amount;
 	if (currentState.caughtPokemon > currentState.highScore)
@@ -21,7 +21,7 @@ void GameState::addCaughPokemon(int amount)
 	}
 }
 
-std::string GameState::getCurrentLevel()
+std::string GameState::getCurrentLevel() const
 {
 	return currentState.currentLevel;
 }
@@ -36,7 +36,7 @@ int GameState::getCaughtPokemon()
 	return currentState.caughtPokemon;
 }
 
-int GameState::getHighScore()
+int GameState::getHighScore() const
 {
 	return currentState.highScore;
 }
@@ -46,7 +46,7 @@ void GameState::setHealth(int h)
 	currentState.health = h;
 }
 
-int GameState::getHealth()
+int GameState::getHealth() const
 {
 	return currentState.health;
 }
@@ -56,7 +56,7 @@ void GameState::setPokeballs(int p)
 	currentState.pokeBalls = p;
 }
 
-int GameState::getPokeballs()
+int GameState::getPokeballs() const
 {
 	return currentState.pokeBalls;
 }
@@ -66,22 +66,22 @@ void GameState::setBerries(int b)
 	currentState.berries = b;
 }
 
-int GameState::getBerries()
+int GameState::getBerries() const
 {
 	return currentState.berries;
 }
 
-bool GameState::getHasBoomerang()
+bool GameState::getHasBoomerang() const
 {
 	return currentState.hasBoomerang;
 }
 
-void GameState::setHasBoomerang(bool hasBoomerang) 
+void GameState::setHasBoomerang(bool hasBoomerang)
 {
 	currentState.hasBoomerang = hasBoomerang;
 }
 
-bool GameState::getHasRunningShoes()
+bool GameState::getHasRunningShoes() const
 {
 	return currentState.hasRunningShoes;
 }
@@ -91,7 +91,7 @@ void GameState::setHasRunningShoes(bool hasRunningShoes)
 	currentState.hasRunningShoes = hasRunningShoes;
 }
 
-bool GameState::getRunningShoesActivated()
+bool GameState::getRunningShoesActivated() const
 {
 	return currentState.runningShoesActivated;
 }
