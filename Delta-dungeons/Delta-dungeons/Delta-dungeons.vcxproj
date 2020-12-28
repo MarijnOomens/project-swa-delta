@@ -169,6 +169,7 @@
     <ClCompile Include="DoorPuzzleObject.cpp" />
     <ClCompile Include="GameOverScreenScene.cpp" />
     <ClCompile Include="GameState.cpp" />
+    <ClCompile Include="GameStateObject.cpp" />
     <ClCompile Include="GameWinScreenScene.cpp" />
     <ClCompile Include="HelpScreenScene.cpp" />
     <ClCompile Include="EquipmentFactory.cpp" />
@@ -208,6 +209,7 @@
     <ClCompile Include="PuzzleParserData.cpp" />
     <ClCompile Include="ResetPuzzleObject.cpp" />
     <ClCompile Include="RunningShoes.cpp" />
+    <ClCompile Include="SaveSystem.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneLoader.cpp" />
     <ClCompile Include="SceneModifier.cpp" />
@@ -241,6 +243,7 @@
     <ClInclude Include="GameOverScreen.h" />
     <ClInclude Include="GameOverScreenScene.h" />
     <ClInclude Include="GameState.h" />
+    <ClInclude Include="GameStateObject.h" />
     <ClInclude Include="GameWinScreen.h" />
     <ClInclude Include="GameWinScreenScene.h" />
     <ClInclude Include="HelpScreen.h" />
@@ -264,6 +267,7 @@
     <ClInclude Include="Puzzle.h" />
     <ClInclude Include="PuzzleParserData.h" />
     <ClInclude Include="ResetPuzzleObject.h" />
+    <ClInclude Include="SaveSystem.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneModifier.h" />
     <ClInclude Include="ParserData.h" />

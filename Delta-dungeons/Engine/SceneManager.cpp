@@ -130,7 +130,10 @@ std::string SceneManager::getCurrentScene()
 
 void SceneManager::deleteScene(const std::string& sceneName)
 {
-	scenes[sceneName].clear();
+	if (scenes.count(sceneName) != 0)
+	{
+		scenes.erase(sceneName);
+	}
 }
 
 void SceneManager::replaceScene(const std::string sceneName, std::vector<std::shared_ptr<BehaviourObject>> objects)

@@ -8,12 +8,12 @@ GameManager::GameManager()
 	engineFacade = std::make_shared<EngineFacade>();
 	engineFacade->init("Delta Dungeons", 1280, 960, false);
 	SceneLoader::getInstance().setEngineFacade(engineFacade);
+	SceneLoader::getInstance().setLoadSceneCallback(this, createLevelCallback);
 	DebugUtilities::getInstance().setEngineFacade(engineFacade);
 	SceneModifier::getInstance().setEngineFacade(engineFacade);
 	AudioUtilities::getInstance().setEngineFacade(engineFacade);
 
 	scenes = { mainMenuScene, creditScreenScene, pauseScreenScene, helpScreenScene, gameOverScreenScene, gameWinScreenScene, loadSaveScreenScene, dialoguePopupScene, highScoreScreenScene };
-
 
 	for (auto& s : scenes)
 	{
@@ -22,8 +22,6 @@ GameManager::GameManager()
 		registerAudio(s.getBeats());
 		engineFacade->registerScene(s.name, s.getBehaviourObjects());
 	}
-
-	createLevel(levels[currentlevel]);
 
 	engineFacade->loadScene("MainMenuScreen", "", true);
 	engineFacade->startGame();
@@ -50,8 +48,15 @@ void GameManager::registerAudio(std::map<std::string, std::string> beats)
 	engineFacade->registerAudio(beats);
 }
 
+void GameManager::createLevelCallback(void* p, const std::string& levelName)
+{
+	((GameManager*)p)->createLevel(levelName);
+}
+
 void GameManager::createLevel(const std::string& levelName)
 {
+	clearScenes();
+	currentlevel = std::find(levels.begin(), levels.end(), levelName) - levels.begin();
 	SceneLoader::getInstance().setCurrentLevel(levels[currentlevel]);
 	levelBuilder = std::make_unique<LevelBuilder>(levelName, engineFacade);
 	levelBuilder->setWorld();
@@ -68,6 +73,14 @@ void GameManager::createLevel(const std::string& levelName)
 	registerAudio(level.getBeats());
 	engineFacade->registerScene(levelName, level.getBehaviourObjects());
 	engineFacade->createCamera(camPosition.x, camPosition.y);
+}
+
+void GameManager::clearScenes()
+{
+	for (auto& s : levels) 
+	{
+		engineFacade->deleteScene(s);
+	}
 }
 
 void GameManager::staticLoadNextLevelCallbackFunction(void* p)

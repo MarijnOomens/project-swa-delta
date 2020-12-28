@@ -14,9 +14,12 @@ LoadSaveScreen::LoadSaveScreen()
 	loadSaveText->transform.position = { 220, 20 };
 	this->components.emplace_back(std::move(loadSaveText));
 
+	std::vector<std::string> possibleButtonTexNew = { "button_new" };
+	std::unique_ptr<Button> newButton = std::make_unique<Button>(512, 200, possibleButtonTexNew, staticNewCallbackFunction, this);
+	this->components.emplace_back(std::move(newButton));
 
-	std::vector<std::string> possibleButtonTexLoad = { "button_load" };
-	std::unique_ptr<Button> load1Button = std::make_unique<Button>(512, 200, possibleButtonTexLoad, staticLoad1CallbackFunction, this);
+	std::vector<std::string> possibleButtonTexLoad = { "button_continue" };
+	std::unique_ptr<Button> load1Button = std::make_unique<Button>(512, 400, possibleButtonTexLoad, staticLoadCallbackFunction, this);
 	this->components.emplace_back(std::move(load1Button));
 
 	std::vector<std::string> possibleButtonTexExit = { "button_back" };
@@ -35,15 +38,28 @@ void LoadSaveScreen::handleInput(const KeyCodes& keyCode, const KeyboardEvent& k
 	}
 }
 
-void LoadSaveScreen::staticLoad1CallbackFunction(const void* p)
+void LoadSaveScreen::staticNewCallbackFunction(const void* p)
 {
-	((LoadSaveScreen*)p)->load1CallbackFunction();
+	((LoadSaveScreen*)p)->newCallbackFunction();
 }
 
-void LoadSaveScreen::load1CallbackFunction() const
+void LoadSaveScreen::newCallbackFunction() const 
 {
 	GameState::getInstance().reset();
-	SceneLoader::getInstance().loadScene(SceneLoader::getInstance().getCurrentLevel(), "", true);
+	GameState::getInstance().save();
+	GameState::getInstance().load();
+	SceneLoader::getInstance().loadScene(SceneLoader::getInstance().getCurrentLevel(), "", true, true);
+}
+
+void LoadSaveScreen::staticLoadCallbackFunction(const void* p)
+{
+	((LoadSaveScreen*)p)->loadCallbackFunction();
+}
+
+void LoadSaveScreen::loadCallbackFunction() const
+{
+	GameState::getInstance().load();
+	SceneLoader::getInstance().loadScene(SceneLoader::getInstance().getCurrentLevel(), "", true, true);
 }
 
 void LoadSaveScreen::staticBackCallbackFunction(const void* p)

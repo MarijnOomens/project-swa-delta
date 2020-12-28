@@ -9,31 +9,104 @@ GameState& GameState::getInstance()
 
 void GameState::reset()
 {
-	currentLevel = "Level1";
-	caughtPokemon = 0;
-	health = 5;
-	pokeBalls = 20;
-	berries = 0;
-	hasBoomerang = false;
-	hasRunningShoes = true;
-	runningShoesActivated = false;
+	currentState = GameStateObject("Level1", 0, 0, 5, 20, 0, false, true, false);
 }
 
-void GameState::addCaughPokemon(int amount)
+void GameState::addCaughtPokemon(int amount)
 {
-	this->caughtPokemon += amount;
-	if (caughtPokemon > highScore)
+	this->currentState.caughtPokemon += amount;
+	if (currentState.caughtPokemon > currentState.highScore)
 	{
-		highScore = caughtPokemon;
+		currentState.highScore = currentState.caughtPokemon;
 	}
+}
+
+std::string GameState::getCurrentLevel() const
+{
+	return currentState.currentLevel;
+}
+
+void GameState::setCurrentLevel(const std::string& cl)
+{
+	currentState.currentLevel = cl;
 }
 
 int GameState::getCaughtPokemon()
 {
-	return caughtPokemon;
+	return currentState.caughtPokemon;
 }
 
-int GameState::getHighScore()
+int GameState::getHighScore() const
 {
-	return highScore;
+	return currentState.highScore;
+}
+
+void GameState::setHealth(int h)
+{
+	currentState.health = h;
+}
+
+int GameState::getHealth() const
+{
+	return currentState.health;
+}
+
+void GameState::setPokeballs(int p)
+{
+	currentState.pokeBalls = p;
+}
+
+int GameState::getPokeballs() const
+{
+	return currentState.pokeBalls;
+}
+
+void GameState::setBerries(int b)
+{
+	currentState.berries = b;
+}
+
+int GameState::getBerries() const
+{
+	return currentState.berries;
+}
+
+bool GameState::getHasBoomerang() const
+{
+	return currentState.hasBoomerang;
+}
+
+void GameState::setHasBoomerang(bool hasBoomerang)
+{
+	currentState.hasBoomerang = hasBoomerang;
+}
+
+bool GameState::getHasRunningShoes() const
+{
+	return currentState.hasRunningShoes;
+}
+
+void GameState::setHasRunningShoes(bool hasRunningShoes)
+{
+	currentState.hasRunningShoes = hasRunningShoes;
+}
+
+bool GameState::getRunningShoesActivated() const
+{
+	return currentState.runningShoesActivated;
+}
+
+void GameState::setRunningShoesActivated(bool runningShoesActivated)
+{
+	currentState.runningShoesActivated = runningShoesActivated;
+}
+
+void GameState::save()
+{
+	saveSystem.save(currentState);
+}
+
+void GameState::load()
+{
+	currentState = saveSystem.load();
 }

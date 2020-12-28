@@ -5,6 +5,8 @@
 #include "TextComponent.h"
 #include "SceneLoader.h"
 #include "DebugUtilities.h"
+#include "GameState.h"
+#include "AudioUtilities.h"
 
 class PauseScreen : public Screen
 {

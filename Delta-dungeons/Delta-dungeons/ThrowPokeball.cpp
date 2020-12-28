@@ -27,7 +27,7 @@ void ThrowPokeball::interact(std::shared_ptr<BehaviourObject> interactor)
 {
 	auto object = dynamic_cast<Pokemon*>(interactor.get());
 	if (object != nullptr) {
-		GameState::getInstance().addCaughPokemon(1);
+		GameState::getInstance().addCaughtPokemon(1);
 		object->catchPokemon();
 		func(playerPointer);
 	}

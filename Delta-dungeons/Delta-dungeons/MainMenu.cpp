@@ -53,7 +53,7 @@ void MainMenu::staticOpenGameCallbackFunction(const void* p)
 
 void MainMenu::openGameCallbackFunction() const
 {
-	SceneLoader::getInstance().loadScene("LoadSaveScreen", "MainMenuScreen", true);
+	SceneLoader::getInstance().loadScene("LoadSaveScreen", "MainMenuScreen", true, false);
 }
 
 void MainMenu::staticOpenCreditsCallbackFunction(const void* p) 
@@ -63,7 +63,7 @@ void MainMenu::staticOpenCreditsCallbackFunction(const void* p)
 
 void MainMenu::openCreditsCallbackFunction() const
 {
-	SceneLoader::getInstance().loadScene("CreditScreen", "MainMenuScreen", true);
+	SceneLoader::getInstance().loadScene("CreditScreen", "MainMenuScreen", true, false);
 }
 
 void MainMenu::staticOpenHelpCallbackFunction(const void* p)
@@ -73,7 +73,7 @@ void MainMenu::staticOpenHelpCallbackFunction(const void* p)
 
 void MainMenu::openHelpCallbackFunction() const
 {
-	SceneLoader::getInstance().loadScene("HelpScreen", "MainMenuScreen", true);
+	SceneLoader::getInstance().loadScene("HelpScreen", "MainMenuScreen", true, false);
 }
 
 void MainMenu::staticExitCallbackFunction(const void* p) 
