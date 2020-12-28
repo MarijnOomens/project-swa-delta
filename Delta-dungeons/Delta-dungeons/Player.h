@@ -65,7 +65,7 @@ public:
 	static void staticPokeballCallbackFunction(void* p);
 	void pokeballCallbackFunction();
 
-	void update() override {}
+	void update(int time) override {}
 	void setParent() override;
 	void start() override {}
 	void handleInteraction();

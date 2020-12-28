@@ -30,7 +30,7 @@ public:
 
 	void handleInput(const KeyCodes& keyCodes, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override {}
 	void registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger) override {}
-	void update() override {}
+	void update(int time) override {}
 
 private:
 	std::shared_ptr<CollisionStrategy> stp;

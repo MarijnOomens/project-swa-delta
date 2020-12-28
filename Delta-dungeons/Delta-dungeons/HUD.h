@@ -18,7 +18,7 @@ public:
 	void updateHUD(int health, int berries, int pokeballs);
 	void updateCollectedCrystals(int param) {}
 	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override {}
-	void update() override;
+	void update(int time) override;
 	void setParent() override {}
 	void start() override {}
 	void registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger) override {}

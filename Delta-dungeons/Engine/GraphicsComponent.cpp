@@ -32,7 +32,7 @@ void GraphicsComponent::setTexture(const std::string& name)
 /// <summary>
 /// Calls the textureManager to draw the texture to the screen.
 /// </summary>
-void GraphicsComponent::update()
+void GraphicsComponent::update(int time)
 {
 	textureManager->drawTexture(textureName, this->transform, this->imageCoordinates, this->imageDimensions, animRow, animFrames, animSpeed, animated, flipped,isScreen);
 }

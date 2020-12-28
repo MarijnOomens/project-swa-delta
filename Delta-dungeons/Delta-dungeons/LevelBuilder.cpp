@@ -37,7 +37,7 @@ void LevelBuilder::setNPCs()
 
 void LevelBuilder::setPokemon()
 {
-	pokemonFactory.createPokemon(levelName);
+	pokemonFactory.createPokemon(levelName, staticCheckCollisionCallbackFunction, staticCheckInRangeCameraCallBack, staticAiCollisionCallback, this);
 	for (auto& p : pokemonFactory.pokemon)
 	{
 		behaviourObjects.emplace_back(p.second);
@@ -168,4 +168,25 @@ void LevelBuilder::staticUpdateHUDCallbackFunction(void* p, int health, int berr
 void LevelBuilder::updateHUDCallbackFunction(int health, int berries, int pokeballs)
 {
 	hudFactory.updateHUD(health, berries, pokeballs);
+}
+
+bool LevelBuilder::staticCheckInRangeCameraCallBack(void* p, int x, int y)
+{
+	return ((LevelBuilder*)p)->checkInRangeCameraCallBack(x, y);
+}
+
+bool LevelBuilder::checkInRangeCameraCallBack(int x, int y)
+{
+	return engineFacade->checkInRangeCamera(x, y);
+}
+
+
+void LevelBuilder::staticAiCollisionCallback(void* p, std::shared_ptr<CollidingComponent> collider, std::shared_ptr<BehaviourObject> behaviourObject, int x, int y, KeyCodes direction, int w)
+{
+	((LevelBuilder*)p)->aiCollisionCallback(collider, behaviourObject, x, y, direction, w);
+}
+
+void LevelBuilder::aiCollisionCallback(std::shared_ptr<CollidingComponent> collider, std::shared_ptr<BehaviourObject> behaviourObject, int x, int y, KeyCodes direction, int w)
+{
+	engineFacade->checkAiCollision(collider, behaviourObject, x, y, direction, w);
 }

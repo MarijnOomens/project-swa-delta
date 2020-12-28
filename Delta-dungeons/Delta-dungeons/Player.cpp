@@ -371,6 +371,7 @@ void Player::registerHit()
 		hudFunc(pointer, health, amountOfBerries, amountOfPokeballs);
 		gc->playAnimation(9, 4, animationSpeed, false);
 		gameOverFunc(pointer);
+		health = 5;
 	}
 	
 }
