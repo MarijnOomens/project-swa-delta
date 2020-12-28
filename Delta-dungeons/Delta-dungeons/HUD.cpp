@@ -55,7 +55,7 @@ HUD::HUD(int hM, int h, int b, int p)
 	this->components.emplace_back(score);
 }
 
-void HUD::update()
+void HUD::update(int time)
 {
 	int scoreInt = GameState::getInstance().getCaughtPokemon();
 	score->changeText("Score " + std::to_string(scoreInt));
@@ -70,16 +70,6 @@ void HUD::update()
 	else if (GameState::getInstance().getHealth() > health) {
 		addHealth();
 	}
-	amountOfBerries = b;
-	berryCount->changeText(std::to_string(amountOfBerries));
-	amountOfPokeballs = p;
-	ballsCount->changeText(std::to_string(amountOfPokeballs));
-}
-
-void HUD::update(int time) 
-{
-	int scoreInt = GameState::getInstance().getCaughtPokemon();
-	score->changeText("Score " + std::to_string(scoreInt));
 }
 
 void HUD::addHealth()

@@ -160,16 +160,6 @@ void LevelBuilder::gameOverCallbackFunction()
 	engineFacade->gameOver();
 }
 
-void LevelBuilder::staticUpdateHUDCallbackFunction(void* p, int health, int berries, int pokeballs)
-{
-	((LevelBuilder*)p)->updateHUDCallbackFunction(health, berries, pokeballs);
-}
-
-void LevelBuilder::updateHUDCallbackFunction(int health, int berries, int pokeballs)
-{
-	hudFactory.updateHUD(health, berries, pokeballs);
-}
-
 bool LevelBuilder::staticCheckInRangeCameraCallBack(void* p, int x, int y)
 {
 	return ((LevelBuilder*)p)->checkInRangeCameraCallBack(x, y);
