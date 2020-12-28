@@ -21,7 +21,7 @@ public:
 	void setLoadSceneCallback(void* p, cbLoadScene ls);
 	void quitGame() const;
 	void setCurrentLevel(const std::string& levelName);
-	std::string getCurrentLevel();
+	std::string getCurrentLevel() const;
 
 private:
 	static SceneLoader sceneLoader;

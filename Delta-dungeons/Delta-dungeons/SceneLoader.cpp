@@ -47,7 +47,7 @@ void SceneLoader::setCurrentLevel(const std::string& levelName)
 	GameState::getInstance().setCurrentLevel(levelName);
 }
 
-std::string SceneLoader::getCurrentLevel()
+std::string SceneLoader::getCurrentLevel() const
 {
 	return GameState::getInstance().getCurrentLevel();
 }
