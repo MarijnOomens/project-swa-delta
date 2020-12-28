@@ -12,7 +12,7 @@ TextComponent::TextComponent(const std::string &text, const std::string &font, c
 /// <summary>
 /// The update methods calls the TextureManager to draw the item.
 /// </summary>
-void TextComponent::update() {
+void TextComponent::update(int time) {
 	if (text != "")
 	{
 		fontManager->drawText(text, font, colour, this->transform, fontSize);

@@ -44,6 +44,7 @@ public:
 	void drawText(SDL_Texture* texture, SDL_Rect source, SDL_Rect destination, SDL_RendererFlip flip);
 	void transition();
 	void checkTransition();
+	bool checkInRangeCamera(int x, int y) const;
 
 private:
 	SDL_Window* sdlWindow;

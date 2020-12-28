@@ -15,4 +15,7 @@
 <Dialogue text="I heard rumours about a gardevoir appearing in a lava area."/>
 <Dialogue text="?"/>
 </NPC>
+<NPC name="cactus">
+<Dialogue text="Ich bin ein kaktusmeister."/>
+</NPC>
 </NPCs>

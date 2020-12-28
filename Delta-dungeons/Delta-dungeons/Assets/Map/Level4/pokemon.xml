@@ -1,3 +1,3 @@
 <Pokemons>
-<Pokemon name="deoxys_standard" encounterRate="100"/>
+<Pokemon name="deoxys_standard" encounterRate="100" attacktime="1000"/>
 </Pokemons>

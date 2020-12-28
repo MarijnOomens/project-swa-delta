@@ -1,12 +1,12 @@
 #include "SceneManager.h"
 
-void SceneManager::update()
+void SceneManager::update(int time)
 {
 	for (const auto& s : activeScenes)
 	{
 		for (const auto& bo : scenes[s])
 		{
-			bo->update();
+			bo->update(time);
 		}
 	}
 }
@@ -32,7 +32,7 @@ void SceneManager::loadScene(const std::string& sceneName, const std::string& fr
 		bo->start();
 	}
 	isSceneSwitched = true;
-	update();
+	update(timeFunc(pointer));
 }
 
 void SceneManager::loadPreviousScene()
@@ -51,7 +51,7 @@ void SceneManager::loadPreviousScene()
 	}
 
 	isSceneSwitched = true;
-	update();
+	update(timeFunc(pointer));
 }
 
 void SceneManager::addOverlayScene(const std::string& sceneName)
@@ -61,7 +61,7 @@ void SceneManager::addOverlayScene(const std::string& sceneName)
 
 	activeScenes.push_back(sceneName);
 	currentScene = sceneName;
-	update();
+	update(timeFunc(pointer));
 }
 
 void SceneManager::registerScene(const std::string& sceneName, const std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects)
@@ -139,4 +139,18 @@ void SceneManager::deleteScene(const std::string& sceneName)
 void SceneManager::replaceScene(const std::string sceneName, std::vector<std::shared_ptr<BehaviourObject>> objects)
 {
 	scenes[sceneName] = objects;
+}
+
+std::shared_ptr<BehaviourObject> SceneManager::getBehaviourObject(CollidingComponent* collidingComponent)
+{
+	for (const auto& bo : scenes[currentScene])
+	{
+		auto gameObject = dynamic_cast<GameObject*>(bo.get());
+		for (auto& c : gameObject->getComponentsRecursive())
+		{
+			if (c.get() == collidingComponent) {
+				return bo;
+			}
+		}
+	}
 }

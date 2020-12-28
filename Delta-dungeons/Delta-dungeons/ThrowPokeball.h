@@ -3,7 +3,6 @@
 #include "IEquipment.h"
 #include "GraphicsComponent.h"
 #include "StopStrategy.h"
-#include "Pokemon.h"
 #include "GameState.h"
 
 typedef void(*cbSentPokemon) (void*);
@@ -20,7 +19,7 @@ public:
 	void setParent() override;
 	void registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger) override {}
 	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos)override {}
-	void update() override;
+	void update(int time) override;
 	void moveUp(int x, int y);
 	void moveDown(int x, int y);
 	void moveLeft(int x, int y);

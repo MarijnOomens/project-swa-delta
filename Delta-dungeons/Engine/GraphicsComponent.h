@@ -18,7 +18,7 @@ public:
 	ENGINE_API void playAnimation(int row, int frames, int speed, bool flip);
 
 	ENGINE_API void setTexture(const std::string& name);
-	ENGINE_API void update() override;
+	ENGINE_API void update(int time) override;
 	ENGINE_API void addTextureManager(std::shared_ptr<TextureManager> tm);
 	ENGINE_API void handleInput(const KeyCodes &keyCode, const KeyboardEvent &keyboardEvent, Vector2D &mousePos);
 	ENGINE_API void interact(std::shared_ptr<BehaviourObject> interactor) override;

@@ -1,4 +1,5 @@
 #include "ThrowPokeball.h"
+#include "Pokemon.h"
 
 ThrowPokeball::ThrowPokeball(const cbThrowCollision tF, const cbSentPokemon f, void* p, void* g) : tFunc(tF), func(f) , playerPointer(p), gameMangerPointer(g)
 {
@@ -61,7 +62,7 @@ void ThrowPokeball::moveRight(int x, int y)
 	direction = "right";
 }
 
-void ThrowPokeball::update() 
+void ThrowPokeball::update(int time) 
 {
 	if (isMoving) {
 		if (direction == "up") {

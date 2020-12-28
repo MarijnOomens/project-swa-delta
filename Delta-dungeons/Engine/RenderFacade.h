@@ -25,6 +25,7 @@ public:
 	SDL_Texture* loadTexture(const std::string& imageLocation) const;
 
 	void setFrameStart() const;
+	Uint32 getFrameStart() const;
 	void setFrameDelay() const;
 	void drawTexture(const std::string& path, const std::string& text, const Colour& colour, const Transform& transform, int fontSize) const;
 	void drawTexture(const std::string& path, const Transform& transform, const Vector2D& coordinates, const Vector2D& sourceDimensions, int row, int frames, int speed, bool animated, bool flipped, bool isScreen) const;
@@ -40,6 +41,7 @@ public:
 	void speedUpGame() const;
 	void resetSpeedGame() const;
 	void checkTransition() const;
+	bool checkInRangeCamera(int x, int y) const;
 
 	std::tuple<int, int> passPlayerPosition(const int x,const int y) const;
 	int getFPS() const;
