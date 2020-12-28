@@ -18,7 +18,7 @@ public:
 	Input(const cbFunction f, void* p);
 
 	static void staticCallbackFunction(void* p, const KeyCodes keyCode, const KeyboardEvent keyboardEvent, const Vector2D mousePos);
-	void handleInput(bool isPaused, bool inConversation) const;
+	void handleInput(const bool isGamePaused, const bool isInputPaused) const;
 	void callBackFunction(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, const Vector2D mousePos) const;
 	void parseKeyBindings(const std::string& string) const;
 };

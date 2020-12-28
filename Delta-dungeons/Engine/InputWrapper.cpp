@@ -5,20 +5,20 @@ InputWrapper::InputWrapper(const cbFunction f, void* p) : func(f), pointer(p) {}
 /// <summary>
 /// The handleInput calls the input based on which keyevent is called.
 /// </summary>
-void InputWrapper::handleInput(const bool isPaused, const bool inConversation)
+void InputWrapper::handleInput(const bool isGamePaused, const bool isInputPaused)
 {
 	while (SDL_PollEvent(&event) != 0)
 	{
 		switch (event.type)
 		{
 		case SDL_KEYDOWN:
-			handleKeyPressed(isPaused, inConversation);
+			handleKeyPressed(isGamePaused, isInputPaused);
 			break;
 		case SDL_QUIT:
 			func(pointer, KeyCodes::KEY_F10, KeyboardEvent::KEY_PRESSED, {0, 0});
 			break;
 		case SDL_KEYUP:
-			handleKeyReleased(isPaused, inConversation);
+			handleKeyReleased(isGamePaused, isInputPaused);
 			break;
 		case SDL_MOUSEBUTTONDOWN:
 			handleMouseClicked();
@@ -30,10 +30,10 @@ void InputWrapper::handleInput(const bool isPaused, const bool inConversation)
 /// <summary>
 /// The handleInput calls the input based on which key is pressed
 /// </summary>
-void InputWrapper::handleKeyPressed(const bool isPaused, const bool inConversation)
+void InputWrapper::handleKeyPressed(const bool isGamePaused, const bool isInputPaused)
 {
 	Vector2D mousePosition;
-	if (!isPaused && !inConversation) 
+	if (!isGamePaused && !isInputPaused) 
 	{
 		switch (event.key.keysym.sym)
 		{
@@ -138,9 +138,9 @@ void InputWrapper::handleKeyPressed(const bool isPaused, const bool inConversati
 /// <summary>
 /// The handleInput calls the input based on which key is released
 /// </summary>
-void InputWrapper::handleKeyReleased(const bool isPaused, const bool inConversation)
+void InputWrapper::handleKeyReleased(const bool isGamePaused, const bool isInputPaused)
 {
-	if (!isPaused && !inConversation)
+	if (!isGamePaused && !isInputPaused)
 	{
 		Vector2D mousePosition;
 		switch (event.key.keysym.sym)
