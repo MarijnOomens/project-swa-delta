@@ -131,7 +131,7 @@ void Renderer::clean() const
 	SDL_DestroyWindow(sdlWindow);
 	SDL_DestroyRenderer(sdlRenderer);
 	SDL_Quit();
-	std::cout << "Game Cleaned" << std::endl;
+	//std::cout << "Game Cleaned" << std::endl;
 }
 
 void Renderer::pauseGame()
