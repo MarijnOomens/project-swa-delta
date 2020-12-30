@@ -1060,10 +1060,10 @@
     <tile x="13" y="29" tile="30" rot="0" flipX="false"/>
     <tile x="14" y="29" tile="29" rot="0" flipX="false"/>
     <tile x="15" y="29" tile="30" rot="0" flipX="false"/>
-    <tile x="16" y="29" tile="58" rot="0" flipX="false"/>
-    <tile x="17" y="29" tile="58" rot="0" flipX="false"/>
-    <tile x="18" y="29" tile="58" rot="0" flipX="false"/>
-    <tile x="19" y="29" tile="58" rot="0" flipX="false"/>
+    <tile x="16" y="29" tile="64" rot="0" flipX="false"/>
+    <tile x="17" y="29" tile="64" rot="0" flipX="false"/>
+    <tile x="18" y="29" tile="64" rot="0" flipX="false"/>
+    <tile x="19" y="29" tile="64" rot="0" flipX="false"/>
     <tile x="20" y="29" tile="29" rot="0" flipX="false"/>
     <tile x="21" y="29" tile="30" rot="0" flipX="false"/>
     <tile x="22" y="29" tile="29" rot="0" flipX="false"/>
