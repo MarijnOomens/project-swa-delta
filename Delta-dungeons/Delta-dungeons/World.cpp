@@ -8,6 +8,7 @@ World::World(int x, int y) : x(x), y(y) {}
 
 void World::addGraphics(const std::string& levelName)
 {
+	this->levelName = levelName;
 	components.clear();
 	XMLSceneParser xmlSceneParser;
 
@@ -25,6 +26,10 @@ void World::addGraphics(const std::string& levelName)
 	components.emplace_back(fpsText);
 
 	beats.try_emplace("match", "Assets/Audio/match.ogg");
+	beats.try_emplace("desert", "Assets/Audio/desert.ogg");
+	beats.try_emplace("finale", "Assets/Audio/finale.ogg");
+	beats.try_emplace("lava", "Assets/Audio/lava.ogg");
+
 	beats.try_emplace("eueu", "Assets/Audio/eueu.wav");
 	beats.try_emplace("hurt", "Assets/Audio/hurt.wav");
 	beats.try_emplace("caught", "Assets/Audio/caught.wav");
@@ -88,5 +93,20 @@ void World::update(int time)
 
 void World::start()
 {
-	AudioUtilities::getInstance().playAudio("match", true);
+	if (levelName == "Level1")
+	{
+		AudioUtilities::getInstance().playAudio("match", true);
+	}
+	else if (levelName == "Level2")
+	{
+		AudioUtilities::getInstance().playAudio("desert", true);
+	}
+	else if (levelName == "Level3")
+	{
+		AudioUtilities::getInstance().playAudio("lava", true);
+	}
+	else if (levelName == "Level4")
+	{
+		AudioUtilities::getInstance().playAudio("finale", true);
+	}
 }

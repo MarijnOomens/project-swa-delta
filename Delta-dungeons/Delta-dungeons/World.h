@@ -31,6 +31,7 @@ public:
 	void registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger) override {}
 
 private:
+	std::string levelName;
 	int x = 0, y = 0;
 	std::vector<std::shared_ptr<Tile>> tileMap;
 	std::shared_ptr<TextComponent> fpsText;
