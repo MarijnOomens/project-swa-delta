@@ -1,6 +1,6 @@
 #include "Pokemon.h"
 
-Pokemon::Pokemon(int x, int y, const std::string& texture, cbCollision collisionCb, cbCameraRange cameraCb, cbAiCollision aiCollision, void* p, int attackTime): func(collisionCb), cameraFunc(cameraCb), aiFunc(aiCollision), pointer(p), attackTime(attackTime)
+Pokemon::Pokemon(int x, int y, const std::string& texture, cbCollision collisionCb, cbCameraRange cameraCb, cbAiCollision aiCollision, void* p, int attackTime, const std::string& name): func(collisionCb), cameraFunc(cameraCb), aiFunc(aiCollision), pointer(p), attackTime(attackTime), namePokemon(name)
 {
 	this->transform.position = { x * 128, y * 128 };
 	this->transform.scale.multiply({ 4, 4 });
@@ -15,6 +15,8 @@ Pokemon::Pokemon(int x, int y, const std::string& texture, cbCollision collision
 	cc = std::make_shared<CollidingComponent>(stp);
 	cc->tag = "pokemon";
 	cc->transform.position = this->transform.position;
+
+	beats.try_emplace(namePokemon, "Assets/Audio/sfx/" + name + ".wav");
 
 	this->components.emplace_back(gc);
 	this->components.emplace_back(cc);
@@ -124,6 +126,10 @@ void Pokemon::walk()
 		break;
 	default:
 		break;
+	}
+	if (hasMoved)
+	{
+		AudioUtilities::getInstance().playEffect(namePokemon);
 	}
 	gc->transform.position = transform.position;
 	cc->transform.position = transform.position;

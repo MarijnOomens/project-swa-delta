@@ -11,7 +11,7 @@ void LevelBuilder::setPlayer(cbNextLevel f, void* gm)
 {
 	playerFactory.createPlayer(levelName, staticCheckCollisionCallbackFunction, staticThrowCollisionCallbackFunction, f, staticCameraCallbackFunction, staticInteractCallbackFunction, staticGameOverbackFunction, this, gm);
 	behaviourObjects.emplace_back(playerFactory.getPlayerObject());
-	for (auto& t : playerFactory.getPlayerObject()->textures)
+	for (auto& t : playerFactory.passTextures())
 	{
 		scene.setTexture(t.first, t.second);
 	}
@@ -45,6 +45,10 @@ void LevelBuilder::setPokemon()
 	for (auto& t : pokemonFactory.passTextures())
 	{
 		scene.setTexture(t.first, t.second);
+	}
+	for (auto& b : pokemonFactory.passBeats())
+	{
+		scene.setBeat(b.first, b.second);
 	}
 }
 

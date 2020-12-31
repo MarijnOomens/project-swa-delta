@@ -24,6 +24,7 @@ Player::Player(int spawnX, int spawnY, cbCollision collisionCB, cbThrowCollision
 	addEquipment(std::move(boomerang));
 
 	baseMovementSpeed = 16;
+	maxHealth = 5;
 	tileCollision = false;
 
 	this->transform.position.x = spawnX * 128;

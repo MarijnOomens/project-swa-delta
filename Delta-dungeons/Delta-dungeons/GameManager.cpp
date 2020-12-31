@@ -58,6 +58,11 @@ void GameManager::createLevel(const std::string& levelName)
 	clearScenes();
 	currentlevel = std::find(levels.begin(), levels.end(), levelName) - levels.begin();
 	SceneLoader::getInstance().setCurrentLevel(levels[currentlevel]);
+	if (GameState::getInstance().getIsPaused())
+	{
+		DebugUtilities::getInstance().pauseInput();
+		GameState::getInstance().setIsPaused(false);
+	}
 	levelBuilder = std::make_unique<LevelBuilder>(levelName, engineFacade);
 	levelBuilder->setWorld();
 	levelBuilder->setNPCs();

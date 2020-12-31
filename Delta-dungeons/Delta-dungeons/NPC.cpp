@@ -24,21 +24,18 @@ NPC::NPC(int x, int y, const std::string& texture, const std::vector<std::string
 
 void NPC::interact(std::shared_ptr<BehaviourObject> interactor)
 {
-	if (!isTalking) {
-		playAnimation(interactor->transform);
-		std::shared_ptr<DialoguePopup> dialoguePopup = std::make_shared<DialoguePopup>(getRandomDialogue());
-		std::vector<std::shared_ptr<BehaviourObject>> objects;
-		objects.emplace_back(dialoguePopup);
-		for (auto& c : dialoguePopup->getComponentsRecursive())
-		{
-			objects.emplace_back(c);
-		}
-		SceneModifier::getInstance().replaceScene("Dialogue", objects);
-		SceneLoader::getInstance().addOverlayScene("Dialogue");
-		DebugUtilities::getInstance().pauseInput();
-		GameState::getInstance().setIsPaused(true);
+	playAnimation(interactor->transform);
+	std::shared_ptr<DialoguePopup> dialoguePopup = std::make_shared<DialoguePopup>(getRandomDialogue());
+	std::vector<std::shared_ptr<BehaviourObject>> objects;
+	objects.emplace_back(dialoguePopup);
+	for (auto& c : dialoguePopup->getComponentsRecursive())
+	{
+		objects.emplace_back(c);
 	}
-	isTalking = !isTalking;
+	SceneModifier::getInstance().replaceScene("Dialogue", objects);
+	SceneLoader::getInstance().addOverlayScene("Dialogue");
+	DebugUtilities::getInstance().pauseInput();
+	GameState::getInstance().setIsPaused(true);
 }
 
 void NPC::playAnimation(Transform t)

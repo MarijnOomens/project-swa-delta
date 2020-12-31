@@ -22,7 +22,6 @@ typedef void(*cbNextLevel) (void*);
 class Player : public IInteractiveObject
 {
 public:
-	std::map<std::string, std::string> textures;
 	std::string texture;
 
 	std::shared_ptr<ThrowPokeball> pokeball;

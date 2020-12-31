@@ -23,8 +23,10 @@ public:
 
 	void createPokemon(const std::string& levelName, cbCollision collisionCb, cbCameraRange cameraCollision, cbAiCollision aiCollision, void* p);
 	std::map<std::string, std::string> passTextures() const;
+	std::map<std::string, std::string> passBeats() const;
 
 private:
 	std::shared_ptr<GameObjectBuilder> builder;
+	std::map<std::string, std::string> beats;
 	int getRandomPokemon();
 };
