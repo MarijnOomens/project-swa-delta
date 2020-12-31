@@ -17,7 +17,7 @@ typedef void(*cbAiCollision) (void*, std::shared_ptr<CollidingComponent>, std::s
 class Pokemon : public IInteractiveObject
 {
 public:
-	Pokemon(int x, int y, const std::string &texture, cbCollision collisionCb, cbCameraRange cameraCb, cbAiCollision aiCollision, void* p, int attackTime);
+	Pokemon(int x, int y, const std::string &texture, cbCollision collisionCb, cbCameraRange cameraCb, cbAiCollision aiCollision, void* p, int attackTime, const std::string& name);
 	void interact(std::shared_ptr<BehaviourObject> interactor) override;
 	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override {}
 	void catchPokemon();
@@ -47,4 +47,5 @@ private:
 	bool hasMoved = false;
 	bool seesPlayer = false;
 	int direction = 0;
+	std::string namePokemon;
 };

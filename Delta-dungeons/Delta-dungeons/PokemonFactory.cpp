@@ -45,3 +45,14 @@ int PokemonFactory::getRandomPokemon()
 		}
 	}
 }
+
+std::map<std::string, std::string> PokemonFactory::passBeats() const
+{
+	std::map<std::string, std::string> totalBeats;
+	for (auto& pokemon : pokemon) {
+		for (auto& t : pokemon.second->beats) {
+			totalBeats.emplace(t.first, t.second);
+		}
+	}
+	return totalBeats;
+}
