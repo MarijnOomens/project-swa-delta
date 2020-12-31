@@ -67,6 +67,11 @@ void CreditScreen::handleInput(const KeyCodes& keyCode, const KeyboardEvent& key
 	}
 }
 
+void CreditScreen::start()
+{
+	AudioUtilities::getInstance().playAudio("mii", true);
+}
+
 void CreditScreen::staticBackCallbackFunction(const void* p) 
 {
 	((CreditScreen*)p)->backCallbackFunction();
@@ -74,5 +79,6 @@ void CreditScreen::staticBackCallbackFunction(const void* p)
 
 void CreditScreen::backCallbackFunction()const
 {
+	AudioUtilities::getInstance().playAudio("touch", true);
 	SceneLoader::getInstance().loadPreviousScene();
 }
