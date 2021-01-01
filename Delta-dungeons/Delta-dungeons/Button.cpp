@@ -29,7 +29,7 @@ void Button::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardE
 		{
 				onCLickFunc(pointer);
 		}
-		else if (keyboardEvent == KeyboardEvent::MOUSE_MOVED)
+		if (keyboardEvent == KeyboardEvent::MOUSE_MOVED)
 		{
 			if (possibleTextures.size() > 1)
 			{
