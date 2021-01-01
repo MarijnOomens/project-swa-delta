@@ -14,7 +14,7 @@ MainMenu::MainMenu()
 	this->components.emplace_back(std::move(creditsText));
 
 	// Play button
-	std::vector<std::string> possibleButtonTexPlay = { "button_play" };
+	std::vector<std::string> possibleButtonTexPlay = { "button_play", "button_play_hover" };
 	std::unique_ptr<Button> playButton = std::make_unique<Button>(512, 230, possibleButtonTexPlay, staticOpenGameCallbackFunction, this);
 	this->components.emplace_back(std::move(playButton));
 

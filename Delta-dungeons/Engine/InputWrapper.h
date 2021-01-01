@@ -22,6 +22,7 @@ public:
 	void mapKeyBindings(const KeyCodes& code);
 
 private:
+	void handleMouseMoved();
 	cbFunction func = nullptr;
 	SDL_Event event = SDL_Event();
 	void* pointer = nullptr;
