@@ -8,15 +8,15 @@ PauseScreen::PauseScreen()
 	gc->imageDimensions = { 1280, 960 };
 	this->components.emplace_back(std::move(gc));
 
-	std::vector<std::string> buttonHelp = { "button_help" };
+	std::vector<std::string> buttonHelp = { "button_help", "button_help_hover" };
 	std::unique_ptr<Button> helpButton = std::make_unique<Button>(512, 300, buttonHelp, staticOpenHelpCallbackFunction, this);
 	this->components.emplace_back(std::move(helpButton));
 
-	std::vector<std::string> buttonSave = { "button_save" };
+	std::vector<std::string> buttonSave = { "button_save", "button_save_hover" };
 	std::unique_ptr<Button> saveButton = std::make_unique<Button>(512, 500, buttonSave, staticSaveCallbackFunction, this);
 	this->components.emplace_back(std::move(saveButton));
 
-	std::vector<std::string> buttonExit = { "button_exit" };
+	std::vector<std::string> buttonExit = { "button_exit", "button_exit_hover" };
 	std::unique_ptr<Button> exitButton = std::make_unique<Button>(512, 700, buttonExit, staticExitCallbackFunction, this);
 	this->components.emplace_back(std::move(exitButton));
 
