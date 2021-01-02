@@ -23,7 +23,7 @@ Player::Player(int spawnX, int spawnY, cbCollision collisionCB, cbThrowCollision
 	addEquipment(std::move(running));
 	addEquipment(std::move(boomerang));
 
-	baseMovementSpeed = 16;
+	baseMovementSpeed = 8;
 	maxHealth = 5;
 	tileCollision = false;
 
