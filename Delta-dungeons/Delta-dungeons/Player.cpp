@@ -13,15 +13,15 @@
 Player::Player(int spawnX, int spawnY, cbCollision collisionCB, cbThrowCollision throwCB, cbNextLevel nextLevelcb, const cbCamera f, cbInteract interactCB, cbGameOver gameOverF, void* p, void* gm)
 	: collisionFunc(collisionCB), nextLevelFunc(nextLevelcb), func(f), interactFunc(interactCB), gameOverFunc(gameOverF), pointer(p), gmPointer(gm)
 {
-	std::string textureBoomerang = "boomerangHUD";
-	std::string textureRunning = "runningshoesHUD";
-	std::unique_ptr<Boomerang> boomerang = std::make_unique<Boomerang>(textureBoomerang, staticBoomerangCallbackFunction, this);
-	std::unique_ptr<RunningShoes> running = std::make_unique<RunningShoes>(staticRunningShoesCallbackFunction, this, textureRunning);
+	if (GameState::getInstance().getHasRunningShoes()) 
+	{
+		runningShoes = std::make_unique<RunningShoes>(staticRunningShoesCallbackFunction, this, "runningshoesHUD");
+		this->textures.try_emplace("runningshoesHUD", "Assets/HUD/Runningshoes.png");
+		addEquipment(std::move(runningShoes));
+	}
+
 	pokeball = std::make_shared<ThrowPokeball>(throwCB, staticPokeballCallbackFunction, this, p);
 	pokeball->setParent();
-
-	addEquipment(std::move(running));
-	addEquipment(std::move(boomerang));
 
 	baseMovementSpeed = 16;
 	maxHealth = 5;
@@ -32,8 +32,6 @@ Player::Player(int spawnX, int spawnY, cbCollision collisionCB, cbThrowCollision
 
 	this->textures.try_emplace("player_m", "Assets/Player/player2_m_anims.png");
 	this->textures.try_emplace("player_f", "Assets/Player/player_f_anims.png");
-	this->textures.try_emplace(textureBoomerang, "Assets/HUD/Boomerang.png");
-	this->textures.try_emplace(textureRunning, "Assets/HUD/Runningshoes.png");
 	this->textures.try_emplace("pokeball", "Assets/Equipment/pokeball.png");
 	this->texture = "player_m";
 
@@ -129,9 +127,9 @@ void Player::handleKeyPressed(const KeyCodes& keyCodes)
 	case KeyCodes::KEY_Q:
 		hasMoved = false;
 		getIdleAnimation();
-		for (auto& comp : equipment)
+		for (auto& e : equipment)
 		{
-			comp->use();
+			e->use();
 		}
 		break;
 	case KeyCodes::KEY_E:
@@ -338,7 +336,6 @@ void Player::boomerangCallbackFunction(const bool brActivated)
 void Player::staticRunningShoesCallbackFunction(void* p, const bool runningActivated)
 {
 	((Player*)p)->runningShoesCallbackFunction(runningActivated);
-
 }
 
 /// <summary>
@@ -349,6 +346,14 @@ void Player::runningShoesCallbackFunction(const bool runningActivated)
 {
 	isWalking = !isWalking;
 	GameState::getInstance().setRunningShoesActivated(!isWalking);
+}
+
+void Player::addRunningShoes()
+{
+	runningShoes = std::make_unique<RunningShoes>(staticRunningShoesCallbackFunction, this, "runningshoesHUD");
+	this->textures.try_emplace("runningshoesHUD", "Assets/HUD/Runningshoes.png");
+	addEquipment(std::move(runningShoes));
+	GameState::getInstance().setHasRunningShoes(true);
 }
 
 void Player::staticPokeballCallbackFunction(void* p)

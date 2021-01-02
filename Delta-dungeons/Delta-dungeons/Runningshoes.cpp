@@ -27,6 +27,9 @@ RunningShoes::RunningShoes(int x, int y, std::string texture)
 
 void RunningShoes::interact(std::shared_ptr<BehaviourObject> interactor)
 {
+	auto col = dynamic_cast<Player*>(interactor.get());
+	if (col != nullptr) { col->addRunningShoes(); }
+
 	if (gc != nullptr) {
 		SceneModifier::getInstance().deleteObjectFromScene(gc);
 		SceneModifier::getInstance().deleteColliderFromScene(cc);

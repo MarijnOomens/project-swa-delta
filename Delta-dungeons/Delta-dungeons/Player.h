@@ -58,6 +58,7 @@ public:
 
 	static void staticRunningShoesCallbackFunction(void* p, const bool runningActivated);
 	void runningShoesCallbackFunction(const bool runningActivated);
+	void addRunningShoes();
 
 	static void staticPokeballCallbackFunction(void* p);
 	void pokeballCallbackFunction();
@@ -79,6 +80,7 @@ public:
 	int amountOfPokeballs = 0;
 	int amountOfPokemons = 0;
 private:
+	std::unique_ptr<RunningShoes> runningShoes;
 	const int animationSpeed = 180;
 	int amountCaught = 0;
 	int baseMovementSpeed;

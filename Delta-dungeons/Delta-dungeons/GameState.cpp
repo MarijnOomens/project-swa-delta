@@ -9,7 +9,7 @@ GameState& GameState::getInstance()
 
 void GameState::reset()
 {
-	currentState = GameStateObject("Level1", 0, 0, 5, 20, 0, false, true, false);
+	currentState = GameStateObject("Level1", 0, 0, 5, 20, 0, false, false, false);
 }
 
 void GameState::addCaughtPokemon(int amount)

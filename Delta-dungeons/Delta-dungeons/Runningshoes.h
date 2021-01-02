@@ -3,6 +3,7 @@
 #include "Graphicscomponent.h"
 #include "CollidingComponent.h"
 #include "StopStrategy.h"
+#include "Player.h"
 
 typedef void(*cbEquipment) (void*, bool);
 
