@@ -12,6 +12,7 @@
 #include <vector>
 #include <sstream>
 #include "AudioUtilities.h"
+#include "GameState.h"
 
 class World : public GameObject
 {

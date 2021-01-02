@@ -71,6 +71,7 @@ void World::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEv
 			break;
 		case KeyCodes::KEY_ESC:
 			DebugUtilities::getInstance().pauseGame();
+			GameState::getInstance().setIsPaused();
 			break;
 		default:
 			break;

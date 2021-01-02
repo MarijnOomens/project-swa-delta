@@ -28,6 +28,7 @@ public:
 	void setRunningShoesActivated(bool runningShoesActivated);
 	void save();
 	void load();
+	void setIsPaused();
 	void setIsPaused(bool paused);
 	bool getIsPaused() const;
 

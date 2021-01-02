@@ -111,6 +111,11 @@ void GameState::load()
 	currentState = saveSystem.load();
 }
 
+void GameState::setIsPaused()
+{
+	isPaused = !isPaused;
+}
+
 void GameState::setIsPaused(bool paused)
 {
 	isPaused = paused;
