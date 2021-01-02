@@ -27,7 +27,7 @@ void InputWrapper::handleInput(const bool isGamePaused, const bool isInputPaused
 			break;
 		}
 	}
-	handleMovementInput(isGamePaused, isInputPaused);
+	handleKeyStateInput(isGamePaused, isInputPaused);
 }
 
 /// <summary>
@@ -164,7 +164,7 @@ void InputWrapper::handleKeyReleased(const bool isGamePaused, const bool isInput
 	}
 }
 
-void InputWrapper::handleMovementInput(bool isGamePaused, bool isInputPaused)
+void InputWrapper::handleKeyStateInput(bool isGamePaused, bool isInputPaused)
 {
 	const Uint8* keyState = SDL_GetKeyboardState(NULL);
 

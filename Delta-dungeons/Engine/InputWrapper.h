@@ -18,7 +18,7 @@ public:
 	void handleInput(bool isGamePaused, bool isInputPaused);
 	void handleKeyPressed(bool isGamePaused, bool isInputPaused);
 	void handleKeyReleased(bool isGamePaused, bool isInputPaused);
-	void handleMovementInput(bool isGamePaused, bool isInputPaused);
+	void handleKeyStateInput(bool isGamePaused, bool isInputPaused);
 	void handleMouseClicked();
 	void mapKeyBindings(const KeyCodes& code);
 
