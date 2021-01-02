@@ -179,7 +179,7 @@ void Renderer::drawTexture(SDL_Texture* texture, const Transform& transform, con
 		source.x = coordinates.x;
 		source.y = coordinates.y;
 
-		if (animated)
+		if (animated && !isPaused)
 		{
 			source.x = source.w * static_cast<int>((SDL_GetTicks() / speed) % frames);
 			source.y = row * source.h;

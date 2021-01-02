@@ -23,13 +23,29 @@ Button::Button(int x, int y, const std::vector<std::string>& textureList, button
 
 void Button::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos)
 {
-	if (keyboardEvent == KeyboardEvent::MOUSE_CLICKED)
+	if (cursorInBouds(mousePos))
 	{
-		// Checks if the mouse is clicked while mouse pointer is positioned inside the texture bounds
-		if (mousePos.x > m_gc->transform.position.x && mousePos.x < m_gc->transform.position.x + m_gc->imageDimensions.x * m_gc->transform.scale.x
-			&& mousePos.y > m_gc->transform.position.y && mousePos.y < m_gc->transform.position.y + m_gc->imageDimensions.y * m_gc->transform.scale.y)
+		if (keyboardEvent == KeyboardEvent::MOUSE_CLICKED)
 		{
+			m_gc->setTexture(possibleTextures[0]);
 			onCLickFunc(pointer);
 		}
+		if (keyboardEvent == KeyboardEvent::MOUSE_MOVED)
+		{
+			if (possibleTextures.size() > 1)
+			{
+				m_gc->setTexture(possibleTextures[1]);
+			}
+		}
 	}
+	else if (keyboardEvent == KeyboardEvent::MOUSE_MOVED)
+	{
+		m_gc->setTexture(possibleTextures[0]);
+	}
+}
+
+bool Button::cursorInBouds(const Vector2D& mousePos)
+{
+	return (mousePos.x > m_gc->transform.position.x && mousePos.x < m_gc->transform.position.x + m_gc->imageDimensions.x * m_gc->transform.scale.x
+		&& mousePos.y > m_gc->transform.position.y && mousePos.y < m_gc->transform.position.y + m_gc->imageDimensions.y * m_gc->transform.scale.y);
 }
