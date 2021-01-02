@@ -15,9 +15,10 @@ public:
 	InputWrapper(const cbFunction f, void* p);
 	~InputWrapper() {}
 
-	void handleInput(const bool isGamePaused, const bool isInputPaused);
-	void handleKeyPressed(const bool isGamePaused, const bool isInputPaused);
-	void handleKeyReleased(const bool isGamePaused, const bool isInputPaused);
+	void handleInput(bool isGamePaused, bool isInputPaused);
+	void handleKeyPressed(bool isGamePaused, bool isInputPaused);
+	void handleKeyReleased(bool isGamePaused, bool isInputPaused);
+	void handleMovementInput(bool isGamePaused, bool isInputPaused);
 	void handleMouseClicked();
 	void mapKeyBindings(const KeyCodes& code);
 
@@ -25,4 +26,6 @@ private:
 	cbFunction func = nullptr;
 	SDL_Event event = SDL_Event();
 	void* pointer = nullptr;
+
+	Vector2D mousePosition;
 };
