@@ -8,6 +8,7 @@
 #include "CollidingComponent.h"
 #include "GameObject.h"
 #include "GraphicsComponent.h"
+#include "TextComponent.h"
 
 typedef int(*cbTime) (void*);
 

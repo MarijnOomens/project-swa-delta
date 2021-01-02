@@ -9,7 +9,7 @@ GameOverScreen::GameOverScreen()
 	this->components.emplace_back(std::move(gc));
 
 	// Next button
-	std::vector<std::string> possibleButtonTexNext = { "button_next" };
+	std::vector<std::string> possibleButtonTexNext = { "button_next", "button_next_hover" };
 	std::shared_ptr<Button> nextButton = std::make_shared<Button>(512, 750, possibleButtonTexNext, staticNextCallbackFunction, this);
 	this->components.emplace_back(nextButton);
 

@@ -6,18 +6,20 @@ void SceneManager::update(int time, bool paused)
 	{
 		for (const auto& bo : scenes[s])
 		{
+			auto ngc = dynamic_cast<GraphicsComponent*>(bo.get());
+			auto ntc = dynamic_cast<TextComponent*>(bo.get());
 			if (paused)
 			{
-				if (dynamic_cast<GraphicsComponent*>(bo.get()) != nullptr)
+				if (ngc != nullptr)
 				{
-					auto ngc = dynamic_cast<GraphicsComponent*>(bo.get());
-					if (ngc->isScreen)
-					{
-						ngc->update(time);
-					}
+					ngc->update(time);
+				}
+				else if (ntc != nullptr)
+				{
+					ntc->update(time);
 				}
 			}
-			else {
+			else if (!paused) {
 				bo->update(time);
 			}
 		}
@@ -107,7 +109,7 @@ void SceneManager::handleSceneInput(const KeyCodes keyCode, const KeyboardEvent 
 
 void SceneManager::addObjectToScene(std::shared_ptr<BehaviourObject> addObject)
 {
-	if (currentScene != "") 
+	if (currentScene != "")
 	{
 		scenes[currentScene].emplace_back(addObject);
 	}
