@@ -23,6 +23,8 @@ void InputWrapper::handleInput(const bool isGamePaused, const bool isInputPaused
 		case SDL_MOUSEBUTTONDOWN:
 			handleMouseClicked();
 			break;
+		case SDL_MOUSEMOTION:
+			handleMouseMoved();
 		default:
 			break;
 		}
@@ -213,3 +215,11 @@ void InputWrapper::handleMouseClicked() {
 }
 
 void InputWrapper::mapKeyBindings(const KeyCodes& code) {}
+
+void InputWrapper::handleMouseMoved()
+{
+	int x, y;
+	SDL_GetMouseState(&x, &y);
+	Vector2D mousePosition{ x, y };
+	func(pointer, KeyCodes::MOUSE, KeyboardEvent::MOUSE_MOVED, mousePosition);
+}

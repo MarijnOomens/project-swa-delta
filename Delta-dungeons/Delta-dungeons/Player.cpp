@@ -345,7 +345,6 @@ void Player::registerHit()
 		health = 0;
 		gc->playAnimation(9, 4, animationSpeed, false);
 		gameOverFunc(pointer);
-		health = 5;
 	}
 
 	GameState::getInstance().setHealth(health);
