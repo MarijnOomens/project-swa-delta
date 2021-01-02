@@ -24,12 +24,12 @@ public:
 	void interact(std::shared_ptr<BehaviourObject> interactor) override {}
 	void addHealth();
 	void deleteHealth();
-	void addItem(const std::string& texturepath);
 
 private:
 	int health = 0;
 	int maxHealth = 0;
 	int amountOfBerries = 0;
+	bool hasRunningShoes = false;
 	std::shared_ptr<TextComponent> berryCount;
 	int amountOfPokeballs = 0;
 	std::shared_ptr<TextComponent> ballsCount;

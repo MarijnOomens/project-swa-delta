@@ -1,6 +1,6 @@
 #include "RunningShoes.h"
 
-RunningShoes::RunningShoes(const cbEquipment f, void* p, const std::string& t) : func(f), pointer(p) 
+RunningShoes::RunningShoes(const std::string& t)
 {
 	texture = t;
 }
@@ -27,6 +27,8 @@ RunningShoes::RunningShoes(int x, int y, std::string texture)
 
 void RunningShoes::interact(std::shared_ptr<BehaviourObject> interactor)
 {
+	GameState::getInstance().setHasRunningShoes(true);
+
 	if (gc != nullptr) {
 		SceneModifier::getInstance().deleteObjectFromScene(gc);
 		SceneModifier::getInstance().deleteColliderFromScene(cc);
@@ -42,7 +44,6 @@ void RunningShoes::interact(std::shared_ptr<BehaviourObject> interactor)
 void RunningShoes::use()
 {
 	isActivated = !isActivated;
-	func(pointer, isActivated);
 }
 
 void RunningShoes::setParent() {

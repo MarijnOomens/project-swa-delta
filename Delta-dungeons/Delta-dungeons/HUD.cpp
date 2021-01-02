@@ -4,6 +4,8 @@ HUD::HUD(int hM, int h, int b, int p)
 {
 	this->textures.emplace("heart", "Assets/HUD/heart.png");
 	this->textures.emplace("deadheart", "Assets/HUD/deadheart.png");
+	this->textures.emplace("runningshoesHUD", "Assets/HUD/Runningshoes.png");
+	this->textures.emplace("empty", "Assets/HUD/empty.png");
 	this->fonts.try_emplace("joystix", "Assets/joystix.ttf");
 
 	maxHealth = hM;
@@ -33,6 +35,14 @@ HUD::HUD(int hM, int h, int b, int p)
 		this->components.emplace_back(heartGc);
 		this->hearts.emplace_back(heartGc);
 	}
+
+	std::shared_ptr<GraphicsComponent> itemGc = std::make_shared<GraphicsComponent>();
+	itemGc->setTexture("empty");
+	itemGc->isScreen = true;
+	itemGc->transform.position = { (maxHealth * 34) + 10, 20 };
+	itemGc->imageDimensions = { 32, 32 };
+	this->components.emplace_back(itemGc);
+	this->items.emplace_back(itemGc);
 
 	std::unique_ptr<TextComponent> berryLabel = std::make_unique<TextComponent>("Berries", "joystix", color, 32);
 	berryLabel->transform.position = { 10, 40 };
@@ -64,6 +74,11 @@ void HUD::update(int time)
 	int pokeballInt = GameState::getInstance().getPokeballs();
 	ballsCount->changeText(std::to_string(pokeballInt));
 	
+	if (GameState::getInstance().getHasRunningShoes() != hasRunningShoes)
+	{
+		items[0]->setTexture("runningshoesHUD");
+	}
+
 	if (GameState::getInstance().getHealth() < health) {
 		deleteHealth();
 	}
@@ -88,17 +103,4 @@ void HUD::deleteHealth()
 		health--;
 		hearts[health]->setTexture("deadheart");
 	}
-}
-
-void HUD::addItem(const std::string& texturepath)
-{
-	std::shared_ptr<GraphicsComponent> itemGc = std::make_shared<GraphicsComponent>();
-	itemGc->setTexture(texturepath);
-	itemGc->isScreen = true;
-	itemGc->transform.position = { (maxHealth * 34) + (amountItems * 34) + 10, 20 };
-	itemGc->imageDimensions = { 32, 32 };
-	this->components.emplace_back(itemGc);
-	this->items.emplace_back(itemGc);
-	SceneModifier::getInstance().addObjectToScene(itemGc);
-	amountItems++;
 }

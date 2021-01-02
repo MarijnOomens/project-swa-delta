@@ -65,5 +65,6 @@ void PauseScreen::staticExitCallbackFunction(const void* p)
 
 void PauseScreen::exitCallbackFunction() const
 {
+	GameState::getInstance().setIsPaused(false);
 	SceneLoader::getInstance().loadScene("MainMenuScreen", "", true, false);
 }

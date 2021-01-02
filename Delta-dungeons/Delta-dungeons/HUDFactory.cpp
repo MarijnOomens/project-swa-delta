@@ -7,7 +7,7 @@ void HUDFactory::createHud(int healthMax, int health, int berries, int pokeballs
 
 void HUDFactory::addItem(const std::string& texturePath)
 {
-	hud->addItem(texturePath);
+	
 }
 
 std::map<std::string, std::string> HUDFactory::passTextures() const

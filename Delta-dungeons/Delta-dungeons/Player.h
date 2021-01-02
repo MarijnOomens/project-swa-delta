@@ -53,11 +53,7 @@ public:
 	std::vector<std::string> getItems();
 	std::shared_ptr<CollidingComponent> getCollider();
 
-	static void staticBoomerangCallbackFunction(void* p, const bool boomerangActivated);
-	void boomerangCallbackFunction(const bool boomerangActivated);
-
-	static void staticRunningShoesCallbackFunction(void* p, const bool runningActivated);
-	void runningShoesCallbackFunction(const bool runningActivated);
+	void toggleRunningShoes();	
 
 	static void staticPokeballCallbackFunction(void* p);
 	void pokeballCallbackFunction();
@@ -79,6 +75,7 @@ public:
 	int amountOfPokeballs = 0;
 	int amountOfPokemons = 0;
 private:
+	std::unique_ptr<RunningShoes> runningShoes;
 	const int animationSpeed = 180;
 	int amountCaught = 0;
 	int baseMovementSpeed;
