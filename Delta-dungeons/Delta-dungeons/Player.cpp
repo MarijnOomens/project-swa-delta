@@ -23,7 +23,7 @@ Player::Player(int spawnX, int spawnY, cbCollision collisionCB, cbThrowCollision
 	pokeball = std::make_shared<ThrowPokeball>(throwCB, staticPokeballCallbackFunction, this, p);
 	pokeball->setParent();
 
-	baseMovementSpeed = 16;
+	baseMovementSpeed = 8;
 	maxHealth = 5;
 	tileCollision = false;
 
