@@ -24,7 +24,6 @@ public:
 	void interact(std::shared_ptr<BehaviourObject> interactor) override {}
 	void addHealth();
 	void deleteHealth();
-	void addItem(const std::string& texturepath);
 
 private:
 	int health = 0;
