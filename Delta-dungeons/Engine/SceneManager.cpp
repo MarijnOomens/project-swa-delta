@@ -1,12 +1,25 @@
 #include "SceneManager.h"
 
-void SceneManager::update(int time)
+void SceneManager::update(int time, bool paused)
 {
 	for (const auto& s : activeScenes)
 	{
 		for (const auto& bo : scenes[s])
 		{
-			bo->update(time);
+			if (paused)
+			{
+				if (dynamic_cast<GraphicsComponent*>(bo.get()) != nullptr)
+				{
+					auto ngc = dynamic_cast<GraphicsComponent*>(bo.get());
+					if (ngc->isScreen)
+					{
+						ngc->update(time);
+					}
+				}
+			}
+			else {
+				bo->update(time);
+			}
 		}
 	}
 }
@@ -32,7 +45,7 @@ void SceneManager::loadScene(const std::string& sceneName, const std::string& fr
 		bo->start();
 	}
 	isSceneSwitched = true;
-	update(timeFunc(pointer));
+	update(timeFunc(pointer), false);
 }
 
 void SceneManager::loadPreviousScene()
@@ -51,7 +64,7 @@ void SceneManager::loadPreviousScene()
 	}
 
 	isSceneSwitched = true;
-	update(timeFunc(pointer));
+	update(timeFunc(pointer), false);
 }
 
 void SceneManager::addOverlayScene(const std::string& sceneName)
@@ -61,7 +74,7 @@ void SceneManager::addOverlayScene(const std::string& sceneName)
 
 	activeScenes.push_back(sceneName);
 	currentScene = sceneName;
-	update(timeFunc(pointer));
+	update(timeFunc(pointer), false);
 }
 
 void SceneManager::registerScene(const std::string& sceneName, const std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects)

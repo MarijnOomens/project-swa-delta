@@ -19,17 +19,17 @@ MainMenu::MainMenu()
 	this->components.emplace_back(std::move(playButton));
 
 	// Credits button
-	std::vector<std::string> possibleButtonTexCredits = { "button_credits" };
+	std::vector<std::string> possibleButtonTexCredits = { "button_credits", "button_credits_hover" };
 	std::unique_ptr<Button> creditsButton = std::make_unique<Button>(512, 360, possibleButtonTexCredits, staticOpenCreditsCallbackFunction, this);
 	this->components.emplace_back(std::move(creditsButton));
 
 	// Help button
-	std::vector<std::string> possibleButtonTexHelp = { "button_help" };
+	std::vector<std::string> possibleButtonTexHelp = { "button_help", "button_help_hover" };
 	std::unique_ptr<Button> helpButton = std::make_unique<Button>(512, 490, possibleButtonTexHelp, staticOpenHelpCallbackFunction, this);
 	this->components.emplace_back(std::move(helpButton));
 
 	// Exit button
-	std::vector<std::string> possibleButtonTexExit = { "button_exit" };
+	std::vector<std::string> possibleButtonTexExit = { "button_exit", "button_exit_hover" };
 	std::unique_ptr<Button> exitButton = std::make_unique<Button>(512, 620, possibleButtonTexExit, staticExitCallbackFunction, this);
 	this->components.emplace_back(std::move(exitButton));
 

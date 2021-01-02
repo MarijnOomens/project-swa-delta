@@ -27,7 +27,8 @@ void Button::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardE
 	{
 		if (keyboardEvent == KeyboardEvent::MOUSE_CLICKED)
 		{
-				onCLickFunc(pointer);
+			m_gc->setTexture(possibleTextures[0]);
+			onCLickFunc(pointer);
 		}
 		if (keyboardEvent == KeyboardEvent::MOUSE_MOVED)
 		{

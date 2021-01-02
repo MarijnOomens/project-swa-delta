@@ -7,6 +7,7 @@
 #include "BehaviourObject.h"
 #include "CollidingComponent.h"
 #include "GameObject.h"
+#include "GraphicsComponent.h"
 
 typedef int(*cbTime) (void*);
 
@@ -17,7 +18,7 @@ public:
 	SceneManager(void* p, cbTime timeCb): timeFunc(timeCb), pointer(p) {}
 	~SceneManager() {}
 
-	void update(int time);
+	void update(int time, bool paused);
 	void loadScene(const std::string& sceneName,const std::string& fromScene,const bool clearPrevious);
 	void registerScene(const std::string& sceneName, const std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects);
 	void loadPreviousScene();
