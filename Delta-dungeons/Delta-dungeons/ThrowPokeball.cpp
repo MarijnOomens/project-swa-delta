@@ -66,19 +66,19 @@ void ThrowPokeball::update(int time)
 {
 	if (isMoving) {
 		if (direction == "up") {
-			updateTransform(transform.position.x, transform.position.y - 16);
 			tFunc(gameMangerPointer, cc, transform.position.x, transform.position.y, KeyCodes::KEY_UP, 128);
+			updateTransform(transform.position.x, transform.position.y - 16);
 		} else 	if (direction == "down") {
-			updateTransform(transform.position.x, transform.position.y + 16);
 			tFunc(gameMangerPointer, cc, transform.position.x, transform.position.y, KeyCodes::KEY_DOWN, 128);
+			updateTransform(transform.position.x, transform.position.y + 16);
 
 		} else if (direction == "left") {
-			updateTransform(transform.position.x - 16, transform.position.y);
 			tFunc(gameMangerPointer, cc, transform.position.x, transform.position.y, KeyCodes::KEY_LEFT, 128);
+			updateTransform(transform.position.x - 16, transform.position.y);
 
 		} else if (direction == "right") {
-			updateTransform(transform.position.x + 16, transform.position.y);
 			tFunc(gameMangerPointer, cc, transform.position.x, transform.position.y, KeyCodes::KEY_RIGHT, 128);
+			updateTransform(transform.position.x + 16, transform.position.y);
 		}
 	}
 }
