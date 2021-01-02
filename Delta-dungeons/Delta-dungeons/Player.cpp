@@ -13,12 +13,8 @@
 Player::Player(int spawnX, int spawnY, cbCollision collisionCB, cbThrowCollision throwCB, cbNextLevel nextLevelcb, const cbCamera f, cbInteract interactCB, cbGameOver gameOverF, void* p, void* gm)
 	: collisionFunc(collisionCB), nextLevelFunc(nextLevelcb), func(f), interactFunc(interactCB), gameOverFunc(gameOverF), pointer(p), gmPointer(gm)
 {
-	if (GameState::getInstance().getHasRunningShoes()) 
-	{
-		runningShoes = std::make_unique<RunningShoes>(staticRunningShoesCallbackFunction, this, "runningshoesHUD");
-		this->textures.try_emplace("runningshoesHUD", "Assets/HUD/Runningshoes.png");
-		addEquipment(std::move(runningShoes));
-	}
+	runningShoes = std::make_unique<RunningShoes>("runningshoesHUD");
+	if (GameState::getInstance().getHasRunningShoes()) { addEquipment(std::move(runningShoes)); }
 
 	pokeball = std::make_shared<ThrowPokeball>(throwCB, staticPokeballCallbackFunction, this, p);
 	pokeball->setParent();
@@ -127,10 +123,7 @@ void Player::handleKeyPressed(const KeyCodes& keyCodes)
 	case KeyCodes::KEY_Q:
 		hasMoved = false;
 		getIdleAnimation();
-		for (auto& e : equipment)
-		{
-			e->use();
-		}
+		toggleRunningShoes();
 		break;
 	case KeyCodes::KEY_E:
 		getIdleAnimation();
@@ -316,44 +309,17 @@ std::shared_ptr<CollidingComponent> Player::getCollider()
 	return cc;
 }
 
-void Player::staticBoomerangCallbackFunction(void* p, const bool brActivated)
-{
-	((Player*)p)->boomerangCallbackFunction(brActivated);
-
-}
-
-void Player::boomerangCallbackFunction(const bool brActivated)
-{
-	if (brActivated) { boomerangActivated = true; }
-	else { boomerangActivated = false; }
-}
-
-/// <summary>
-/// Callbackmethod to call the runningShoesCallbackFunction.
-/// </summary>
-/// <param name="p">Is needed for the includes</param>
-/// <param name="runningActivated">Boolean value for runActived Property</param>
-void Player::staticRunningShoesCallbackFunction(void* p, const bool runningActivated)
-{
-	((Player*)p)->runningShoesCallbackFunction(runningActivated);
-}
-
 /// <summary>
 /// This method changes the runActivated boolean and the baseMovementspeed based upon runningActivated
 /// </summary>
 /// <param name="runningActivated">This value will be used to set the runActivated property</param>
-void Player::runningShoesCallbackFunction(const bool runningActivated)
+void Player::toggleRunningShoes()
 {
-	isWalking = !isWalking;
-	GameState::getInstance().setRunningShoesActivated(!isWalking);
-}
-
-void Player::addRunningShoes()
-{
-	runningShoes = std::make_unique<RunningShoes>(staticRunningShoesCallbackFunction, this, "runningshoesHUD");
-	this->textures.try_emplace("runningshoesHUD", "Assets/HUD/Runningshoes.png");
-	addEquipment(std::move(runningShoes));
-	GameState::getInstance().setHasRunningShoes(true);
+	if (GameState::getInstance().getHasRunningShoes())
+	{
+		isWalking = !isWalking;
+		GameState::getInstance().setRunningShoesActivated(!isWalking);
+	}
 }
 
 void Player::staticPokeballCallbackFunction(void* p)

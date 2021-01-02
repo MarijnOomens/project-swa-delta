@@ -53,12 +53,7 @@ public:
 	std::vector<std::string> getItems();
 	std::shared_ptr<CollidingComponent> getCollider();
 
-	static void staticBoomerangCallbackFunction(void* p, const bool boomerangActivated);
-	void boomerangCallbackFunction(const bool boomerangActivated);
-
-	static void staticRunningShoesCallbackFunction(void* p, const bool runningActivated);
-	void runningShoesCallbackFunction(const bool runningActivated);
-	void addRunningShoes();
+	void toggleRunningShoes();	
 
 	static void staticPokeballCallbackFunction(void* p);
 	void pokeballCallbackFunction();
