@@ -62,6 +62,7 @@ void CreditScreen::handleInput(const KeyCodes& keyCode, const KeyboardEvent& key
 	{
 		if (keyCode == KeyCodes::KEY_BACKSPACE)
 		{
+			AudioUtilities::getInstance().playAudio("touch", true);
 			SceneLoader::getInstance().loadPreviousScene();
 		}
 	}
@@ -77,7 +78,7 @@ void CreditScreen::staticBackCallbackFunction(const void* p)
 	((CreditScreen*)p)->backCallbackFunction();
 }
 
-void CreditScreen::backCallbackFunction()const
+void CreditScreen::backCallbackFunction() const
 {
 	AudioUtilities::getInstance().playAudio("touch", true);
 	SceneLoader::getInstance().loadPreviousScene();
