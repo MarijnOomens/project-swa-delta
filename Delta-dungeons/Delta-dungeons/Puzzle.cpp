@@ -12,6 +12,7 @@ void Puzzle::staticResetBouldersCallbackFunction(void* p)
 
 void Puzzle::resetBoulders()
 {
+	AudioUtilities::getInstance().playEffect("reset");
 	bool isAllTriggered = true;
 	for (auto& object : puzzleObjects)
 	{
@@ -66,6 +67,7 @@ void Puzzle::orderTrigger(int orderNumber)
 	{
 		if (!searchOrderTriggerPuzzle(i))
 		{
+			AudioUtilities::getInstance().playEffect("puzzlefail");
 			resetOrder();
 			isOrderCorrect = false;
 			break;
