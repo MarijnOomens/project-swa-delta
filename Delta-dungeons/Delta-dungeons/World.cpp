@@ -96,15 +96,15 @@ void World::update(int time)
 
 void World::start()
 {
-	if (levelName == "Level1")
+	if (levelName == "Level1" || levelName == "Dungeon1")
 	{
 		AudioUtilities::getInstance().playAudio("match", true);
 	}
-	else if (levelName == "Level2")
+	else if (levelName == "Level2" || levelName == "Dungeon2")
 	{
 		AudioUtilities::getInstance().playAudio("desert", true);
 	}
-	else if (levelName == "Level3")
+	else if (levelName == "Level3" || levelName == "Dungeon3")
 	{
 		AudioUtilities::getInstance().playAudio("lava", true);
 	}
