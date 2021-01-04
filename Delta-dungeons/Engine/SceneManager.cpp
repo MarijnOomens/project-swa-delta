@@ -165,10 +165,12 @@ std::shared_ptr<BehaviourObject> SceneManager::getBehaviourObject(CollidingCompo
 	for (const auto& bo : scenes[currentScene])
 	{
 		auto gameObject = dynamic_cast<GameObject*>(bo.get());
-		for (auto& c : gameObject->getComponentsRecursive())
-		{
-			if (c.get() == collidingComponent) {
-				return bo;
+		if (gameObject) {
+			for (auto& c : gameObject->getComponentsRecursive())
+			{
+				if (c.get() == collidingComponent) {
+					return bo;
+				}
 			}
 		}
 	}

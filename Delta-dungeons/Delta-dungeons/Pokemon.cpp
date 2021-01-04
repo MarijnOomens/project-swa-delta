@@ -24,35 +24,38 @@ Pokemon::Pokemon(int x, int y, const std::string& texture, cbCollision collision
 
 void Pokemon::interact(std::shared_ptr<BehaviourObject> interactor)
 {
-	if (dynamic_cast<Player*>(interactor.get()))
+	if (!(GameState::getInstance().getIsPaused() || GameState::getInstance().getIsInputPaused())) 
 	{
-		int xDifference = interactor->transform.position.x - transform.position.x;
-		int yDifference = interactor->transform.position.y - transform.position.y;
-		if (xDifference < 0)
+		if (dynamic_cast<Player*>(interactor.get()))
 		{
-			xDifference *= -1;
+			int xDifference = interactor->transform.position.x - transform.position.x;
+			int yDifference = interactor->transform.position.y - transform.position.y;
+			if (xDifference < 0)
+			{
+				xDifference *= -1;
+			}
+			if (yDifference < 0)
+			{
+				yDifference *= -1;
+			}
+			if (xDifference > yDifference && interactor->transform.position.x < transform.position.x)
+			{
+				direction = 3;
+			}
+			else if (xDifference > yDifference && interactor->transform.position.x > transform.position.x)
+			{
+				direction = 2;
+			}
+			else if (yDifference > xDifference && interactor->transform.position.y < transform.position.y)
+			{
+				direction = 1;
+			}
+			else if (yDifference > xDifference && interactor->transform.position.y > transform.position.y)
+			{
+				direction = 0;
+			}
+			seesPlayer = true;
 		}
-		if (yDifference < 0)
-		{
-			yDifference *= -1;
-		}
-		if (xDifference > yDifference && interactor->transform.position.x < transform.position.x)
-		{
-			direction = 3;
-		}
-		else if (xDifference > yDifference && interactor->transform.position.x > transform.position.x)
-		{
-			direction = 2;
-		}
-		else if (yDifference > xDifference && interactor->transform.position.y < transform.position.y)
-		{
-			direction = 1;
-		}
-		else if (yDifference > xDifference && interactor->transform.position.y > transform.position.y)
-		{
-			direction = 0;
-		}
-		seesPlayer = true;
 	}
 }
 
@@ -72,7 +75,7 @@ void Pokemon::setParent()
 
 void Pokemon::update(int time)
 {
-	if (!GameState::getInstance().getIsPaused() && !GameState::getInstance().getIsInputPaused()) 
+	if (!(GameState::getInstance().getIsPaused() || GameState::getInstance().getIsInputPaused()))
 	{
 		if ((time - previoustime) >= attackTime)
 		{
