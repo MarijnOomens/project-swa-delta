@@ -1,8 +1,13 @@
 <NPCs>
 <NPC name="acetrainer_m">
-<Dialogue text="I heard rumours about deoxys changing forms depending on the amount of pokemon caught."/>
+<Dialogue text="I thought this was the beach...."/>
+<Dialogue text="Oooooh thats hot, thats hooot"/>
+<Dialogue text="Have you heard about the man with two watches on his wrists? He has a lot if time on his hands."/>
 </NPC>
 <NPC name="acetrainer_f">
 <Dialogue text="I heard a riddle, standard, attack, defense, speed. What does it mean?"/>
+<Dialogue text="Damn this place is hotter than me"/>
+<Dialogue text="The only sweat I'll break will be from this place..."/>
+<Dialogue text="Whao Magmortar is looking kinda thicc ngl"/>
 </NPC>
 </NPCs>

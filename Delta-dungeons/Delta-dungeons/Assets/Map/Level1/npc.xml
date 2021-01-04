@@ -3,10 +3,12 @@
 		<Dialogue text="I like shorts, they are comfy and easy to wear."/>
 		<Dialogue text="Watch out for Raticate!"/>
 		<Dialogue text="Are you good at puzzles?"/>
+		<Dialogue text="I am Young, Neil Young"/>
 	</NPC>
 	<NPC name="bugtrainer">
 		<Dialogue text="Look at my bugs!"/>
 		<Dialogue text="Have you seen Butterfree?"/>
 		<Dialogue text="I heard this somewhere: 'UPPERLEFT', 'BOTTOMLEFT', 'BOTTOMRIGHT', 'UPPERRIGHT'."/>
+		<Dialogue text="I catch all sorts of bugs in my code!"/>
 	</NPC>
 </NPCs>
