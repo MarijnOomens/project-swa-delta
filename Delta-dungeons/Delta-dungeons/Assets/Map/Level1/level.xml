@@ -2083,7 +2083,7 @@
     <tile x="26" y="25" tile="-1" rot="0" flipX="false"/>
     <tile x="27" y="25" tile="-1" rot="0" flipX="false"/>
     <tile x="28" y="25" tile="-1" rot="0" flipX="false"/>
-    <tile x="29" y="25" tile="6" rot="0" flipX="false"/>
+    <tile x="29" y="25" tile="-1" rot="0" flipX="false"/>
     <tile x="30" y="25" tile="8" rot="0" flipX="false"/>
     <tile x="31" y="25" tile="8" rot="0" flipX="false"/>
     <tile x="32" y="25" tile="-1" rot="0" flipX="false"/>
