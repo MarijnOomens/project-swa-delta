@@ -2,6 +2,7 @@
 
 HUD::HUD(int hM, int h, int b, int p)
 {
+	this->textures.emplace("hudbox", "Assets/HUD/hudbox.png");
 	this->textures.emplace("heart", "Assets/HUD/heart.png");
 	this->textures.emplace("deadheart", "Assets/HUD/deadheart.png");
 	this->textures.emplace("runningshoesHUD", "Assets/HUD/Runningshoes.png");
@@ -12,6 +13,13 @@ HUD::HUD(int hM, int h, int b, int p)
 	health = h;
 
 	transform.position = { 0 ,0 };
+
+	hudbox = std::make_shared<GraphicsComponent>();
+	hudbox->setTexture("hudbox");
+	hudbox->isScreen = true;
+	hudbox->imageDimensions = { 395, 140 };
+	hudbox->transform.position = { 4, 6 };
+	this->components.emplace_back(std::move(hudbox));
 
 	Colour color = { 0, 0, 0, 255 };
 	std::unique_ptr<TextComponent> healthText = std::make_unique<TextComponent>("Health", "joystix", color, 32);

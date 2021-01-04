@@ -11,6 +11,7 @@ class HUD : public GameObject
 public:
 	std::map<std::string, std::string> textures;
 	std::map<std::string, std::string> fonts;
+	std::shared_ptr<GraphicsComponent> hudbox;
 	std::vector<std::shared_ptr<GraphicsComponent>> hearts;
 	std::vector<std::shared_ptr<GraphicsComponent>> items;
 	HUD(int hM, int h, int b, int p);

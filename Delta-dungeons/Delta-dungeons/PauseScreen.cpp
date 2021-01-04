@@ -20,8 +20,8 @@ PauseScreen::PauseScreen()
 	std::unique_ptr<Button> exitButton = std::make_unique<Button>(512, 700, buttonExit, staticExitCallbackFunction, this);
 	this->components.emplace_back(std::move(exitButton));
 
-	Colour color = { 0, 0, 0, 255 };
-	std::unique_ptr<TextComponent> pauseText = std::make_unique<TextComponent>("Pause", "joystix", color, 64);
+	Colour colour = { 255, 255, 255, 255 };
+	std::unique_ptr<TextComponent> pauseText = std::make_unique<TextComponent>("Pause", "joystix", colour, 64);
 	pauseText->transform.position = { 515, 100 };
 	this->components.emplace_back(std::move(pauseText));
 }

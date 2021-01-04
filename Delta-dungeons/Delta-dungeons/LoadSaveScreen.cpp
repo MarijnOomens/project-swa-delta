@@ -8,9 +8,9 @@ LoadSaveScreen::LoadSaveScreen()
 	gc->imageDimensions = { 1280, 960 };
 	this->components.emplace_back(std::move(gc));
 
-	Colour color = { 0, 0, 0, 255 };
+	Colour colour = { 255, 255, 255, 255 };
 
-	std::unique_ptr<TextComponent> loadSaveText = std::make_unique<TextComponent>("Load a save file", "joystix", color, 64);
+	std::unique_ptr<TextComponent> loadSaveText = std::make_unique<TextComponent>("Load a save file", "joystix", colour, 64);
 	loadSaveText->transform.position = { 220, 20 };
 	this->components.emplace_back(std::move(loadSaveText));
 
