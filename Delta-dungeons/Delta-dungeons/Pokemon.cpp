@@ -72,7 +72,7 @@ void Pokemon::setParent()
 
 void Pokemon::update(int time)
 {
-	if (!GameState::getInstance().getIsPaused()) 
+	if (!GameState::getInstance().getIsPaused() && !GameState::getInstance().getIsInputPaused()) 
 	{
 		if ((time - previoustime) >= attackTime)
 		{

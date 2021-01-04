@@ -31,6 +31,8 @@ public:
 	void setIsPaused();
 	void setIsPaused(bool paused);
 	bool getIsPaused() const;
+	void setIsInputPaused(bool paused);
+	bool getIsInputPaused() const;
 
 private:
 	static GameState gameState; 
@@ -39,4 +41,5 @@ private:
 	SaveSystem saveSystem;
 	GameStateObject currentState;
 	bool isPaused;
+	bool isInputPaused;
 };

@@ -28,13 +28,13 @@ PauseScreen::PauseScreen()
 
 void PauseScreen::handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos)
 {
-	if (keyboardEvent == KeyboardEvent::KEY_PRESSED)
+	/*if (keyboardEvent == KeyboardEvent::KEY_PRESSED)
 	{
 		if (keyCode == KeyCodes::KEY_ESC)
 		{
 			DebugUtilities::getInstance().pauseGame();
 		}
-	}
+	}*/
 }
 
 void PauseScreen::staticOpenHelpCallbackFunction(const void* p)
@@ -65,6 +65,6 @@ void PauseScreen::staticExitCallbackFunction(const void* p)
 
 void PauseScreen::exitCallbackFunction() const
 {
-	GameState::getInstance().setIsPaused(false);
+	GameState::getInstance().setIsInputPaused(false);
 	SceneLoader::getInstance().loadScene("MainMenuScreen", "", true, false);
 }

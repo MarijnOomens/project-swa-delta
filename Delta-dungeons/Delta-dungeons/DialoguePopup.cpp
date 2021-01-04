@@ -23,6 +23,6 @@ void DialoguePopup::handleInput(const KeyCodes& keyCode, const KeyboardEvent& ke
 	{
 		SceneLoader::getInstance().loadPreviousScene();
 		DebugUtilities::getInstance().pauseInput();
-		GameState::getInstance().setIsPaused(false);
+		GameState::getInstance().setIsInputPaused(false);
 	}
 }

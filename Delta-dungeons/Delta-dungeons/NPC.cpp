@@ -35,7 +35,7 @@ void NPC::interact(std::shared_ptr<BehaviourObject> interactor)
 	SceneModifier::getInstance().replaceScene("Dialogue", objects);
 	SceneLoader::getInstance().addOverlayScene("Dialogue");
 	DebugUtilities::getInstance().pauseInput();
-	GameState::getInstance().setIsPaused(true);
+	GameState::getInstance().setIsInputPaused(true);
 }
 
 void NPC::playAnimation(Transform t)

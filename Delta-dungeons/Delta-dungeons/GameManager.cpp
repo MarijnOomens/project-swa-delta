@@ -61,6 +61,7 @@ void GameManager::createLevel(const std::string& levelName)
 	if (GameState::getInstance().getIsPaused())
 	{
 		DebugUtilities::getInstance().pauseInput();
+		GameState::getInstance().setIsInputPaused(false);
 		GameState::getInstance().setIsPaused(false);
 	}
 	levelBuilder = std::make_unique<LevelBuilder>(levelName, engineFacade);

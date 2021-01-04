@@ -125,3 +125,13 @@ bool GameState::getIsPaused() const
 {
 	return isPaused;
 }
+
+void GameState::setIsInputPaused(bool paused)
+{
+	isInputPaused = paused;
+}
+
+bool GameState::getIsInputPaused() const
+{
+	return isInputPaused;
+}
