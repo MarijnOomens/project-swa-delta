@@ -8,6 +8,9 @@
 #include "DialoguePopup.h"
 #include "SceneLoader.h"
 #include "SceneModifier.h"
+#include "AudioUtilities.h"
+#include "DebugUtilities.h"
+#include "GameState.h"
 
 class NPC : public IInteractiveObject
 {
@@ -19,7 +22,7 @@ public:
 	void registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger) override {}
 	void setParent() override;
 	void start() override {}
-	void update() override {}
+	void update(int time) override {}
 	void playAnimation(Transform t);
 	std::string getRandomDialogue();
 
@@ -31,4 +34,5 @@ private:
 	std::shared_ptr<GraphicsComponent> gc;
 	const int animationSpeed = 180;
 	const std::vector<std::string> dialogue;
+	bool isTalking = false;
 };

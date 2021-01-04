@@ -12,6 +12,7 @@
 #include <vector>
 #include <sstream>
 #include "AudioUtilities.h"
+#include "GameState.h"
 
 class World : public GameObject
 {
@@ -24,13 +25,14 @@ public:
 	std::map<std::string, std::string> passBeats() const;
 
 	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override;
-	void update() override;
+	void update(int time) override;
 	void start() override;
 	void setParent() override {}
 	void interact(std::shared_ptr<BehaviourObject> interactor) override {}
 	void registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger) override {}
 
 private:
+	std::string levelName;
 	int x = 0, y = 0;
 	std::vector<std::shared_ptr<Tile>> tileMap;
 	std::shared_ptr<TextComponent> fpsText;

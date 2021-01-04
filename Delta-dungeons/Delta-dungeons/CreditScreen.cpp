@@ -11,7 +11,7 @@ CreditScreen::CreditScreen()
 	gc->imageDimensions = { 1280, 960 };
 	this->components.emplace_back(std::move(gc));
 
-	std::vector<std::string> possibleButtonTexExit = { "button_back" };
+	std::vector<std::string> possibleButtonTexExit = { "button_back", "button_back_hover" };
 	std::unique_ptr<Button> exitButton = std::make_unique<Button>(512, 850, possibleButtonTexExit, staticBackCallbackFunction, this);
 	this->components.emplace_back(std::move(exitButton));
 
@@ -62,9 +62,15 @@ void CreditScreen::handleInput(const KeyCodes& keyCode, const KeyboardEvent& key
 	{
 		if (keyCode == KeyCodes::KEY_BACKSPACE)
 		{
+			AudioUtilities::getInstance().playAudio("touch", true);
 			SceneLoader::getInstance().loadPreviousScene();
 		}
 	}
+}
+
+void CreditScreen::start()
+{
+	AudioUtilities::getInstance().playAudio("mii", true);
 }
 
 void CreditScreen::staticBackCallbackFunction(const void* p) 
@@ -72,7 +78,8 @@ void CreditScreen::staticBackCallbackFunction(const void* p)
 	((CreditScreen*)p)->backCallbackFunction();
 }
 
-void CreditScreen::backCallbackFunction()const
+void CreditScreen::backCallbackFunction() const
 {
+	AudioUtilities::getInstance().playAudio("touch", true);
 	SceneLoader::getInstance().loadPreviousScene();
 }

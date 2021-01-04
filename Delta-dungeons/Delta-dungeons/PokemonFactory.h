@@ -9,6 +9,10 @@
 #include "XMLSceneParser.h"
 #include "GameObjectFactory.h"
 
+typedef void(*cbCollision) (void*, std::shared_ptr<CollidingComponent>, std::shared_ptr<BehaviourObject> behaviourObject, int, int, KeyCodes, int);
+typedef void(*cbAiCollision) (void*, std::shared_ptr<CollidingComponent>, std::shared_ptr<BehaviourObject> behaviourObject, int, int, KeyCodes, int);
+typedef bool(*cbCameraRange) (void*, int, int);
+
 class PokemonFactory : public GameObjectFactory
 {
 public:
@@ -17,10 +21,12 @@ public:
 
 	PokemonFactory();
 
-	void createPokemon(const std::string& levelName);
+	void createPokemon(const std::string& levelName, cbCollision collisionCb, cbCameraRange cameraCollision, cbAiCollision aiCollision, void* p);
 	std::map<std::string, std::string> passTextures() const;
+	std::map<std::string, std::string> passBeats() const;
 
 private:
 	std::shared_ptr<GameObjectBuilder> builder;
+	std::map<std::string, std::string> beats;
 	int getRandomPokemon();
 };

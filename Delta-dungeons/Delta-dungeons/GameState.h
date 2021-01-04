@@ -1,5 +1,7 @@
 #pragma once
 #include <string>
+#include "SaveSystem.h"
+#include "GameStateObject.h"
 
 class GameState
 {
@@ -7,21 +9,37 @@ public:
 	static GameState& getInstance();
 
 	void reset();
-	void addCaughPokemon(int amount);
+	void addCaughtPokemon(int amount);
+	std::string getCurrentLevel() const;
+	void setCurrentLevel(const std::string& cl);
 	int getCaughtPokemon();
-	int getHighScore();
+	int getHighScore() const;
+	int getHealth() const;
+	void setHealth(int h);
+	int getPokeballs() const;
+	void setPokeballs(int p);
+	int getBerries() const;
+	void setBerries(int b);
+	bool getHasBoomerang() const;
+	void setHasBoomerang(bool hasBoomerang);
+	bool getHasRunningShoes() const;
+	void setHasRunningShoes(bool hasRunningShoes);
+	bool getRunningShoesActivated() const;
+	void setRunningShoesActivated(bool runningShoesActivated);
+	void save();
+	void load();
+	void setIsPaused();
+	void setIsPaused(bool paused);
+	bool getIsPaused() const;
+	void setIsInputPaused(bool paused);
+	bool getIsInputPaused() const;
 
 private:
-	static GameState gameState;
+	static GameState gameState; 
 	GameState() {}
 
-	std::string currentLevel = "Level1";
-	int caughtPokemon = 0;
-	int highScore = 0;
-	int health = 5;
-	int pokeBalls = 20;
-	int berries = 0;
-	bool hasBoomerang = false;
-	bool hasRunningShoes = true;
-	bool runningShoesActivated = false;
+	SaveSystem saveSystem;
+	GameStateObject currentState;
+	bool isPaused;
+	bool isInputPaused;
 };

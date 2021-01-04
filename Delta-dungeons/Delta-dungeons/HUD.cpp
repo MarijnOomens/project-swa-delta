@@ -2,16 +2,24 @@
 
 HUD::HUD(int hM, int h, int b, int p)
 {
+	this->textures.emplace("hudbox", "Assets/HUD/hudbox.png");
 	this->textures.emplace("heart", "Assets/HUD/heart.png");
 	this->textures.emplace("deadheart", "Assets/HUD/deadheart.png");
+	this->textures.emplace("runningshoesHUD", "Assets/HUD/Runningshoes.png");
+	this->textures.emplace("empty", "Assets/HUD/empty.png");
 	this->fonts.try_emplace("joystix", "Assets/joystix.ttf");
 
 	maxHealth = hM;
 	health = h;
-	amountOfBerries = b;
-	amountOfPokeballs = p;
 
 	transform.position = { 0 ,0 };
+
+	hudbox = std::make_shared<GraphicsComponent>();
+	hudbox->setTexture("hudbox");
+	hudbox->isScreen = true;
+	hudbox->imageDimensions = { 395, 140 };
+	hudbox->transform.position = { 4, 6 };
+	this->components.emplace_back(std::move(hudbox));
 
 	Colour color = { 0, 0, 0, 255 };
 	std::unique_ptr<TextComponent> healthText = std::make_unique<TextComponent>("Health", "joystix", color, 32);
@@ -21,11 +29,11 @@ HUD::HUD(int hM, int h, int b, int p)
 	for (int i = 0; i < maxHealth; i++)
 	{
 		std::shared_ptr<GraphicsComponent> heartGc = std::make_shared<GraphicsComponent>();
-		if (i <= h) 
+		if (i <= h)
 		{
 			heartGc->setTexture("heart");
 		}
-		else 
+		else
 		{
 			heartGc->setTexture("deadheart");
 		}
@@ -35,6 +43,14 @@ HUD::HUD(int hM, int h, int b, int p)
 		this->components.emplace_back(heartGc);
 		this->hearts.emplace_back(heartGc);
 	}
+
+	std::shared_ptr<GraphicsComponent> itemGc = std::make_shared<GraphicsComponent>();
+	itemGc->setTexture("empty");
+	itemGc->isScreen = true;
+	itemGc->transform.position = { (maxHealth * 34) + 10, 20 };
+	itemGc->imageDimensions = { 32, 32 };
+	this->components.emplace_back(itemGc);
+	this->items.emplace_back(itemGc);
 
 	std::unique_ptr<TextComponent> berryLabel = std::make_unique<TextComponent>("Berries", "joystix", color, 32);
 	berryLabel->transform.position = { 10, 40 };
@@ -57,29 +73,31 @@ HUD::HUD(int hM, int h, int b, int p)
 	this->components.emplace_back(score);
 }
 
-void HUD::updateHUD(int h, int b, int p)
-{
-	if (h < health) {
-		deleteHealth();
-	}
-	else if(h > health){
-		addHealth();
-	}
-	amountOfBerries = b;
-	berryCount->changeText(std::to_string(amountOfBerries));
-	amountOfPokeballs = p;
-	ballsCount->changeText(std::to_string(amountOfPokeballs));
-}
-
-void HUD::update() 
+void HUD::update(int time)
 {
 	int scoreInt = GameState::getInstance().getCaughtPokemon();
 	score->changeText("Score " + std::to_string(scoreInt));
+	int berryInt = GameState::getInstance().getBerries();
+	berryCount->changeText(std::to_string(berryInt));
+	int pokeballInt = GameState::getInstance().getPokeballs();
+	ballsCount->changeText(std::to_string(pokeballInt));
+	
+	if (GameState::getInstance().getHasRunningShoes() != hasRunningShoes)
+	{
+		items[0]->setTexture("runningshoesHUD");
+	}
+
+	if (GameState::getInstance().getHealth() < health) {
+		deleteHealth();
+	}
+	else if (GameState::getInstance().getHealth() > health) {
+		addHealth();
+	}
 }
 
 void HUD::addHealth()
 {
-	if (health < maxHealth) 
+	if (health < maxHealth)
 	{
 		hearts[health]->setTexture("heart");
 		health++;
@@ -93,17 +111,4 @@ void HUD::deleteHealth()
 		health--;
 		hearts[health]->setTexture("deadheart");
 	}
-}
-
-void HUD::addItem(const std::string& texturepath)
-{
-	std::shared_ptr<GraphicsComponent> itemGc = std::make_shared<GraphicsComponent>();
-	itemGc->setTexture(texturepath);
-	itemGc->isScreen = true;
-	itemGc->transform.position = { (maxHealth * 34) + (amountItems * 34) + 10, 20 };
-	itemGc->imageDimensions = { 32, 32 };
-	this->components.emplace_back(itemGc);
-	this->items.emplace_back(itemGc);
-	SceneModifier::getInstance().addObjectToScene(itemGc);
-	amountItems++;
 }

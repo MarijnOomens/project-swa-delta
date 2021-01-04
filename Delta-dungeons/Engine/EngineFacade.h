@@ -29,6 +29,7 @@ public:
 	ENGINE_API void speedUpGame() const;
 	ENGINE_API void resetSpeedGame() const;
 	ENGINE_API void pauseGame() const;
+	ENGINE_API void pauseInput() const;
 	ENGINE_API void addObjectToScene(std::shared_ptr<BehaviourObject> addObject) const;
 	ENGINE_API void passInteract(std::shared_ptr<BehaviourObject> player, int x, int y, int w, int h) const;
 	ENGINE_API void passCollisionCheck(std::shared_ptr<CollidingComponent> collider, std::shared_ptr<BehaviourObject> behaviourObject, int x, int y, KeyCodes direction, int w) const;
@@ -38,8 +39,11 @@ public:
 	ENGINE_API void deleteColliderFromScene(std::shared_ptr<CollidingComponent> deletedCollider) const;
 	ENGINE_API void gameOver() const;
 	ENGINE_API void playAudio(const std::string& trackName, bool looped) const;
+	ENGINE_API void playEffect(const std::string& effectName) const;
 	ENGINE_API void deleteScene(const std::string& sceneName) const;
 	ENGINE_API void replaceScene(const std::string sceneName, std::vector<std::shared_ptr<BehaviourObject>> objects) const;
+	ENGINE_API bool checkInRangeCamera(int x, int y) const;
+	ENGINE_API void checkAiCollision(std::shared_ptr<CollidingComponent> collider, std::shared_ptr<BehaviourObject> behaviourObject, int x, int y, KeyCodes direction, int w) const;
 
 private:
 	std::unique_ptr<EngineController> engineController;

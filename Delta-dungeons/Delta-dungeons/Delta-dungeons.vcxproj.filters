@@ -267,6 +267,12 @@
     <ClCompile Include="IEquipment.h">
       <Filter>Header Files\Game\GameObjects</Filter>
     </ClCompile>
+    <ClCompile Include="SaveSystem.cpp">
+      <Filter>Source Files\XMLParser</Filter>
+    </ClCompile>
+    <ClCompile Include="GameStateObject.cpp">
+      <Filter>Source Files\XMLParser</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h">
@@ -413,9 +419,6 @@
     <ClInclude Include="DialoguePopupScene.h">
       <Filter>Header Files\Game\Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="LevelBuilder.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="LevelScene.h">
       <Filter>Header Files\Game\Scenes</Filter>
     </ClInclude>
@@ -472,6 +475,15 @@
     </ClInclude>
     <ClInclude Include="AudioUtilities.h">
       <Filter>Header Files\Game\Singleton</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelBuilder.h">
+      <Filter>Header Files\Game\Creation</Filter>
+    </ClInclude>
+    <ClInclude Include="SaveSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameStateObject.h">
+      <Filter>Header Files\XMLParser</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -9,9 +9,9 @@ void LevelBuilder::reset()
 
 void LevelBuilder::setPlayer(cbNextLevel f, void* gm)
 {
-	playerFactory.createPlayer(levelName, staticCheckCollisionCallbackFunction, staticThrowCollisionCallbackFunction, f, staticCameraCallbackFunction, staticInteractCallbackFunction, staticGameOverbackFunction, staticUpdateHUDCallbackFunction, this, gm);
+	playerFactory.createPlayer(levelName, staticCheckCollisionCallbackFunction, staticThrowCollisionCallbackFunction, f, staticCameraCallbackFunction, staticInteractCallbackFunction, staticGameOverbackFunction, this, gm);
 	behaviourObjects.emplace_back(playerFactory.getPlayerObject());
-	for (auto& t : playerFactory.getPlayerObject()->textures)
+	for (auto& t : playerFactory.passTextures())
 	{
 		scene.setTexture(t.first, t.second);
 	}
@@ -37,7 +37,7 @@ void LevelBuilder::setNPCs()
 
 void LevelBuilder::setPokemon()
 {
-	pokemonFactory.createPokemon(levelName);
+	pokemonFactory.createPokemon(levelName, staticCheckCollisionCallbackFunction, staticCheckInRangeCameraCallBack, staticAiCollisionCallback, this);
 	for (auto& p : pokemonFactory.pokemon)
 	{
 		behaviourObjects.emplace_back(p.second);
@@ -45,6 +45,10 @@ void LevelBuilder::setPokemon()
 	for (auto& t : pokemonFactory.passTextures())
 	{
 		scene.setTexture(t.first, t.second);
+	}
+	for (auto& b : pokemonFactory.passBeats())
+	{
+		scene.setBeat(b.first, b.second);
 	}
 }
 
@@ -160,12 +164,23 @@ void LevelBuilder::gameOverCallbackFunction()
 	engineFacade->gameOver();
 }
 
-void LevelBuilder::staticUpdateHUDCallbackFunction(void* p, int health, int berries, int pokeballs)
+bool LevelBuilder::staticCheckInRangeCameraCallBack(void* p, int x, int y)
 {
-	((LevelBuilder*)p)->updateHUDCallbackFunction(health, berries, pokeballs);
+	return ((LevelBuilder*)p)->checkInRangeCameraCallBack(x, y);
 }
 
-void LevelBuilder::updateHUDCallbackFunction(int health, int berries, int pokeballs)
+bool LevelBuilder::checkInRangeCameraCallBack(int x, int y)
 {
-	hudFactory.updateHUD(health, berries, pokeballs);
+	return engineFacade->checkInRangeCamera(x, y);
+}
+
+
+void LevelBuilder::staticAiCollisionCallback(void* p, std::shared_ptr<CollidingComponent> collider, std::shared_ptr<BehaviourObject> behaviourObject, int x, int y, KeyCodes direction, int w)
+{
+	((LevelBuilder*)p)->aiCollisionCallback(collider, behaviourObject, x, y, direction, w);
+}
+
+void LevelBuilder::aiCollisionCallback(std::shared_ptr<CollidingComponent> collider, std::shared_ptr<BehaviourObject> behaviourObject, int x, int y, KeyCodes direction, int w)
+{
+	engineFacade->checkAiCollision(collider, behaviourObject, x, y, direction, w);
 }

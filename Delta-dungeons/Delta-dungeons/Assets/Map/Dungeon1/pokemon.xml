@@ -1,17 +1,17 @@
 <Pokemons>
-<Pokemon name="caterpie" encounterRate="80"/>
-<Pokemon name="metapod" encounterRate="70"/>
-<Pokemon name="butterfree" encounterRate="40"/>
-<Pokemon name="dunsparce" encounterRate="50"/>
-<Pokemon name="eevee" encounterRate="80"/>
-<Pokemon name="Turtwig" encounterRate="60"/>
-<Pokemon name="ralts" encounterRate="50"/>
-<Pokemon name="shinx" encounterRate="55"/>
-<Pokemon name="leafeon" encounterRate="35"/>
-<Pokemon name="vaporeon" encounterRate="30"/>
-<Pokemon name="grotle" encounterRate="25"/>
-<Pokemon name="staryu" encounterRate="65"/>
-<Pokemon name="starmie" encounterRate="45"/>
-<Pokemon name="rattata" encounterRate="85"/>
-<Pokemon name="raticate" encounterRate="45"/>
+<Pokemon name="caterpie" encounterRate="80" attacktime="7500"/>
+<Pokemon name="metapod" encounterRate="70" attacktime="9000"/>
+<Pokemon name="butterfree" encounterRate="40" attacktime="3000"/>
+<Pokemon name="dunsparce" encounterRate="50" attacktime="5000"/>
+<Pokemon name="eevee" encounterRate="80" attacktime="5000"/>
+<Pokemon name="Turtwig" encounterRate="60" attacktime="6000"/>
+<Pokemon name="ralts" encounterRate="50" attacktime="6000"/>
+<Pokemon name="shinx" encounterRate="55" attacktime="5000"/>
+<Pokemon name="leafeon" encounterRate="35" attacktime="4500"/>
+<Pokemon name="vaporeon" encounterRate="30" attacktime="4500"/>
+<Pokemon name="grotle" encounterRate="25" attacktime="5000"/>
+<Pokemon name="staryu" encounterRate="65" attacktime="6000"/>
+<Pokemon name="starmie" encounterRate="45" attacktime="5000"/>
+<Pokemon name="rattata" encounterRate="85" attacktime="7000"/>
+<Pokemon name="raticate" encounterRate="45" attacktime="5000"/>
 </Pokemons>

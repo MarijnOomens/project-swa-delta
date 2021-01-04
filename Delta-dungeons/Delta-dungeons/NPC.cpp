@@ -34,6 +34,8 @@ void NPC::interact(std::shared_ptr<BehaviourObject> interactor)
 	}
 	SceneModifier::getInstance().replaceScene("Dialogue", objects);
 	SceneLoader::getInstance().addOverlayScene("Dialogue");
+	DebugUtilities::getInstance().pauseInput();
+	GameState::getInstance().setIsInputPaused(true);
 }
 
 void NPC::playAnimation(Transform t)
@@ -58,10 +60,10 @@ void NPC::playAnimation(Transform t)
 
 std::string NPC::getRandomDialogue()
 {
+	AudioUtilities::getInstance().playEffect("eueu");
 	int randomDialogue = rand() % (dialogue.size());
 	return dialogue[randomDialogue];
 }
-
 
 void NPC::setParent() 
 {

@@ -8,18 +8,21 @@ LoadSaveScreen::LoadSaveScreen()
 	gc->imageDimensions = { 1280, 960 };
 	this->components.emplace_back(std::move(gc));
 
-	Colour color = { 0, 0, 0, 255 };
+	Colour colour = { 255, 255, 255, 255 };
 
-	std::unique_ptr<TextComponent> loadSaveText = std::make_unique<TextComponent>("Load a save file", "joystix", color, 64);
+	std::unique_ptr<TextComponent> loadSaveText = std::make_unique<TextComponent>("Load a save file", "joystix", colour, 64);
 	loadSaveText->transform.position = { 220, 20 };
 	this->components.emplace_back(std::move(loadSaveText));
 
+	std::vector<std::string> possibleButtonTexNew = { "button_new", "button_new_hover" };
+	std::unique_ptr<Button> newButton = std::make_unique<Button>(512, 200, possibleButtonTexNew, staticNewCallbackFunction, this);
+	this->components.emplace_back(std::move(newButton));
 
-	std::vector<std::string> possibleButtonTexLoad = { "button_load" };
-	std::unique_ptr<Button> load1Button = std::make_unique<Button>(512, 200, possibleButtonTexLoad, staticLoad1CallbackFunction, this);
+	std::vector<std::string> possibleButtonTexLoad = { "button_continue", "button_continue_hover" };
+	std::unique_ptr<Button> load1Button = std::make_unique<Button>(512, 400, possibleButtonTexLoad, staticLoadCallbackFunction, this);
 	this->components.emplace_back(std::move(load1Button));
 
-	std::vector<std::string> possibleButtonTexExit = { "button_back" };
+	std::vector<std::string> possibleButtonTexExit = { "button_back", "button_back_hover" };
 	std::unique_ptr<Button> exitButton = std::make_unique<Button>(512, 850, possibleButtonTexExit, staticBackCallbackFunction, this);
 	this->components.emplace_back(std::move(exitButton));
 }
@@ -35,15 +38,28 @@ void LoadSaveScreen::handleInput(const KeyCodes& keyCode, const KeyboardEvent& k
 	}
 }
 
-void LoadSaveScreen::staticLoad1CallbackFunction(const void* p)
+void LoadSaveScreen::staticNewCallbackFunction(const void* p)
 {
-	((LoadSaveScreen*)p)->load1CallbackFunction();
+	((LoadSaveScreen*)p)->newCallbackFunction();
 }
 
-void LoadSaveScreen::load1CallbackFunction() const
+void LoadSaveScreen::newCallbackFunction() const 
 {
 	GameState::getInstance().reset();
-	SceneLoader::getInstance().loadScene(SceneLoader::getInstance().getCurrentLevel(), "", true);
+	GameState::getInstance().save();
+	GameState::getInstance().load();
+	SceneLoader::getInstance().loadScene(SceneLoader::getInstance().getCurrentLevel(), "", true, true);
+}
+
+void LoadSaveScreen::staticLoadCallbackFunction(const void* p)
+{
+	((LoadSaveScreen*)p)->loadCallbackFunction();
+}
+
+void LoadSaveScreen::loadCallbackFunction() const
+{
+	GameState::getInstance().load();
+	SceneLoader::getInstance().loadScene(SceneLoader::getInstance().getCurrentLevel(), "", true, true);
 }
 
 void LoadSaveScreen::staticBackCallbackFunction(const void* p)

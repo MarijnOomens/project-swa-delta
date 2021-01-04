@@ -5,62 +5,42 @@ InputWrapper::InputWrapper(const cbFunction f, void* p) : func(f), pointer(p) {}
 /// <summary>
 /// The handleInput calls the input based on which keyevent is called.
 /// </summary>
-void InputWrapper::handleInput(const bool isPaused)
+void InputWrapper::handleInput(const bool isGamePaused, const bool isInputPaused)
 {
 	while (SDL_PollEvent(&event) != 0)
 	{
 		switch (event.type)
 		{
 		case SDL_KEYDOWN:
-			handleKeyPressed(isPaused);
+			handleKeyPressed(isGamePaused, isInputPaused);
 			break;
 		case SDL_QUIT:
 			func(pointer, KeyCodes::KEY_F10, KeyboardEvent::KEY_PRESSED, {0, 0});
 			break;
 		case SDL_KEYUP:
-			handleKeyReleased();
+			handleKeyReleased(isGamePaused, isInputPaused);
 			break;
 		case SDL_MOUSEBUTTONDOWN:
 			handleMouseClicked();
 			break;
+		case SDL_MOUSEMOTION:
+			handleMouseMoved();
+		default:
+			break;
 		}
 	}
+	handleKeyStateInput(isGamePaused, isInputPaused);
 }
 
 /// <summary>
 /// The handleInput calls the input based on which key is pressed
 /// </summary>
-void InputWrapper::handleKeyPressed(const bool isPaused)
+void InputWrapper::handleKeyPressed(const bool isGamePaused, const bool isInputPaused)
 {
-	Vector2D mousePosition;
-	if (!isPaused) 
+	if (!isGamePaused && !isInputPaused) 
 	{
 		switch (event.key.keysym.sym)
 		{
-		case SDLK_UP:
-			func(pointer, KeyCodes::KEY_UP, KeyboardEvent::KEY_PRESSED, mousePosition);
-			break;
-		case SDLK_DOWN:
-			func(pointer, KeyCodes::KEY_DOWN, KeyboardEvent::KEY_PRESSED, mousePosition);
-			break;
-		case SDLK_LEFT:
-			func(pointer, KeyCodes::KEY_LEFT, KeyboardEvent::KEY_PRESSED, mousePosition);
-			break;
-		case SDLK_RIGHT:
-			func(pointer, KeyCodes::KEY_RIGHT, KeyboardEvent::KEY_PRESSED, mousePosition);
-			break;
-		case SDLK_w:
-			func(pointer, KeyCodes::KEY_W, KeyboardEvent::KEY_PRESSED, mousePosition);
-			break;
-		case SDLK_a:
-			func(pointer, KeyCodes::KEY_A, KeyboardEvent::KEY_PRESSED, mousePosition);
-			break;
-		case SDLK_s:
-			func(pointer, KeyCodes::KEY_S, KeyboardEvent::KEY_PRESSED, mousePosition);
-			break;
-		case SDLK_d:
-			func(pointer, KeyCodes::KEY_D, KeyboardEvent::KEY_PRESSED, mousePosition);
-			break;
 		case SDLK_q:
 			func(pointer, KeyCodes::KEY_Q, KeyboardEvent::KEY_PRESSED, mousePosition);
 			break;
@@ -118,10 +98,16 @@ void InputWrapper::handleKeyPressed(const bool isPaused)
 		func(pointer, KeyCodes::KEY_ESC, KeyboardEvent::KEY_PRESSED, mousePosition);
 	}
 
+	else if (event.key.keysym.sym == SDLK_e && !isGamePaused)
+	{
+		func(pointer, KeyCodes::KEY_E, KeyboardEvent::KEY_PRESSED, mousePosition);
+	}
+
 	if (event.key.keysym.sym == SDLK_F10)
 	{
 		func(pointer, KeyCodes::KEY_F10, KeyboardEvent::KEY_PRESSED, mousePosition);
 	}
+
 	if (event.key.keysym.sym == SDLK_BACKSPACE)
 	{
 		func(pointer, KeyCodes::KEY_BACKSPACE, KeyboardEvent::KEY_PRESSED, mousePosition);
@@ -132,49 +118,92 @@ void InputWrapper::handleKeyPressed(const bool isPaused)
 /// <summary>
 /// The handleInput calls the input based on which key is released
 /// </summary>
-void InputWrapper::handleKeyReleased()
+void InputWrapper::handleKeyReleased(const bool isGamePaused, const bool isInputPaused)
 {
-	Vector2D mousePosition;
-	switch (event.key.keysym.sym)
+	if (!isGamePaused && !isInputPaused)
 	{
-	case SDLK_UP:
-		func(pointer, KeyCodes::KEY_UP, KeyboardEvent::KEY_RELEASED, mousePosition);
-		break;
-	case SDLK_DOWN:
-		func(pointer, KeyCodes::KEY_DOWN, KeyboardEvent::KEY_RELEASED, mousePosition);
-		break;
-	case SDLK_LEFT:
-		func(pointer, KeyCodes::KEY_LEFT, KeyboardEvent::KEY_RELEASED, mousePosition);
-		break;
-	case SDLK_RIGHT:
-		func(pointer, KeyCodes::KEY_RIGHT, KeyboardEvent::KEY_RELEASED, mousePosition);
-		break;
-	case SDLK_w:
-		func(pointer, KeyCodes::KEY_W, KeyboardEvent::KEY_RELEASED, mousePosition);
-		break;
-	case SDLK_a:
-		func(pointer, KeyCodes::KEY_A, KeyboardEvent::KEY_RELEASED, mousePosition);
-		break;
-	case SDLK_s:
-		func(pointer, KeyCodes::KEY_S, KeyboardEvent::KEY_RELEASED, mousePosition);
-		break;
-	case SDLK_d:
-		func(pointer, KeyCodes::KEY_D, KeyboardEvent::KEY_RELEASED, mousePosition);
-		break;
-	case SDLK_q:
-		func(pointer, KeyCodes::KEY_Q, KeyboardEvent::KEY_RELEASED, mousePosition);
-		break;
-	case SDLK_e:
-		func(pointer, KeyCodes::KEY_E, KeyboardEvent::KEY_RELEASED, mousePosition);
-		break;
-	case SDLK_c:
-		func(pointer, KeyCodes::KEY_C, KeyboardEvent::KEY_RELEASED, mousePosition);
-		break;
-	case SDLK_BACKSPACE:
-		func(pointer, KeyCodes::KEY_BACKSPACE, KeyboardEvent::KEY_RELEASED, mousePosition);
-		break;
-	default:
-		break;
+		switch (event.key.keysym.sym)
+		{
+		case SDLK_UP:
+			func(pointer, KeyCodes::KEY_UP, KeyboardEvent::KEY_RELEASED, mousePosition);
+			break;
+		case SDLK_DOWN:
+			func(pointer, KeyCodes::KEY_DOWN, KeyboardEvent::KEY_RELEASED, mousePosition);
+			break;
+		case SDLK_LEFT:
+			func(pointer, KeyCodes::KEY_LEFT, KeyboardEvent::KEY_RELEASED, mousePosition);
+			break;
+		case SDLK_RIGHT:
+			func(pointer, KeyCodes::KEY_RIGHT, KeyboardEvent::KEY_RELEASED, mousePosition);
+			break;
+		case SDLK_w:
+			func(pointer, KeyCodes::KEY_W, KeyboardEvent::KEY_RELEASED, mousePosition);
+			break;
+		case SDLK_s:
+			func(pointer, KeyCodes::KEY_S, KeyboardEvent::KEY_RELEASED, mousePosition);
+			break;
+		case SDLK_a:
+			func(pointer, KeyCodes::KEY_A, KeyboardEvent::KEY_RELEASED, mousePosition);
+			break;
+		case SDLK_d:
+			func(pointer, KeyCodes::KEY_D, KeyboardEvent::KEY_RELEASED, mousePosition);
+			break;
+		case SDLK_q:
+			func(pointer, KeyCodes::KEY_Q, KeyboardEvent::KEY_RELEASED, mousePosition);
+			break;
+		case SDLK_e:
+			func(pointer, KeyCodes::KEY_E, KeyboardEvent::KEY_RELEASED, mousePosition);
+			break;
+		case SDLK_c:
+			func(pointer, KeyCodes::KEY_C, KeyboardEvent::KEY_RELEASED, mousePosition);
+			break;
+		case SDLK_BACKSPACE:
+			func(pointer, KeyCodes::KEY_BACKSPACE, KeyboardEvent::KEY_RELEASED, mousePosition);
+			break;
+		default:
+			break;
+		}
+	}
+}
+
+void InputWrapper::handleKeyStateInput(bool isGamePaused, bool isInputPaused)
+{
+	const Uint8* keyState = SDL_GetKeyboardState(NULL);
+
+	if (!isGamePaused && !isInputPaused)
+	{
+		if (keyState[SDL_SCANCODE_UP])
+		{
+			func(pointer, KeyCodes::KEY_UP, KeyboardEvent::KEY_PRESSED, mousePosition);
+		}
+		else if (keyState[SDL_SCANCODE_DOWN])
+		{
+			func(pointer, KeyCodes::KEY_DOWN, KeyboardEvent::KEY_PRESSED, mousePosition);
+		}
+		else if (keyState[SDL_SCANCODE_LEFT])
+		{
+			func(pointer, KeyCodes::KEY_LEFT, KeyboardEvent::KEY_PRESSED, mousePosition);
+		}
+		else if (keyState[SDL_SCANCODE_RIGHT])
+		{
+			func(pointer, KeyCodes::KEY_RIGHT, KeyboardEvent::KEY_PRESSED, mousePosition);
+		}
+		else if (keyState[SDL_SCANCODE_W])
+		{
+			func(pointer, KeyCodes::KEY_W, KeyboardEvent::KEY_PRESSED, mousePosition);
+		}
+		else if (keyState[SDL_SCANCODE_S])
+		{
+			func(pointer, KeyCodes::KEY_S, KeyboardEvent::KEY_PRESSED, mousePosition);
+		}
+		else if (keyState[SDL_SCANCODE_A])
+		{
+			func(pointer, KeyCodes::KEY_A, KeyboardEvent::KEY_PRESSED, mousePosition);
+		}
+		else if (keyState[SDL_SCANCODE_D])
+		{
+			func(pointer, KeyCodes::KEY_D, KeyboardEvent::KEY_PRESSED, mousePosition);
+		}
 	}
 }
 
@@ -186,3 +215,11 @@ void InputWrapper::handleMouseClicked() {
 }
 
 void InputWrapper::mapKeyBindings(const KeyCodes& code) {}
+
+void InputWrapper::handleMouseMoved()
+{
+	int x, y;
+	SDL_GetMouseState(&x, &y);
+	Vector2D mousePosition{ x, y };
+	func(pointer, KeyCodes::MOUSE, KeyboardEvent::MOUSE_MOVED, mousePosition);
+}

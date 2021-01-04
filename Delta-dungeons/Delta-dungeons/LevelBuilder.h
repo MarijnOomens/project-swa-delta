@@ -13,7 +13,6 @@
 typedef void(*cbCamera) (void*, int, int);
 typedef void(*cbInteract) (void*, std::shared_ptr<BehaviourObject>, int, int, int, int);
 typedef void(*cbGameOver) (void*);
-typedef void(*cbHUD) (void*, int, int, int);
 typedef void(*cbCollision) (void*, std::shared_ptr<CollidingComponent>, std::shared_ptr<BehaviourObject> behaviourObject, int, int, KeyCodes, int);
 typedef void(*cbThrowCollision) (void*, std::shared_ptr<BehaviourObject>, int, int, KeyCodes, int);
 typedef void(*cbNextLevel) (void*);
@@ -49,11 +48,11 @@ public:
 	static void staticGameOverbackFunction(void* p);
 	void gameOverCallbackFunction();
 
-	static void staticUpdateHUDCallbackFunction(void* p, int health, int berries, int pokeballs);
-	void updateHUDCallbackFunction(int health, int berries, int pokeballs);
+	static bool staticCheckInRangeCameraCallBack(void* p, int x, int y);
+	bool checkInRangeCameraCallBack(int x, int y);
 
-	static void staticLoadNextLevelCallbackFunction(void* p);
-	void loadNextLevelCallbackFunction();
+	static void staticAiCollisionCallback(void* p, std::shared_ptr<CollidingComponent> collider, std::shared_ptr<BehaviourObject> behaviourObject, int x, int y, KeyCodes direction, int w);
+	void aiCollisionCallback(std::shared_ptr<CollidingComponent> collider, std::shared_ptr<BehaviourObject> behaviourObject, int x, int y, KeyCodes direction, int w);
 
 private:
 	std::string levelName;

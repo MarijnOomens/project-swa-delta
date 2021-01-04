@@ -5,7 +5,7 @@
 /// </summary>
 EngineController::EngineController(const std::string& title, int screenWidth, int screenHeight, bool fullScreen)
 {
-	collision = std::make_shared<Collision>();
+	collision = std::make_shared<Collision>(staticGetBehaviourObjectCallBack, this);
 	textureAssetManager = std::make_shared<TextureAssetManager>();
 	fontAssetManager = std::make_shared<FontAssetManager>();
 	audioAssetManager = std::make_shared<AudioAssetManager>();
@@ -15,6 +15,7 @@ EngineController::EngineController(const std::string& title, int screenWidth, in
 	input = std::make_shared<Input>(staticInputCallbackFunction, this);
 	fontManager = std::make_shared<FontManager>(renderFacade, fontAssetManager);
 	audioManager = std::make_unique<AudioManager>(audioAssetManager);
+	sceneManager = std::make_shared<SceneManager>(this, staticGetTimeCallback);
 
 	initRenderer(title, screenWidth, screenHeight, fullScreen);
 }
@@ -60,13 +61,13 @@ void EngineController::staticInputCallbackFunction(void* p, const KeyCodes keyCo
 /// <param name="keyboardEvent">The key that is read, like 'W'.</param>
 void EngineController::inputCallbackFunction(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos)
 {
-	sceneManager.setSceneSwitched(false);
+	sceneManager->setSceneSwitched(false);
 	if (keyCode == KeyCodes::KEY_F10)
 	{
 		quitGame();
 	}
 	else {
-		sceneManager.handleSceneInput(keyCode, keyboardEvent, mousePos);
+		sceneManager->handleSceneInput(keyCode, keyboardEvent, mousePos);
 	}
 }
 #pragma endregion Input handling
@@ -96,13 +97,13 @@ void EngineController::startGame()
 		renderFacade->setFrameStart();
 		if (!isGameOver && !renderFacade->renderer->transitioning)
 		{
-			input->handleInput(renderFacade->renderer->isPaused);
+			input->handleInput(renderFacade->renderer->isPaused, inputPaused);
 		}
 		if (!renderFacade->renderer->isPaused)
 		{
 			renderFacade->beforeFrame();
-			sceneManager.update();
 		}
+		sceneManager->update(renderFacade->getFrameStart(), renderFacade->renderer->isPaused);
 		checkTransition();
 		checkGameOver();
 		renderFacade->afterFrame();
@@ -151,7 +152,7 @@ void EngineController::registerScene(const std::string& sceneName, std::vector<s
 		}
 	}
 	collision->registerColliders(colliderObjects);
-	sceneManager.registerScene(sceneName, behaviourObjects);
+	sceneManager->registerScene(sceneName, behaviourObjects);
 }
 
 void EngineController::loadScene(const std::string& sceneName, const std::string& fromScene, bool clearPrevious)
@@ -160,14 +161,14 @@ void EngineController::loadScene(const std::string& sceneName, const std::string
 	{
 		renderFacade->pauseGame();
 	}
-	sceneManager.loadScene(sceneName, fromScene, clearPrevious);
+	sceneManager->loadScene(sceneName, fromScene, clearPrevious);
 	transitionScene();
 }
 
 void EngineController::loadPreviousScene()
 {
-	sceneManager.loadPreviousScene();
-	if (!sceneManager.isOverlayScene)
+	sceneManager->loadPreviousScene();
+	if (!sceneManager->isOverlayScene)
 	{
 		transitionScene();
 	}
@@ -175,7 +176,7 @@ void EngineController::loadPreviousScene()
 
 void EngineController::addOverlayScene(const std::string& sceneName)
 {
-	sceneManager.addOverlayScene(sceneName);
+	sceneManager->addOverlayScene(sceneName);
 }
 
 void EngineController::transitionScene()
@@ -219,7 +220,7 @@ void EngineController::registerAudio(std::map<std::string, std::string> tracks) 
 
 void EngineController::pauseScreen()
 {
-	if (renderFacade->renderer->isPaused && sceneManager.getCurrentScene() == "PauseScreen")
+	if (renderFacade->renderer->isPaused && sceneManager->getCurrentScene() == "PauseScreen")
 	{
 		renderFacade->pauseGame();
 		loadPreviousScene();
@@ -229,6 +230,11 @@ void EngineController::pauseScreen()
 		renderFacade->pauseGame();
 		addOverlayScene("PauseScreen");
 	}
+}
+
+void EngineController::pauseInput()
+{
+	inputPaused = !inputPaused;
 }
 
 void EngineController::quitGame() const
@@ -262,17 +268,17 @@ void EngineController::addObjectToScene(std::shared_ptr<BehaviourObject> addObje
 	{
 		auto ngc = dynamic_cast<GraphicsComponent*>(addObject.get());
 		ngc->addTextureManager(textureManager);
-		sceneManager.addObjectToScene(addObject);
+		sceneManager->addObjectToScene(addObject);
 	}
 	else
 	{
-		sceneManager.addObjectToScene(addObject);
+		sceneManager->addObjectToScene(addObject);
 	}
 }
 
 void EngineController::passInteract(std::shared_ptr<BehaviourObject> player, int x, int y, int w, int h)
 {
-	sceneManager.passInteract(player, x, y, w, h);
+	sceneManager->passInteract(player, x, y, w, h);
 }
 
 void EngineController::passCollisionCheck(std::shared_ptr<CollidingComponent> collider, std::shared_ptr<BehaviourObject> behaviourObject, int x, int y, KeyCodes direction, int w)
@@ -287,7 +293,7 @@ void EngineController::throwCollisionCheck(std::shared_ptr<BehaviourObject> coll
 
 void EngineController::deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject)
 {
-	sceneManager.deleteObjectFromScene(deletedObject);
+	sceneManager->deleteObjectFromScene(deletedObject);
 }
 
 void EngineController::deleteColliderFromScene(std::shared_ptr<CollidingComponent> deletedCollider)
@@ -326,9 +332,14 @@ void EngineController::playAudio(const std::string& trackName, bool looped)
 	audioManager->playAudio(trackName, looped);
 }
 
+void EngineController::playEffect(const std::string& effectName)
+{
+	audioManager->playEffect(effectName);
+}
+
 void EngineController::deleteScene(const std::string& sceneName)
 {
-	sceneManager.deleteScene(sceneName);
+	sceneManager->deleteScene(sceneName);
 }
 
 void EngineController::replaceScene(const std::string sceneName, std::vector<std::shared_ptr<BehaviourObject>> objects)
@@ -347,5 +358,35 @@ void EngineController::replaceScene(const std::string sceneName, std::vector<std
 			ntc->addFontManager(fontManager);
 		}
 	}
-	sceneManager.replaceScene(sceneName, objects);
+	sceneManager->replaceScene(sceneName, objects);
+}
+
+bool EngineController::checkInRangeCamera(int x, int y)const
+{
+	return renderFacade->checkInRangeCamera(x, y);
+}
+
+std::shared_ptr<BehaviourObject> EngineController::staticGetBehaviourObjectCallBack(void* p, CollidingComponent* collidingComponent)
+{
+	return ((EngineController*)p)->getBehaviourObjectCallBack(collidingComponent);
+}
+
+std::shared_ptr<BehaviourObject> EngineController::getBehaviourObjectCallBack(CollidingComponent* collidingComponent)
+{
+	return sceneManager->getBehaviourObject(collidingComponent);
+}
+
+void EngineController::checkAiCollision(std::shared_ptr<CollidingComponent> collider, std::shared_ptr<BehaviourObject> behaviourObject, int x, int y, KeyCodes direction, int w) const
+{
+	collision->checkAiCollision(collider, behaviourObject, x, y, direction, w);
+}
+
+int EngineController::staticGetTimeCallback(void* p)
+{
+	return ((EngineController*)p)->getTimeCallback();
+}
+
+int EngineController::getTimeCallback()
+{
+	return renderFacade->getFrameStart();
 }

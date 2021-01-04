@@ -1,4 +1,5 @@
 #include "ThrowPokeball.h"
+#include "Pokemon.h"
 
 ThrowPokeball::ThrowPokeball(const cbThrowCollision tF, const cbSentPokemon f, void* p, void* g) : tFunc(tF), func(f) , playerPointer(p), gameMangerPointer(g)
 {
@@ -26,7 +27,7 @@ void ThrowPokeball::interact(std::shared_ptr<BehaviourObject> interactor)
 {
 	auto object = dynamic_cast<Pokemon*>(interactor.get());
 	if (object != nullptr) {
-		GameState::getInstance().addCaughPokemon(1);
+		GameState::getInstance().addCaughtPokemon(1);
 		object->catchPokemon();
 		func(playerPointer);
 	}
@@ -61,23 +62,23 @@ void ThrowPokeball::moveRight(int x, int y)
 	direction = "right";
 }
 
-void ThrowPokeball::update() 
+void ThrowPokeball::update(int time) 
 {
 	if (isMoving) {
 		if (direction == "up") {
-			updateTransform(transform.position.x, transform.position.y - 16);
 			tFunc(gameMangerPointer, cc, transform.position.x, transform.position.y, KeyCodes::KEY_UP, 128);
+			updateTransform(transform.position.x, transform.position.y - 16);
 		} else 	if (direction == "down") {
-			updateTransform(transform.position.x, transform.position.y + 16);
 			tFunc(gameMangerPointer, cc, transform.position.x, transform.position.y, KeyCodes::KEY_DOWN, 128);
+			updateTransform(transform.position.x, transform.position.y + 16);
 
 		} else if (direction == "left") {
-			updateTransform(transform.position.x - 16, transform.position.y);
 			tFunc(gameMangerPointer, cc, transform.position.x, transform.position.y, KeyCodes::KEY_LEFT, 128);
+			updateTransform(transform.position.x - 16, transform.position.y);
 
 		} else if (direction == "right") {
-			updateTransform(transform.position.x + 16, transform.position.y);
 			tFunc(gameMangerPointer, cc, transform.position.x, transform.position.y, KeyCodes::KEY_RIGHT, 128);
+			updateTransform(transform.position.x + 16, transform.position.y);
 		}
 	}
 }

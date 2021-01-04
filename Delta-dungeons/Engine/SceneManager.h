@@ -5,15 +5,21 @@
 #include <vector>
 #include <memory>
 #include "BehaviourObject.h"
+#include "CollidingComponent.h"
+#include "GameObject.h"
+#include "GraphicsComponent.h"
+#include "TextComponent.h"
+
+typedef int(*cbTime) (void*);
 
 class SceneManager {
 public:
 	bool isOverlayScene = false;
 
-	SceneManager() {}
+	SceneManager(void* p, cbTime timeCb): timeFunc(timeCb), pointer(p) {}
 	~SceneManager() {}
 
-	void update();
+	void update(int time, bool paused);
 	void loadScene(const std::string& sceneName,const std::string& fromScene,const bool clearPrevious);
 	void registerScene(const std::string& sceneName, const std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects);
 	void loadPreviousScene();
@@ -27,6 +33,7 @@ public:
 	std::string getCurrentScene();
 	void deleteScene(const std::string& sceneName);
 	void replaceScene(const std::string sceneName, std::vector<std::shared_ptr<BehaviourObject>> objects);
+	std::shared_ptr<BehaviourObject> getBehaviourObject(CollidingComponent* collidingComponent);
 
 private:
 	std::map<std::string, std::vector<std::shared_ptr<BehaviourObject>>> scenes;
@@ -34,4 +41,6 @@ private:
 	std::vector<std::string> previousScenes;
 	std::string currentScene;
 	bool isSceneSwitched = false;
+	cbTime timeFunc;
+	void* pointer;
 };

@@ -6,6 +6,7 @@
 #include "CollidingComponent.h"
 #include "StopStrategy.h"
 #include "Player.h"
+#include "AudioUtilities.h"
 
 class Pokeball : public IEquipment
 {
@@ -15,7 +16,7 @@ public:
 	void setParent() override;
 	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos)override {}
 	void start()override {}
-	void update() override {}
+	void update(int time) override {}
 	void interact(std::shared_ptr<BehaviourObject> interactor) override;
 	void use() override {}
 	void registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger) override {}

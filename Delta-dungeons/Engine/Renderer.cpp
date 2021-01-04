@@ -131,7 +131,7 @@ void Renderer::clean() const
 	SDL_DestroyWindow(sdlWindow);
 	SDL_DestroyRenderer(sdlRenderer);
 	SDL_Quit();
-	std::cout << "Game Cleaned" << std::endl;
+	//std::cout << "Game Cleaned" << std::endl;
 }
 
 void Renderer::pauseGame()
@@ -179,7 +179,7 @@ void Renderer::drawTexture(SDL_Texture* texture, const Transform& transform, con
 		source.x = coordinates.x;
 		source.y = coordinates.y;
 
-		if (animated)
+		if (animated && !isPaused)
 		{
 			source.x = source.w * static_cast<int>((SDL_GetTicks() / speed) % frames);
 			source.y = row * source.h;
@@ -287,4 +287,16 @@ void Renderer::checkTransition()
 	{
 		alphaCounter += 15;
 	}
+}
+
+bool Renderer::checkInRangeCamera(int x, int y) const
+{
+	if (x + 128 >= camera.x &&
+		1280 + camera.x >= x &&
+		y + 128 >= camera.y &&
+		camera.y + 1024 >= y)
+	{
+		return true;
+	}
+	return false;
 }

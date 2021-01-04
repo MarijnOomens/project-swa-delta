@@ -11,4 +11,4 @@
 /// <param name="y">Y position of a Tile</param>
 /// <param name="tileId">TileId of a Tile within so the correct part of the asset can be selected</param>
 
-PokemonParserData::PokemonParserData(const std::string& name, const std::string& encounterRate) : name(name), encounterRate(encounterRate) {}
+PokemonParserData::PokemonParserData(const std::string& name, const std::string& encounterRate, const std::string& attackTime) : name(name), encounterRate(encounterRate), attackTime(attackTime) {}

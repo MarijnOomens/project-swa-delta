@@ -19,9 +19,9 @@ std::shared_ptr<NPC> GameObjectBuilder::getNPC(int x, int y, std::string name, s
 	return npc;
 }
 
-std::shared_ptr<Pokemon> GameObjectBuilder::getPokemon(int x, int y, const std::string& name)
+std::shared_ptr<Pokemon> GameObjectBuilder::getPokemon(int x, int y, const std::string& name, cbCollision collisionCb, cbCameraRange cameraCb, cbAiCollision aiCollision, void* p, int attackTime)
 {
-	std::shared_ptr<Pokemon> pokemon = std::make_shared<Pokemon>(x, y, name);
+	std::shared_ptr<Pokemon> pokemon = std::make_shared<Pokemon>(x, y, name, collisionCb, cameraCb, aiCollision, p, attackTime, name);
 	pokemon->setParent();
 	pokemon->textures.try_emplace(name, "Assets/Pokemon/" + name + "_anims.png");
 	return pokemon;

@@ -2,17 +2,29 @@
 <NPC name="youngster">
 <Dialogue text="I hate sand it gets in my shorts, which makes it not comfy and easy to wear."/>
 <Dialogue text="There are no Rattatas here..."/>
+<Dialogue text="I don't like sand. It's all coarse, and rough, and irritating. And it gets everywhere."/>
 </NPC>
 <NPC name="bugtrainer">
 <Dialogue text="WHERE ARE MY BUGS!"/>
 <Dialogue text="Brooo, check my rock-type Pokémon!"/> <!--~Raymond, 2020-->
+<Dialogue text="There's sand in my SANDals..."/>
 </NPC>
 <NPC name="acetrainer_m">
 <Dialogue text="I heard rumours about a gallade appearing in a lava area."/>
-<Dialogue text="?"/>
+<Dialogue text="I catch shiny pokemon in my gucci flip-flops."/>
+<Dialogue text="Have you seen my sunglasses?"/>
 </NPC>
 <NPC name="acetrainer_f">
 <Dialogue text="I heard rumours about a gardevoir appearing in a lava area."/>
-<Dialogue text="?"/>
+<Dialogue text="Wanna catch these hands?"/>
+<Dialogue text="Is 'sand' called 'sand' because it is between the sea and the land?"/>
+</NPC>
+<NPC name="cactus">
+<Dialogue text="Ich bin ein kaktusmeister."/>
+<Dialogue text="Martijn is een hond."/>
+<Dialogue text="Subscribe to ynar biets."/>
+<Dialogue text="I like Kit-Kats."/>
+<Dialogue text="Tristans tussenvoegsel is 'van'."/>
+<Dialogue text="Dab."/>
 </NPC>
 </NPCs>

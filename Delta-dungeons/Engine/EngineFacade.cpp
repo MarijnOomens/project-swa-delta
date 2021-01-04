@@ -118,6 +118,11 @@ void EngineFacade::pauseGame() const
 	engineController->pauseScreen();
 }
 
+void EngineFacade::pauseInput() const
+{
+	engineController->pauseInput();
+}
+
 void EngineFacade::addObjectToScene(std::shared_ptr<BehaviourObject> addObject) const
 {
 	engineController->addObjectToScene(addObject);
@@ -158,6 +163,11 @@ void EngineFacade::playAudio(const std::string& trackName, bool looped) const
 	engineController->playAudio(trackName, looped);
 }
 
+void EngineFacade::playEffect(const std::string& effectName) const
+{
+	engineController->playEffect(effectName);
+}
+
 void EngineFacade::deleteScene(const std::string& sceneName) const
 {
 	engineController->deleteScene(sceneName);
@@ -166,4 +176,14 @@ void EngineFacade::deleteScene(const std::string& sceneName) const
 void EngineFacade::replaceScene(const std::string sceneName, std::vector<std::shared_ptr<BehaviourObject>> objects) const
 {
 	engineController->replaceScene(sceneName, objects);
+}
+
+bool EngineFacade::checkInRangeCamera(int x, int y)const
+{
+	return engineController->checkInRangeCamera(x,y);
+}
+
+void EngineFacade::checkAiCollision(std::shared_ptr<CollidingComponent> collider, std::shared_ptr<BehaviourObject> behaviourObject, int x, int y, KeyCodes direction, int w) const
+{
+	engineController->checkAiCollision(collider, behaviourObject, x, y, direction, w);
 }

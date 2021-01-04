@@ -25,8 +25,9 @@ BoulderPuzzleObject::BoulderPuzzleObject(cbInteract cbI, cbCollision cbC, void* 
 
 void BoulderPuzzleObject::interact(std::shared_ptr<BehaviourObject> interactor)
 {
+	AudioUtilities::getInstance().playEffect("boulder");
 	auto object = dynamic_cast<Player*>(interactor.get());
-	if (object != nullptr) 
+	if (object) 
 	{
 		move(object->currentDirection);
 	}
@@ -47,7 +48,7 @@ void BoulderPuzzleObject::start()
 	updateTransform(startX, startY);
 }
 
-void BoulderPuzzleObject::update()
+void BoulderPuzzleObject::update(int time)
 {
 	if (pushed)
 	{
@@ -83,6 +84,7 @@ void BoulderPuzzleObject::updateTransform(int x, int y)
 
 void BoulderPuzzleObject::move(KeyCodes direction)
 {
+	canPush = true;
 	currentDirection = direction;
 	if (direction == KeyCodes::KEY_UP || direction == KeyCodes::KEY_W) 
 	{
@@ -93,7 +95,6 @@ void BoulderPuzzleObject::move(KeyCodes direction)
 			endY = transform.position.y - 128;
 			iFunc(lbPointer, shared_from_this(), transform.position.x, transform.position.y - 128, 128, 128);
 		}
-		canPush = true;
 	}
 	else if (direction == KeyCodes::KEY_DOWN || direction == KeyCodes::KEY_S) 
 	{
@@ -104,7 +105,6 @@ void BoulderPuzzleObject::move(KeyCodes direction)
 			endY = transform.position.y + 128;
 			iFunc(lbPointer, shared_from_this(), transform.position.x, transform.position.y + 128, 128, 128);
 		}
-		canPush = true;
 	}
 	else if (direction == KeyCodes::KEY_LEFT || direction == KeyCodes::KEY_A) 
 	{
@@ -115,7 +115,6 @@ void BoulderPuzzleObject::move(KeyCodes direction)
 			endX = transform.position.x - 128;
 			iFunc(lbPointer, shared_from_this(), transform.position.x - 128, transform.position.y, 128, 128);
 		}
-		canPush = true;
 	}
 	else if (direction == KeyCodes::KEY_RIGHT || direction == KeyCodes::KEY_D) 
 	{
@@ -126,6 +125,5 @@ void BoulderPuzzleObject::move(KeyCodes direction)
 			endX = transform.position.x + 128;
 			iFunc(lbPointer, shared_from_this(), transform.position.x + 128, transform.position.y, 128, 128);
 		}
-		canPush = true;
 	}
 }

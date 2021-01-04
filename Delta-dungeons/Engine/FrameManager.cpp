@@ -24,6 +24,11 @@ void FrameManager::setFrameStart()
 	frameStart = SDL_GetTicks();
 }
 
+Uint32 FrameManager::getFrameStart()
+{
+	return frameStart;
+}
+
 /// <summary>
 /// setFrameDelay is used if the FPS is higher than 60. This will put it back down to 60 and limit the redraws.
 /// </summary>

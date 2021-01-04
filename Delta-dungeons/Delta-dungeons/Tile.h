@@ -18,7 +18,7 @@ public:
 
 	void addGraphicsComponent(const std::string& imageName);
 	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override {}
-	void update() override {}
+	void update(int time) override {}
 	void interact(std::shared_ptr<BehaviourObject> interactor) override {}
 	void setParent() override {}
 	void start() override {}

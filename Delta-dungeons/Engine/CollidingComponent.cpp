@@ -13,7 +13,7 @@ void CollidingComponent::handleInput(const KeyCodes& keyCode, const KeyboardEven
 
 void CollidingComponent::interact(std::shared_ptr<BehaviourObject> interactor) {}
 
-void CollidingComponent::update() {}
+void CollidingComponent::update(int time) {}
 
 void CollidingComponent::start() {}
 

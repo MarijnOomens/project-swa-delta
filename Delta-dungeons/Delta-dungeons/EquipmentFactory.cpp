@@ -9,23 +9,26 @@ void EquipmentFactory::createEquipment(const std::string& levelName)
 {
 	equipments.clear();
 	std::unique_ptr<XMLSceneParser> xmlSceneParser = std::make_unique<XMLSceneParser>();
-	std::vector<std::shared_ptr<ParserData>> equipmentData = xmlSceneParser->getEquipmentDataList("Assets/Map/"+ levelName + "/level.xml");
+	std::vector<std::shared_ptr<ParserData>> equipmentData = xmlSceneParser->getEquipmentDataList("Assets/Map/" + levelName + "/level.xml");
 
 	for (auto parsedEquipment : equipmentData)
 	{
-		if (parsedEquipment->tileId == "3") 
+		if (parsedEquipment->tileId == "3")
 		{
 			equipments.try_emplace("pokeball" + parsedEquipment->x + parsedEquipment->y, builder->getEquipment(std::stoi(parsedEquipment->x), std::stoi(parsedEquipment->y), "pokeball", levelName));
 		}
-		else if (parsedEquipment->tileId == "4") 
+		else if (parsedEquipment->tileId == "4")
 		{
-			equipments.try_emplace("running_shoes" + parsedEquipment->x + parsedEquipment->y, builder->getEquipment(std::stoi(parsedEquipment->x), std::stoi(parsedEquipment->y), "running_shoes", levelName));
+			if (!GameState::getInstance().getHasRunningShoes())
+			{
+				equipments.try_emplace("running_shoes" + parsedEquipment->x + parsedEquipment->y, builder->getEquipment(std::stoi(parsedEquipment->x), std::stoi(parsedEquipment->y), "running_shoes", levelName));
+			}
 		}
-		else if (parsedEquipment->tileId == "5") 
+		else if (parsedEquipment->tileId == "5")
 		{
 			equipments.try_emplace("berry" + parsedEquipment->x + parsedEquipment->y, builder->getEquipment(std::stoi(parsedEquipment->x), std::stoi(parsedEquipment->y), "berry", levelName));
 		}
-		else if (parsedEquipment->tileId == "6") 
+		else if (parsedEquipment->tileId == "6")
 		{
 			equipments.try_emplace("boomerang" + parsedEquipment->x + parsedEquipment->y, builder->getEquipment(std::stoi(parsedEquipment->x), std::stoi(parsedEquipment->y), "boomerang", levelName));
 		}
@@ -39,9 +42,9 @@ void EquipmentFactory::createEquipment(const std::string& levelName)
 std::map<std::string, std::string> EquipmentFactory::passTextures() const
 {
 	std::map<std::string, std::string> totalTextures;
-	for (auto& equipment : equipments) 
+	for (auto& equipment : equipments)
 	{
-		for (auto& t : equipment.second->textures) 
+		for (auto& t : equipment.second->textures)
 		{
 			totalTextures.try_emplace(t.first, t.second);
 		}

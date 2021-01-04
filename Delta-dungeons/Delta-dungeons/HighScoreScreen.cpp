@@ -9,7 +9,7 @@ HighScoreScreen::HighScoreScreen()
 	this->components.emplace_back(std::move(gc));
 
 	// Main menu button
-	std::vector<std::string> possibleButtonTexMainMenu = { "button_exit" };
+	std::vector<std::string> possibleButtonTexMainMenu = { "button_exit", "button_exit_hover" };
 	std::shared_ptr<Button> mainMenuButton = std::make_shared<Button>(512, 750, possibleButtonTexMainMenu, staticExitCallbackFunction, this);
 	this->components.emplace_back(mainMenuButton);
 
@@ -35,7 +35,7 @@ void HighScoreScreen::staticExitCallbackFunction(const void* p)
 
 void HighScoreScreen::exitCallbackFunction() const
 {
-	SceneLoader::getInstance().loadScene("MainMenuScreen", "", true);
+	SceneLoader::getInstance().loadScene("MainMenuScreen", "", true, false);
 }
 
 void HighScoreScreen::start()

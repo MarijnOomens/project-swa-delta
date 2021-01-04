@@ -16,3 +16,8 @@ void AudioUtilities::playAudio(const std::string& trackName, bool looped)
 {
 	engineFacade->playAudio(trackName, looped);
 }
+
+void AudioUtilities::playEffect(const std::string& effectName)
+{
+	engineFacade->playEffect(effectName);
+}

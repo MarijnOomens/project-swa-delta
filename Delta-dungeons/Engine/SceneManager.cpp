@@ -1,12 +1,27 @@
 #include "SceneManager.h"
 
-void SceneManager::update()
+void SceneManager::update(int time, bool paused)
 {
 	for (const auto& s : activeScenes)
 	{
 		for (const auto& bo : scenes[s])
 		{
-			bo->update();
+			auto ngc = dynamic_cast<GraphicsComponent*>(bo.get());
+			auto ntc = dynamic_cast<TextComponent*>(bo.get());
+			if (paused)
+			{
+				if (ngc != nullptr)
+				{
+					ngc->update(time);
+				}
+				else if (ntc != nullptr)
+				{
+					ntc->update(time);
+				}
+			}
+			else if (!paused) {
+				bo->update(time);
+			}
 		}
 	}
 }
@@ -32,7 +47,7 @@ void SceneManager::loadScene(const std::string& sceneName, const std::string& fr
 		bo->start();
 	}
 	isSceneSwitched = true;
-	update();
+	update(timeFunc(pointer), false);
 }
 
 void SceneManager::loadPreviousScene()
@@ -51,7 +66,7 @@ void SceneManager::loadPreviousScene()
 	}
 
 	isSceneSwitched = true;
-	update();
+	update(timeFunc(pointer), false);
 }
 
 void SceneManager::addOverlayScene(const std::string& sceneName)
@@ -61,7 +76,7 @@ void SceneManager::addOverlayScene(const std::string& sceneName)
 
 	activeScenes.push_back(sceneName);
 	currentScene = sceneName;
-	update();
+	update(timeFunc(pointer), false);
 }
 
 void SceneManager::registerScene(const std::string& sceneName, const std::vector<std::shared_ptr<BehaviourObject>> behaviourObjects)
@@ -81,17 +96,20 @@ void SceneManager::setSceneSwitched(bool isSwitched)
 
 void SceneManager::handleSceneInput(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos)
 {
-	for (const auto& gameObject : scenes[currentScene])
+	for (const auto& s : activeScenes)
 	{
-		if (!isSceneSwitched) {
-			gameObject->handleInput(keyCode, keyboardEvent, mousePos);
+		for (const auto& bo : scenes[s])
+		{
+			if (!isSceneSwitched) {
+				bo->handleInput(keyCode, keyboardEvent, mousePos);
+			}
 		}
-	}	
+	}
 }
 
 void SceneManager::addObjectToScene(std::shared_ptr<BehaviourObject> addObject)
 {
-	if (currentScene != "") 
+	if (currentScene != "")
 	{
 		scenes[currentScene].emplace_back(addObject);
 	}
@@ -118,6 +136,7 @@ void SceneManager::passInteract(std::shared_ptr<BehaviourObject> player, int x, 
 				bo->transform.position.y + h > y)
 			{
 				bo->interact(player);
+				isSceneSwitched = true;
 			}
 		}
 	}
@@ -130,10 +149,29 @@ std::string SceneManager::getCurrentScene()
 
 void SceneManager::deleteScene(const std::string& sceneName)
 {
-	scenes[sceneName].clear();
+	if (scenes.count(sceneName) != 0)
+	{
+		scenes.erase(sceneName);
+	}
 }
 
 void SceneManager::replaceScene(const std::string sceneName, std::vector<std::shared_ptr<BehaviourObject>> objects)
 {
 	scenes[sceneName] = objects;
+}
+
+std::shared_ptr<BehaviourObject> SceneManager::getBehaviourObject(CollidingComponent* collidingComponent)
+{
+	for (const auto& bo : scenes[currentScene])
+	{
+		auto gameObject = dynamic_cast<GameObject*>(bo.get());
+		if (gameObject) {
+			for (auto& c : gameObject->getComponentsRecursive())
+			{
+				if (c.get() == collidingComponent) {
+					return bo;
+				}
+			}
+		}
+	}
 }

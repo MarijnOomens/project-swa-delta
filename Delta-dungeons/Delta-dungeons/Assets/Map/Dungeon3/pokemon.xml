@@ -1,15 +1,15 @@
 <Pokemons>
-<Pokemon name="ponyta" encounterRate="75"/>
-<Pokemon name="growlithe" encounterRate="75"/>
-<Pokemon name="flygon" encounterRate="40"/>
-<Pokemon name="magmortar" encounterRate="40"/>
-<Pokemon name="magby" encounterRate="85"/>
-<Pokemon name="magmar" encounterRate="60"/>
-<Pokemon name="luxray" encounterRate="50"/>
-<Pokemon name="flareon" encounterRate="55"/>
-<Pokemon name="arcenine" encounterRate="55"/>
-<Pokemon name="rapidash" encounterRate="55"/>
-<Pokemon name="gardevoir" encounterRate="30"/>
-<Pokemon name="gallade" encounterRate="30"/>
-<Pokemon name="garchomp" encounterRate="25"/>
+<Pokemon name="ponyta" encounterRate="75" attacktime="4500"/>
+<Pokemon name="growlithe" encounterRate="75" attacktime="4500"/>
+<Pokemon name="flygon" encounterRate="40" attacktime="2000"/>
+<Pokemon name="magmortar" encounterRate="40" attacktime="3000"/>
+<Pokemon name="magby" encounterRate="85" attacktime="5000"/>
+<Pokemon name="magmar" encounterRate="60" attacktime="4000"/>
+<Pokemon name="luxray" encounterRate="50" attacktime="3500"/>
+<Pokemon name="flareon" encounterRate="55" attacktime="4500"/>
+<Pokemon name="arcanine" encounterRate="55" attacktime="3000"/>
+<Pokemon name="rapidash" encounterRate="55" attacktime="3000"/>
+<Pokemon name="gardevoir" encounterRate="30" attacktime="3500"/>
+<Pokemon name="gallade" encounterRate="30" attacktime="3500"/>
+<Pokemon name="garchomp" encounterRate="25" attacktime="2500"/>
 </Pokemons>

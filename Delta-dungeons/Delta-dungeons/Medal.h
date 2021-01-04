@@ -11,7 +11,7 @@ public:
 	void setParent() override {}
 	void handleInput(const KeyCodes& keyCode, const KeyboardEvent& keyboardEvent, Vector2D& mousePos) override {}
 	void start() override {}
-	void update() override {}
+	void update(int time) override {}
 	void registerCollision(int x, int y, bool isDamaged, bool isTransitioned, bool isWinTrigger) override {}
 private:
 	std::shared_ptr<CollisionStrategy> stp;

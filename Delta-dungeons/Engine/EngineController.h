@@ -46,6 +46,7 @@ public:
 	void createCamera(int x, int y) const;
 	void passPlayerPosition(int x, int y);
 	void pauseScreen();
+	void pauseInput();
 	void quitGame() const;
 	int getFPS() const;
 	void slowDownGame() const;
@@ -61,8 +62,15 @@ public:
 	void checkGameOver();
 	void checkTransition()const;
 	void playAudio(const std::string& trackName, bool looped);
+	void playEffect(const std::string& effectName);
 	void deleteScene(const std::string& sceneName);
 	void replaceScene(const std::string sceneName, std::vector<std::shared_ptr<BehaviourObject>> objects);
+	bool checkInRangeCamera(int x, int y) const;
+	static std::shared_ptr<BehaviourObject> staticGetBehaviourObjectCallBack(void* p, CollidingComponent* collidingComponent);
+	std::shared_ptr<BehaviourObject> getBehaviourObjectCallBack(CollidingComponent* collidingComponent);
+	void checkAiCollision(std::shared_ptr<CollidingComponent> collider, std::shared_ptr<BehaviourObject> behaviourObject, int x, int y, KeyCodes direction, int w) const;
+	static int staticGetTimeCallback(void* p);
+	int getTimeCallback();
 
 private:
 	std::vector<int> hudLayers;
@@ -74,8 +82,9 @@ private:
 	std::shared_ptr<FontAssetManager> fontAssetManager;
 	std::shared_ptr<AudioAssetManager> audioAssetManager;
 	std::shared_ptr<Input> input;
-	SceneManager sceneManager;
+	std::shared_ptr<SceneManager> sceneManager;
 	std::shared_ptr<Collision> collision;
 	bool isGameOver = false;
+	bool inputPaused = false;
 	int timer = 30;
 };
