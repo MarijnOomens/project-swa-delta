@@ -12,6 +12,7 @@
 class EngineFacade
 {
 public:
+	ENGINE_API EngineFacade() {}
 	ENGINE_API ~EngineFacade() {}
 
 	/// <summary>
