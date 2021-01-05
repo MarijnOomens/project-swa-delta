@@ -25,6 +25,7 @@ void Collision::setCameraDimensions(const Transform& transform) {
 
 void Collision::checkCollision(std::shared_ptr<CollidingComponent> collider, std::shared_ptr<BehaviourObject> behaviourObject, int x, int y, KeyCodes direction, int w)
 {
+	w = w - 32;
 	for (auto& collider2 : colliderObjects)
 	{
 		auto col2 = dynamic_cast<CollidingComponent*>(collider2.get());
@@ -38,7 +39,7 @@ void Collision::checkCollision(std::shared_ptr<CollidingComponent> collider, std
 		{
 			if (x + w > col2->transform.position.x &&
 				col2->transform.position.x + w > x &&
-				y + w > col2->transform.position.y &&
+				y + w + 16 > col2->transform.position.y &&
 				col2->transform.position.y + w > y)
 			{
 				std::shared_ptr<BehaviourObject> bo = func(pointer, col2);
