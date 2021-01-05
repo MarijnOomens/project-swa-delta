@@ -111,36 +111,23 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 
 
 <h3><a id="index_c"></a>- c -</h3><ul>
-<li>checkedDown
-: <a class="el" href="class_collision.html#ac7a11ddf298a7ad50f21f559499ff7cd">Collision</a>
+<li>camera
+: <a class="el" href="class_renderer.html#a7ffbe476d5facdeee9599d7986628f73">Renderer</a>
 </li>
-<li>checkedLeft
-: <a class="el" href="class_collision.html#adc0007b4ef63600339345fa7c6c78469">Collision</a>
+<li>cameraH
+: <a class="el" href="class_collision.html#ae4e15eedf5cde9a08ea2cf0e35e4ae0c">Collision</a>
 </li>
-<li>checkedRight
-: <a class="el" href="class_collision.html#ae492f116fd147b636a664c0063ad0694">Collision</a>
+<li>cameraW
+: <a class="el" href="class_collision.html#a05f3e01ec0a451cabb481796c8cec871">Collision</a>
 </li>
-<li>checkedUp
-: <a class="el" href="class_collision.html#ae90a3f59fad1639938c12316366530f2">Collision</a>
+<li>cameraX
+: <a class="el" href="class_collision.html#a7633144e29274a27123059daf3288ac8">Collision</a>
 </li>
-<li>collisionFunc
-: <a class="el" href="class_collider_component.html#afd94ab5db51ea08961c7a46181f801a1">ColliderComponent</a>
+<li>cameraY
+: <a class="el" href="class_collision.html#a1a037a81f6e1ab70405f5c4786cda7a1">Collision</a>
 </li>
 <li>components
 : <a class="el" href="class_game_object.html#a8f20a6f2d878d56f9a09920279574863">GameObject</a>
-</li>
-<li>currentObjects
-: <a class="el" href="class_scene_manager.html#a6f8339d725d97183a1e988dad51d91c0">SceneManager</a>
-</li>
-</ul>
-
-
-<h3><a id="index_d"></a>- d -</h3><ul>
-<li>downTag
-: <a class="el" href="class_collision.html#aafe1e26fa298c1e6ca8c0671fcbf35aa">Collision</a>
-</li>
-<li>downY
-: <a class="el" href="class_collision.html#a9464efae0089d61f18504f699a4b2046">Collision</a>
 </li>
 </ul>
 
@@ -172,6 +159,9 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <li>inputWrapper
 : <a class="el" href="class_i_input_facade.html#a03f4835033af5a6f53a0cc15f7fc0722">IInputFacade</a>
 </li>
+<li>isOverlayScene
+: <a class="el" href="class_scene_manager.html#a22f863609f45d9475ad619f8edfbc12e">SceneManager</a>
+</li>
 <li>isPaused
 : <a class="el" href="class_renderer.html#abfe0ec1a52a85f7cfc61cb7ae826b76e">Renderer</a>
 </li>
@@ -182,7 +172,7 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 : <a class="el" href="class_graphics_component.html#acc2564ad1c513d91bbe16ef0d8ddb80f">GraphicsComponent</a>
 </li>
 <li>isTrigger
-: <a class="el" href="class_collider_component.html#aaed1b8a63229dde0fa0bf9c1342b6710">ColliderComponent</a>
+: <a class="el" href="class_colliding_component.html#a6f9af8769d3f9e0203910b989c5b8785">CollidingComponent</a>
 </li>
 </ul>
 
@@ -190,12 +180,6 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <h3><a id="index_l"></a>- l -</h3><ul>
 <li>layer
 : <a class="el" href="class_h_u_d_component.html#a3dbbdd9b189d9a942c2f6d17a3af79db">HUDComponent</a>
-</li>
-<li>leftTag
-: <a class="el" href="class_collision.html#a25cf35374a6c62e04c9b4e04f63c2a4d">Collision</a>
-</li>
-<li>leftX
-: <a class="el" href="class_collision.html#ac1321b332c0ead6e58d17af823dd9032">Collision</a>
 </li>
 </ul>
 
@@ -220,9 +204,15 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 
 
 <h3><a id="index_p"></a>- p -</h3><ul>
+<li>parent
+: <a class="el" href="class_colliding_component.html#a88fe2ebcb0e8d7c2036cad3fbf7094ac">CollidingComponent</a>
+</li>
+<li>passCameraFunc
+: <a class="el" href="class_renderer.html#a2c0f9d30f5cea28d2cc4e369d73c3c3c">Renderer</a>
+</li>
 <li>pointer
-: <a class="el" href="class_collider_component.html#ab0c97e3d73fff7b67207f82c73007dc9">ColliderComponent</a>
-, <a class="el" href="class_input.html#a7afcae46257bde2a39642f0a6d079260">Input</a>
+: <a class="el" href="class_input.html#a7afcae46257bde2a39642f0a6d079260">Input</a>
+, <a class="el" href="class_renderer.html#a2a0f9b93152a34d458a5eddfb8c0807d">Renderer</a>
 </li>
 <li>position
 : <a class="el" href="class_transform.html#aabf00419833a505cd8fbb4819e536659">Transform</a>
@@ -237,12 +227,6 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <li>renderer
 : <a class="el" href="class_render_facade.html#ac9d3a422f74846879134b9ff71da93aa">RenderFacade</a>
 </li>
-<li>rightTag
-: <a class="el" href="class_collision.html#ae3895d74f97af7e5351a33b069ce971e">Collision</a>
-</li>
-<li>rightX
-: <a class="el" href="class_collision.html#a113a065509d37bff499f538614fa8005">Collision</a>
-</li>
 <li>rotation
 : <a class="el" href="class_transform.html#a83a0c7a1b9107308d49ceb12b495b7e9">Transform</a>
 </li>
@@ -256,12 +240,15 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <li>sdlRenderer
 : <a class="el" href="class_renderer.html#a785de8b89acc27606fb022ce19bb1080">Renderer</a>
 </li>
+<li>strategy
+: <a class="el" href="class_colliding_component.html#abba98eead549c054ae77c29839ac6b67">CollidingComponent</a>
+</li>
 </ul>
 
 
 <h3><a id="index_t"></a>- t -</h3><ul>
 <li>tag
-: <a class="el" href="class_collider_component.html#add5618abd6aaa05b06888b28b1221f6f">ColliderComponent</a>
+: <a class="el" href="class_colliding_component.html#a173677ef52fb23cbb585891f2f4f7f7b">CollidingComponent</a>
 </li>
 <li>textureManager
 : <a class="el" href="class_u_i_component.html#a662909b66c221e2f6143257215187997">UIComponent</a>
@@ -272,15 +259,8 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <li>transform
 : <a class="el" href="class_behaviour_object.html#a425b1e7b7178a010ba59da77bcc8090b">BehaviourObject</a>
 </li>
-</ul>
-
-
-<h3><a id="index_u"></a>- u -</h3><ul>
-<li>upTag
-: <a class="el" href="class_collision.html#a8ba442c0657a767ffbd1df6ac6ab2943">Collision</a>
-</li>
-<li>upY
-: <a class="el" href="class_collision.html#ada5bc55ceb9551c97c5eb87a1a541364">Collision</a>
+<li>transitioning
+: <a class="el" href="class_renderer.html#ae00fc1c7fc2dbf2444fa91630a8c23ea">Renderer</a>
 </li>
 </ul>
 

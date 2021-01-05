@@ -99,18 +99,29 @@ $(document).ready(function(){initNavTree('_audio_wrapper_8h_source.html',''); in
 </div><!--header-->
 <div class="contents">
 <a href="_audio_wrapper_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno"><a class="line" href="class_audio_wrapper.html">    3</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_audio_wrapper.html">AudioWrapper</a> </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;{</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="class_audio_wrapper.html#ade48ecf1688e8bbdb8f2478be677440a">    6</a></span>&#160;    <a class="code" href="class_audio_wrapper.html#ade48ecf1688e8bbdb8f2478be677440a">AudioWrapper</a>() {}</div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_audio_wrapper.html#ad439ee838f61f815d35bb20ad7c3079b">    7</a></span>&#160;    <a class="code" href="class_audio_wrapper.html#ad439ee838f61f815d35bb20ad7c3079b">~AudioWrapper</a>() {}</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;};</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;SDL_mixer.h&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;SDL.h&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="class_audio_wrapper.html">    6</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_audio_wrapper.html">AudioWrapper</a></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_audio_wrapper.html#ade48ecf1688e8bbdb8f2478be677440a">    9</a></span>&#160;    <a class="code" href="class_audio_wrapper.html#ade48ecf1688e8bbdb8f2478be677440a">AudioWrapper</a>() {}</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="class_audio_wrapper.html#ad439ee838f61f815d35bb20ad7c3079b">   10</a></span>&#160;    <a class="code" href="class_audio_wrapper.html#ad439ee838f61f815d35bb20ad7c3079b">~AudioWrapper</a>() {}</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_audio_wrapper.html#aa57b01d7c41a1e84ac8b36cad605d667">playAudio</a>(<span class="keyword">const</span> std::string&amp; path, <span class="keywordtype">bool</span> loop);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_audio_wrapper.html#a7cc9bb88fa4cacdb26dfab53712b0501">playEffect</a>(<span class="keyword">const</span> std::string&amp; path);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    Mix_Music* gMusic = NULL;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    Mix_Chunk* gEffect = NULL;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_audio_wrapper_html"><div class="ttname"><a href="class_audio_wrapper.html">AudioWrapper</a></div><div class="ttdef"><b>Definition:</b> AudioWrapper.h:4</div></div>
-<div class="ttc" id="aclass_audio_wrapper_html_ad439ee838f61f815d35bb20ad7c3079b"><div class="ttname"><a href="class_audio_wrapper.html#ad439ee838f61f815d35bb20ad7c3079b">AudioWrapper::~AudioWrapper</a></div><div class="ttdeci">~AudioWrapper()</div><div class="ttdef"><b>Definition:</b> AudioWrapper.h:7</div></div>
-<div class="ttc" id="aclass_audio_wrapper_html_ade48ecf1688e8bbdb8f2478be677440a"><div class="ttname"><a href="class_audio_wrapper.html#ade48ecf1688e8bbdb8f2478be677440a">AudioWrapper::AudioWrapper</a></div><div class="ttdeci">AudioWrapper()</div><div class="ttdef"><b>Definition:</b> AudioWrapper.h:6</div></div>
+<div class="ttc" id="aclass_audio_wrapper_html_a7cc9bb88fa4cacdb26dfab53712b0501"><div class="ttname"><a href="class_audio_wrapper.html#a7cc9bb88fa4cacdb26dfab53712b0501">AudioWrapper::playEffect</a></div><div class="ttdeci">void playEffect(const std::string &amp;path)</div><div class="ttdef"><b>Definition:</b> AudioWrapper.cpp:17</div></div>
+<div class="ttc" id="aclass_audio_wrapper_html"><div class="ttname"><a href="class_audio_wrapper.html">AudioWrapper</a></div><div class="ttdef"><b>Definition:</b> AudioWrapper.h:7</div></div>
+<div class="ttc" id="aclass_audio_wrapper_html_aa57b01d7c41a1e84ac8b36cad605d667"><div class="ttname"><a href="class_audio_wrapper.html#aa57b01d7c41a1e84ac8b36cad605d667">AudioWrapper::playAudio</a></div><div class="ttdeci">void playAudio(const std::string &amp;path, bool loop)</div><div class="ttdef"><b>Definition:</b> AudioWrapper.cpp:3</div></div>
+<div class="ttc" id="aclass_audio_wrapper_html_ad439ee838f61f815d35bb20ad7c3079b"><div class="ttname"><a href="class_audio_wrapper.html#ad439ee838f61f815d35bb20ad7c3079b">AudioWrapper::~AudioWrapper</a></div><div class="ttdeci">~AudioWrapper()</div><div class="ttdef"><b>Definition:</b> AudioWrapper.h:10</div></div>
+<div class="ttc" id="aclass_audio_wrapper_html_ade48ecf1688e8bbdb8f2478be677440a"><div class="ttname"><a href="class_audio_wrapper.html#ade48ecf1688e8bbdb8f2478be677440a">AudioWrapper::AudioWrapper</a></div><div class="ttdeci">AudioWrapper()</div><div class="ttdef"><b>Definition:</b> AudioWrapper.h:9</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

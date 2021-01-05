@@ -107,8 +107,8 @@ $(document).ready(function(){initNavTree('class_renderer.html',''); initResizabl
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7ebf46f54dab9905f79b80f7fddb76a6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a7ebf46f54dab9905f79b80f7fddb76a6">Renderer</a> ()</td></tr>
-<tr class="separator:a7ebf46f54dab9905f79b80f7fddb76a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8817f399bcee130fe2a24fcbe06d721"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#ac8817f399bcee130fe2a24fcbe06d721">Renderer</a> (<a class="el" href="_render_facade_8h.html#a9afa52740305c2fc54a6799c9d0a71d0">cbPassCameraDimension</a> cbPCD, void *p)</td></tr>
+<tr class="separator:ac8817f399bcee130fe2a24fcbe06d721"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afeee408862d5bd6255a6882d47e6d5cd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#afeee408862d5bd6255a6882d47e6d5cd">~Renderer</a> ()</td></tr>
 <tr class="separator:afeee408862d5bd6255a6882d47e6d5cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3eff7d04094bbd2b1c518d85620740bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a3eff7d04094bbd2b1c518d85620740bf">init</a> (const std::string &amp;title, const int width, const int height, const bool fullscreen)</td></tr>
@@ -120,6 +120,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a6b8c272b169789e528c998e668fe9696"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa8169fdc5aa0274026af239d467ca1e7"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#aa8169fdc5aa0274026af239d467ca1e7">updateCamera</a> (const int playerX, const int playerY)</td></tr>
 <tr class="separator:aa8169fdc5aa0274026af239d467ca1e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93cffaa7e3bd22b2ae45af306ffad962"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_transform.html">Transform</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a93cffaa7e3bd22b2ae45af306ffad962">getCameraDimensions</a> ()</td></tr>
+<tr class="separator:a93cffaa7e3bd22b2ae45af306ffad962"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acdf1c09c2f1b8fd415efc3e05bf7380b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#acdf1c09c2f1b8fd415efc3e05bf7380b">clean</a> () const</td></tr>
 <tr class="memdesc:acdf1c09c2f1b8fd415efc3e05bf7380b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This methods cleans the game files and destroys all sdl components to makes sure all memory is cleared.  <a href="class_renderer.html#acdf1c09c2f1b8fd415efc3e05bf7380b">More...</a><br /></td></tr>
 <tr class="separator:acdf1c09c2f1b8fd415efc3e05bf7380b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -134,21 +136,38 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:acb754d3a46f5d86368a43f605ea78967"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#acb754d3a46f5d86368a43f605ea78967">afterFrame</a> () const</td></tr>
 <tr class="memdesc:acb754d3a46f5d86368a43f605ea78967"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method draws the screen after the frame is done.  <a href="class_renderer.html#acb754d3a46f5d86368a43f605ea78967">More...</a><br /></td></tr>
 <tr class="separator:acb754d3a46f5d86368a43f605ea78967"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f8d83561f0bd96dc32e5347bbba028e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a5f8d83561f0bd96dc32e5347bbba028e">drawTexture</a> (SDL_Texture *texture, const <a class="el" href="class_transform.html">Transform</a> &amp;transform, const <a class="el" href="class_vector2_d.html">Vector2D</a> &amp;coordinates, const <a class="el" href="class_vector2_d.html">Vector2D</a> &amp;sourceDimension, const int row, const int frames, const int speed, const bool animated, const bool flipped, const bool isScreen) const</td></tr>
-<tr class="separator:a5f8d83561f0bd96dc32e5347bbba028e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ad021856b0f102b94d50b1d2ca5ec77"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a3ad021856b0f102b94d50b1d2ca5ec77">drawTexture</a> (SDL_Texture *texture, const <a class="el" href="class_transform.html">Transform</a> &amp;transform, const <a class="el" href="class_vector2_d.html">Vector2D</a> &amp;coordinates, const <a class="el" href="class_vector2_d.html">Vector2D</a> &amp;sourceDimension, int row, int frames, int speed, bool animated, bool flipped, bool isScreen)</td></tr>
+<tr class="separator:a3ad021856b0f102b94d50b1d2ca5ec77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a469e59d855ffd3cee6451984b361ffc7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a469e59d855ffd3cee6451984b361ffc7">drawText</a> (SDL_Texture *texture, SDL_Rect source, SDL_Rect destination, SDL_RendererFlip flip)</td></tr>
+<tr class="memdesc:a469e59d855ffd3cee6451984b361ffc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function will draw the texture within the renderer with the given parameters.  <a href="class_renderer.html#a469e59d855ffd3cee6451984b361ffc7">More...</a><br /></td></tr>
+<tr class="separator:a469e59d855ffd3cee6451984b361ffc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e0d7c71ecd91d5b8a471d7676922eb4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a8e0d7c71ecd91d5b8a471d7676922eb4">transition</a> ()</td></tr>
+<tr class="separator:a8e0d7c71ecd91d5b8a471d7676922eb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a445c16756ec316b8c31cd970c74df67a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a445c16756ec316b8c31cd970c74df67a">checkTransition</a> ()</td></tr>
+<tr class="separator:a445c16756ec316b8c31cd970c74df67a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac449e84e44b9372a3baa01592ee36a67"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#ac449e84e44b9372a3baa01592ee36a67">checkInRangeCamera</a> (int x, int y) const</td></tr>
+<tr class="separator:ac449e84e44b9372a3baa01592ee36a67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
+<tr class="memitem:a2c0f9d30f5cea28d2cc4e369d73c3c3c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_render_facade_8h.html#a9afa52740305c2fc54a6799c9d0a71d0">cbPassCameraDimension</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a2c0f9d30f5cea28d2cc4e369d73c3c3c">passCameraFunc</a></td></tr>
+<tr class="separator:a2c0f9d30f5cea28d2cc4e369d73c3c3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a0f9b93152a34d458a5eddfb8c0807d"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a2a0f9b93152a34d458a5eddfb8c0807d">pointer</a></td></tr>
+<tr class="separator:a2a0f9b93152a34d458a5eddfb8c0807d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7f25b308e222af21bfddb6ba7f0a123"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#ab7f25b308e222af21bfddb6ba7f0a123">isRunning</a></td></tr>
 <tr class="separator:ab7f25b308e222af21bfddb6ba7f0a123"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abfe0ec1a52a85f7cfc61cb7ae826b76e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#abfe0ec1a52a85f7cfc61cb7ae826b76e">isPaused</a></td></tr>
 <tr class="separator:abfe0ec1a52a85f7cfc61cb7ae826b76e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae00fc1c7fc2dbf2444fa91630a8c23ea"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#ae00fc1c7fc2dbf2444fa91630a8c23ea">transitioning</a> = false</td></tr>
+<tr class="separator:ae00fc1c7fc2dbf2444fa91630a8c23ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a785de8b89acc27606fb022ce19bb1080"><td class="memItemLeft" align="right" valign="top">SDL_Renderer *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a785de8b89acc27606fb022ce19bb1080">sdlRenderer</a></td></tr>
 <tr class="separator:a785de8b89acc27606fb022ce19bb1080"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ffbe476d5facdeee9599d7986628f73"><td class="memItemLeft" align="right" valign="top">SDL_Rect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_renderer.html#a7ffbe476d5facdeee9599d7986628f73">camera</a></td></tr>
+<tr class="separator:a7ffbe476d5facdeee9599d7986628f73"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a7ebf46f54dab9905f79b80f7fddb76a6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7ebf46f54dab9905f79b80f7fddb76a6">&#9670;&nbsp;</a></span>Renderer()</h2>
+<a id="ac8817f399bcee130fe2a24fcbe06d721"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8817f399bcee130fe2a24fcbe06d721">&#9670;&nbsp;</a></span>Renderer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -156,8 +175,19 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="memname">Renderer::Renderer </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="_render_facade_8h.html#a9afa52740305c2fc54a6799c9d0a71d0">cbPassCameraDimension</a>&#160;</td>
+          <td class="paramname"><em>cbPCD</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -238,6 +268,51 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="ac449e84e44b9372a3baa01592ee36a67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac449e84e44b9372a3baa01592ee36a67">&#9670;&nbsp;</a></span>checkInRangeCamera()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Renderer::checkInRangeCamera </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a445c16756ec316b8c31cd970c74df67a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a445c16756ec316b8c31cd970c74df67a">&#9670;&nbsp;</a></span>checkTransition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Renderer::checkTransition </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="acdf1c09c2f1b8fd415efc3e05bf7380b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acdf1c09c2f1b8fd415efc3e05bf7380b">&#9670;&nbsp;</a></span>clean()</h2>
 
@@ -285,8 +360,59 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a5f8d83561f0bd96dc32e5347bbba028e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f8d83561f0bd96dc32e5347bbba028e">&#9670;&nbsp;</a></span>drawTexture()</h2>
+<a id="a469e59d855ffd3cee6451984b361ffc7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a469e59d855ffd3cee6451984b361ffc7">&#9670;&nbsp;</a></span>drawText()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Renderer::drawText </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Texture *&#160;</td>
+          <td class="paramname"><em>texture</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Rect&#160;</td>
+          <td class="paramname"><em>source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Rect&#160;</td>
+          <td class="paramname"><em>destination</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_RendererFlip&#160;</td>
+          <td class="paramname"><em>flip</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This function will draw the texture within the renderer with the given parameters. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">texture</td><td>This is the texture that will be drawn.</td></tr>
+    <tr><td class="paramname">source</td><td>The source is the width and height of the texture.</td></tr>
+    <tr><td class="paramname">destination</td><td>The destination is the X and Y position of the texture.</td></tr>
+    <tr><td class="paramname">flip</td><td>The flip is to determine if the texture needs to drawn upside down, flipped or normal. (Used for animations)</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3ad021856b0f102b94d50b1d2ca5ec77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ad021856b0f102b94d50b1d2ca5ec77">&#9670;&nbsp;</a></span>drawTexture()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -318,43 +444,60 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const int&#160;</td>
+          <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>row</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const int&#160;</td>
+          <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>frames</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const int&#160;</td>
+          <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>speed</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const bool&#160;</td>
+          <td class="paramtype">bool&#160;</td>
           <td class="paramname"><em>animated</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const bool&#160;</td>
+          <td class="paramtype">bool&#160;</td>
           <td class="paramname"><em>flipped</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const bool&#160;</td>
+          <td class="paramtype">bool&#160;</td>
           <td class="paramname"><em>isScreen</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td> const</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a93cffaa7e3bd22b2ae45af306ffad962"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93cffaa7e3bd22b2ae45af306ffad962">&#9670;&nbsp;</a></span>getCameraDimensions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_transform.html">Transform</a> Renderer::getCameraDimensions </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -448,6 +591,23 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a8e0d7c71ecd91d5b8a471d7676922eb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e0d7c71ecd91d5b8a471d7676922eb4">&#9670;&nbsp;</a></span>transition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Renderer::transition </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aa8169fdc5aa0274026af239d467ca1e7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa8169fdc5aa0274026af239d467ca1e7">&#9670;&nbsp;</a></span>updateCamera()</h2>
 
@@ -477,6 +637,20 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a7ffbe476d5facdeee9599d7986628f73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ffbe476d5facdeee9599d7986628f73">&#9670;&nbsp;</a></span>camera</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SDL_Rect Renderer::camera</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="abfe0ec1a52a85f7cfc61cb7ae826b76e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abfe0ec1a52a85f7cfc61cb7ae826b76e">&#9670;&nbsp;</a></span>isPaused</h2>
 
@@ -505,6 +679,34 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a2c0f9d30f5cea28d2cc4e369d73c3c3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c0f9d30f5cea28d2cc4e369d73c3c3c">&#9670;&nbsp;</a></span>passCameraFunc</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_render_facade_8h.html#a9afa52740305c2fc54a6799c9d0a71d0">cbPassCameraDimension</a> Renderer::passCameraFunc</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2a0f9b93152a34d458a5eddfb8c0807d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a0f9b93152a34d458a5eddfb8c0807d">&#9670;&nbsp;</a></span>pointer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* Renderer::pointer</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a785de8b89acc27606fb022ce19bb1080"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a785de8b89acc27606fb022ce19bb1080">&#9670;&nbsp;</a></span>sdlRenderer</h2>
 
@@ -513,6 +715,20 @@ Public Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">SDL_Renderer* Renderer::sdlRenderer</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae00fc1c7fc2dbf2444fa91630a8c23ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae00fc1c7fc2dbf2444fa91630a8c23ea">&#9670;&nbsp;</a></span>transitioning</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Renderer::transitioning = false</td>
         </tr>
       </table>
 </div><div class="memdoc">

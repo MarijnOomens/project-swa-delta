@@ -109,32 +109,40 @@ Inheritance diagram for TextComponent:</div>
  <div class="center">
   <img src="class_text_component.png" usemap="#TextComponent_map" alt=""/>
   <map id="TextComponent_map" name="TextComponent_map">
-<area href="class_behaviour_object.html" alt="BehaviourObject" shape="rect" coords="0,0,107,24"/>
+<area href="class_behaviour_object.html" title="BehviourObject is the base class in the GameObject + components composite pattern." alt="BehaviourObject" shape="rect" coords="0,56,295,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a61cc41bbb698630e4cff2f97d8d85ff7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_component.html#a61cc41bbb698630e4cff2f97d8d85ff7">TextComponent</a> (const std::string &amp;text, const std::string &amp;font, const <a class="el" href="class_colour.html">Colour</a> &amp;colour, const int fontSize)</td></tr>
-<tr class="memdesc:a61cc41bbb698630e4cff2f97d8d85ff7"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_text_component.html">TextComponent</a> holds all information of a text item that can be drawn onto the screen.  <a href="class_text_component.html#a61cc41bbb698630e4cff2f97d8d85ff7">More...</a><br /></td></tr>
-<tr class="separator:a61cc41bbb698630e4cff2f97d8d85ff7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0f6998cdb094e9b7bef114166921ad0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_component.html#ae0f6998cdb094e9b7bef114166921ad0">TextComponent</a> (const std::string &amp;text, const std::string &amp;font, const <a class="el" href="class_colour.html">Colour</a> &amp;colour, int fontSize)</td></tr>
+<tr class="memdesc:ae0f6998cdb094e9b7bef114166921ad0"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_text_component.html">TextComponent</a> holds all information of a text item that can be drawn onto the screen.  <a href="class_text_component.html#ae0f6998cdb094e9b7bef114166921ad0">More...</a><br /></td></tr>
+<tr class="separator:ae0f6998cdb094e9b7bef114166921ad0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae4c5cdf5a2125e8ca4cd6392e06cef24"><td class="memItemLeft" align="right" valign="top"><a class="el" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_component.html#ae4c5cdf5a2125e8ca4cd6392e06cef24">~TextComponent</a> ()</td></tr>
 <tr class="separator:ae4c5cdf5a2125e8ca4cd6392e06cef24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab42572788b394230c764a1cec96d2792"><td class="memItemLeft" align="right" valign="top"><a class="el" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_component.html#ab42572788b394230c764a1cec96d2792">changeText</a> (const std::string &amp;text)</td></tr>
+<tr class="memdesc:ab42572788b394230c764a1cec96d2792"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the text to the given string  <a href="class_text_component.html#ab42572788b394230c764a1cec96d2792">More...</a><br /></td></tr>
 <tr class="separator:ab42572788b394230c764a1cec96d2792"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48d0738c2cf80bfa71ee5345ba654936"><td class="memItemLeft" align="right" valign="top"><a class="el" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_component.html#a48d0738c2cf80bfa71ee5345ba654936">addTextureManager</a> (std::shared_ptr&lt; <a class="el" href="class_texture_manager.html">TextureManager</a> &gt; tm)</td></tr>
-<tr class="memdesc:a48d0738c2cf80bfa71ee5345ba654936"><td class="mdescLeft">&#160;</td><td class="mdescRight">This methods adds a reference to the gobal <a class="el" href="class_texture_manager.html">TextureManager</a>.  <a href="class_text_component.html#a48d0738c2cf80bfa71ee5345ba654936">More...</a><br /></td></tr>
-<tr class="separator:a48d0738c2cf80bfa71ee5345ba654936"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d8205a293688e5bb690cd7abf438436"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_component.html#a0d8205a293688e5bb690cd7abf438436">update</a> () override</td></tr>
-<tr class="memdesc:a0d8205a293688e5bb690cd7abf438436"><td class="mdescLeft">&#160;</td><td class="mdescRight">The update methods calls the <a class="el" href="class_texture_manager.html">TextureManager</a> to draw the item.  <a href="class_text_component.html#a0d8205a293688e5bb690cd7abf438436">More...</a><br /></td></tr>
-<tr class="separator:a0d8205a293688e5bb690cd7abf438436"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac165d6e290e5128201a15c273b51beba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_component.html#ac165d6e290e5128201a15c273b51beba">addFontManager</a> (std::shared_ptr&lt; <a class="el" href="class_font_manager.html">FontManager</a> &gt; fm)</td></tr>
+<tr class="memdesc:ac165d6e290e5128201a15c273b51beba"><td class="mdescLeft">&#160;</td><td class="mdescRight">This methods adds a reference to the gobal <a class="el" href="class_texture_manager.html">TextureManager</a>.  <a href="class_text_component.html#ac165d6e290e5128201a15c273b51beba">More...</a><br /></td></tr>
+<tr class="separator:ac165d6e290e5128201a15c273b51beba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a085f21391182a9a8a6a047a7f7bed815"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_component.html#a085f21391182a9a8a6a047a7f7bed815">update</a> (int time) override</td></tr>
+<tr class="memdesc:a085f21391182a9a8a6a047a7f7bed815"><td class="mdescLeft">&#160;</td><td class="mdescRight">The update methods calls the <a class="el" href="class_texture_manager.html">TextureManager</a> to draw the item.  <a href="class_text_component.html#a085f21391182a9a8a6a047a7f7bed815">More...</a><br /></td></tr>
+<tr class="separator:a085f21391182a9a8a6a047a7f7bed815"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a093811fc81691f96a821deb3d3f3298f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_component.html#a093811fc81691f96a821deb3d3f3298f">handleInput</a> (const <a class="el" href="_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fc">KeyCodes</a> &amp;keyCode, const <a class="el" href="_keyboardevent_8h.html#abfaf4f911065374ca6c765029ec086ae">KeyboardEvent</a> &amp;keyboardEvent, <a class="el" href="class_vector2_d.html">Vector2D</a> &amp;mousePos) override</td></tr>
+<tr class="memdesc:a093811fc81691f96a821deb3d3f3298f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets called every time the scene this <a class="el" href="class_behaviour_object.html" title="BehviourObject is the base class in the GameObject + components composite pattern.">BehaviourObject</a> is in receives input.  <a href="class_text_component.html#a093811fc81691f96a821deb3d3f3298f">More...</a><br /></td></tr>
 <tr class="separator:a093811fc81691f96a821deb3d3f3298f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeaad533150ef3760e7009c01bc1a5944"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_component.html#aeaad533150ef3760e7009c01bc1a5944">interact</a> () override</td></tr>
-<tr class="separator:aeaad533150ef3760e7009c01bc1a5944"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab47b025d65326d9930eab0f48896642e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_component.html#ab47b025d65326d9930eab0f48896642e">interact</a> (std::shared_ptr&lt; <a class="el" href="class_behaviour_object.html">BehaviourObject</a> &gt; interactor) override</td></tr>
+<tr class="memdesc:ab47b025d65326d9930eab0f48896642e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets called when a gameobject triggers an interaction with this <a class="el" href="class_behaviour_object.html" title="BehviourObject is the base class in the GameObject + components composite pattern.">BehaviourObject</a>  <a href="class_text_component.html#ab47b025d65326d9930eab0f48896642e">More...</a><br /></td></tr>
+<tr class="separator:ab47b025d65326d9930eab0f48896642e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f5db59935583f3993ddac50adf731fa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_component.html#a1f5db59935583f3993ddac50adf731fa">start</a> () override</td></tr>
+<tr class="memdesc:a1f5db59935583f3993ddac50adf731fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets called when the scene this <a class="el" href="class_behaviour_object.html" title="BehviourObject is the base class in the GameObject + components composite pattern.">BehaviourObject</a> is in is initialised, so can be used for functions to be called only when the scene is loaded  <a href="class_text_component.html#a1f5db59935583f3993ddac50adf731fa">More...</a><br /></td></tr>
+<tr class="separator:a1f5db59935583f3993ddac50adf731fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a942326e61fc0cbe941e21627504ab828"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_component.html#a942326e61fc0cbe941e21627504ab828">setParent</a> () override</td></tr>
+<tr class="memdesc:a942326e61fc0cbe941e21627504ab828"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets another <a class="el" href="class_behaviour_object.html" title="BehviourObject is the base class in the GameObject + components composite pattern.">BehaviourObject</a> as parent  <a href="class_text_component.html#a942326e61fc0cbe941e21627504ab828">More...</a><br /></td></tr>
+<tr class="separator:a942326e61fc0cbe941e21627504ab828"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_behaviour_object"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_behaviour_object')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_behaviour_object.html">BehaviourObject</a></td></tr>
 <tr class="memitem:a40e5c088df0ae76d107b1df16f49dfe9 inherit pub_methods_class_behaviour_object"><td class="memItemLeft" align="right" valign="top"><a class="el" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_behaviour_object.html#a40e5c088df0ae76d107b1df16f49dfe9">BehaviourObject</a> ()</td></tr>
-<tr class="memdesc:a40e5c088df0ae76d107b1df16f49dfe9 inherit pub_methods_class_behaviour_object"><td class="mdescLeft">&#160;</td><td class="mdescRight">Behaviour objects are components like GrapicsComponent.  <a href="class_behaviour_object.html#a40e5c088df0ae76d107b1df16f49dfe9">More...</a><br /></td></tr>
 <tr class="separator:a40e5c088df0ae76d107b1df16f49dfe9 inherit pub_methods_class_behaviour_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a567a02d195a69619ea18d0869fc17628 inherit pub_methods_class_behaviour_object"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_behaviour_object.html#a567a02d195a69619ea18d0869fc17628">~BehaviourObject</a> ()=default</td></tr>
 <tr class="separator:a567a02d195a69619ea18d0869fc17628 inherit pub_methods_class_behaviour_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -154,8 +162,8 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:a425b1e7b7178a010ba59da77bcc8090b inherit pub_attribs_class_behaviour_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a61cc41bbb698630e4cff2f97d8d85ff7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a61cc41bbb698630e4cff2f97d8d85ff7">&#9670;&nbsp;</a></span>TextComponent()</h2>
+<a id="ae0f6998cdb094e9b7bef114166921ad0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0f6998cdb094e9b7bef114166921ad0">&#9670;&nbsp;</a></span>TextComponent()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -181,7 +189,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const int&#160;</td>
+          <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>fontSize</em>&#160;</td>
         </tr>
         <tr>
@@ -231,17 +239,17 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a48d0738c2cf80bfa71ee5345ba654936"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a48d0738c2cf80bfa71ee5345ba654936">&#9670;&nbsp;</a></span>addTextureManager()</h2>
+<a id="ac165d6e290e5128201a15c273b51beba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac165d6e290e5128201a15c273b51beba">&#9670;&nbsp;</a></span>addFontManager()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void TextComponent::addTextureManager </td>
+          <td class="memname">void TextComponent::addFontManager </td>
           <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_texture_manager.html">TextureManager</a> &gt;&#160;</td>
-          <td class="paramname"><em>tm</em></td><td>)</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_font_manager.html">FontManager</a> &gt;&#160;</td>
+          <td class="paramname"><em>fm</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -272,6 +280,8 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Changes the text to the given string </p>
 
 </div>
 </div>
@@ -315,12 +325,15 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Gets called every time the scene this <a class="el" href="class_behaviour_object.html" title="BehviourObject is the base class in the GameObject + components composite pattern.">BehaviourObject</a> is in receives input. </p>
+<p>Keycodes and mouse position can be used to handle the given input.</p>
+
 <p>Implements <a class="el" href="class_behaviour_object.html#a0c1622dff40efaaf0905e3ad6b8e0771">BehaviourObject</a>.</p>
 
 </div>
 </div>
-<a id="aeaad533150ef3760e7009c01bc1a5944"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeaad533150ef3760e7009c01bc1a5944">&#9670;&nbsp;</a></span>interact()</h2>
+<a id="ab47b025d65326d9930eab0f48896642e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab47b025d65326d9930eab0f48896642e">&#9670;&nbsp;</a></span>interact()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -330,6 +343,36 @@ Additional Inherited Members</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">void TextComponent::interact </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_behaviour_object.html">BehaviourObject</a> &gt;&#160;</td>
+          <td class="paramname"><em>player</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets called when a gameobject triggers an interaction with this <a class="el" href="class_behaviour_object.html" title="BehviourObject is the base class in the GameObject + components composite pattern.">BehaviourObject</a> </p>
+
+<p>Implements <a class="el" href="class_behaviour_object.html#a50cce205ea8cfe68c1b84d6b54df266c">BehaviourObject</a>.</p>
+
+</div>
+</div>
+<a id="a942326e61fc0cbe941e21627504ab828"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a942326e61fc0cbe941e21627504ab828">&#9670;&nbsp;</a></span>setParent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TextComponent::setParent </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -342,12 +385,43 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="class_behaviour_object.html#ab057af1c147bf3352939aae0ef6706d1">BehaviourObject</a>.</p>
+<p>Sets another <a class="el" href="class_behaviour_object.html" title="BehviourObject is the base class in the GameObject + components composite pattern.">BehaviourObject</a> as parent </p>
+
+<p>Implements <a class="el" href="class_behaviour_object.html#a353f3d10e31acdeacc1291f7a4f6f035">BehaviourObject</a>.</p>
 
 </div>
 </div>
-<a id="a0d8205a293688e5bb690cd7abf438436"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0d8205a293688e5bb690cd7abf438436">&#9670;&nbsp;</a></span>update()</h2>
+<a id="a1f5db59935583f3993ddac50adf731fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f5db59935583f3993ddac50adf731fa">&#9670;&nbsp;</a></span>start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TextComponent::start </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets called when the scene this <a class="el" href="class_behaviour_object.html" title="BehviourObject is the base class in the GameObject + components composite pattern.">BehaviourObject</a> is in is initialised, so can be used for functions to be called only when the scene is loaded </p>
+
+<p>Implements <a class="el" href="class_behaviour_object.html#af5c379448cd9cdde91dda3f430a3510c">BehaviourObject</a>.</p>
+
+</div>
+</div>
+<a id="a085f21391182a9a8a6a047a7f7bed815"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a085f21391182a9a8a6a047a7f7bed815">&#9670;&nbsp;</a></span>update()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -358,7 +432,8 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">void TextComponent::update </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>time</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -371,7 +446,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>The update methods calls the <a class="el" href="class_texture_manager.html">TextureManager</a> to draw the item. </p>
 
-<p>Implements <a class="el" href="class_behaviour_object.html#a45acaf4fdf1978251455c3087fe0a309">BehaviourObject</a>.</p>
+<p>Implements <a class="el" href="class_behaviour_object.html#a8b91233672fabe458bdfe93c85ec29f8">BehaviourObject</a>.</p>
 
 </div>
 </div>

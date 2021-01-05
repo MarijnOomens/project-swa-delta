@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['damagecollidercomponent_384',['DamageColliderComponent',['../class_damage_collider_component.html',1,'']]],
-  ['drawcontroller_385',['DrawController',['../class_draw_controller.html',1,'']]]
+  ['damagestrategy_456',['DamageStrategy',['../class_damage_strategy.html',1,'']]],
+  ['drawcontroller_457',['DrawController',['../class_draw_controller.html',1,'']]]
 ];

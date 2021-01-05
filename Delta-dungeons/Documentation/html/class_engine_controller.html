@@ -107,43 +107,51 @@ $(document).ready(function(){initNavTree('class_engine_controller.html',''); ini
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a046ba741e7683358a38778a92d083947"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#a046ba741e7683358a38778a92d083947">EngineController</a> ()</td></tr>
-<tr class="memdesc:a046ba741e7683358a38778a92d083947"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class has the responsibility of managing different classes in the engine.  <a href="class_engine_controller.html#a046ba741e7683358a38778a92d083947">More...</a><br /></td></tr>
-<tr class="separator:a046ba741e7683358a38778a92d083947"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa98bd95835acb8d12254b45b7c46f523"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#aa98bd95835acb8d12254b45b7c46f523">EngineController</a> (const std::string &amp;title, int screenWidth, int screenHeight, bool fullScreen)</td></tr>
+<tr class="memdesc:aa98bd95835acb8d12254b45b7c46f523"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class has the responsibility of managing different classes in the engine.  <a href="class_engine_controller.html#aa98bd95835acb8d12254b45b7c46f523">More...</a><br /></td></tr>
+<tr class="separator:aa98bd95835acb8d12254b45b7c46f523"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af49b8503ec1964013a1a232de4d5ec39"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#af49b8503ec1964013a1a232de4d5ec39">~EngineController</a> ()</td></tr>
 <tr class="separator:af49b8503ec1964013a1a232de4d5ec39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b87a7bfa74f04d96a42a4865ed251b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#a7b87a7bfa74f04d96a42a4865ed251b2">initRenderer</a> (const std::string &amp;title, int width, int height, bool fullscreen)</td></tr>
 <tr class="memdesc:a7b87a7bfa74f04d96a42a4865ed251b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method calls an initialization function in <a class="el" href="class_render_facade.html">RenderFacade</a> with the given data, like resolution of the game window.  <a href="class_engine_controller.html#a7b87a7bfa74f04d96a42a4865ed251b2">More...</a><br /></td></tr>
 <tr class="separator:a7b87a7bfa74f04d96a42a4865ed251b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae75d89eeb9085f8fa4c634f8ad21499f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#ae75d89eeb9085f8fa4c634f8ad21499f">passCameraDimensionFunction</a> (const <a class="el" href="class_transform.html">Transform</a> &amp;dimensions)</td></tr>
+<tr class="separator:ae75d89eeb9085f8fa4c634f8ad21499f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a64bcfbe406613e12be09f91fd409a5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#a6a64bcfbe406613e12be09f91fd409a5">inputCallbackFunction</a> (const <a class="el" href="_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fc">KeyCodes</a> keyCode, const <a class="el" href="_keyboardevent_8h.html#abfaf4f911065374ca6c765029ec086ae">KeyboardEvent</a> keyboardEvent, <a class="el" href="class_vector2_d.html">Vector2D</a> mousePos)</td></tr>
 <tr class="memdesc:a6a64bcfbe406613e12be09f91fd409a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls the handleInput function for each game object.  <a href="class_engine_controller.html#a6a64bcfbe406613e12be09f91fd409a5">More...</a><br /></td></tr>
 <tr class="separator:a6a64bcfbe406613e12be09f91fd409a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a0b52292735d4ff555457da1743f9b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#a5a0b52292735d4ff555457da1743f9b3">addTexture</a> (const std::string &amp;name, const std::string &amp;path)</td></tr>
-<tr class="memdesc:a5a0b52292735d4ff555457da1743f9b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method adds a texture to the <a class="el" href="class_asset_manager.html">AssetManager</a> so that the texture is a known asset.  <a href="class_engine_controller.html#a5a0b52292735d4ff555457da1743f9b3">More...</a><br /></td></tr>
+<tr class="memdesc:a5a0b52292735d4ff555457da1743f9b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method adds a texture to the AssetManager so that the texture is a known asset.  <a href="class_engine_controller.html#a5a0b52292735d4ff555457da1743f9b3">More...</a><br /></td></tr>
 <tr class="separator:a5a0b52292735d4ff555457da1743f9b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada99fe254107a6c72afdbdadeea94438"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#ada99fe254107a6c72afdbdadeea94438">registerTextures</a> (std::map&lt; std::string, std::string &gt; textures)</td></tr>
-<tr class="memdesc:ada99fe254107a6c72afdbdadeea94438"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method registers all given textures, in the <a class="el" href="class_asset_manager.html">AssetManager</a>.  <a href="class_engine_controller.html#ada99fe254107a6c72afdbdadeea94438">More...</a><br /></td></tr>
+<tr class="memdesc:ada99fe254107a6c72afdbdadeea94438"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method registers all given textures, in the AssetManager.  <a href="class_engine_controller.html#ada99fe254107a6c72afdbdadeea94438">More...</a><br /></td></tr>
 <tr class="separator:ada99fe254107a6c72afdbdadeea94438"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c7105c71a23503b88943f191286044d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#a6c7105c71a23503b88943f191286044d">registerFonts</a> (std::map&lt; std::string, std::string &gt; fonts)</td></tr>
-<tr class="memdesc:a6c7105c71a23503b88943f191286044d"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method registers all given fonts, in the <a class="el" href="class_asset_manager.html">AssetManager</a>.  <a href="class_engine_controller.html#a6c7105c71a23503b88943f191286044d">More...</a><br /></td></tr>
+<tr class="memdesc:a6c7105c71a23503b88943f191286044d"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method registers all given fonts, in the AssetManager.  <a href="class_engine_controller.html#a6c7105c71a23503b88943f191286044d">More...</a><br /></td></tr>
 <tr class="separator:a6c7105c71a23503b88943f191286044d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17dcc8d327b7765574b1b561e0d08941"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#a17dcc8d327b7765574b1b561e0d08941">registerAudio</a> (std::map&lt; std::string, std::string &gt; tracks)</td></tr>
+<tr class="separator:a17dcc8d327b7765574b1b561e0d08941"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3dc60692c41160165cccd85c7094f6e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#ac3dc60692c41160165cccd85c7094f6e">startGame</a> ()</td></tr>
 <tr class="memdesc:ac3dc60692c41160165cccd85c7094f6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">This method contains the game loop from which a few functions that need constant updating, are executed.  <a href="class_engine_controller.html#ac3dc60692c41160165cccd85c7094f6e">More...</a><br /></td></tr>
 <tr class="separator:ac3dc60692c41160165cccd85c7094f6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a71b353d5ea50bce346d45f63aec2a4f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#a71b353d5ea50bce346d45f63aec2a4f3">registerScene</a> (const std::string &amp;sceneName, const std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_behaviour_object.html">BehaviourObject</a> &gt;&gt; behaviourObjects)</td></tr>
-<tr class="separator:a71b353d5ea50bce346d45f63aec2a4f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b6d3abdf3c10723ef9fdee98a3cc8b9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#a8b6d3abdf3c10723ef9fdee98a3cc8b9">registerScene</a> (const std::string &amp;sceneName, std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_behaviour_object.html">BehaviourObject</a> &gt;&gt; behaviourObjects)</td></tr>
+<tr class="separator:a8b6d3abdf3c10723ef9fdee98a3cc8b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4e32ef89598c1710485d3edb645c404"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#af4e32ef89598c1710485d3edb645c404">loadScene</a> (const std::string &amp;sceneName, const std::string &amp;fromScene, bool clearPrevious)</td></tr>
 <tr class="separator:af4e32ef89598c1710485d3edb645c404"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a64bd4ad7ead3605c03bae569e47750e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#a64bd4ad7ead3605c03bae569e47750e0">loadPreviousScene</a> ()</td></tr>
 <tr class="separator:a64bd4ad7ead3605c03bae569e47750e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e6de2c3bcb11516ccc4d68328c6899b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#a6e6de2c3bcb11516ccc4d68328c6899b">addOverlayScene</a> (const std::string &amp;sceneName)</td></tr>
 <tr class="separator:a6e6de2c3bcb11516ccc4d68328c6899b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af83aac38c835cbafbebb6ea3d74bff25"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#af83aac38c835cbafbebb6ea3d74bff25">transitionScene</a> ()</td></tr>
+<tr class="separator:af83aac38c835cbafbebb6ea3d74bff25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa41346ac6494236683a856c358377dd1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#aa41346ac6494236683a856c358377dd1">createCamera</a> (int x, int y) const</td></tr>
 <tr class="separator:aa41346ac6494236683a856c358377dd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74243f61c51cfdaecfda7d3a170e37cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#a74243f61c51cfdaecfda7d3a170e37cf">passPlayerPosition</a> (int x, int y)</td></tr>
 <tr class="separator:a74243f61c51cfdaecfda7d3a170e37cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84a35e0b769c0ea987df054ae24753f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#a84a35e0b769c0ea987df054ae24753f6">pauseScreen</a> ()</td></tr>
 <tr class="separator:a84a35e0b769c0ea987df054ae24753f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ded03cba8efde66fd8e1adf5306640a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#a7ded03cba8efde66fd8e1adf5306640a">pauseInput</a> ()</td></tr>
+<tr class="separator:a7ded03cba8efde66fd8e1adf5306640a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a993ebf37b24657932c03b8727623c876"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#a993ebf37b24657932c03b8727623c876">quitGame</a> () const</td></tr>
 <tr class="separator:a993ebf37b24657932c03b8727623c876"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a38f02c547c2023e281cc739ae93e1703"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#a38f02c547c2023e281cc739ae93e1703">getFPS</a> () const</td></tr>
@@ -154,28 +162,56 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a1488d96099b68b2c05086ab42da9f035"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5be84e6b7e68c9b9abe90c52b334f4d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#a5be84e6b7e68c9b9abe90c52b334f4d7">resetSpeedGame</a> () const</td></tr>
 <tr class="separator:a5be84e6b7e68c9b9abe90c52b334f4d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3fcb3aa95c437abc728de0c959f21b90"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#a3fcb3aa95c437abc728de0c959f21b90">addObjectToScene</a> (const std::shared_ptr&lt; <a class="el" href="class_behaviour_object.html">BehaviourObject</a> &gt; &amp;addObject)</td></tr>
-<tr class="separator:a3fcb3aa95c437abc728de0c959f21b90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afdbbecf2fb34065e57a8d873628c069c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#afdbbecf2fb34065e57a8d873628c069c">passInteract</a> (int x, int y)</td></tr>
-<tr class="separator:afdbbecf2fb34065e57a8d873628c069c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af3e89b0b842222c5fb9fbf2fde37ced6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#af3e89b0b842222c5fb9fbf2fde37ced6">deleteObjectFromScene</a> (const std::shared_ptr&lt; <a class="el" href="class_behaviour_object.html">BehaviourObject</a> &gt; &amp;deletedObject)</td></tr>
-<tr class="separator:af3e89b0b842222c5fb9fbf2fde37ced6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7df9c7897111d8bd304a9c6be97e770b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#a7df9c7897111d8bd304a9c6be97e770b">deleteColliderFromScene</a> (std::shared_ptr&lt; <a class="el" href="class_collider_component.html">ColliderComponent</a> &gt; deletedCollider)</td></tr>
-<tr class="separator:a7df9c7897111d8bd304a9c6be97e770b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67c08013ae94378110dc1bbc7c08ebed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#a67c08013ae94378110dc1bbc7c08ebed">addObjectToScene</a> (std::shared_ptr&lt; <a class="el" href="class_behaviour_object.html">BehaviourObject</a> &gt; addObject)</td></tr>
+<tr class="separator:a67c08013ae94378110dc1bbc7c08ebed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a532feba0cd94f708ead5e81370b69c3f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#a532feba0cd94f708ead5e81370b69c3f">passInteract</a> (std::shared_ptr&lt; <a class="el" href="class_behaviour_object.html">BehaviourObject</a> &gt; player, int x, int y, int w, int h)</td></tr>
+<tr class="separator:a532feba0cd94f708ead5e81370b69c3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a390250f3e61fe59334f9bd8c807a08a2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#a390250f3e61fe59334f9bd8c807a08a2">passCollisionCheck</a> (std::shared_ptr&lt; <a class="el" href="class_colliding_component.html">CollidingComponent</a> &gt; collider, std::shared_ptr&lt; <a class="el" href="class_behaviour_object.html">BehaviourObject</a> &gt; behaviourObject, int x, int y, <a class="el" href="_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fc">KeyCodes</a> direction, int w)</td></tr>
+<tr class="separator:a390250f3e61fe59334f9bd8c807a08a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca5bfcca7d847b86d15f5048f6d23c91"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#aca5bfcca7d847b86d15f5048f6d23c91">throwCollisionCheck</a> (std::shared_ptr&lt; <a class="el" href="class_behaviour_object.html">BehaviourObject</a> &gt; collider, int x, int y, <a class="el" href="_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fc">KeyCodes</a> direction, int w)</td></tr>
+<tr class="separator:aca5bfcca7d847b86d15f5048f6d23c91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e04bacee350b7241b8dcacd847e994a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#a2e04bacee350b7241b8dcacd847e994a">deleteObjectFromScene</a> (std::shared_ptr&lt; <a class="el" href="class_behaviour_object.html">BehaviourObject</a> &gt; deletedObject)</td></tr>
+<tr class="separator:a2e04bacee350b7241b8dcacd847e994a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1441e4933e203495ad52bd13cf947d9f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#a1441e4933e203495ad52bd13cf947d9f">deleteColliderFromScene</a> (std::shared_ptr&lt; <a class="el" href="class_colliding_component.html">CollidingComponent</a> &gt; deletedCollider)</td></tr>
+<tr class="separator:a1441e4933e203495ad52bd13cf947d9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac7eb5e0992a0e8e677b02a6b29c56951"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#ac7eb5e0992a0e8e677b02a6b29c56951">gameOver</a> ()</td></tr>
 <tr class="separator:ac7eb5e0992a0e8e677b02a6b29c56951"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9fe823a81a7e1985bc445c92c36e768e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#a9fe823a81a7e1985bc445c92c36e768e">checkGameOver</a> ()</td></tr>
 <tr class="separator:a9fe823a81a7e1985bc445c92c36e768e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7a327fc26a4f5ebb2fb7fdbb8df885d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#ac7a327fc26a4f5ebb2fb7fdbb8df885d">checkTransition</a> () const</td></tr>
+<tr class="separator:ac7a327fc26a4f5ebb2fb7fdbb8df885d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad586ea64eefbe9316cde98bb5732ac2c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#ad586ea64eefbe9316cde98bb5732ac2c">playAudio</a> (const std::string &amp;trackName, bool looped)</td></tr>
+<tr class="separator:ad586ea64eefbe9316cde98bb5732ac2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9517e9edb60df70dc83c44eea472fbce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#a9517e9edb60df70dc83c44eea472fbce">playEffect</a> (const std::string &amp;effectName)</td></tr>
+<tr class="separator:a9517e9edb60df70dc83c44eea472fbce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34b024986a223fba539c3643df7b4107"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#a34b024986a223fba539c3643df7b4107">deleteScene</a> (const std::string &amp;sceneName)</td></tr>
+<tr class="separator:a34b024986a223fba539c3643df7b4107"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4dc509177c61273023aeb92d197d1a3b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#a4dc509177c61273023aeb92d197d1a3b">replaceScene</a> (const std::string sceneName, std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_behaviour_object.html">BehaviourObject</a> &gt;&gt; objects)</td></tr>
+<tr class="separator:a4dc509177c61273023aeb92d197d1a3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5649c3e5ebb9a560076974069a7e781e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#a5649c3e5ebb9a560076974069a7e781e">checkInRangeCamera</a> (int x, int y) const</td></tr>
+<tr class="separator:a5649c3e5ebb9a560076974069a7e781e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ade8bf458417176006a31a56d0c0fbf"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_behaviour_object.html">BehaviourObject</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#a8ade8bf458417176006a31a56d0c0fbf">getBehaviourObjectCallBack</a> (<a class="el" href="class_colliding_component.html">CollidingComponent</a> *collidingComponent)</td></tr>
+<tr class="separator:a8ade8bf458417176006a31a56d0c0fbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abce99c01f75dd79da0c80900536a23fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#abce99c01f75dd79da0c80900536a23fd">checkAiCollision</a> (std::shared_ptr&lt; <a class="el" href="class_colliding_component.html">CollidingComponent</a> &gt; collider, std::shared_ptr&lt; <a class="el" href="class_behaviour_object.html">BehaviourObject</a> &gt; behaviourObject, int x, int y, <a class="el" href="_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fc">KeyCodes</a> direction, int w) const</td></tr>
+<tr class="separator:abce99c01f75dd79da0c80900536a23fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0403d99bd77296cd1d13fa0185ea868e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#a0403d99bd77296cd1d13fa0185ea868e">getTimeCallback</a> ()</td></tr>
+<tr class="separator:a0403d99bd77296cd1d13fa0185ea868e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a18b3493683875cf97a638731531a8ed7"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#a18b3493683875cf97a638731531a8ed7">staticPassCameraDimensionFunction</a> (void *p, const <a class="el" href="class_transform.html">Transform</a> &amp;dimensions)</td></tr>
+<tr class="separator:a18b3493683875cf97a638731531a8ed7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac4af8e2d1701f044bddf43b8cce9479"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#aac4af8e2d1701f044bddf43b8cce9479">staticInputCallbackFunction</a> (void *p, const <a class="el" href="_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fc">KeyCodes</a> keyCode, const <a class="el" href="_keyboardevent_8h.html#abfaf4f911065374ca6c765029ec086ae">KeyboardEvent</a> keyboardEvent, <a class="el" href="class_vector2_d.html">Vector2D</a> mousePos)</td></tr>
 <tr class="memdesc:aac4af8e2d1701f044bddf43b8cce9479"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives input data from the class <a class="el" href="class_input.html">Input</a> and passes it to a new function.  <a href="class_engine_controller.html#aac4af8e2d1701f044bddf43b8cce9479">More...</a><br /></td></tr>
 <tr class="separator:aac4af8e2d1701f044bddf43b8cce9479"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d9cd2b1823fe1d4d8a9e10e7e22d911"><td class="memItemLeft" align="right" valign="top">static std::shared_ptr&lt; <a class="el" href="class_behaviour_object.html">BehaviourObject</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#a0d9cd2b1823fe1d4d8a9e10e7e22d911">staticGetBehaviourObjectCallBack</a> (void *p, <a class="el" href="class_colliding_component.html">CollidingComponent</a> *collidingComponent)</td></tr>
+<tr class="separator:a0d9cd2b1823fe1d4d8a9e10e7e22d911"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abad6307ad3b72665d2f891e2a6cfb274"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_engine_controller.html#abad6307ad3b72665d2f891e2a6cfb274">staticGetTimeCallback</a> (void *p)</td></tr>
+<tr class="separator:abad6307ad3b72665d2f891e2a6cfb274"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a046ba741e7683358a38778a92d083947"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a046ba741e7683358a38778a92d083947">&#9670;&nbsp;</a></span>EngineController()</h2>
+<a id="aa98bd95835acb8d12254b45b7c46f523"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa98bd95835acb8d12254b45b7c46f523">&#9670;&nbsp;</a></span>EngineController()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -183,8 +219,31 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">EngineController::EngineController </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>title</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>screenWidth</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>screenHeight</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>fullScreen</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -220,8 +279,8 @@ Static Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a3fcb3aa95c437abc728de0c959f21b90"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3fcb3aa95c437abc728de0c959f21b90">&#9670;&nbsp;</a></span>addObjectToScene()</h2>
+<a id="a67c08013ae94378110dc1bbc7c08ebed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67c08013ae94378110dc1bbc7c08ebed">&#9670;&nbsp;</a></span>addObjectToScene()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -229,7 +288,7 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void EngineController::addObjectToScene </td>
           <td>(</td>
-          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_behaviour_object.html">BehaviourObject</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_behaviour_object.html">BehaviourObject</a> &gt;&#160;</td>
           <td class="paramname"><em>addObject</em></td><td>)</td>
           <td></td>
         </tr>
@@ -282,7 +341,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>This method adds a texture to the <a class="el" href="class_asset_manager.html">AssetManager</a> so that the texture is a known asset. </p>
+<p>This method adds a texture to the AssetManager so that the texture is a known asset. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">name</td><td>Texture name.</td></tr>
@@ -290,6 +349,58 @@ Static Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="abce99c01f75dd79da0c80900536a23fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abce99c01f75dd79da0c80900536a23fd">&#9670;&nbsp;</a></span>checkAiCollision()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EngineController::checkAiCollision </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_colliding_component.html">CollidingComponent</a> &gt;&#160;</td>
+          <td class="paramname"><em>collider</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_behaviour_object.html">BehaviourObject</a> &gt;&#160;</td>
+          <td class="paramname"><em>behaviourObject</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fc">KeyCodes</a>&#160;</td>
+          <td class="paramname"><em>direction</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>w</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -304,6 +415,51 @@ Static Public Member Functions</h2></td></tr>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5649c3e5ebb9a560076974069a7e781e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5649c3e5ebb9a560076974069a7e781e">&#9670;&nbsp;</a></span>checkInRangeCamera()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool EngineController::checkInRangeCamera </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac7a327fc26a4f5ebb2fb7fdbb8df885d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7a327fc26a4f5ebb2fb7fdbb8df885d">&#9670;&nbsp;</a></span>checkTransition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EngineController::checkTransition </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -338,8 +494,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a7df9c7897111d8bd304a9c6be97e770b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7df9c7897111d8bd304a9c6be97e770b">&#9670;&nbsp;</a></span>deleteColliderFromScene()</h2>
+<a id="a1441e4933e203495ad52bd13cf947d9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1441e4933e203495ad52bd13cf947d9f">&#9670;&nbsp;</a></span>deleteColliderFromScene()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -347,7 +503,7 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void EngineController::deleteColliderFromScene </td>
           <td>(</td>
-          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_collider_component.html">ColliderComponent</a> &gt;&#160;</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_colliding_component.html">CollidingComponent</a> &gt;&#160;</td>
           <td class="paramname"><em>deletedCollider</em></td><td>)</td>
           <td></td>
         </tr>
@@ -356,8 +512,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="af3e89b0b842222c5fb9fbf2fde37ced6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af3e89b0b842222c5fb9fbf2fde37ced6">&#9670;&nbsp;</a></span>deleteObjectFromScene()</h2>
+<a id="a2e04bacee350b7241b8dcacd847e994a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e04bacee350b7241b8dcacd847e994a">&#9670;&nbsp;</a></span>deleteObjectFromScene()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -365,8 +521,26 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void EngineController::deleteObjectFromScene </td>
           <td>(</td>
-          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="class_behaviour_object.html">BehaviourObject</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_behaviour_object.html">BehaviourObject</a> &gt;&#160;</td>
           <td class="paramname"><em>deletedObject</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a34b024986a223fba539c3643df7b4107"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34b024986a223fba539c3643df7b4107">&#9670;&nbsp;</a></span>deleteScene()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EngineController::deleteScene </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>sceneName</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -391,6 +565,24 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a8ade8bf458417176006a31a56d0c0fbf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ade8bf458417176006a31a56d0c0fbf">&#9670;&nbsp;</a></span>getBehaviourObjectCallBack()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_behaviour_object.html">BehaviourObject</a> &gt; EngineController::getBehaviourObjectCallBack </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_colliding_component.html">CollidingComponent</a> *&#160;</td>
+          <td class="paramname"><em>collidingComponent</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a38f02c547c2023e281cc739ae93e1703"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a38f02c547c2023e281cc739ae93e1703">&#9670;&nbsp;</a></span>getFPS()</h2>
 
@@ -402,6 +594,23 @@ Static Public Member Functions</h2></td></tr>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0403d99bd77296cd1d13fa0185ea868e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0403d99bd77296cd1d13fa0185ea868e">&#9670;&nbsp;</a></span>getTimeCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int EngineController::getTimeCallback </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -553,15 +762,45 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="afdbbecf2fb34065e57a8d873628c069c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afdbbecf2fb34065e57a8d873628c069c">&#9670;&nbsp;</a></span>passInteract()</h2>
+<a id="ae75d89eeb9085f8fa4c634f8ad21499f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae75d89eeb9085f8fa4c634f8ad21499f">&#9670;&nbsp;</a></span>passCameraDimensionFunction()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void EngineController::passInteract </td>
+          <td class="memname">void EngineController::passCameraDimensionFunction </td>
           <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_transform.html">Transform</a> &amp;&#160;</td>
+          <td class="paramname"><em>dimensions</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a390250f3e61fe59334f9bd8c807a08a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a390250f3e61fe59334f9bd8c807a08a2">&#9670;&nbsp;</a></span>passCollisionCheck()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EngineController::passCollisionCheck </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_colliding_component.html">CollidingComponent</a> &gt;&#160;</td>
+          <td class="paramname"><em>collider</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_behaviour_object.html">BehaviourObject</a> &gt;&#160;</td>
+          <td class="paramname"><em>behaviourObject</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>x</em>, </td>
         </tr>
@@ -569,7 +808,65 @@ Static Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>y</em>&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fc">KeyCodes</a>&#160;</td>
+          <td class="paramname"><em>direction</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>w</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a532feba0cd94f708ead5e81370b69c3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a532feba0cd94f708ead5e81370b69c3f">&#9670;&nbsp;</a></span>passInteract()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EngineController::passInteract </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_behaviour_object.html">BehaviourObject</a> &gt;&#160;</td>
+          <td class="paramname"><em>player</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>w</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>h</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -609,6 +906,23 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a7ded03cba8efde66fd8e1adf5306640a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ded03cba8efde66fd8e1adf5306640a">&#9670;&nbsp;</a></span>pauseInput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EngineController::pauseInput </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a84a35e0b769c0ea987df054ae24753f6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a84a35e0b769c0ea987df054ae24753f6">&#9670;&nbsp;</a></span>pauseScreen()</h2>
 
@@ -619,6 +933,52 @@ Static Public Member Functions</h2></td></tr>
           <td class="memname">void EngineController::pauseScreen </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad586ea64eefbe9316cde98bb5732ac2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad586ea64eefbe9316cde98bb5732ac2c">&#9670;&nbsp;</a></span>playAudio()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EngineController::playAudio </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>trackName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>looped</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9517e9edb60df70dc83c44eea472fbce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9517e9edb60df70dc83c44eea472fbce">&#9670;&nbsp;</a></span>playEffect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EngineController::playEffect </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>effectName</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -643,6 +1003,24 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a17dcc8d327b7765574b1b561e0d08941"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17dcc8d327b7765574b1b561e0d08941">&#9670;&nbsp;</a></span>registerAudio()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EngineController::registerAudio </td>
+          <td>(</td>
+          <td class="paramtype">std::map&lt; std::string, std::string &gt;&#160;</td>
+          <td class="paramname"><em>tracks</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a6c7105c71a23503b88943f191286044d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6c7105c71a23503b88943f191286044d">&#9670;&nbsp;</a></span>registerFonts()</h2>
 
@@ -659,7 +1037,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>This method registers all given fonts, in the <a class="el" href="class_asset_manager.html">AssetManager</a>. </p>
+<p>This method registers all given fonts, in the AssetManager. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">fonts</td><td>Map of multiple fonts.</td></tr>
@@ -669,8 +1047,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a71b353d5ea50bce346d45f63aec2a4f3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a71b353d5ea50bce346d45f63aec2a4f3">&#9670;&nbsp;</a></span>registerScene()</h2>
+<a id="a8b6d3abdf3c10723ef9fdee98a3cc8b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b6d3abdf3c10723ef9fdee98a3cc8b9">&#9670;&nbsp;</a></span>registerScene()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -684,7 +1062,7 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_behaviour_object.html">BehaviourObject</a> &gt;&gt;&#160;</td>
+          <td class="paramtype">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_behaviour_object.html">BehaviourObject</a> &gt;&gt;&#160;</td>
           <td class="paramname"><em>behaviourObjects</em>&#160;</td>
         </tr>
         <tr>
@@ -713,13 +1091,41 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>This method registers all given textures, in the <a class="el" href="class_asset_manager.html">AssetManager</a>. </p>
+<p>This method registers all given textures, in the AssetManager. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">textures</td><td>Map of multiple textures.</td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a4dc509177c61273023aeb92d197d1a3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4dc509177c61273023aeb92d197d1a3b">&#9670;&nbsp;</a></span>replaceScene()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EngineController::replaceScene </td>
+          <td>(</td>
+          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramname"><em>sceneName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_behaviour_object.html">BehaviourObject</a> &gt;&gt;&#160;</td>
+          <td class="paramname"><em>objects</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -793,6 +1199,68 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a0d9cd2b1823fe1d4d8a9e10e7e22d911"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d9cd2b1823fe1d4d8a9e10e7e22d911">&#9670;&nbsp;</a></span>staticGetBehaviourObjectCallBack()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="class_behaviour_object.html">BehaviourObject</a> &gt; EngineController::staticGetBehaviourObjectCallBack </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_colliding_component.html">CollidingComponent</a> *&#160;</td>
+          <td class="paramname"><em>collidingComponent</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abad6307ad3b72665d2f891e2a6cfb274"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abad6307ad3b72665d2f891e2a6cfb274">&#9670;&nbsp;</a></span>staticGetTimeCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int EngineController::staticGetTimeCallback </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aac4af8e2d1701f044bddf43b8cce9479"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aac4af8e2d1701f044bddf43b8cce9479">&#9670;&nbsp;</a></span>staticInputCallbackFunction()</h2>
 
@@ -848,6 +1316,105 @@ Static Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a18b3493683875cf97a638731531a8ed7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18b3493683875cf97a638731531a8ed7">&#9670;&nbsp;</a></span>staticPassCameraDimensionFunction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EngineController::staticPassCameraDimensionFunction </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_transform.html">Transform</a> &amp;&#160;</td>
+          <td class="paramname"><em>dimensions</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aca5bfcca7d847b86d15f5048f6d23c91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca5bfcca7d847b86d15f5048f6d23c91">&#9670;&nbsp;</a></span>throwCollisionCheck()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EngineController::throwCollisionCheck </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_behaviour_object.html">BehaviourObject</a> &gt;&#160;</td>
+          <td class="paramname"><em>collider</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fc">KeyCodes</a>&#160;</td>
+          <td class="paramname"><em>direction</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>w</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af83aac38c835cbafbebb6ea3d74bff25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af83aac38c835cbafbebb6ea3d74bff25">&#9670;&nbsp;</a></span>transitionScene()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EngineController::transitionScene </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

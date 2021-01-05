@@ -62,8 +62,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_anim_category_8h.html",
-"class_engine_facade.html#a3615d1883d256acd7c7d3d9498832e40",
-"classrapidxml_1_1xml__base.html#aa807062868d671a8c798d9d1bf016988"
+"class_collision_strategy.html#aed2015c85e6d55f71738d94eca8799af",
+"class_scene_manager.html#a9c2f94ef046d895a3d4efbf8736232b2",
+"rapidxml_8hpp.html#abb456db38f7efb746c4330eed6072a7ca9d669d8e1f4ba9c7eeada4c14a11ad1d"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

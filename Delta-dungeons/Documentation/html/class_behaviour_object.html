@@ -103,6 +103,9 @@ $(document).ready(function(){initNavTree('class_behaviour_object.html',''); init
 </div><!--header-->
 <div class="contents">
 
+<p>BehviourObject is the base class in the <a class="el" href="class_game_object.html" title="GameObject is the base class for all objects within the game that require behaviour.">GameObject</a> + components composite pattern.  
+ <a href="class_behaviour_object.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_behaviour_object_8h_source.html">BehaviourObject.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for BehaviourObject:</div>
@@ -110,21 +113,18 @@ Inheritance diagram for BehaviourObject:</div>
  <div class="center">
   <img src="class_behaviour_object.png" usemap="#BehaviourObject_map" alt=""/>
   <map id="BehaviourObject_map" name="BehaviourObject_map">
-<area href="class_collider_component.html" alt="ColliderComponent" shape="rect" coords="87,56,252,80"/>
-<area href="class_game_object.html" alt="GameObject" shape="rect" coords="262,56,427,80"/>
-<area href="class_graphics_component.html" alt="GraphicsComponent" shape="rect" coords="437,56,602,80"/>
-<area href="class_h_u_d_component.html" alt="HUDComponent" shape="rect" coords="612,56,777,80"/>
-<area href="class_text_component.html" alt="TextComponent" shape="rect" coords="787,56,952,80"/>
-<area href="class_u_i_component.html" alt="UIComponent" shape="rect" coords="962,56,1127,80"/>
-<area href="class_damage_collider_component.html" alt="DamageColliderComponent" shape="rect" coords="0,112,165,136"/>
-<area href="class_regular_collider_component.html" alt="RegularColliderComponent" shape="rect" coords="175,112,340,136"/>
+<area href="class_colliding_component.html" alt="CollidingComponent" shape="rect" coords="0,112,295,136"/>
+<area href="class_game_object.html" title="GameObject is the base class for all objects within the game that require behaviour." alt="GameObject" shape="rect" coords="305,112,600,136"/>
+<area href="class_graphics_component.html" title="A GraphicsComponent holds the graphical aspect of a gameObject, like animation and textures." alt="GraphicsComponent" shape="rect" coords="610,112,905,136"/>
+<area href="class_h_u_d_component.html" alt="HUDComponent" shape="rect" coords="915,112,1210,136"/>
+<area href="class_text_component.html" alt="TextComponent" shape="rect" coords="1220,112,1515,136"/>
+<area href="class_u_i_component.html" alt="UIComponent" shape="rect" coords="1525,112,1820,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a40e5c088df0ae76d107b1df16f49dfe9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_behaviour_object.html#a40e5c088df0ae76d107b1df16f49dfe9">BehaviourObject</a> ()</td></tr>
-<tr class="memdesc:a40e5c088df0ae76d107b1df16f49dfe9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Behaviour objects are components like GrapicsComponent.  <a href="class_behaviour_object.html#a40e5c088df0ae76d107b1df16f49dfe9">More...</a><br /></td></tr>
 <tr class="separator:a40e5c088df0ae76d107b1df16f49dfe9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a567a02d195a69619ea18d0869fc17628"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_behaviour_object.html#a567a02d195a69619ea18d0869fc17628">~BehaviourObject</a> ()=default</td></tr>
 <tr class="separator:a567a02d195a69619ea18d0869fc17628"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -136,19 +136,31 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af4dcbdb0d61bb78913c160a01d204308"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad123bf920b17160f63f0429bd884adde"><td class="memItemLeft" align="right" valign="top"><a class="el" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> <a class="el" href="class_behaviour_object.html">BehaviourObject</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_behaviour_object.html#ad123bf920b17160f63f0429bd884adde">operator=</a> (<a class="el" href="class_behaviour_object.html">BehaviourObject</a> &amp;&amp;other)=delete</td></tr>
 <tr class="separator:ad123bf920b17160f63f0429bd884adde"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a353f3d10e31acdeacc1291f7a4f6f035"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_behaviour_object.html#a353f3d10e31acdeacc1291f7a4f6f035">setParent</a> ()=0</td></tr>
+<tr class="memdesc:a353f3d10e31acdeacc1291f7a4f6f035"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets another <a class="el" href="class_behaviour_object.html" title="BehviourObject is the base class in the GameObject + components composite pattern.">BehaviourObject</a> as parent  <a href="class_behaviour_object.html#a353f3d10e31acdeacc1291f7a4f6f035">More...</a><br /></td></tr>
+<tr class="separator:a353f3d10e31acdeacc1291f7a4f6f035"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c1622dff40efaaf0905e3ad6b8e0771"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_behaviour_object.html#a0c1622dff40efaaf0905e3ad6b8e0771">handleInput</a> (const <a class="el" href="_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fc">KeyCodes</a> &amp;keyCode, const <a class="el" href="_keyboardevent_8h.html#abfaf4f911065374ca6c765029ec086ae">KeyboardEvent</a> &amp;keyboardEvent, <a class="el" href="class_vector2_d.html">Vector2D</a> &amp;mousePos)=0</td></tr>
+<tr class="memdesc:a0c1622dff40efaaf0905e3ad6b8e0771"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets called every time the scene this <a class="el" href="class_behaviour_object.html" title="BehviourObject is the base class in the GameObject + components composite pattern.">BehaviourObject</a> is in receives input.  <a href="class_behaviour_object.html#a0c1622dff40efaaf0905e3ad6b8e0771">More...</a><br /></td></tr>
 <tr class="separator:a0c1622dff40efaaf0905e3ad6b8e0771"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a45acaf4fdf1978251455c3087fe0a309"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_behaviour_object.html#a45acaf4fdf1978251455c3087fe0a309">update</a> ()=0</td></tr>
-<tr class="separator:a45acaf4fdf1978251455c3087fe0a309"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab057af1c147bf3352939aae0ef6706d1"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_behaviour_object.html#ab057af1c147bf3352939aae0ef6706d1">interact</a> ()=0</td></tr>
-<tr class="separator:ab057af1c147bf3352939aae0ef6706d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5c379448cd9cdde91dda3f430a3510c"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_behaviour_object.html#af5c379448cd9cdde91dda3f430a3510c">start</a> ()=0</td></tr>
+<tr class="memdesc:af5c379448cd9cdde91dda3f430a3510c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets called when the scene this <a class="el" href="class_behaviour_object.html" title="BehviourObject is the base class in the GameObject + components composite pattern.">BehaviourObject</a> is in is initialised, so can be used for functions to be called only when the scene is loaded  <a href="class_behaviour_object.html#af5c379448cd9cdde91dda3f430a3510c">More...</a><br /></td></tr>
+<tr class="separator:af5c379448cd9cdde91dda3f430a3510c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b91233672fabe458bdfe93c85ec29f8"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_behaviour_object.html#a8b91233672fabe458bdfe93c85ec29f8">update</a> (int time)=0</td></tr>
+<tr class="memdesc:a8b91233672fabe458bdfe93c85ec29f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets called every game tick when the scene that this <a class="el" href="class_behaviour_object.html" title="BehviourObject is the base class in the GameObject + components composite pattern.">BehaviourObject</a> is in is loaded in  <a href="class_behaviour_object.html#a8b91233672fabe458bdfe93c85ec29f8">More...</a><br /></td></tr>
+<tr class="separator:a8b91233672fabe458bdfe93c85ec29f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50cce205ea8cfe68c1b84d6b54df266c"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_behaviour_object.html#a50cce205ea8cfe68c1b84d6b54df266c">interact</a> (std::shared_ptr&lt; <a class="el" href="class_behaviour_object.html">BehaviourObject</a> &gt; player)=0</td></tr>
+<tr class="memdesc:a50cce205ea8cfe68c1b84d6b54df266c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets called when a gameobject triggers an interaction with this <a class="el" href="class_behaviour_object.html" title="BehviourObject is the base class in the GameObject + components composite pattern.">BehaviourObject</a>  <a href="class_behaviour_object.html#a50cce205ea8cfe68c1b84d6b54df266c">More...</a><br /></td></tr>
+<tr class="separator:a50cce205ea8cfe68c1b84d6b54df266c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a425b1e7b7178a010ba59da77bcc8090b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_transform.html">Transform</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_behaviour_object.html#a425b1e7b7178a010ba59da77bcc8090b">transform</a></td></tr>
 <tr class="separator:a425b1e7b7178a010ba59da77bcc8090b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>BehviourObject is the base class in the <a class="el" href="class_game_object.html" title="GameObject is the base class for all objects within the game that require behaviour.">GameObject</a> + components composite pattern. </p>
+<p>The <a class="el" href="class_game_object.html" title="GameObject is the base class for all objects within the game that require behaviour.">GameObject</a> class as well as the different component derive from this class to base their functionality upon.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a40e5c088df0ae76d107b1df16f49dfe9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a40e5c088df0ae76d107b1df16f49dfe9">&#9670;&nbsp;</a></span>BehaviourObject() <span class="overload">[1/3]</span></h2>
 
@@ -163,9 +175,6 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Behaviour objects are components like GrapicsComponent. </p>
-<p>This class 'manages' these components.</p>
 
 </div>
 </div>
@@ -287,12 +296,15 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_text_component.html#a093811fc81691f96a821deb3d3f3298f">TextComponent</a>, <a class="el" href="class_regular_collider_component.html#a54cf3d44afe2012ebca639a5ed18ac2e">RegularColliderComponent</a>, <a class="el" href="class_damage_collider_component.html#a80addc3e7535e3bec4ad9ba9cbd68718">DamageColliderComponent</a>, <a class="el" href="class_collider_component.html#a9dd8687faa171fa3e4a8269943a36b28">ColliderComponent</a>, <a class="el" href="class_graphics_component.html#a07ad673bc41112f1e4b43456208bb4a4">GraphicsComponent</a>, and <a class="el" href="class_game_object.html#a0fe588871d1022aaa65a17ab70c2060d">GameObject</a>.</p>
+<p>Gets called every time the scene this <a class="el" href="class_behaviour_object.html" title="BehviourObject is the base class in the GameObject + components composite pattern.">BehaviourObject</a> is in receives input. </p>
+<p>Keycodes and mouse position can be used to handle the given input.</p>
+
+<p>Implemented in <a class="el" href="class_text_component.html#a093811fc81691f96a821deb3d3f3298f">TextComponent</a>, <a class="el" href="class_colliding_component.html#abb3ff7d922f5592985dc1e5928b5f4c4">CollidingComponent</a>, and <a class="el" href="class_graphics_component.html#a07ad673bc41112f1e4b43456208bb4a4">GraphicsComponent</a>.</p>
 
 </div>
 </div>
-<a id="ab057af1c147bf3352939aae0ef6706d1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab057af1c147bf3352939aae0ef6706d1">&#9670;&nbsp;</a></span>interact()</h2>
+<a id="a50cce205ea8cfe68c1b84d6b54df266c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50cce205ea8cfe68c1b84d6b54df266c">&#9670;&nbsp;</a></span>interact()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -303,7 +315,8 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="memname">virtual <a class="el" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> void BehaviourObject::interact </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_behaviour_object.html">BehaviourObject</a> &gt;&#160;</td>
+          <td class="paramname"><em>player</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -314,7 +327,9 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_text_component.html#aeaad533150ef3760e7009c01bc1a5944">TextComponent</a>, <a class="el" href="class_regular_collider_component.html#a3b7ee324b741ce3b7011fb6cf9e35e47">RegularColliderComponent</a>, <a class="el" href="class_graphics_component.html#a512673288b701c3b65eae6038f77bc9d">GraphicsComponent</a>, <a class="el" href="class_damage_collider_component.html#a529a2e70b194fe166b90d66d174d86ee">DamageColliderComponent</a>, and <a class="el" href="class_collider_component.html#abce87530f4e05cad23ccefd19ee54336">ColliderComponent</a>.</p>
+<p>Gets called when a gameobject triggers an interaction with this <a class="el" href="class_behaviour_object.html" title="BehviourObject is the base class in the GameObject + components composite pattern.">BehaviourObject</a> </p>
+
+<p>Implemented in <a class="el" href="class_text_component.html#ab47b025d65326d9930eab0f48896642e">TextComponent</a>, <a class="el" href="class_graphics_component.html#ada7eef06b1be909bfe4762e3654849f2">GraphicsComponent</a>, and <a class="el" href="class_colliding_component.html#a8fc51491f7aaed357ae0691c9fc5fafb">CollidingComponent</a>.</p>
 
 </div>
 </div>
@@ -370,8 +385,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a45acaf4fdf1978251455c3087fe0a309"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a45acaf4fdf1978251455c3087fe0a309">&#9670;&nbsp;</a></span>update()</h2>
+<a id="a353f3d10e31acdeacc1291f7a4f6f035"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a353f3d10e31acdeacc1291f7a4f6f035">&#9670;&nbsp;</a></span>setParent()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -380,7 +395,7 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> void BehaviourObject::update </td>
+          <td class="memname">virtual <a class="el" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> void BehaviourObject::setParent </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -393,7 +408,68 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_text_component.html#a0d8205a293688e5bb690cd7abf438436">TextComponent</a>, <a class="el" href="class_regular_collider_component.html#a3d6e50b7b6f6f5608a0ea2f50aeb0bb4">RegularColliderComponent</a>, <a class="el" href="class_graphics_component.html#adf7c2ed97dc61177ff4fe2bd50c42420">GraphicsComponent</a>, <a class="el" href="class_damage_collider_component.html#a83973dc6855b26b25a72f0370d359ca2">DamageColliderComponent</a>, <a class="el" href="class_collider_component.html#a3298b53851196ed32ca0352f0e808fa5">ColliderComponent</a>, and <a class="el" href="class_game_object.html#adad7d284b670db722a2fda8e6a7997e3">GameObject</a>.</p>
+<p>Sets another <a class="el" href="class_behaviour_object.html" title="BehviourObject is the base class in the GameObject + components composite pattern.">BehaviourObject</a> as parent </p>
+
+<p>Implemented in <a class="el" href="class_text_component.html#a942326e61fc0cbe941e21627504ab828">TextComponent</a>, <a class="el" href="class_graphics_component.html#a74827a0ea731f2468bee4fb9c1152861">GraphicsComponent</a>, and <a class="el" href="class_colliding_component.html#a5977d6b692cd1e8005869c4ad5744e5c">CollidingComponent</a>.</p>
+
+</div>
+</div>
+<a id="af5c379448cd9cdde91dda3f430a3510c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5c379448cd9cdde91dda3f430a3510c">&#9670;&nbsp;</a></span>start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> void BehaviourObject::start </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets called when the scene this <a class="el" href="class_behaviour_object.html" title="BehviourObject is the base class in the GameObject + components composite pattern.">BehaviourObject</a> is in is initialised, so can be used for functions to be called only when the scene is loaded </p>
+
+<p>Implemented in <a class="el" href="class_text_component.html#a1f5db59935583f3993ddac50adf731fa">TextComponent</a>, <a class="el" href="class_graphics_component.html#afff7c56eeeccac01b107b2dd4bd5e58c">GraphicsComponent</a>, and <a class="el" href="class_colliding_component.html#a4bbb4f51f2ff015c0fc92b5e3d814a38">CollidingComponent</a>.</p>
+
+</div>
+</div>
+<a id="a8b91233672fabe458bdfe93c85ec29f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b91233672fabe458bdfe93c85ec29f8">&#9670;&nbsp;</a></span>update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> void BehaviourObject::update </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>time</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets called every game tick when the scene that this <a class="el" href="class_behaviour_object.html" title="BehviourObject is the base class in the GameObject + components composite pattern.">BehaviourObject</a> is in is loaded in </p>
+
+<p>Implemented in <a class="el" href="class_text_component.html#a085f21391182a9a8a6a047a7f7bed815">TextComponent</a>, <a class="el" href="class_graphics_component.html#a054e468a68d9290eca623953582b4d4f">GraphicsComponent</a>, and <a class="el" href="class_colliding_component.html#ac2d8c65ccc44b470022c5f110ab1de28">CollidingComponent</a>.</p>
 
 </div>
 </div>

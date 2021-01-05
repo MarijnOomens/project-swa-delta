@@ -116,20 +116,21 @@ $(document).ready(function(){initNavTree('_draw_controller_8h_source.html',''); 
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    SDL_Texture* <a class="code" href="class_draw_controller.html#aca43160680264c971933a08f0283b6ca">loadTexture</a>(<span class="keyword">const</span> std::string&amp; texture);</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    SDL_Texture* <a class="code" href="class_draw_controller.html#a797ad9c3adcab4741763744722b08de3">loadFont</a>(<span class="keyword">const</span> std::string&amp; text, <span class="keyword">const</span> std::string&amp; font, <span class="keyword">const</span> <a class="code" href="class_colour.html">Colour</a>&amp; colour, <span class="keywordtype">int</span> fontSize);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_draw_controller.html#a842de31473b7a4de21562e3c8e5469a7">drawTexture</a>(SDL_Texture* texture, SDL_Rect source, SDL_Rect destination, SDL_RendererFlip flip) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    std::shared_ptr&lt;Renderer&gt; renderer;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    std::map&lt;std::string, SDL_Texture*&gt; textures;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;};</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    std::shared_ptr&lt;Renderer&gt; renderer;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    std::map&lt;std::string, SDL_Texture*&gt; textures;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">int</span> alphaCounter = 0;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">bool</span> transitioning = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="a_renderer_8h_html"><div class="ttname"><a href="_renderer_8h.html">Renderer.h</a></div></div>
 <div class="ttc" id="aclass_draw_controller_html"><div class="ttname"><a href="class_draw_controller.html">DrawController</a></div><div class="ttdef"><b>Definition:</b> DrawController.h:11</div></div>
 <div class="ttc" id="aclass_draw_controller_html_a5c4bbc875f121f6ce3159734117d23f0"><div class="ttname"><a href="class_draw_controller.html#a5c4bbc875f121f6ce3159734117d23f0">DrawController::DrawController</a></div><div class="ttdeci">DrawController()</div><div class="ttdef"><b>Definition:</b> DrawController.h:13</div></div>
 <div class="ttc" id="aclass_draw_controller_html_a797ad9c3adcab4741763744722b08de3"><div class="ttname"><a href="class_draw_controller.html#a797ad9c3adcab4741763744722b08de3">DrawController::loadFont</a></div><div class="ttdeci">SDL_Texture * loadFont(const std::string &amp;text, const std::string &amp;font, const Colour &amp;colour, int fontSize)</div><div class="ttdoc">The loadFont method loads in a textures based on a font and string of text.</div><div class="ttdef"><b>Definition:</b> DrawController.cpp:47</div></div>
-<div class="ttc" id="aclass_draw_controller_html_a842de31473b7a4de21562e3c8e5469a7"><div class="ttname"><a href="class_draw_controller.html#a842de31473b7a4de21562e3c8e5469a7">DrawController::drawTexture</a></div><div class="ttdeci">void drawTexture(SDL_Texture *texture, SDL_Rect source, SDL_Rect destination, SDL_RendererFlip flip) const</div><div class="ttdoc">This function will draw the texture within the renderer with the given parameters.</div><div class="ttdef"><b>Definition:</b> DrawController.cpp:83</div></div>
 <div class="ttc" id="a_colour_8h_html"><div class="ttname"><a href="_colour_8h.html">Colour.h</a></div></div>
 <div class="ttc" id="aclass_draw_controller_html_aca43160680264c971933a08f0283b6ca"><div class="ttname"><a href="class_draw_controller.html#aca43160680264c971933a08f0283b6ca">DrawController::loadTexture</a></div><div class="ttdeci">SDL_Texture * loadTexture(const std::string &amp;texture)</div><div class="ttdoc">The loadtexture method loads in a textures based on a given path.</div><div class="ttdef"><b>Definition:</b> DrawController.cpp:14</div></div>
 <div class="ttc" id="aclass_colour_html"><div class="ttname"><a href="class_colour.html">Colour</a></div><div class="ttdef"><b>Definition:</b> Colour.h:4</div></div>

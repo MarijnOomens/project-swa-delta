@@ -103,6 +103,9 @@ $(document).ready(function(){initNavTree('class_graphics_component.html',''); in
 </div><!--header-->
 <div class="contents">
 
+<p>A <a class="el" href="class_graphics_component.html" title="A GraphicsComponent holds the graphical aspect of a gameObject, like animation and textures.">GraphicsComponent</a> holds the graphical aspect of a gameObject, like animation and textures.  
+ <a href="class_graphics_component.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_graphics_component_8h_source.html">GraphicsComponent.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for GraphicsComponent:</div>
@@ -110,7 +113,7 @@ Inheritance diagram for GraphicsComponent:</div>
  <div class="center">
   <img src="class_graphics_component.png" usemap="#GraphicsComponent_map" alt=""/>
   <map id="GraphicsComponent_map" name="GraphicsComponent_map">
-<area href="class_behaviour_object.html" alt="BehaviourObject" shape="rect" coords="0,0,126,24"/>
+<area href="class_behaviour_object.html" title="BehviourObject is the base class in the GameObject + components composite pattern." alt="BehaviourObject" shape="rect" coords="0,56,295,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -119,27 +122,34 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa8fca3962b473908fb2086bfd536438e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphics_component.html#aa8fca3962b473908fb2086bfd536438e">GraphicsComponent</a> ()</td></tr>
 <tr class="separator:aa8fca3962b473908fb2086bfd536438e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a67b1ebd2720f704aa90724c93cdd19ec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphics_component.html#a67b1ebd2720f704aa90724c93cdd19ec">playAnimation</a> (int row, int frames, int speed, bool flip)</td></tr>
-<tr class="memdesc:a67b1ebd2720f704aa90724c93cdd19ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">A <a class="el" href="class_graphics_component.html">GraphicsComponent</a> holds the graphical details of a gameObject, like animation and textures.  <a href="class_graphics_component.html#a67b1ebd2720f704aa90724c93cdd19ec">More...</a><br /></td></tr>
+<tr class="memdesc:a67b1ebd2720f704aa90724c93cdd19ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">If the graphicsComponent is animated, this method will start to play the animation every animation tick.  <a href="class_graphics_component.html#a67b1ebd2720f704aa90724c93cdd19ec">More...</a><br /></td></tr>
 <tr class="separator:a67b1ebd2720f704aa90724c93cdd19ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7335ce7cd1f846c1886104cea798ede"><td class="memItemLeft" align="right" valign="top"><a class="el" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphics_component.html#ae7335ce7cd1f846c1886104cea798ede">setTexture</a> (const std::string &amp;name)</td></tr>
-<tr class="memdesc:ae7335ce7cd1f846c1886104cea798ede"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the texture of the graphicsComponent.  <a href="class_graphics_component.html#ae7335ce7cd1f846c1886104cea798ede">More...</a><br /></td></tr>
+<tr class="memdesc:ae7335ce7cd1f846c1886104cea798ede"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the texture to the given name  <a href="class_graphics_component.html#ae7335ce7cd1f846c1886104cea798ede">More...</a><br /></td></tr>
 <tr class="separator:ae7335ce7cd1f846c1886104cea798ede"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf7c2ed97dc61177ff4fe2bd50c42420"><td class="memItemLeft" align="right" valign="top"><a class="el" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphics_component.html#adf7c2ed97dc61177ff4fe2bd50c42420">update</a> () override</td></tr>
-<tr class="memdesc:adf7c2ed97dc61177ff4fe2bd50c42420"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls the textureManager to draw the texture to the screen.  <a href="class_graphics_component.html#adf7c2ed97dc61177ff4fe2bd50c42420">More...</a><br /></td></tr>
-<tr class="separator:adf7c2ed97dc61177ff4fe2bd50c42420"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a054e468a68d9290eca623953582b4d4f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphics_component.html#a054e468a68d9290eca623953582b4d4f">update</a> (int time) override</td></tr>
+<tr class="memdesc:a054e468a68d9290eca623953582b4d4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets called every game tick when the scene containing this <a class="el" href="class_graphics_component.html" title="A GraphicsComponent holds the graphical aspect of a gameObject, like animation and textures.">GraphicsComponent</a> is loaded in, redraws the texture for the next frame  <a href="class_graphics_component.html#a054e468a68d9290eca623953582b4d4f">More...</a><br /></td></tr>
+<tr class="separator:a054e468a68d9290eca623953582b4d4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abfc9777bc143bd80a8bd8d92c9e2ad72"><td class="memItemLeft" align="right" valign="top"><a class="el" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphics_component.html#abfc9777bc143bd80a8bd8d92c9e2ad72">addTextureManager</a> (std::shared_ptr&lt; <a class="el" href="class_texture_manager.html">TextureManager</a> &gt; tm)</td></tr>
-<tr class="memdesc:abfc9777bc143bd80a8bd8d92c9e2ad72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a reference to the global textureManager.  <a href="class_graphics_component.html#abfc9777bc143bd80a8bd8d92c9e2ad72">More...</a><br /></td></tr>
+<tr class="memdesc:abfc9777bc143bd80a8bd8d92c9e2ad72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inject the <a class="el" href="class_texture_manager.html">TextureManager</a>  <a href="class_graphics_component.html#abfc9777bc143bd80a8bd8d92c9e2ad72">More...</a><br /></td></tr>
 <tr class="separator:abfc9777bc143bd80a8bd8d92c9e2ad72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a07ad673bc41112f1e4b43456208bb4a4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphics_component.html#a07ad673bc41112f1e4b43456208bb4a4">handleInput</a> (const <a class="el" href="_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fc">KeyCodes</a> &amp;keyCode, const <a class="el" href="_keyboardevent_8h.html#abfaf4f911065374ca6c765029ec086ae">KeyboardEvent</a> &amp;keyboardEvent, <a class="el" href="class_vector2_d.html">Vector2D</a> &amp;mousePos)</td></tr>
+<tr class="memdesc:a07ad673bc41112f1e4b43456208bb4a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">See <a class="el" href="class_behaviour_object.html" title="BehviourObject is the base class in the GameObject + components composite pattern.">BehaviourObject</a>  <a href="class_graphics_component.html#a07ad673bc41112f1e4b43456208bb4a4">More...</a><br /></td></tr>
 <tr class="separator:a07ad673bc41112f1e4b43456208bb4a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a512673288b701c3b65eae6038f77bc9d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphics_component.html#a512673288b701c3b65eae6038f77bc9d">interact</a> () override</td></tr>
-<tr class="separator:a512673288b701c3b65eae6038f77bc9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada7eef06b1be909bfe4762e3654849f2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphics_component.html#ada7eef06b1be909bfe4762e3654849f2">interact</a> (std::shared_ptr&lt; <a class="el" href="class_behaviour_object.html">BehaviourObject</a> &gt; interactor) override</td></tr>
+<tr class="memdesc:ada7eef06b1be909bfe4762e3654849f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">See <a class="el" href="class_behaviour_object.html" title="BehviourObject is the base class in the GameObject + components composite pattern.">BehaviourObject</a>  <a href="class_graphics_component.html#ada7eef06b1be909bfe4762e3654849f2">More...</a><br /></td></tr>
+<tr class="separator:ada7eef06b1be909bfe4762e3654849f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afff7c56eeeccac01b107b2dd4bd5e58c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphics_component.html#afff7c56eeeccac01b107b2dd4bd5e58c">start</a> () override</td></tr>
+<tr class="memdesc:afff7c56eeeccac01b107b2dd4bd5e58c"><td class="mdescLeft">&#160;</td><td class="mdescRight">See <a class="el" href="class_behaviour_object.html" title="BehviourObject is the base class in the GameObject + components composite pattern.">BehaviourObject</a>  <a href="class_graphics_component.html#afff7c56eeeccac01b107b2dd4bd5e58c">More...</a><br /></td></tr>
+<tr class="separator:afff7c56eeeccac01b107b2dd4bd5e58c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74827a0ea731f2468bee4fb9c1152861"><td class="memItemLeft" align="right" valign="top"><a class="el" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphics_component.html#a74827a0ea731f2468bee4fb9c1152861">setParent</a> () override</td></tr>
+<tr class="memdesc:a74827a0ea731f2468bee4fb9c1152861"><td class="mdescLeft">&#160;</td><td class="mdescRight">See <a class="el" href="class_behaviour_object.html" title="BehviourObject is the base class in the GameObject + components composite pattern.">BehaviourObject</a>  <a href="class_graphics_component.html#a74827a0ea731f2468bee4fb9c1152861">More...</a><br /></td></tr>
+<tr class="separator:a74827a0ea731f2468bee4fb9c1152861"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0bc4d0be2edb43ca68e439cda9c3e5c6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a> std::shared_ptr&lt; <a class="el" href="class_texture_manager.html">TextureManager</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphics_component.html#a0bc4d0be2edb43ca68e439cda9c3e5c6">getTextureManager</a> () const</td></tr>
-<tr class="memdesc:a0bc4d0be2edb43ca68e439cda9c3e5c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the textureManager pointer.  <a href="class_graphics_component.html#a0bc4d0be2edb43ca68e439cda9c3e5c6">More...</a><br /></td></tr>
+<tr class="memdesc:a0bc4d0be2edb43ca68e439cda9c3e5c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the TextureManger this <a class="el" href="class_graphics_component.html" title="A GraphicsComponent holds the graphical aspect of a gameObject, like animation and textures.">GraphicsComponent</a> uses  <a href="class_graphics_component.html#a0bc4d0be2edb43ca68e439cda9c3e5c6">More...</a><br /></td></tr>
 <tr class="separator:a0bc4d0be2edb43ca68e439cda9c3e5c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_behaviour_object"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_behaviour_object')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_behaviour_object.html">BehaviourObject</a></td></tr>
 <tr class="memitem:a40e5c088df0ae76d107b1df16f49dfe9 inherit pub_methods_class_behaviour_object"><td class="memItemLeft" align="right" valign="top"><a class="el" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_behaviour_object.html#a40e5c088df0ae76d107b1df16f49dfe9">BehaviourObject</a> ()</td></tr>
-<tr class="memdesc:a40e5c088df0ae76d107b1df16f49dfe9 inherit pub_methods_class_behaviour_object"><td class="mdescLeft">&#160;</td><td class="mdescRight">Behaviour objects are components like GrapicsComponent.  <a href="class_behaviour_object.html#a40e5c088df0ae76d107b1df16f49dfe9">More...</a><br /></td></tr>
 <tr class="separator:a40e5c088df0ae76d107b1df16f49dfe9 inherit pub_methods_class_behaviour_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a567a02d195a69619ea18d0869fc17628 inherit pub_methods_class_behaviour_object"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="main_8h.html#a0697ee40f69dc5dab56d13131f4c4835">ENGINE_API</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_behaviour_object.html#a567a02d195a69619ea18d0869fc17628">~BehaviourObject</a> ()=default</td></tr>
 <tr class="separator:a567a02d195a69619ea18d0869fc17628 inherit pub_methods_class_behaviour_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -161,12 +171,15 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:acc2564ad1c513d91bbe16ef0d8ddb80f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphics_component.html#acc2564ad1c513d91bbe16ef0d8ddb80f">isScreen</a></td></tr>
 <tr class="separator:acc2564ad1c513d91bbe16ef0d8ddb80f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6af269db7d0039b6e0647fa928ea0988"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graphics_component.html#a6af269db7d0039b6e0647fa928ea0988">textureName</a></td></tr>
+<tr class="memdesc:a6af269db7d0039b6e0647fa928ea0988"><td class="mdescLeft">&#160;</td><td class="mdescRight">The name of the texture this <a class="el" href="class_graphics_component.html" title="A GraphicsComponent holds the graphical aspect of a gameObject, like animation and textures.">GraphicsComponent</a> uses  <a href="class_graphics_component.html#a6af269db7d0039b6e0647fa928ea0988">More...</a><br /></td></tr>
 <tr class="separator:a6af269db7d0039b6e0647fa928ea0988"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_class_behaviour_object"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_class_behaviour_object')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="class_behaviour_object.html">BehaviourObject</a></td></tr>
 <tr class="memitem:a425b1e7b7178a010ba59da77bcc8090b inherit pub_attribs_class_behaviour_object"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_transform.html">Transform</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_behaviour_object.html#a425b1e7b7178a010ba59da77bcc8090b">transform</a></td></tr>
 <tr class="separator:a425b1e7b7178a010ba59da77bcc8090b inherit pub_attribs_class_behaviour_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A <a class="el" href="class_graphics_component.html" title="A GraphicsComponent holds the graphical aspect of a gameObject, like animation and textures.">GraphicsComponent</a> holds the graphical aspect of a gameObject, like animation and textures. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aa8fca3962b473908fb2086bfd536438e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa8fca3962b473908fb2086bfd536438e">&#9670;&nbsp;</a></span>GraphicsComponent()</h2>
 
@@ -209,7 +222,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Adds a reference to the global textureManager. </p>
+<p>Inject the <a class="el" href="class_texture_manager.html">TextureManager</a> </p>
+<p>Adds a reference to the global textureManager.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">tm</td><td>The textureManager</td></tr>
@@ -234,7 +248,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Gets the textureManager pointer. </p>
+<p>Return the TextureManger this <a class="el" href="class_graphics_component.html" title="A GraphicsComponent holds the graphical aspect of a gameObject, like animation and textures.">GraphicsComponent</a> uses </p>
+<p>Gets the textureManager pointer.</p>
 <dl class="section return"><dt>Returns</dt><dd>Returns the textureManager pointer.</dd></dl>
 
 </div>
@@ -279,12 +294,14 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>See <a class="el" href="class_behaviour_object.html" title="BehviourObject is the base class in the GameObject + components composite pattern.">BehaviourObject</a> </p>
+
 <p>Implements <a class="el" href="class_behaviour_object.html#a0c1622dff40efaaf0905e3ad6b8e0771">BehaviourObject</a>.</p>
 
 </div>
 </div>
-<a id="a512673288b701c3b65eae6038f77bc9d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a512673288b701c3b65eae6038f77bc9d">&#9670;&nbsp;</a></span>interact()</h2>
+<a id="ada7eef06b1be909bfe4762e3654849f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada7eef06b1be909bfe4762e3654849f2">&#9670;&nbsp;</a></span>interact()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -295,7 +312,8 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="memname">void GraphicsComponent::interact </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="class_behaviour_object.html">BehaviourObject</a> &gt;&#160;</td>
+          <td class="paramname"><em>interactor</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -306,7 +324,9 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="class_behaviour_object.html#ab057af1c147bf3352939aae0ef6706d1">BehaviourObject</a>.</p>
+<p>See <a class="el" href="class_behaviour_object.html" title="BehviourObject is the base class in the GameObject + components composite pattern.">BehaviourObject</a> </p>
+
+<p>Implements <a class="el" href="class_behaviour_object.html#a50cce205ea8cfe68c1b84d6b54df266c">BehaviourObject</a>.</p>
 
 </div>
 </div>
@@ -348,8 +368,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>A <a class="el" href="class_graphics_component.html">GraphicsComponent</a> holds the graphical details of a gameObject, like animation and textures. </p>
-<p>If the graphicsComponent is animated, this method will start to play the animation.</p>
+<p>If the graphicsComponent is animated, this method will start to play the animation every animation tick. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">row</td><td>The row of which animation frame to take.</td></tr>
@@ -359,6 +378,35 @@ Public Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a74827a0ea731f2468bee4fb9c1152861"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74827a0ea731f2468bee4fb9c1152861">&#9670;&nbsp;</a></span>setParent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GraphicsComponent::setParent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>See <a class="el" href="class_behaviour_object.html" title="BehviourObject is the base class in the GameObject + components composite pattern.">BehaviourObject</a> </p>
+
+<p>Implements <a class="el" href="class_behaviour_object.html#a353f3d10e31acdeacc1291f7a4f6f035">BehaviourObject</a>.</p>
 
 </div>
 </div>
@@ -378,7 +426,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sets the texture of the graphicsComponent. </p>
+<p>Sets the texture to the given name </p>
+<p>Sets the texture of the graphicsComponent.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">name</td><td>Texture name.</td></tr>
@@ -388,8 +437,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="adf7c2ed97dc61177ff4fe2bd50c42420"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adf7c2ed97dc61177ff4fe2bd50c42420">&#9670;&nbsp;</a></span>update()</h2>
+<a id="afff7c56eeeccac01b107b2dd4bd5e58c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afff7c56eeeccac01b107b2dd4bd5e58c">&#9670;&nbsp;</a></span>start()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -398,7 +447,7 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void GraphicsComponent::update </td>
+          <td class="memname">void GraphicsComponent::start </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -411,9 +460,40 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Calls the textureManager to draw the texture to the screen. </p>
+<p>See <a class="el" href="class_behaviour_object.html" title="BehviourObject is the base class in the GameObject + components composite pattern.">BehaviourObject</a> </p>
 
-<p>Implements <a class="el" href="class_behaviour_object.html#a45acaf4fdf1978251455c3087fe0a309">BehaviourObject</a>.</p>
+<p>Implements <a class="el" href="class_behaviour_object.html#af5c379448cd9cdde91dda3f430a3510c">BehaviourObject</a>.</p>
+
+</div>
+</div>
+<a id="a054e468a68d9290eca623953582b4d4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a054e468a68d9290eca623953582b4d4f">&#9670;&nbsp;</a></span>update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GraphicsComponent::update </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>time</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets called every game tick when the scene containing this <a class="el" href="class_graphics_component.html" title="A GraphicsComponent holds the graphical aspect of a gameObject, like animation and textures.">GraphicsComponent</a> is loaded in, redraws the texture for the next frame </p>
+<p>Calls the textureManager to draw the texture to the screen.</p>
+
+<p>Implements <a class="el" href="class_behaviour_object.html#a8b91233672fabe458bdfe93c85ec29f8">BehaviourObject</a>.</p>
 
 </div>
 </div>
@@ -471,6 +551,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>The name of the texture this <a class="el" href="class_graphics_component.html" title="A GraphicsComponent holds the graphical aspect of a gameObject, like animation and textures.">GraphicsComponent</a> uses </p>
 
 </div>
 </div>

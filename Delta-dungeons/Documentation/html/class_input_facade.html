@@ -120,9 +120,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4fb8f1f32b659994cc96f6094729ed7d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_facade.html#a4fb8f1f32b659994cc96f6094729ed7d">InputFacade</a> (const <a class="el" href="_input_wrapper_8h.html#a25de517d4db48838b221999abce40e71">cbFunction</a> f, void *p)</td></tr>
 <tr class="memdesc:a4fb8f1f32b659994cc96f6094729ed7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor to give functions for callbacks  <a href="class_input_facade.html#a4fb8f1f32b659994cc96f6094729ed7d">More...</a><br /></td></tr>
 <tr class="separator:a4fb8f1f32b659994cc96f6094729ed7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a892eee0c6f3a6b9fc236a917a07e040f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_facade.html#a892eee0c6f3a6b9fc236a917a07e040f">handleInput</a> (const bool isPaused) const override</td></tr>
-<tr class="memdesc:a892eee0c6f3a6b9fc236a917a07e040f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function takes the input and gives it to the code behind the facade.  <a href="class_input_facade.html#a892eee0c6f3a6b9fc236a917a07e040f">More...</a><br /></td></tr>
-<tr class="separator:a892eee0c6f3a6b9fc236a917a07e040f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d0fa218cf05dad37021e8726558d243"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_facade.html#a9d0fa218cf05dad37021e8726558d243">handleInput</a> (const bool isGamePaused, const bool isInputPaused) const override</td></tr>
+<tr class="memdesc:a9d0fa218cf05dad37021e8726558d243"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function takes the input and gives it to the code behind the facade.  <a href="class_input_facade.html#a9d0fa218cf05dad37021e8726558d243">More...</a><br /></td></tr>
+<tr class="separator:a9d0fa218cf05dad37021e8726558d243"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5261261fa0b382d8afea423c8236bc35"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_input_facade.html#a5261261fa0b382d8afea423c8236bc35">mapKeyBindings</a> (const <a class="el" href="_keycodes_8h.html#a269a8dff901283db1b9fb996933b07fc">KeyCodes</a> &amp;code) override</td></tr>
 <tr class="separator:a5261261fa0b382d8afea423c8236bc35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -196,8 +196,8 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a892eee0c6f3a6b9fc236a917a07e040f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a892eee0c6f3a6b9fc236a917a07e040f">&#9670;&nbsp;</a></span>handleInput()</h2>
+<a id="a9d0fa218cf05dad37021e8726558d243"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d0fa218cf05dad37021e8726558d243">&#9670;&nbsp;</a></span>handleInput()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -209,8 +209,18 @@ Additional Inherited Members</h2></td></tr>
           <td class="memname">void InputFacade::handleInput </td>
           <td>(</td>
           <td class="paramtype">const bool&#160;</td>
-          <td class="paramname"><em>isPaused</em></td><td>)</td>
-          <td> const</td>
+          <td class="paramname"><em>isGamePaused</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const bool&#160;</td>
+          <td class="paramname"><em>isInputPaused</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
         </tr>
       </table>
   </td>
@@ -222,7 +232,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>This function takes the input and gives it to the code behind the facade. </p>
 
-<p>Implements <a class="el" href="class_i_input_facade.html#af2708f6cdd70482ac1366ec07655e40d">IInputFacade</a>.</p>
+<p>Implements <a class="el" href="class_i_input_facade.html#ae3e495efa727708cbdc8bc4c028d3b16">IInputFacade</a>.</p>
 
 </div>
 </div>

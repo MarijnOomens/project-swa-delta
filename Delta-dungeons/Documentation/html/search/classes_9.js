@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['memory_5fpool_397',['memory_pool',['../classrapidxml_1_1memory__pool.html',1,'rapidxml']]]
+  ['levelwinstrategy_473',['LevelWinStrategy',['../class_level_win_strategy.html',1,'']]]
 ];
