@@ -93,7 +93,7 @@ void InputWrapper::handleKeyPressed(const bool isGamePaused, const bool isInputP
 			break;
 			}
 		}
-	else if (event.key.keysym.sym == SDLK_ESCAPE) 
+	else if (event.key.keysym.sym == SDLK_ESCAPE && !isInputPaused) 
 	{
 		func(pointer, KeyCodes::KEY_ESC, KeyboardEvent::KEY_PRESSED, mousePosition);
 	}
