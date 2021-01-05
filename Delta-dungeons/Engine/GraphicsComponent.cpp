@@ -1,16 +1,5 @@
 #include "GraphicsComponent.h"
 
-/// <summary>
-/// A GraphicsComponent holds the graphical details of a gameObject, like animation and textures.
-/// </summary>
-
-/// <summary>
-/// If the graphicsComponent is animated, this method will start to play the animation.
-/// </summary>
-/// <param name="row">The row of which animation frame to take.</param>
-/// <param name="frames">The amount of frames in an animation.</param>
-/// <param name="speed">The speed of the animation.</param>
-/// <param name="flip">If the animation is flipped or not.</param>
 void GraphicsComponent::playAnimation(int row, int frames, int speed, bool flip) 
 {
 	animated = true;

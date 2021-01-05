@@ -19,6 +19,9 @@ void TextComponent::update(int time) {
 	}
 }
 
+/// <summary>
+/// Changes the text to the given string
+/// </summary>
 void TextComponent::changeText(const std::string& text) {
 	this->text = text;
 }

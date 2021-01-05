@@ -1,37 +1,20 @@
 #include "EngineFacade.h"
 
-/// <summary>
-/// Facade between EngineController & GameManager
-/// </summary>
-
-/// <summary>
-///  Init creates a unique EngineController object.
-/// </summary>
 void EngineFacade::init(const std::string& title, int screenWidth, int screenHeight, bool fullScreen)
 {
 	engineController = std::make_unique<EngineController>(title, screenWidth, screenHeight, fullScreen);
 }
-
-/// <summary>
-/// Init creates a unique EngineController object.
-/// </summary>
 
 void EngineFacade::addTexture(const std::string& name,const std::string& path) const
 {
 	engineController->addTexture(name, path);
 }
 
-/// <summary>
-/// Calls registerTextures from the GameManager in the EngineController.
-/// </summary>
 void EngineFacade::registerTextures(std::map<std::string, std::string> textures) const
 {
 	engineController->registerTextures(textures);
 }
 
-/// <summary>
-/// Calls registerFonts from the GameManager in the EngineController.
-/// </summary>
 void EngineFacade::registerFonts(std::map<std::string, std::string> fonts) const
 {
 	engineController->registerFonts(fonts);
@@ -42,9 +25,6 @@ void EngineFacade::registerAudio(std::map<std::string, std::string> tracks) cons
 	engineController->registerAudio(tracks);
 }
 
-/// <summary>
-///  Calls startGame from the GameManager in the EngineController.
-/// </summary>
 void EngineFacade::startGame() const
 {
 	engineController->startGame();
