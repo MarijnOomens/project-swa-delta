@@ -22,14 +22,6 @@ void EngineFacade::addTexture(const std::string& name,const std::string& path) c
 }
 
 /// <summary>
-/// Calls registerBehaviourObjects from the GameManager in the EngineController.
-/// </summary>
-void EngineFacade::registerBehaviourObjects(std::vector<std::shared_ptr<BehaviourObject>> objects) const
-{
-	//engineController->registerBehaviourObjects(objects);
-}
-
-/// <summary>
 /// Calls registerTextures from the GameManager in the EngineController.
 /// </summary>
 void EngineFacade::registerTextures(std::map<std::string, std::string> textures) const

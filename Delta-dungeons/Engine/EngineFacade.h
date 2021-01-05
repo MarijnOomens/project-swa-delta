@@ -12,7 +12,6 @@ public:
 
 	ENGINE_API void init(const std::string& title, int screenWidth, int screenHeight, bool fullScreen);
 	ENGINE_API void addTexture(const std::string& name, const std::string& path) const;
-	ENGINE_API void registerBehaviourObjects(std::vector<std::shared_ptr<BehaviourObject>> objects) const;
 	ENGINE_API void registerTextures(std::map<std::string, std::string> textures) const;
 	ENGINE_API void registerFonts(std::map<std::string, std::string> fonts) const;
 	ENGINE_API void registerAudio(std::map<std::string, std::string> tracks) const;
