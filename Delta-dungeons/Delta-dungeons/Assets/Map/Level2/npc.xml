@@ -6,7 +6,7 @@
 </NPC>
 <NPC name="bugtrainer">
 <Dialogue text="WHERE ARE MY BUGS!"/>
-<Dialogue text="Brooo, check my rock-type Pokémon!"/> <!--~Raymond, 2020-->
+<Dialogue text="Brooo, check my rock-type Pokemon!"/> <!--~Raymond, 2020-->
 <Dialogue text="There's sand in my SANDals..."/>
 </NPC>
 <NPC name="acetrainer_m">
