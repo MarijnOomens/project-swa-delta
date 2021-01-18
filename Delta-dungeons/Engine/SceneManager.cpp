@@ -149,8 +149,21 @@ std::string SceneManager::getCurrentScene()
 	return currentScene;
 }
 
+void SceneManager::deleteTexture(const std::string& sceneName)
+{
+	for (const auto& bo : scenes[sceneName])
+	{
+		auto graphicsComponent = dynamic_cast<GraphicsComponent*>(bo.get());
+		if (graphicsComponent) 
+		{
+			textureFunc(pointer, graphicsComponent->textureName);
+		}
+	}
+}
+
 void SceneManager::deleteScene(const std::string& sceneName)
 {
+	deleteTexture(sceneName);
 	if (scenes.count(sceneName) != 0)
 	{
 		scenes.erase(sceneName);
@@ -177,3 +190,4 @@ std::shared_ptr<BehaviourObject> SceneManager::getBehaviourObject(CollidingCompo
 		}
 	}
 }
+

@@ -15,7 +15,7 @@ EngineController::EngineController(const std::string& title, int screenWidth, in
 	input = std::make_shared<Input>(staticInputCallbackFunction, this);
 	fontManager = std::make_shared<FontManager>(renderFacade, fontAssetManager);
 	audioManager = std::make_unique<AudioManager>(audioAssetManager);
-	sceneManager = std::make_shared<SceneManager>(this, staticGetTimeCallback);
+	sceneManager = std::make_shared<SceneManager>(this, staticGetTimeCallback, staticDeleteTextureCallback);
 
 	initRenderer(title, screenWidth, screenHeight, fullScreen);
 }
@@ -389,4 +389,14 @@ int EngineController::staticGetTimeCallback(void* p)
 int EngineController::getTimeCallback()
 {
 	return renderFacade->getFrameStart();
+}
+
+void EngineController::staticDeleteTextureCallback(void* p, const std::string& textureName)
+{
+	((EngineController*)p)->deleteTextureCallback(textureName);
+}
+
+void EngineController::deleteTextureCallback(const std::string& textureName)
+{
+	renderFacade->deleteTexture(textureAssetManager->getAsset(textureName));
 }

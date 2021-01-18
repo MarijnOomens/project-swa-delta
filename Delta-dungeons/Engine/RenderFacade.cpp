@@ -181,3 +181,8 @@ bool RenderFacade::checkInRangeCamera(int x, int y) const
 {
 	return renderer->checkInRangeCamera(x, y);
 }
+
+void RenderFacade::deleteTexture(const std::string& textureName)
+{
+	drawController->deleteTexture(textureName);
+}

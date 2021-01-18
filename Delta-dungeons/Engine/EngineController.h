@@ -30,7 +30,6 @@ public:
 	static void staticPassCameraDimensionFunction(void* p, const Transform& dimensions);
 	void passCameraDimensionFunction(const Transform& dimensions);
 
-
 	static void staticInputCallbackFunction(void* p, const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos);
 	void inputCallbackFunction(const KeyCodes keyCode, const KeyboardEvent keyboardEvent, Vector2D mousePos);
 	void addTexture(const std::string& name, const std::string& path);
@@ -71,6 +70,8 @@ public:
 	void checkAiCollision(std::shared_ptr<CollidingComponent> collider, std::shared_ptr<BehaviourObject> behaviourObject, int x, int y, KeyCodes direction, int w) const;
 	static int staticGetTimeCallback(void* p);
 	int getTimeCallback();
+	static void staticDeleteTextureCallback(void* p, const std::string& textureName);
+	void deleteTextureCallback(const std::string& textureName);
 
 private:
 	std::vector<int> hudLayers;

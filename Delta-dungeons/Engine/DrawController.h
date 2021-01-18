@@ -16,6 +16,7 @@ public:
 
 	SDL_Texture* loadTexture(const std::string& texture);
 	SDL_Texture* loadFont(const std::string& text, const std::string& font, const Colour& colour, int fontSize);
+	void deleteTexture(const std::string& textureName);
 
 private:
 	std::shared_ptr<Renderer> renderer;

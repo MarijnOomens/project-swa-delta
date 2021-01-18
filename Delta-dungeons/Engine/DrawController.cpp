@@ -71,3 +71,12 @@ SDL_Texture* DrawController::loadFont(const std::string& text, const std::string
 		return tex;
 	}
 }
+
+void DrawController::deleteTexture(const std::string& textureName)
+{
+	if (textures.find(textureName) != textures.end()) 
+	{
+		SDL_DestroyTexture(textures.find(textureName)->second);
+		textures.erase(textureName);
+	}
+}

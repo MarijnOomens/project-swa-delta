@@ -42,6 +42,7 @@ public:
 	void resetSpeedGame() const;
 	void checkTransition() const;
 	bool checkInRangeCamera(int x, int y) const;
+	void deleteTexture(const std::string& textureName);
 
 	std::tuple<int, int> passPlayerPosition(const int x,const int y) const;
 	int getFPS() const;

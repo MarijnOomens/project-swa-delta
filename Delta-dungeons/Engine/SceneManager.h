@@ -1,5 +1,4 @@
 #pragma once
-
 #include <map>
 #include <string>
 #include <vector>
@@ -11,12 +10,13 @@
 #include "TextComponent.h"
 
 typedef int(*cbTime) (void*);
+typedef void(*cbTexture) (void*, const std::string&);
 
 class SceneManager {
 public:
 	bool isOverlayScene = false;
 
-	SceneManager(void* p, cbTime timeCb): timeFunc(timeCb), pointer(p) {}
+	SceneManager(void* p, cbTime timeCb, cbTexture textureCb): timeFunc(timeCb), textureFunc(textureCb), pointer(p) {}
 	~SceneManager() {}
 
 	void update(int time, bool paused);
@@ -31,6 +31,7 @@ public:
 	void deleteObjectFromScene(std::shared_ptr<BehaviourObject> deletedObject);
 	void passInteract(std::shared_ptr<BehaviourObject> player, int x, int y, int w, int h);
 	std::string getCurrentScene();
+	void deleteTexture(const std::string& sceneName);
 	void deleteScene(const std::string& sceneName);
 	void replaceScene(const std::string sceneName, std::vector<std::shared_ptr<BehaviourObject>> objects);
 	std::shared_ptr<BehaviourObject> getBehaviourObject(CollidingComponent* collidingComponent);
@@ -41,6 +42,7 @@ private:
 	std::vector<std::string> previousScenes;
 	std::string currentScene;
 	bool isSceneSwitched = false;
+	cbTexture textureFunc;
 	cbTime timeFunc;
 	void* pointer;
 };
