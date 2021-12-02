@@ -5,37 +5,37 @@ MainMenu::MainMenu()
 	gc = std::make_unique<GraphicsComponent>();
 	gc->setTexture("main_menu");
 	gc->isScreen = true;
-	gc->imageDimensions = { 1280, 960 };
+	gc->imageDimensions = { 2560, 1440 };
 	this->components.emplace_back(std::move(gc));
 
 	Colour color = { 255, 203, 5, 255 };
 	std::unique_ptr<TextComponent> creditsText = std::make_unique<TextComponent>("DELTA DUNGEONS", "joystix", color, 72);
-	creditsText->transform.position = { 230, 50 };
+	creditsText->transform.position = { 900, 100 };
 	this->components.emplace_back(std::move(creditsText));
 
 	// Play button
 	std::vector<std::string> possibleButtonTexPlay = { "button_play", "button_play_hover" };
-	std::unique_ptr<Button> playButton = std::make_unique<Button>(512, 230, possibleButtonTexPlay, staticOpenGameCallbackFunction, this);
+	std::unique_ptr<Button> playButton = std::make_unique<Button>(1150, 360, possibleButtonTexPlay, staticOpenGameCallbackFunction, this);
 	this->components.emplace_back(std::move(playButton));
 
 	// Credits button
 	std::vector<std::string> possibleButtonTexCredits = { "button_credits", "button_credits_hover" };
-	std::unique_ptr<Button> creditsButton = std::make_unique<Button>(512, 360, possibleButtonTexCredits, staticOpenCreditsCallbackFunction, this);
+	std::unique_ptr<Button> creditsButton = std::make_unique<Button>(1150, 560, possibleButtonTexCredits, staticOpenCreditsCallbackFunction, this);
 	this->components.emplace_back(std::move(creditsButton));
 
 	// Help button
 	std::vector<std::string> possibleButtonTexHelp = { "button_help", "button_help_hover" };
-	std::unique_ptr<Button> helpButton = std::make_unique<Button>(512, 490, possibleButtonTexHelp, staticOpenHelpCallbackFunction, this);
+	std::unique_ptr<Button> helpButton = std::make_unique<Button>(1150, 760, possibleButtonTexHelp, staticOpenHelpCallbackFunction, this);
 	this->components.emplace_back(std::move(helpButton));
 
 	// Exit button
 	std::vector<std::string> possibleButtonTexExit = { "button_exit", "button_exit_hover" };
-	std::unique_ptr<Button> exitButton = std::make_unique<Button>(512, 620, possibleButtonTexExit, staticExitCallbackFunction, this);
+	std::unique_ptr<Button> exitButton = std::make_unique<Button>(1150, 960, possibleButtonTexExit, staticExitCallbackFunction, this);
 	this->components.emplace_back(std::move(exitButton));
 
 	// Advertisement
 	std::vector<std::string> adTexture = { "ad" };
-	std::unique_ptr<Advertisement> adButton = std::make_unique<Advertisement>(870, 890, adTexture);
+	std::unique_ptr<Advertisement> adButton = std::make_unique<Advertisement>(2100, 1350, adTexture);
 	this->components.emplace_back(std::move(adButton));
 }
 

@@ -5,7 +5,7 @@
 /// </summary>
 FrameManager::FrameManager()
 {
-	fpsLimit = 60.0;
+	fpsLimit = 144.0;
 	frameDelay = 1000.0 / fpsLimit;
 
 	framesAmount = 0;

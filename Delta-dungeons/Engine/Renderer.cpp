@@ -27,15 +27,13 @@ Renderer::~Renderer()
 void Renderer::init(const std::string& title, int width, int height, bool fullscreen)
 {
 	int flags = 0;
-	if (fullscreen)
-	{
-		flags = SDL_WINDOW_FULLSCREEN;
-	}
+	if (fullscreen) flags = SDL_WINDOW_FULLSCREEN;
 	try
 	{
 		if (SDL_Init(SDL_INIT_EVERYTHING) == 0)
 		{
-			sdlWindow = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, flags);
+			resolution = { width, height };
+			sdlWindow = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, resolution.x, resolution.y, flags);
 			if (!sdlWindow)
 			{
 				isRunning = false;
@@ -56,8 +54,8 @@ void Renderer::init(const std::string& title, int width, int height, bool fullsc
 		}
 		else
 		{
-			throw("Subsystems are not initialised!");
 			isRunning = false;
+			throw("Subsystems are not initialised!");
 		}
 		if (TTF_Init() == -1)
 		{
@@ -76,45 +74,32 @@ void Renderer::init(const std::string& title, int width, int height, bool fullsc
 
 void Renderer::createCamera(const int x, const int y)
 {
-	int cameraX = x - 640;
-	if (cameraX < 0)
-	{
-		cameraX = 0;
-	}
-	int cameraY = y - 512;
-	if (cameraY < 0)
-	{
-		cameraY = 0;
-	}
-	camera = { cameraX , cameraY, 4608, 4096 };
+	int cameraX = x - resolution.x / 2;
+	if (cameraX < 0) cameraX = 0;
+
+	int cameraY = y - resolution.y / 2;
+	if (cameraY < 0) cameraY = 0;
+
+	camera = { cameraX , cameraY };
 	passCameraFunc(pointer, getCameraDimensions());
 }
-
-
-
 
 Transform Renderer::getCameraDimensions() {
 	Transform transform;
 	transform.position.x = camera.x;
 	transform.position.y = camera.y;
-	transform.scale.x = camera.w;
-	transform.scale.y = camera.h;
 	return transform;
 }
 
 bool Renderer::checkCameraPosition(const Transform& transform) const
 {
-	if (transform.position.x >= camera.x - 128 && transform.position.x < camera.x + 1408 && transform.position.y >= camera.y - 128 && transform.position.y < camera.y + 1024)
-	{
-		return true;
-	}
-	return false;
+	return (transform.position.x >= camera.x && transform.position.x < camera.x + resolution.x && transform.position.y >= camera.y && transform.position.y < camera.y + resolution.y);
 }
 
 std::tuple<int, int> Renderer::updateCamera(const int playerX, const int playerY)
 {
-	int differenceX = (playerX - (camera.x + 640));
-	int differenceY = (playerY - (camera.y + 512));
+	int differenceX = (playerX - (camera.x + resolution.x / 2));
+	int differenceY = (playerY - (camera.y + resolution.y / 2));
 	camera.x = camera.x + differenceX;
 	camera.y = camera.y + differenceY;
 
@@ -131,16 +116,18 @@ void Renderer::clean() const
 	SDL_DestroyWindow(sdlWindow);
 	SDL_DestroyRenderer(sdlRenderer);
 	SDL_Quit();
-	//std::cout << "Game Cleaned" << std::endl;
 }
 
+/// <summary>
+/// This method pauses the game.
+/// </summary>
 void Renderer::pauseGame()
 {
 	isPaused = !isPaused;
 }
 
 /// <summary>
-/// This method pauzes the game.
+/// This method quits the game.
 /// </summary>
 void Renderer::quitGame()
 {
@@ -291,12 +278,6 @@ void Renderer::checkTransition()
 
 bool Renderer::checkInRangeCamera(int x, int y) const
 {
-	if (x + 128 >= camera.x &&
-		1280 + camera.x >= x &&
-		y + 128 >= camera.y &&
-		camera.y + 1024 >= y)
-	{
-		return true;
-	}
-	return false;
+	return (x >= camera.x && resolution.x + camera.x >= x &&
+			y >= camera.y && camera.y + resolution.y >= y);
 }

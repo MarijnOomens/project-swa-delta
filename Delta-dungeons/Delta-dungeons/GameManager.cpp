@@ -6,7 +6,7 @@
 GameManager::GameManager()
 {
 	engineFacade = std::make_shared<EngineFacade>();
-	engineFacade->init("Delta Dungeons", 1280, 960, false);
+	engineFacade->init("Delta Dungeons", 2560, 1440, true);
 	SceneLoader::getInstance().setEngineFacade(engineFacade);
 	SceneLoader::getInstance().setLoadSceneCallback(this, createLevelCallback);
 	DebugUtilities::getInstance().setEngineFacade(engineFacade);

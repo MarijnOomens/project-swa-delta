@@ -19,6 +19,7 @@ public:
 	bool isRunning;
 	bool isPaused;
 	bool transitioning = false;
+	Vector2D resolution;
 	SDL_Renderer* sdlRenderer;
 	SDL_Rect camera;
 
